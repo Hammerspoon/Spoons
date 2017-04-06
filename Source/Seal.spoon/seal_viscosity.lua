@@ -129,8 +129,8 @@ end
 function obj.choicesVPNCommand(query)
     local choices = {}
     local connections = obj.getVPNConnections()
-    local img_connected = hs.image.imageFromPath("locked.png")
-    local img_disconnected = hs.image.imageFromPath("unlocked.png")
+    local img_connected = hs.image.imageFromPath(obj.seal.spoonPath.."/viscosity_locked.png")
+    local img_disconnected = hs.image.imageFromPath(obj.seal.spoonPath.."/viscosity_unlocked.png")
 
     for k,v in pairs(connections) do
         name = v["name"]
