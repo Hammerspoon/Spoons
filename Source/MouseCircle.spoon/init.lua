@@ -29,7 +29,6 @@ obj.color = nil
 ---  * mapping - A table containing hotkey modifier/key details for the following items:
 ---   * show - This will cause the mouse circle to be drawn
 function obj:bindHotkeys(mapping)
-    print("bindHotkeys")
     if (self.hotkey) then
         self.hotkey:delete()
     end
