@@ -1,0 +1,27 @@
+[
+  {
+    "doc" : "Prevent the screen from going to sleep",
+    "items" : [
+      {
+        "doc" : "Binds hotkeys for Caffeine\n\nParameters:\n * mapping - A table containing hotkey modifier\/key details for the following items:\n  * toggle - This will toggle the state of display sleep prevention, and update the menubar graphic\n\nReturns:\n * The Caffeine object",
+        "type" : "Method",
+        "name" : "bindHotkeys",
+        "def" : "Caffeine:bindHotkeys(mapping)"
+      },
+      {
+        "doc" : "Starts Caffeine\n\nParameters:\n * None\n\nReturns:\n * The Caffeine object",
+        "type" : "Method",
+        "name" : "start",
+        "def" : "Caffeine:start()"
+      },
+      {
+        "doc" : "Stops Caffeine\n\nParameters:\n * None\n\nReturns:\n * The Caffeine object",
+        "type" : "Method",
+        "name" : "stop",
+        "def" : "Caffeine:stop()"
+      }
+    ],
+    "name" : "Caffeine",
+    "desc" : "Prevent the screen from going to sleep"
+  }
+]
