@@ -1,0 +1,546 @@
+[
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
+        "def": "Caffeine:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for Caffeine",
+        "doc": "Binds hotkeys for Caffeine\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for the following items:\n  * toggle - This will toggle the state of display sleep prevention, and update the menubar graphic\n\nReturns:\n * The Caffeine object",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * mapping - A table containing hotkey modifier/key details for the following items:",
+          "  * toggle - This will toggle the state of display sleep prevention, and update the menubar graphic"
+        ],
+        "returns": [
+          " * The Caffeine object"
+        ],
+        "signature": "Caffeine:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Caffeine:start()",
+        "desc": "Starts Caffeine",
+        "doc": "Starts Caffeine\n\nParameters:\n * None\n\nReturns:\n * The Caffeine object",
+        "name": "start",
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * The Caffeine object"
+        ],
+        "signature": "Caffeine:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Caffeine:stop()",
+        "desc": "Stops Caffeine",
+        "doc": "Stops Caffeine\n\nParameters:\n * None\n\nReturns:\n * The Caffeine object",
+        "name": "stop",
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * The Caffeine object"
+        ],
+        "signature": "Caffeine:stop()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [],
+    "desc": "Prevent the screen from going to sleep",
+    "doc": "Prevent the screen from going to sleep",
+    "items": [
+      {
+        "def": "Caffeine:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for Caffeine",
+        "doc": "Binds hotkeys for Caffeine\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for the following items:\n  * toggle - This will toggle the state of display sleep prevention, and update the menubar graphic\n\nReturns:\n * The Caffeine object",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * mapping - A table containing hotkey modifier/key details for the following items:",
+          "  * toggle - This will toggle the state of display sleep prevention, and update the menubar graphic"
+        ],
+        "returns": [
+          " * The Caffeine object"
+        ],
+        "signature": "Caffeine:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Caffeine:start()",
+        "desc": "Starts Caffeine",
+        "doc": "Starts Caffeine\n\nParameters:\n * None\n\nReturns:\n * The Caffeine object",
+        "name": "start",
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * The Caffeine object"
+        ],
+        "signature": "Caffeine:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Caffeine:stop()",
+        "desc": "Stops Caffeine",
+        "doc": "Stops Caffeine\n\nParameters:\n * None\n\nReturns:\n * The Caffeine object",
+        "name": "stop",
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * The Caffeine object"
+        ],
+        "signature": "Caffeine:stop()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "name": "Caffeine",
+    "stripped_doc": "",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
+        "def": "MouseCircle:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for MouseCircle",
+        "doc": "Binds hotkeys for MouseCircle\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for the following items:\n  * show - This will cause the mouse circle to be drawn",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * mapping - A table containing hotkey modifier/key details for the following items:",
+          "  * show - This will cause the mouse circle to be drawn"
+        ],
+        "signature": "MouseCircle:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "MouseCircle:show()",
+        "desc": "Draws a circle around the mouse",
+        "doc": "Draws a circle around the mouse\n\nParameters:\n * None\n\nReturns:\n * None",
+        "name": "show",
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "MouseCircle:show()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [
+      {
+        "def": "MouseCircle.color",
+        "desc": "An `hs.drawing.color` table defining the colour of the circle. Defaults to red.",
+        "doc": "An `hs.drawing.color` table defining the colour of the circle. Defaults to red.",
+        "name": "color",
+        "signature": "MouseCircle.color",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "desc": "Draws a circle around the mouse pointer when a hotkey is pressed",
+    "doc": "Draws a circle around the mouse pointer when a hotkey is pressed",
+    "items": [
+      {
+        "def": "MouseCircle:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for MouseCircle",
+        "doc": "Binds hotkeys for MouseCircle\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for the following items:\n  * show - This will cause the mouse circle to be drawn",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * mapping - A table containing hotkey modifier/key details for the following items:",
+          "  * show - This will cause the mouse circle to be drawn"
+        ],
+        "signature": "MouseCircle:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "MouseCircle.color",
+        "desc": "An `hs.drawing.color` table defining the colour of the circle. Defaults to red.",
+        "doc": "An `hs.drawing.color` table defining the colour of the circle. Defaults to red.",
+        "name": "color",
+        "signature": "MouseCircle.color",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "MouseCircle:show()",
+        "desc": "Draws a circle around the mouse",
+        "doc": "Draws a circle around the mouse\n\nParameters:\n * None\n\nReturns:\n * None",
+        "name": "show",
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "MouseCircle:show()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "name": "MouseCircle",
+    "stripped_doc": "",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
+        "def": "RoundedCorners:start()",
+        "desc": "Starts RoundedCorners",
+        "doc": "Starts RoundedCorners\n\nParameters:\n * None\n\nReturns:\n * The RoundedCorners object\n\nNotes:\n * This will draw the rounded screen corners and start watching for changes in screen sizes/layouts, reacting accordingly",
+        "name": "start",
+        "notes": [
+          " * This will draw the rounded screen corners and start watching for changes in screen sizes/layouts, reacting accordingly"
+        ],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * The RoundedCorners object"
+        ],
+        "signature": "RoundedCorners:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "RoundedCorners:stop()",
+        "desc": "Stops RoundedCorners",
+        "doc": "Stops RoundedCorners\n\nParameters:\n * None\n\nReturns:\n * The RoundedCorners object\n\nNotes:\n * This will remove all rounded screen corners and stop watching for changes in screen sizes/layouts",
+        "name": "stop",
+        "notes": [
+          " * This will remove all rounded screen corners and stop watching for changes in screen sizes/layouts"
+        ],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * The RoundedCorners object"
+        ],
+        "signature": "RoundedCorners:stop()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [
+      {
+        "def": "RoundedCorners.allScreens",
+        "desc": "Controls whether corners are drawn on all screens or just the primary screen. Defaults to true",
+        "doc": "Controls whether corners are drawn on all screens or just the primary screen. Defaults to true",
+        "name": "allScreens",
+        "signature": "RoundedCorners.allScreens",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "RoundedCorners.level",
+        "desc": "Controls which level of the screens the corners are drawn at. See `hs.canvas.windowLevels` for more information. Defaults to `screenSaver + 1`",
+        "doc": "Controls which level of the screens the corners are drawn at. See `hs.canvas.windowLevels` for more information. Defaults to `screenSaver + 1`",
+        "name": "level",
+        "signature": "RoundedCorners.level",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "RoundedCorners.radius",
+        "desc": "Controls the radius of the rounded corners, in points. Defaults to 6",
+        "doc": "Controls the radius of the rounded corners, in points. Defaults to 6",
+        "name": "radius",
+        "signature": "RoundedCorners.radius",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "desc": "Give your screens rounded corners",
+    "doc": "Give your screens rounded corners",
+    "items": [
+      {
+        "def": "RoundedCorners.allScreens",
+        "desc": "Controls whether corners are drawn on all screens or just the primary screen. Defaults to true",
+        "doc": "Controls whether corners are drawn on all screens or just the primary screen. Defaults to true",
+        "name": "allScreens",
+        "signature": "RoundedCorners.allScreens",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "RoundedCorners.level",
+        "desc": "Controls which level of the screens the corners are drawn at. See `hs.canvas.windowLevels` for more information. Defaults to `screenSaver + 1`",
+        "doc": "Controls which level of the screens the corners are drawn at. See `hs.canvas.windowLevels` for more information. Defaults to `screenSaver + 1`",
+        "name": "level",
+        "signature": "RoundedCorners.level",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "RoundedCorners.radius",
+        "desc": "Controls the radius of the rounded corners, in points. Defaults to 6",
+        "doc": "Controls the radius of the rounded corners, in points. Defaults to 6",
+        "name": "radius",
+        "signature": "RoundedCorners.radius",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "RoundedCorners:start()",
+        "desc": "Starts RoundedCorners",
+        "doc": "Starts RoundedCorners\n\nParameters:\n * None\n\nReturns:\n * The RoundedCorners object\n\nNotes:\n * This will draw the rounded screen corners and start watching for changes in screen sizes/layouts, reacting accordingly",
+        "name": "start",
+        "notes": [
+          " * This will draw the rounded screen corners and start watching for changes in screen sizes/layouts, reacting accordingly"
+        ],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * The RoundedCorners object"
+        ],
+        "signature": "RoundedCorners:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "RoundedCorners:stop()",
+        "desc": "Stops RoundedCorners",
+        "doc": "Stops RoundedCorners\n\nParameters:\n * None\n\nReturns:\n * The RoundedCorners object\n\nNotes:\n * This will remove all rounded screen corners and stop watching for changes in screen sizes/layouts",
+        "name": "stop",
+        "notes": [
+          " * This will remove all rounded screen corners and stop watching for changes in screen sizes/layouts"
+        ],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * The RoundedCorners object"
+        ],
+        "signature": "RoundedCorners:stop()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "name": "RoundedCorners",
+    "stripped_doc": "",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
+        "def": "Seal:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for Seal",
+        "doc": "Binds hotkeys for Seal\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for the following items:\n  * show - This will cause Seal's UI to be shown\n\nReturns:\n * The Seal object",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * mapping - A table containing hotkey modifier/key details for the following items:",
+          "  * show - This will cause Seal's UI to be shown"
+        ],
+        "returns": [
+          " * The Seal object"
+        ],
+        "signature": "Seal:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Seal:loadPlugins(plugins)",
+        "desc": "Loads a list of Seal plugins",
+        "doc": "Loads a list of Seal plugins\n\nParameters:\n * plugins - A list containing the names of plugins to load\n\nReturns:\n * The Seal object\n\nNotes:\n * The plugins live inside the Seal.spoon directory\n * The plugin names in the list, should not have `seal_` at the start, or `.lua` at the end\n * Some plugins may immediately begin doing background work (e.g. Spotlight searches)",
+        "name": "loadPlugins",
+        "notes": [
+          " * The plugins live inside the Seal.spoon directory",
+          " * The plugin names in the list, should not have `seal_` at the start, or `.lua` at the end",
+          " * Some plugins may immediately begin doing background work (e.g. Spotlight searches)"
+        ],
+        "parameters": [
+          " * plugins - A list containing the names of plugins to load"
+        ],
+        "returns": [
+          " * The Seal object"
+        ],
+        "signature": "Seal:loadPlugins(plugins)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Seal:show()",
+        "desc": "Shows the Seal UI",
+        "doc": "Shows the Seal UI\n\nParameters:\n * None\n\nReturns:\n * None\n\nNotes:\n * This may be useful if you wish to show Seal in response to something other than its hotkey",
+        "name": "show",
+        "notes": [
+          " * This may be useful if you wish to show Seal in response to something other than its hotkey"
+        ],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "Seal:show()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Seal:start()",
+        "desc": "Starts Seal",
+        "doc": "Starts Seal\n\nParameters:\n * None\n\nReturns:\n * The Seal object",
+        "name": "start",
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * The Seal object"
+        ],
+        "signature": "Seal:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Seal:stop()",
+        "desc": "Stops Seal",
+        "doc": "Stops Seal\n\nParameters:\n * None\n\nReturns:\n * The Seal object\n\nNotes:\n * Some Seal plugins will continue performing background work even after this call (e.g. Spotlight searches)",
+        "name": "stop",
+        "notes": [
+          " * Some Seal plugins will continue performing background work even after this call (e.g. Spotlight searches)"
+        ],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * The Seal object"
+        ],
+        "signature": "Seal:stop()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [],
+    "desc": "Pluggable launch bar",
+    "doc": "Pluggable launch bar",
+    "items": [
+      {
+        "def": "Seal:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for Seal",
+        "doc": "Binds hotkeys for Seal\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for the following items:\n  * show - This will cause Seal's UI to be shown\n\nReturns:\n * The Seal object",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * mapping - A table containing hotkey modifier/key details for the following items:",
+          "  * show - This will cause Seal's UI to be shown"
+        ],
+        "returns": [
+          " * The Seal object"
+        ],
+        "signature": "Seal:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Seal:loadPlugins(plugins)",
+        "desc": "Loads a list of Seal plugins",
+        "doc": "Loads a list of Seal plugins\n\nParameters:\n * plugins - A list containing the names of plugins to load\n\nReturns:\n * The Seal object\n\nNotes:\n * The plugins live inside the Seal.spoon directory\n * The plugin names in the list, should not have `seal_` at the start, or `.lua` at the end\n * Some plugins may immediately begin doing background work (e.g. Spotlight searches)",
+        "name": "loadPlugins",
+        "notes": [
+          " * The plugins live inside the Seal.spoon directory",
+          " * The plugin names in the list, should not have `seal_` at the start, or `.lua` at the end",
+          " * Some plugins may immediately begin doing background work (e.g. Spotlight searches)"
+        ],
+        "parameters": [
+          " * plugins - A list containing the names of plugins to load"
+        ],
+        "returns": [
+          " * The Seal object"
+        ],
+        "signature": "Seal:loadPlugins(plugins)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Seal:show()",
+        "desc": "Shows the Seal UI",
+        "doc": "Shows the Seal UI\n\nParameters:\n * None\n\nReturns:\n * None\n\nNotes:\n * This may be useful if you wish to show Seal in response to something other than its hotkey",
+        "name": "show",
+        "notes": [
+          " * This may be useful if you wish to show Seal in response to something other than its hotkey"
+        ],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "Seal:show()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Seal:start()",
+        "desc": "Starts Seal",
+        "doc": "Starts Seal\n\nParameters:\n * None\n\nReturns:\n * The Seal object",
+        "name": "start",
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * The Seal object"
+        ],
+        "signature": "Seal:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Seal:stop()",
+        "desc": "Stops Seal",
+        "doc": "Stops Seal\n\nParameters:\n * None\n\nReturns:\n * The Seal object\n\nNotes:\n * Some Seal plugins will continue performing background work even after this call (e.g. Spotlight searches)",
+        "name": "stop",
+        "notes": [
+          " * Some Seal plugins will continue performing background work even after this call (e.g. Spotlight searches)"
+        ],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * The Seal object"
+        ],
+        "signature": "Seal:stop()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "name": "Seal",
+    "stripped_doc": "",
+    "submodules": [],
+    "type": "Module"
+  }
+]

@@ -1,0 +1,118 @@
+[
+  {
+    "desc": "Prevent the screen from going to sleep",
+    "name": "Caffeine",
+    "type": "Module"
+  },
+  {
+    "desc": "Binds hotkeys for Caffeine",
+    "module": "Caffeine",
+    "name": "bindHotkeys",
+    "type": "Method"
+  },
+  {
+    "desc": "Starts Caffeine",
+    "module": "Caffeine",
+    "name": "start",
+    "type": "Method"
+  },
+  {
+    "desc": "Stops Caffeine",
+    "module": "Caffeine",
+    "name": "stop",
+    "type": "Method"
+  },
+  {
+    "desc": "Draws a circle around the mouse pointer when a hotkey is pressed",
+    "name": "MouseCircle",
+    "type": "Module"
+  },
+  {
+    "desc": "An `hs.drawing.color` table defining the colour of the circle. Defaults to red.",
+    "module": "MouseCircle",
+    "name": "color",
+    "type": "Variable"
+  },
+  {
+    "desc": "Binds hotkeys for MouseCircle",
+    "module": "MouseCircle",
+    "name": "bindHotkeys",
+    "type": "Method"
+  },
+  {
+    "desc": "Draws a circle around the mouse",
+    "module": "MouseCircle",
+    "name": "show",
+    "type": "Method"
+  },
+  {
+    "desc": "Give your screens rounded corners",
+    "name": "RoundedCorners",
+    "type": "Module"
+  },
+  {
+    "desc": "Controls whether corners are drawn on all screens or just the primary screen. Defaults to true",
+    "module": "RoundedCorners",
+    "name": "allScreens",
+    "type": "Variable"
+  },
+  {
+    "desc": "Controls which level of the screens the corners are drawn at. See `hs.canvas.windowLevels` for more information. Defaults to `screenSaver + 1`",
+    "module": "RoundedCorners",
+    "name": "level",
+    "type": "Variable"
+  },
+  {
+    "desc": "Controls the radius of the rounded corners, in points. Defaults to 6",
+    "module": "RoundedCorners",
+    "name": "radius",
+    "type": "Variable"
+  },
+  {
+    "desc": "Starts RoundedCorners",
+    "module": "RoundedCorners",
+    "name": "start",
+    "type": "Method"
+  },
+  {
+    "desc": "Stops RoundedCorners",
+    "module": "RoundedCorners",
+    "name": "stop",
+    "type": "Method"
+  },
+  {
+    "desc": "Pluggable launch bar",
+    "name": "Seal",
+    "type": "Module"
+  },
+  {
+    "desc": "Binds hotkeys for Seal",
+    "module": "Seal",
+    "name": "bindHotkeys",
+    "type": "Method"
+  },
+  {
+    "desc": "Loads a list of Seal plugins",
+    "module": "Seal",
+    "name": "loadPlugins",
+    "type": "Method"
+  },
+  {
+    "desc": "Shows the Seal UI",
+    "module": "Seal",
+    "name": "show",
+    "type": "Method"
+  },
+  {
+    "desc": "Starts Seal",
+    "module": "Seal",
+    "name": "start",
+    "type": "Method"
+  },
+  {
+    "desc": "Stops Seal",
+    "module": "Seal",
+    "name": "stop",
+    "type": "Method"
+  }
+]
