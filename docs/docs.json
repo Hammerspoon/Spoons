@@ -56,7 +56,7 @@
     ],
     "Variable": [],
     "desc": "Prevent the screen from going to sleep",
-    "doc": "Prevent the screen from going to sleep",
+    "doc": "Prevent the screen from going to sleep\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Caffeine.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Caffeine.spoon.zip)",
     "items": [
       {
         "def": "Caffeine:bindHotkeys(mapping)",
@@ -106,7 +106,7 @@
       }
     ],
     "name": "Caffeine",
-    "stripped_doc": "",
+    "stripped_doc": "Download: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Caffeine.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Caffeine.spoon.zip)",
     "submodules": [],
     "type": "Module"
   },
@@ -159,7 +159,7 @@
       }
     ],
     "desc": "Draws a circle around the mouse pointer when a hotkey is pressed",
-    "doc": "Draws a circle around the mouse pointer when a hotkey is pressed",
+    "doc": "Draws a circle around the mouse pointer when a hotkey is pressed\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MouseCircle.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MouseCircle.spoon.zip)",
     "items": [
       {
         "def": "MouseCircle:bindHotkeys(mapping)",
@@ -200,7 +200,7 @@
       }
     ],
     "name": "MouseCircle",
-    "stripped_doc": "",
+    "stripped_doc": "Download: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MouseCircle.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MouseCircle.spoon.zip)",
     "submodules": [],
     "type": "Module"
   },
@@ -279,7 +279,7 @@
       }
     ],
     "desc": "Give your screens rounded corners",
-    "doc": "Give your screens rounded corners",
+    "doc": "Give your screens rounded corners\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/RoundedCorners.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/RoundedCorners.spoon.zip)",
     "items": [
       {
         "def": "RoundedCorners.allScreens",
@@ -346,7 +346,7 @@
       }
     ],
     "name": "RoundedCorners",
-    "stripped_doc": "",
+    "stripped_doc": "Download: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/RoundedCorners.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/RoundedCorners.spoon.zip)",
     "submodules": [],
     "type": "Module"
   },
@@ -448,7 +448,7 @@
     ],
     "Variable": [],
     "desc": "Pluggable launch bar",
-    "doc": "Pluggable launch bar",
+    "doc": "Pluggable launch bar\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Seal.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Seal.spoon.zip)",
     "items": [
       {
         "def": "Seal:bindHotkeys(mapping)",
@@ -539,7 +539,7 @@
       }
     ],
     "name": "Seal",
-    "stripped_doc": "",
+    "stripped_doc": "Download: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Seal.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Seal.spoon.zip)",
     "submodules": [],
     "type": "Module"
   }
