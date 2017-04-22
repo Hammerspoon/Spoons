@@ -1,6 +1,7 @@
 --- === Caffeine ===
 ---
 --- Prevent the screen from going to sleep
+--- Download: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Caffeine.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Caffeine.spoon.zip)
 local obj = {}
 obj.__index = obj
 
