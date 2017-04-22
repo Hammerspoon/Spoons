@@ -1,6 +1,7 @@
 --- === Seal ===
 ---
 --- Pluggable launch bar
+---
 --- Download: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Seal.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Seal.spoon.zip)
 
 local obj = {}

@@ -1,6 +1,7 @@
 --- === RoundedCorners ===
 ---
 --- Give your screens rounded corners
+---
 --- Download: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/RoundedCorners.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/RoundedCorners.spoon.zip)
 local obj = {}
 obj.__index = obj

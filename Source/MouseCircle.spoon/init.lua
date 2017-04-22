@@ -1,6 +1,7 @@
 --- === MouseCircle ===
 ---
 --- Draws a circle around the mouse pointer when a hotkey is pressed
+---
 --- Download: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MouseCircle.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MouseCircle.spoon.zip)
 
 local obj = {}
