@@ -1,9 +1,13 @@
 --- === BrewInfo ===
 ---
---- Shows in a popup the result of `brew info` on the
---- currently-selected text, or automatically open the Formula's URL.
+--- Display pop-up with Homebrew Formula info, or open their URL
 ---
 --- Download: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/BreInfo.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/BrewInfo.spoon.zip)
+---
+--- You can bind keys to automatically display the output of `brew
+--- info` of the currently-selected package name, or to open its
+--- homepage. I use it to quickly explore new packages from the output
+--- of `brew update`.
 
 local mod={}
 mod.__index = mod
