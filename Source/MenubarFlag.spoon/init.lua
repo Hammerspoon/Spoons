@@ -37,7 +37,7 @@ obj.indicatorAlpha = 0.3
 
 --- MenubarFlag.indicatorInAllSpaces
 --- Variable
---- Boolean to specify whether the indicator should be shown in all spaces (this includes full-screen mode)
+--- Boolean to specify whether the indicator should be shown in all spaces (this includes full-screen mode). Defaults to `true`
 obj.indicatorInAllSpaces = true
 
 --- MenubarFlag.colors
@@ -162,7 +162,7 @@ function obj:drawIndicators(src)
    return self
 end
 
---- MenubarFlag:getLayoutAnddrawindicators
+--- MenubarFlag:getLayoutAndDrawindicators
 --- Method
 --- Draw indicators for the current keyboard layout
 ---
