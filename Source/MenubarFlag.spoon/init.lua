@@ -184,7 +184,9 @@ end
 function obj:start()
    initIndicators()
    self:getLayoutAndDrawIndicators()
-   hs.keycodes.inputSourceChanged(function(...) self:getLayoutAndDrawIndicators(...) end)
+   hs.keycodes.inputSourceChanged(function()
+         self:getLayoutAndDrawIndicators()
+   end)
    return self
 end
 
