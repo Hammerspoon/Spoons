@@ -11,7 +11,6 @@ obj.__index = obj
 
 local draw = require "hs.drawing"
 local col = draw.color.x11
-local logger = hs.logger.new('MenubarFlag')
 
 -- Metadata
 obj.name = "MenubarFlag"
@@ -81,6 +80,8 @@ obj.colors = {
    German = {col.black, col.red, col.yellow},
 }
 
+obj.logger = hs.logger.new('MenubarFlag')
+
 ----------------------------------------------------------------------
 
 -- Internal variables
@@ -111,17 +112,19 @@ end
 --- Method
 --- Draw the indicators corresponding to the given layout name
 ---
---- Params:
+--- Parameters:
 ---  * src - name of the layout to draw. If the given element exists in `MenubarFlag.colors`, it will be drawn. If it does not exist, then the indicators will be removed from the screen.
 ---
 --- Returns:
 ---  * The MenubarFlag object
 function obj:drawIndicators(src)
+   --   hs.alert.show("in drawindicators src=" .. src .. "  prevlayout=" .. (prevlayout or "nil"))
+
    if src ~= prevlayout then
       initIndicators()
 
       def = self.colors[src]
-      logger.df("Indicator definition for %s: %s", src, hs.inspect(def))
+      self.logger.df("Indicator definition for %s: %s", src, hs.inspect(def))
       if def ~= nil then
          if self.allScreens then
             screens = hs.screen.allScreens()
@@ -152,7 +155,7 @@ function obj:drawIndicators(src)
             end
          end
       else
-         logger.df("Removing indicators for %s because there is no color definitions for it.", src)
+         self.logger.df("Removing indicators for %s because there is no color definitions for it.", src)
          delIndicators()
       end
    end
