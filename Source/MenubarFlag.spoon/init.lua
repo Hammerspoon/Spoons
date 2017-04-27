@@ -9,10 +9,7 @@
 local obj={}
 obj.__index = obj
 
-local scr = require "hs.screen"
 local draw = require "hs.drawing"
-local geom = require "hs.geometry"
-local keyc = require "hs.keycodes"
 local col = draw.color.x11
 local logger = hs.logger.new('MenubarFlag')
 
@@ -25,34 +22,36 @@ obj.license = "MIT - https://opensource.org/licenses/MIT"
 
 --- MenubarFlag.allScreens
 --- Variable
---- Display on all monitors or just the current one?
+--- Boolean to specify whether the indicators should be shown on all monitors or just the current one. Defaults to `true`
 obj.allScreens = true
 
 --- MenubarFlag.indicatorHeight
 --- Variable
---- Specify 0.0-1.0 to specify a percentage of the height of the menu bar, larger values indicate a fixed height in pixels
+--- Number to specify the height of the indicator. Specify 0.0-1.0 to specify a percentage of the height of the menu bar, larger values indicate a fixed height in pixels. Defaults to 1.0
 obj.indicatorHeight = 1.0
 
 --- MenubarFlag.indicatorAlpha
 --- Variable
---- Indicator transparency (1.0 - fully opaque)
+--- Number to specify the indicator transparency (0.0 - invisible; 1.0 - fully opaque). Defaults to 0.3
 obj.indicatorAlpha = 0.3
 
 --- MenubarFlag.indicatorInAllSpaces
 --- Variable
---- Show the indicator in all spaces? (this includes full-screen mode)
+--- Boolean to specify whether the indicator should be shown in all spaces (this includes full-screen mode)
 obj.indicatorInAllSpaces = true
 
 --- MenubarFlag.colors
 --- Variable
---- Configuration of indicator colors
+--- Table that contains the configuration of indicator colors
 ---
---- Each indicator is made of an arbitrary number of segments,
---- distributed evenly across the width of the screen. The table below
---- indicates the colors to use for a given keyboard layout. The index
---- is the name of the layout as it appears in the input source menu.
---- If a layout is not found, then the indicators are removed when that
---- layout is active.
+--- The table below indicates the colors to use for a given keyboard
+--- layout. The index is the name of the layout as it appears in the
+--- input source menu. The value of each indicator is a table made of
+--- an arbitrary number of segments, which will be distributed evenly
+--- across the width of the screen. Each segment must be a valid
+--- `hs.drawing.color` specification (most commonly, you should just
+--- use the named colors from within the tables). If a layout is not
+--- found, then the indicators are removed when that layout is active.
 ---
 --- Inidicator specs can be static flag-like:
 --- ```
@@ -76,16 +75,19 @@ obj.indicatorInAllSpaces = true
 ---   Spanish = {col.red},
 ---   German = {col.yellow},
 --- ```
+--- Contributions of indicator specs are welcome!
 obj.colors = {
-   Spanish = {col.green, col.white, col.red},
+   Spanish = {col.red, col.yellow, col.red},
    German = {col.black, col.red, col.yellow},
 }
 
 ----------------------------------------------------------------------
 
+-- Internal variables
 local prevlayout = nil
 local ind = nil
 
+-- Initialize the empty indicator table
 function initIndicators()
    if ind ~= nil then
       delIndicators()
@@ -93,6 +95,7 @@ function initIndicators()
    ind = {}
 end
 
+-- Delete existing indicator objects
 function delIndicators()
    if ind ~= nil then
       for i,v in ipairs(ind) do
@@ -104,43 +107,91 @@ function delIndicators()
    end
 end
 
---- MenubarFlag:getInputSource()
+--- MenubarFlag:drawIndicators(src)
 --- Method
---- Get current keyboard layout using the `defaults` command
-
---- MenubarFlag:somePublicMethod(param)
---- Method
---- Documentation for a public API method and its parameters
+--- Draw the indicators corresponding to the given layout name
 ---
---- Parameters:
----  * param - Description of the parameter
-function obj:somePublicMethod(param)
-   hs.alert.show(string.format("somePublicMethod called! param=%s", param))
-   return self
-end
-
---- MenubarFlag:sayHello()
---- Method
---- Greet the user
-function obj:sayHello()
-   hs.alert.show("Hello!")
-   return self
-end
-
---- BrewInfo:bindHotkeys(mapping)
---- Method
---- Binds hotkeys for MenubarFlag
+--- Params:
+---  * src - name of the layout to draw. If the given element exists in `MenubarFlag.colors`, it will be drawn. If it does not exist, then the indicators will be removed from the screen.
 ---
---- Parameters:
----  * mapping - A table containing hotkey objifier/key details for the following items:
----   * hello - Say Hello
-function obj:bindHotkeys(mapping)
-   if mapping["hello"] then
-      if (self.key_hello) then
-         self.key_hello:delete()
+--- Returns:
+---  * The MenubarFlag object
+function obj:drawIndicators(src)
+   if src ~= prevlayout then
+      initIndicators()
+
+      def = self.colors[src]
+      logger.df("Indicator definition for %s: %s", src, hs.inspect(def))
+      if def ~= nil then
+         if self.allScreens then
+            screens = hs.screen.allScreens()
+         else
+            screens = { hs.screen.mainScreen() }
+         end
+         for i,screen in ipairs(screens) do
+            local screeng = screen:fullFrame()
+            local width = screeng.w / #def
+            for i,v in ipairs(def) do
+               if self.indicatorHeight >= 0.0 and self.indicatorHeight <= 1.0 then
+                  height = self.indicatorHeight*(screen:frame().y - screeng.y)
+               else
+                  height = self.indicatorHeight
+               end
+               c = draw.rectangle(hs.geometry.rect(screeng.x+(width*(i-1)), screeng.y,
+                                                   width, height))
+               c:setFillColor(v)
+               c:setFill(true)
+               c:setAlpha(self.indicatorAlpha)
+               c:setLevel(draw.windowLevels.overlay)
+               c:setStroke(false)
+               if self.indicatorInAllSpaces then
+                  c:setBehavior(draw.windowBehaviors.canJoinAllSpaces)
+               end
+               c:show()
+               table.insert(ind, c)
+            end
+         end
+      else
+         logger.df("Removing indicators for %s because there is no color definitions for it.", src)
+         delIndicators()
       end
-      self.key_hello = hs.hotkey.bindSpec(mapping["hello"], function() self:sayHello() end)
    end
+
+   prevlayout = src
+
+   return self
+end
+
+--- MenubarFlag:getLayoutAnddrawindicators
+--- Method
+--- Draw indicators for the current keyboard layout
+---
+--- Params:
+---  * None
+---
+--- Returns:
+---  * The MenubarFlag object
+function obj:getLayoutAndDrawIndicators()
+   return self:drawIndicators(hs.keycodes.currentLayout())
+end
+
+--- MenubarFlag:start()
+--- Method
+--- Start the keyboard layout watcher to draw the menubar indicators.
+function obj:start()
+   initIndicators()
+   self:getLayoutAndDrawIndicators()
+   hs.keycodes.inputSourceChanged(function(...) self:getLayoutAndDrawIndicators(...) end)
+   return self
+end
+
+--- MenubarFlag:stop()
+--- Method
+--- Remove indicators and stop the keyboard layout watcher
+function obj:stop()
+   delIndicators()
+   hs.keycodes.inputSourceChanged(nil)
+   return self
 end
 
 return obj
