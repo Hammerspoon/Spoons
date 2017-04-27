@@ -169,7 +169,7 @@ end
 --- Method
 --- Draw indicators for the current keyboard layout
 ---
---- Params:
+--- Parameters:
 ---  * None
 ---
 --- Returns:
