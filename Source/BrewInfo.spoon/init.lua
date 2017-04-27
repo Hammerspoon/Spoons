@@ -2,7 +2,7 @@
 ---
 --- Display pop-up with Homebrew Formula info, or open their URL
 ---
---- Download: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/BreInfo.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/BrewInfo.spoon.zip)
+--- Download: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/BrewInfo.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/BrewInfo.spoon.zip)
 ---
 --- You can bind keys to automatically display the output of `brew
 --- info` of the currently-selected package name, or to open its
@@ -58,22 +58,28 @@ end
 ---
 --- Parameters:
 ---  * pkg - name of the package to query
+---
+--- Returns:
+---  * The Spoon object
 function mod:showBrewInfo(pkg)
+   local info = "No package selected"
+   local st = nil
    if pkg and pkg ~= "" then
-      local info, st, t, rc=hs.execute("/usr/local/bin/brew info " .. pkg)
+      info, st=hs.execute("/usr/local/bin/brew info " .. pkg)
       if st == nil then
          info = "No information found about formula '" .. pkg .. "'!"
       end
-      self:show(info)
-   else
-      self:show("No package selected.")
    end
+   self:show(info)
    return self
 end
 
 --- BrewInfo:showBrewInfoCurSel()
 --- Method
 --- Display `brew info` using the selected text as the package name
+---
+--- Returns:
+---  * The Spoon object
 function mod:showBrewInfoCurSel()
    return self:showBrewInfo(current_selection())
 end
@@ -84,7 +90,11 @@ end
 ---
 --- Parameters:
 ---  * pkg - name of the package to query
+---
+--- Returns:
+---  * The Spoon object
 function mod:openBrewURL(pkg)
+   local msg = "No package selected"
    if pkg and pkg ~= "" then
       local j, st, t, rc=hs.execute("/usr/local/bin/brew info --json=v1 " .. pkg )
       if st ~= nil then
@@ -97,16 +107,18 @@ function mod:openBrewURL(pkg)
             end
          end
       end
-      self:show("An error occurred obtaining information about '" .. pkg .. "'")
-   else
-      self:show("No package selected.")
+      msg = "An error occurred obtaining information about '" .. pkg .. "'"
    end
+   self:show(msg)
    return self
 end
 
 --- BrewInfo:openBrewURLCurSel()
 --- Method
 --- Display `brew info` using the selected text as the package name
+---
+--- Returns:
+---  * The Spoon object
 function mod:openBrewURLCurSel()
    return self:openBrewURL(current_selection())
 end
