@@ -1,6 +1,6 @@
 --- === URLDispatcher ===
 ---
---- Flexible URL handling
+--- Route URLs to different applications with pattern matching
 ---
 --- Download: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/URLDispatcher.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/URLDispatcher.spoon.zip)
 ---
@@ -20,19 +20,21 @@ obj.license = "MIT - https://opensource.org/licenses/MIT"
 
 --- URLDispatcher.default_handler
 --- Variable
---- Bundle ID for default URL handler
+--- Bundle ID for default URL handler. (Defaults to `"com.apple.Safari"`)
 obj.default_handler = "com.apple.Safari"
 
 --- URLDispatcher.decode_slack_redir_urls
 --- Variable
---- If true, handle Slack-redir URLs to apply the rule on the destination URL
+--- If true, handle Slack-redir URLs to apply the rule on the destination URL. Defaults to `true`
 obj.decode_slack_redir_urls = true
 
 --- URLDispatcher.url_patterns
 --- Variable
 --- URL dispatch rules.
---- Evaluated in the order they are declared. Entry format: { "url pattern", "application bundle ID" }
+--- A table containing a list of dispatch rules. Each rule should be its own table in the format: `{ "url pattern", "application bundle ID" }`, and they are evaluated in the order they are declared. Note that the patterns are [Lua patterns](https://www.lua.org/pil/20.2.html) and not regular expressions. Defaults to an empty table, which has the effect of having all URLs dispatched to the `default_handler`.
 obj.url_patterns = { }
+
+local logger = hs.logger.new("URLDispatcher")
 
 -- Local functions to decode URLs
 function hex_to_char(x)
@@ -43,12 +45,15 @@ function unescape(url)
    return url:gsub("%%(%x%x)", hex_to_char)
 end
 
---- URLDispatcher:somePublicMethod(param)
+--- URLDispatcher:dispatchURL(scheme, host, params, fullUrl)
 --- Method
---- Documentation for a public API method and its parameters
+--- Dispatch a URL to an application according to the defined `url_patterns`.
 ---
---- Parameters:
----  * param - Description of the parameter
+--- Parameters (according to the [httpCallback](http://www.hammerspoon.org/docs/hs.urlevent.html#httpCallback) specification):
+---  * scheme - A string containing the URL scheme (i.e. "http")
+---  * host - A string containing the host requested (e.g. "www.hammerspoon.org")
+---  * params - A table containing the key/value pairs of all the URL parameters
+---  * fullURL - A string containing the full, original URL
 function obj:dispatchURL(scheme, host, params, fullUrl)
    local url = fullUrl
    if self.decode_slack_redir_urls then
@@ -75,6 +80,9 @@ end
 --- Method
 --- Start dispatching URLs according to the rules
 function obj:start()
+   if hs.urlevent.httpCallback then
+      logger.w("An hs.urlevent.httpCallback was already set. I'm overriding it with my own but you should check if this breaks any other functionality")
+   end
    hs.urlevent.httpCallback = function(...) self:dispatchURL(...) end
    hs.urlevent.setDefaultHandler('http')
    return self
