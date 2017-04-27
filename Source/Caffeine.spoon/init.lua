@@ -61,7 +61,9 @@ end
 ---  * The Caffeine object
 function obj:start()
     self.menuBarItem:returnToMenuBar()
-    self.hotkeyToggle:enable()
+    if self.hotkeyToggle then
+       self.hotkeyToggle:enable()
+    end
 
     return self
 end
@@ -77,7 +79,9 @@ end
 ---  * The Caffeine object
 function obj:stop()
     self.menuBarItem:removeFromMenuBar()
-    self.hotkeyToggle:disable()
+    if self.hotkeyToggle then
+       self.hotkeyToggle:disable()
+    end
 
     return self
 end
