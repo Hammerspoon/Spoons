@@ -16,8 +16,16 @@ obj.license = "MIT - https://opensource.org/licenses/MIT"
 
 -- Interpolate table values into a string
 -- From http://lua-users.org/wiki/StringInterpolation
-function interp(s, tab)
+local function interp(s, tab)
    return (s:gsub('($%b{})', function(w) return tab[w:sub(3, -2)] or w end))
+end
+
+-- Read a whole file into a string
+local function slurp(path)
+   local f = assert(io.open(path))
+   local s = f:read("*a")
+   f:close()
+   return s
 end
 
 --- SpoonUtils.newSpoon(name, basedir, metadata)
@@ -37,7 +45,8 @@ end
 ---      download_url = "https://github.com/Hammerspoon/Spoons/raw/master/Spoons/"..name..".spoon.zip"
 ---    }
 ---    ```
-function obj.newSpoon(name, basedir, metadata)
+---  * template: (optional) absolute path of the template to use for the `init.lua` file of the new Spoon. Defaults to the `templates/init.tpl` file included with SpoonUtils.
+function obj:newSpoon(name, basedir, metadata, template)
    if basedir == nil or basedir == "" then
       basedir = hs.configdir .. "/Spoons"
    end
@@ -58,59 +67,39 @@ function obj.newSpoon(name, basedir, metadata)
    hs.fs.mkdir(dirname)
    hs.fs.chdir(dirname)
    local f=assert(io.open(dirname .. "/init.lua", "w"))
-   f:write(interp([[
---- === ${name} ===
----
---- ${description}
----
---- Download: [${download_url}](${download_url})
-
-local obj={}
-obj.__index = obj
-
--- Metadata
-obj.name = "${name}"
-obj.version = "${version}"
-obj.author = "${author}"
-obj.homepage = "${homepage}"
-obj.license = "${license}"
-
---- Some internal variable
-obj.key_hello = nil
-
---- ${name}.some_config_param
---- Variable
---- Some configuration parameter
-obj.some_config_param = true
-
---- ${name}:sayHello()
---- Method
---- Greet the user
-function obj:sayHello()
-   hs.alert.show("Hello!")
-   return self
-end
-
---- BrewInfo:bindHotkeys(mapping)
---- Method
---- Binds hotkeys for ${name}
----
---- Parameters:
----  * mapping - A table containing hotkey objifier/key details for the following items:
----   * hello - Say Hello
-function obj:bindHotkeys(mapping)
-   if mapping["hello"] then
-      if (self.key_hello) then
-         self.key_hello:delete()
-      end
-      self.key_hello = hs.hotkey.bindSpec(mapping["hello"], function() self:sayHello() end)
-   end
-end
-
-return obj
-]], meta))
+   local template_file = template or self:resource_path("templates/init.tpl")
+   local text=slurp(template_file)
+   f:write(interp(text, meta))
    f:close()
    print("Created new spoon " .. dirname)
+end
+
+--- SpoonUtils:script_path()
+--- Method
+--- Return path of the current spoon.
+---
+--- Parameters:
+---  * n - (optional) stack level for which to get the path. Defaults to 2, which will return the path of the spoon which called `script_path()`
+---
+--- Returns:
+---  * String with the path from where the calling code was loaded.
+function obj:script_path(n)
+   if n == nil then n = 2 end
+   local str = debug.getinfo(n, "S").source:sub(2)
+   return str:match("(.*/)")
+end
+
+--- SpoonUtils:resource_path(partial)
+--- Method
+--- Return full path of an object within a spoon directory, given its partial path.
+---
+--- Parameters:
+---  * partial - path of a file relative to the Spoon directory. For example `images/img1.png` will refer to a file within the `images` directory of the Spoon.
+---
+--- Returns:
+---  * Absolute path of the file. Note: no existence or other checks are done on the path.
+function obj:resource_path(partial)
+   return(self:script_path(3) .. partial)
 end
 
 return obj
