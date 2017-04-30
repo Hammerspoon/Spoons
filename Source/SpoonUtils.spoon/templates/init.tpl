@@ -14,6 +14,9 @@ obj.author = "${author}"
 obj.homepage = "${homepage}"
 obj.license = "${license}"
 
+-- Spoon logger
+obj.logger = hs.logger.new('${name}')
+
 --- Some internal variable
 obj.key_hello = nil
 
