@@ -104,4 +104,31 @@ function obj:resource_path(partial)
    return(self:script_path(3) .. partial)
 end
 
+--- SpoonUtils:bindHotkeysToSpec(def, map)
+--- Method
+--- Map a number of hotkeys according to a definition table
+---
+--- Parameters:
+---  * def - table containing name-to-function definitions for the hotkeys supported by the Spoon. Each key is a hotkey name, and its value must be a function that will be called when the hotkey is invoked.
+---  * map - table containing name-to-hotkey definitions, as supported by [bindHotkeys in the Spoon API](https://github.com/Hammerspoon/hammerspoon/blob/master/SPOONS.md#hotkeys). Not all the entries in `def` must be bound, but 
+function obj:bindHotkeysToSpec(def,map)
+   local spoonpath = self:script_path(3)
+   for name,key in pairs(map) do
+      if def[name] ~= nil then
+         local keypath = spoonpath .. name
+         if self._keys[keypath] then
+            self._keys[keypath]:delete()
+         end
+         self._keys[keypath]=hs.hotkey.bindSpec(key, def[name])
+      else
+         self.logger.ef("Error: Hotkey requested for undefined action '%s'", name)
+      end
+   end
+   return self
+end
+
+function obj:init()
+   self._keys = {}
+end
+
 return obj
