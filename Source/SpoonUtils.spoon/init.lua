@@ -14,6 +14,8 @@ obj.author = "Diego Zamboni <diego@zzamboni.org>"
 obj.homepage = "https://github.com/Hammerspoon/Spoons"
 obj.license = "MIT - https://opensource.org/licenses/MIT"
 
+obj.logger = hs.logger.new('SpoonUtils')
+
 -- Interpolate table values into a string
 -- From http://lua-users.org/wiki/StringInterpolation
 local function interp(s, tab)
