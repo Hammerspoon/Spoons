@@ -14,7 +14,9 @@ obj.author = "${author}"
 obj.homepage = "${homepage}"
 obj.license = "${license}"
 
--- Spoon logger
+--- ${name}.logger
+--- Variable
+--- Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.
 obj.logger = hs.logger.new('${name}')
 
 --- Some internal variable
