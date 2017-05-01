@@ -51,12 +51,28 @@ obj.defaultHotkeys = {
    screen_right= { {"ctrl", "alt", "cmd"}, "Right" },
 }
 
-----------------------------------------------------------------------
---- Base window resizing and moving functions
-----------------------------------------------------------------------
+--- WindowManipulation.use_frame_correctness
+--- Variable
+--- If `true`, set [setFrameCorrectness](http://www.hammerspoon.org/docs/hs.window.html#setFrameCorrectness) for some resizing operations which fail when the window extends beyonds screen boundaries. This may cause some jerkiness in the resizing, so experiment and determine if you need it. Defaults to `false`
+obj.use_frame_correctness = false
+
+-- --------------------------------------------------------------------
+-- Base window resizing and moving functions
+-- --------------------------------------------------------------------
+
+-- Internal functions to store/restore the current value of setFrameCorrectness.
+function _setFC()
+   obj._savedFC = hs.window.setFrameCorrectness
+   hs.window.setFrameCorrectness = obj.use_frame_correctness
+end
+
+function _restoreFC()
+   hs.window.setFrameCorrectness = obj._savedFC
+end
 
 -- Resize current window to different parts of the screen
-function obj.resizeCurrentWindow(how)
+-- If use_fc_preference is true, then use setFrameCorrectness according to the configured value of `WindowManipulation.use_frame_correctness`
+function obj.resizeCurrentWindow(how, use_fc_preference)
    local win = hs.window.focusedWindow()
    if win == nil then
       return
@@ -89,7 +105,9 @@ function obj.resizeCurrentWindow(how)
       newrect = {0,2/3,1,1/3}
    end
 
+   if use_fc_preference then _setFC() end
    win:move(newrect)
+   if use_fc_preference then _restoreFC() end
 end
 
 -- Move current window to a different screen
@@ -98,13 +116,13 @@ function obj.moveCurrentWindowToScreen(how)
    if win == nil then
       return
    end
-   hs.window.setFrameCorrectness = true
+   _setFC()
    if how == "left" then
       win:moveOneScreenWest()
    elseif how == "right" then
       win:moveOneScreenEast()
    end
-   hs.window.setFrameCorrectness = false
+   _restoreFC()
 end
 
 -- Toggle current window between its normal size, and being maximized
@@ -150,74 +168,54 @@ function get_vertical_third(win)
    return third
 end
 
-----------------------------------------------------------------------
---- Shortcut functions for those above
-----------------------------------------------------------------------
+-- --------------------------------------------------------------------
+-- Shortcut functions for those above, for the hotkeys
+-- --------------------------------------------------------------------
 
-function obj.leftHalf()
-   obj.resizeCurrentWindow("left")
-end
-
-function obj.rightHalf()
-   obj.resizeCurrentWindow("right")
-end
-
-function obj.topHalf()
-   obj.resizeCurrentWindow("top")
-end
-
-function obj.bottomHalf()
-   obj.resizeCurrentWindow("bottom")
-end
-
-function obj.maximize()
-   hs.window.setFrameCorrectness = true
-   obj.resizeCurrentWindow("max")
-   hs.window.setFrameCorrectness = false
-end
+obj.leftHalf       = hs.fnutils.partial(obj.resizeCurrentWindow, "left")
+obj.rightHalf      = hs.fnutils.partial(obj.resizeCurrentWindow, "right")
+obj.topHalf        = hs.fnutils.partial(obj.resizeCurrentWindow, "top")
+obj.bottomHalf     = hs.fnutils.partial(obj.resizeCurrentWindow, "bottom")
+obj.leftThird      = hs.fnutils.partial(obj.resizeCurrentWindow, "left_third")
+obj.middleThirdH   = hs.fnutils.partial(obj.resizeCurrentWindow, "middle_third_h")
+obj.rightThird     = hs.fnutils.partial(obj.resizeCurrentWindow, "right_third")
+obj.topThird       = hs.fnutils.partial(obj.resizeCurrentWindow, "top_third")
+obj.middleThirdV   = hs.fnutils.partial(obj.resizeCurrentWindow, "middle_third_v")
+obj.bottomThird    = hs.fnutils.partial(obj.resizeCurrentWindow, "bottom_third")
+obj.maximize       = hs.fnutils.partial(obj.resizeCurrentWindow, "max", true)
+obj.oneScreenLeft  = hs.fnutils.partial(obj.moveCurrentWindowToScreen, "left")
+obj.oneScreenRight = hs.fnutils.partial(obj.moveCurrentWindowToScreen, "right")
 
 function obj.oneThirdLeft()
    local win = hs.window.focusedWindow()
-   if win == nil then
-      return
+   if win ~= nil then
+      local third = get_horizontal_third(win)
+      obj.resizeCurrentWindow("hthird-" .. math.max(third-1,0))
    end
-   local third = get_horizontal_third(win)
-   obj.resizeCurrentWindow("hthird-" .. math.max(third-1,0))
 end
 
 function obj.oneThirdRight()
    local win = hs.window.focusedWindow()
-   if win == nil then
-      return
+   if win ~= nil then
+      local third = get_horizontal_third(win)
+      obj.resizeCurrentWindow("hthird-" .. math.min(third+1,2))
    end
-   local third = get_horizontal_third(win)
-   obj.resizeCurrentWindow("hthird-" .. math.min(third+1,2))
 end
 
 function obj.oneThirdUp()
    local win = hs.window.focusedWindow()
-   if win == nil then
-      return
+   if win ~= nil then
+      local third = get_vertical_third(win)
+      obj.resizeCurrentWindow("vthird-" .. math.max(third-1,0))
    end
-   local third = get_vertical_third(win)
-   obj.resizeCurrentWindow("vthird-" .. math.max(third-1,0))
 end
 
 function obj.onethirdDown()
    local win = hs.window.focusedWindow()
-   if win == nil then
-      return
+   if win ~= nil then
+      local third = get_vertical_third(win)
+      obj.resizeCurrentWindow("vthird-" .. math.min(third+1,2))
    end
-   local third = get_vertical_third(win)
-   obj.resizeCurrentWindow("vthird-" .. math.min(third+1,2))
-end
-
-function obj.oneScreenLeft()
-   obj.moveCurrentWindowToScreen("left")
-end
-
-function obj.oneScreenRight()
-   obj.moveCurrentWindowToScreen("right")
 end
 
 --- WindowManipulation:bindHotkeysToSpec(def, map)
@@ -227,7 +225,7 @@ end
 ---
 --- Parameters:
 ---  * def - table containing name-to-function definitions for the hotkeys supported by the Spoon. Each key is a hotkey name, and its value must be a function that will be called when the hotkey is invoked.
----  * map - table containing name-to-hotkey definitions, as supported by [bindHotkeys in the Spoon API](https://github.com/Hammerspoon/hammerspoon/blob/master/SPOONS.md#hotkeys). Not all the entries in `def` must be bound, but 
+---  * map - table containing name-to-hotkey definitions, as supported by [bindHotkeys in the Spoon API](https://github.com/Hammerspoon/hammerspoon/blob/master/SPOONS.md#hotkeys). Not all the entries in `def` must be bound, but if any keys in `map` don't have a definition, an error will be produced.
 function obj:bindHotkeysToSpec(def,map)
    for name,key in pairs(map) do
       if def[name] ~= nil then
@@ -254,6 +252,8 @@ end
 ---   * max - maximize the window
 ---   * max_toggle - toggle maximization
 ---   * screen_left, screen_right - move the window to the left/right screen (if you have more than one monitor connected, does nothing otherwise)
+---   * top_third, middle_third_v, bottom_third - resize and move the window to the corresponding vertical third of the screen
+---   * left_third, middle_third_h, right_third - resize and move the window to the corresponding horizontal third of the screen
 function obj:bindHotkeys(mapping)
    local hotkeyDefinitions = {
       left_half = self.leftHalf,
@@ -268,6 +268,12 @@ function obj:bindHotkeys(mapping)
       max = self.maximize,
       screen_left = self.oneScreenLeft,
       screen_right = self.oneScreenRight,
+      top_third = self.topThird,
+      middle_third_v = self.middleThirdV,
+      bottom_third = self.bottomThird,
+      left_third = self.leftThird,
+      middle_third_h = self.middleThirdH,
+      right_third = self.rightThird,
    }
    spoon.SpoonUtils:bindHotkeysToSpec(hotkeyDefinitions, mapping)
    return self
