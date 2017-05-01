@@ -96,7 +96,7 @@ end
 --- Binds hotkeys for ScreenRotate.
 ---
 --- Parameters:
----  * mapping - A table containing hotkey modifier/key details to rotate screens. Each key must be the name of a screen to rotate, or a Lua pattern - in this case the first screen to match the pattern will be rotated. The value is a table containing the hotkey modifier/key details as usual. You can use the key `[".*"]` to match the first external screen, which should be sufficient unless you have more than one external screen.
+---  * mapping - A table containing hotkey modifier/key details to rotate screens. Instead of fixed "key names", each key must be the name of a screen to rotate, or a Lua pattern - in this case the first screen to match the pattern will be rotated. The value is a table containing the hotkey modifier/key details as usual. You can use the key `[".*"]` to match the first external screen, which should be sufficient unless you have more than one external screen.
 function obj:bindHotkeys(mapping)
    self.toggle_rotate_keys = mapping
    for k,v in pairs(mapping) do
