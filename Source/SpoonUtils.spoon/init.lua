@@ -110,7 +110,7 @@ end
 ---
 --- Parameters:
 ---  * def - table containing name-to-function definitions for the hotkeys supported by the Spoon. Each key is a hotkey name, and its value must be a function that will be called when the hotkey is invoked.
----  * map - table containing name-to-hotkey definitions, as supported by [bindHotkeys in the Spoon API](https://github.com/Hammerspoon/hammerspoon/blob/master/SPOONS.md#hotkeys). Not all the entries in `def` must be bound, but 
+---  * map - table containing name-to-hotkey definitions, as supported by [bindHotkeys in the Spoon API](https://github.com/Hammerspoon/hammerspoon/blob/master/SPOONS.md#hotkeys). Not all the entries in `def` must be bound, but if any keys in `map` don't have a definition, an error will be produced.
 function obj:bindHotkeysToSpec(def,map)
    local spoonpath = self:script_path(3)
    for name,key in pairs(map) do
@@ -159,6 +159,15 @@ function obj:list(only_loaded)
    return res
 end
 
+--- SpoonUtils:printList()
+--- Method
+--- Print a list of installed/loaded Spoons. Has the same interface as `list()` but prints the list instead of returning it.
+---
+--- Parameters:
+---  * only_loaded - only return loaded Spoons (skips those that are installed but not loaded). Defaults to `false`
+---
+--- Returns:
+---  * The SpoonUtils object.
 function obj:printList(only_loaded)
    local list = self:list(only_loaded)
    for i,s in ipairs(list) do
@@ -168,10 +177,12 @@ function obj:printList(only_loaded)
       end
       print(s.name .. lstr)
    end
+   return self
 end
 
 function obj:init()
-         self._keys = {}
+   self._keys = {}
+   return self
 end
 
 return obj
