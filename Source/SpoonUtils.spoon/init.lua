@@ -127,8 +127,51 @@ function obj:bindHotkeysToSpec(def,map)
    return self
 end
 
+--- SpoonUtils:list()
+--- Method
+--- Return a list of installed/loaded Spoons
+---
+--- Parameters:
+---  * only_loaded - only return loaded Spoons (skips those that are installed but not loaded). Defaults to `false`
+---
+--- Returns:
+---  * Table with a list of installed/loaded spoons (depending on the value of `only_loaded`). Each entry is a table with the following entries:
+---    * `name` - Spoon name
+---    * `loaded` - boolean indication of whether the Spoon is loaded (`true`) or only installed (`false`)
+---    * `version` - Spoon version number. Available only for loaded Spoons.
+function obj:list(only_loaded)
+   local iterfn, dirobj = hs.fs.dir(hs.configdir .. "/Spoons")
+   local res = {}
+   repeat
+      local f = dirobj:next()
+      if f then
+         if string.match(f, ".spoon$") then
+            local s = f:gsub(".spoon$", "")
+            local l = (spoon[s] ~= nil)
+            if (not only_loaded) or l then
+               local new = { name = s, loaded = l }
+               if l then new.version = spoon[s].version end
+               table.insert(res, new)
+            end
+         end
+      end
+   until f == nil
+   return res
+end
+
+function obj:printList(only_loaded)
+   local list = self:list(only_loaded)
+   for i,s in ipairs(list) do
+      local lstr = " - installed"
+      if s.loaded then
+         lstr = " " .. s.version .. " loaded"
+      end
+      print(s.name .. lstr)
+   end
+end
+
 function obj:init()
-   self._keys = {}
+         self._keys = {}
 end
 
 return obj
