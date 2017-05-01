@@ -1,0 +1,160 @@
+[
+  {
+    "Constant" : [
+
+    ],
+    "submodules" : [
+
+    ],
+    "Function" : [
+
+    ],
+    "Variable" : [
+      {
+        "desc" : "Lua patterns for screens that shouldn't be rotated, even if they match one of the patterns. Defaults to `{ \"Color LCD\" }`, which excludes the built-in display on a laptop.",
+        "stripped_doc" : [
+          "Lua patterns for screens that shouldn't be rotated, even if they match one of the patterns. Defaults to `{ \"Color LCD\" }`, which excludes the built-in display on a laptop."
+        ],
+        "def" : "ScreenRotate.screens_to_skip",
+        "doc" : "Lua patterns for screens that shouldn't be rotated, even if they match one of the patterns. Defaults to `{ \"Color LCD\" }`, which excludes the built-in display on a laptop.",
+        "notes" : [
+
+        ],
+        "signature" : "ScreenRotate.screens_to_skip",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "screens_to_skip",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "desc" : "Two-element table containing the rotation angles for \"normal\" and \"rotated\". Defaults to `{ 0, 90 }` and should only be changed if you really know what you are doing.",
+        "stripped_doc" : [
+          "Two-element table containing the rotation angles for \"normal\" and \"rotated\". Defaults to `{ 0, 90 }` and should only be changed if you really know what you are doing."
+        ],
+        "def" : "ScreenRotate.rotating_angles",
+        "doc" : "Two-element table containing the rotation angles for \"normal\" and \"rotated\". Defaults to `{ 0, 90 }` and should only be changed if you really know what you are doing.",
+        "notes" : [
+
+        ],
+        "signature" : "ScreenRotate.rotating_angles",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "rotating_angles",
+        "parameters" : [
+
+        ]
+      }
+    ],
+    "stripped_doc" : [
+
+    ],
+    "desc" : "Toggle rotation on external screens",
+    "Deprecated" : [
+
+    ],
+    "type" : "Module",
+    "Constructor" : [
+
+    ],
+    "doc" : "Toggle rotation on external screens\n\nDownload: [https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/ScreenRotate.spoon.zip](https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/ScreenRotate.spoon.zip)\n\nMakes the following simplifying assumptions:\n* That you only toggle between two positions for rotated\/not\n  rotated (configured in `rotating_angles`, and which apply to all\n  screens)\n* That \"rotated\" means \"taller than wider\", for the purposes of\n  determining if the screen is rotated upon initialization.",
+    "items" : [
+      {
+        "desc" : "Two-element table containing the rotation angles for \"normal\" and \"rotated\". Defaults to `{ 0, 90 }` and should only be changed if you really know what you are doing.",
+        "stripped_doc" : [
+          "Two-element table containing the rotation angles for \"normal\" and \"rotated\". Defaults to `{ 0, 90 }` and should only be changed if you really know what you are doing."
+        ],
+        "def" : "ScreenRotate.rotating_angles",
+        "doc" : "Two-element table containing the rotation angles for \"normal\" and \"rotated\". Defaults to `{ 0, 90 }` and should only be changed if you really know what you are doing.",
+        "notes" : [
+
+        ],
+        "signature" : "ScreenRotate.rotating_angles",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "rotating_angles",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "desc" : "Lua patterns for screens that shouldn't be rotated, even if they match one of the patterns. Defaults to `{ \"Color LCD\" }`, which excludes the built-in display on a laptop.",
+        "stripped_doc" : [
+          "Lua patterns for screens that shouldn't be rotated, even if they match one of the patterns. Defaults to `{ \"Color LCD\" }`, which excludes the built-in display on a laptop."
+        ],
+        "def" : "ScreenRotate.screens_to_skip",
+        "doc" : "Lua patterns for screens that shouldn't be rotated, even if they match one of the patterns. Defaults to `{ \"Color LCD\" }`, which excludes the built-in display on a laptop.",
+        "notes" : [
+
+        ],
+        "signature" : "ScreenRotate.screens_to_skip",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "screens_to_skip",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "desc" : "Binds hotkeys for ScreenRotate.",
+        "stripped_doc" : [
+          "Binds hotkeys for ScreenRotate.",
+          ""
+        ],
+        "def" : "ScreenRotate:bindHotkeys(mapping)",
+        "doc" : "Binds hotkeys for ScreenRotate.\n\nParameters:\n * mapping - A table containing hotkey modifier\/key details to rotate screens. Each key must be the name of a screen to rotate, or a Lua pattern - in this case the first screen to match the pattern will be rotated. The value is a table containing the hotkey modifier\/key details as usual. You can use the key `[\".*\"]` to match the first external screen, which should be sufficient unless you have more than one external screen.",
+        "notes" : [
+
+        ],
+        "signature" : "ScreenRotate:bindHotkeys(mapping)",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "name" : "bindHotkeys",
+        "parameters" : [
+          " * mapping - A table containing hotkey modifier\/key details to rotate screens. Each key must be the name of a screen to rotate, or a Lua pattern - in this case the first screen to match the pattern will be rotated. The value is a table containing the hotkey modifier\/key details as usual. You can use the key `[\".*\"]` to match the first external screen, which should be sufficient unless you have more than one external screen."
+        ]
+      }
+    ],
+    "Field" : [
+
+    ],
+    "Command" : [
+
+    ],
+    "Method" : [
+      {
+        "desc" : "Binds hotkeys for ScreenRotate.",
+        "stripped_doc" : [
+          "Binds hotkeys for ScreenRotate.",
+          ""
+        ],
+        "def" : "ScreenRotate:bindHotkeys(mapping)",
+        "doc" : "Binds hotkeys for ScreenRotate.\n\nParameters:\n * mapping - A table containing hotkey modifier\/key details to rotate screens. Each key must be the name of a screen to rotate, or a Lua pattern - in this case the first screen to match the pattern will be rotated. The value is a table containing the hotkey modifier\/key details as usual. You can use the key `[\".*\"]` to match the first external screen, which should be sufficient unless you have more than one external screen.",
+        "notes" : [
+
+        ],
+        "signature" : "ScreenRotate:bindHotkeys(mapping)",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "name" : "bindHotkeys",
+        "parameters" : [
+          " * mapping - A table containing hotkey modifier\/key details to rotate screens. Each key must be the name of a screen to rotate, or a Lua pattern - in this case the first screen to match the pattern will be rotated. The value is a table containing the hotkey modifier\/key details as usual. You can use the key `[\".*\"]` to match the first external screen, which should be sufficient unless you have more than one external screen."
+        ]
+      }
+    ],
+    "name" : "ScreenRotate"
+  }
+]
