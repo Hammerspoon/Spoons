@@ -44,7 +44,7 @@ function obj:setRotation(scrname, rotate)
    self.logger.df("obj:setRotation(%s, %s)", scrname, rotate)
    if obj._screens[scrname] ~= nil then
       self._rotated[scrname]=rotate
-      obj._screens[scrname]:rotate(obj.config.rotating_angles[self._rotated[scrname] and 2 or 1])
+      obj._screens[scrname]:rotate(self.rotating_angles[self._rotated[scrname] and 2 or 1])
    end
 end
 
@@ -96,10 +96,15 @@ end
 --- Binds hotkeys for ScreenRotate.
 ---
 --- Parameters:
----  * mapping - A table containing hotkey modifier/key details to rotate screens. Instead of fixed "key names", each key must be the name of a screen to rotate, or a Lua pattern - in this case the first screen to match the pattern will be rotated. The value is a table containing the hotkey modifier/key details as usual. You can use the key `[".*"]` to match the first external screen, which should be sufficient unless you have more than one external screen.
+---  * mapping - A table containing hotkey modifier/key details to rotate screens. Instead of fixed "key names", each key must be the name of a screen to rotate, or a Lua pattern - in this case the first screen to match the pattern will be rotated. The value is a table containing the hotkey modifier/key details as usual. You can use the special key `first` (or the Lua pattern `[".*"]`) to match the first external screen, which should be sufficient unless you have more than one external screen. Example (bind Ctrl-Cmd-Alt-F15 to rotate the first external screen):
+---    ```
+---      [".*"] = { {"ctrl", "cmd", "alt"}, "f15" }
+---    ```
 function obj:bindHotkeys(mapping)
-   self.toggle_rotate_keys = mapping
+   self.toggle_rotate_keys = {}
    for k,v in pairs(mapping) do
+      if k == "first" then k = ".*" end
+      self.toggle_rotate_keys[k] = v
       self.logger.df("Setting up screen binding rotation for screen matching '%s' with key %s", k, v)
       hs.hotkey.bindSpec(v, function() self:toggleRotation(k) end)
    end
