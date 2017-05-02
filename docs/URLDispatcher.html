@@ -1,0 +1,146 @@
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hammerspoon docs: URLDispatcher</title>
+    <style type="text/css">
+      a { text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      th { background-color: #DDDDDD; vertical-align: top; padding: 3px; }
+      td { width: 100%; background-color: #EEEEEE; vertical-align: top; padding: 3px; }
+      table { width: 100% ; border: 1px solid #0; text-align: left; }
+      section > table table td { width: 0; }
+    </style>
+    <link rel="stylesheet" href="docs.css" type="text/css" media="screen" />
+  </head>
+  <body>
+    <header>
+      <h1><a href="./index.html">docs</a> &raquo; URLDispatcher</h1>
+      <p>Route URLs to different applications with pattern matching</p>
+<p>Download: <a href="https://github.com/Hammerspoon/Spoons/raw/master/Spoons/URLDispatcher.spoon.zip">https://github.com/Hammerspoon/Spoons/raw/master/Spoons/URLDispatcher.spoon.zip</a></p>
+<p>Sets Hammerspoon as the default browser for HTTP/HTTPS links, and
+dispatches them to different apps according to the patterns defined
+in the config. If no pattern matches, <code>default_handler</code> is used.</p>
+
+      </header>
+      <h3>API Overview</h3>
+      <ul>
+        <li>Variables - Configurable values</li>
+          <ul>
+            <li><a href="#decode_slack_redir_urls">decode_slack_redir_urls</a></li>
+            <li><a href="#default_handler">default_handler</a></li>
+            <li><a href="#url_patterns">url_patterns</a></li>
+          </ul>
+        <li>Methods - API calls which can only be made on an object returned by a constructor</li>
+          <ul>
+            <li><a href="#dispatchURL">dispatchURL</a></li>
+            <li><a href="#start">start</a></li>
+          </ul>
+      </ul>
+      <h3>API Documentation</h3>
+        <h4 class="documentation-section">Variables</h4>
+          <section id="decode_slack_redir_urls">
+            <a name="//apple_ref/cpp/Variable/decode_slack_redir_urls" class="dashAnchor"></a>
+            <h5><a href="#decode_slack_redir_urls">decode_slack_redir_urls</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>URLDispatcher.decode_slack_redir_urls</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>If true, handle Slack-redir URLs to apply the rule on the destination URL. Defaults to <code>true</code></p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="default_handler">
+            <a name="//apple_ref/cpp/Variable/default_handler" class="dashAnchor"></a>
+            <h5><a href="#default_handler">default_handler</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>URLDispatcher.default_handler</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Bundle ID for default URL handler. (Defaults to <code>"com.apple.Safari"</code>)</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="url_patterns">
+            <a name="//apple_ref/cpp/Variable/url_patterns" class="dashAnchor"></a>
+            <h5><a href="#url_patterns">url_patterns</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>URLDispatcher.url_patterns</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>URL dispatch rules.
+A table containing a list of dispatch rules. Each rule should be its own table in the format: <code>{ "url pattern", "application bundle ID" }</code>, and they are evaluated in the order they are declared. Note that the patterns are <a href="https://www.lua.org/pil/20.2.html">Lua patterns</a> and not regular expressions. Defaults to an empty table, which has the effect of having all URLs dispatched to the <code>default_handler</code>.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+        <h4 class="documentation-section">Methods</h4>
+          <section id="dispatchURL">
+            <a name="//apple_ref/cpp/Method/dispatchURL" class="dashAnchor"></a>
+            <h5><a href="#dispatchURL">dispatchURL</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>URLDispatcher:dispatchURL(scheme, host, params, fullUrl)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Dispatch a URL to an application according to the defined <code>url_patterns</code>.</p>
+<p>Parameters (according to the <a href="http://www.hammerspoon.org/docs/hs.urlevent.html#httpCallback">httpCallback</a> specification):</p>
+<ul>
+<li>scheme - A string containing the URL scheme (i.e. "http")</li>
+<li>host - A string containing the host requested (e.g. "www.hammerspoon.org")</li>
+<li>params - A table containing the key/value pairs of all the URL parameters</li>
+<li>fullURL - A string containing the full, original URL</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="start">
+            <a name="//apple_ref/cpp/Method/start" class="dashAnchor"></a>
+            <h5><a href="#start">start</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>URLDispatcher:start()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Start dispatching URLs according to the rules</p>
+</td>
+              </tr>
+            </table>
+          </section>
+  </body>
+</html>

@@ -114,5 +114,40 @@
     "module": "Seal",
     "name": "stop",
     "type": "Method"
+  },
+  {
+    "desc": "Route URLs to different applications with pattern matching",
+    "name": "URLDispatcher",
+    "type": "Module"
+  },
+  {
+    "desc": "If true, handle Slack-redir URLs to apply the rule on the destination URL. Defaults to `true`",
+    "module": "URLDispatcher",
+    "name": "decode_slack_redir_urls",
+    "type": "Variable"
+  },
+  {
+    "desc": "Bundle ID for default URL handler. (Defaults to `\"com.apple.Safari\"`)",
+    "module": "URLDispatcher",
+    "name": "default_handler",
+    "type": "Variable"
+  },
+  {
+    "desc": "URL dispatch rules.",
+    "module": "URLDispatcher",
+    "name": "url_patterns",
+    "type": "Variable"
+  },
+  {
+    "desc": "Dispatch a URL to an application according to the defined `url_patterns`.",
+    "module": "URLDispatcher",
+    "name": "dispatchURL",
+    "type": "Method"
+  },
+  {
+    "desc": "Start dispatching URLs according to the rules",
+    "module": "URLDispatcher",
+    "name": "start",
+    "type": "Method"
   }
 ]
