@@ -26,7 +26,8 @@ obj.logger = hs.logger.new('ToggleScreenRotation')
 
 --- ToggleScreenRotation.screens_to_skip
 --- Variable
---- Lua patterns for screens that shouldn't be rotated, even if they match one of the patterns. Defaults to `{ "Color LCD" }`, which excludes the built-in display on a laptop.
+--- Lua patterns for screens that shouldn't be rotated, even if they match one of the patterns.
+--- Defaults to `{ "Color LCD", "iMac" }`, which excludes the built-in display on laptops and iMacs.
 obj.screens_to_skip = { "Color LCD", "iMac" }
 
 --- ToggleScreenRotation.rotating_angles

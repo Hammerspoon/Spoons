@@ -1,166 +1,88 @@
 [
   {
-    "Constant" : [
-
-    ],
-    "submodules" : [
-
-    ],
-    "Function" : [
-
-    ],
-    "Variable" : [
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
       {
-        "doc" : "Lua patterns for screens that shouldn't be rotated, even if they match one of the patterns. Defaults to `{ \"Color LCD\" }`, which excludes the built-in display on a laptop.",
-        "def" : "ToggleScreenRotation.screens_to_skip",
-        "stripped_doc" : [
-          "Lua patterns for screens that shouldn't be rotated, even if they match one of the patterns. Defaults to `{ \"Color LCD\" }`, which excludes the built-in display on a laptop."
-        ],
-        "name" : "screens_to_skip",
-        "notes" : [
-
-        ],
-        "signature" : "ToggleScreenRotation.screens_to_skip",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "desc" : "Lua patterns for screens that shouldn't be rotated, even if they match one of the patterns. Defaults to `{ \"Color LCD\" }`, which excludes the built-in display on a laptop.",
-        "parameters" : [
-
-        ]
-      },
-      {
-        "doc" : "Two-element table containing the rotation angles for \"normal\" and \"rotated\". Defaults to `{ 0, 90 }` and should only be changed if you really know what you are doing.",
-        "def" : "ToggleScreenRotation.rotating_angles",
-        "stripped_doc" : [
-          "Two-element table containing the rotation angles for \"normal\" and \"rotated\". Defaults to `{ 0, 90 }` and should only be changed if you really know what you are doing."
-        ],
-        "name" : "rotating_angles",
-        "notes" : [
-
-        ],
-        "signature" : "ToggleScreenRotation.rotating_angles",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "desc" : "Two-element table containing the rotation angles for \"normal\" and \"rotated\". Defaults to `{ 0, 90 }` and should only be changed if you really know what you are doing.",
-        "parameters" : [
-
-        ]
-      }
-    ],
-    "stripped_doc" : [
-
-    ],
-    "desc" : "Toggle rotation on external screens",
-    "type" : "Module",
-    "Deprecated" : [
-
-    ],
-    "Constructor" : [
-
-    ],
-    "doc" : "Toggle rotation on external screens\n\nDownload: [https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/ToggleScreenRotation.spoon.zip](https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/ToggleScreenRotation.spoon.zip)\n\nMakes the following simplifying assumptions:\n* That you only toggle between two positions for rotated\/not\n  rotated (configured in `rotating_angles`, and which apply to all\n  screens)\n* That \"rotated\" means \"taller than wider\", for the purposes of\n  determining if the screen is rotated upon initialization.",
-    "Field" : [
-
-    ],
-    "Command" : [
-
-    ],
-    "items" : [
-      {
-        "doc" : "Two-element table containing the rotation angles for \"normal\" and \"rotated\". Defaults to `{ 0, 90 }` and should only be changed if you really know what you are doing.",
-        "def" : "ToggleScreenRotation.rotating_angles",
-        "stripped_doc" : [
-          "Two-element table containing the rotation angles for \"normal\" and \"rotated\". Defaults to `{ 0, 90 }` and should only be changed if you really know what you are doing."
-        ],
-        "name" : "rotating_angles",
-        "notes" : [
-
-        ],
-        "signature" : "ToggleScreenRotation.rotating_angles",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "desc" : "Two-element table containing the rotation angles for \"normal\" and \"rotated\". Defaults to `{ 0, 90 }` and should only be changed if you really know what you are doing.",
-        "parameters" : [
-
-        ]
-      },
-      {
-        "doc" : "Lua patterns for screens that shouldn't be rotated, even if they match one of the patterns. Defaults to `{ \"Color LCD\" }`, which excludes the built-in display on a laptop.",
-        "def" : "ToggleScreenRotation.screens_to_skip",
-        "stripped_doc" : [
-          "Lua patterns for screens that shouldn't be rotated, even if they match one of the patterns. Defaults to `{ \"Color LCD\" }`, which excludes the built-in display on a laptop."
-        ],
-        "name" : "screens_to_skip",
-        "notes" : [
-
-        ],
-        "signature" : "ToggleScreenRotation.screens_to_skip",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "desc" : "Lua patterns for screens that shouldn't be rotated, even if they match one of the patterns. Defaults to `{ \"Color LCD\" }`, which excludes the built-in display on a laptop.",
-        "parameters" : [
-
-        ]
-      },
-      {
-        "doc" : "Binds hotkeys for ToggleScreenRotation.\n\nParameters:\n * mapping - A table containing hotkey modifier\/key details to rotate screens. Instead of fixed \"key names\", each key must be the name of a screen to rotate, or a Lua pattern - in this case the first screen to match the pattern will be rotated. The value is a table containing the hotkey modifier\/key details as usual. You can use the special key `first` (or the Lua pattern `[\".*\"]`) to match the first external screen, which should be sufficient unless you have more than one external screen. Example (bind Ctrl-Cmd-Alt-F15 to rotate the first external screen):\n   ```\n     [\".*\"] = { {\"ctrl\", \"cmd\", \"alt\"}, \"f15\" }\n   ```",
-        "def" : "ToggleScreenRotation:bindHotkeys(mapping)",
-        "stripped_doc" : [
-          "Binds hotkeys for ToggleScreenRotation.",
-          ""
-        ],
-        "name" : "bindHotkeys",
-        "notes" : [
-
-        ],
-        "signature" : "ToggleScreenRotation:bindHotkeys(mapping)",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "desc" : "Binds hotkeys for ToggleScreenRotation.",
-        "parameters" : [
-          " * mapping - A table containing hotkey modifier\/key details to rotate screens. Instead of fixed \"key names\", each key must be the name of a screen to rotate, or a Lua pattern - in this case the first screen to match the pattern will be rotated. The value is a table containing the hotkey modifier\/key details as usual. You can use the special key `first` (or the Lua pattern `[\".*\"]`) to match the first external screen, which should be sufficient unless you have more than one external screen. Example (bind Ctrl-Cmd-Alt-F15 to rotate the first external screen):",
+        "def": "ToggleScreenRotation:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for ToggleScreenRotation.",
+        "doc": "Binds hotkeys for ToggleScreenRotation.\n\nParameters:\n * mapping - A table containing hotkey modifier/key details to rotate screens. Instead of fixed \"key names\", each key must be the name of a screen to rotate, or a Lua pattern - in this case the first screen to match the pattern will be rotated. The value is a table containing the hotkey modifier/key details as usual. You can use the special key `first` (or the Lua pattern `[\".*\"]`) to match the first external screen, which should be sufficient unless you have more than one external screen. Example (bind Ctrl-Cmd-Alt-F15 to rotate the first external screen):\n   ```\n     [\".*\"] = { {\"ctrl\", \"cmd\", \"alt\"}, \"f15\" }\n   ```",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * mapping - A table containing hotkey modifier/key details to rotate screens. Instead of fixed \"key names\", each key must be the name of a screen to rotate, or a Lua pattern - in this case the first screen to match the pattern will be rotated. The value is a table containing the hotkey modifier/key details as usual. You can use the special key `first` (or the Lua pattern `[\".*\"]`) to match the first external screen, which should be sufficient unless you have more than one external screen. Example (bind Ctrl-Cmd-Alt-F15 to rotate the first external screen):",
           "   ```",
           "     [\".*\"] = { {\"ctrl\", \"cmd\", \"alt\"}, \"f15\" }",
           "   ```"
-        ]
+        ],
+        "signature": "ToggleScreenRotation:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
       }
     ],
-    "Method" : [
+    "Variable": [
       {
-        "doc" : "Binds hotkeys for ToggleScreenRotation.\n\nParameters:\n * mapping - A table containing hotkey modifier\/key details to rotate screens. Instead of fixed \"key names\", each key must be the name of a screen to rotate, or a Lua pattern - in this case the first screen to match the pattern will be rotated. The value is a table containing the hotkey modifier\/key details as usual. You can use the special key `first` (or the Lua pattern `[\".*\"]`) to match the first external screen, which should be sufficient unless you have more than one external screen. Example (bind Ctrl-Cmd-Alt-F15 to rotate the first external screen):\n   ```\n     [\".*\"] = { {\"ctrl\", \"cmd\", \"alt\"}, \"f15\" }\n   ```",
-        "def" : "ToggleScreenRotation:bindHotkeys(mapping)",
-        "stripped_doc" : [
-          "Binds hotkeys for ToggleScreenRotation.",
-          ""
-        ],
-        "name" : "bindHotkeys",
-        "notes" : [
-
-        ],
-        "signature" : "ToggleScreenRotation:bindHotkeys(mapping)",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "desc" : "Binds hotkeys for ToggleScreenRotation.",
-        "parameters" : [
-          " * mapping - A table containing hotkey modifier\/key details to rotate screens. Instead of fixed \"key names\", each key must be the name of a screen to rotate, or a Lua pattern - in this case the first screen to match the pattern will be rotated. The value is a table containing the hotkey modifier\/key details as usual. You can use the special key `first` (or the Lua pattern `[\".*\"]`) to match the first external screen, which should be sufficient unless you have more than one external screen. Example (bind Ctrl-Cmd-Alt-F15 to rotate the first external screen):",
+        "def": "ToggleScreenRotation.rotating_angles",
+        "desc": "Two-element table containing the rotation angles for \"normal\" and \"rotated\". Defaults to `{ 0, 90 }` and should only be changed if you really know what you are doing.",
+        "doc": "Two-element table containing the rotation angles for \"normal\" and \"rotated\". Defaults to `{ 0, 90 }` and should only be changed if you really know what you are doing.",
+        "name": "rotating_angles",
+        "signature": "ToggleScreenRotation.rotating_angles",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "ToggleScreenRotation.screens_to_skip",
+        "desc": "Lua patterns for screens that shouldn't be rotated, even if they match one of the patterns.",
+        "doc": "Lua patterns for screens that shouldn't be rotated, even if they match one of the patterns.\nDefaults to `{ \"Color LCD\", \"iMac\" }`, which excludes the built-in display on laptops and iMacs.",
+        "name": "screens_to_skip",
+        "signature": "ToggleScreenRotation.screens_to_skip",
+        "stripped_doc": "Defaults to `{ \"Color LCD\", \"iMac\" }`, which excludes the built-in display on laptops and iMacs.",
+        "type": "Variable"
+      }
+    ],
+    "desc": "Toggle rotation on external screens",
+    "doc": "Toggle rotation on external screens\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/ToggleScreenRotation.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/ToggleScreenRotation.spoon.zip)\n\nMakes the following simplifying assumptions:\n* That you only toggle between two positions for rotated/not\n  rotated (configured in `rotating_angles`, and which apply to all\n  screens)\n* That \"rotated\" means \"taller than wider\", for the purposes of\n  determining if the screen is rotated upon initialization.",
+    "items": [
+      {
+        "def": "ToggleScreenRotation:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for ToggleScreenRotation.",
+        "doc": "Binds hotkeys for ToggleScreenRotation.\n\nParameters:\n * mapping - A table containing hotkey modifier/key details to rotate screens. Instead of fixed \"key names\", each key must be the name of a screen to rotate, or a Lua pattern - in this case the first screen to match the pattern will be rotated. The value is a table containing the hotkey modifier/key details as usual. You can use the special key `first` (or the Lua pattern `[\".*\"]`) to match the first external screen, which should be sufficient unless you have more than one external screen. Example (bind Ctrl-Cmd-Alt-F15 to rotate the first external screen):\n   ```\n     [\".*\"] = { {\"ctrl\", \"cmd\", \"alt\"}, \"f15\" }\n   ```",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * mapping - A table containing hotkey modifier/key details to rotate screens. Instead of fixed \"key names\", each key must be the name of a screen to rotate, or a Lua pattern - in this case the first screen to match the pattern will be rotated. The value is a table containing the hotkey modifier/key details as usual. You can use the special key `first` (or the Lua pattern `[\".*\"]`) to match the first external screen, which should be sufficient unless you have more than one external screen. Example (bind Ctrl-Cmd-Alt-F15 to rotate the first external screen):",
           "   ```",
           "     [\".*\"] = { {\"ctrl\", \"cmd\", \"alt\"}, \"f15\" }",
           "   ```"
-        ]
+        ],
+        "signature": "ToggleScreenRotation:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "ToggleScreenRotation.rotating_angles",
+        "desc": "Two-element table containing the rotation angles for \"normal\" and \"rotated\". Defaults to `{ 0, 90 }` and should only be changed if you really know what you are doing.",
+        "doc": "Two-element table containing the rotation angles for \"normal\" and \"rotated\". Defaults to `{ 0, 90 }` and should only be changed if you really know what you are doing.",
+        "name": "rotating_angles",
+        "signature": "ToggleScreenRotation.rotating_angles",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "ToggleScreenRotation.screens_to_skip",
+        "desc": "Lua patterns for screens that shouldn't be rotated, even if they match one of the patterns.",
+        "doc": "Lua patterns for screens that shouldn't be rotated, even if they match one of the patterns.\nDefaults to `{ \"Color LCD\", \"iMac\" }`, which excludes the built-in display on laptops and iMacs.",
+        "name": "screens_to_skip",
+        "signature": "ToggleScreenRotation.screens_to_skip",
+        "stripped_doc": "Defaults to `{ \"Color LCD\", \"iMac\" }`, which excludes the built-in display on laptops and iMacs.",
+        "type": "Variable"
       }
     ],
-    "name" : "ToggleScreenRotation"
+    "name": "ToggleScreenRotation",
+    "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/ToggleScreenRotation.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/ToggleScreenRotation.spoon.zip)\n\nMakes the following simplifying assumptions:\n* That you only toggle between two positions for rotated/not\n  rotated (configured in `rotating_angles`, and which apply to all\n  screens)\n* That \"rotated\" means \"taller than wider\", for the purposes of\n  determining if the screen is rotated upon initialization.",
+    "submodules": [],
+    "type": "Module"
   }
 ]
