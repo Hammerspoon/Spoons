@@ -1,8 +1,8 @@
---- === ScreenRotate ===
+--- === ToggleScreenRotation ===
 ---
 --- Toggle rotation on external screens
 ---
---- Download: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/ScreenRotate.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/ScreenRotate.spoon.zip)
+--- Download: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/ToggleScreenRotation.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/ToggleScreenRotation.spoon.zip)
 ---
 --- Makes the following simplifying assumptions:
 --- * That you only toggle between two positions for rotated/not
@@ -15,21 +15,21 @@ local obj={}
 obj.__index = obj
 
 -- Metadata
-obj.name = "ScreenRotate"
+obj.name = "ToggleScreenRotation"
 obj.version = "0.1"
 obj.author = "Diego Zamboni <diego@zzamboni.org>"
 obj.homepage = "https://github.com/Hammerspoon/Spoons"
 obj.license = "MIT - https://opensource.org/licenses/MIT"
 
 -- Spoon self.logger
-obj.logger = hs.logger.new('ScreenRotate')
+obj.logger = hs.logger.new('ToggleScreenRotation')
 
---- ScreenRotate.screens_to_skip
+--- ToggleScreenRotation.screens_to_skip
 --- Variable
 --- Lua patterns for screens that shouldn't be rotated, even if they match one of the patterns. Defaults to `{ "Color LCD" }`, which excludes the built-in display on a laptop.
 obj.screens_to_skip = { "Color LCD" }
 
---- ScreenRotate.rotating_angles
+--- ToggleScreenRotation.rotating_angles
 --- Variable
 --- Two-element table containing the rotation angles for "normal" and "rotated". Defaults to `{ 0, 90 }` and should only be changed if you really know what you are doing.
 obj.rotating_angles = { 0, 90 }
@@ -91,9 +91,9 @@ function obj:findScreens()
    end
 end
 
---- ScreenRotate:bindHotkeys(mapping)
+--- ToggleScreenRotation:bindHotkeys(mapping)
 --- Method
---- Binds hotkeys for ScreenRotate.
+--- Binds hotkeys for ToggleScreenRotation.
 ---
 --- Parameters:
 ---  * mapping - A table containing hotkey modifier/key details to rotate screens. Instead of fixed "key names", each key must be the name of a screen to rotate, or a Lua pattern - in this case the first screen to match the pattern will be rotated. The value is a table containing the hotkey modifier/key details as usual. You can use the special key `first` (or the Lua pattern `[".*"]`) to match the first external screen, which should be sufficient unless you have more than one external screen. Example (bind Ctrl-Cmd-Alt-F15 to rotate the first external screen):
