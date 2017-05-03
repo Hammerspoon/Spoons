@@ -35,8 +35,11 @@ obj.outlook_archive_folder = "Archive"
 
 --- UniversalArchive.archive_notifications
 --- Variable
---- Boolean indicating whether a notification should be produced when an item is archived. Defaults to "false".
-obj.archive_notifications = false
+--- Boolean indicating whether a notification should be produced when an item is archived. Defaults to "true".
+obj.archive_notifications = true
+
+-- Do not change this unless you know what you are doing
+obj.evernote_delay_before_typing = 0.2
 
 function obj:evernoteArchive(where)
    local ev = hs.appfinder.appFromName("Evernote")
@@ -47,12 +50,11 @@ function obj:evernoteArchive(where)
          dest = self.evernote_archive_notebook
       end
       if self.archive_notifications then
-         omh.notify("Evernote", "Archiving note to " .. dest)
+         hs.notify.show("Evernote", "", "Archiving note to " .. dest)
       end
-      omh.sleep(self.evernote_delay_before_typing)
-      event.keyStrokes(dest .. "\n")
+      hs.timer.doAfter(self.evernote_delay_before_typing, function() hs.eventtap.keyStrokes(dest .. "\n") end)
    else
-      omh.notify("Hammerspoon", "Something went wrong, couldn't find Evernote's menu item for archiving")
+      hs.notify.show("Hammerspoon", "", "Something went wrong, couldn't find Evernote's menu item for archiving")
    end
 end
 
@@ -61,10 +63,10 @@ function obj:mailArchive()
    local mail = hs.appfinder.appFromName("Mail")
    if mail:selectMenuItem({"Message", "Archive"}) then
       if self.archive_notifications then
-         omh.notify("Mail", "Archiving message")
+         hs.notify.show("Mail", "", "Archiving message")
       end
    else
-      omh.notify("Hammerspoon", "Something went wrong, couldn't find Mail's menu item for archiving")
+      hs.notify.show("Hammerspoon", "", "Something went wrong, couldn't find Mail's menu item for archiving")
    end
 end
 
@@ -73,10 +75,10 @@ function obj:sparkArchive()
    local spark = hs.appfinder.appFromName("Spark")
    if spark:selectMenuItem({"Message", "Archive"}) then
       if self.archive_notifications then
-         omh.notify("Spark", "Archiving message")
+         hs.notify.show("Spark", "", "Archiving message")
       end
    else
-      omh.notify("Hammerspoon", "Something went wrong, couldn't find Spark's menu item for archiving")
+      hs.notify.show("Hammerspoon", "", "Something went wrong, couldn't find Spark's menu item for archiving")
    end
 end
 
@@ -85,10 +87,10 @@ function obj:outlookArchive(where)
    local outlook = hs.appfinder.appFromName("Microsoft Outlook")
    if outlook:selectMenuItem({"Message", "Move", self.outlook_archive_folder}) then
       if self.archive_notifications then
-         omh.notify("Outlook", "Archiving message")
+         hs.notify.show("Outlook", "", "Archiving message")
       end
    else
-      omh.notify("Hammerspoon", "Something went wrong, couldn't find Outlook's menu item for archiving")
+      hs.notify.show("Hammerspoon", "", "Something went wrong, couldn't find Outlook's menu item for archiving")
    end
 end
 
@@ -111,7 +113,7 @@ function obj:universalArchive(where)
       -- Archiving Outlook messages
       self:outlookArchive()
    else
-      omh.notify("Hammerspoon", "I don't know how to archive in " .. hs.application.frontmostApplication():name())
+      hs.notify.show("Hammerspoon", "", "I don't know how to archive in " .. hs.application.frontmostApplication():name())
    end
 end
 
@@ -145,10 +147,20 @@ end
 ---  * mapping - A table containing hotkey objifier/key details for the following items:
 ---   * hello - Say Hello
 function obj:bindHotkeys(mapping)
-   self:bindHotkeysToSpec({archive = function() self:universalArchive() end})
+   self:bindHotkeysToSpec({archive = function() self:universalArchive() end}, mapping)
    for a,k in pairs(mapping) do
-      
+      local _,_,notebook = string.find(a, "^evernote_(.+)")
+      if notebook ~= nil then
+         if self._keys[a] then
+            self._keys[a]:delete()
+         end
+         self._keys[a] = hs.hotkey.bindSpec(k, function() self:evernoteArchive(notebook) end)
+      end
    end
+end
+
+function obj:init()
+   self._keys = {}
 end
 
 return obj
