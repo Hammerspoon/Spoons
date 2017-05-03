@@ -52,7 +52,7 @@ obj.indicatorInAllSpaces = true
 --- use the named colors from within the tables). If a layout is not
 --- found, then the indicators are removed when that layout is active.
 ---
---- Inidicator specs can be static flag-like:
+--- Indicator specs can be static flag-like:
 --- ```
 ---   Spanish = {col.green, col.white, col.red},
 ---   German = {col.black, col.red, col.yellow},
@@ -76,6 +76,7 @@ obj.indicatorInAllSpaces = true
 --- ```
 --- Contributions of indicator specs are welcome!
 obj.colors = {
+   ["U.S."] = { }, -- empty list or no table entry means "no indicator"
    Spanish = {col.red, col.yellow, col.red},
    German = {col.black, col.red, col.yellow},
 }
