@@ -163,6 +163,29 @@
     "type": "Method"
   },
   {
+    "desc": "Toggle rotation on external screens",
+    "name": "ToggleScreenRotation",
+    "type": "Module"
+  },
+  {
+    "desc": "Two-element table containing the rotation angles for \"normal\" and \"rotated\". Defaults to `{ 0, 90 }` and should only be changed if you really know what you are doing.",
+    "module": "ToggleScreenRotation",
+    "name": "rotating_angles",
+    "type": "Variable"
+  },
+  {
+    "desc": "Lua patterns for screens that shouldn't be rotated, even if they match one of the patterns.",
+    "module": "ToggleScreenRotation",
+    "name": "screens_to_skip",
+    "type": "Variable"
+  },
+  {
+    "desc": "Binds hotkeys for ToggleScreenRotation.",
+    "module": "ToggleScreenRotation",
+    "name": "bindHotkeys",
+    "type": "Method"
+  },
+  {
     "desc": "Route URLs to different applications with pattern matching",
     "name": "URLDispatcher",
     "type": "Module"
