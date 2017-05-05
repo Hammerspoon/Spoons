@@ -1,0 +1,53 @@
+[
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
+        "def": "Emojis:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for Emojis",
+        "doc": "Binds hotkeys for Emojis\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for the following items:\n  * toggle - This will toggle the emoji chooser\n\nReturns:\n * The Emojis object",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * mapping - A table containing hotkey modifier/key details for the following items:",
+          "  * toggle - This will toggle the emoji chooser"
+        ],
+        "returns": [
+          " * The Emojis object"
+        ],
+        "signature": "Emojis:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [],
+    "desc": "Let users choose emojis by name/keyword",
+    "doc": "Let users choose emojis by name/keyword",
+    "items": [
+      {
+        "def": "Emojis:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for Emojis",
+        "doc": "Binds hotkeys for Emojis\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for the following items:\n  * toggle - This will toggle the emoji chooser\n\nReturns:\n * The Emojis object",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * mapping - A table containing hotkey modifier/key details for the following items:",
+          "  * toggle - This will toggle the emoji chooser"
+        ],
+        "returns": [
+          " * The Emojis object"
+        ],
+        "signature": "Emojis:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "name": "Emojis",
+    "stripped_doc": "",
+    "submodules": [],
+    "type": "Module"
+  }
+]
