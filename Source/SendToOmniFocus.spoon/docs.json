@@ -1,0 +1,400 @@
+[
+  {
+    "Constant" : [
+
+    ],
+    "submodules" : [
+
+    ],
+    "Function" : [
+
+    ],
+    "Variable" : [
+      {
+        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "stripped_doc" : [
+          "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
+        ],
+        "def" : "SendToOmniFocus.logger",
+        "doc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "notes" : [
+
+        ],
+        "signature" : "SendToOmniFocus.logger",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "logger",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "desc" : "Boolean to control Hammerspoon-generated notifications when filing items (doest not control AppleScript notifications, if any, generated from within the scripts). Defaults to `true`.",
+        "stripped_doc" : [
+          "Boolean to control Hammerspoon-generated notifications when filing items (doest not control AppleScript notifications, if any, generated from within the scripts). Defaults to `true`."
+        ],
+        "def" : "SendToOmniFocus.notifications",
+        "doc" : "Boolean to control Hammerspoon-generated notifications when filing items (doest not control AppleScript notifications, if any, generated from within the scripts). Defaults to `true`.",
+        "notes" : [
+
+        ],
+        "signature" : "SendToOmniFocus.notifications",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "notifications",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "desc" : "Whether to display the new tasks in the OmniFocus quick-entry dialog before adding them. Defaults to `true` (set to `false` to send directly to the Inbox, without prompting)",
+        "stripped_doc" : [
+          "Whether to display the new tasks in the OmniFocus quick-entry dialog before adding them. Defaults to `true` (set to `false` to send directly to the Inbox, without prompting)"
+        ],
+        "def" : "SendToOmniFocus.quickentrydialog",
+        "doc" : "Whether to display the new tasks in the OmniFocus quick-entry dialog before adding them. Defaults to `true` (set to `false` to send directly to the Inbox, without prompting)",
+        "notes" : [
+
+        ],
+        "signature" : "SendToOmniFocus.quickentrydialog",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "quickentrydialog",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "desc" : "Table containing application handlers for sending the current item",
+        "stripped_doc" : [
+          "Table containing application handlers for sending the current item",
+          "to OmniFocus. Each entry's key is the application name, and its",
+          "value is another table with the following keys:",
+          " * `itemname` - how to name the current item in the context of the application. Purely for cosmetic purposes in the notifications (e.g. in Mail, the notification says \"filing message\" instead of \"filing item\". Defaults to \"item\".",
+          " * One of the following, invoked to do the actual filing:",
+          "   * `as_scriptfile` - path of a file containing AppleScript code. It will be executed using the `osascript` command. If `quickentrydialog` is set to `false`, the string `nodialog` will be passed as argument to the script.",
+          "   * `as_script` - string containing AppleScript code. There is no way to pass an argument to the script via this method.",
+          "   * `fn` - a function. It will be passed a boolean indicating the value of `quickentrydialog`.",
+          "   * `apptype` - a predefined \"application type\" to trigger different behavior for application families. The only valid value at the moment is \"chromeapp\", which can be used for any Chrome-based applications, including Google Chrome itself and, for example, any site-specific browsers generated using [Epichrome](https:\/\/github.com\/dmarmor\/epichrome).",
+          "",
+          "The built-in handlers for Outlook, Evernote, Chrome and Mail are implemented by scripts bundled with the SendToOmniFocus spoon.",
+          "New handlers can be registered using `SendToOmniFocus:registerApplication()`",
+          "",
+          "Default value:",
+          "```",
+          "  {",
+          "     [\"Microsoft Outlook\"] = {",
+          "        as_scriptfile = hs.spoons.resource_path(\"scripts\/outlook-to-omnifocus.applescript\"),",
+          "        itemname = \"message\"",
+          "     },",
+          "     Evernote = {",
+          "        as_scriptfile = hs.spoons.resource_path(\"scripts\/evernote-to-omnifocus.applescript\"),",
+          "        itemname = \"note\"",
+          "     },",
+          "     [\"Google Chrome\"] = {",
+          "        apptype = \"chromeapp\",",
+          "        itemname = \"tab\"",
+          "     },",
+          "     Mail = {",
+          "        as_scriptfile = hs.spoons.resource_path(\"scripts\/mail-to-omnifocus.applescript\"),",
+          "        itemname = \"message\"",
+          "     }",
+          "  }",
+          "```"
+        ],
+        "def" : "SendToOmniFocus.actions",
+        "doc" : "Table containing application handlers for sending the current item\nto OmniFocus. Each entry's key is the application name, and its\nvalue is another table with the following keys:\n * `itemname` - how to name the current item in the context of the application. Purely for cosmetic purposes in the notifications (e.g. in Mail, the notification says \"filing message\" instead of \"filing item\". Defaults to \"item\".\n * One of the following, invoked to do the actual filing:\n   * `as_scriptfile` - path of a file containing AppleScript code. It will be executed using the `osascript` command. If `quickentrydialog` is set to `false`, the string `nodialog` will be passed as argument to the script.\n   * `as_script` - string containing AppleScript code. There is no way to pass an argument to the script via this method.\n   * `fn` - a function. It will be passed a boolean indicating the value of `quickentrydialog`.\n   * `apptype` - a predefined \"application type\" to trigger different behavior for application families. The only valid value at the moment is \"chromeapp\", which can be used for any Chrome-based applications, including Google Chrome itself and, for example, any site-specific browsers generated using [Epichrome](https:\/\/github.com\/dmarmor\/epichrome).\n\nThe built-in handlers for Outlook, Evernote, Chrome and Mail are implemented by scripts bundled with the SendToOmniFocus spoon.\nNew handlers can be registered using `SendToOmniFocus:registerApplication()`\n\nDefault value:\n```\n  {\n     [\"Microsoft Outlook\"] = {\n        as_scriptfile = hs.spoons.resource_path(\"scripts\/outlook-to-omnifocus.applescript\"),\n        itemname = \"message\"\n     },\n     Evernote = {\n        as_scriptfile = hs.spoons.resource_path(\"scripts\/evernote-to-omnifocus.applescript\"),\n        itemname = \"note\"\n     },\n     [\"Google Chrome\"] = {\n        apptype = \"chromeapp\",\n        itemname = \"tab\"\n     },\n     Mail = {\n        as_scriptfile = hs.spoons.resource_path(\"scripts\/mail-to-omnifocus.applescript\"),\n        itemname = \"message\"\n     }\n  }\n```",
+        "notes" : [
+
+        ],
+        "signature" : "SendToOmniFocus.actions",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "actions",
+        "parameters" : [
+
+        ]
+      }
+    ],
+    "stripped_doc" : [
+
+    ],
+    "desc" : "Handles \"send current item to OmniFocus\" for multiple applications",
+    "Deprecated" : [
+
+    ],
+    "type" : "Module",
+    "Constructor" : [
+
+    ],
+    "items" : [
+      {
+        "desc" : "Table containing application handlers for sending the current item",
+        "stripped_doc" : [
+          "Table containing application handlers for sending the current item",
+          "to OmniFocus. Each entry's key is the application name, and its",
+          "value is another table with the following keys:",
+          " * `itemname` - how to name the current item in the context of the application. Purely for cosmetic purposes in the notifications (e.g. in Mail, the notification says \"filing message\" instead of \"filing item\". Defaults to \"item\".",
+          " * One of the following, invoked to do the actual filing:",
+          "   * `as_scriptfile` - path of a file containing AppleScript code. It will be executed using the `osascript` command. If `quickentrydialog` is set to `false`, the string `nodialog` will be passed as argument to the script.",
+          "   * `as_script` - string containing AppleScript code. There is no way to pass an argument to the script via this method.",
+          "   * `fn` - a function. It will be passed a boolean indicating the value of `quickentrydialog`.",
+          "   * `apptype` - a predefined \"application type\" to trigger different behavior for application families. The only valid value at the moment is \"chromeapp\", which can be used for any Chrome-based applications, including Google Chrome itself and, for example, any site-specific browsers generated using [Epichrome](https:\/\/github.com\/dmarmor\/epichrome).",
+          "",
+          "The built-in handlers for Outlook, Evernote, Chrome and Mail are implemented by scripts bundled with the SendToOmniFocus spoon.",
+          "New handlers can be registered using `SendToOmniFocus:registerApplication()`",
+          "",
+          "Default value:",
+          "```",
+          "  {",
+          "     [\"Microsoft Outlook\"] = {",
+          "        as_scriptfile = hs.spoons.resource_path(\"scripts\/outlook-to-omnifocus.applescript\"),",
+          "        itemname = \"message\"",
+          "     },",
+          "     Evernote = {",
+          "        as_scriptfile = hs.spoons.resource_path(\"scripts\/evernote-to-omnifocus.applescript\"),",
+          "        itemname = \"note\"",
+          "     },",
+          "     [\"Google Chrome\"] = {",
+          "        apptype = \"chromeapp\",",
+          "        itemname = \"tab\"",
+          "     },",
+          "     Mail = {",
+          "        as_scriptfile = hs.spoons.resource_path(\"scripts\/mail-to-omnifocus.applescript\"),",
+          "        itemname = \"message\"",
+          "     }",
+          "  }",
+          "```"
+        ],
+        "def" : "SendToOmniFocus.actions",
+        "doc" : "Table containing application handlers for sending the current item\nto OmniFocus. Each entry's key is the application name, and its\nvalue is another table with the following keys:\n * `itemname` - how to name the current item in the context of the application. Purely for cosmetic purposes in the notifications (e.g. in Mail, the notification says \"filing message\" instead of \"filing item\". Defaults to \"item\".\n * One of the following, invoked to do the actual filing:\n   * `as_scriptfile` - path of a file containing AppleScript code. It will be executed using the `osascript` command. If `quickentrydialog` is set to `false`, the string `nodialog` will be passed as argument to the script.\n   * `as_script` - string containing AppleScript code. There is no way to pass an argument to the script via this method.\n   * `fn` - a function. It will be passed a boolean indicating the value of `quickentrydialog`.\n   * `apptype` - a predefined \"application type\" to trigger different behavior for application families. The only valid value at the moment is \"chromeapp\", which can be used for any Chrome-based applications, including Google Chrome itself and, for example, any site-specific browsers generated using [Epichrome](https:\/\/github.com\/dmarmor\/epichrome).\n\nThe built-in handlers for Outlook, Evernote, Chrome and Mail are implemented by scripts bundled with the SendToOmniFocus spoon.\nNew handlers can be registered using `SendToOmniFocus:registerApplication()`\n\nDefault value:\n```\n  {\n     [\"Microsoft Outlook\"] = {\n        as_scriptfile = hs.spoons.resource_path(\"scripts\/outlook-to-omnifocus.applescript\"),\n        itemname = \"message\"\n     },\n     Evernote = {\n        as_scriptfile = hs.spoons.resource_path(\"scripts\/evernote-to-omnifocus.applescript\"),\n        itemname = \"note\"\n     },\n     [\"Google Chrome\"] = {\n        apptype = \"chromeapp\",\n        itemname = \"tab\"\n     },\n     Mail = {\n        as_scriptfile = hs.spoons.resource_path(\"scripts\/mail-to-omnifocus.applescript\"),\n        itemname = \"message\"\n     }\n  }\n```",
+        "notes" : [
+
+        ],
+        "signature" : "SendToOmniFocus.actions",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "actions",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "stripped_doc" : [
+          "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
+        ],
+        "def" : "SendToOmniFocus.logger",
+        "doc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "notes" : [
+
+        ],
+        "signature" : "SendToOmniFocus.logger",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "logger",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "desc" : "Boolean to control Hammerspoon-generated notifications when filing items (doest not control AppleScript notifications, if any, generated from within the scripts). Defaults to `true`.",
+        "stripped_doc" : [
+          "Boolean to control Hammerspoon-generated notifications when filing items (doest not control AppleScript notifications, if any, generated from within the scripts). Defaults to `true`."
+        ],
+        "def" : "SendToOmniFocus.notifications",
+        "doc" : "Boolean to control Hammerspoon-generated notifications when filing items (doest not control AppleScript notifications, if any, generated from within the scripts). Defaults to `true`.",
+        "notes" : [
+
+        ],
+        "signature" : "SendToOmniFocus.notifications",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "notifications",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "desc" : "Whether to display the new tasks in the OmniFocus quick-entry dialog before adding them. Defaults to `true` (set to `false` to send directly to the Inbox, without prompting)",
+        "stripped_doc" : [
+          "Whether to display the new tasks in the OmniFocus quick-entry dialog before adding them. Defaults to `true` (set to `false` to send directly to the Inbox, without prompting)"
+        ],
+        "def" : "SendToOmniFocus.quickentrydialog",
+        "doc" : "Whether to display the new tasks in the OmniFocus quick-entry dialog before adding them. Defaults to `true` (set to `false` to send directly to the Inbox, without prompting)",
+        "notes" : [
+
+        ],
+        "signature" : "SendToOmniFocus.quickentrydialog",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "quickentrydialog",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "desc" : "Binds hotkeys for SendToOmniFocus",
+        "stripped_doc" : [
+          "Binds hotkeys for SendToOmniFocus",
+          ""
+        ],
+        "def" : "SendToOmniFocus:bindHotkeys(mapping)",
+        "doc" : "Binds hotkeys for SendToOmniFocus\n\nParameters:\n * mapping - A table containing hotkey objifier\/key details for the following items:\n  * send_to_omnifocus - file current item to OmniFocus.",
+        "notes" : [
+
+        ],
+        "signature" : "SendToOmniFocus:bindHotkeys(mapping)",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "name" : "bindHotkeys",
+        "parameters" : [
+          " * mapping - A table containing hotkey objifier\/key details for the following items:",
+          "  * send_to_omnifocus - file current item to OmniFocus."
+        ]
+      },
+      {
+        "desc" : "Register a new application handler",
+        "stripped_doc" : [
+          "Register a new application handler",
+          ""
+        ],
+        "def" : "SendToOmniFocus:registerApplication(app, handlerSpec)",
+        "doc" : "Register a new application handler\n\nParameters:\n * app - application name\n * handlerSpec - a handler definition in the format of `SendToOmniFocus.actions`, or `nil` to unregister the application.",
+        "notes" : [
+
+        ],
+        "signature" : "SendToOmniFocus:registerApplication(app, handlerSpec)",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "name" : "registerApplication",
+        "parameters" : [
+          " * app - application name",
+          " * handlerSpec - a handler definition in the format of `SendToOmniFocus.actions`, or `nil` to unregister the application."
+        ]
+      },
+      {
+        "desc" : "Send current item in current application to OmniFocus by triggering the appropriate handler.",
+        "stripped_doc" : [
+          "Send current item in current application to OmniFocus by triggering the appropriate handler.",
+          "",
+          "Paramters:",
+          " * None",
+          ""
+        ],
+        "def" : "SendToOmniFocus:sendCurrentItem",
+        "doc" : "Send current item in current application to OmniFocus by triggering the appropriate handler.\n\nParamters:\n * None\n\nReturns:\n * The SendToOmniFocus object",
+        "notes" : [
+
+        ],
+        "signature" : "SendToOmniFocus:sendCurrentItem",
+        "type" : "Method",
+        "returns" : [
+          " * The SendToOmniFocus object"
+        ],
+        "name" : "sendCurrentItem",
+        "parameters" : [
+
+        ]
+      }
+    ],
+    "Field" : [
+
+    ],
+    "Command" : [
+
+    ],
+    "Method" : [
+      {
+        "desc" : "Send current item in current application to OmniFocus by triggering the appropriate handler.",
+        "stripped_doc" : [
+          "Send current item in current application to OmniFocus by triggering the appropriate handler.",
+          "",
+          "Paramters:",
+          " * None",
+          ""
+        ],
+        "def" : "SendToOmniFocus:sendCurrentItem",
+        "doc" : "Send current item in current application to OmniFocus by triggering the appropriate handler.\n\nParamters:\n * None\n\nReturns:\n * The SendToOmniFocus object",
+        "notes" : [
+
+        ],
+        "signature" : "SendToOmniFocus:sendCurrentItem",
+        "type" : "Method",
+        "returns" : [
+          " * The SendToOmniFocus object"
+        ],
+        "name" : "sendCurrentItem",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "desc" : "Register a new application handler",
+        "stripped_doc" : [
+          "Register a new application handler",
+          ""
+        ],
+        "def" : "SendToOmniFocus:registerApplication(app, handlerSpec)",
+        "doc" : "Register a new application handler\n\nParameters:\n * app - application name\n * handlerSpec - a handler definition in the format of `SendToOmniFocus.actions`, or `nil` to unregister the application.",
+        "notes" : [
+
+        ],
+        "signature" : "SendToOmniFocus:registerApplication(app, handlerSpec)",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "name" : "registerApplication",
+        "parameters" : [
+          " * app - application name",
+          " * handlerSpec - a handler definition in the format of `SendToOmniFocus.actions`, or `nil` to unregister the application."
+        ]
+      },
+      {
+        "desc" : "Binds hotkeys for SendToOmniFocus",
+        "stripped_doc" : [
+          "Binds hotkeys for SendToOmniFocus",
+          ""
+        ],
+        "def" : "SendToOmniFocus:bindHotkeys(mapping)",
+        "doc" : "Binds hotkeys for SendToOmniFocus\n\nParameters:\n * mapping - A table containing hotkey objifier\/key details for the following items:\n  * send_to_omnifocus - file current item to OmniFocus.",
+        "notes" : [
+
+        ],
+        "signature" : "SendToOmniFocus:bindHotkeys(mapping)",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "name" : "bindHotkeys",
+        "parameters" : [
+          " * mapping - A table containing hotkey objifier\/key details for the following items:",
+          "  * send_to_omnifocus - file current item to OmniFocus."
+        ]
+      }
+    ],
+    "doc" : "Handles \"send current item to OmniFocus\" for multiple applications\n\nThe following applications are supported: out of the box: Outlook, Evernote, Mail, Chrome and any Chrome-based apps (such as SSBs created by [Epichrome](https:\/\/github.com\/dmarmor\/epichrome))\n\nDownload: [https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/SendToOmniFocus.spoon.zip](https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/SendToOmniFocus.spoon.zip)",
+    "name" : "SendToOmniFocus"
+  }
+]
