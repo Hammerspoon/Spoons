@@ -16,6 +16,37 @@ obj.author = "Your Name <your@email.org>"
 obj.homepage = "https://github.com/Hammerspoon/Spoons"
 obj.license = "MIT - https://opensource.org/licenses/MIT"
 
+-- --------------------------------------------------------------------
+-- Methods from hs.spoons inserted locally to make he spoon self-sufficient
+-- while hs.spoons is merged (https://github.com/Hammerspoon/hammerspoon/pull/1405)
+
+local function _script_path(n)
+   if n == nil then n = 2 end
+   local str = debug.getinfo(n, "S").source:sub(2)
+   return str:match("(.*/)")
+end
+
+local function _resource_path(partial)
+   return(_script_path(3) .. partial)
+end
+
+function obj:bindHotkeysToSpec(def,map)
+   local spoonpath = _script_path(3)
+   for name,key in pairs(map) do
+      if def[name] ~= nil then
+         local keypath = spoonpath .. name
+         if self._keys[keypath] then
+            self._keys[keypath]:delete()
+         end
+         self._keys[keypath]=hs.hotkey.bindSpec(key, def[name])
+      else
+         self.logger.ef("Error: Hotkey requested for undefined action '%s'", name)
+      end
+   end
+end
+
+-- --------------------------------------------------------------------
+
 --- SendToOmniFocus.logger
 --- Variable
 --- Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.
@@ -50,11 +81,11 @@ obj.quickentrydialog = true
 --- ```
 ---   {
 ---      ["Microsoft Outlook"] = {
----         as_scriptfile = hs.spoons.resource_path("scripts/outlook-to-omnifocus.applescript"),
+---         as_scriptfile = _resource_path("scripts/outlook-to-omnifocus.applescript"),
 ---         itemname = "message"
 ---      },
 ---      Evernote = {
----         as_scriptfile = hs.spoons.resource_path("scripts/evernote-to-omnifocus.applescript"),
+---         as_scriptfile = _resource_path("scripts/evernote-to-omnifocus.applescript"),
 ---         itemname = "note"
 ---      },
 ---      ["Google Chrome"] = {
@@ -62,18 +93,18 @@ obj.quickentrydialog = true
 ---         itemname = "tab"
 ---      },
 ---      Mail = {
----         as_scriptfile = hs.spoons.resource_path("scripts/mail-to-omnifocus.applescript"),
+---         as_scriptfile = _resource_path("scripts/mail-to-omnifocus.applescript"),
 ---         itemname = "message"
 ---      }
 ---   }
 --- ```
 obj.actions = {
    ["Microsoft Outlook"] = {
-      as_scriptfile = hs.spoons.resource_path("scripts/outlook-to-omnifocus.applescript"),
+      as_scriptfile = _resource_path("scripts/outlook-to-omnifocus.applescript"),
       itemname = "message"
    },
    Evernote = {
-      as_scriptfile = hs.spoons.resource_path("scripts/evernote-to-omnifocus.applescript"),
+      as_scriptfile = _resource_path("scripts/evernote-to-omnifocus.applescript"),
       itemname = "note"
    },
    ["Google Chrome"] = {
@@ -81,7 +112,7 @@ obj.actions = {
       itemname = "tab"
    },
    Mail = {
-      as_scriptfile = hs.spoons.resource_path("scripts/mail-to-omnifocus.applescript"),
+      as_scriptfile = _resource_path("scripts/mail-to-omnifocus.applescript"),
       itemname = "message"
    }
 }
@@ -132,7 +163,7 @@ function obj:sendCurrentItem()
                app = appname,
                item = itemname,
             }
-            local template_file = hs.spoons.resource_path("scripts/chrome-to-omnifocus.tpl")
+            local template_file = _resource_path("scripts/chrome-to-omnifocus.tpl")
             local text=slurp(template_file)
             as_script = interp(text, data)
             self.logger.df("action.as_script=%s", action.as_script)
@@ -176,9 +207,13 @@ end
 ---  * mapping - A table containing hotkey objifier/key details for the following items:
 ---   * send_to_omnifocus - file current item to OmniFocus.
 function obj:bindHotkeys(mapping)
-   hs.spoons.bindHotkeysToSpec(
+   self:bindHotkeysToSpec(
       { send_to_omnifocus = hs.fnutils.partial(self.sendCurrentItem, self) },
       mapping)
+end
+
+function obj:init()
+   self._keys = {}
 end
 
 return obj
