@@ -70,6 +70,17 @@
     "type": "Method"
   },
   {
+    "desc": "Let users choose emojis by name/keyword",
+    "name": "Emojis",
+    "type": "Module"
+  },
+  {
+    "desc": "Binds hotkeys for Emojis",
+    "module": "Emojis",
+    "name": "bindHotkeys",
+    "type": "Method"
+  },
+  {
     "desc": "Draws a circle around the mouse pointer when a hotkey is pressed",
     "name": "MouseCircle",
     "type": "Module"
