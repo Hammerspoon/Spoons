@@ -81,6 +81,65 @@
     "type": "Method"
   },
   {
+    "desc": "Color the menubar according to the current keyboard layout",
+    "name": "MenubarFlag",
+    "type": "Module"
+  },
+  {
+    "desc": "Boolean to specify whether the indicators should be shown on all monitors or just the current one. Defaults to `true`",
+    "module": "MenubarFlag",
+    "name": "allScreens",
+    "type": "Variable"
+  },
+  {
+    "desc": "Table that contains the configuration of indicator colors",
+    "module": "MenubarFlag",
+    "name": "colors",
+    "type": "Variable"
+  },
+  {
+    "desc": "Number to specify the indicator transparency (0.0 - invisible; 1.0 - fully opaque). Defaults to 0.3",
+    "module": "MenubarFlag",
+    "name": "indicatorAlpha",
+    "type": "Variable"
+  },
+  {
+    "desc": "Number to specify the height of the indicator. Specify 0.0-1.0 to specify a percentage of the height of the menu bar, larger values indicate a fixed height in pixels. Defaults to 1.0",
+    "module": "MenubarFlag",
+    "name": "indicatorHeight",
+    "type": "Variable"
+  },
+  {
+    "desc": "Boolean to specify whether the indicator should be shown in all spaces (this includes full-screen mode). Defaults to `true`",
+    "module": "MenubarFlag",
+    "name": "indicatorInAllSpaces",
+    "type": "Variable"
+  },
+  {
+    "desc": "Draw the indicators corresponding to the given layout name",
+    "module": "MenubarFlag",
+    "name": "drawIndicators",
+    "type": "Method"
+  },
+  {
+    "desc": "Draw indicators for the current keyboard layout",
+    "module": "MenubarFlag",
+    "name": "getLayoutAndDrawindicators",
+    "type": "Method"
+  },
+  {
+    "desc": "Start the keyboard layout watcher to draw the menubar indicators.",
+    "module": "MenubarFlag",
+    "name": "start",
+    "type": "Method"
+  },
+  {
+    "desc": "Remove indicators and stop the keyboard layout watcher",
+    "module": "MenubarFlag",
+    "name": "stop",
+    "type": "Method"
+  },
+  {
     "desc": "Draws a circle around the mouse pointer when a hotkey is pressed",
     "name": "MouseCircle",
     "type": "Module"

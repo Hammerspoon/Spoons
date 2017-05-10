@@ -1,472 +1,208 @@
 [
   {
-    "Constant" : [
-
-    ],
-    "submodules" : [
-
-    ],
-    "Function" : [
-
-    ],
-    "Variable" : [
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
       {
-        "doc" : "Boolean to specify whether the indicators should be shown on all monitors or just the current one. Defaults to `true`",
-        "stripped_doc" : [
-          "Boolean to specify whether the indicators should be shown on all monitors or just the current one. Defaults to `true`"
+        "def": "MenubarFlag:drawIndicators(src)",
+        "desc": "Draw the indicators corresponding to the given layout name",
+        "doc": "Draw the indicators corresponding to the given layout name\n\nParameters:\n * src - name of the layout to draw. If the given element exists in `MenubarFlag.colors`, it will be drawn. If it does not exist, then the indicators will be removed from the screen.\n\nReturns:\n * The MenubarFlag object",
+        "name": "drawIndicators",
+        "parameters": [
+          " * src - name of the layout to draw. If the given element exists in `MenubarFlag.colors`, it will be drawn. If it does not exist, then the indicators will be removed from the screen."
         ],
-        "def" : "MenubarFlag.allScreens",
-        "name" : "allScreens",
-        "notes" : [
-
+        "returns": [
+          " * The MenubarFlag object"
         ],
-        "signature" : "MenubarFlag.allScreens",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "desc" : "Boolean to specify whether the indicators should be shown on all monitors or just the current one. Defaults to `true`",
-        "parameters" : [
-
-        ]
+        "signature": "MenubarFlag:drawIndicators(src)",
+        "stripped_doc": "",
+        "type": "Method"
       },
       {
-        "doc" : "Number to specify the height of the indicator. Specify 0.0-1.0 to specify a percentage of the height of the menu bar, larger values indicate a fixed height in pixels. Defaults to 1.0",
-        "stripped_doc" : [
-          "Number to specify the height of the indicator. Specify 0.0-1.0 to specify a percentage of the height of the menu bar, larger values indicate a fixed height in pixels. Defaults to 1.0"
+        "def": "MenubarFlag:getLayoutAndDrawindicators",
+        "desc": "Draw indicators for the current keyboard layout",
+        "doc": "Draw indicators for the current keyboard layout\n\nParameters:\n * None\n\nReturns:\n * The MenubarFlag object",
+        "name": "getLayoutAndDrawindicators",
+        "parameters": [
+          " * None"
         ],
-        "def" : "MenubarFlag.indicatorHeight",
-        "name" : "indicatorHeight",
-        "notes" : [
-
+        "returns": [
+          " * The MenubarFlag object"
         ],
-        "signature" : "MenubarFlag.indicatorHeight",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "desc" : "Number to specify the height of the indicator. Specify 0.0-1.0 to specify a percentage of the height of the menu bar, larger values indicate a fixed height in pixels. Defaults to 1.0",
-        "parameters" : [
-
-        ]
+        "signature": "MenubarFlag:getLayoutAndDrawindicators",
+        "stripped_doc": "",
+        "type": "Method"
       },
       {
-        "doc" : "Number to specify the indicator transparency (0.0 - invisible; 1.0 - fully opaque). Defaults to 0.3",
-        "stripped_doc" : [
-          "Number to specify the indicator transparency (0.0 - invisible; 1.0 - fully opaque). Defaults to 0.3"
-        ],
-        "def" : "MenubarFlag.indicatorAlpha",
-        "name" : "indicatorAlpha",
-        "notes" : [
-
-        ],
-        "signature" : "MenubarFlag.indicatorAlpha",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "desc" : "Number to specify the indicator transparency (0.0 - invisible; 1.0 - fully opaque). Defaults to 0.3",
-        "parameters" : [
-
-        ]
+        "def": "MenubarFlag:start()",
+        "desc": "Start the keyboard layout watcher to draw the menubar indicators.",
+        "doc": "Start the keyboard layout watcher to draw the menubar indicators.",
+        "name": "start",
+        "signature": "MenubarFlag:start()",
+        "stripped_doc": "",
+        "type": "Method"
       },
       {
-        "doc" : "Boolean to specify whether the indicator should be shown in all spaces (this includes full-screen mode). Defaults to `true`",
-        "stripped_doc" : [
-          "Boolean to specify whether the indicator should be shown in all spaces (this includes full-screen mode). Defaults to `true`"
-        ],
-        "def" : "MenubarFlag.indicatorInAllSpaces",
-        "name" : "indicatorInAllSpaces",
-        "notes" : [
-
-        ],
-        "signature" : "MenubarFlag.indicatorInAllSpaces",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "desc" : "Boolean to specify whether the indicator should be shown in all spaces (this includes full-screen mode). Defaults to `true`",
-        "parameters" : [
-
-        ]
-      },
-      {
-        "doc" : "Table that contains the configuration of indicator colors\n\nThe table below indicates the colors to use for a given keyboard\nlayout. The index is the name of the layout as it appears in the\ninput source menu. The value of each indicator is a table made of\nan arbitrary number of segments, which will be distributed evenly\nacross the width of the screen. Each segment must be a valid\n`hs.drawing.color` specification (most commonly, you should just\nuse the named colors from within the tables). If a layout is not\nfound, then the indicators are removed when that layout is active.\n\nInidicator specs can be static flag-like:\n```\n  Spanish = {col.green, col.white, col.red},\n  German = {col.black, col.red, col.yellow},\n```\nor complex, programmatically-generated:\n```\n[\"U.S.\"] = (\n   function() res={} \n      for i = 0,10,1 do\n         table.insert(res, col.blue)\n         table.insert(res, col.white)\n         table.insert(res, col.red)\n      end\n      return res\n   end)()\n```\nor solid colors:\n```\n  Spanish = {col.red},\n  German = {col.yellow},\n```\nContributions of indicator specs are welcome!",
-        "stripped_doc" : [
-          "Table that contains the configuration of indicator colors",
-          "",
-          "The table below indicates the colors to use for a given keyboard",
-          "layout. The index is the name of the layout as it appears in the",
-          "input source menu. The value of each indicator is a table made of",
-          "an arbitrary number of segments, which will be distributed evenly",
-          "across the width of the screen. Each segment must be a valid",
-          "`hs.drawing.color` specification (most commonly, you should just",
-          "use the named colors from within the tables). If a layout is not",
-          "found, then the indicators are removed when that layout is active.",
-          "",
-          "Inidicator specs can be static flag-like:",
-          "```",
-          "  Spanish = {col.green, col.white, col.red},",
-          "  German = {col.black, col.red, col.yellow},",
-          "```",
-          "or complex, programmatically-generated:",
-          "```",
-          "[\"U.S.\"] = (",
-          "   function() res={} ",
-          "      for i = 0,10,1 do",
-          "         table.insert(res, col.blue)",
-          "         table.insert(res, col.white)",
-          "         table.insert(res, col.red)",
-          "      end",
-          "      return res",
-          "   end)()",
-          "```",
-          "or solid colors:",
-          "```",
-          "  Spanish = {col.red},",
-          "  German = {col.yellow},",
-          "```",
-          "Contributions of indicator specs are welcome!"
-        ],
-        "def" : "MenubarFlag.colors",
-        "name" : "colors",
-        "notes" : [
-
-        ],
-        "signature" : "MenubarFlag.colors",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "desc" : "Table that contains the configuration of indicator colors",
-        "parameters" : [
-
-        ]
+        "def": "MenubarFlag:stop()",
+        "desc": "Remove indicators and stop the keyboard layout watcher",
+        "doc": "Remove indicators and stop the keyboard layout watcher",
+        "name": "stop",
+        "signature": "MenubarFlag:stop()",
+        "stripped_doc": "",
+        "type": "Method"
       }
     ],
-    "stripped_doc" : [
-
-    ],
-    "desc" : "Color the menubar according to the current keyboard layout",
-    "Deprecated" : [
-
-    ],
-    "type" : "Module",
-    "Constructor" : [
-
-    ],
-    "doc" : "Color the menubar according to the current keyboard layout\n\nDownload: [https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/MenubarFlag.spoon.zip](https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/MenubarFlag.spoon.zip)\n\nFunctionality inspired by [ShowyEdge](https:\/\/pqrs.org\/osx\/ShowyEdge\/index.html.en)",
-    "Method" : [
+    "Variable": [
       {
-        "doc" : "Draw the indicators corresponding to the given layout name\n\nParameters:\n * src - name of the layout to draw. If the given element exists in `MenubarFlag.colors`, it will be drawn. If it does not exist, then the indicators will be removed from the screen.\n\nReturns:\n * The MenubarFlag object",
-        "stripped_doc" : [
-          "Draw the indicators corresponding to the given layout name",
-          ""
-        ],
-        "def" : "MenubarFlag:drawIndicators(src)",
-        "name" : "drawIndicators",
-        "notes" : [
-
-        ],
-        "signature" : "MenubarFlag:drawIndicators(src)",
-        "type" : "Method",
-        "returns" : [
-          " * The MenubarFlag object"
-        ],
-        "desc" : "Draw the indicators corresponding to the given layout name",
-        "parameters" : [
-          " * src - name of the layout to draw. If the given element exists in `MenubarFlag.colors`, it will be drawn. If it does not exist, then the indicators will be removed from the screen.",
-          ""
-        ]
+        "def": "MenubarFlag.allScreens",
+        "desc": "Boolean to specify whether the indicators should be shown on all monitors or just the current one. Defaults to `true`",
+        "doc": "Boolean to specify whether the indicators should be shown on all monitors or just the current one. Defaults to `true`",
+        "name": "allScreens",
+        "signature": "MenubarFlag.allScreens",
+        "stripped_doc": "",
+        "type": "Variable"
       },
       {
-        "doc" : "Draw indicators for the current keyboard layout\n\nParameters:\n * None\n\nReturns:\n * The MenubarFlag object",
-        "stripped_doc" : [
-          "Draw indicators for the current keyboard layout",
-          ""
-        ],
-        "def" : "MenubarFlag:getLayoutAndDrawindicators",
-        "name" : "getLayoutAndDrawindicators",
-        "notes" : [
-
-        ],
-        "signature" : "MenubarFlag:getLayoutAndDrawindicators",
-        "type" : "Method",
-        "returns" : [
-          " * The MenubarFlag object"
-        ],
-        "desc" : "Draw indicators for the current keyboard layout",
-        "parameters" : [
-          " * None",
-          ""
-        ]
+        "def": "MenubarFlag.colors",
+        "desc": "Table that contains the configuration of indicator colors",
+        "doc": "Table that contains the configuration of indicator colors\n\nThe table below indicates the colors to use for a given keyboard\nlayout. The index is the name of the layout as it appears in the\ninput source menu. The value of each indicator is a table made of\nan arbitrary number of segments, which will be distributed evenly\nacross the width of the screen. Each segment must be a valid\n`hs.drawing.color` specification (most commonly, you should just\nuse the named colors from within the tables). If a layout is not\nfound, then the indicators are removed when that layout is active.\n\nIndicator specs can be static flag-like:\n```\n  Spanish = {col.green, col.white, col.red},\n  German = {col.black, col.red, col.yellow},\n```\nor complex, programmatically-generated:\n```\n[\"U.S.\"] = (\n   function() res={} \n      for i = 0,10,1 do\n         table.insert(res, col.blue)\n         table.insert(res, col.white)\n         table.insert(res, col.red)\n      end\n      return res\n   end)()\n```\nor solid colors:\n```\n  Spanish = {col.red},\n  German = {col.yellow},\n```\nContributions of indicator specs are welcome!",
+        "name": "colors",
+        "signature": "MenubarFlag.colors",
+        "stripped_doc": "The table below indicates the colors to use for a given keyboard\nlayout. The index is the name of the layout as it appears in the\ninput source menu. The value of each indicator is a table made of\nan arbitrary number of segments, which will be distributed evenly\nacross the width of the screen. Each segment must be a valid\n`hs.drawing.color` specification (most commonly, you should just\nuse the named colors from within the tables). If a layout is not\nfound, then the indicators are removed when that layout is active.\nIndicator specs can be static flag-like:\n```\n  Spanish = {col.green, col.white, col.red},\n  German = {col.black, col.red, col.yellow},\n```\nor complex, programmatically-generated:\n```\n[\"U.S.\"] = (\n   function() res={} \n      for i = 0,10,1 do\n         table.insert(res, col.blue)\n         table.insert(res, col.white)\n         table.insert(res, col.red)\n      end\n      return res\n   end)()\n```\nor solid colors:\n```\n  Spanish = {col.red},\n  German = {col.yellow},\n```\nContributions of indicator specs are welcome!",
+        "type": "Variable"
       },
       {
-        "doc" : "Start the keyboard layout watcher to draw the menubar indicators.",
-        "stripped_doc" : [
-          "Start the keyboard layout watcher to draw the menubar indicators."
-        ],
-        "def" : "MenubarFlag:start()",
-        "name" : "start",
-        "notes" : [
-
-        ],
-        "signature" : "MenubarFlag:start()",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "desc" : "Start the keyboard layout watcher to draw the menubar indicators.",
-        "parameters" : [
-
-        ]
+        "def": "MenubarFlag.indicatorAlpha",
+        "desc": "Number to specify the indicator transparency (0.0 - invisible; 1.0 - fully opaque). Defaults to 0.3",
+        "doc": "Number to specify the indicator transparency (0.0 - invisible; 1.0 - fully opaque). Defaults to 0.3",
+        "name": "indicatorAlpha",
+        "signature": "MenubarFlag.indicatorAlpha",
+        "stripped_doc": "",
+        "type": "Variable"
       },
       {
-        "doc" : "Remove indicators and stop the keyboard layout watcher",
-        "stripped_doc" : [
-          "Remove indicators and stop the keyboard layout watcher"
-        ],
-        "def" : "MenubarFlag:stop()",
-        "name" : "stop",
-        "notes" : [
-
-        ],
-        "signature" : "MenubarFlag:stop()",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "desc" : "Remove indicators and stop the keyboard layout watcher",
-        "parameters" : [
-
-        ]
+        "def": "MenubarFlag.indicatorHeight",
+        "desc": "Number to specify the height of the indicator. Specify 0.0-1.0 to specify a percentage of the height of the menu bar, larger values indicate a fixed height in pixels. Defaults to 1.0",
+        "doc": "Number to specify the height of the indicator. Specify 0.0-1.0 to specify a percentage of the height of the menu bar, larger values indicate a fixed height in pixels. Defaults to 1.0",
+        "name": "indicatorHeight",
+        "signature": "MenubarFlag.indicatorHeight",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "MenubarFlag.indicatorInAllSpaces",
+        "desc": "Boolean to specify whether the indicator should be shown in all spaces (this includes full-screen mode). Defaults to `true`",
+        "doc": "Boolean to specify whether the indicator should be shown in all spaces (this includes full-screen mode). Defaults to `true`",
+        "name": "indicatorInAllSpaces",
+        "signature": "MenubarFlag.indicatorInAllSpaces",
+        "stripped_doc": "",
+        "type": "Variable"
       }
     ],
-    "Command" : [
-
-    ],
-    "Field" : [
-
-    ],
-    "items" : [
+    "desc": "Color the menubar according to the current keyboard layout",
+    "doc": "Color the menubar according to the current keyboard layout\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MenubarFlag.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MenubarFlag.spoon.zip)\n\nFunctionality inspired by [ShowyEdge](https://pqrs.org/osx/ShowyEdge/index.html.en)",
+    "items": [
       {
-        "doc" : "Boolean to specify whether the indicators should be shown on all monitors or just the current one. Defaults to `true`",
-        "stripped_doc" : [
-          "Boolean to specify whether the indicators should be shown on all monitors or just the current one. Defaults to `true`"
-        ],
-        "def" : "MenubarFlag.allScreens",
-        "name" : "allScreens",
-        "notes" : [
-
-        ],
-        "signature" : "MenubarFlag.allScreens",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "desc" : "Boolean to specify whether the indicators should be shown on all monitors or just the current one. Defaults to `true`",
-        "parameters" : [
-
-        ]
+        "def": "MenubarFlag.allScreens",
+        "desc": "Boolean to specify whether the indicators should be shown on all monitors or just the current one. Defaults to `true`",
+        "doc": "Boolean to specify whether the indicators should be shown on all monitors or just the current one. Defaults to `true`",
+        "name": "allScreens",
+        "signature": "MenubarFlag.allScreens",
+        "stripped_doc": "",
+        "type": "Variable"
       },
       {
-        "doc" : "Table that contains the configuration of indicator colors\n\nThe table below indicates the colors to use for a given keyboard\nlayout. The index is the name of the layout as it appears in the\ninput source menu. The value of each indicator is a table made of\nan arbitrary number of segments, which will be distributed evenly\nacross the width of the screen. Each segment must be a valid\n`hs.drawing.color` specification (most commonly, you should just\nuse the named colors from within the tables). If a layout is not\nfound, then the indicators are removed when that layout is active.\n\nInidicator specs can be static flag-like:\n```\n  Spanish = {col.green, col.white, col.red},\n  German = {col.black, col.red, col.yellow},\n```\nor complex, programmatically-generated:\n```\n[\"U.S.\"] = (\n   function() res={} \n      for i = 0,10,1 do\n         table.insert(res, col.blue)\n         table.insert(res, col.white)\n         table.insert(res, col.red)\n      end\n      return res\n   end)()\n```\nor solid colors:\n```\n  Spanish = {col.red},\n  German = {col.yellow},\n```\nContributions of indicator specs are welcome!",
-        "stripped_doc" : [
-          "Table that contains the configuration of indicator colors",
-          "",
-          "The table below indicates the colors to use for a given keyboard",
-          "layout. The index is the name of the layout as it appears in the",
-          "input source menu. The value of each indicator is a table made of",
-          "an arbitrary number of segments, which will be distributed evenly",
-          "across the width of the screen. Each segment must be a valid",
-          "`hs.drawing.color` specification (most commonly, you should just",
-          "use the named colors from within the tables). If a layout is not",
-          "found, then the indicators are removed when that layout is active.",
-          "",
-          "Inidicator specs can be static flag-like:",
-          "```",
-          "  Spanish = {col.green, col.white, col.red},",
-          "  German = {col.black, col.red, col.yellow},",
-          "```",
-          "or complex, programmatically-generated:",
-          "```",
-          "[\"U.S.\"] = (",
-          "   function() res={} ",
-          "      for i = 0,10,1 do",
-          "         table.insert(res, col.blue)",
-          "         table.insert(res, col.white)",
-          "         table.insert(res, col.red)",
-          "      end",
-          "      return res",
-          "   end)()",
-          "```",
-          "or solid colors:",
-          "```",
-          "  Spanish = {col.red},",
-          "  German = {col.yellow},",
-          "```",
-          "Contributions of indicator specs are welcome!"
-        ],
-        "def" : "MenubarFlag.colors",
-        "name" : "colors",
-        "notes" : [
-
-        ],
-        "signature" : "MenubarFlag.colors",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "desc" : "Table that contains the configuration of indicator colors",
-        "parameters" : [
-
-        ]
+        "def": "MenubarFlag.colors",
+        "desc": "Table that contains the configuration of indicator colors",
+        "doc": "Table that contains the configuration of indicator colors\n\nThe table below indicates the colors to use for a given keyboard\nlayout. The index is the name of the layout as it appears in the\ninput source menu. The value of each indicator is a table made of\nan arbitrary number of segments, which will be distributed evenly\nacross the width of the screen. Each segment must be a valid\n`hs.drawing.color` specification (most commonly, you should just\nuse the named colors from within the tables). If a layout is not\nfound, then the indicators are removed when that layout is active.\n\nIndicator specs can be static flag-like:\n```\n  Spanish = {col.green, col.white, col.red},\n  German = {col.black, col.red, col.yellow},\n```\nor complex, programmatically-generated:\n```\n[\"U.S.\"] = (\n   function() res={} \n      for i = 0,10,1 do\n         table.insert(res, col.blue)\n         table.insert(res, col.white)\n         table.insert(res, col.red)\n      end\n      return res\n   end)()\n```\nor solid colors:\n```\n  Spanish = {col.red},\n  German = {col.yellow},\n```\nContributions of indicator specs are welcome!",
+        "name": "colors",
+        "signature": "MenubarFlag.colors",
+        "stripped_doc": "The table below indicates the colors to use for a given keyboard\nlayout. The index is the name of the layout as it appears in the\ninput source menu. The value of each indicator is a table made of\nan arbitrary number of segments, which will be distributed evenly\nacross the width of the screen. Each segment must be a valid\n`hs.drawing.color` specification (most commonly, you should just\nuse the named colors from within the tables). If a layout is not\nfound, then the indicators are removed when that layout is active.\nIndicator specs can be static flag-like:\n```\n  Spanish = {col.green, col.white, col.red},\n  German = {col.black, col.red, col.yellow},\n```\nor complex, programmatically-generated:\n```\n[\"U.S.\"] = (\n   function() res={} \n      for i = 0,10,1 do\n         table.insert(res, col.blue)\n         table.insert(res, col.white)\n         table.insert(res, col.red)\n      end\n      return res\n   end)()\n```\nor solid colors:\n```\n  Spanish = {col.red},\n  German = {col.yellow},\n```\nContributions of indicator specs are welcome!",
+        "type": "Variable"
       },
       {
-        "doc" : "Number to specify the indicator transparency (0.0 - invisible; 1.0 - fully opaque). Defaults to 0.3",
-        "stripped_doc" : [
-          "Number to specify the indicator transparency (0.0 - invisible; 1.0 - fully opaque). Defaults to 0.3"
+        "def": "MenubarFlag:drawIndicators(src)",
+        "desc": "Draw the indicators corresponding to the given layout name",
+        "doc": "Draw the indicators corresponding to the given layout name\n\nParameters:\n * src - name of the layout to draw. If the given element exists in `MenubarFlag.colors`, it will be drawn. If it does not exist, then the indicators will be removed from the screen.\n\nReturns:\n * The MenubarFlag object",
+        "name": "drawIndicators",
+        "parameters": [
+          " * src - name of the layout to draw. If the given element exists in `MenubarFlag.colors`, it will be drawn. If it does not exist, then the indicators will be removed from the screen."
         ],
-        "def" : "MenubarFlag.indicatorAlpha",
-        "name" : "indicatorAlpha",
-        "notes" : [
-
-        ],
-        "signature" : "MenubarFlag.indicatorAlpha",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "desc" : "Number to specify the indicator transparency (0.0 - invisible; 1.0 - fully opaque). Defaults to 0.3",
-        "parameters" : [
-
-        ]
-      },
-      {
-        "doc" : "Number to specify the height of the indicator. Specify 0.0-1.0 to specify a percentage of the height of the menu bar, larger values indicate a fixed height in pixels. Defaults to 1.0",
-        "stripped_doc" : [
-          "Number to specify the height of the indicator. Specify 0.0-1.0 to specify a percentage of the height of the menu bar, larger values indicate a fixed height in pixels. Defaults to 1.0"
-        ],
-        "def" : "MenubarFlag.indicatorHeight",
-        "name" : "indicatorHeight",
-        "notes" : [
-
-        ],
-        "signature" : "MenubarFlag.indicatorHeight",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "desc" : "Number to specify the height of the indicator. Specify 0.0-1.0 to specify a percentage of the height of the menu bar, larger values indicate a fixed height in pixels. Defaults to 1.0",
-        "parameters" : [
-
-        ]
-      },
-      {
-        "doc" : "Boolean to specify whether the indicator should be shown in all spaces (this includes full-screen mode). Defaults to `true`",
-        "stripped_doc" : [
-          "Boolean to specify whether the indicator should be shown in all spaces (this includes full-screen mode). Defaults to `true`"
-        ],
-        "def" : "MenubarFlag.indicatorInAllSpaces",
-        "name" : "indicatorInAllSpaces",
-        "notes" : [
-
-        ],
-        "signature" : "MenubarFlag.indicatorInAllSpaces",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "desc" : "Boolean to specify whether the indicator should be shown in all spaces (this includes full-screen mode). Defaults to `true`",
-        "parameters" : [
-
-        ]
-      },
-      {
-        "doc" : "Draw the indicators corresponding to the given layout name\n\nParameters:\n * src - name of the layout to draw. If the given element exists in `MenubarFlag.colors`, it will be drawn. If it does not exist, then the indicators will be removed from the screen.\n\nReturns:\n * The MenubarFlag object",
-        "stripped_doc" : [
-          "Draw the indicators corresponding to the given layout name",
-          ""
-        ],
-        "def" : "MenubarFlag:drawIndicators(src)",
-        "name" : "drawIndicators",
-        "notes" : [
-
-        ],
-        "signature" : "MenubarFlag:drawIndicators(src)",
-        "type" : "Method",
-        "returns" : [
+        "returns": [
           " * The MenubarFlag object"
         ],
-        "desc" : "Draw the indicators corresponding to the given layout name",
-        "parameters" : [
-          " * src - name of the layout to draw. If the given element exists in `MenubarFlag.colors`, it will be drawn. If it does not exist, then the indicators will be removed from the screen.",
-          ""
-        ]
+        "signature": "MenubarFlag:drawIndicators(src)",
+        "stripped_doc": "",
+        "type": "Method"
       },
       {
-        "doc" : "Draw indicators for the current keyboard layout\n\nParameters:\n * None\n\nReturns:\n * The MenubarFlag object",
-        "stripped_doc" : [
-          "Draw indicators for the current keyboard layout",
-          ""
+        "def": "MenubarFlag:getLayoutAndDrawindicators",
+        "desc": "Draw indicators for the current keyboard layout",
+        "doc": "Draw indicators for the current keyboard layout\n\nParameters:\n * None\n\nReturns:\n * The MenubarFlag object",
+        "name": "getLayoutAndDrawindicators",
+        "parameters": [
+          " * None"
         ],
-        "def" : "MenubarFlag:getLayoutAndDrawindicators",
-        "name" : "getLayoutAndDrawindicators",
-        "notes" : [
-
-        ],
-        "signature" : "MenubarFlag:getLayoutAndDrawindicators",
-        "type" : "Method",
-        "returns" : [
+        "returns": [
           " * The MenubarFlag object"
         ],
-        "desc" : "Draw indicators for the current keyboard layout",
-        "parameters" : [
-          " * None",
-          ""
-        ]
+        "signature": "MenubarFlag:getLayoutAndDrawindicators",
+        "stripped_doc": "",
+        "type": "Method"
       },
       {
-        "doc" : "Start the keyboard layout watcher to draw the menubar indicators.",
-        "stripped_doc" : [
-          "Start the keyboard layout watcher to draw the menubar indicators."
-        ],
-        "def" : "MenubarFlag:start()",
-        "name" : "start",
-        "notes" : [
-
-        ],
-        "signature" : "MenubarFlag:start()",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "desc" : "Start the keyboard layout watcher to draw the menubar indicators.",
-        "parameters" : [
-
-        ]
+        "def": "MenubarFlag.indicatorAlpha",
+        "desc": "Number to specify the indicator transparency (0.0 - invisible; 1.0 - fully opaque). Defaults to 0.3",
+        "doc": "Number to specify the indicator transparency (0.0 - invisible; 1.0 - fully opaque). Defaults to 0.3",
+        "name": "indicatorAlpha",
+        "signature": "MenubarFlag.indicatorAlpha",
+        "stripped_doc": "",
+        "type": "Variable"
       },
       {
-        "doc" : "Remove indicators and stop the keyboard layout watcher",
-        "stripped_doc" : [
-          "Remove indicators and stop the keyboard layout watcher"
-        ],
-        "def" : "MenubarFlag:stop()",
-        "name" : "stop",
-        "notes" : [
-
-        ],
-        "signature" : "MenubarFlag:stop()",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "desc" : "Remove indicators and stop the keyboard layout watcher",
-        "parameters" : [
-
-        ]
+        "def": "MenubarFlag.indicatorHeight",
+        "desc": "Number to specify the height of the indicator. Specify 0.0-1.0 to specify a percentage of the height of the menu bar, larger values indicate a fixed height in pixels. Defaults to 1.0",
+        "doc": "Number to specify the height of the indicator. Specify 0.0-1.0 to specify a percentage of the height of the menu bar, larger values indicate a fixed height in pixels. Defaults to 1.0",
+        "name": "indicatorHeight",
+        "signature": "MenubarFlag.indicatorHeight",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "MenubarFlag.indicatorInAllSpaces",
+        "desc": "Boolean to specify whether the indicator should be shown in all spaces (this includes full-screen mode). Defaults to `true`",
+        "doc": "Boolean to specify whether the indicator should be shown in all spaces (this includes full-screen mode). Defaults to `true`",
+        "name": "indicatorInAllSpaces",
+        "signature": "MenubarFlag.indicatorInAllSpaces",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "MenubarFlag:start()",
+        "desc": "Start the keyboard layout watcher to draw the menubar indicators.",
+        "doc": "Start the keyboard layout watcher to draw the menubar indicators.",
+        "name": "start",
+        "signature": "MenubarFlag:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "MenubarFlag:stop()",
+        "desc": "Remove indicators and stop the keyboard layout watcher",
+        "doc": "Remove indicators and stop the keyboard layout watcher",
+        "name": "stop",
+        "signature": "MenubarFlag:stop()",
+        "stripped_doc": "",
+        "type": "Method"
       }
     ],
-    "name" : "MenubarFlag"
+    "name": "MenubarFlag",
+    "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MenubarFlag.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MenubarFlag.spoon.zip)\n\nFunctionality inspired by [ShowyEdge](https://pqrs.org/osx/ShowyEdge/index.html.en)",
+    "submodules": [],
+    "type": "Module"
   }
 ]
