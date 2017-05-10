@@ -1,0 +1,331 @@
+[
+  {
+    "Constant" : [
+
+    ],
+    "submodules" : [
+
+    ],
+    "Function" : [
+
+    ],
+    "Variable" : [
+
+    ],
+    "stripped_doc" : [
+
+    ],
+    "Deprecated" : [
+
+    ],
+    "type" : "Module",
+    "desc" : "Miscellaneous utility and management functions for spoons",
+    "Constructor" : [
+
+    ],
+    "doc" : "Miscellaneous utility and management functions for spoons\n\nDownload: [https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/SpoonUtils.spoon.zip](https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/SpoonUtils.spoon.zip)",
+    "Method" : [
+      {
+        "doc" : "Create a skeleton directory for a new Spoon\n\nParameters:\n * name: name of the new spoon, without the `.spoon` extension\n * basedir: (optional) directory where to create the template. Defaults to `~\/.hammerspoon\/Spoons`\n * metadata: (optional) table containing metadata values to be inserted in the template. Provided values are merged with the defaults. Defaults to:\n   ```\n   {\n     version = \"0.1\",\n     author = \"Your Name <your@email.org>\",\n     homepage = \"https:\/\/github.com\/Hammerspoon\/Spoons\",\n     license = \"MIT - https:\/\/opensource.org\/licenses\/MIT\",\n     download_url = \"https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/\"..name..\".spoon.zip\"\n   }\n   ```\n * template: (optional) absolute path of the template to use for the `init.lua` file of the new Spoon. Defaults to the `templates\/init.tpl` file included with SpoonUtils.",
+        "stripped_doc" : [
+          "Create a skeleton directory for a new Spoon",
+          ""
+        ],
+        "parameters" : [
+          " * name: name of the new spoon, without the `.spoon` extension",
+          " * basedir: (optional) directory where to create the template. Defaults to `~\/.hammerspoon\/Spoons`",
+          " * metadata: (optional) table containing metadata values to be inserted in the template. Provided values are merged with the defaults. Defaults to:",
+          "   ```",
+          "   {",
+          "     version = \"0.1\",",
+          "     author = \"Your Name <your@email.org>\",",
+          "     homepage = \"https:\/\/github.com\/Hammerspoon\/Spoons\",",
+          "     license = \"MIT - https:\/\/opensource.org\/licenses\/MIT\",",
+          "     download_url = \"https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/\"..name..\".spoon.zip\"",
+          "   }",
+          "   ```",
+          " * template: (optional) absolute path of the template to use for the `init.lua` file of the new Spoon. Defaults to the `templates\/init.tpl` file included with SpoonUtils."
+        ],
+        "def" : "SpoonUtils.newSpoon(name, basedir, metadata)",
+        "notes" : [
+
+        ],
+        "signature" : "SpoonUtils.newSpoon(name, basedir, metadata)",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "desc" : "Create a skeleton directory for a new Spoon",
+        "name" : "newSpoon"
+      },
+      {
+        "doc" : "Return path of the current spoon.\n\nParameters:\n * n - (optional) stack level for which to get the path. Defaults to 2, which will return the path of the spoon which called `script_path()`\n\nReturns:\n * String with the path from where the calling code was loaded.",
+        "stripped_doc" : [
+          "Return path of the current spoon.",
+          ""
+        ],
+        "parameters" : [
+          " * n - (optional) stack level for which to get the path. Defaults to 2, which will return the path of the spoon which called `script_path()`",
+          ""
+        ],
+        "def" : "SpoonUtils:script_path()",
+        "notes" : [
+
+        ],
+        "signature" : "SpoonUtils:script_path()",
+        "type" : "Method",
+        "returns" : [
+          " * String with the path from where the calling code was loaded."
+        ],
+        "desc" : "Return path of the current spoon.",
+        "name" : "script_path"
+      },
+      {
+        "doc" : "Return full path of an object within a spoon directory, given its partial path.\n\nParameters:\n * partial - path of a file relative to the Spoon directory. For example `images\/img1.png` will refer to a file within the `images` directory of the Spoon.\n\nReturns:\n * Absolute path of the file. Note: no existence or other checks are done on the path.",
+        "stripped_doc" : [
+          "Return full path of an object within a spoon directory, given its partial path.",
+          ""
+        ],
+        "parameters" : [
+          " * partial - path of a file relative to the Spoon directory. For example `images\/img1.png` will refer to a file within the `images` directory of the Spoon.",
+          ""
+        ],
+        "def" : "SpoonUtils:resource_path(partial)",
+        "notes" : [
+
+        ],
+        "signature" : "SpoonUtils:resource_path(partial)",
+        "type" : "Method",
+        "returns" : [
+          " * Absolute path of the file. Note: no existence or other checks are done on the path."
+        ],
+        "desc" : "Return full path of an object within a spoon directory, given its partial path.",
+        "name" : "resource_path"
+      },
+      {
+        "doc" : "Map a number of hotkeys according to a definition table\n\nParameters:\n * def - table containing name-to-function definitions for the hotkeys supported by the Spoon. Each key is a hotkey name, and its value must be a function that will be called when the hotkey is invoked.\n * map - table containing name-to-hotkey definitions, as supported by [bindHotkeys in the Spoon API](https:\/\/github.com\/Hammerspoon\/hammerspoon\/blob\/master\/SPOONS.md#hotkeys). Not all the entries in `def` must be bound, but if any keys in `map` don't have a definition, an error will be produced.",
+        "stripped_doc" : [
+          "Map a number of hotkeys according to a definition table",
+          ""
+        ],
+        "parameters" : [
+          " * def - table containing name-to-function definitions for the hotkeys supported by the Spoon. Each key is a hotkey name, and its value must be a function that will be called when the hotkey is invoked.",
+          " * map - table containing name-to-hotkey definitions, as supported by [bindHotkeys in the Spoon API](https:\/\/github.com\/Hammerspoon\/hammerspoon\/blob\/master\/SPOONS.md#hotkeys). Not all the entries in `def` must be bound, but if any keys in `map` don't have a definition, an error will be produced."
+        ],
+        "def" : "SpoonUtils:bindHotkeysToSpec(def, map)",
+        "notes" : [
+
+        ],
+        "signature" : "SpoonUtils:bindHotkeysToSpec(def, map)",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "desc" : "Map a number of hotkeys according to a definition table",
+        "name" : "bindHotkeysToSpec"
+      },
+      {
+        "doc" : "Return a list of installed\/loaded Spoons\n\nParameters:\n * only_loaded - only return loaded Spoons (skips those that are installed but not loaded). Defaults to `false`\n\nReturns:\n * Table with a list of installed\/loaded spoons (depending on the value of `only_loaded`). Each entry is a table with the following entries:\n   * `name` - Spoon name\n   * `loaded` - boolean indication of whether the Spoon is loaded (`true`) or only installed (`false`)\n   * `version` - Spoon version number. Available only for loaded Spoons.",
+        "stripped_doc" : [
+          "Return a list of installed\/loaded Spoons",
+          ""
+        ],
+        "parameters" : [
+          " * only_loaded - only return loaded Spoons (skips those that are installed but not loaded). Defaults to `false`",
+          ""
+        ],
+        "def" : "SpoonUtils:list()",
+        "notes" : [
+
+        ],
+        "signature" : "SpoonUtils:list()",
+        "type" : "Method",
+        "returns" : [
+          " * Table with a list of installed\/loaded spoons (depending on the value of `only_loaded`). Each entry is a table with the following entries:",
+          "   * `name` - Spoon name",
+          "   * `loaded` - boolean indication of whether the Spoon is loaded (`true`) or only installed (`false`)",
+          "   * `version` - Spoon version number. Available only for loaded Spoons."
+        ],
+        "desc" : "Return a list of installed\/loaded Spoons",
+        "name" : "list"
+      },
+      {
+        "doc" : "Print a list of installed\/loaded Spoons. Has the same interface as `list()` but prints the list instead of returning it.\n\nParameters:\n * only_loaded - only return loaded Spoons (skips those that are installed but not loaded). Defaults to `false`\n\nReturns:\n * The SpoonUtils object.",
+        "stripped_doc" : [
+          "Print a list of installed\/loaded Spoons. Has the same interface as `list()` but prints the list instead of returning it.",
+          ""
+        ],
+        "parameters" : [
+          " * only_loaded - only return loaded Spoons (skips those that are installed but not loaded). Defaults to `false`",
+          ""
+        ],
+        "def" : "SpoonUtils:printList()",
+        "notes" : [
+
+        ],
+        "signature" : "SpoonUtils:printList()",
+        "type" : "Method",
+        "returns" : [
+          " * The SpoonUtils object."
+        ],
+        "desc" : "Print a list of installed\/loaded Spoons. Has the same interface as `list()` but prints the list instead of returning it.",
+        "name" : "printList"
+      }
+    ],
+    "Command" : [
+
+    ],
+    "items" : [
+      {
+        "doc" : "Map a number of hotkeys according to a definition table\n\nParameters:\n * def - table containing name-to-function definitions for the hotkeys supported by the Spoon. Each key is a hotkey name, and its value must be a function that will be called when the hotkey is invoked.\n * map - table containing name-to-hotkey definitions, as supported by [bindHotkeys in the Spoon API](https:\/\/github.com\/Hammerspoon\/hammerspoon\/blob\/master\/SPOONS.md#hotkeys). Not all the entries in `def` must be bound, but if any keys in `map` don't have a definition, an error will be produced.",
+        "stripped_doc" : [
+          "Map a number of hotkeys according to a definition table",
+          ""
+        ],
+        "parameters" : [
+          " * def - table containing name-to-function definitions for the hotkeys supported by the Spoon. Each key is a hotkey name, and its value must be a function that will be called when the hotkey is invoked.",
+          " * map - table containing name-to-hotkey definitions, as supported by [bindHotkeys in the Spoon API](https:\/\/github.com\/Hammerspoon\/hammerspoon\/blob\/master\/SPOONS.md#hotkeys). Not all the entries in `def` must be bound, but if any keys in `map` don't have a definition, an error will be produced."
+        ],
+        "def" : "SpoonUtils:bindHotkeysToSpec(def, map)",
+        "notes" : [
+
+        ],
+        "signature" : "SpoonUtils:bindHotkeysToSpec(def, map)",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "desc" : "Map a number of hotkeys according to a definition table",
+        "name" : "bindHotkeysToSpec"
+      },
+      {
+        "doc" : "Return a list of installed\/loaded Spoons\n\nParameters:\n * only_loaded - only return loaded Spoons (skips those that are installed but not loaded). Defaults to `false`\n\nReturns:\n * Table with a list of installed\/loaded spoons (depending on the value of `only_loaded`). Each entry is a table with the following entries:\n   * `name` - Spoon name\n   * `loaded` - boolean indication of whether the Spoon is loaded (`true`) or only installed (`false`)\n   * `version` - Spoon version number. Available only for loaded Spoons.",
+        "stripped_doc" : [
+          "Return a list of installed\/loaded Spoons",
+          ""
+        ],
+        "parameters" : [
+          " * only_loaded - only return loaded Spoons (skips those that are installed but not loaded). Defaults to `false`",
+          ""
+        ],
+        "def" : "SpoonUtils:list()",
+        "notes" : [
+
+        ],
+        "signature" : "SpoonUtils:list()",
+        "type" : "Method",
+        "returns" : [
+          " * Table with a list of installed\/loaded spoons (depending on the value of `only_loaded`). Each entry is a table with the following entries:",
+          "   * `name` - Spoon name",
+          "   * `loaded` - boolean indication of whether the Spoon is loaded (`true`) or only installed (`false`)",
+          "   * `version` - Spoon version number. Available only for loaded Spoons."
+        ],
+        "desc" : "Return a list of installed\/loaded Spoons",
+        "name" : "list"
+      },
+      {
+        "doc" : "Create a skeleton directory for a new Spoon\n\nParameters:\n * name: name of the new spoon, without the `.spoon` extension\n * basedir: (optional) directory where to create the template. Defaults to `~\/.hammerspoon\/Spoons`\n * metadata: (optional) table containing metadata values to be inserted in the template. Provided values are merged with the defaults. Defaults to:\n   ```\n   {\n     version = \"0.1\",\n     author = \"Your Name <your@email.org>\",\n     homepage = \"https:\/\/github.com\/Hammerspoon\/Spoons\",\n     license = \"MIT - https:\/\/opensource.org\/licenses\/MIT\",\n     download_url = \"https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/\"..name..\".spoon.zip\"\n   }\n   ```\n * template: (optional) absolute path of the template to use for the `init.lua` file of the new Spoon. Defaults to the `templates\/init.tpl` file included with SpoonUtils.",
+        "stripped_doc" : [
+          "Create a skeleton directory for a new Spoon",
+          ""
+        ],
+        "parameters" : [
+          " * name: name of the new spoon, without the `.spoon` extension",
+          " * basedir: (optional) directory where to create the template. Defaults to `~\/.hammerspoon\/Spoons`",
+          " * metadata: (optional) table containing metadata values to be inserted in the template. Provided values are merged with the defaults. Defaults to:",
+          "   ```",
+          "   {",
+          "     version = \"0.1\",",
+          "     author = \"Your Name <your@email.org>\",",
+          "     homepage = \"https:\/\/github.com\/Hammerspoon\/Spoons\",",
+          "     license = \"MIT - https:\/\/opensource.org\/licenses\/MIT\",",
+          "     download_url = \"https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/\"..name..\".spoon.zip\"",
+          "   }",
+          "   ```",
+          " * template: (optional) absolute path of the template to use for the `init.lua` file of the new Spoon. Defaults to the `templates\/init.tpl` file included with SpoonUtils."
+        ],
+        "def" : "SpoonUtils.newSpoon(name, basedir, metadata)",
+        "notes" : [
+
+        ],
+        "signature" : "SpoonUtils.newSpoon(name, basedir, metadata)",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "desc" : "Create a skeleton directory for a new Spoon",
+        "name" : "newSpoon"
+      },
+      {
+        "doc" : "Print a list of installed\/loaded Spoons. Has the same interface as `list()` but prints the list instead of returning it.\n\nParameters:\n * only_loaded - only return loaded Spoons (skips those that are installed but not loaded). Defaults to `false`\n\nReturns:\n * The SpoonUtils object.",
+        "stripped_doc" : [
+          "Print a list of installed\/loaded Spoons. Has the same interface as `list()` but prints the list instead of returning it.",
+          ""
+        ],
+        "parameters" : [
+          " * only_loaded - only return loaded Spoons (skips those that are installed but not loaded). Defaults to `false`",
+          ""
+        ],
+        "def" : "SpoonUtils:printList()",
+        "notes" : [
+
+        ],
+        "signature" : "SpoonUtils:printList()",
+        "type" : "Method",
+        "returns" : [
+          " * The SpoonUtils object."
+        ],
+        "desc" : "Print a list of installed\/loaded Spoons. Has the same interface as `list()` but prints the list instead of returning it.",
+        "name" : "printList"
+      },
+      {
+        "doc" : "Return full path of an object within a spoon directory, given its partial path.\n\nParameters:\n * partial - path of a file relative to the Spoon directory. For example `images\/img1.png` will refer to a file within the `images` directory of the Spoon.\n\nReturns:\n * Absolute path of the file. Note: no existence or other checks are done on the path.",
+        "stripped_doc" : [
+          "Return full path of an object within a spoon directory, given its partial path.",
+          ""
+        ],
+        "parameters" : [
+          " * partial - path of a file relative to the Spoon directory. For example `images\/img1.png` will refer to a file within the `images` directory of the Spoon.",
+          ""
+        ],
+        "def" : "SpoonUtils:resource_path(partial)",
+        "notes" : [
+
+        ],
+        "signature" : "SpoonUtils:resource_path(partial)",
+        "type" : "Method",
+        "returns" : [
+          " * Absolute path of the file. Note: no existence or other checks are done on the path."
+        ],
+        "desc" : "Return full path of an object within a spoon directory, given its partial path.",
+        "name" : "resource_path"
+      },
+      {
+        "doc" : "Return path of the current spoon.\n\nParameters:\n * n - (optional) stack level for which to get the path. Defaults to 2, which will return the path of the spoon which called `script_path()`\n\nReturns:\n * String with the path from where the calling code was loaded.",
+        "stripped_doc" : [
+          "Return path of the current spoon.",
+          ""
+        ],
+        "parameters" : [
+          " * n - (optional) stack level for which to get the path. Defaults to 2, which will return the path of the spoon which called `script_path()`",
+          ""
+        ],
+        "def" : "SpoonUtils:script_path()",
+        "notes" : [
+
+        ],
+        "signature" : "SpoonUtils:script_path()",
+        "type" : "Method",
+        "returns" : [
+          " * String with the path from where the calling code was loaded."
+        ],
+        "desc" : "Return path of the current spoon.",
+        "name" : "script_path"
+      }
+    ],
+    "Field" : [
+
+    ],
+    "name" : "SpoonUtils"
+  }
+]
