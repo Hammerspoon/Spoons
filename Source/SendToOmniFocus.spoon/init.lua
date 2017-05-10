@@ -12,7 +12,7 @@ obj.__index = obj
 -- Metadata
 obj.name = "SendToOmniFocus"
 obj.version = "0.1"
-obj.author = "Your Name <your@email.org>"
+obj.author = "Diego Zamboni <diego@zzamboni.org>"
 obj.homepage = "https://github.com/Hammerspoon/Spoons"
 obj.license = "MIT - https://opensource.org/licenses/MIT"
 
@@ -64,9 +64,8 @@ obj.quickentrydialog = true
 
 --- SendToOmniFocus.actions
 --- Variable
---- Table containing application handlers for sending the current item
---- to OmniFocus. Each entry's key is the application name, and its
---- value is another table with the following keys:
+--- Table containing application handlers for sending the current item to OmniFocus.
+--- Each entry's key is the application name, and its value is another table with the following keys:
 ---  * `itemname` - how to name the current item in the context of the application. Purely for cosmetic purposes in the notifications (e.g. in Mail, the notification says "filing message" instead of "filing item". Defaults to "item".
 ---  * One of the following, invoked to do the actual filing:
 ---    * `as_scriptfile` - path of a file containing AppleScript code. It will be executed using the `osascript` command. If `quickentrydialog` is set to `false`, the string `nodialog` will be passed as argument to the script.
