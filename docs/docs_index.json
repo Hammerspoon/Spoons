@@ -233,6 +233,83 @@
     "type": "Method"
   },
   {
+    "desc": "Handle \"archive current item\" for multiple applications using the same hotkey",
+    "name": "UniversalArchive",
+    "type": "Module"
+  },
+  {
+    "desc": "Boolean indicating whether a notification should be produced when an item is archived. Defaults to \"true\".",
+    "module": "UniversalArchive",
+    "name": "archive_notifications",
+    "type": "Variable"
+  },
+  {
+    "desc": "Name of the Notebook to use for archiving in Evernote. Defaults to \"Archive\"",
+    "module": "UniversalArchive",
+    "name": "evernote_archive_notebook",
+    "type": "Variable"
+  },
+  {
+    "desc": "In Evernote, archive is done by selectin \"Move note\" and then",
+    "module": "UniversalArchive",
+    "name": "evernote_delay_before_typing",
+    "type": "Variable"
+  },
+  {
+    "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+    "module": "UniversalArchive",
+    "name": "logger",
+    "type": "Variable"
+  },
+  {
+    "desc": "Name of the mailbox to use for archiving in Outlook. You must move a message manually to that mailbox at least once so that it appears in the \"Message\" -> \"Move...\" submenu. Defaults to \"Archive\"",
+    "module": "UniversalArchive",
+    "name": "outlook_archive_folder",
+    "type": "Variable"
+  },
+  {
+    "desc": "Binds hotkeys for UniversalArchive",
+    "module": "UniversalArchive",
+    "name": "bindHotkeys",
+    "type": "Method"
+  },
+  {
+    "desc": "Archive current note in Evernote.",
+    "module": "UniversalArchive",
+    "name": "evernoteArchive",
+    "type": "Method"
+  },
+  {
+    "desc": "Archive current message in Mail using the built-in Archive functionality",
+    "module": "UniversalArchive",
+    "name": "mailArchive",
+    "type": "Method"
+  },
+  {
+    "desc": "Archive current message in Outlook to the folder specified in",
+    "module": "UniversalArchive",
+    "name": "outlookArchive",
+    "type": "Method"
+  },
+  {
+    "desc": "Register a handler function for an application.",
+    "module": "UniversalArchive",
+    "name": "registerApplication",
+    "type": "Method"
+  },
+  {
+    "desc": "Archive current message in Spark using the built-in Archive functionality",
+    "module": "UniversalArchive",
+    "name": "sparkArchive",
+    "type": "Method"
+  },
+  {
+    "desc": "Main entry point for archiving an item. If a handler function is",
+    "module": "UniversalArchive",
+    "name": "universalArchive",
+    "type": "Method"
+  },
+  {
     "desc": "Route URLs to different applications with pattern matching",
     "name": "URLDispatcher",
     "type": "Module"
