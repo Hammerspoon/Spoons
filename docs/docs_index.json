@@ -163,6 +163,53 @@
     "type": "Method"
   },
   {
+    "desc": "Handles \"send current item to OmniFocus\" for multiple applications",
+    "name": "SendToOmniFocus",
+    "type": "Module"
+  },
+  {
+    "desc": "Table containing application handlers for sending the current item to OmniFocus.",
+    "module": "SendToOmniFocus",
+    "name": "actions",
+    "type": "Variable"
+  },
+  {
+    "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+    "module": "SendToOmniFocus",
+    "name": "logger",
+    "type": "Variable"
+  },
+  {
+    "desc": "Boolean to control Hammerspoon-generated notifications when filing items (doest not control AppleScript notifications, if any, generated from within the scripts). Defaults to `true`.",
+    "module": "SendToOmniFocus",
+    "name": "notifications",
+    "type": "Variable"
+  },
+  {
+    "desc": "Whether to display the new tasks in the OmniFocus quick-entry dialog before adding them. Defaults to `true` (set to `false` to send directly to the Inbox, without prompting)",
+    "module": "SendToOmniFocus",
+    "name": "quickentrydialog",
+    "type": "Variable"
+  },
+  {
+    "desc": "Binds hotkeys for SendToOmniFocus",
+    "module": "SendToOmniFocus",
+    "name": "bindHotkeys",
+    "type": "Method"
+  },
+  {
+    "desc": "Register a new application handler",
+    "module": "SendToOmniFocus",
+    "name": "registerApplication",
+    "type": "Method"
+  },
+  {
+    "desc": "Send current item in current application to OmniFocus by triggering the appropriate handler.",
+    "module": "SendToOmniFocus",
+    "name": "sendCurrentItem",
+    "type": "Method"
+  },
+  {
     "desc": "Toggle rotation on external screens",
     "name": "ToggleScreenRotation",
     "type": "Module"
