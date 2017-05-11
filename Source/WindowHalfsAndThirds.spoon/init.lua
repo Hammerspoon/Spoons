@@ -1,25 +1,25 @@
---- === WindowManipulation ===
+--- === WindowHalfsAndThirds ===
 ---
---- Window movement and resizing
+--- Simple window movement and resizing, focusing on half- and third-of-screen sizes
 ---
---- Download: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WindowManipulation.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WindowManipulation.spoon.zip)
+--- Download: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WindowHalfsAndThirds.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WindowHalfsAndThirds.spoon.zip)
 
 local obj={}
 obj.__index = obj
 
 -- Metadata
-obj.name = "WindowManipulation"
+obj.name = "WindowHalfsAndThirds"
 obj.version = "0.1"
 obj.author = "Diego Zamboni <diego@zzamboni.org>"
 obj.homepage = "https://github.com/Hammerspoon/Spoons"
 obj.license = "MIT - https://opensource.org/licenses/MIT"
 
---- WindowManipulation.defaultHotkeys
+--- WindowHalfsAndThirds.defaultHotkeys
 --- Variable
 --- Table containing a sample set of hotkeys that can be
 --- assigned to the different operations. These are not bound
 --- by default - if you want to use them you have to call:
---- `spoon.WindowManipulation:bindHotkeys(spoon.WindowManipulation.defaultHotkeys)`
+--- `spoon.WindowHalfsAndThirds:bindHotkeys(spoon.WindowHalfsAndThirds.defaultHotkeys)`
 --- after loading the spoon. Value:
 --- ```
 ---  {
@@ -33,8 +33,6 @@ obj.license = "MIT - https://opensource.org/licenses/MIT"
 ---     third_down  = { {"ctrl", "alt"       }, "Down" },
 ---     max_toggle  = { {"ctrl", "alt", "cmd"}, "f" },
 ---     max         = { {"ctrl", "alt", "cmd"}, "Up" },
----     screen_left = { {"ctrl", "alt", "cmd"}, "Left" },
----     screen_right= { {"ctrl", "alt", "cmd"}, "Right" },
 ---  }
 obj.defaultHotkeys = {
    left_half   = { {"ctrl",        "cmd"}, "Left" },
@@ -47,11 +45,9 @@ obj.defaultHotkeys = {
    third_down  = { {"ctrl", "alt"       }, "Down" },
    max_toggle  = { {"ctrl", "alt", "cmd"}, "f" },
    max         = { {"ctrl", "alt", "cmd"}, "Up" },
-   screen_left = { {"ctrl", "alt", "cmd"}, "Left" },
-   screen_right= { {"ctrl", "alt", "cmd"}, "Right" },
 }
 
---- WindowManipulation.use_frame_correctness
+--- WindowHalfsAndThirds.use_frame_correctness
 --- Variable
 --- If `true`, set [setFrameCorrectness](http://www.hammerspoon.org/docs/hs.window.html#setFrameCorrectness) for some resizing operations which fail when the window extends beyonds screen boundaries. This may cause some jerkiness in the resizing, so experiment and determine if you need it. Defaults to `false`
 obj.use_frame_correctness = false
@@ -71,7 +67,7 @@ function _restoreFC()
 end
 
 -- Resize current window to different parts of the screen
--- If use_fc_preference is true, then use setFrameCorrectness according to the configured value of `WindowManipulation.use_frame_correctness`
+-- If use_fc_preference is true, then use setFrameCorrectness according to the configured value of `WindowHalfsAndThirds.use_frame_correctness`
 function obj.resizeCurrentWindow(how, use_fc_preference)
    local win = hs.window.focusedWindow()
    if win == nil then
@@ -108,21 +104,6 @@ function obj.resizeCurrentWindow(how, use_fc_preference)
    if use_fc_preference then _setFC() end
    win:move(newrect)
    if use_fc_preference then _restoreFC() end
-end
-
--- Move current window to a different screen
-function obj.moveCurrentWindowToScreen(how)
-   local win = hs.window.focusedWindow()
-   if win == nil then
-      return
-   end
-   _setFC()
-   if how == "left" then
-      win:moveOneScreenWest()
-   elseif how == "right" then
-      win:moveOneScreenEast()
-   end
-   _restoreFC()
 end
 
 -- Toggle current window between its normal size, and being maximized
@@ -183,8 +164,6 @@ obj.topThird       = hs.fnutils.partial(obj.resizeCurrentWindow, "top_third")
 obj.middleThirdV   = hs.fnutils.partial(obj.resizeCurrentWindow, "middle_third_v")
 obj.bottomThird    = hs.fnutils.partial(obj.resizeCurrentWindow, "bottom_third")
 obj.maximize       = hs.fnutils.partial(obj.resizeCurrentWindow, "max", true)
-obj.oneScreenLeft  = hs.fnutils.partial(obj.moveCurrentWindowToScreen, "left")
-obj.oneScreenRight = hs.fnutils.partial(obj.moveCurrentWindowToScreen, "right")
 
 function obj.oneThirdLeft()
    local win = hs.window.focusedWindow()
@@ -218,7 +197,7 @@ function obj.onethirdDown()
    end
 end
 
---- WindowManipulation:bindHotkeysToSpec(def, map)
+--- WindowHalfsAndThirds:bindHotkeysToSpec(def, map)
 --- Method
 --- Map a number of hotkeys according to a definition table
 --- *** This function should be in a separate spoon or (preferably) in an hs.spoon module. I'm including it here for now to make the Spoon self-sufficient.
@@ -240,9 +219,9 @@ function obj:bindHotkeysToSpec(def,map)
    return self
 end
 
---- WindowManipulation:bindHotkeys(mapping)
+--- WindowHalfsAndThirds:bindHotkeys(mapping)
 --- Method
---- Binds hotkeys for WindowManipulation
+--- Binds hotkeys for WindowHalfsAndThirds
 ---
 --- Parameters:
 ---  * mapping - A table containing hotkey objifier/key details for the following items:
