@@ -275,7 +275,7 @@ function obj:bindHotkeys(mapping)
       middle_third_h = self.middleThirdH,
       right_third = self.rightThird,
    }
-   spoon.SpoonUtils:bindHotkeysToSpec(hotkeyDefinitions, mapping)
+   self:bindHotkeysToSpec(hotkeyDefinitions, mapping)
    return self
 end
 
