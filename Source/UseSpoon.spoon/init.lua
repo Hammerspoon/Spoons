@@ -1,11 +1,13 @@
 --- === UseSpoon ===
 ---
---- Install, load and configure a spoon in a single statement. Inspired by Emacs' [use-package](https://www.masteringemacs.org/article/spotlight-use-package-a-declarative-configuration-tool)
+--- Declaratively install, load and configure a spoon in a single statement.
+---
+--- Inspired by Emacs' [use-package](https://www.masteringemacs.org/article/spotlight-use-package-a-declarative-configuration-tool)
 ---
 --- Example usage:
 --- ```
 --- hs.loadSpoon("UseSpoon")
---- ...
+--- 
 --- -- This will install the spoon if needed, load it, and configure it accordingly
 --- spoon.UseSpoon("Caffeine")
 --- 
@@ -25,7 +27,7 @@
 ---                   end
 ---                }
 --- )
---- --- --- --- ```
+--- ```
 ---
 --- Download: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/UseSpoon.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/UseSpoon.spoon.zip)
 

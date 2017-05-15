@@ -38,7 +38,7 @@
 
     ],
     "type" : "Module",
-    "desc" : "Install, load and configure a spoon in a single statement. Inspired by Emacs' [use-package](https:\/\/www.masteringemacs.org\/article\/spotlight-use-package-a-declarative-configuration-tool)",
+    "desc" : "Declaratively install, load and configure a spoon in a single statement.",
     "Constructor" : [
 
     ],
@@ -132,7 +132,7 @@
     "Field" : [
 
     ],
-    "doc" : "Install, load and configure a spoon in a single statement. Inspired by Emacs' [use-package](https:\/\/www.masteringemacs.org\/article\/spotlight-use-package-a-declarative-configuration-tool)\n\nExample usage:\n```\nhs.loadSpoon(\"UseSpoon\")\n...\n-- This will install the spoon if needed, load it, and configure it accordingly\nspoon.UseSpoon(\"Caffeine\")\n\nspoon.UseSpoon(\"SendToOmniFocus\",\n               {\n                  config = {\n                     quickentrydialog = false,\n                     notifications = true\n                  },\n                  hotkeys = {\n                     send_to_omnifocus = { hyper, \"t\" }\n                  },\n                  fn = function(s)\n                     -- My Wiki and My Jira are apps created with Epichrome\n                     s:registerApplication(\"My Wiki\", { apptype = \"chromeapp\", itemname = \"wiki page\" })\n                     s:registerApplication(\"My Jira\", { apptype = \"chromeapp\", itemname = \"issue\" })\n                  end\n               }\n)\n--- --- --- ```\n\nDownload: [https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/UseSpoon.spoon.zip](https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/UseSpoon.spoon.zip)",
+    "doc" : "Declaratively install, load and configure a spoon in a single statement.\n\nInspired by Emacs' [use-package](https:\/\/www.masteringemacs.org\/article\/spotlight-use-package-a-declarative-configuration-tool)\n\nExample usage:\n```\nhs.loadSpoon(\"UseSpoon\")\n\n-- This will install the spoon if needed, load it, and configure it accordingly\nspoon.UseSpoon(\"Caffeine\")\n\nspoon.UseSpoon(\"SendToOmniFocus\",\n               {\n                  config = {\n                     quickentrydialog = false,\n                     notifications = true\n                  },\n                  hotkeys = {\n                     send_to_omnifocus = { hyper, \"t\" }\n                  },\n                  fn = function(s)\n                     -- My Wiki and My Jira are apps created with Epichrome\n                     s:registerApplication(\"My Wiki\", { apptype = \"chromeapp\", itemname = \"wiki page\" })\n                     s:registerApplication(\"My Jira\", { apptype = \"chromeapp\", itemname = \"issue\" })\n                  end\n               }\n)\n```\n\nDownload: [https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/UseSpoon.spoon.zip](https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/UseSpoon.spoon.zip)",
     "name" : "UseSpoon"
   }
 ]
