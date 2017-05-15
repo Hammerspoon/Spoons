@@ -6,19 +6,26 @@
 --- ```
 --- hs.loadSpoon("UseSpoon")
 --- ...
---- -- This will install the spoon if needed, load it, and run the provided config function (if given)
---- spoon.UseSpoon("BrewInfo",
----                function(s)
----                   s:bindHotkeys({
----                         show_brew_info = {hyper, "b"},
----                         open_brew_url = {shift_hyper, "b"},
----                   })
----                   s.brew_info_style = {
----                      textFont = "Inconsolata",
----                      textSize = 14,
----                      radius = 10 }
---- end)
---- --- ```
+--- -- This will install the spoon if needed, load it, and configure it accordingly
+--- spoon.UseSpoon("Caffeine")
+--- 
+--- spoon.UseSpoon("SendToOmniFocus",
+---                {
+---                   config = {
+---                      quickentrydialog = false,
+---                      notifications = true
+---                   },
+---                   hotkeys = {
+---                      send_to_omnifocus = { hyper, "t" }
+---                   },
+---                   fn = function(s)
+---                      -- My Wiki and My Jira are apps created with Epichrome
+---                      s:registerApplication("My Wiki", { apptype = "chromeapp", itemname = "wiki page" })
+---                      s:registerApplication("My Jira", { apptype = "chromeapp", itemname = "issue" })
+---                   end
+---                }
+--- )
+--- --- --- --- ```
 ---
 --- Download: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/UseSpoon.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/UseSpoon.spoon.zip)
 
@@ -32,10 +39,30 @@ obj.author = "Diego Zamboni <diego@zzamboni.org>"
 obj.homepage = "https://github.com/Hammerspoon/Spoons"
 obj.license = "MIT - https://opensource.org/licenses/MIT"
 
---- WindowScreenLeftAndRight.logger
+--- UseSpoon.logger
 --- Variable
 --- Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.
 obj.logger = hs.logger.new('UseSpoon')
+
+--- UseSpoon.use(name, arg)
+--- Method
+--- Install, load and configure a Spoon
+---
+--- Parameters:
+---  * name - the name of the Spoon to install (without the `.spoon` extension). If the Spoon is already installed, it will be loaded using `hs.loadSpoon()`. If it is not installed, it will be installed using `hs.spoons.asyncInstallSpoonFromRepo()` and then loaded.
+---  * arg - if provided, can be used to specify the configuration of the Spoon. The following keys are recognized (all are optional):
+---    * repo - repository from where the Spoon should be installed if not present in the system, as defined in `hs.spoons.repos`. Defaults to `"default"`.
+---    * config - a table containing variables to be stored in the Spoon object to configure it. For example, `config = { answer = 42 }` will result in `spoon.<LoadedSpoon>.answer` being set to 42.
+---    * hotkeys - a table containing hotkey bindings. If provided, will be passed as-is to the Spoon's `bindHotkeys()` method. The special string `"default"` can be given to use the Spoons `defaultHotkeys` variable, if it exists.
+---    * fn - a function which will be called with the freshly-loaded Spoon object as its first argument.
+---    * loglevel - if the Spoon has a variable called `logger`, its `setLogLevel()` method will be called with this value.
+---    * start - if `true`, call the Spoon's `start()` method after configuring everything else.
+---
+--- Returns:
+---  * None
+---
+--- Notes:
+---  * For convenience, this method can be invoked directly on the UseSpoon object, i.e. `spoon.UseSpoon(name, arg)` instead of `spoon.UseSpoon.use(name, arg)`.
 
 function obj.use(name, arg)
    obj.logger.df("UseSpoon(%s, %s)", name, hs.inspect(arg))
