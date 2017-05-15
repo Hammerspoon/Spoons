@@ -39,6 +39,7 @@ obj.logger = hs.logger.new('UseSpoon')
 
 function obj.use(name, arg)
    obj.logger.df("UseSpoon(%s, %s)", name, hs.inspect(arg))
+   if not arg then arg = {} end
    local repo = arg.repo or "default"
    local _load_and_config =function()
       hs.loadSpoon(name)
