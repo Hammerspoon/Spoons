@@ -11,12 +11,12 @@
     ],
     "Variable" : [
       {
-        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
-        "def" : "WindowGrid.logger",
+        "doc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "stripped_doc" : [
           "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
         ],
-        "doc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "def" : "WindowGrid.logger",
+        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "notes" : [
 
         ],
@@ -31,12 +31,12 @@
         ]
       },
       {
-        "desc" : "Table containing a list of arguments to be passed to grid.setGrid(). Each element in the table is itself a table with 1-3 arguments as defined for [hs.grid.setGrid()](http:\/\/www.hammerspoon.org\/docs\/hs.grid.html#setGrid). Defaults to an empty list, which results in the default 3x3 grid for all screen from `hs.grid`.",
-        "def" : "WindowGrid.gridGeometries",
+        "doc" : "Table containing a list of arguments to be passed to grid.setGrid(). Each element in the table is itself a table with 1-3 arguments as defined for [hs.grid.setGrid()](http:\/\/www.hammerspoon.org\/docs\/hs.grid.html#setGrid). Defaults to an empty list, which results in the default 3x3 grid for all screen from `hs.grid`.",
         "stripped_doc" : [
           "Table containing a list of arguments to be passed to grid.setGrid(). Each element in the table is itself a table with 1-3 arguments as defined for [hs.grid.setGrid()](http:\/\/www.hammerspoon.org\/docs\/hs.grid.html#setGrid). Defaults to an empty list, which results in the default 3x3 grid for all screen from `hs.grid`."
         ],
-        "doc" : "Table containing a list of arguments to be passed to grid.setGrid(). Each element in the table is itself a table with 1-3 arguments as defined for [hs.grid.setGrid()](http:\/\/www.hammerspoon.org\/docs\/hs.grid.html#setGrid). Defaults to an empty list, which results in the default 3x3 grid for all screen from `hs.grid`.",
+        "def" : "WindowGrid.gridGeometries",
+        "desc" : "Table containing a list of arguments to be passed to grid.setGrid(). Each element in the table is itself a table with 1-3 arguments as defined for [hs.grid.setGrid()](http:\/\/www.hammerspoon.org\/docs\/hs.grid.html#setGrid). Defaults to an empty list, which results in the default 3x3 grid for all screen from `hs.grid`.",
         "notes" : [
 
         ],
@@ -58,69 +58,18 @@
 
     ],
     "type" : "Module",
-    "desc" : "A new Sample Spoon",
+    "desc" : "Configure and assign hotkey for `hs.grid`",
     "Constructor" : [
 
     ],
-    "doc" : "A new Sample Spoon\n\nDownload: [https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/WindowGrid.spoon.zip](https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/WindowGrid.spoon.zip)",
-    "Field" : [
-
-    ],
-    "Command" : [
-
-    ],
-    "Method" : [
-      {
-        "desc" : "Binds hotkeys for WindowGrid",
-        "def" : "WindowGrid:bindHotkeys(mapping)",
-        "stripped_doc" : [
-          "Binds hotkeys for WindowGrid",
-          ""
-        ],
-        "doc" : "Binds hotkeys for WindowGrid\n\nParameters:\n * mapping - A table containing hotkey objifier\/key details for the following items:\n  * show_grid - show the grid overlay",
-        "notes" : [
-
-        ],
-        "signature" : "WindowGrid:bindHotkeys(mapping)",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "name" : "bindHotkeys",
-        "parameters" : [
-          " * mapping - A table containing hotkey objifier\/key details for the following items:",
-          "  * show_grid - show the grid overlay"
-        ]
-      },
-      {
-        "desc" : "Sets the grid configuration according to `WindowGrid.gridGeometries`.",
-        "def" : "WindowGrid:start()",
-        "stripped_doc" : [
-          "Sets the grid configuration according to `WindowGrid.gridGeometries`."
-        ],
-        "doc" : "Sets the grid configuration according to `WindowGrid.gridGeometries`.",
-        "notes" : [
-
-        ],
-        "signature" : "WindowGrid:start()",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "name" : "start",
-        "parameters" : [
-
-        ]
-      }
-    ],
     "items" : [
       {
-        "desc" : "Table containing a list of arguments to be passed to grid.setGrid(). Each element in the table is itself a table with 1-3 arguments as defined for [hs.grid.setGrid()](http:\/\/www.hammerspoon.org\/docs\/hs.grid.html#setGrid). Defaults to an empty list, which results in the default 3x3 grid for all screen from `hs.grid`.",
-        "def" : "WindowGrid.gridGeometries",
+        "doc" : "Table containing a list of arguments to be passed to grid.setGrid(). Each element in the table is itself a table with 1-3 arguments as defined for [hs.grid.setGrid()](http:\/\/www.hammerspoon.org\/docs\/hs.grid.html#setGrid). Defaults to an empty list, which results in the default 3x3 grid for all screen from `hs.grid`.",
         "stripped_doc" : [
           "Table containing a list of arguments to be passed to grid.setGrid(). Each element in the table is itself a table with 1-3 arguments as defined for [hs.grid.setGrid()](http:\/\/www.hammerspoon.org\/docs\/hs.grid.html#setGrid). Defaults to an empty list, which results in the default 3x3 grid for all screen from `hs.grid`."
         ],
-        "doc" : "Table containing a list of arguments to be passed to grid.setGrid(). Each element in the table is itself a table with 1-3 arguments as defined for [hs.grid.setGrid()](http:\/\/www.hammerspoon.org\/docs\/hs.grid.html#setGrid). Defaults to an empty list, which results in the default 3x3 grid for all screen from `hs.grid`.",
+        "def" : "WindowGrid.gridGeometries",
+        "desc" : "Table containing a list of arguments to be passed to grid.setGrid(). Each element in the table is itself a table with 1-3 arguments as defined for [hs.grid.setGrid()](http:\/\/www.hammerspoon.org\/docs\/hs.grid.html#setGrid). Defaults to an empty list, which results in the default 3x3 grid for all screen from `hs.grid`.",
         "notes" : [
 
         ],
@@ -135,12 +84,12 @@
         ]
       },
       {
-        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
-        "def" : "WindowGrid.logger",
+        "doc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "stripped_doc" : [
           "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
         ],
-        "doc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "def" : "WindowGrid.logger",
+        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "notes" : [
 
         ],
@@ -155,13 +104,13 @@
         ]
       },
       {
-        "desc" : "Binds hotkeys for WindowGrid",
-        "def" : "WindowGrid:bindHotkeys(mapping)",
+        "doc" : "Binds hotkeys for WindowGrid\n\nParameters:\n * mapping - A table containing hotkey objifier\/key details for the following items:\n  * show_grid - show the grid overlay",
         "stripped_doc" : [
           "Binds hotkeys for WindowGrid",
           ""
         ],
-        "doc" : "Binds hotkeys for WindowGrid\n\nParameters:\n * mapping - A table containing hotkey objifier\/key details for the following items:\n  * show_grid - show the grid overlay",
+        "def" : "WindowGrid:bindHotkeys(mapping)",
+        "desc" : "Binds hotkeys for WindowGrid",
         "notes" : [
 
         ],
@@ -177,12 +126,12 @@
         ]
       },
       {
-        "desc" : "Sets the grid configuration according to `WindowGrid.gridGeometries`.",
-        "def" : "WindowGrid:start()",
+        "doc" : "Sets the grid configuration according to `WindowGrid.gridGeometries`.",
         "stripped_doc" : [
           "Sets the grid configuration according to `WindowGrid.gridGeometries`."
         ],
-        "doc" : "Sets the grid configuration according to `WindowGrid.gridGeometries`.",
+        "def" : "WindowGrid:start()",
+        "desc" : "Sets the grid configuration according to `WindowGrid.gridGeometries`.",
         "notes" : [
 
         ],
@@ -197,6 +146,57 @@
         ]
       }
     ],
+    "Method" : [
+      {
+        "doc" : "Binds hotkeys for WindowGrid\n\nParameters:\n * mapping - A table containing hotkey objifier\/key details for the following items:\n  * show_grid - show the grid overlay",
+        "stripped_doc" : [
+          "Binds hotkeys for WindowGrid",
+          ""
+        ],
+        "def" : "WindowGrid:bindHotkeys(mapping)",
+        "desc" : "Binds hotkeys for WindowGrid",
+        "notes" : [
+
+        ],
+        "signature" : "WindowGrid:bindHotkeys(mapping)",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "name" : "bindHotkeys",
+        "parameters" : [
+          " * mapping - A table containing hotkey objifier\/key details for the following items:",
+          "  * show_grid - show the grid overlay"
+        ]
+      },
+      {
+        "doc" : "Sets the grid configuration according to `WindowGrid.gridGeometries`.",
+        "stripped_doc" : [
+          "Sets the grid configuration according to `WindowGrid.gridGeometries`."
+        ],
+        "def" : "WindowGrid:start()",
+        "desc" : "Sets the grid configuration according to `WindowGrid.gridGeometries`.",
+        "notes" : [
+
+        ],
+        "signature" : "WindowGrid:start()",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "name" : "start",
+        "parameters" : [
+
+        ]
+      }
+    ],
+    "Command" : [
+
+    ],
+    "Field" : [
+
+    ],
+    "doc" : "Configure and assign hotkey for `hs.grid`\n\nDownload: [https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/WindowGrid.spoon.zip](https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/WindowGrid.spoon.zip)",
     "name" : "WindowGrid"
   }
 ]
