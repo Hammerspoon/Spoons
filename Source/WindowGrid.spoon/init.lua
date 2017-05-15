@@ -1,6 +1,6 @@
 --- === WindowGrid ===
 ---
---- A new Sample Spoon
+--- Configure and assign hotkey for `hs.grid`
 ---
 --- Download: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WindowGrid.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WindowGrid.spoon.zip)
 
@@ -10,7 +10,7 @@ obj.__index = obj
 -- Metadata
 obj.name = "WindowGrid"
 obj.version = "0.1"
-obj.author = "Your Name <your@email.org>"
+obj.author = "Diego Zamboni <diego@zzamboni.org>"
 obj.homepage = "https://github.com/Hammerspoon/Spoons"
 obj.license = "MIT - https://opensource.org/licenses/MIT"
 
