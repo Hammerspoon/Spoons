@@ -88,7 +88,7 @@ function obj.use(name, arg)
             hs.spoons.asyncInstallSpoonFromRepo(name, repo,
                                                 function(urlparts, success)
                                                    if success then
-                                                      hs.notify.show("Installed Spoon " .. name, "Enjoy!", "")
+                                                      hs.notify.show("Spoon installed by UseSpoon", name .. ".spoon is now available", "")
                                                       _load_and_config() 
                                                    else
                                                       obj.logger.ef("Error installing Spoon '%s' from repo '%s'", name, repo)
