@@ -1,6 +1,6 @@
 --- === SpoonInstall ===
 ---
---- Install and manager Spoons
+--- Install and manage Spoons
 ---
 --- Download: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/SpoonInstall.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/SpoonInstall.spoon.zip)
 
@@ -105,7 +105,7 @@ function obj:_build_repo_json_url(repo)
    end
 end
 
---- SpoonInstall.asyncUpdateRepo(repo, callback)
+--- SpoonInstall:asyncUpdateRepo(repo, callback)
 --- Method
 --- Asynchronously fetch and store locally the information about the contents of a Spoons repository
 ---
@@ -127,7 +127,7 @@ function obj:asyncUpdateRepo(repo, callback)
    end
 end
 
---- SpoonInstall.updateRepo(repo)
+--- SpoonInstall:updateRepo(repo)
 --- Method
 --- Synchronously fetch and store locally the information about the contents of a Spoons repository
 ---
@@ -149,7 +149,7 @@ function obj:updateRepo(repo)
    end
 end
 
---- SpoonInstall.updateAllRepos()
+--- SpoonInstall:updateAllRepos()
 --- Method
 --- Synchronously fetch and store locally the information about the contents of all registered Spoons repositories
 ---
@@ -167,7 +167,7 @@ function obj:updateAllRepos()
    end
 end
 
---- SpoonInstall.repolist()
+--- SpoonInstall:repolist()
 --- Method
 --- Return a sorted list of registered Spoon repositories
 ---
@@ -184,7 +184,7 @@ function obj:repolist()
    return keys
 end
 
---- SpoonInstall.search(pat)
+--- SpoonInstall:search(pat)
 --- Method
 --- Search repositories for a pattern
 ---
@@ -256,7 +256,7 @@ function obj:_installSpoonFromZipURLgetCallback(urlparts, callback, status, body
    return success
 end
 
---- SpoonInstall.asyncInstallSpoonFromZipURL(url, callback)
+--- SpoonInstall:asyncInstallSpoonFromZipURL(url, callback)
 --- Method
 --- Asynchronously download a Spoon zip file and install it.
 ---
@@ -280,7 +280,7 @@ function obj:asyncInstallSpoonFromZipURL(url, callback)
    end
 end
 
---- SpoonInstall.installSpoonFromZipURL(url, callback)
+--- SpoonInstall:installSpoonFromZipURL(url, callback)
 --- Method
 --- Synchronously download a Spoon zip file and install it.
 ---
@@ -319,7 +319,7 @@ function obj:_is_valid_spoon(name, repo)
    return nil
 end
 
---- SpoonInstall.asyncInstallSpoonFromRepo(name, repo, callback)
+--- SpoonInstall:asyncInstallSpoonFromRepo(name, repo, callback)
 --- Method
 --- Asynchronously install a Spoon from a registered repository
 ---
@@ -340,7 +340,7 @@ function obj:asyncInstallSpoonFromRepo(name, repo, callback)
    return nil
 end
 
---- SpoonInstall.installSpoonFromRepo(name, repo)
+--- SpoonInstall:installSpoonFromRepo(name, repo)
 --- Method
 --- Synchronously install a Spoon from a registered repository
 ---
