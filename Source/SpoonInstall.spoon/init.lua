@@ -43,6 +43,15 @@ obj.repos = {
    }
 }
 
+--- SpoonInstall.use_syncinstall
+--- Variable
+--- If `true`, `andUse()` will update repos and install packages synchronously. Defaults to `false`.
+---
+--- Keep in mind that if you set this to `true`, Hammerspoon will
+--- block until all missing Spoons are installed, but the notification
+--- will happen at a more "human readable" rate.
+obj.use_syncinstall = false
+
 -- Execute a command and return its output with trailing EOLs trimmed. If the command fails, an error message is logged.
 local function _x(cmd, errfmt, ...)
    local output, status = hs.execute(cmd)
@@ -347,6 +356,66 @@ function obj:installSpoonFromRepo(name, repo, callback)
       return self:installSpoonFromZipURL(self.repos[repo].data[name].download_url)
    end
    return nil
+end
+
+--- SpoonInstall:andUse(name, arg)
+--- Method
+--- Declaratively install, load and configure a Spoon
+---
+--- Parameters:
+---  * name - the name of the Spoon to install (without the `.spoon` extension). If the Spoon is already installed, it will be loaded using `hs.loadSpoon()`. If it is not installed, it will be installed using `SpoonInstall:asyncInstallSpoonFromRepo()` and then loaded.
+---  * arg - if provided, can be used to specify the configuration of the Spoon. The following keys are recognized (all are optional):
+---    * repo - repository from where the Spoon should be installed if not present in the system, as defined in `SpoonInstall.repos`. Defaults to `"default"`.
+---    * config - a table containing variables to be stored in the Spoon object to configure it. For example, `config = { answer = 42 }` will result in `spoon.<LoadedSpoon>.answer` being set to 42.
+---    * hotkeys - a table containing hotkey bindings. If provided, will be passed as-is to the Spoon's `bindHotkeys()` method. The special string `"default"` can be given to use the Spoons `defaultHotkeys` variable, if it exists.
+---    * fn - a function which will be called with the freshly-loaded Spoon object as its first argument.
+---    * loglevel - if the Spoon has a variable called `logger`, its `setLogLevel()` method will be called with this value.
+---    * start - if `true`, call the Spoon's `start()` method after configuring everything else.
+---
+--- Returns:
+---  * None
+---
+--- Notes:
+---  * For convenience, this method can be invoked directly on the UseSpoon object, i.e. `spoon.UseSpoon(name, arg)` instead of `spoon.UseSpoon.use(name, arg)`.
+function obj:andUse(name, arg)
+   if not arg then arg = {} end
+   if hs.spoons.use(name, arg, true) then
+      return true
+   else
+      local repo = arg.repo or "default"
+      if self.repos[repo] then
+         if self.repos[repo].data then
+            local load_and_config = function(_, success)
+               if success then
+                  hs.notify.show("Spoon installed by UseSpoon", name .. ".spoon is now available", "")
+                  hs.spoons.use(name, arg)
+               else
+                  obj.logger.ef("Error installing Spoon '%s' from repo '%s'", name, repo)
+               end
+            end
+            if self.use_syncinstall then
+               return load_and_config(nil, self:installSpoonFromRepo(name, repo))
+            else
+               self:asyncInstallSpoonFromRepo(name, repo, load_and_config)
+            end
+         else
+            local update_repo_and_continue = function(_, success)
+               if success then
+                  obj:andUse(name, arg)
+               else
+                  obj.logger.ef("Error updating repository '%s'", repo)
+               end
+            end
+            if self.use_syncinstall then
+               return update_repo_and_continue(nil, self:updateRepo(repo))
+            else
+               self:asyncUpdateRepo(repo, update_repo_and_continue)
+            end
+         end
+      else
+         obj.logger.ef("Unknown repository '%s' for Spoon", repo, name)
+      end
+   end
 end
 
 return obj
