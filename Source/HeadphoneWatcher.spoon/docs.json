@@ -1,0 +1,352 @@
+[
+  {
+    "Constant" : [
+
+    ],
+    "submodules" : [
+
+    ],
+    "Function" : [
+
+    ],
+    "Variable" : [
+      {
+        "doc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "stripped_doc" : [
+          "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
+        ],
+        "name" : "logger",
+        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "notes" : [
+
+        ],
+        "signature" : "HeadphoneWatcher.logger",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "HeadphoneWatcher.logger",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "doc" : "Table containing one key per application, with the value indicating whether HeadphoneWatcher should try to pause\/unpause that application in response to the headphone being plugged\/unplugged. The key name must ideally correspond to the name of the corresponding `hs.*` module. Default value:\n```\n{\n   itunes = true,\n   spotify = true,\n   deezer = true,\n   vox = false -- Vox has built-in headphone detection support\n}\n```",
+        "stripped_doc" : [
+          "Table containing one key per application, with the value indicating whether HeadphoneWatcher should try to pause\/unpause that application in response to the headphone being plugged\/unplugged. The key name must ideally correspond to the name of the corresponding `hs.*` module. Default value:",
+          "```",
+          "{",
+          "   itunes = true,",
+          "   spotify = true,",
+          "   deezer = true,",
+          "   vox = false -- Vox has built-in headphone detection support",
+          "}",
+          "```"
+        ],
+        "name" : "control",
+        "desc" : "Table containing one key per application, with the value indicating whether HeadphoneWatcher should try to pause\/unpause that application in response to the headphone being plugged\/unplugged. The key name must ideally correspond to the name of the corresponding `hs.*` module. Default value:",
+        "notes" : [
+
+        ],
+        "signature" : "HeadphoneWatcher.control",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "HeadphoneWatcher.control",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "doc" : "Table containing control functions for each application to control.\nThe keys must correspond to the values in `HeadphoneWatcher.control`, and the value is a table with the following elements:\n * `appname` - application name (case-sensitive, as the application appears to the system)\n * `isPlaying` - function that returns a true value if the application is playing\n * `play` - function that starts playback in the application\n * `pause` - function that pauses playback in the application\n\nThe default value includes definitions for iTunes, Spotify, Deezer and Vox, using the corresponding functions from `hs.itunes`, `hs.spotify`, `hs.deezer` and `hs.vox`, respectively.",
+        "stripped_doc" : [
+          "Table containing control functions for each application to control.",
+          "The keys must correspond to the values in `HeadphoneWatcher.control`, and the value is a table with the following elements:",
+          " * `appname` - application name (case-sensitive, as the application appears to the system)",
+          " * `isPlaying` - function that returns a true value if the application is playing",
+          " * `play` - function that starts playback in the application",
+          " * `pause` - function that pauses playback in the application",
+          "",
+          "The default value includes definitions for iTunes, Spotify, Deezer and Vox, using the corresponding functions from `hs.itunes`, `hs.spotify`, `hs.deezer` and `hs.vox`, respectively."
+        ],
+        "name" : "controlfns",
+        "desc" : "Table containing control functions for each application to control.",
+        "notes" : [
+
+        ],
+        "signature" : "HeadphoneWatcher.controlfns",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "HeadphoneWatcher.controlfns",
+        "parameters" : [
+
+        ]
+      }
+    ],
+    "stripped_doc" : [
+
+    ],
+    "Deprecated" : [
+
+    ],
+    "type" : "Module",
+    "desc" : "Play\/pause music players when headphones are connected\/disconnected",
+    "Constructor" : [
+
+    ],
+    "doc" : "Play\/pause music players when headphones are connected\/disconnected\n\nDownload: [https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/HeadphoneWatcher.spoon.zip](https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/HeadphoneWatcher.spoon.zip)",
+    "Method" : [
+      {
+        "doc" : "Generate the most common set of application control definition.\n\nParameters:\n * app - name of the application, with its correct letter casing (i.e. \"iTunes\"). The name as provided will be used to find the running application, and its lowercase version will be used to find the corresponding `hs.*` module.\n\nReturns:\n * A table in the correct format for `HeadphoneWatcher.controlfns`, using the lower-case value of `app` as the module name (for example, if app = \"iTunes\", the module loaded will be `hs.itunes`, and assuming the functions `isPlaying()`, `play()` and `pause()` exist in that module.",
+        "stripped_doc" : [
+          "Generate the most common set of application control definition.",
+          ""
+        ],
+        "name" : "defaultControlFns",
+        "desc" : "Generate the most common set of application control definition.",
+        "notes" : [
+
+        ],
+        "signature" : "HeadphoneWatcher.defaultControlFns(app)",
+        "type" : "Method",
+        "returns" : [
+          " * A table in the correct format for `HeadphoneWatcher.controlfns`, using the lower-case value of `app` as the module name (for example, if app = \"iTunes\", the module loaded will be `hs.itunes`, and assuming the functions `isPlaying()`, `play()` and `pause()` exist in that module."
+        ],
+        "def" : "HeadphoneWatcher.defaultControlFns(app)",
+        "parameters" : [
+          " * app - name of the application, with its correct letter casing (i.e. \"iTunes\"). The name as provided will be used to find the running application, and its lowercase version will be used to find the corresponding `hs.*` module.",
+          ""
+        ]
+      },
+      {
+        "doc" : "Callback function to use as an audio device watcher, to pause\/unpause the application on headphones plugged\/unplugged",
+        "stripped_doc" : [
+          "Callback function to use as an audio device watcher, to pause\/unpause the application on headphones plugged\/unplugged"
+        ],
+        "name" : "audiodevwatch",
+        "desc" : "Callback function to use as an audio device watcher, to pause\/unpause the application on headphones plugged\/unplugged",
+        "notes" : [
+
+        ],
+        "signature" : "HeadphoneWatcher:audiodevwatch(dev_uid, event_name)",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "def" : "HeadphoneWatcher:audiodevwatch(dev_uid, event_name)",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "doc" : "Start headphone detection on all audio devices that support it",
+        "stripped_doc" : [
+          "Start headphone detection on all audio devices that support it"
+        ],
+        "name" : "start",
+        "desc" : "Start headphone detection on all audio devices that support it",
+        "notes" : [
+
+        ],
+        "signature" : "HeadphoneWatcher:start()",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "def" : "HeadphoneWatcher:start()",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "doc" : "Stop headphone detection",
+        "stripped_doc" : [
+          "Stop headphone detection"
+        ],
+        "name" : "stop",
+        "desc" : "Stop headphone detection",
+        "notes" : [
+
+        ],
+        "signature" : "HeadphoneWatcher:stop()",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "def" : "HeadphoneWatcher:stop()",
+        "parameters" : [
+
+        ]
+      }
+    ],
+    "Command" : [
+
+    ],
+    "Field" : [
+
+    ],
+    "items" : [
+      {
+        "doc" : "Table containing one key per application, with the value indicating whether HeadphoneWatcher should try to pause\/unpause that application in response to the headphone being plugged\/unplugged. The key name must ideally correspond to the name of the corresponding `hs.*` module. Default value:\n```\n{\n   itunes = true,\n   spotify = true,\n   deezer = true,\n   vox = false -- Vox has built-in headphone detection support\n}\n```",
+        "stripped_doc" : [
+          "Table containing one key per application, with the value indicating whether HeadphoneWatcher should try to pause\/unpause that application in response to the headphone being plugged\/unplugged. The key name must ideally correspond to the name of the corresponding `hs.*` module. Default value:",
+          "```",
+          "{",
+          "   itunes = true,",
+          "   spotify = true,",
+          "   deezer = true,",
+          "   vox = false -- Vox has built-in headphone detection support",
+          "}",
+          "```"
+        ],
+        "name" : "control",
+        "desc" : "Table containing one key per application, with the value indicating whether HeadphoneWatcher should try to pause\/unpause that application in response to the headphone being plugged\/unplugged. The key name must ideally correspond to the name of the corresponding `hs.*` module. Default value:",
+        "notes" : [
+
+        ],
+        "signature" : "HeadphoneWatcher.control",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "HeadphoneWatcher.control",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "doc" : "Table containing control functions for each application to control.\nThe keys must correspond to the values in `HeadphoneWatcher.control`, and the value is a table with the following elements:\n * `appname` - application name (case-sensitive, as the application appears to the system)\n * `isPlaying` - function that returns a true value if the application is playing\n * `play` - function that starts playback in the application\n * `pause` - function that pauses playback in the application\n\nThe default value includes definitions for iTunes, Spotify, Deezer and Vox, using the corresponding functions from `hs.itunes`, `hs.spotify`, `hs.deezer` and `hs.vox`, respectively.",
+        "stripped_doc" : [
+          "Table containing control functions for each application to control.",
+          "The keys must correspond to the values in `HeadphoneWatcher.control`, and the value is a table with the following elements:",
+          " * `appname` - application name (case-sensitive, as the application appears to the system)",
+          " * `isPlaying` - function that returns a true value if the application is playing",
+          " * `play` - function that starts playback in the application",
+          " * `pause` - function that pauses playback in the application",
+          "",
+          "The default value includes definitions for iTunes, Spotify, Deezer and Vox, using the corresponding functions from `hs.itunes`, `hs.spotify`, `hs.deezer` and `hs.vox`, respectively."
+        ],
+        "name" : "controlfns",
+        "desc" : "Table containing control functions for each application to control.",
+        "notes" : [
+
+        ],
+        "signature" : "HeadphoneWatcher.controlfns",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "HeadphoneWatcher.controlfns",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "doc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "stripped_doc" : [
+          "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
+        ],
+        "name" : "logger",
+        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "notes" : [
+
+        ],
+        "signature" : "HeadphoneWatcher.logger",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "HeadphoneWatcher.logger",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "doc" : "Callback function to use as an audio device watcher, to pause\/unpause the application on headphones plugged\/unplugged",
+        "stripped_doc" : [
+          "Callback function to use as an audio device watcher, to pause\/unpause the application on headphones plugged\/unplugged"
+        ],
+        "name" : "audiodevwatch",
+        "desc" : "Callback function to use as an audio device watcher, to pause\/unpause the application on headphones plugged\/unplugged",
+        "notes" : [
+
+        ],
+        "signature" : "HeadphoneWatcher:audiodevwatch(dev_uid, event_name)",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "def" : "HeadphoneWatcher:audiodevwatch(dev_uid, event_name)",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "doc" : "Generate the most common set of application control definition.\n\nParameters:\n * app - name of the application, with its correct letter casing (i.e. \"iTunes\"). The name as provided will be used to find the running application, and its lowercase version will be used to find the corresponding `hs.*` module.\n\nReturns:\n * A table in the correct format for `HeadphoneWatcher.controlfns`, using the lower-case value of `app` as the module name (for example, if app = \"iTunes\", the module loaded will be `hs.itunes`, and assuming the functions `isPlaying()`, `play()` and `pause()` exist in that module.",
+        "stripped_doc" : [
+          "Generate the most common set of application control definition.",
+          ""
+        ],
+        "name" : "defaultControlFns",
+        "desc" : "Generate the most common set of application control definition.",
+        "notes" : [
+
+        ],
+        "signature" : "HeadphoneWatcher.defaultControlFns(app)",
+        "type" : "Method",
+        "returns" : [
+          " * A table in the correct format for `HeadphoneWatcher.controlfns`, using the lower-case value of `app` as the module name (for example, if app = \"iTunes\", the module loaded will be `hs.itunes`, and assuming the functions `isPlaying()`, `play()` and `pause()` exist in that module."
+        ],
+        "def" : "HeadphoneWatcher.defaultControlFns(app)",
+        "parameters" : [
+          " * app - name of the application, with its correct letter casing (i.e. \"iTunes\"). The name as provided will be used to find the running application, and its lowercase version will be used to find the corresponding `hs.*` module.",
+          ""
+        ]
+      },
+      {
+        "doc" : "Start headphone detection on all audio devices that support it",
+        "stripped_doc" : [
+          "Start headphone detection on all audio devices that support it"
+        ],
+        "name" : "start",
+        "desc" : "Start headphone detection on all audio devices that support it",
+        "notes" : [
+
+        ],
+        "signature" : "HeadphoneWatcher:start()",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "def" : "HeadphoneWatcher:start()",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "doc" : "Stop headphone detection",
+        "stripped_doc" : [
+          "Stop headphone detection"
+        ],
+        "name" : "stop",
+        "desc" : "Stop headphone detection",
+        "notes" : [
+
+        ],
+        "signature" : "HeadphoneWatcher:stop()",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "def" : "HeadphoneWatcher:stop()",
+        "parameters" : [
+
+        ]
+      }
+    ],
+    "name" : "HeadphoneWatcher"
+  }
+]
