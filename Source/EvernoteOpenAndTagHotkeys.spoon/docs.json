@@ -12,13 +12,11 @@
     "Variable" : [
       {
         "doc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
-        "parameters" : [
-
-        ],
-        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "stripped_doc" : [
           "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
         ],
+        "def" : "EvernoteOpenAndTagHotkeys.logger",
+        "name" : "logger",
         "notes" : [
 
         ],
@@ -27,62 +25,35 @@
         "returns" : [
 
         ],
-        "def" : "EvernoteOpenAndTagHotkeys.logger",
-        "name" : "logger"
+        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "parameters" : [
+
+        ]
       }
     ],
     "stripped_doc" : [
 
     ],
-    "type" : "Module",
     "Deprecated" : [
 
     ],
+    "type" : "Module",
     "desc" : "Add some missing hotkeys for opening a note in Evernote, and for common tag sets",
     "Constructor" : [
 
     ],
     "doc" : "Add some missing hotkeys for opening a note in Evernote, and for common tag sets\n\nDownload: [https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/EvernoteOpenAndTagHotkeys.spoon.zip](https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/EvernoteOpenAndTagHotkeys.spoon.zip)",
-    "Method" : [
-      {
-        "doc" : "Binds hotkeys for EvernoteOpenAndTagHotkeys\n\nParameters:\n * mapping - A table containing hotkey objifier\/key details for the following items:\n  * hello - Say Hello",
-        "parameters" : [
-          " * mapping - A table containing hotkey objifier\/key details for the following items:",
-          "  * hello - Say Hello"
-        ],
-        "desc" : "Binds hotkeys for EvernoteOpenAndTagHotkeys",
-        "stripped_doc" : [
-          "Binds hotkeys for EvernoteOpenAndTagHotkeys",
-          ""
-        ],
-        "notes" : [
-
-        ],
-        "signature" : "EvernoteOpenAndTagHotkeys:bindHotkeys(mapping)",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "def" : "EvernoteOpenAndTagHotkeys:bindHotkeys(mapping)",
-        "name" : "bindHotkeys"
-      }
-    ],
-    "Command" : [
-
-    ],
     "Field" : [
 
     ],
     "items" : [
       {
         "doc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
-        "parameters" : [
-
-        ],
-        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "stripped_doc" : [
           "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
         ],
+        "def" : "EvernoteOpenAndTagHotkeys.logger",
+        "name" : "logger",
         "notes" : [
 
         ],
@@ -91,20 +62,19 @@
         "returns" : [
 
         ],
-        "def" : "EvernoteOpenAndTagHotkeys.logger",
-        "name" : "logger"
+        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "parameters" : [
+
+        ]
       },
       {
-        "doc" : "Binds hotkeys for EvernoteOpenAndTagHotkeys\n\nParameters:\n * mapping - A table containing hotkey objifier\/key details for the following items:\n  * hello - Say Hello",
-        "parameters" : [
-          " * mapping - A table containing hotkey objifier\/key details for the following items:",
-          "  * hello - Say Hello"
-        ],
-        "desc" : "Binds hotkeys for EvernoteOpenAndTagHotkeys",
+        "doc" : "Binds hotkeys for EvernoteOpenAndTagHotkeys\n\nParameters:\n * mapping - A table containing hotkey objifier\/key details for the following items:\n  * `open_note` - open the current note in a new window\n  * `open_and_tag-<tag1>,<tag2>...\" - open the current note and apply all the comma-separated tags given. The tags must already exist in Evernote for the tagging to succeed.\n  * `tag-<tag1>,<tag2>...\" - open the current note and apply all the comma-separated tags given. The tags must already exist in Evernote for the tagging to succeed.",
         "stripped_doc" : [
           "Binds hotkeys for EvernoteOpenAndTagHotkeys",
           ""
         ],
+        "def" : "EvernoteOpenAndTagHotkeys:bindHotkeys(mapping)",
+        "name" : "bindHotkeys",
         "notes" : [
 
         ],
@@ -113,8 +83,268 @@
         "returns" : [
 
         ],
+        "desc" : "Binds hotkeys for EvernoteOpenAndTagHotkeys",
+        "parameters" : [
+          " * mapping - A table containing hotkey objifier\/key details for the following items:",
+          "  * `open_note` - open the current note in a new window",
+          "  * `open_and_tag-<tag1>,<tag2>...\" - open the current note and apply all the comma-separated tags given. The tags must already exist in Evernote for the tagging to succeed.",
+          "  * `tag-<tag1>,<tag2>...\" - open the current note and apply all the comma-separated tags given. The tags must already exist in Evernote for the tagging to succeed."
+        ]
+      },
+      {
+        "doc" : "Returns `true` if Evernote is the frontmost application\n\nParameters:\n * None\n\nReturns:\n * `true` if Evernote is the frontmost application, `false` otherwise",
+        "stripped_doc" : [
+          "Returns `true` if Evernote is the frontmost application",
+          ""
+        ],
+        "def" : "EvernoteOpenAndTagHotkeys:evernoteIsFrontmost()",
+        "name" : "evernoteIsFrontmost",
+        "notes" : [
+
+        ],
+        "signature" : "EvernoteOpenAndTagHotkeys:evernoteIsFrontmost()",
+        "type" : "Method",
+        "returns" : [
+          " * `true` if Evernote is the frontmost application, `false` otherwise"
+        ],
+        "desc" : "Returns `true` if Evernote is the frontmost application",
+        "parameters" : [
+          " * None",
+          ""
+        ]
+      },
+      {
+        "doc" : "Apply the given tags to the selected Evernote notes\n\nParameters:\n * tags - a table containing a list of tags to apply. The tags must already exist in Evernote.\n\nReturns:\n * None\n\nNotes:\n * If multiple notes are selected, the tags are applied to all of them",
+        "stripped_doc" : [
+          "Apply the given tags to the selected Evernote notes",
+          ""
+        ],
+        "def" : "EvernoteOpenAndTagHotkeys:inlineTagCurrentNote(tags)",
+        "name" : "inlineTagCurrentNote",
+        "notes" : [
+          " * If multiple notes are selected, the tags are applied to all of them"
+        ],
+        "signature" : "EvernoteOpenAndTagHotkeys:inlineTagCurrentNote(tags)",
+        "type" : "Method",
+        "returns" : [
+          " * None",
+          ""
+        ],
+        "desc" : "Apply the given tags to the selected Evernote notes",
+        "parameters" : [
+          " * tags - a table containing a list of tags to apply. The tags must already exist in Evernote.",
+          ""
+        ]
+      },
+      {
+        "doc" : "Open the current Evernote note in a new window and apply the given tags to it\n\nParameters:\n * tags - a table containing a list of tags to apply. The tags must already exist in Evernote.\n\nReturns:\n * None\n\nNotes:\n * Even if multiple notes are selected, only the first one is tagged, as it will become the \"current one\" after it's opened in a new window",
+        "stripped_doc" : [
+          "Open the current Evernote note in a new window and apply the given tags to it",
+          ""
+        ],
+        "def" : "EvernoteOpenAndTagHotkeys:openAndTagCurrentNote(tags)",
+        "name" : "openAndTagCurrentNote",
+        "notes" : [
+          " * Even if multiple notes are selected, only the first one is tagged, as it will become the \"current one\" after it's opened in a new window"
+        ],
+        "signature" : "EvernoteOpenAndTagHotkeys:openAndTagCurrentNote(tags)",
+        "type" : "Method",
+        "returns" : [
+          " * None",
+          ""
+        ],
+        "desc" : "Open the current Evernote note in a new window and apply the given tags to it",
+        "parameters" : [
+          " * tags - a table containing a list of tags to apply. The tags must already exist in Evernote.",
+          ""
+        ]
+      },
+      {
+        "doc" : "Open the currently-selected Evernote notes new windows\nApplescript from https:\/\/discussion.evernote.com\/topic\/85685-feature-request-open-note-in-separate-window-keyboard-shortcut\/#comment-366797\n\nParameters:\n * None\n\nReturns:\n * None",
+        "stripped_doc" : [
+          "Open the currently-selected Evernote notes new windows",
+          "Applescript from https:\/\/discussion.evernote.com\/topic\/85685-feature-request-open-note-in-separate-window-keyboard-shortcut\/#comment-366797",
+          ""
+        ],
+        "def" : "EvernoteOpenAndTagHotkeys:openCurrentNoteInWindow()",
+        "name" : "openCurrentNoteInWindow",
+        "notes" : [
+
+        ],
+        "signature" : "EvernoteOpenAndTagHotkeys:openCurrentNoteInWindow()",
+        "type" : "Method",
+        "returns" : [
+          " * None"
+        ],
+        "desc" : "Open the currently-selected Evernote notes new windows",
+        "parameters" : [
+          " * None",
+          ""
+        ]
+      },
+      {
+        "doc" : "Assigns tags to the currently-selected Evernote notes\n\nParameters:\n * tags - a table containing a list of tags to apply. The tags must already exist in Evernote.\n\nReturns:\n * None",
+        "stripped_doc" : [
+          "Assigns tags to the currently-selected Evernote notes",
+          ""
+        ],
+        "def" : "EvernoteOpenAndTagHotkeys:tagCurrentNote(tags)",
+        "name" : "tagCurrentNote",
+        "notes" : [
+
+        ],
+        "signature" : "EvernoteOpenAndTagHotkeys:tagCurrentNote(tags)",
+        "type" : "Method",
+        "returns" : [
+          " * None"
+        ],
+        "desc" : "Assigns tags to the currently-selected Evernote notes",
+        "parameters" : [
+          " * tags - a table containing a list of tags to apply. The tags must already exist in Evernote.",
+          ""
+        ]
+      }
+    ],
+    "Command" : [
+
+    ],
+    "Method" : [
+      {
+        "doc" : "Returns `true` if Evernote is the frontmost application\n\nParameters:\n * None\n\nReturns:\n * `true` if Evernote is the frontmost application, `false` otherwise",
+        "stripped_doc" : [
+          "Returns `true` if Evernote is the frontmost application",
+          ""
+        ],
+        "def" : "EvernoteOpenAndTagHotkeys:evernoteIsFrontmost()",
+        "name" : "evernoteIsFrontmost",
+        "notes" : [
+
+        ],
+        "signature" : "EvernoteOpenAndTagHotkeys:evernoteIsFrontmost()",
+        "type" : "Method",
+        "returns" : [
+          " * `true` if Evernote is the frontmost application, `false` otherwise"
+        ],
+        "desc" : "Returns `true` if Evernote is the frontmost application",
+        "parameters" : [
+          " * None",
+          ""
+        ]
+      },
+      {
+        "doc" : "Open the currently-selected Evernote notes new windows\nApplescript from https:\/\/discussion.evernote.com\/topic\/85685-feature-request-open-note-in-separate-window-keyboard-shortcut\/#comment-366797\n\nParameters:\n * None\n\nReturns:\n * None",
+        "stripped_doc" : [
+          "Open the currently-selected Evernote notes new windows",
+          "Applescript from https:\/\/discussion.evernote.com\/topic\/85685-feature-request-open-note-in-separate-window-keyboard-shortcut\/#comment-366797",
+          ""
+        ],
+        "def" : "EvernoteOpenAndTagHotkeys:openCurrentNoteInWindow()",
+        "name" : "openCurrentNoteInWindow",
+        "notes" : [
+
+        ],
+        "signature" : "EvernoteOpenAndTagHotkeys:openCurrentNoteInWindow()",
+        "type" : "Method",
+        "returns" : [
+          " * None"
+        ],
+        "desc" : "Open the currently-selected Evernote notes new windows",
+        "parameters" : [
+          " * None",
+          ""
+        ]
+      },
+      {
+        "doc" : "Assigns tags to the currently-selected Evernote notes\n\nParameters:\n * tags - a table containing a list of tags to apply. The tags must already exist in Evernote.\n\nReturns:\n * None",
+        "stripped_doc" : [
+          "Assigns tags to the currently-selected Evernote notes",
+          ""
+        ],
+        "def" : "EvernoteOpenAndTagHotkeys:tagCurrentNote(tags)",
+        "name" : "tagCurrentNote",
+        "notes" : [
+
+        ],
+        "signature" : "EvernoteOpenAndTagHotkeys:tagCurrentNote(tags)",
+        "type" : "Method",
+        "returns" : [
+          " * None"
+        ],
+        "desc" : "Assigns tags to the currently-selected Evernote notes",
+        "parameters" : [
+          " * tags - a table containing a list of tags to apply. The tags must already exist in Evernote.",
+          ""
+        ]
+      },
+      {
+        "doc" : "Open the current Evernote note in a new window and apply the given tags to it\n\nParameters:\n * tags - a table containing a list of tags to apply. The tags must already exist in Evernote.\n\nReturns:\n * None\n\nNotes:\n * Even if multiple notes are selected, only the first one is tagged, as it will become the \"current one\" after it's opened in a new window",
+        "stripped_doc" : [
+          "Open the current Evernote note in a new window and apply the given tags to it",
+          ""
+        ],
+        "def" : "EvernoteOpenAndTagHotkeys:openAndTagCurrentNote(tags)",
+        "name" : "openAndTagCurrentNote",
+        "notes" : [
+          " * Even if multiple notes are selected, only the first one is tagged, as it will become the \"current one\" after it's opened in a new window"
+        ],
+        "signature" : "EvernoteOpenAndTagHotkeys:openAndTagCurrentNote(tags)",
+        "type" : "Method",
+        "returns" : [
+          " * None",
+          ""
+        ],
+        "desc" : "Open the current Evernote note in a new window and apply the given tags to it",
+        "parameters" : [
+          " * tags - a table containing a list of tags to apply. The tags must already exist in Evernote.",
+          ""
+        ]
+      },
+      {
+        "doc" : "Apply the given tags to the selected Evernote notes\n\nParameters:\n * tags - a table containing a list of tags to apply. The tags must already exist in Evernote.\n\nReturns:\n * None\n\nNotes:\n * If multiple notes are selected, the tags are applied to all of them",
+        "stripped_doc" : [
+          "Apply the given tags to the selected Evernote notes",
+          ""
+        ],
+        "def" : "EvernoteOpenAndTagHotkeys:inlineTagCurrentNote(tags)",
+        "name" : "inlineTagCurrentNote",
+        "notes" : [
+          " * If multiple notes are selected, the tags are applied to all of them"
+        ],
+        "signature" : "EvernoteOpenAndTagHotkeys:inlineTagCurrentNote(tags)",
+        "type" : "Method",
+        "returns" : [
+          " * None",
+          ""
+        ],
+        "desc" : "Apply the given tags to the selected Evernote notes",
+        "parameters" : [
+          " * tags - a table containing a list of tags to apply. The tags must already exist in Evernote.",
+          ""
+        ]
+      },
+      {
+        "doc" : "Binds hotkeys for EvernoteOpenAndTagHotkeys\n\nParameters:\n * mapping - A table containing hotkey objifier\/key details for the following items:\n  * `open_note` - open the current note in a new window\n  * `open_and_tag-<tag1>,<tag2>...\" - open the current note and apply all the comma-separated tags given. The tags must already exist in Evernote for the tagging to succeed.\n  * `tag-<tag1>,<tag2>...\" - open the current note and apply all the comma-separated tags given. The tags must already exist in Evernote for the tagging to succeed.",
+        "stripped_doc" : [
+          "Binds hotkeys for EvernoteOpenAndTagHotkeys",
+          ""
+        ],
         "def" : "EvernoteOpenAndTagHotkeys:bindHotkeys(mapping)",
-        "name" : "bindHotkeys"
+        "name" : "bindHotkeys",
+        "notes" : [
+
+        ],
+        "signature" : "EvernoteOpenAndTagHotkeys:bindHotkeys(mapping)",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "desc" : "Binds hotkeys for EvernoteOpenAndTagHotkeys",
+        "parameters" : [
+          " * mapping - A table containing hotkey objifier\/key details for the following items:",
+          "  * `open_note` - open the current note in a new window",
+          "  * `open_and_tag-<tag1>,<tag2>...\" - open the current note and apply all the comma-separated tags given. The tags must already exist in Evernote for the tagging to succeed.",
+          "  * `tag-<tag1>,<tag2>...\" - open the current note and apply all the comma-separated tags given. The tags must already exist in Evernote for the tagging to succeed."
+        ]
       }
     ],
     "name" : "EvernoteOpenAndTagHotkeys"
