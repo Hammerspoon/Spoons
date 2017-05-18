@@ -1,0 +1,122 @@
+[
+  {
+    "Constant" : [
+
+    ],
+    "submodules" : [
+
+    ],
+    "Function" : [
+
+    ],
+    "Variable" : [
+      {
+        "doc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "parameters" : [
+
+        ],
+        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "stripped_doc" : [
+          "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "EvernoteOpenAndTagHotkeys.logger",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "EvernoteOpenAndTagHotkeys.logger",
+        "name" : "logger"
+      }
+    ],
+    "stripped_doc" : [
+
+    ],
+    "type" : "Module",
+    "Deprecated" : [
+
+    ],
+    "desc" : "Add some missing hotkeys for opening a note in Evernote, and for common tag sets",
+    "Constructor" : [
+
+    ],
+    "doc" : "Add some missing hotkeys for opening a note in Evernote, and for common tag sets\n\nDownload: [https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/EvernoteOpenAndTagHotkeys.spoon.zip](https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/EvernoteOpenAndTagHotkeys.spoon.zip)",
+    "Method" : [
+      {
+        "doc" : "Binds hotkeys for EvernoteOpenAndTagHotkeys\n\nParameters:\n * mapping - A table containing hotkey objifier\/key details for the following items:\n  * hello - Say Hello",
+        "parameters" : [
+          " * mapping - A table containing hotkey objifier\/key details for the following items:",
+          "  * hello - Say Hello"
+        ],
+        "desc" : "Binds hotkeys for EvernoteOpenAndTagHotkeys",
+        "stripped_doc" : [
+          "Binds hotkeys for EvernoteOpenAndTagHotkeys",
+          ""
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "EvernoteOpenAndTagHotkeys:bindHotkeys(mapping)",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "def" : "EvernoteOpenAndTagHotkeys:bindHotkeys(mapping)",
+        "name" : "bindHotkeys"
+      }
+    ],
+    "Command" : [
+
+    ],
+    "Field" : [
+
+    ],
+    "items" : [
+      {
+        "doc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "parameters" : [
+
+        ],
+        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "stripped_doc" : [
+          "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "EvernoteOpenAndTagHotkeys.logger",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "EvernoteOpenAndTagHotkeys.logger",
+        "name" : "logger"
+      },
+      {
+        "doc" : "Binds hotkeys for EvernoteOpenAndTagHotkeys\n\nParameters:\n * mapping - A table containing hotkey objifier\/key details for the following items:\n  * hello - Say Hello",
+        "parameters" : [
+          " * mapping - A table containing hotkey objifier\/key details for the following items:",
+          "  * hello - Say Hello"
+        ],
+        "desc" : "Binds hotkeys for EvernoteOpenAndTagHotkeys",
+        "stripped_doc" : [
+          "Binds hotkeys for EvernoteOpenAndTagHotkeys",
+          ""
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "EvernoteOpenAndTagHotkeys:bindHotkeys(mapping)",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "def" : "EvernoteOpenAndTagHotkeys:bindHotkeys(mapping)",
+        "name" : "bindHotkeys"
+      }
+    ],
+    "name" : "EvernoteOpenAndTagHotkeys"
+  }
+]
