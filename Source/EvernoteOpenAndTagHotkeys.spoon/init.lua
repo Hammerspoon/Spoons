@@ -39,12 +39,16 @@ end tell]])
 end
 
 function obj:tagCurrentNote(tags)
-   hs.eventtap.keyStroke({"cmd"}, "'")
-   hs.eventtap.keyStroke({"cmd"}, "a")
-   hs.eventtap.keyStroke({}, "delete")
    for i,t in ipairs(tags) do
-      self.logger.df("tagging %s", t)
-      hs.eventtap.keyStrokes(t .. "\n")
+      hs.osascript.applescript(string.format([[
+        tell application "Evernote"
+          set _sel to selection
+          if _sel ≠ {} then
+            repeat with aNote in _sel
+              assign tag "%s" to aNote
+            end repeat
+          end if
+        end tell]], t))
    end
 end
 
