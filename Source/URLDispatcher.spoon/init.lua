@@ -34,7 +34,10 @@ obj.decode_slack_redir_urls = true
 --- A table containing a list of dispatch rules. Each rule should be its own table in the format: `{ "url pattern", "application bundle ID" }`, and they are evaluated in the order they are declared. Note that the patterns are [Lua patterns](https://www.lua.org/pil/20.2.html) and not regular expressions. Defaults to an empty table, which has the effect of having all URLs dispatched to the `default_handler`.
 obj.url_patterns = { }
 
-local logger = hs.logger.new("URLDispatcher")
+--- URLDispatcher.logger
+--- Variable
+--- Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.
+obj.logger = hs.logger.new('URLDispatcher')
 
 -- Local functions to decode URLs
 function hex_to_char(x)
@@ -56,6 +59,7 @@ end
 ---  * fullURL - A string containing the full, original URL
 function obj:dispatchURL(scheme, host, params, fullUrl)
    local url = fullUrl
+   self.logger.df("Dispatching URL '%s'", url)
    if self.decode_slack_redir_urls then
       local newUrl = string.match(url, 'https://slack.redir.net/.*url=(.*)')
       if newUrl then
@@ -68,11 +72,13 @@ function obj:dispatchURL(scheme, host, params, fullUrl)
       if string.match(url, p) then
          id = app
          if id ~= nil then
+            self.logger.df("Match found, opening with '%s'", id)
             hs.urlevent.openURLWithBundle(url, id)
             return
          end
       end
    end
+   self.logger.df("No match found, opening with default handler '%s'", self.default_handler)
    hs.urlevent.openURLWithBundle(url, self.default_handler)
 end
 
@@ -81,7 +87,7 @@ end
 --- Start dispatching URLs according to the rules
 function obj:start()
    if hs.urlevent.httpCallback then
-      logger.w("An hs.urlevent.httpCallback was already set. I'm overriding it with my own but you should check if this breaks any other functionality")
+      self.logger.w("An hs.urlevent.httpCallback was already set. I'm overriding it with my own but you should check if this breaks any other functionality")
    end
    hs.urlevent.httpCallback = function(...) self:dispatchURL(...) end
    hs.urlevent.setDefaultHandler('http')
