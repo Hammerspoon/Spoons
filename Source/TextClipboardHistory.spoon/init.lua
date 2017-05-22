@@ -10,7 +10,7 @@ obj.__index = obj
 
 -- Metadata
 obj.name = "TextClipboardHistory"
-obj.version = "0.4"
+obj.version = "0.5"
 obj.author = "Diego Zamboni <diego@zzamboni.org>"
 obj.homepage = "https://github.com/Hammerspoon/Spoons"
 obj.license = "MIT - https://opensource.org/licenses/MIT"
