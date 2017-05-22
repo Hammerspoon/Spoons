@@ -15,6 +15,9 @@ obj.author = "Diego Zamboni <diego@zzamboni.org>"
 obj.homepage = "https://github.com/Hammerspoon/Spoons"
 obj.license = "MIT - https://opensource.org/licenses/MIT"
 
+local getSetting = function(label, default) return hs.settings.get(obj.name.."."..label) or default end
+local setSetting = function(label, value)   hs.settings.set(obj.name.."."..label, value); return value end
+
 --- TextClipboardHistory.frequency
 --- Variable
 --- Speed in seconds to check for clipboard changes. If you check too frequently, you will degrade performance, if you check sparsely you will loose copies. Defaults to 0.8.
@@ -33,7 +36,7 @@ obj.honor_ignoredidentifiers = true
 --- TextClipboardHistory.paste_on_select
 --- Variable
 --- Whether to auto-type the item when selecting it from the menu. Can be toggled on the fly from the chooser. Defaults to `false`.
-obj.paste_on_select = false
+obj.paste_on_select = getSetting('paste_on_select', false)
 
 --- TextClipboardHistory.logger
 --- Variable
@@ -76,7 +79,6 @@ obj.selectorobj = nil
 obj.prevFocusedWindow = nil
 
 local pasteboard = require("hs.pasteboard") -- http://www.hammerspoon.org/docs/hs.pasteboard.html
-local settings = require("hs.settings") -- http://www.hammerspoon.org/docs/hs.settings.html
 local hashfn   = require("hs.hash").MD5
 
 -- Keep track of last change counter
@@ -86,14 +88,14 @@ local clipboard_history = nil
 
 -- Internal function - persist the current history so it survives across restarts
 function _persistHistory()
-   settings.set("TextClipboardHistory.items",clipboard_history)
+   setSetting("items",clipboard_history)
 end
 
 --- TextClipboardHistory.togglePasteOnSelect()
 --- Method
 --- Toggle the value of `TextClipboardHistory.paste_on_select`
 function obj:togglePasteOnSelect()
-   self.paste_on_select = not self.paste_on_select
+   self.paste_on_select = setSetting("paste_on_select", not self.paste_on_select)
    hs.notify.show("TextClipboardHistory", "Paste-on-select is now " .. (self.paste_on_select and "enabled" or "disabled"), "")
 end
 
@@ -102,7 +104,7 @@ function obj:_processSelectedItem(value)
    local actions = {
       none = function() end,
       clear = hs.fnutils.partial(self.clearAll, self),
-      toggle_paste_on_select  = hs.fnutils.partial(self.togglePasteOnSelect, self),
+      toggle_paste_on_select = hs.fnutils.partial(self.togglePasteOnSelect, self),
    }
    if self.prevFocusedWindow ~= nil then
       self.prevFocusedWindow:focus()
@@ -247,7 +249,7 @@ end
 --- Method
 --- Start the clipboard history collector
 function obj:start()
-   clipboard_history = self:dedupe_and_resize(settings.get("TextClipboardHistory.items") or {}) -- If no history is saved on the system, create an empty history
+   clipboard_history = self:dedupe_and_resize(getSetting("items", {})) -- If no history is saved on the system, create an empty history
    last_change = pasteboard.changeCount() -- keeps track of how many times the pasteboard owner has changed // Indicates a new copy has been made
    self.selectorobj = hs.chooser.new(hs.fnutils.partial(self._processSelectedItem, self))
    self.selectorobj:choices(hs.fnutils.partial(self._populateChooser, self))
