@@ -10,7 +10,7 @@ obj.__index = obj
 
 -- Metadata
 obj.name = "TextClipboardHistory"
-obj.version = "0.3"
+obj.version = "0.4"
 obj.author = "Diego Zamboni <diego@zzamboni.org>"
 obj.homepage = "https://github.com/Hammerspoon/Spoons"
 obj.license = "MIT - https://opensource.org/licenses/MIT"
@@ -57,6 +57,16 @@ obj.ignoredIdentifiers = {
 --- Variable
 --- Whether to remove duplicates from the list, keeping only the latest one. Defaults to `true`.
 obj.deduplicate = true
+
+--- TextClipboardHistory.show_in_menubar
+--- Variable
+--- Whether to show a menubar item to open the clipboard history. Defaults to `true`
+obj.show_in_menubar = true
+
+--- TextClipboardHistory.menubar_title
+--- Variable
+--- String to show in the menubar if `TextClipboardHistory.show_in_menubar` is `true`. Defaults to `"\u{1f4ce}"`, which is the [Unicode paperclip character](https://codepoints.net/U+1F4CE)
+obj.menubar_title   = "\u{1f4ce}"
 
 ----------------------------------------------------------------------
 
@@ -238,6 +248,18 @@ function obj:start()
    --Checks for changes on the pasteboard. Is it possible to replace with eventtap?
    timer = hs.timer.new(self.frequency, hs.fnutils.partial(self.checkAndStorePasteboard, self))
    timer:start()
+   if self.show_in_menubar then
+      self.menubaritem = hs.menubar.new()
+         :setTitle(obj.menubar_title)
+         :setClickCallback(
+            function()
+               if self.selectorobj:isVisible() then
+                  self.selectorobj:hide()
+               else
+                  self:showClipboard()
+               end
+            end)
+   end
 end
 
 --- TextClipboardHistory:showClipboard()
