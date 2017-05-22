@@ -140,6 +140,7 @@ function obj:clearLastItem()
    last_change = pasteboard.changeCount()
 end
 
+-- Internal method: deduplicate the given list, and restrict it to the history size limit
 function obj:dedupe_and_resize(list)
    local res={}
    local hashes={}
@@ -157,11 +158,17 @@ end
 
 --- TextClipboardHistory.pasteboardToClipboard(item)
 --- Method
---- Add the current contents of the pasteboard to the history
+--- Add the given string to the history
+---
+--- Parameters:
+---  * item - string to add to the clipboard history
+---
+--- Returns:
+---  * None
 function obj:pasteboardToClipboard(item)
-         table.insert(clipboard_history, 1, item)
-         clipboard_history = self:dedupe_and_resize(clipboard_history)
-         _persistHistory() -- updates the saved history
+   table.insert(clipboard_history, 1, item)
+   clipboard_history = self:dedupe_and_resize(clipboard_history)
+   _persistHistory() -- updates the saved history
 end
 
 -- Internal function - fill in the chooser options, including the control options
@@ -191,7 +198,7 @@ function obj:_populateChooser()
    return menuData
 end
 
--- Verify whether the pasteboard contents matches one of the ignoredIdentifiers.
+-- Internal method: Verify whether the pasteboard contents matches one of the ignoredIdentifiers.
 -- Code from https://github.com/asmagill/hammerspoon-config/blob/master/utils/_menus/newClipper.lua
 function obj:shouldBeStored()
    local goAhead = true
@@ -251,14 +258,7 @@ function obj:start()
    if self.show_in_menubar then
       self.menubaritem = hs.menubar.new()
          :setTitle(obj.menubar_title)
-         :setClickCallback(
-            function()
-               if self.selectorobj:isVisible() then
-                  self.selectorobj:hide()
-               else
-                  self:showClipboard()
-               end
-            end)
+         :setClickCallback(hs.fnutils.partial(self.toggleClipboard, self))
    end
 end
 
@@ -275,6 +275,17 @@ function obj:showClipboard()
    end
 end
 
+--- TextClipboardHistory:toggleClipboard()
+--- Method
+--- Show/hide the clipboard list, depending on its current state
+function obj:toggleClipboard()
+   if self.selectorobj:isVisible() then
+      self.selectorobj:hide()
+   else
+      self:showClipboard()
+   end
+end
+
 --- TextClipboardHistory:bindHotkeys(mapping)
 --- Method
 --- Binds hotkeys for TextClipboardHistory
@@ -282,8 +293,12 @@ end
 --- Parameters:
 ---  * mapping - A table containing hotkey objifier/key details for the following items:
 ---   * show_clipboard - Display the clipboard history chooser
+---   * toggle_clipboard - Show/hide the clipboard history chooser
 function obj:bindHotkeys(mapping)
-   local def = {show_clipboard = hs.fnutils.partial(self.showClipboard, self) }
+   local def = {
+      show_clipboard = hs.fnutils.partial(self.showClipboard, self),
+      toggle_clipboard = hs.fnutils.partial(self.toggleClipboard, self),
+   }
    hs.spoons.bindHotkeysToSpec(def, mapping)
 end
 
