@@ -63,7 +63,14 @@ function obj:commands()
               plugin = obj.__name,
               name = "Kill",
               description = "Kill an application"
-                  }
+                  },
+           reveal = {
+              cmd = "reveal",
+              fn = obj.choicesRevealCommand,
+              plugin = obj.__name,
+              name = "Reveal",
+              description = "Reveal an application in the Finder"
+           }
    }
 end
 
@@ -117,6 +124,31 @@ function obj.choicesKillCommand(query)
          choice["pid"] = app:pid()
          choice["plugin"] = obj.__name
          choice["type"] = "kill"
+         choice["image"] = hs.image.imageFromAppBundle(app:bundleID())
+         table.insert(choices, choice)
+      end
+   end
+   return choices
+end
+
+function obj.choicesRevealCommand(query)
+   local choices = {}
+   if query == nil then
+      return choices
+   end
+   local apps = obj.choicesApps(query)
+   for k, app in pairs(apps) do
+      local name = app.text
+      if string.match(name:lower(), query:lower()) then
+         local choice = {}
+         choice["text"] = "Reveal "..name
+         choice["path"] = app.path
+         choice["subText"] = app.path
+         choice["plugin"] = obj.__name
+         choice["type"] = "reveal"
+         if app.image then
+            choice["image"] = app.image
+         end
          table.insert(choices, choice)
       end
    end
@@ -128,6 +160,9 @@ function obj.completionCallback(rowInfo)
       hs.open(rowInfo["path"])
    elseif rowInfo["type"] == "kill" then
       hs.application.get(rowInfo["pid"]):kill()
+   elseif rowInfo["type"] == "reveal" then
+      hs.osascript.applescript(string.format([[tell application "Finder" to reveal (POSIX file "%s")]], rowInfo["path"]))
+      hs.application.launchOrFocus("Finder")
    end
 end
 
