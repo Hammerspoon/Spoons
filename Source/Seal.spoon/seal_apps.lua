@@ -22,7 +22,12 @@ local modifyNameMap = function(info, add)
          if bundleID then
             icon = hs.image.imageFromAppBundle(bundleID)
          end
-         obj.appCache[item.kMDItemDisplayName] = {
+         local displayname = item.kMDItemDisplayName
+         if string.find(item.kMDItemPath, "%.prefPane$") then
+            displayname = item.kMDItemDisplayName .. " preferences"
+            icon = hs.image.iconForFile(item.kMDItemPath)
+         end
+         obj.appCache[displayname] = {
             path = item.kMDItemPath,
             bundleID = bundleID,
             icon = icon
