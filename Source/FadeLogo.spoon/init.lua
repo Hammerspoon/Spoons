@@ -14,7 +14,7 @@ obj.__index = obj
 
 -- Metadata
 obj.name = "FadeLogo"
-obj.version = "0.1"
+obj.version = "0.2"
 obj.author = "Diego Zamboni <diego@zzamboni.org>"
 obj.homepage = "https://github.com/Hammerspoon/Spoons"
 obj.license = "MIT - https://opensource.org/licenses/MIT"
@@ -67,24 +67,33 @@ obj.zoom_scale_factor = 1.1
 --- FadeLogo.zoom_scale_timer
 --- Variable
 --- Seconds between the zooming iterations
-obj.zoom_scale_timer = 0.005
+obj.zoom_scale_timer = 0.05
 
 ----------------------------------------------------------------------
 
 -- Internal variable to hold the canvas where the image is drawn
 obj.canvas = nil
 
+--- FadeLogo:delete()
+--- Method
+--- Hide and delete the canvas
+function obj:delete()
+   if self.canvas then
+      self.canvas = self.canvas:delete()
+   end
+end
+
 --- FadeLogo:show()
 --- Method
 --- Display the image, fading it in over `fade_in_time` seconds
 function obj:show()
-   local frame = hs.geometry.new(0,0,self.image_size.w,self.image_size.h)
-   frame.center = hs.screen.mainScreen():frame().center
-   self.canvas = hs.canvas.new(frame)
+   if self.canvas then self:delete() end
+   self.canvas = hs.canvas.new(hs.screen.mainScreen():frame())
    self.canvas[1] = {
       type = 'image',
-      image = self.image,
-      imageScaling = 'scaleProportionally',
+      image = self.image:size(self.image_size),
+      imageScaling = 'none',
+      imageAlignment = 'center',
       imageAlpha = self.image_alpha,
    }
    self.canvas:show(self.fade_in_time)
@@ -101,12 +110,14 @@ end
 --- Method
 --- Zoom-and-fade the image over `fade_out_time` seconds
 function obj:zoom_and_fade()
-   local size=hs.geometry.new(self.canvas:frame())
    local canvas=self.canvas
+   local size=hs.geometry.new(canvas[1].image:size())
    -- This timer will zoom the image while it is fading
    local timer=hs.timer.doWhile(
       function() return canvas:isShowing() end,
-      function() canvas:frame(size:scale(self.zoom_scale_factor)) end,
+      function()
+         canvas[1].image = canvas[1].image:size(size:scale(self.zoom_scale_factor))
+      end,
       self.zoom_scale_timer)
    canvas:hide(self.fade_out_time)
 end
