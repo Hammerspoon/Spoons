@@ -6,6 +6,7 @@
 --- ```
 ---   hs.loadSpoon('FadeLogo'):start()
 --- ```
+--- Which looks like this: http://imgur.com/a/TbZOl
 ---
 --- Download: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/FadeLogo.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/FadeLogo.spoon.zip)
 
@@ -26,8 +27,8 @@ obj.logger = hs.logger.new('FadeLogo')
 
 --- FadeLogo.image
 --- Variable
---- Image to display. Must be an `hs.image` object. Defaults to `hs.image.imageFromAppBundle('org.hammerspoon.Hammerspoon')` (the Hammerspoon app icon)
-obj.image = hs.image.imageFromAppBundle('org.hammerspoon.Hammerspoon')
+--- Image to display. Must be an `hs.image` object. Defaults to `hs.image.imageFromName(hs.image.systemImageNames.ApplicationIcon)` (the Hammerspoon app icon)
+obj.image = hs.image.imageFromName(hs.image.systemImageNames.ApplicationIcon)
 
 --- FadeLogo.image_size
 --- Variable
