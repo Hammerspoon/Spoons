@@ -63,12 +63,12 @@ obj.use_frame_correctness = false
 -- --------------------------------------------------------------------
 
 -- Internal functions to store/restore the current value of setFrameCorrectness.
-function _setFC()
+local function _setFC()
    obj._savedFC = hs.window.setFrameCorrectness
    hs.window.setFrameCorrectness = obj.use_frame_correctness
 end
 
-function _restoreFC()
+local function _restoreFC()
    hs.window.setFrameCorrectness = obj._savedFC
 end
 
