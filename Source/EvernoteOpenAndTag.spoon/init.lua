@@ -35,8 +35,8 @@ end
 
 --- EvernoteOpenAndTag:openCurrentNoteInWindow()
 --- Method
---- Open the currently-selected Evernote notes new windows
---- Applescript from https://discussion.evernote.com/topic/85685-feature-request-open-note-in-separate-window-keyboard-shortcut/#comment-366797
+--- Open the currently-selected Evernote notes in new windows.
+--- Uses Applescript from https://discussion.evernote.com/topic/85685-feature-request-open-note-in-separate-window-keyboard-shortcut/#comment-366797
 ---
 --- Parameters:
 ---  * None
@@ -132,8 +132,8 @@ end
 --- Parameters:
 ---  * mapping - A table containing hotkey objifier/key details for the following items:
 ---   * `open_note` - open the current note in a new window
----   * `open_and_tag-<tag1>,<tag2>..." - open the current note and apply all the comma-separated tags given. The tags must already exist in Evernote for the tagging to succeed.
----   * `tag-<tag1>,<tag2>..." - open the current note and apply all the comma-separated tags given. The tags must already exist in Evernote for the tagging to succeed.
+---   * `open_and_tag-<tag1>,<tag2>...` - open the current note and apply all the comma-separated tags given. The tags must already exist in Evernote for the tagging to succeed.
+---   * `tag-<tag1>,<tag2>...` - open the current note and apply all the comma-separated tags given. The tags must already exist in Evernote for the tagging to succeed.
 function obj:bindHotkeys(mapping)
    local def = { open_note = hs.fnutils.partial(self.openCurrentNoteInWindow, self) }
    local ops = { open_and_tag = hs.fnutils.partial(self.openAndTagCurrentNote, self),
