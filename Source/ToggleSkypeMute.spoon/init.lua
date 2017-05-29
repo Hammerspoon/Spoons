@@ -19,6 +19,9 @@ obj.license = "MIT - https://opensource.org/licenses/MIT"
 --- Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.
 obj.logger = hs.logger.new('ToggleSkypeMute')
 
+--- ToggleSkypeMute.notifications
+--- Variable
+--- If `true`, produce notifications when Skype is muted/unmuted. Defaults to `true`.
 obj.notifications = true
 
 --- ToggleSkypeMute:toggle(app)
@@ -64,8 +67,9 @@ end
 --- Binds hotkeys for ToggleSkypeMute
 ---
 --- Parameters:
----  * mapping - A table containing hotkey objifier/key details for the following items:
----   * hello - Say Hello
+---  * mapping - A table containing hotkey modifier/key details for the following items:
+---   * toggle_skype - Mute/unmute active conversation in Skype
+---   * toggle_skype_for_business - Mute/unmute active conversation in Skype For Business
 function obj:bindHotkeys(mapping)
    local def = {
       toggle_skype = function() self:toggle("Skype") end,
