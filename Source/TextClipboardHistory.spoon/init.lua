@@ -77,6 +77,8 @@ obj.menubar_title   = "\u{1f4ce}"
 obj.selectorobj = nil
 -- Internal variable - Cache for focused window to work around the current window losing focus after the chooser comes up
 obj.prevFocusedWindow = nil
+-- Internal variable - Timer object to look for pasteboard changes
+obj.timer = nil
 
 local pasteboard = require("hs.pasteboard") -- http://www.hammerspoon.org/docs/hs.pasteboard.html
 local hashfn   = require("hs.hash").MD5
@@ -255,8 +257,8 @@ function obj:start()
    self.selectorobj:choices(hs.fnutils.partial(self._populateChooser, self))
 
    --Checks for changes on the pasteboard. Is it possible to replace with eventtap?
-   timer = hs.timer.new(self.frequency, hs.fnutils.partial(self.checkAndStorePasteboard, self))
-   timer:start()
+   self.timer = hs.timer.new(self.frequency, hs.fnutils.partial(self.checkAndStorePasteboard, self))
+   self.timer:start()
    if self.show_in_menubar then
       self.menubaritem = hs.menubar.new()
          :setTitle(obj.menubar_title)
