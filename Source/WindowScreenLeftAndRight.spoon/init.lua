@@ -31,10 +31,21 @@ obj.logger = hs.logger.new('WindowScreenLeftAndRight')
 ---     screen_left = { {"ctrl", "alt", "cmd"}, "Left" },
 ---     screen_right= { {"ctrl", "alt", "cmd"}, "Right" },
 ---  }
+--- ```
 obj.defaultHotkeys = {
    screen_left = { {"ctrl", "alt", "cmd"}, "Left" },
    screen_right= { {"ctrl", "alt", "cmd"}, "Right" },
 }
+
+-- Internal functions to store/restore the current value of setFrameCorrectness.
+local function _setFC()
+   obj._savedFC = hs.window.setFrameCorrectness
+   hs.window.setFrameCorrectness = obj.use_frame_correctness
+end
+
+local function _restoreFC()
+   hs.window.setFrameCorrectness = obj._savedFC
+end
 
 -- Move current window to a different screen
 function obj.moveCurrentWindowToScreen(how)
@@ -58,20 +69,6 @@ end
 obj.oneScreenLeft  = hs.fnutils.partial(obj.moveCurrentWindowToScreen, "left")
 obj.oneScreenRight = hs.fnutils.partial(obj.moveCurrentWindowToScreen, "right")
 
-function obj:bindHotkeysToSpec(def,map)
-   for name,key in pairs(map) do
-      if def[name] ~= nil then
-         if self._keys[name] then
-            self._keys[name]:delete()
-         end
-         self._keys[name]=hs.hotkey.bindSpec(key, def[name])
-      else
-         self.logger.ef("Error: Hotkey requested for undefined action '%s'", name)
-      end
-   end
-   return self
-end
-
 --- WindowScreenLeftAndRight:bindHotkeys(mapping)
 --- Method
 --- Binds hotkeys for WindowScreenLeftAndRight
@@ -84,13 +81,8 @@ function obj:bindHotkeys(mapping)
       screen_left = self.oneScreenLeft,
       screen_right = self.oneScreenRight,
    }
-   self:bindHotkeysToSpec(hotkeyDefinitions, mapping)
+   hs.spoons.bindHotkeysToSpec(hotkeyDefinitions, mapping)
    return self
-end
-
-function obj:init()
-   -- Cache for bound keys
-   self._keys = {}
 end
 
 return obj
