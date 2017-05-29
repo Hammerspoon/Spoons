@@ -374,9 +374,6 @@ end
 ---
 --- Returns:
 ---  * None
----
---- Notes:
----  * For convenience, this method can be invoked directly on the UseSpoon object, i.e. `spoon.UseSpoon(name, arg)` instead of `spoon.UseSpoon.use(name, arg)`.
 function obj:andUse(name, arg)
    if not arg then arg = {} end
    if hs.spoons.use(name, arg, true) then
@@ -387,7 +384,7 @@ function obj:andUse(name, arg)
          if self.repos[repo].data then
             local load_and_config = function(_, success)
                if success then
-                  hs.notify.show("Spoon installed by UseSpoon", name .. ".spoon is now available", "")
+                  hs.notify.show("Spoon installed by SpoonInstall", name .. ".spoon is now available", "")
                   hs.spoons.use(name, arg)
                else
                   obj.logger.ef("Error installing Spoon '%s' from repo '%s'", name, repo)
