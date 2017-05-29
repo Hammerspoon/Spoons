@@ -14,6 +14,11 @@ obj.author = "Diego Zamboni <diego@zzamboni.org>"
 obj.homepage = "https://github.com/Hammerspoon/Spoons"
 obj.license = "MIT - https://opensource.org/licenses/MIT"
 
+--- WindowHalfsAndThirds.logger
+--- Variable
+--- Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.
+obj.logger = hs.logger.new('WindowHalfsAndThirds')
+
 --- WindowHalfsAndThirds.defaultHotkeys
 --- Variable
 --- Table containing a sample set of hotkeys that can be
@@ -131,8 +136,6 @@ function get_horizontal_third(win)
    local screenframe=win:screen():frame()
    local relframe=hs.geometry(frame.x-screenframe.x, frame.y-screenframe.y, frame.w, frame.h)
    local third = math.floor(3.01*relframe.x/screenframe.w)
-   omh.logger.df("Screen frame: %s", screenframe)
-   omh.logger.df("Window frame: %s, relframe %s is in horizontal third #%d", frame, relframe, third)
    return third
 end
 
@@ -145,8 +148,6 @@ function get_vertical_third(win)
    local screenframe=win:screen():frame()
    local relframe=hs.geometry(frame.x-screenframe.x, frame.y-screenframe.y, frame.w, frame.h)
    local third = math.floor(3.01*relframe.y/screenframe.h)
-   omh.logger.df("Screen frame: %s", screenframe)
-   omh.logger.df("Window frame: %s, relframe %s is in vertical third #%d", frame, relframe, third)
    return third
 end
 
