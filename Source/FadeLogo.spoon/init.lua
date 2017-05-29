@@ -138,7 +138,7 @@ end
 
 --- FadeLogo:start()
 --- Method
---- Show the image, wait `run_time` seconds, and then fade it out.
+--- Show the image, wait `run_time` seconds, and then zoom-and-fade it out.
 function obj:start(howlong)
    if not howlong then howlong = self.run_time end
    self:show()
