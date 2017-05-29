@@ -15,7 +15,7 @@
         "stripped_doc" : [
           "Speed in seconds to check for clipboard changes. If you check too frequently, you will degrade performance, if you check sparsely you will loose copies. Defaults to 0.8."
         ],
-        "name" : "frequency",
+        "def" : "TextClipboardHistory.frequency",
         "parameters" : [
 
         ],
@@ -27,15 +27,15 @@
         "returns" : [
 
         ],
-        "desc" : "Speed in seconds to check for clipboard changes. If you check too frequently, you will degrade performance, if you check sparsely you will loose copies. Defaults to 0.8.",
-        "def" : "TextClipboardHistory.frequency"
+        "name" : "frequency",
+        "desc" : "Speed in seconds to check for clipboard changes. If you check too frequently, you will degrade performance, if you check sparsely you will loose copies. Defaults to 0.8."
       },
       {
         "doc" : "How many items to keep on history. Defaults to 100",
         "stripped_doc" : [
           "How many items to keep on history. Defaults to 100"
         ],
-        "name" : "hist_size",
+        "def" : "TextClipboardHistory.hist_size",
         "parameters" : [
 
         ],
@@ -47,15 +47,15 @@
         "returns" : [
 
         ],
-        "desc" : "How many items to keep on history. Defaults to 100",
-        "def" : "TextClipboardHistory.hist_size"
+        "name" : "hist_size",
+        "desc" : "How many items to keep on history. Defaults to 100"
       },
       {
         "doc" : "If `true`, check the data identifiers set in the pasteboard and ignore entries which match those listed in `TextClipboardHistory.ignoredIdentifiers`. The list of identifiers comes from http:\/\/nspasteboard.org. Defaults to `true`",
         "stripped_doc" : [
           "If `true`, check the data identifiers set in the pasteboard and ignore entries which match those listed in `TextClipboardHistory.ignoredIdentifiers`. The list of identifiers comes from http:\/\/nspasteboard.org. Defaults to `true`"
         ],
-        "name" : "honor_ignoredidentifiers",
+        "def" : "TextClipboardHistory.honor_ignoredidentifiers",
         "parameters" : [
 
         ],
@@ -67,15 +67,15 @@
         "returns" : [
 
         ],
-        "desc" : "If `true`, check the data identifiers set in the pasteboard and ignore entries which match those listed in `TextClipboardHistory.ignoredIdentifiers`. The list of identifiers comes from http:\/\/nspasteboard.org. Defaults to `true`",
-        "def" : "TextClipboardHistory.honor_ignoredidentifiers"
+        "name" : "honor_ignoredidentifiers",
+        "desc" : "If `true`, check the data identifiers set in the pasteboard and ignore entries which match those listed in `TextClipboardHistory.ignoredIdentifiers`. The list of identifiers comes from http:\/\/nspasteboard.org. Defaults to `true`"
       },
       {
         "doc" : "Whether to auto-type the item when selecting it from the menu. Can be toggled on the fly from the chooser. Defaults to `false`.",
         "stripped_doc" : [
           "Whether to auto-type the item when selecting it from the menu. Can be toggled on the fly from the chooser. Defaults to `false`."
         ],
-        "name" : "paste_on_select",
+        "def" : "TextClipboardHistory.paste_on_select",
         "parameters" : [
 
         ],
@@ -87,15 +87,15 @@
         "returns" : [
 
         ],
-        "desc" : "Whether to auto-type the item when selecting it from the menu. Can be toggled on the fly from the chooser. Defaults to `false`.",
-        "def" : "TextClipboardHistory.paste_on_select"
+        "name" : "paste_on_select",
+        "desc" : "Whether to auto-type the item when selecting it from the menu. Can be toggled on the fly from the chooser. Defaults to `false`."
       },
       {
         "doc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "stripped_doc" : [
           "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
         ],
-        "name" : "logger",
+        "def" : "TextClipboardHistory.logger",
         "parameters" : [
 
         ],
@@ -107,15 +107,26 @@
         "returns" : [
 
         ],
-        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
-        "def" : "TextClipboardHistory.logger"
+        "name" : "logger",
+        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
       },
       {
-        "doc" : "Types of clipboard entries to ignore, see http:\/\/nspasteboard.org. Code from https:\/\/github.com\/asmagill\/hammerspoon-config\/blob\/master\/utils\/_menus\/newClipper.lua",
+        "doc" : "Types of clipboard entries to ignore, see http:\/\/nspasteboard.org. Code from https:\/\/github.com\/asmagill\/hammerspoon-config\/blob\/master\/utils\/_menus\/newClipper.lua. Default value (don't modify unless you know what you are doing):\n```\n {\n    [\"de.petermaurer.TransientPasteboardType\"] = true, -- Transient : Textpander, TextExpander, Butler\n    [\"com.typeit4me.clipping\"]                 = true, -- Transient : TypeIt4Me\n    [\"Pasteboard generator type\"]              = true, -- Transient : Typinator\n    [\"com.agilebits.onepassword\"]              = true, -- Confidential : 1Password\n    [\"org.nspasteboard.TransientType\"]         = true, -- Universal, Transient\n    [\"org.nspasteboard.ConcealedType\"]         = true, -- Universal, Concealed\n    [\"org.nspasteboard.AutoGeneratedType\"]     = true, -- Universal, Automatic\n }\n```",
         "stripped_doc" : [
-          "Types of clipboard entries to ignore, see http:\/\/nspasteboard.org. Code from https:\/\/github.com\/asmagill\/hammerspoon-config\/blob\/master\/utils\/_menus\/newClipper.lua"
+          "Types of clipboard entries to ignore, see http:\/\/nspasteboard.org. Code from https:\/\/github.com\/asmagill\/hammerspoon-config\/blob\/master\/utils\/_menus\/newClipper.lua. Default value (don't modify unless you know what you are doing):",
+          "```",
+          " {",
+          "    [\"de.petermaurer.TransientPasteboardType\"] = true, -- Transient : Textpander, TextExpander, Butler",
+          "    [\"com.typeit4me.clipping\"]                 = true, -- Transient : TypeIt4Me",
+          "    [\"Pasteboard generator type\"]              = true, -- Transient : Typinator",
+          "    [\"com.agilebits.onepassword\"]              = true, -- Confidential : 1Password",
+          "    [\"org.nspasteboard.TransientType\"]         = true, -- Universal, Transient",
+          "    [\"org.nspasteboard.ConcealedType\"]         = true, -- Universal, Concealed",
+          "    [\"org.nspasteboard.AutoGeneratedType\"]     = true, -- Universal, Automatic",
+          " }",
+          "```"
         ],
-        "name" : "ignoredIdentifiers",
+        "def" : "TextClipboardHistory.ignoredIdentifiers",
         "parameters" : [
 
         ],
@@ -127,15 +138,15 @@
         "returns" : [
 
         ],
-        "desc" : "Types of clipboard entries to ignore, see http:\/\/nspasteboard.org. Code from https:\/\/github.com\/asmagill\/hammerspoon-config\/blob\/master\/utils\/_menus\/newClipper.lua",
-        "def" : "TextClipboardHistory.ignoredIdentifiers"
+        "name" : "ignoredIdentifiers",
+        "desc" : "Types of clipboard entries to ignore, see http:\/\/nspasteboard.org. Code from https:\/\/github.com\/asmagill\/hammerspoon-config\/blob\/master\/utils\/_menus\/newClipper.lua. Default value (don't modify unless you know what you are doing):"
       },
       {
         "doc" : "Whether to remove duplicates from the list, keeping only the latest one. Defaults to `true`.",
         "stripped_doc" : [
           "Whether to remove duplicates from the list, keeping only the latest one. Defaults to `true`."
         ],
-        "name" : "deduplicate",
+        "def" : "TextClipboardHistory.deduplicate",
         "parameters" : [
 
         ],
@@ -147,15 +158,15 @@
         "returns" : [
 
         ],
-        "desc" : "Whether to remove duplicates from the list, keeping only the latest one. Defaults to `true`.",
-        "def" : "TextClipboardHistory.deduplicate"
+        "name" : "deduplicate",
+        "desc" : "Whether to remove duplicates from the list, keeping only the latest one. Defaults to `true`."
       },
       {
         "doc" : "Whether to show a menubar item to open the clipboard history. Defaults to `true`",
         "stripped_doc" : [
           "Whether to show a menubar item to open the clipboard history. Defaults to `true`"
         ],
-        "name" : "show_in_menubar",
+        "def" : "TextClipboardHistory.show_in_menubar",
         "parameters" : [
 
         ],
@@ -167,15 +178,15 @@
         "returns" : [
 
         ],
-        "desc" : "Whether to show a menubar item to open the clipboard history. Defaults to `true`",
-        "def" : "TextClipboardHistory.show_in_menubar"
+        "name" : "show_in_menubar",
+        "desc" : "Whether to show a menubar item to open the clipboard history. Defaults to `true`"
       },
       {
         "doc" : "String to show in the menubar if `TextClipboardHistory.show_in_menubar` is `true`. Defaults to `\"\\u{1f4ce}\"`, which is the [Unicode paperclip character](https:\/\/codepoints.net\/U+1F4CE)",
         "stripped_doc" : [
           "String to show in the menubar if `TextClipboardHistory.show_in_menubar` is `true`. Defaults to `\"\\u{1f4ce}\"`, which is the [Unicode paperclip character](https:\/\/codepoints.net\/U+1F4CE)"
         ],
-        "name" : "menubar_title",
+        "def" : "TextClipboardHistory.menubar_title",
         "parameters" : [
 
         ],
@@ -187,29 +198,28 @@
         "returns" : [
 
         ],
-        "desc" : "String to show in the menubar if `TextClipboardHistory.show_in_menubar` is `true`. Defaults to `\"\\u{1f4ce}\"`, which is the [Unicode paperclip character](https:\/\/codepoints.net\/U+1F4CE)",
-        "def" : "TextClipboardHistory.menubar_title"
+        "name" : "menubar_title",
+        "desc" : "String to show in the menubar if `TextClipboardHistory.show_in_menubar` is `true`. Defaults to `\"\\u{1f4ce}\"`, which is the [Unicode paperclip character](https:\/\/codepoints.net\/U+1F4CE)"
       }
     ],
     "stripped_doc" : [
 
     ],
-    "type" : "Module",
+    "desc" : "Keep a history of the clipboard, only for text entries",
     "Deprecated" : [
 
     ],
-    "desc" : "Keep a history of the clipboard, only for text entries.",
+    "type" : "Module",
     "Constructor" : [
 
     ],
-    "doc" : "Keep a history of the clipboard, only for text entries.\nOriginally based on https:\/\/github.com\/VFS\/.hammerspoon\/blob\/master\/tools\/clipboard.lua.\n\nDownload: [https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/TextClipboardHistory.spoon.zip](https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/TextClipboardHistory.spoon.zip)",
     "items" : [
       {
         "doc" : "Whether to remove duplicates from the list, keeping only the latest one. Defaults to `true`.",
         "stripped_doc" : [
           "Whether to remove duplicates from the list, keeping only the latest one. Defaults to `true`."
         ],
-        "name" : "deduplicate",
+        "def" : "TextClipboardHistory.deduplicate",
         "parameters" : [
 
         ],
@@ -221,15 +231,15 @@
         "returns" : [
 
         ],
-        "desc" : "Whether to remove duplicates from the list, keeping only the latest one. Defaults to `true`.",
-        "def" : "TextClipboardHistory.deduplicate"
+        "name" : "deduplicate",
+        "desc" : "Whether to remove duplicates from the list, keeping only the latest one. Defaults to `true`."
       },
       {
         "doc" : "Speed in seconds to check for clipboard changes. If you check too frequently, you will degrade performance, if you check sparsely you will loose copies. Defaults to 0.8.",
         "stripped_doc" : [
           "Speed in seconds to check for clipboard changes. If you check too frequently, you will degrade performance, if you check sparsely you will loose copies. Defaults to 0.8."
         ],
-        "name" : "frequency",
+        "def" : "TextClipboardHistory.frequency",
         "parameters" : [
 
         ],
@@ -241,15 +251,15 @@
         "returns" : [
 
         ],
-        "desc" : "Speed in seconds to check for clipboard changes. If you check too frequently, you will degrade performance, if you check sparsely you will loose copies. Defaults to 0.8.",
-        "def" : "TextClipboardHistory.frequency"
+        "name" : "frequency",
+        "desc" : "Speed in seconds to check for clipboard changes. If you check too frequently, you will degrade performance, if you check sparsely you will loose copies. Defaults to 0.8."
       },
       {
         "doc" : "How many items to keep on history. Defaults to 100",
         "stripped_doc" : [
           "How many items to keep on history. Defaults to 100"
         ],
-        "name" : "hist_size",
+        "def" : "TextClipboardHistory.hist_size",
         "parameters" : [
 
         ],
@@ -261,15 +271,15 @@
         "returns" : [
 
         ],
-        "desc" : "How many items to keep on history. Defaults to 100",
-        "def" : "TextClipboardHistory.hist_size"
+        "name" : "hist_size",
+        "desc" : "How many items to keep on history. Defaults to 100"
       },
       {
         "doc" : "If `true`, check the data identifiers set in the pasteboard and ignore entries which match those listed in `TextClipboardHistory.ignoredIdentifiers`. The list of identifiers comes from http:\/\/nspasteboard.org. Defaults to `true`",
         "stripped_doc" : [
           "If `true`, check the data identifiers set in the pasteboard and ignore entries which match those listed in `TextClipboardHistory.ignoredIdentifiers`. The list of identifiers comes from http:\/\/nspasteboard.org. Defaults to `true`"
         ],
-        "name" : "honor_ignoredidentifiers",
+        "def" : "TextClipboardHistory.honor_ignoredidentifiers",
         "parameters" : [
 
         ],
@@ -281,15 +291,26 @@
         "returns" : [
 
         ],
-        "desc" : "If `true`, check the data identifiers set in the pasteboard and ignore entries which match those listed in `TextClipboardHistory.ignoredIdentifiers`. The list of identifiers comes from http:\/\/nspasteboard.org. Defaults to `true`",
-        "def" : "TextClipboardHistory.honor_ignoredidentifiers"
+        "name" : "honor_ignoredidentifiers",
+        "desc" : "If `true`, check the data identifiers set in the pasteboard and ignore entries which match those listed in `TextClipboardHistory.ignoredIdentifiers`. The list of identifiers comes from http:\/\/nspasteboard.org. Defaults to `true`"
       },
       {
-        "doc" : "Types of clipboard entries to ignore, see http:\/\/nspasteboard.org. Code from https:\/\/github.com\/asmagill\/hammerspoon-config\/blob\/master\/utils\/_menus\/newClipper.lua",
+        "doc" : "Types of clipboard entries to ignore, see http:\/\/nspasteboard.org. Code from https:\/\/github.com\/asmagill\/hammerspoon-config\/blob\/master\/utils\/_menus\/newClipper.lua. Default value (don't modify unless you know what you are doing):\n```\n {\n    [\"de.petermaurer.TransientPasteboardType\"] = true, -- Transient : Textpander, TextExpander, Butler\n    [\"com.typeit4me.clipping\"]                 = true, -- Transient : TypeIt4Me\n    [\"Pasteboard generator type\"]              = true, -- Transient : Typinator\n    [\"com.agilebits.onepassword\"]              = true, -- Confidential : 1Password\n    [\"org.nspasteboard.TransientType\"]         = true, -- Universal, Transient\n    [\"org.nspasteboard.ConcealedType\"]         = true, -- Universal, Concealed\n    [\"org.nspasteboard.AutoGeneratedType\"]     = true, -- Universal, Automatic\n }\n```",
         "stripped_doc" : [
-          "Types of clipboard entries to ignore, see http:\/\/nspasteboard.org. Code from https:\/\/github.com\/asmagill\/hammerspoon-config\/blob\/master\/utils\/_menus\/newClipper.lua"
+          "Types of clipboard entries to ignore, see http:\/\/nspasteboard.org. Code from https:\/\/github.com\/asmagill\/hammerspoon-config\/blob\/master\/utils\/_menus\/newClipper.lua. Default value (don't modify unless you know what you are doing):",
+          "```",
+          " {",
+          "    [\"de.petermaurer.TransientPasteboardType\"] = true, -- Transient : Textpander, TextExpander, Butler",
+          "    [\"com.typeit4me.clipping\"]                 = true, -- Transient : TypeIt4Me",
+          "    [\"Pasteboard generator type\"]              = true, -- Transient : Typinator",
+          "    [\"com.agilebits.onepassword\"]              = true, -- Confidential : 1Password",
+          "    [\"org.nspasteboard.TransientType\"]         = true, -- Universal, Transient",
+          "    [\"org.nspasteboard.ConcealedType\"]         = true, -- Universal, Concealed",
+          "    [\"org.nspasteboard.AutoGeneratedType\"]     = true, -- Universal, Automatic",
+          " }",
+          "```"
         ],
-        "name" : "ignoredIdentifiers",
+        "def" : "TextClipboardHistory.ignoredIdentifiers",
         "parameters" : [
 
         ],
@@ -301,15 +322,15 @@
         "returns" : [
 
         ],
-        "desc" : "Types of clipboard entries to ignore, see http:\/\/nspasteboard.org. Code from https:\/\/github.com\/asmagill\/hammerspoon-config\/blob\/master\/utils\/_menus\/newClipper.lua",
-        "def" : "TextClipboardHistory.ignoredIdentifiers"
+        "name" : "ignoredIdentifiers",
+        "desc" : "Types of clipboard entries to ignore, see http:\/\/nspasteboard.org. Code from https:\/\/github.com\/asmagill\/hammerspoon-config\/blob\/master\/utils\/_menus\/newClipper.lua. Default value (don't modify unless you know what you are doing):"
       },
       {
         "doc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "stripped_doc" : [
           "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
         ],
-        "name" : "logger",
+        "def" : "TextClipboardHistory.logger",
         "parameters" : [
 
         ],
@@ -321,15 +342,15 @@
         "returns" : [
 
         ],
-        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
-        "def" : "TextClipboardHistory.logger"
+        "name" : "logger",
+        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
       },
       {
         "doc" : "String to show in the menubar if `TextClipboardHistory.show_in_menubar` is `true`. Defaults to `\"\\u{1f4ce}\"`, which is the [Unicode paperclip character](https:\/\/codepoints.net\/U+1F4CE)",
         "stripped_doc" : [
           "String to show in the menubar if `TextClipboardHistory.show_in_menubar` is `true`. Defaults to `\"\\u{1f4ce}\"`, which is the [Unicode paperclip character](https:\/\/codepoints.net\/U+1F4CE)"
         ],
-        "name" : "menubar_title",
+        "def" : "TextClipboardHistory.menubar_title",
         "parameters" : [
 
         ],
@@ -341,15 +362,15 @@
         "returns" : [
 
         ],
-        "desc" : "String to show in the menubar if `TextClipboardHistory.show_in_menubar` is `true`. Defaults to `\"\\u{1f4ce}\"`, which is the [Unicode paperclip character](https:\/\/codepoints.net\/U+1F4CE)",
-        "def" : "TextClipboardHistory.menubar_title"
+        "name" : "menubar_title",
+        "desc" : "String to show in the menubar if `TextClipboardHistory.show_in_menubar` is `true`. Defaults to `\"\\u{1f4ce}\"`, which is the [Unicode paperclip character](https:\/\/codepoints.net\/U+1F4CE)"
       },
       {
         "doc" : "Whether to auto-type the item when selecting it from the menu. Can be toggled on the fly from the chooser. Defaults to `false`.",
         "stripped_doc" : [
           "Whether to auto-type the item when selecting it from the menu. Can be toggled on the fly from the chooser. Defaults to `false`."
         ],
-        "name" : "paste_on_select",
+        "def" : "TextClipboardHistory.paste_on_select",
         "parameters" : [
 
         ],
@@ -361,15 +382,15 @@
         "returns" : [
 
         ],
-        "desc" : "Whether to auto-type the item when selecting it from the menu. Can be toggled on the fly from the chooser. Defaults to `false`.",
-        "def" : "TextClipboardHistory.paste_on_select"
+        "name" : "paste_on_select",
+        "desc" : "Whether to auto-type the item when selecting it from the menu. Can be toggled on the fly from the chooser. Defaults to `false`."
       },
       {
         "doc" : "Whether to show a menubar item to open the clipboard history. Defaults to `true`",
         "stripped_doc" : [
           "Whether to show a menubar item to open the clipboard history. Defaults to `true`"
         ],
-        "name" : "show_in_menubar",
+        "def" : "TextClipboardHistory.show_in_menubar",
         "parameters" : [
 
         ],
@@ -381,8 +402,8 @@
         "returns" : [
 
         ],
-        "desc" : "Whether to show a menubar item to open the clipboard history. Defaults to `true`",
-        "def" : "TextClipboardHistory.show_in_menubar"
+        "name" : "show_in_menubar",
+        "desc" : "Whether to show a menubar item to open the clipboard history. Defaults to `true`"
       },
       {
         "doc" : "Binds hotkeys for TextClipboardHistory\n\nParameters:\n * mapping - A table containing hotkey objifier\/key details for the following items:\n  * show_clipboard - Display the clipboard history chooser\n  * toggle_clipboard - Show\/hide the clipboard history chooser",
@@ -390,7 +411,7 @@
           "Binds hotkeys for TextClipboardHistory",
           ""
         ],
-        "name" : "bindHotkeys",
+        "def" : "TextClipboardHistory:bindHotkeys(mapping)",
         "parameters" : [
           " * mapping - A table containing hotkey objifier\/key details for the following items:",
           "  * show_clipboard - Display the clipboard history chooser",
@@ -404,15 +425,15 @@
         "returns" : [
 
         ],
-        "desc" : "Binds hotkeys for TextClipboardHistory",
-        "def" : "TextClipboardHistory:bindHotkeys(mapping)"
+        "name" : "bindHotkeys",
+        "desc" : "Binds hotkeys for TextClipboardHistory"
       },
       {
         "doc" : "If the pasteboard has changed, we add the current item to our history and update the counter",
         "stripped_doc" : [
           "If the pasteboard has changed, we add the current item to our history and update the counter"
         ],
-        "name" : "checkAndStorePasteboard",
+        "def" : "TextClipboardHistory:checkAndStorePasteboard()",
         "parameters" : [
 
         ],
@@ -424,48 +445,48 @@
         "returns" : [
 
         ],
-        "desc" : "If the pasteboard has changed, we add the current item to our history and update the counter",
-        "def" : "TextClipboardHistory:checkAndStorePasteboard()"
+        "name" : "checkAndStorePasteboard",
+        "desc" : "If the pasteboard has changed, we add the current item to our history and update the counter"
       },
       {
         "doc" : "Clears the clipboard and history",
         "stripped_doc" : [
           "Clears the clipboard and history"
         ],
-        "name" : "clearAll",
+        "def" : "TextClipboardHistory:clearAll()",
         "parameters" : [
 
         ],
         "notes" : [
 
         ],
-        "signature" : "TextClipboardHistory.clearAll()",
+        "signature" : "TextClipboardHistory:clearAll()",
         "type" : "Method",
         "returns" : [
 
         ],
-        "desc" : "Clears the clipboard and history",
-        "def" : "TextClipboardHistory.clearAll()"
+        "name" : "clearAll",
+        "desc" : "Clears the clipboard and history"
       },
       {
         "doc" : "Clears the last added to the history",
         "stripped_doc" : [
           "Clears the last added to the history"
         ],
-        "name" : "clearLastItem",
+        "def" : "TextClipboardHistory:clearLastItem()",
         "parameters" : [
 
         ],
         "notes" : [
 
         ],
-        "signature" : "TextClipboardHistory.clearLastItem()",
+        "signature" : "TextClipboardHistory:clearLastItem()",
         "type" : "Method",
         "returns" : [
 
         ],
-        "desc" : "Clears the last added to the history",
-        "def" : "TextClipboardHistory.clearLastItem()"
+        "name" : "clearLastItem",
+        "desc" : "Clears the last added to the history"
       },
       {
         "doc" : "Add the given string to the history\n\nParameters:\n * item - string to add to the clipboard history\n\nReturns:\n * None",
@@ -473,7 +494,7 @@
           "Add the given string to the history",
           ""
         ],
-        "name" : "pasteboardToClipboard",
+        "def" : "TextClipboardHistory:pasteboardToClipboard(item)",
         "parameters" : [
           " * item - string to add to the clipboard history",
           ""
@@ -481,20 +502,40 @@
         "notes" : [
 
         ],
-        "signature" : "TextClipboardHistory.pasteboardToClipboard(item)",
+        "signature" : "TextClipboardHistory:pasteboardToClipboard(item)",
         "type" : "Method",
         "returns" : [
           " * None"
         ],
-        "desc" : "Add the given string to the history",
-        "def" : "TextClipboardHistory.pasteboardToClipboard(item)"
+        "name" : "pasteboardToClipboard",
+        "desc" : "Add the given string to the history"
+      },
+      {
+        "doc" : "Verify whether the pasteboard contents matches one of the values in `TextClipboardHistory.ignoredIdentifiers`",
+        "stripped_doc" : [
+          "Verify whether the pasteboard contents matches one of the values in `TextClipboardHistory.ignoredIdentifiers`"
+        ],
+        "def" : "TextClipboardHistory:shouldBeStored()",
+        "parameters" : [
+
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "TextClipboardHistory:shouldBeStored()",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "name" : "shouldBeStored",
+        "desc" : "Verify whether the pasteboard contents matches one of the values in `TextClipboardHistory.ignoredIdentifiers`"
       },
       {
         "doc" : "Display the current clipboard list in a chooser",
         "stripped_doc" : [
           "Display the current clipboard list in a chooser"
         ],
-        "name" : "showClipboard",
+        "def" : "TextClipboardHistory:showClipboard()",
         "parameters" : [
 
         ],
@@ -506,15 +547,15 @@
         "returns" : [
 
         ],
-        "desc" : "Display the current clipboard list in a chooser",
-        "def" : "TextClipboardHistory:showClipboard()"
+        "name" : "showClipboard",
+        "desc" : "Display the current clipboard list in a chooser"
       },
       {
         "doc" : "Start the clipboard history collector",
         "stripped_doc" : [
           "Start the clipboard history collector"
         ],
-        "name" : "start",
+        "def" : "TextClipboardHistory:start()",
         "parameters" : [
 
         ],
@@ -526,15 +567,15 @@
         "returns" : [
 
         ],
-        "desc" : "Start the clipboard history collector",
-        "def" : "TextClipboardHistory:start()"
+        "name" : "start",
+        "desc" : "Start the clipboard history collector"
       },
       {
         "doc" : "Show\/hide the clipboard list, depending on its current state",
         "stripped_doc" : [
           "Show\/hide the clipboard list, depending on its current state"
         ],
-        "name" : "toggleClipboard",
+        "def" : "TextClipboardHistory:toggleClipboard()",
         "parameters" : [
 
         ],
@@ -546,31 +587,35 @@
         "returns" : [
 
         ],
-        "desc" : "Show\/hide the clipboard list, depending on its current state",
-        "def" : "TextClipboardHistory:toggleClipboard()"
+        "name" : "toggleClipboard",
+        "desc" : "Show\/hide the clipboard list, depending on its current state"
       },
       {
         "doc" : "Toggle the value of `TextClipboardHistory.paste_on_select`",
         "stripped_doc" : [
           "Toggle the value of `TextClipboardHistory.paste_on_select`"
         ],
-        "name" : "togglePasteOnSelect",
+        "def" : "TextClipboardHistory:togglePasteOnSelect()",
         "parameters" : [
 
         ],
         "notes" : [
 
         ],
-        "signature" : "TextClipboardHistory.togglePasteOnSelect()",
+        "signature" : "TextClipboardHistory:togglePasteOnSelect()",
         "type" : "Method",
         "returns" : [
 
         ],
-        "desc" : "Toggle the value of `TextClipboardHistory.paste_on_select`",
-        "def" : "TextClipboardHistory.togglePasteOnSelect()"
+        "name" : "togglePasteOnSelect",
+        "desc" : "Toggle the value of `TextClipboardHistory.paste_on_select`"
       }
     ],
+    "doc" : "Keep a history of the clipboard, only for text entries\n\nOriginally based on [code by VFS](https:\/\/github.com\/VFS\/.hammerspoon\/blob\/master\/tools\/clipboard.lua), but with many changes and some contributions and inspiration from [asmagill](https:\/\/github.com\/asmagill\/hammerspoon-config\/blob\/master\/utils\/_menus\/newClipper.lua).\n\nDownload: [https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/TextClipboardHistory.spoon.zip](https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/TextClipboardHistory.spoon.zip)",
     "Command" : [
+
+    ],
+    "Field" : [
 
     ],
     "Method" : [
@@ -579,60 +624,60 @@
         "stripped_doc" : [
           "Toggle the value of `TextClipboardHistory.paste_on_select`"
         ],
-        "name" : "togglePasteOnSelect",
+        "def" : "TextClipboardHistory:togglePasteOnSelect()",
         "parameters" : [
 
         ],
         "notes" : [
 
         ],
-        "signature" : "TextClipboardHistory.togglePasteOnSelect()",
+        "signature" : "TextClipboardHistory:togglePasteOnSelect()",
         "type" : "Method",
         "returns" : [
 
         ],
-        "desc" : "Toggle the value of `TextClipboardHistory.paste_on_select`",
-        "def" : "TextClipboardHistory.togglePasteOnSelect()"
+        "name" : "togglePasteOnSelect",
+        "desc" : "Toggle the value of `TextClipboardHistory.paste_on_select`"
       },
       {
         "doc" : "Clears the clipboard and history",
         "stripped_doc" : [
           "Clears the clipboard and history"
         ],
-        "name" : "clearAll",
+        "def" : "TextClipboardHistory:clearAll()",
         "parameters" : [
 
         ],
         "notes" : [
 
         ],
-        "signature" : "TextClipboardHistory.clearAll()",
+        "signature" : "TextClipboardHistory:clearAll()",
         "type" : "Method",
         "returns" : [
 
         ],
-        "desc" : "Clears the clipboard and history",
-        "def" : "TextClipboardHistory.clearAll()"
+        "name" : "clearAll",
+        "desc" : "Clears the clipboard and history"
       },
       {
         "doc" : "Clears the last added to the history",
         "stripped_doc" : [
           "Clears the last added to the history"
         ],
-        "name" : "clearLastItem",
+        "def" : "TextClipboardHistory:clearLastItem()",
         "parameters" : [
 
         ],
         "notes" : [
 
         ],
-        "signature" : "TextClipboardHistory.clearLastItem()",
+        "signature" : "TextClipboardHistory:clearLastItem()",
         "type" : "Method",
         "returns" : [
 
         ],
-        "desc" : "Clears the last added to the history",
-        "def" : "TextClipboardHistory.clearLastItem()"
+        "name" : "clearLastItem",
+        "desc" : "Clears the last added to the history"
       },
       {
         "doc" : "Add the given string to the history\n\nParameters:\n * item - string to add to the clipboard history\n\nReturns:\n * None",
@@ -640,7 +685,7 @@
           "Add the given string to the history",
           ""
         ],
-        "name" : "pasteboardToClipboard",
+        "def" : "TextClipboardHistory:pasteboardToClipboard(item)",
         "parameters" : [
           " * item - string to add to the clipboard history",
           ""
@@ -648,20 +693,40 @@
         "notes" : [
 
         ],
-        "signature" : "TextClipboardHistory.pasteboardToClipboard(item)",
+        "signature" : "TextClipboardHistory:pasteboardToClipboard(item)",
         "type" : "Method",
         "returns" : [
           " * None"
         ],
-        "desc" : "Add the given string to the history",
-        "def" : "TextClipboardHistory.pasteboardToClipboard(item)"
+        "name" : "pasteboardToClipboard",
+        "desc" : "Add the given string to the history"
+      },
+      {
+        "doc" : "Verify whether the pasteboard contents matches one of the values in `TextClipboardHistory.ignoredIdentifiers`",
+        "stripped_doc" : [
+          "Verify whether the pasteboard contents matches one of the values in `TextClipboardHistory.ignoredIdentifiers`"
+        ],
+        "def" : "TextClipboardHistory:shouldBeStored()",
+        "parameters" : [
+
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "TextClipboardHistory:shouldBeStored()",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "name" : "shouldBeStored",
+        "desc" : "Verify whether the pasteboard contents matches one of the values in `TextClipboardHistory.ignoredIdentifiers`"
       },
       {
         "doc" : "If the pasteboard has changed, we add the current item to our history and update the counter",
         "stripped_doc" : [
           "If the pasteboard has changed, we add the current item to our history and update the counter"
         ],
-        "name" : "checkAndStorePasteboard",
+        "def" : "TextClipboardHistory:checkAndStorePasteboard()",
         "parameters" : [
 
         ],
@@ -673,15 +738,15 @@
         "returns" : [
 
         ],
-        "desc" : "If the pasteboard has changed, we add the current item to our history and update the counter",
-        "def" : "TextClipboardHistory:checkAndStorePasteboard()"
+        "name" : "checkAndStorePasteboard",
+        "desc" : "If the pasteboard has changed, we add the current item to our history and update the counter"
       },
       {
         "doc" : "Start the clipboard history collector",
         "stripped_doc" : [
           "Start the clipboard history collector"
         ],
-        "name" : "start",
+        "def" : "TextClipboardHistory:start()",
         "parameters" : [
 
         ],
@@ -693,15 +758,15 @@
         "returns" : [
 
         ],
-        "desc" : "Start the clipboard history collector",
-        "def" : "TextClipboardHistory:start()"
+        "name" : "start",
+        "desc" : "Start the clipboard history collector"
       },
       {
         "doc" : "Display the current clipboard list in a chooser",
         "stripped_doc" : [
           "Display the current clipboard list in a chooser"
         ],
-        "name" : "showClipboard",
+        "def" : "TextClipboardHistory:showClipboard()",
         "parameters" : [
 
         ],
@@ -713,15 +778,15 @@
         "returns" : [
 
         ],
-        "desc" : "Display the current clipboard list in a chooser",
-        "def" : "TextClipboardHistory:showClipboard()"
+        "name" : "showClipboard",
+        "desc" : "Display the current clipboard list in a chooser"
       },
       {
         "doc" : "Show\/hide the clipboard list, depending on its current state",
         "stripped_doc" : [
           "Show\/hide the clipboard list, depending on its current state"
         ],
-        "name" : "toggleClipboard",
+        "def" : "TextClipboardHistory:toggleClipboard()",
         "parameters" : [
 
         ],
@@ -733,8 +798,8 @@
         "returns" : [
 
         ],
-        "desc" : "Show\/hide the clipboard list, depending on its current state",
-        "def" : "TextClipboardHistory:toggleClipboard()"
+        "name" : "toggleClipboard",
+        "desc" : "Show\/hide the clipboard list, depending on its current state"
       },
       {
         "doc" : "Binds hotkeys for TextClipboardHistory\n\nParameters:\n * mapping - A table containing hotkey objifier\/key details for the following items:\n  * show_clipboard - Display the clipboard history chooser\n  * toggle_clipboard - Show\/hide the clipboard history chooser",
@@ -742,7 +807,7 @@
           "Binds hotkeys for TextClipboardHistory",
           ""
         ],
-        "name" : "bindHotkeys",
+        "def" : "TextClipboardHistory:bindHotkeys(mapping)",
         "parameters" : [
           " * mapping - A table containing hotkey objifier\/key details for the following items:",
           "  * show_clipboard - Display the clipboard history chooser",
@@ -756,12 +821,9 @@
         "returns" : [
 
         ],
-        "desc" : "Binds hotkeys for TextClipboardHistory",
-        "def" : "TextClipboardHistory:bindHotkeys(mapping)"
+        "name" : "bindHotkeys",
+        "desc" : "Binds hotkeys for TextClipboardHistory"
       }
-    ],
-    "Field" : [
-
     ],
     "name" : "TextClipboardHistory"
   }
