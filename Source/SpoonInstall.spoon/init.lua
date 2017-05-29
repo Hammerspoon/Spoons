@@ -1,6 +1,6 @@
 --- === SpoonInstall ===
 ---
---- Install and manage Spoons
+--- Install and manage Spoons and Spoon repositories
 ---
 --- Download: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/SpoonInstall.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/SpoonInstall.spoon.zip)
 
@@ -32,14 +32,14 @@ obj.logger = hs.logger.new('SpoonInstall')
 --- {
 ---    default = {
 ---       url = "https://github.com/Hammerspoon/Spoons",
----       desc = "Main Hammerspoon Spoons repo",
+---       desc = "Main Hammerspoon Spoon repository",
 ---    }
 --- }
 --- ```
 obj.repos = {
    default = {
       url = "https://github.com/Hammerspoon/Spoons",
-      desc = "Main Hammerspoon Spoons repo",
+      desc = "Main Hammerspoon Spoon repository",
    }
 }
 
@@ -48,7 +48,7 @@ obj.repos = {
 --- If `true`, `andUse()` will update repos and install packages synchronously. Defaults to `false`.
 ---
 --- Keep in mind that if you set this to `true`, Hammerspoon will
---- block until all missing Spoons are installed, but the notification
+--- block until all missing Spoons are installed, but the notifications
 --- will happen at a more "human readable" rate.
 obj.use_syncinstall = false
 
@@ -107,7 +107,7 @@ end
 
 --- SpoonInstall:asyncUpdateRepo(repo, callback)
 --- Method
---- Asynchronously fetch and store locally the information about the contents of a Spoons repository
+--- Asynchronously fetch the information about the contents of a Spoon repository
 ---
 --- Parameters:
 ---  * repo - name of the repository to update. Defaults to `"default"`.
@@ -117,6 +117,9 @@ end
 ---
 --- Returns:
 ---  * `true` if the update was correctly initiated (i.e. the repo name is valid), `nil` otherwise
+---
+--- Notes:
+---  * For now, the repository data is not persisted, so you need to update it after every restart if you want to use any of the install functions.
 function obj:asyncUpdateRepo(repo, callback)
    if not repo then repo = 'default' end
    if self:_build_repo_json_url(repo) then
@@ -129,7 +132,7 @@ end
 
 --- SpoonInstall:updateRepo(repo)
 --- Method
---- Synchronously fetch and store locally the information about the contents of a Spoons repository
+--- Synchronously fetch the information about the contents of a Spoon repository
 ---
 --- Parameters:
 ---  * repo - name of the repository to update. Defaults to `"default"`.
@@ -139,6 +142,7 @@ end
 ---
 --- Notes:
 ---  * This is a synchronous call, which means Hammerspoon will be blocked until it finishes. For use in your configuration files, it's advisable to use `SpoonInstall.asyncUpdateRepo()` instead.
+---  * For now, the repository data is not persisted, so you need to update it after every restart if you want to use any of the install functions.
 function obj:updateRepo(repo)
    if not repo then repo = 'default' end
    if self:_build_repo_json_url(repo) then
@@ -151,7 +155,7 @@ end
 
 --- SpoonInstall:updateAllRepos()
 --- Method
---- Synchronously fetch and store locally the information about the contents of all registered Spoons repositories
+--- Synchronously fetch the information about the contents of all Spoon repositories registered in `SpoonInstall.repos`
 ---
 --- Parameters:
 ---  * None
@@ -161,6 +165,7 @@ end
 ---
 --- Notes:
 ---  * This is a synchronous call, which means Hammerspoon will be blocked until it finishes.
+---  * For now, the repository data is not persisted, so you need to update it after every restart if you want to use any of the install functions.
 function obj:updateAllRepos()
    for k,v in pairs(self.repos) do
       self:updateRepo(k)
@@ -280,7 +285,7 @@ function obj:asyncInstallSpoonFromZipURL(url, callback)
    end
 end
 
---- SpoonInstall:installSpoonFromZipURL(url, callback)
+--- SpoonInstall:installSpoonFromZipURL(url)
 --- Method
 --- Synchronously download a Spoon zip file and install it.
 ---
@@ -324,7 +329,7 @@ end
 --- Asynchronously install a Spoon from a registered repository
 ---
 --- Parameters:
----  * name = Name of the Spoon to install.
+---  * name - Name of the Spoon to install.
 ---  * repo - Name of the repository to use. Defaults to `"default"`
 ---  * callback - if given, a function to call after the installation finishes (also if it fails). The function receives the following arguments:
 ---    * urlparts - Result of calling `hs.http.urlParts` on the URL of the Spoon zip file
