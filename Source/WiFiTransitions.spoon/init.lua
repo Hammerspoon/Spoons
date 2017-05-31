@@ -24,7 +24,7 @@ obj.logger = hs.logger.new('WiFiTransitions')
 --- Table containing a list of actions to execute for SSID transitions. Each action is itself a table with the following keys:
 ---  * to - if given, pattern to match against the new SSID. Defaults to match any network. Transitions through the disabled state are ignored (i.e. normally a `nil` SSID is reported when switching SSIDs)
 ---  * from - if given, pattern to match against the previous SSID. Defaults to match any network.
----  * fn - function to execute if there is a match. The function will receive the following arguments:
+---  * fn - function or list of functions to execute if there is a match. Each function will receive the following arguments:
 ---    * event - always "SSIDChange"
 ---    * interface - name of the interface on which the SSID changed
 ---    * old_ssid - previous SSID name
