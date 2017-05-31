@@ -57,7 +57,11 @@ function obj:wifiwatcher(watcher, event, interface)
          if self.ssid_match(prev_ssid, a.from) and self.ssid_match(new_ssid, a.to) and (new_ssid ~= prev_ssid) then
             self.logger.df("    Match!")
             if a.fn then
-               a.fn(event, interface, prev_ssid, new_ssid)
+               local fns=a.fn
+               if type(fns) == "function" then fns = {fns} end
+               for _,f in ipairs(fns) do
+                  f(event, interface, prev_ssid, new_ssid)
+               end
             elseif a.cmd then
                hs.execute(cmd)
             else
