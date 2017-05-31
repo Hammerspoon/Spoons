@@ -1,39 +1,350 @@
 [
   {
-    "doc" : "Pluggable launch bar",
-    "items" : [
+    "Constant" : [
+
+    ],
+    "submodules" : [
+
+    ],
+    "Function" : [
+
+    ],
+    "Variable" : [
       {
-        "doc" : "Binds hotkeys for Seal\n\nParameters:\n * mapping - A table containing hotkey modifier\/key details for the following items:\n  * show - This will cause Seal's UI to be shown\n\nReturns:\n * The Seal object",
-        "type" : "Method",
-        "name" : "bindHotkeys",
-        "def" : "Seal:bindHotkeys(mapping)"
+        "doc" : "List of directories where Seal will look for plugins. Defaults to `~\/.hammerspoon\/seal_plugins\/` and the Seal Spoon directory.",
+        "desc" : "List of directories where Seal will look for plugins. Defaults to `~\/.hammerspoon\/seal_plugins\/` and the Seal Spoon directory.",
+        "def" : "Seal.plugin_search_paths",
+        "stripped_doc" : [
+          "List of directories where Seal will look for plugins. Defaults to `~\/.hammerspoon\/seal_plugins\/` and the Seal Spoon directory."
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "Seal.plugin_search_paths",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "plugin_search_paths",
+        "parameters" : [
+
+        ]
       },
+      {
+        "doc" : "If `true` (default), bookmarks are always opened with Safari, otherwise they are opened with the default application using the `\/usr\/bin\/open` command.",
+        "desc" : "If `true` (default), bookmarks are always opened with Safari, otherwise they are opened with the default application using the `\/usr\/bin\/open` command.",
+        "def" : "Seal.plugins.safari_bookmarks.always_open_with_safari",
+        "stripped_doc" : [
+          "If `true` (default), bookmarks are always opened with Safari, otherwise they are opened with the default application using the `\/usr\/bin\/open` command."
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "Seal.plugins.safari_bookmarks.always_open_with_safari",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "plugins",
+        "parameters" : [
+
+        ]
+      }
+    ],
+    "stripped_doc" : [
+
+    ],
+    "type" : "Module",
+    "desc" : "Pluggable launch bar",
+    "Deprecated" : [
+
+    ],
+    "Constructor" : [
+
+    ],
+    "doc" : "Pluggable launch bar\n\nDownload: [https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/Seal.spoon.zip](https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/Seal.spoon.zip)",
+    "Method" : [
       {
         "doc" : "Loads a list of Seal plugins\n\nParameters:\n * plugins - A list containing the names of plugins to load\n\nReturns:\n * The Seal object\n\nNotes:\n * The plugins live inside the Seal.spoon directory\n * The plugin names in the list, should not have `seal_` at the start, or `.lua` at the end\n * Some plugins may immediately begin doing background work (e.g. Spotlight searches)",
+        "desc" : "Loads a list of Seal plugins",
+        "def" : "Seal:loadPlugins(plugins)",
+        "stripped_doc" : [
+          "Loads a list of Seal plugins",
+          ""
+        ],
+        "notes" : [
+          " * The plugins live inside the Seal.spoon directory",
+          " * The plugin names in the list, should not have `seal_` at the start, or `.lua` at the end",
+          " * Some plugins may immediately begin doing background work (e.g. Spotlight searches)"
+        ],
+        "signature" : "Seal:loadPlugins(plugins)",
         "type" : "Method",
+        "returns" : [
+          " * The Seal object",
+          ""
+        ],
         "name" : "loadPlugins",
-        "def" : "Seal:loadPlugins(plugins)"
+        "parameters" : [
+          " * plugins - A list containing the names of plugins to load",
+          ""
+        ]
       },
       {
-        "doc" : "Shows the Seal UI\n\nParameters:\n * None\n\nReturns:\n * None\n\nNotes:\n * This may be useful if you wish to show Seal in response to something other than its hotkey",
+        "doc" : "Binds hotkeys for Seal\n\nParameters:\n * mapping - A table containing hotkey modifier\/key details for the following items:\n  * show - This will cause Seal's UI to be shown\n\nReturns:\n * The Seal object",
+        "desc" : "Binds hotkeys for Seal",
+        "def" : "Seal:bindHotkeys(mapping)",
+        "stripped_doc" : [
+          "Binds hotkeys for Seal",
+          ""
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "Seal:bindHotkeys(mapping)",
         "type" : "Method",
-        "name" : "show",
-        "def" : "Seal:show()"
+        "returns" : [
+          " * The Seal object"
+        ],
+        "name" : "bindHotkeys",
+        "parameters" : [
+          " * mapping - A table containing hotkey modifier\/key details for the following items:",
+          "  * show - This will cause Seal's UI to be shown",
+          ""
+        ]
       },
       {
         "doc" : "Starts Seal\n\nParameters:\n * None\n\nReturns:\n * The Seal object",
+        "desc" : "Starts Seal",
+        "def" : "Seal:start()",
+        "stripped_doc" : [
+          "Starts Seal",
+          ""
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "Seal:start()",
         "type" : "Method",
+        "returns" : [
+          " * The Seal object"
+        ],
         "name" : "start",
-        "def" : "Seal:start()"
+        "parameters" : [
+          " * None",
+          ""
+        ]
       },
       {
         "doc" : "Stops Seal\n\nParameters:\n * None\n\nReturns:\n * The Seal object\n\nNotes:\n * Some Seal plugins will continue performing background work even after this call (e.g. Spotlight searches)",
+        "desc" : "Stops Seal",
+        "def" : "Seal:stop()",
+        "stripped_doc" : [
+          "Stops Seal",
+          ""
+        ],
+        "notes" : [
+          " * Some Seal plugins will continue performing background work even after this call (e.g. Spotlight searches)"
+        ],
+        "signature" : "Seal:stop()",
         "type" : "Method",
+        "returns" : [
+          " * The Seal object",
+          ""
+        ],
         "name" : "stop",
-        "def" : "Seal:stop()"
+        "parameters" : [
+          " * None",
+          ""
+        ]
+      },
+      {
+        "doc" : "Shows the Seal UI\n\nParameters:\n * None\n\nReturns:\n * None\n\nNotes:\n * This may be useful if you wish to show Seal in response to something other than its hotkey",
+        "desc" : "Shows the Seal UI",
+        "def" : "Seal:show()",
+        "stripped_doc" : [
+          "Shows the Seal UI",
+          ""
+        ],
+        "notes" : [
+          " * This may be useful if you wish to show Seal in response to something other than its hotkey"
+        ],
+        "signature" : "Seal:show()",
+        "type" : "Method",
+        "returns" : [
+          " * None",
+          ""
+        ],
+        "name" : "show",
+        "parameters" : [
+          " * None",
+          ""
+        ]
       }
     ],
-    "name" : "Seal",
-    "desc" : "Pluggable launch bar"
+    "Field" : [
+
+    ],
+    "Command" : [
+
+    ],
+    "items" : [
+      {
+        "doc" : "List of directories where Seal will look for plugins. Defaults to `~\/.hammerspoon\/seal_plugins\/` and the Seal Spoon directory.",
+        "desc" : "List of directories where Seal will look for plugins. Defaults to `~\/.hammerspoon\/seal_plugins\/` and the Seal Spoon directory.",
+        "def" : "Seal.plugin_search_paths",
+        "stripped_doc" : [
+          "List of directories where Seal will look for plugins. Defaults to `~\/.hammerspoon\/seal_plugins\/` and the Seal Spoon directory."
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "Seal.plugin_search_paths",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "plugin_search_paths",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "doc" : "If `true` (default), bookmarks are always opened with Safari, otherwise they are opened with the default application using the `\/usr\/bin\/open` command.",
+        "desc" : "If `true` (default), bookmarks are always opened with Safari, otherwise they are opened with the default application using the `\/usr\/bin\/open` command.",
+        "def" : "Seal.plugins.safari_bookmarks.always_open_with_safari",
+        "stripped_doc" : [
+          "If `true` (default), bookmarks are always opened with Safari, otherwise they are opened with the default application using the `\/usr\/bin\/open` command."
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "Seal.plugins.safari_bookmarks.always_open_with_safari",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "plugins",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "doc" : "Binds hotkeys for Seal\n\nParameters:\n * mapping - A table containing hotkey modifier\/key details for the following items:\n  * show - This will cause Seal's UI to be shown\n\nReturns:\n * The Seal object",
+        "desc" : "Binds hotkeys for Seal",
+        "def" : "Seal:bindHotkeys(mapping)",
+        "stripped_doc" : [
+          "Binds hotkeys for Seal",
+          ""
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "Seal:bindHotkeys(mapping)",
+        "type" : "Method",
+        "returns" : [
+          " * The Seal object"
+        ],
+        "name" : "bindHotkeys",
+        "parameters" : [
+          " * mapping - A table containing hotkey modifier\/key details for the following items:",
+          "  * show - This will cause Seal's UI to be shown",
+          ""
+        ]
+      },
+      {
+        "doc" : "Loads a list of Seal plugins\n\nParameters:\n * plugins - A list containing the names of plugins to load\n\nReturns:\n * The Seal object\n\nNotes:\n * The plugins live inside the Seal.spoon directory\n * The plugin names in the list, should not have `seal_` at the start, or `.lua` at the end\n * Some plugins may immediately begin doing background work (e.g. Spotlight searches)",
+        "desc" : "Loads a list of Seal plugins",
+        "def" : "Seal:loadPlugins(plugins)",
+        "stripped_doc" : [
+          "Loads a list of Seal plugins",
+          ""
+        ],
+        "notes" : [
+          " * The plugins live inside the Seal.spoon directory",
+          " * The plugin names in the list, should not have `seal_` at the start, or `.lua` at the end",
+          " * Some plugins may immediately begin doing background work (e.g. Spotlight searches)"
+        ],
+        "signature" : "Seal:loadPlugins(plugins)",
+        "type" : "Method",
+        "returns" : [
+          " * The Seal object",
+          ""
+        ],
+        "name" : "loadPlugins",
+        "parameters" : [
+          " * plugins - A list containing the names of plugins to load",
+          ""
+        ]
+      },
+      {
+        "doc" : "Shows the Seal UI\n\nParameters:\n * None\n\nReturns:\n * None\n\nNotes:\n * This may be useful if you wish to show Seal in response to something other than its hotkey",
+        "desc" : "Shows the Seal UI",
+        "def" : "Seal:show()",
+        "stripped_doc" : [
+          "Shows the Seal UI",
+          ""
+        ],
+        "notes" : [
+          " * This may be useful if you wish to show Seal in response to something other than its hotkey"
+        ],
+        "signature" : "Seal:show()",
+        "type" : "Method",
+        "returns" : [
+          " * None",
+          ""
+        ],
+        "name" : "show",
+        "parameters" : [
+          " * None",
+          ""
+        ]
+      },
+      {
+        "doc" : "Starts Seal\n\nParameters:\n * None\n\nReturns:\n * The Seal object",
+        "desc" : "Starts Seal",
+        "def" : "Seal:start()",
+        "stripped_doc" : [
+          "Starts Seal",
+          ""
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "Seal:start()",
+        "type" : "Method",
+        "returns" : [
+          " * The Seal object"
+        ],
+        "name" : "start",
+        "parameters" : [
+          " * None",
+          ""
+        ]
+      },
+      {
+        "doc" : "Stops Seal\n\nParameters:\n * None\n\nReturns:\n * The Seal object\n\nNotes:\n * Some Seal plugins will continue performing background work even after this call (e.g. Spotlight searches)",
+        "desc" : "Stops Seal",
+        "def" : "Seal:stop()",
+        "stripped_doc" : [
+          "Stops Seal",
+          ""
+        ],
+        "notes" : [
+          " * Some Seal plugins will continue performing background work even after this call (e.g. Spotlight searches)"
+        ],
+        "signature" : "Seal:stop()",
+        "type" : "Method",
+        "returns" : [
+          " * The Seal object",
+          ""
+        ],
+        "name" : "stop",
+        "parameters" : [
+          " * None",
+          ""
+        ]
+      }
+    ],
+    "name" : "Seal"
   }
 ]
