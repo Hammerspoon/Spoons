@@ -49,15 +49,17 @@ function obj:loadPlugins(plugins)
     for k,plugin_name in pairs(plugins) do
        print("-- Loading Seal plugin: " .. plugin_name)
        for _,dir in ipairs(self.plugin_search_paths) do
-          local file = dir .. "/seal_" .. plugin_name .. ".lua"
-          local f = loadfile(file)
-          if f~= nil then
-             plugin = f()
-             plugin.seal = self
-             obj.plugins[plugin_name] = plugin
-             for cmd,cmdInfo in pairs(plugin:commands()) do
-                print("-- Adding Seal command: "..cmd)
-                obj.commands[cmd] = cmdInfo
+          if obj.plugins[plugin_name] == nil then
+             local file = dir .. "/seal_" .. plugin_name .. ".lua"
+             local f = loadfile(file)
+             if f~= nil then
+                plugin = f()
+                plugin.seal = self
+                obj.plugins[plugin_name] = plugin
+                for cmd,cmdInfo in pairs(plugin:commands()) do
+                   print("-- Adding Seal command: "..cmd)
+                   obj.commands[cmd] = cmdInfo
+                end
              end
           end
        end
