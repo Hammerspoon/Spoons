@@ -4,6 +4,11 @@ obj.__name = "seal_safari_bookmarks"
 obj.bookmarkCache = {}
 obj.icon = hs.image.iconForFileType("com.apple.safari.bookmark")
 
+--- Seal.plugins.safari_bookmarks.always_open_with_safari
+--- Variable
+--- If `true` (default), bookmarks are always opened with Safari, otherwise they are opened with the default application using the `/usr/bin/open` command.
+obj.always_open_with_safari = true
+
 local modifyNameMap = function(info, add)
     for _, item in ipairs(info) do
         if add then
@@ -67,9 +72,13 @@ function obj.choicesBookmarks(query)
 end
 
 function obj.completionCallback(rowInfo)
-    if rowInfo["type"] == "openURL" then
-        hs.urlevent.openURLWithBundle(rowInfo["url"], "com.apple.Safari")
-    end
+   if rowInfo["type"] == "openURL" then
+      if obj.always_open_with_safari then
+         hs.urlevent.openURLWithBundle(rowInfo["url"], "com.apple.Safari")
+      else
+         hs.execute(string.format("/usr/bin/open '%s'", rowInfo["url"]))
+      end
+   end
 end
 
 return obj
