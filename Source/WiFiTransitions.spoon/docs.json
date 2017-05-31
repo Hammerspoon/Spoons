@@ -12,13 +12,11 @@
     "Variable" : [
       {
         "doc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
-        "name" : "logger",
         "stripped_doc" : [
           "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
         ],
-        "parameters" : [
-
-        ],
+        "def" : "WiFiTransitions.logger",
+        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "notes" : [
 
         ],
@@ -27,26 +25,26 @@
         "returns" : [
 
         ],
-        "def" : "WiFiTransitions.logger",
-        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
+        "name" : "logger",
+        "parameters" : [
+
+        ]
       },
       {
-        "doc" : "Table containing a list of actions to execute for SSID transitions. Each action is itself a table with the following keys:\n * to - if given, pattern to match against the new SSID. Defaults to match any network. Transitions through the disabled state are ignored (i.e. normally a `nil` SSID is reported when switching SSIDs)\n * from - if given, pattern to match against the previous SSID. Defaults to match any network.\n * fn - function to execute if there is a match. The function will receive the following arguments:\n   * event - always \"SSIDChange\"\n   * interface - name of the interface on which the SSID changed\n   * old_ssid - previous SSID name\n   * new_ssid - new SSID name\n * cmd - shell command to execute if there is a match. If `fn` is given, `cmd` is ignored.",
-        "name" : "actions",
+        "doc" : "Table containing a list of actions to execute for SSID transitions. Each action is itself a table with the following keys:\n * to - if given, pattern to match against the new SSID. Defaults to match any network. Transitions through the disabled state are ignored (i.e. normally a `nil` SSID is reported when switching SSIDs)\n * from - if given, pattern to match against the previous SSID. Defaults to match any network.\n * fn - function or list of functions to execute if there is a match. Each function will receive the following arguments:\n   * event - always \"SSIDChange\"\n   * interface - name of the interface on which the SSID changed\n   * old_ssid - previous SSID name\n   * new_ssid - new SSID name\n * cmd - shell command to execute if there is a match. If `fn` is given, `cmd` is ignored.",
         "stripped_doc" : [
           "Table containing a list of actions to execute for SSID transitions. Each action is itself a table with the following keys:",
           " * to - if given, pattern to match against the new SSID. Defaults to match any network. Transitions through the disabled state are ignored (i.e. normally a `nil` SSID is reported when switching SSIDs)",
           " * from - if given, pattern to match against the previous SSID. Defaults to match any network.",
-          " * fn - function to execute if there is a match. The function will receive the following arguments:",
+          " * fn - function or list of functions to execute if there is a match. Each function will receive the following arguments:",
           "   * event - always \"SSIDChange\"",
           "   * interface - name of the interface on which the SSID changed",
           "   * old_ssid - previous SSID name",
           "   * new_ssid - new SSID name",
           " * cmd - shell command to execute if there is a match. If `fn` is given, `cmd` is ignored."
         ],
-        "parameters" : [
-
-        ],
+        "def" : "WiFiTransitions.actions",
+        "desc" : "Table containing a list of actions to execute for SSID transitions. Each action is itself a table with the following keys:",
         "notes" : [
 
         ],
@@ -55,33 +53,35 @@
         "returns" : [
 
         ],
-        "def" : "WiFiTransitions.actions",
-        "desc" : "Table containing a list of actions to execute for SSID transitions. Each action is itself a table with the following keys:"
+        "name" : "actions",
+        "parameters" : [
+
+        ]
       }
     ],
     "stripped_doc" : [
 
     ],
+    "type" : "Module",
     "Deprecated" : [
 
     ],
-    "type" : "Module",
     "desc" : "Allow arbitrary actions when transitioning between SSIDs",
     "Constructor" : [
 
     ],
-    "doc" : "Allow arbitrary actions when transitioning between SSIDs\n\nDownload: [https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/WiFiTransitions.spoon.zip](https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/WiFiTransitions.spoon.zip)",
+    "Field" : [
+
+    ],
     "Method" : [
       {
         "doc" : "Start the WiFi watcher\n\nReturns:\n * The WiFiTransitions spoon object",
-        "name" : "start",
         "stripped_doc" : [
           "Start the WiFi watcher",
           ""
         ],
-        "parameters" : [
-
-        ],
+        "def" : "WiFiTransitions:start()",
+        "desc" : "Start the WiFi watcher",
         "notes" : [
 
         ],
@@ -90,8 +90,10 @@
         "returns" : [
           " * The WiFiTransitions spoon object"
         ],
-        "def" : "WiFiTransitions:start()",
-        "desc" : "Start the WiFi watcher"
+        "name" : "start",
+        "parameters" : [
+
+        ]
       }
     ],
     "Command" : [
@@ -99,22 +101,20 @@
     ],
     "items" : [
       {
-        "doc" : "Table containing a list of actions to execute for SSID transitions. Each action is itself a table with the following keys:\n * to - if given, pattern to match against the new SSID. Defaults to match any network. Transitions through the disabled state are ignored (i.e. normally a `nil` SSID is reported when switching SSIDs)\n * from - if given, pattern to match against the previous SSID. Defaults to match any network.\n * fn - function to execute if there is a match. The function will receive the following arguments:\n   * event - always \"SSIDChange\"\n   * interface - name of the interface on which the SSID changed\n   * old_ssid - previous SSID name\n   * new_ssid - new SSID name\n * cmd - shell command to execute if there is a match. If `fn` is given, `cmd` is ignored.",
-        "name" : "actions",
+        "doc" : "Table containing a list of actions to execute for SSID transitions. Each action is itself a table with the following keys:\n * to - if given, pattern to match against the new SSID. Defaults to match any network. Transitions through the disabled state are ignored (i.e. normally a `nil` SSID is reported when switching SSIDs)\n * from - if given, pattern to match against the previous SSID. Defaults to match any network.\n * fn - function or list of functions to execute if there is a match. Each function will receive the following arguments:\n   * event - always \"SSIDChange\"\n   * interface - name of the interface on which the SSID changed\n   * old_ssid - previous SSID name\n   * new_ssid - new SSID name\n * cmd - shell command to execute if there is a match. If `fn` is given, `cmd` is ignored.",
         "stripped_doc" : [
           "Table containing a list of actions to execute for SSID transitions. Each action is itself a table with the following keys:",
           " * to - if given, pattern to match against the new SSID. Defaults to match any network. Transitions through the disabled state are ignored (i.e. normally a `nil` SSID is reported when switching SSIDs)",
           " * from - if given, pattern to match against the previous SSID. Defaults to match any network.",
-          " * fn - function to execute if there is a match. The function will receive the following arguments:",
+          " * fn - function or list of functions to execute if there is a match. Each function will receive the following arguments:",
           "   * event - always \"SSIDChange\"",
           "   * interface - name of the interface on which the SSID changed",
           "   * old_ssid - previous SSID name",
           "   * new_ssid - new SSID name",
           " * cmd - shell command to execute if there is a match. If `fn` is given, `cmd` is ignored."
         ],
-        "parameters" : [
-
-        ],
+        "def" : "WiFiTransitions.actions",
+        "desc" : "Table containing a list of actions to execute for SSID transitions. Each action is itself a table with the following keys:",
         "notes" : [
 
         ],
@@ -123,18 +123,18 @@
         "returns" : [
 
         ],
-        "def" : "WiFiTransitions.actions",
-        "desc" : "Table containing a list of actions to execute for SSID transitions. Each action is itself a table with the following keys:"
+        "name" : "actions",
+        "parameters" : [
+
+        ]
       },
       {
         "doc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
-        "name" : "logger",
         "stripped_doc" : [
           "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
         ],
-        "parameters" : [
-
-        ],
+        "def" : "WiFiTransitions.logger",
+        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "notes" : [
 
         ],
@@ -143,19 +143,19 @@
         "returns" : [
 
         ],
-        "def" : "WiFiTransitions.logger",
-        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
+        "name" : "logger",
+        "parameters" : [
+
+        ]
       },
       {
         "doc" : "Start the WiFi watcher\n\nReturns:\n * The WiFiTransitions spoon object",
-        "name" : "start",
         "stripped_doc" : [
           "Start the WiFi watcher",
           ""
         ],
-        "parameters" : [
-
-        ],
+        "def" : "WiFiTransitions:start()",
+        "desc" : "Start the WiFi watcher",
         "notes" : [
 
         ],
@@ -164,13 +164,13 @@
         "returns" : [
           " * The WiFiTransitions spoon object"
         ],
-        "def" : "WiFiTransitions:start()",
-        "desc" : "Start the WiFi watcher"
+        "name" : "start",
+        "parameters" : [
+
+        ]
       }
     ],
-    "Field" : [
-
-    ],
+    "doc" : "Allow arbitrary actions when transitioning between SSIDs\n\nDownload: [https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/WiFiTransitions.spoon.zip](https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/WiFiTransitions.spoon.zip)",
     "name" : "WiFiTransitions"
   }
 ]
