@@ -50,7 +50,7 @@ function obj:loadPlugins(plugins)
         print("-- Loading Seal plugin: " .. plugin_name)
         plugin = dofile(self.spoonPath.."/seal_"..plugin_name..".lua")
         plugin.seal = self
-        table.insert(obj.plugins, plugin)
+        obj.plugins[plugin_name] = plugin
         for cmd,cmdInfo in pairs(plugin:commands()) do
             print("-- Adding Seal command: "..cmd)
             obj.commands[cmd] = cmdInfo
