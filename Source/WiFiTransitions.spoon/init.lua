@@ -24,12 +24,12 @@ obj.logger = hs.logger.new('WiFiTransitions')
 --- Table containing a list of actions to execute for SSID transitions. Each action is itself a table with the following keys:
 ---  * to - if given, pattern to match against the new SSID. Defaults to match any network. Transitions through the disabled state are ignored (i.e. normally a `nil` SSID is reported when switching SSIDs)
 ---  * from - if given, pattern to match against the previous SSID. Defaults to match any network.
----  * fn - function or list of functions to execute if there is a match. Each function will receive the following arguments:
+---  * fn - function to execute if there is a match. Can also be a list of functions, which will be executed in sequence. Each function will receive the following arguments:
 ---    * event - always "SSIDChange"
 ---    * interface - name of the interface on which the SSID changed
 ---    * old_ssid - previous SSID name
 ---    * new_ssid - new SSID name
----  * cmd - shell command to execute if there is a match. If `fn` is given, `cmd` is ignored.
+---  * cmd - shell command to execute if there is a match. Can also be a list of commands, which will be executed in sequence using `hs.execute`. If `fn` is given, `cmd` is ignored.
 obj.actions = {}
 
 -- Internal variable - previous SSID
@@ -74,7 +74,11 @@ function obj:processTransition(new_ssid, prev_ssid, interface)
                   f(event, interface, prev_ssid, new_ssid)
                end
             elseif a.cmd then
-               hs.execute(cmd)
+               local cmds=a.cmd
+               if type(cmds) == "string" then cmds = {cmds} end
+               for _,c in ipairs(cmds) do
+                  hs.execute(c)
+               end
             else
                self.logger.ef("No fn/cmd action defined in spec %s", hs.inspect(a))
             end
