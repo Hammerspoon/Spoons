@@ -92,7 +92,7 @@ function obj:wifiwatcher(watcher, event, interface)
    local new_ssid = hs.wifi.currentNetwork()
    local prev_ssid = self.previous_ssid
    self.logger.df("New WiFi event %s, interface=%s", event, interface)
-   self.processTransition(new_ssid, prev_ssid, interface)
+   self:processTransition(new_ssid, prev_ssid, interface)
    self.previous_ssid = new_ssid
 end
 
