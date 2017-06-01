@@ -46,12 +46,23 @@ function obj.ssid_match(ssid, spec)
       ((ssid ~= nil) and (spec ~= nil) and (string.find(ssid, spec) ~= nil))
 end
 
--- Internal hs.wifi.watcher callback function
-function obj:wifiwatcher(watcher, event, interface)
-   local new_ssid = hs.wifi.currentNetwork()
-   local prev_ssid = self.previous_ssid
+--- WiFiTransitions:processTransition(new_ssid, prev_ssid, interface)
+--- Method
+--- Process the rules and execute any actions corresponding to the specified transition.
+---
+--- This method is called internally by the `hs.wifi.watcher` object
+--- when WiFi transitions happen. It does not get any system
+--- information nor does it set any Spoon state information, so it can
+--- also be used to "trigger" transitions manually, either for testing
+--- or if the automated processing fails for any reason.
+---
+--- Parameters:
+---  * new_ssid - new SSID name
+---  * prev_ssid - previous SSID name. Defaults to `nil`
+---  * interface - interface where the transition occurred. Defaults to `nil`
+function obj:processTransition(new_ssid, prev_ssid, interface)
+   self.logger.df("Processing transition new_ssid=%s, prev_ssid=%s, interface=%s", new_ssid, prev_ssid, interface)
    if new_ssid ~= nil then
-      self.logger.df("New WiFi transition: event=%s, interface=%s, new_ssid=%s, prev_ssid=%s", event, interface, new_ssid, prev_ssid)
       for _,a in ipairs(self.actions) do
          self.logger.df("  Evaluating spec %s", hs.inspect(a))
          if self.ssid_match(prev_ssid, a.from) and self.ssid_match(new_ssid, a.to) and (new_ssid ~= prev_ssid) then
@@ -69,8 +80,16 @@ function obj:wifiwatcher(watcher, event, interface)
             end
          end
       end
-      self.previous_ssid = new_ssid
    end
+end
+
+-- Internal hs.wifi.watcher callback function
+function obj:wifiwatcher(watcher, event, interface)
+   local new_ssid = hs.wifi.currentNetwork()
+   local prev_ssid = self.previous_ssid
+   self.logger.df("New WiFi event %s, interface=%s", event, interface)
+   self.processTransition(new_ssid, prev_ssid, interface)
+   self.previous_ssid = new_ssid
 end
 
 --- WiFiTransitions:start()
