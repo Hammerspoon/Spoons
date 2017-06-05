@@ -36,6 +36,10 @@ obj.logger = hs.logger.new('WindowHalfsAndThirds')
 ---     third_right = { {"ctrl", "alt"       }, "Right" },
 ---     third_up    = { {"ctrl", "alt"       }, "Up" },
 ---     third_down  = { {"ctrl", "alt"       }, "Down" },
+---     top_left    = { {"ctrl",        "cmd"}, "1" },
+---     top_right   = { {"ctrl",        "cmd"}, "2" },
+---     bottom_left = { {"ctrl",        "cmd"}, "3" },
+---     bottom_right= { {"ctrl",        "cmd"}, "4" },
 ---     max_toggle  = { {"ctrl", "alt", "cmd"}, "f" },
 ---     max         = { {"ctrl", "alt", "cmd"}, "Up" },
 ---  }
@@ -49,6 +53,10 @@ obj.defaultHotkeys = {
    third_right = { {"ctrl", "alt"       }, "Right" },
    third_up    = { {"ctrl", "alt"       }, "Up" },
    third_down  = { {"ctrl", "alt"       }, "Down" },
+   top_left    = { {"ctrl",        "cmd"}, "1" },
+   top_right   = { {"ctrl",        "cmd"}, "2" },
+   bottom_left = { {"ctrl",        "cmd"}, "3" },
+   bottom_right= { {"ctrl",        "cmd"}, "4" },
    max_toggle  = { {"ctrl", "alt", "cmd"}, "f" },
    max         = { {"ctrl", "alt", "cmd"}, "Up" },
 }
@@ -105,6 +113,14 @@ function obj.resizeCurrentWindow(how, use_fc_preference)
       newrect = {0,1/3,1,1/3}
    elseif how == "bottom_third" or how == "vthird-2" then
       newrect = {0,2/3,1,1/3}
+   elseif how == "top_right" then
+      newrect = {0.5,0,0.5,0.5}
+   elseif how == "top_left" then
+      newrect = {0,0,0.5,0.5}
+   elseif how == "bottom_left" then
+      newrect = {0,0.5,0.5,0.5}
+   elseif how == "bottom_right" then
+      newrect = {0.5,0.5,0.5,0.5}
    end
 
    if use_fc_preference then _setFC() end
@@ -165,11 +181,15 @@ obj.rightThird     = hs.fnutils.partial(obj.resizeCurrentWindow, "right_third")
 obj.topThird       = hs.fnutils.partial(obj.resizeCurrentWindow, "top_third")
 obj.middleThirdV   = hs.fnutils.partial(obj.resizeCurrentWindow, "middle_third_v")
 obj.bottomThird    = hs.fnutils.partial(obj.resizeCurrentWindow, "bottom_third")
+obj.topLeft        = hs.fnutils.partial(obj.resizeCurrentWindow, "top_left")
+obj.topRight       = hs.fnutils.partial(obj.resizeCurrentWindow, "top_right")
+obj.bottomLeft     = hs.fnutils.partial(obj.resizeCurrentWindow, "bottom_left")
+obj.bottomRight    = hs.fnutils.partial(obj.resizeCurrentWindow, "bottom_right")
 obj.maximize       = hs.fnutils.partial(obj.resizeCurrentWindow, "max", true)
 
 function obj.oneThirdLeft()
-   local win = hs.window.focusedWindow()
-   if win ~= nil then
+         local win = hs.window.focusedWindow()
+         if win ~= nil then
       local third = get_horizontal_third(win)
       obj.resizeCurrentWindow("hthird-" .. math.max(third-1,0))
    end
@@ -213,6 +233,7 @@ end
 ---   * screen_left, screen_right - move the window to the left/right screen (if you have more than one monitor connected, does nothing otherwise)
 ---   * top_third, middle_third_v, bottom_third - resize and move the window to the corresponding vertical third of the screen
 ---   * left_third, middle_third_h, right_third - resize and move the window to the corresponding horizontal third of the screen
+---   * top_left, top_right, bottom_left, bottom_right - resize and move the window to the corresponding quarter of the screen
 function obj:bindHotkeys(mapping)
    local hotkeyDefinitions = {
       left_half = self.leftHalf,
@@ -225,14 +246,16 @@ function obj:bindHotkeys(mapping)
       third_down = self.onethirdDown,
       max_toggle = self.toggleMaximized,
       max = self.maximize,
-      screen_left = self.oneScreenLeft,
-      screen_right = self.oneScreenRight,
       top_third = self.topThird,
       middle_third_v = self.middleThirdV,
       bottom_third = self.bottomThird,
       left_third = self.leftThird,
       middle_third_h = self.middleThirdH,
       right_third = self.rightThird,
+      top_left = self.topLeft,
+      top_right = self.topRight,
+      bottom_left = self.bottomLeft,
+      bottom_right = self.bottomRight,
    }
    hs.spoons.bindHotkeysToSpec(hotkeyDefinitions, mapping)
    return self
@@ -244,3 +267,4 @@ function obj:init()
 end
 
 return obj
+
