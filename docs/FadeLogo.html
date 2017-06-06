@@ -1,0 +1,339 @@
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hammerspoon docs: FadeLogo</title>
+    <style type="text/css">
+      a { text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      th { background-color: #DDDDDD; vertical-align: top; padding: 3px; }
+      td { width: 100%; background-color: #EEEEEE; vertical-align: top; padding: 3px; }
+      table { width: 100% ; border: 1px solid #0; text-align: left; }
+      section > table table td { width: 0; }
+    </style>
+    <link rel="stylesheet" href="docs.css" type="text/css" media="screen" />
+  </head>
+  <body>
+    <header>
+      <h1><a href="./index.html">docs</a> &raquo; FadeLogo</h1>
+      <p>Show a fading-and-zooming image in the center of the screen</p>
+<p>By default the Hammerspoon logo is shown. Typical use is to show it as an indicator when your configuration finishes loading, by adding the following to the bottom of your <code>~/.hammerspoon/init.lua</code> file:</p>
+
+<pre><code>  hs.loadSpoon('FadeLogo'):start()</code></pre>
+<p>Which looks like this: <a href="http://imgur.com/a/TbZOl">http://imgur.com/a/TbZOl</a></p>
+<p>Download: <a href="https://github.com/Hammerspoon/Spoons/raw/master/Spoons/FadeLogo.spoon.zip">https://github.com/Hammerspoon/Spoons/raw/master/Spoons/FadeLogo.spoon.zip</a></p>
+
+      </header>
+      <h3>API Overview</h3>
+      <ul>
+        <li>Variables - Configurable values</li>
+          <ul>
+            <li><a href="#fade_in_time">fade_in_time</a></li>
+            <li><a href="#fade_out_time">fade_out_time</a></li>
+            <li><a href="#image">image</a></li>
+            <li><a href="#image_alpha">image_alpha</a></li>
+            <li><a href="#image_size">image_size</a></li>
+            <li><a href="#logger">logger</a></li>
+            <li><a href="#run_time">run_time</a></li>
+            <li><a href="#zoom">zoom</a></li>
+            <li><a href="#zoom_scale_factor">zoom_scale_factor</a></li>
+            <li><a href="#zoom_scale_timer">zoom_scale_timer</a></li>
+          </ul>
+        <li>Methods - API calls which can only be made on an object returned by a constructor</li>
+          <ul>
+            <li><a href="#delete">delete</a></li>
+            <li><a href="#hide">hide</a></li>
+            <li><a href="#show">show</a></li>
+            <li><a href="#start">start</a></li>
+            <li><a href="#zoom_and_fade">zoom_and_fade</a></li>
+          </ul>
+      </ul>
+      <h3>API Documentation</h3>
+        <h4 class="documentation-section">Variables</h4>
+          <section id="fade_in_time">
+            <a name="//apple_ref/cpp/Variable/fade_in_time" class="dashAnchor"></a>
+            <h5><a href="#fade_in_time">fade_in_time</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>FadeLogo.fade_in_time</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Number of seconds over which to fade in the image. Defaults to 0.3.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="fade_out_time">
+            <a name="//apple_ref/cpp/Variable/fade_out_time" class="dashAnchor"></a>
+            <h5><a href="#fade_out_time">fade_out_time</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>FadeLogo.fade_out_time</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Number of seconds over which to fade out the image. Defaults to 0.5.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="image">
+            <a name="//apple_ref/cpp/Variable/image" class="dashAnchor"></a>
+            <h5><a href="#image">image</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>FadeLogo.image</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Image to display. Must be an <code>hs.image</code> object. Defaults to <code>hs.image.imageFromName(hs.image.systemImageNames.ApplicationIcon)</code> (the Hammerspoon app icon)</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="image_alpha">
+            <a name="//apple_ref/cpp/Variable/image_alpha" class="dashAnchor"></a>
+            <h5><a href="#image_alpha">image_alpha</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>FadeLogo.image_alpha</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Initial transparency of the image. Defaults to 1.0.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="image_size">
+            <a name="//apple_ref/cpp/Variable/image_size" class="dashAnchor"></a>
+            <h5><a href="#image_size">image_size</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>FadeLogo.image_size</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p><code>hs.geometry</code> object specifying the initial size of the image to display in the center of the screen. The image object will be resizes proportionally to fit in this size. Defaults to <code>hs.geometry.size(w=200, h=200)</code></p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="logger">
+            <a name="//apple_ref/cpp/Variable/logger" class="dashAnchor"></a>
+            <h5><a href="#logger">logger</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>FadeLogo.logger</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="run_time">
+            <a name="//apple_ref/cpp/Variable/run_time" class="dashAnchor"></a>
+            <h5><a href="#run_time">run_time</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>FadeLogo.run_time</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Number of seconds to leave the image on the screen when <code>start()</code> is called.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="zoom">
+            <a name="//apple_ref/cpp/Variable/zoom" class="dashAnchor"></a>
+            <h5><a href="#zoom">zoom</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>FadeLogo.zoom</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Do zoom-and-fade if <code>true</code>, otherwise do a regular fade</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="zoom_scale_factor">
+            <a name="//apple_ref/cpp/Variable/zoom_scale_factor" class="dashAnchor"></a>
+            <h5><a href="#zoom_scale_factor">zoom_scale_factor</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>FadeLogo.zoom_scale_factor</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Factor by which to scale the image at every iteration during the zoom-and-fade. Defaults to 1.1.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="zoom_scale_timer">
+            <a name="//apple_ref/cpp/Variable/zoom_scale_timer" class="dashAnchor"></a>
+            <h5><a href="#zoom_scale_timer">zoom_scale_timer</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>FadeLogo.zoom_scale_timer</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Seconds between the zooming iterations</p>
+</td>
+              </tr>
+            </table>
+          </section>
+        <h4 class="documentation-section">Methods</h4>
+          <section id="delete">
+            <a name="//apple_ref/cpp/Method/delete" class="dashAnchor"></a>
+            <h5><a href="#delete">delete</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>FadeLogo:delete()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Hide and delete the canvas</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="hide">
+            <a name="//apple_ref/cpp/Method/hide" class="dashAnchor"></a>
+            <h5><a href="#hide">hide</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>FadeLogo:hide()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Hide the image without zoom, fading it out over <code>fade_out_time</code> seconds</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="show">
+            <a name="//apple_ref/cpp/Method/show" class="dashAnchor"></a>
+            <h5><a href="#show">show</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>FadeLogo:show()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Display the image, fading it in over <code>fade_in_time</code> seconds</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="start">
+            <a name="//apple_ref/cpp/Method/start" class="dashAnchor"></a>
+            <h5><a href="#start">start</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>FadeLogo:start()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Show the image, wait <code>run_time</code> seconds, and then zoom-and-fade it out.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="zoom_and_fade">
+            <a name="//apple_ref/cpp/Method/zoom_and_fade" class="dashAnchor"></a>
+            <h5><a href="#zoom_and_fade">zoom_and_fade</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>FadeLogo:zoom_and_fade()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Zoom-and-fade the image over <code>fade_out_time</code> seconds</p>
+</td>
+              </tr>
+            </table>
+          </section>
+  </body>
+</html>
