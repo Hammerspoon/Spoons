@@ -1,0 +1,244 @@
+[
+  {
+    "Constant" : [
+
+    ],
+    "submodules" : [
+
+    ],
+    "Function" : [
+
+    ],
+    "Variable" : [
+      {
+        "doc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "name" : "logger",
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "ColorPicker.logger",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "ColorPicker.logger",
+        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
+      },
+      {
+        "doc" : "If `true`, show an icon in the menubar to trigger the color picker",
+        "name" : "show_in_menubar",
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "If `true`, show an icon in the menubar to trigger the color picker"
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "ColorPicker.show_in_menubar",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "ColorPicker.show_in_menubar",
+        "desc" : "If `true`, show an icon in the menubar to trigger the color picker"
+      },
+      {
+        "doc" : "Title to show in the menubar if `show_in_menubar` is true. Defaults to `\"\\u{1F308}\"`, which is the [Rainbow Emoji](http:\/\/emojipedia.org\/rainbow\/)",
+        "name" : "menubar_title",
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "Title to show in the menubar if `show_in_menubar` is true. Defaults to `\"\\u{1F308}\"`, which is the [Rainbow Emoji](http:\/\/emojipedia.org\/rainbow\/)"
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "ColorPicker.menubar_title",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "ColorPicker.menubar_title",
+        "desc" : "Title to show in the menubar if `show_in_menubar` is true. Defaults to `\"\\u{1F308}\"`, which is the [Rainbow Emoji](http:\/\/emojipedia.org\/rainbow\/)"
+      }
+    ],
+    "stripped_doc" : [
+
+    ],
+    "desc" : "Show a color sample\/picker",
+    "Deprecated" : [
+
+    ],
+    "type" : "Module",
+    "Constructor" : [
+
+    ],
+    "doc" : "Show a color sample\/picker\n\nClicking on any color will copy its name to the clipboard, cmd-click will copy its RGB code.\n\nDownload: [https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/ColorPicker.spoon.zip](https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/ColorPicker.spoon.zip)",
+    "Method" : [
+      {
+        "doc" : "Toggle display on the screen of a grid with all the colors in the given colortable\n\nParameters:\n * tablename - name of the colortable to display",
+        "name" : "toggleColorSamples",
+        "parameters" : [
+          " * tablename - name of the colortable to display"
+        ],
+        "stripped_doc" : [
+          "Toggle display on the screen of a grid with all the colors in the given colortable",
+          ""
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "ColorPicker.toggleColorSamples(tablename)",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "def" : "ColorPicker.toggleColorSamples(tablename)",
+        "desc" : "Toggle display on the screen of a grid with all the colors in the given colortable"
+      },
+      {
+        "doc" : "Binds hotkeys for ColorPicker\n\nParameters:\n * mapping - A table containing hotkey objifier\/key details for the following items:\n  * show - Show color picker menu",
+        "name" : "bindHotkeys",
+        "parameters" : [
+          " * mapping - A table containing hotkey objifier\/key details for the following items:",
+          "  * show - Show color picker menu"
+        ],
+        "stripped_doc" : [
+          "Binds hotkeys for ColorPicker",
+          ""
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "ColorPicker:bindHotkeys(mapping)",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "def" : "ColorPicker:bindHotkeys(mapping)",
+        "desc" : "Binds hotkeys for ColorPicker"
+      }
+    ],
+    "Command" : [
+
+    ],
+    "items" : [
+      {
+        "doc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "name" : "logger",
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "ColorPicker.logger",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "ColorPicker.logger",
+        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
+      },
+      {
+        "doc" : "Title to show in the menubar if `show_in_menubar` is true. Defaults to `\"\\u{1F308}\"`, which is the [Rainbow Emoji](http:\/\/emojipedia.org\/rainbow\/)",
+        "name" : "menubar_title",
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "Title to show in the menubar if `show_in_menubar` is true. Defaults to `\"\\u{1F308}\"`, which is the [Rainbow Emoji](http:\/\/emojipedia.org\/rainbow\/)"
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "ColorPicker.menubar_title",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "ColorPicker.menubar_title",
+        "desc" : "Title to show in the menubar if `show_in_menubar` is true. Defaults to `\"\\u{1F308}\"`, which is the [Rainbow Emoji](http:\/\/emojipedia.org\/rainbow\/)"
+      },
+      {
+        "doc" : "If `true`, show an icon in the menubar to trigger the color picker",
+        "name" : "show_in_menubar",
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "If `true`, show an icon in the menubar to trigger the color picker"
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "ColorPicker.show_in_menubar",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "ColorPicker.show_in_menubar",
+        "desc" : "If `true`, show an icon in the menubar to trigger the color picker"
+      },
+      {
+        "doc" : "Binds hotkeys for ColorPicker\n\nParameters:\n * mapping - A table containing hotkey objifier\/key details for the following items:\n  * show - Show color picker menu",
+        "name" : "bindHotkeys",
+        "parameters" : [
+          " * mapping - A table containing hotkey objifier\/key details for the following items:",
+          "  * show - Show color picker menu"
+        ],
+        "stripped_doc" : [
+          "Binds hotkeys for ColorPicker",
+          ""
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "ColorPicker:bindHotkeys(mapping)",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "def" : "ColorPicker:bindHotkeys(mapping)",
+        "desc" : "Binds hotkeys for ColorPicker"
+      },
+      {
+        "doc" : "Toggle display on the screen of a grid with all the colors in the given colortable\n\nParameters:\n * tablename - name of the colortable to display",
+        "name" : "toggleColorSamples",
+        "parameters" : [
+          " * tablename - name of the colortable to display"
+        ],
+        "stripped_doc" : [
+          "Toggle display on the screen of a grid with all the colors in the given colortable",
+          ""
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "ColorPicker.toggleColorSamples(tablename)",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "def" : "ColorPicker.toggleColorSamples(tablename)",
+        "desc" : "Toggle display on the screen of a grid with all the colors in the given colortable"
+      }
+    ],
+    "Field" : [
+
+    ],
+    "name" : "ColorPicker"
+  }
+]
