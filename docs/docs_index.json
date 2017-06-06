@@ -691,5 +691,34 @@
     "module": "URLDispatcher",
     "name": "start",
     "type": "Method"
+  },
+  {
+    "desc": "Allow arbitrary actions when transitioning between SSIDs",
+    "name": "WiFiTransitions",
+    "type": "Module"
+  },
+  {
+    "desc": "Table containing a list of actions to execute for SSID transitions. Each action is itself a table with the following keys:",
+    "module": "WiFiTransitions",
+    "name": "actions",
+    "type": "Variable"
+  },
+  {
+    "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+    "module": "WiFiTransitions",
+    "name": "logger",
+    "type": "Variable"
+  },
+  {
+    "desc": "Process the rules and execute any actions corresponding to the specified transition.",
+    "module": "WiFiTransitions",
+    "name": "processTransition",
+    "type": "Method"
+  },
+  {
+    "desc": "Start the WiFi watcher",
+    "module": "WiFiTransitions",
+    "name": "start",
+    "type": "Method"
   }
 ]

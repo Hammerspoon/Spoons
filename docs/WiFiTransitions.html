@@ -1,0 +1,142 @@
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hammerspoon docs: WiFiTransitions</title>
+    <style type="text/css">
+      a { text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      th { background-color: #DDDDDD; vertical-align: top; padding: 3px; }
+      td { width: 100%; background-color: #EEEEEE; vertical-align: top; padding: 3px; }
+      table { width: 100% ; border: 1px solid #0; text-align: left; }
+      section > table table td { width: 0; }
+    </style>
+    <link rel="stylesheet" href="docs.css" type="text/css" media="screen" />
+  </head>
+  <body>
+    <header>
+      <h1><a href="./index.html">docs</a> &raquo; WiFiTransitions</h1>
+      <p>Allow arbitrary actions when transitioning between SSIDs</p>
+<p>Download: <a href="https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WiFiTransitions.spoon.zip">https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WiFiTransitions.spoon.zip</a></p>
+
+      </header>
+      <h3>API Overview</h3>
+      <ul>
+        <li>Variables - Configurable values</li>
+          <ul>
+            <li><a href="#actions">actions</a></li>
+            <li><a href="#logger">logger</a></li>
+          </ul>
+        <li>Methods - API calls which can only be made on an object returned by a constructor</li>
+          <ul>
+            <li><a href="#processTransition">processTransition</a></li>
+            <li><a href="#start">start</a></li>
+          </ul>
+      </ul>
+      <h3>API Documentation</h3>
+        <h4 class="documentation-section">Variables</h4>
+          <section id="actions">
+            <a name="//apple_ref/cpp/Variable/actions" class="dashAnchor"></a>
+            <h5><a href="#actions">actions</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>WiFiTransitions.actions</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Table containing a list of actions to execute for SSID transitions. Each action is itself a table with the following keys:</p>
+<ul>
+<li>to - if given, pattern to match against the new SSID. Defaults to match any network. Transitions through the disabled state are ignored (i.e. normally a <code>nil</code> SSID is reported when switching SSIDs)</li>
+<li>from - if given, pattern to match against the previous SSID. Defaults to match any network.</li>
+<li>fn - function to execute if there is a match. Can also be a list of functions, which will be executed in sequence. Each function will receive the following arguments:<ul>
+<li>event - always "SSIDChange"</li>
+<li>interface - name of the interface on which the SSID changed</li>
+<li>old_ssid - previous SSID name</li>
+<li>new_ssid - new SSID name</li>
+</ul>
+</li>
+<li>cmd - shell command to execute if there is a match. Can also be a list of commands, which will be executed in sequence using <code>hs.execute</code>. If <code>fn</code> is given, <code>cmd</code> is ignored.</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="logger">
+            <a name="//apple_ref/cpp/Variable/logger" class="dashAnchor"></a>
+            <h5><a href="#logger">logger</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>WiFiTransitions.logger</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+        <h4 class="documentation-section">Methods</h4>
+          <section id="processTransition">
+            <a name="//apple_ref/cpp/Method/processTransition" class="dashAnchor"></a>
+            <h5><a href="#processTransition">processTransition</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>WiFiTransitions:processTransition(new_ssid, prev_ssid, interface)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Process the rules and execute any actions corresponding to the specified transition.</p>
+<p>This method is called internally by the <code>hs.wifi.watcher</code> object
+when WiFi transitions happen. It does not get any system
+information nor does it set any Spoon state information, so it can
+also be used to "trigger" transitions manually, either for testing
+or if the automated processing fails for any reason.</p>
+<p>Parameters:</p>
+<ul>
+<li>new_ssid - new SSID name</li>
+<li>prev_ssid - previous SSID name. Defaults to <code>nil</code></li>
+<li>interface - interface where the transition occurred. Defaults to <code>nil</code></li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="start">
+            <a name="//apple_ref/cpp/Method/start" class="dashAnchor"></a>
+            <h5><a href="#start">start</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>WiFiTransitions:start()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Start the WiFi watcher</p>
+<p>Returns:</p>
+<ul>
+<li>The WiFiTransitions spoon object</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+  </body>
+</html>
