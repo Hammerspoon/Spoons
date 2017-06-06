@@ -168,7 +168,7 @@ end
 
 --- MenubarFlag:getLayoutAndDrawindicators
 --- Method
---- Draw indicators for the current keyboard layout
+--- Draw indicators for the current keyboard method or layout
 ---
 --- Parameters:
 ---  * None
@@ -176,7 +176,7 @@ end
 --- Returns:
 ---  * The MenubarFlag object
 function obj:getLayoutAndDrawIndicators()
-   return self:drawIndicators(hs.keycodes.currentLayout())
+   return self:drawIndicators(hs.keycodes.currentMethod() or hs.keycodes.currentLayout())
 end
 
 --- MenubarFlag:start()
