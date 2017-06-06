@@ -1,0 +1,147 @@
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hammerspoon docs: ColorPicker</title>
+    <style type="text/css">
+      a { text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      th { background-color: #DDDDDD; vertical-align: top; padding: 3px; }
+      td { width: 100%; background-color: #EEEEEE; vertical-align: top; padding: 3px; }
+      table { width: 100% ; border: 1px solid #0; text-align: left; }
+      section > table table td { width: 0; }
+    </style>
+    <link rel="stylesheet" href="docs.css" type="text/css" media="screen" />
+  </head>
+  <body>
+    <header>
+      <h1><a href="./index.html">docs</a> &raquo; ColorPicker</h1>
+      <p>Show a color sample/picker</p>
+<p>Clicking on any color will copy its name to the clipboard, cmd-click will copy its RGB code.</p>
+<p>Download: <a href="https://github.com/Hammerspoon/Spoons/raw/master/Spoons/ColorPicker.spoon.zip">https://github.com/Hammerspoon/Spoons/raw/master/Spoons/ColorPicker.spoon.zip</a></p>
+
+      </header>
+      <h3>API Overview</h3>
+      <ul>
+        <li>Variables - Configurable values</li>
+          <ul>
+            <li><a href="#logger">logger</a></li>
+            <li><a href="#menubar_title">menubar_title</a></li>
+            <li><a href="#show_in_menubar">show_in_menubar</a></li>
+          </ul>
+        <li>Methods - API calls which can only be made on an object returned by a constructor</li>
+          <ul>
+            <li><a href="#bindHotkeys">bindHotkeys</a></li>
+            <li><a href="#toggleColorSamples">toggleColorSamples</a></li>
+          </ul>
+      </ul>
+      <h3>API Documentation</h3>
+        <h4 class="documentation-section">Variables</h4>
+          <section id="logger">
+            <a name="//apple_ref/cpp/Variable/logger" class="dashAnchor"></a>
+            <h5><a href="#logger">logger</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>ColorPicker.logger</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="menubar_title">
+            <a name="//apple_ref/cpp/Variable/menubar_title" class="dashAnchor"></a>
+            <h5><a href="#menubar_title">menubar_title</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>ColorPicker.menubar_title</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Title to show in the menubar if <code>show_in_menubar</code> is true. Defaults to <code>"\u{1F308}"</code>, which is the <a href="http://emojipedia.org/rainbow/">Rainbow Emoji</a></p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="show_in_menubar">
+            <a name="//apple_ref/cpp/Variable/show_in_menubar" class="dashAnchor"></a>
+            <h5><a href="#show_in_menubar">show_in_menubar</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>ColorPicker.show_in_menubar</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>If <code>true</code>, show an icon in the menubar to trigger the color picker</p>
+</td>
+              </tr>
+            </table>
+          </section>
+        <h4 class="documentation-section">Methods</h4>
+          <section id="bindHotkeys">
+            <a name="//apple_ref/cpp/Method/bindHotkeys" class="dashAnchor"></a>
+            <h5><a href="#bindHotkeys">bindHotkeys</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>ColorPicker:bindHotkeys(mapping)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Binds hotkeys for ColorPicker</p>
+<p>Parameters:</p>
+<ul>
+<li>mapping - A table containing hotkey objifier/key details for the following items:<ul>
+<li>show - Show color picker menu</li>
+</ul>
+</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="toggleColorSamples">
+            <a name="//apple_ref/cpp/Method/toggleColorSamples" class="dashAnchor"></a>
+            <h5><a href="#toggleColorSamples">toggleColorSamples</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>ColorPicker.toggleColorSamples(tablename)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Toggle display on the screen of a grid with all the colors in the given colortable</p>
+<p>Parameters:</p>
+<ul>
+<li>tablename - name of the colortable to display</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+  </body>
+</html>

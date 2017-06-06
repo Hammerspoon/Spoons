@@ -70,6 +70,41 @@
     "type": "Method"
   },
   {
+    "desc": "Show a color sample/picker",
+    "name": "ColorPicker",
+    "type": "Module"
+  },
+  {
+    "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+    "module": "ColorPicker",
+    "name": "logger",
+    "type": "Variable"
+  },
+  {
+    "desc": "Title to show in the menubar if `show_in_menubar` is true. Defaults to `\"\\u{1F308}\"`, which is the [Rainbow Emoji](http://emojipedia.org/rainbow/)",
+    "module": "ColorPicker",
+    "name": "menubar_title",
+    "type": "Variable"
+  },
+  {
+    "desc": "If `true`, show an icon in the menubar to trigger the color picker",
+    "module": "ColorPicker",
+    "name": "show_in_menubar",
+    "type": "Variable"
+  },
+  {
+    "desc": "Binds hotkeys for ColorPicker",
+    "module": "ColorPicker",
+    "name": "bindHotkeys",
+    "type": "Method"
+  },
+  {
+    "desc": "Toggle display on the screen of a grid with all the colors in the given colortable",
+    "module": "ColorPicker",
+    "name": "toggleColorSamples",
+    "type": "Method"
+  },
+  {
     "desc": "Let users choose emojis by name/keyword",
     "name": "Emojis",
     "type": "Module"
