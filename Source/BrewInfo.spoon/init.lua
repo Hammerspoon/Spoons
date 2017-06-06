@@ -36,11 +36,37 @@ mod.brew_info_style = {
    radius = 10
 }
 
--- Internal function to get the currently selected text
-function current_selection()
+--- BrewInfo.select_text_if_needed
+--- Variable
+--- If `true`, and no text is currently selected in the terminal, issue a double-click to select the text below the cursos, and use that as the input to `brew info`. See also `BrewInfo.select_text_modifiers`. Defaults to `true`.
+mod.select_text_if_needed = true
+
+--- BrewInfo.select_text_modifiers
+--- Variable
+--- Table containing the modifiers to be used together with a double-click when `BrewInfo.select_text_if_needed` is true. Defaults to `{cmd = true, shift = true}` to issue a Cmd-Shift-double-click, which will select a continuous non-space string in Terminal and iTerm2.
+mod.select_text_modifiers = {cmd = true, shift = true}
+
+-- Internal function to issue a double click with given modifiers
+function leftDoubleClick(modifiers)
+   local pos=hs.mouse.getAbsolutePosition()
+   hs.eventtap.event.newMouseEvent(hs.eventtap.event.types.leftMouseDown, pos, modifiers)
+      :setProperty(hs.eventtap.event.properties.mouseEventClickState, 2)
+      :post()
+   hs.eventtap.event.newMouseEvent(hs.eventtap.event.types.leftMouseUp, pos, modifiers)
+      :post()
+end
+
+-- Internal method to get the currently selected text
+function mod:current_selection()
    local elem=hs.uielement.focusedElement()
    if elem then
-      return elem:selectedText()
+      local sel = elem:selectedText()
+      if (sel == nil or sel == "") and self.select_text_if_needed then
+         -- Simulate a double click to select the text under the cursor
+         leftDoubleClick(self.select_text_modifiers)
+         sel = elem:selectedText()
+      end
+      return sel
    else
       return nil
    end
@@ -81,7 +107,7 @@ end
 --- Returns:
 ---  * The Spoon object
 function mod:showBrewInfoCurSel()
-   return self:showBrewInfo(current_selection())
+   return self:showBrewInfo(self:current_selection())
 end
 
 --- BrewInfo:openBrewURL(pkg)
@@ -120,7 +146,7 @@ end
 --- Returns:
 ---  * The Spoon object
 function mod:openBrewURLCurSel()
-   return self:openBrewURL(current_selection())
+   return self:openBrewURL(self:current_selection())
 end
 
 --- BrewInfo:bindHotkeys(mapping)
