@@ -410,6 +410,125 @@
     "type": "Method"
   },
   {
+    "desc": "Keep a history of the clipboard, only for text entries",
+    "name": "TextClipboardHistory",
+    "type": "Module"
+  },
+  {
+    "desc": "Whether to remove duplicates from the list, keeping only the latest one. Defaults to `true`.",
+    "module": "TextClipboardHistory",
+    "name": "deduplicate",
+    "type": "Variable"
+  },
+  {
+    "desc": "Speed in seconds to check for clipboard changes. If you check too frequently, you will degrade performance, if you check sparsely you will loose copies. Defaults to 0.8.",
+    "module": "TextClipboardHistory",
+    "name": "frequency",
+    "type": "Variable"
+  },
+  {
+    "desc": "How many items to keep on history. Defaults to 100",
+    "module": "TextClipboardHistory",
+    "name": "hist_size",
+    "type": "Variable"
+  },
+  {
+    "desc": "If `true`, check the data identifiers set in the pasteboard and ignore entries which match those listed in `TextClipboardHistory.ignoredIdentifiers`. The list of identifiers comes from http://nspasteboard.org. Defaults to `true`",
+    "module": "TextClipboardHistory",
+    "name": "honor_ignoredidentifiers",
+    "type": "Variable"
+  },
+  {
+    "desc": "Types of clipboard entries to ignore, see http://nspasteboard.org. Code from https://github.com/asmagill/hammerspoon-config/blob/master/utils/_menus/newClipper.lua. Default value (don't modify unless you know what you are doing):",
+    "module": "TextClipboardHistory",
+    "name": "ignoredIdentifiers",
+    "type": "Variable"
+  },
+  {
+    "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+    "module": "TextClipboardHistory",
+    "name": "logger",
+    "type": "Variable"
+  },
+  {
+    "desc": "String to show in the menubar if `TextClipboardHistory.show_in_menubar` is `true`. Defaults to `\"\\u{1f4ce}\"`, which is the [Unicode paperclip character](https://codepoints.net/U+1F4CE)",
+    "module": "TextClipboardHistory",
+    "name": "menubar_title",
+    "type": "Variable"
+  },
+  {
+    "desc": "Whether to auto-type the item when selecting it from the menu. Can be toggled on the fly from the chooser. Defaults to `false`.",
+    "module": "TextClipboardHistory",
+    "name": "paste_on_select",
+    "type": "Variable"
+  },
+  {
+    "desc": "Whether to show a menubar item to open the clipboard history. Defaults to `true`",
+    "module": "TextClipboardHistory",
+    "name": "show_in_menubar",
+    "type": "Variable"
+  },
+  {
+    "desc": "Binds hotkeys for TextClipboardHistory",
+    "module": "TextClipboardHistory",
+    "name": "bindHotkeys",
+    "type": "Method"
+  },
+  {
+    "desc": "If the pasteboard has changed, we add the current item to our history and update the counter",
+    "module": "TextClipboardHistory",
+    "name": "checkAndStorePasteboard",
+    "type": "Method"
+  },
+  {
+    "desc": "Clears the clipboard and history",
+    "module": "TextClipboardHistory",
+    "name": "clearAll",
+    "type": "Method"
+  },
+  {
+    "desc": "Clears the last added to the history",
+    "module": "TextClipboardHistory",
+    "name": "clearLastItem",
+    "type": "Method"
+  },
+  {
+    "desc": "Add the given string to the history",
+    "module": "TextClipboardHistory",
+    "name": "pasteboardToClipboard",
+    "type": "Method"
+  },
+  {
+    "desc": "Verify whether the pasteboard contents matches one of the values in `TextClipboardHistory.ignoredIdentifiers`",
+    "module": "TextClipboardHistory",
+    "name": "shouldBeStored",
+    "type": "Method"
+  },
+  {
+    "desc": "Display the current clipboard list in a chooser",
+    "module": "TextClipboardHistory",
+    "name": "showClipboard",
+    "type": "Method"
+  },
+  {
+    "desc": "Start the clipboard history collector",
+    "module": "TextClipboardHistory",
+    "name": "start",
+    "type": "Method"
+  },
+  {
+    "desc": "Show/hide the clipboard list, depending on its current state",
+    "module": "TextClipboardHistory",
+    "name": "toggleClipboard",
+    "type": "Method"
+  },
+  {
+    "desc": "Toggle the value of `TextClipboardHistory.paste_on_select`",
+    "module": "TextClipboardHistory",
+    "name": "togglePasteOnSelect",
+    "type": "Method"
+  },
+  {
     "desc": "Toggle rotation on external screens",
     "name": "ToggleScreenRotation",
     "type": "Module"
