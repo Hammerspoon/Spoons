@@ -303,6 +303,35 @@
     "type": "Method"
   },
   {
+    "desc": "Provide keybindings for muting/unmuting Skype or Skype for Business",
+    "name": "ToggleSkypeMute",
+    "type": "Module"
+  },
+  {
+    "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+    "module": "ToggleSkypeMute",
+    "name": "logger",
+    "type": "Variable"
+  },
+  {
+    "desc": "If `true`, produce notifications when Skype is muted/unmuted. Defaults to `true`.",
+    "module": "ToggleSkypeMute",
+    "name": "notifications",
+    "type": "Variable"
+  },
+  {
+    "desc": "Binds hotkeys for ToggleSkypeMute",
+    "module": "ToggleSkypeMute",
+    "name": "bindHotkeys",
+    "type": "Method"
+  },
+  {
+    "desc": "Toggle Skype between muted/unmuted, whether it is focused or not",
+    "module": "ToggleSkypeMute",
+    "name": "toggle",
+    "type": "Method"
+  },
+  {
     "desc": "Handle \"archive current item\" for multiple applications using the same hotkey",
     "name": "UniversalArchive",
     "type": "Module"

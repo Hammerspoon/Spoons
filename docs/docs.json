@@ -1255,6 +1255,120 @@
     "Function": [],
     "Method": [
       {
+        "def": "ToggleSkypeMute:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for ToggleSkypeMute",
+        "doc": "Binds hotkeys for ToggleSkypeMute\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for the following items:\n  * toggle_skype - Mute/unmute active conversation in Skype\n  * toggle_skype_for_business - Mute/unmute active conversation in Skype For Business",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * mapping - A table containing hotkey modifier/key details for the following items:",
+          "  * toggle_skype - Mute/unmute active conversation in Skype",
+          "  * toggle_skype_for_business - Mute/unmute active conversation in Skype For Business"
+        ],
+        "signature": "ToggleSkypeMute:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "ToggleSkypeMute:toggle(app)",
+        "desc": "Toggle Skype between muted/unmuted, whether it is focused or not",
+        "doc": "Toggle Skype between muted/unmuted, whether it is focused or not\n\nParameters:\n * app - name of the application to mute/unmute. Supported values are \"Skype\" and \"Skype for Business\". Defaults to \"Skype\".\n\nReturns:\n * None",
+        "name": "toggle",
+        "parameters": [
+          " * app - name of the application to mute/unmute. Supported values are \"Skype\" and \"Skype for Business\". Defaults to \"Skype\"."
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "ToggleSkypeMute:toggle(app)",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [
+      {
+        "def": "ToggleSkypeMute.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "name": "logger",
+        "signature": "ToggleSkypeMute.logger",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "ToggleSkypeMute.notifications",
+        "desc": "If `true`, produce notifications when Skype is muted/unmuted. Defaults to `true`.",
+        "doc": "If `true`, produce notifications when Skype is muted/unmuted. Defaults to `true`.",
+        "name": "notifications",
+        "signature": "ToggleSkypeMute.notifications",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "desc": "Provide keybindings for muting/unmuting Skype or Skype for Business",
+    "doc": "Provide keybindings for muting/unmuting Skype or Skype for Business\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/ToggleSkypeMute.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/ToggleSkypeMute.spoon.zip)",
+    "items": [
+      {
+        "def": "ToggleSkypeMute:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for ToggleSkypeMute",
+        "doc": "Binds hotkeys for ToggleSkypeMute\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for the following items:\n  * toggle_skype - Mute/unmute active conversation in Skype\n  * toggle_skype_for_business - Mute/unmute active conversation in Skype For Business",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * mapping - A table containing hotkey modifier/key details for the following items:",
+          "  * toggle_skype - Mute/unmute active conversation in Skype",
+          "  * toggle_skype_for_business - Mute/unmute active conversation in Skype For Business"
+        ],
+        "signature": "ToggleSkypeMute:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "ToggleSkypeMute.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "name": "logger",
+        "signature": "ToggleSkypeMute.logger",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "ToggleSkypeMute.notifications",
+        "desc": "If `true`, produce notifications when Skype is muted/unmuted. Defaults to `true`.",
+        "doc": "If `true`, produce notifications when Skype is muted/unmuted. Defaults to `true`.",
+        "name": "notifications",
+        "signature": "ToggleSkypeMute.notifications",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "ToggleSkypeMute:toggle(app)",
+        "desc": "Toggle Skype between muted/unmuted, whether it is focused or not",
+        "doc": "Toggle Skype between muted/unmuted, whether it is focused or not\n\nParameters:\n * app - name of the application to mute/unmute. Supported values are \"Skype\" and \"Skype for Business\". Defaults to \"Skype\".\n\nReturns:\n * None",
+        "name": "toggle",
+        "parameters": [
+          " * app - name of the application to mute/unmute. Supported values are \"Skype\" and \"Skype for Business\". Defaults to \"Skype\"."
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "ToggleSkypeMute:toggle(app)",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "name": "ToggleSkypeMute",
+    "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/ToggleSkypeMute.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/ToggleSkypeMute.spoon.zip)",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
         "def": "UniversalArchive:bindHotkeys(mapping)",
         "desc": "Binds hotkeys for UniversalArchive",
         "doc": "Binds hotkeys for UniversalArchive\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for the following items:\n  * `archive` - hotkey for trigger the `universalArchive()` method, to archive the current item on the current application.\n  * `<app>_<dest>` - if an application handler supports multiple destinations, you can specify hotkeys for specific destinations using this format. For example, to assign a hotkey that files the current note in Evernote to the \"MyProject\" notebook using Ctrl-Alt-Cmd-M, you would specify `Evernote_MyProject = { { \"ctrl\", \"alt\", \"cmd\" }, \"m\" }` as one of the elements of `mapping`. Keep in mind that the application name must appear exactly as the system sees it (including upper/lowercase), and that if either the application or the destination name contain spaces or other non-alphanumeric characters, you need to use the Lua table notation. For example: `[\"Evernote_Some Long Notebook Name\"] = { keybinding }`. At the moment only the Evernote handler supports multiple destinations.",
