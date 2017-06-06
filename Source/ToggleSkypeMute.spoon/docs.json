@@ -1,208 +1,116 @@
 [
   {
-    "Constant" : [
-
-    ],
-    "submodules" : [
-
-    ],
-    "Function" : [
-
-    ],
-    "Variable" : [
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
       {
-        "doc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
-        "stripped_doc" : [
-          "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
+        "def": "ToggleSkypeMute:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for ToggleSkypeMute",
+        "doc": "Binds hotkeys for ToggleSkypeMute\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for the following items:\n  * toggle_skype - Mute/unmute active conversation in Skype\n  * toggle_skype_for_business - Mute/unmute active conversation in Skype For Business",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * mapping - A table containing hotkey modifier/key details for the following items:",
+          "  * toggle_skype - Mute/unmute active conversation in Skype",
+          "  * toggle_skype_for_business - Mute/unmute active conversation in Skype For Business"
         ],
-        "def" : "ToggleSkypeMute.logger",
-        "parameters" : [
-
-        ],
-        "notes" : [
-
-        ],
-        "signature" : "ToggleSkypeMute.logger",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "name" : "logger",
-        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
+        "signature": "ToggleSkypeMute:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
       },
       {
-        "doc" : "If `true`, produce notifications when Skype is muted\/unmuted. Defaults to `true`.",
-        "stripped_doc" : [
-          "If `true`, produce notifications when Skype is muted\/unmuted. Defaults to `true`."
+        "def": "ToggleSkypeMute:toggle(app)",
+        "desc": "Toggle Skype between muted/unmuted, whether it is focused or not",
+        "doc": "Toggle Skype between muted/unmuted, whether it is focused or not\n\nParameters:\n * app - name of the application to mute/unmute. Supported values are \"Skype\" and \"Skype for Business\". Defaults to \"Skype\".\n\nReturns:\n * None",
+        "name": "toggle",
+        "parameters": [
+          " * app - name of the application to mute/unmute. Supported values are \"Skype\" and \"Skype for Business\". Defaults to \"Skype\"."
         ],
-        "def" : "ToggleSkypeMute.notifications",
-        "parameters" : [
-
-        ],
-        "notes" : [
-
-        ],
-        "signature" : "ToggleSkypeMute.notifications",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "name" : "notifications",
-        "desc" : "If `true`, produce notifications when Skype is muted\/unmuted. Defaults to `true`."
-      }
-    ],
-    "stripped_doc" : [
-
-    ],
-    "desc" : "Provide keybindings for muting\/unmuting Skype or Skype for Business",
-    "Deprecated" : [
-
-    ],
-    "type" : "Module",
-    "Constructor" : [
-
-    ],
-    "items" : [
-      {
-        "doc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
-        "stripped_doc" : [
-          "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
-        ],
-        "def" : "ToggleSkypeMute.logger",
-        "parameters" : [
-
-        ],
-        "notes" : [
-
-        ],
-        "signature" : "ToggleSkypeMute.logger",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "name" : "logger",
-        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
-      },
-      {
-        "doc" : "If `true`, produce notifications when Skype is muted\/unmuted. Defaults to `true`.",
-        "stripped_doc" : [
-          "If `true`, produce notifications when Skype is muted\/unmuted. Defaults to `true`."
-        ],
-        "def" : "ToggleSkypeMute.notifications",
-        "parameters" : [
-
-        ],
-        "notes" : [
-
-        ],
-        "signature" : "ToggleSkypeMute.notifications",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "name" : "notifications",
-        "desc" : "If `true`, produce notifications when Skype is muted\/unmuted. Defaults to `true`."
-      },
-      {
-        "doc" : "Binds hotkeys for ToggleSkypeMute\n\nParameters:\n * mapping - A table containing hotkey modifier\/key details for the following items:\n  * toggle_skype - Mute\/unmute active conversation in Skype\n  * toggle_skype_for_business - Mute\/unmute active conversation in Skype For Business",
-        "stripped_doc" : [
-          "Binds hotkeys for ToggleSkypeMute",
-          ""
-        ],
-        "def" : "ToggleSkypeMute:bindHotkeys(mapping)",
-        "parameters" : [
-          " * mapping - A table containing hotkey modifier\/key details for the following items:",
-          "  * toggle_skype - Mute\/unmute active conversation in Skype",
-          "  * toggle_skype_for_business - Mute\/unmute active conversation in Skype For Business"
-        ],
-        "notes" : [
-
-        ],
-        "signature" : "ToggleSkypeMute:bindHotkeys(mapping)",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "name" : "bindHotkeys",
-        "desc" : "Binds hotkeys for ToggleSkypeMute"
-      },
-      {
-        "doc" : "Toggle Skype between muted\/unmuted, whether it is focused or not\n\nParameters:\n * app - name of the application to mute\/unmute. Supported values are \"Skype\" and \"Skype for Business\". Defaults to \"Skype\".\n\nReturns:\n * None",
-        "stripped_doc" : [
-          "Toggle Skype between muted\/unmuted, whether it is focused or not",
-          ""
-        ],
-        "def" : "ToggleSkypeMute:toggle(app)",
-        "parameters" : [
-          " * app - name of the application to mute\/unmute. Supported values are \"Skype\" and \"Skype for Business\". Defaults to \"Skype\".",
-          ""
-        ],
-        "notes" : [
-
-        ],
-        "signature" : "ToggleSkypeMute:toggle(app)",
-        "type" : "Method",
-        "returns" : [
+        "returns": [
           " * None"
         ],
-        "name" : "toggle",
-        "desc" : "Toggle Skype between muted\/unmuted, whether it is focused or not"
+        "signature": "ToggleSkypeMute:toggle(app)",
+        "stripped_doc": "",
+        "type": "Method"
       }
     ],
-    "doc" : "Provide keybindings for muting\/unmuting Skype or Skype for Business\n\nDownload: [https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/ToggleSkypeMute.spoon.zip](https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/ToggleSkypeMute.spoon.zip)",
-    "Command" : [
-
-    ],
-    "Field" : [
-
-    ],
-    "Method" : [
+    "Variable": [
       {
-        "doc" : "Toggle Skype between muted\/unmuted, whether it is focused or not\n\nParameters:\n * app - name of the application to mute\/unmute. Supported values are \"Skype\" and \"Skype for Business\". Defaults to \"Skype\".\n\nReturns:\n * None",
-        "stripped_doc" : [
-          "Toggle Skype between muted\/unmuted, whether it is focused or not",
-          ""
-        ],
-        "def" : "ToggleSkypeMute:toggle(app)",
-        "parameters" : [
-          " * app - name of the application to mute\/unmute. Supported values are \"Skype\" and \"Skype for Business\". Defaults to \"Skype\".",
-          ""
-        ],
-        "notes" : [
-
-        ],
-        "signature" : "ToggleSkypeMute:toggle(app)",
-        "type" : "Method",
-        "returns" : [
-          " * None"
-        ],
-        "name" : "toggle",
-        "desc" : "Toggle Skype between muted\/unmuted, whether it is focused or not"
+        "def": "ToggleSkypeMute.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "name": "logger",
+        "signature": "ToggleSkypeMute.logger",
+        "stripped_doc": "",
+        "type": "Variable"
       },
       {
-        "doc" : "Binds hotkeys for ToggleSkypeMute\n\nParameters:\n * mapping - A table containing hotkey modifier\/key details for the following items:\n  * toggle_skype - Mute\/unmute active conversation in Skype\n  * toggle_skype_for_business - Mute\/unmute active conversation in Skype For Business",
-        "stripped_doc" : [
-          "Binds hotkeys for ToggleSkypeMute",
-          ""
-        ],
-        "def" : "ToggleSkypeMute:bindHotkeys(mapping)",
-        "parameters" : [
-          " * mapping - A table containing hotkey modifier\/key details for the following items:",
-          "  * toggle_skype - Mute\/unmute active conversation in Skype",
-          "  * toggle_skype_for_business - Mute\/unmute active conversation in Skype For Business"
-        ],
-        "notes" : [
-
-        ],
-        "signature" : "ToggleSkypeMute:bindHotkeys(mapping)",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "name" : "bindHotkeys",
-        "desc" : "Binds hotkeys for ToggleSkypeMute"
+        "def": "ToggleSkypeMute.notifications",
+        "desc": "If `true`, produce notifications when Skype is muted/unmuted. Defaults to `true`.",
+        "doc": "If `true`, produce notifications when Skype is muted/unmuted. Defaults to `true`.",
+        "name": "notifications",
+        "signature": "ToggleSkypeMute.notifications",
+        "stripped_doc": "",
+        "type": "Variable"
       }
     ],
-    "name" : "ToggleSkypeMute"
+    "desc": "Provide keybindings for muting/unmuting Skype or Skype for Business",
+    "doc": "Provide keybindings for muting/unmuting Skype or Skype for Business\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/ToggleSkypeMute.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/ToggleSkypeMute.spoon.zip)",
+    "items": [
+      {
+        "def": "ToggleSkypeMute:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for ToggleSkypeMute",
+        "doc": "Binds hotkeys for ToggleSkypeMute\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for the following items:\n  * toggle_skype - Mute/unmute active conversation in Skype\n  * toggle_skype_for_business - Mute/unmute active conversation in Skype For Business",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * mapping - A table containing hotkey modifier/key details for the following items:",
+          "  * toggle_skype - Mute/unmute active conversation in Skype",
+          "  * toggle_skype_for_business - Mute/unmute active conversation in Skype For Business"
+        ],
+        "signature": "ToggleSkypeMute:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "ToggleSkypeMute.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "name": "logger",
+        "signature": "ToggleSkypeMute.logger",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "ToggleSkypeMute.notifications",
+        "desc": "If `true`, produce notifications when Skype is muted/unmuted. Defaults to `true`.",
+        "doc": "If `true`, produce notifications when Skype is muted/unmuted. Defaults to `true`.",
+        "name": "notifications",
+        "signature": "ToggleSkypeMute.notifications",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "ToggleSkypeMute:toggle(app)",
+        "desc": "Toggle Skype between muted/unmuted, whether it is focused or not",
+        "doc": "Toggle Skype between muted/unmuted, whether it is focused or not\n\nParameters:\n * app - name of the application to mute/unmute. Supported values are \"Skype\" and \"Skype for Business\". Defaults to \"Skype\".\n\nReturns:\n * None",
+        "name": "toggle",
+        "parameters": [
+          " * app - name of the application to mute/unmute. Supported values are \"Skype\" and \"Skype for Business\". Defaults to \"Skype\"."
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "ToggleSkypeMute:toggle(app)",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "name": "ToggleSkypeMute",
+    "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/ToggleSkypeMute.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/ToggleSkypeMute.spoon.zip)",
+    "submodules": [],
+    "type": "Module"
   }
 ]
