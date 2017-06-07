@@ -103,12 +103,13 @@ function obj:audiodevwatch(dev_uid, event_name)
          -- Cache current state to know whether we should resume
          -- when the headphones are connected again
          for app, playercontrol in pairs(self.controlfns) do
-            wasplaying[app] = playercontrol.isPlaying()
-            self.logger.df("wasplaying[%s]=%s", app, tostring(wasplaying[app]))
-            if self.control[app] and hs.appfinder.appFromName(playercontrol.appname) and wasplaying[app] then
-               self.logger.df("Pausing %s", playercontrol.appname)
-               hs.notify.show("Headphones unplugged", "Pausing " .. playercontrol.appname, "")
-               playercontrol.pause()
+            if self.control[app] and hs.appfinder.appFromName(playercontrol.appname) then
+               wasplaying[app] = playercontrol.isPlaying()
+               if wasplaying[app] then
+                  self.logger.df("Pausing %s", playercontrol.appname)
+                  hs.notify.show("Headphones unplugged", "Pausing " .. playercontrol.appname, "")
+                  playercontrol.pause()
+               end
             end
          end
       end
