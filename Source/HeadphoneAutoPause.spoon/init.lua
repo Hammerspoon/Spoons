@@ -1,27 +1,27 @@
---- === HeadphoneWatcher ===
+--- === HeadphoneAutoPause ===
 ---
 --- Play/pause music players when headphones are connected/disconnected
 ---
---- Download: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/HeadphoneWatcher.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/HeadphoneWatcher.spoon.zip)
+--- Download: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/HeadphoneAutoPause.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/HeadphoneAutoPause.spoon.zip)
 
 local obj={}
 obj.__index = obj
 
 -- Metadata
-obj.name = "HeadphoneWatcher"
+obj.name = "HeadphoneAutoPause"
 obj.version = "0.1"
 obj.author = "Diego Zamboni <diego@zzamboni.org>"
 obj.homepage = "https://github.com/Hammerspoon/Spoons"
 obj.license = "MIT - https://opensource.org/licenses/MIT"
 
---- HeadphoneWatcher.logger
+--- HeadphoneAutoPause.logger
 --- Variable
 --- Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.
-obj.logger = hs.logger.new('HeadphoneWatcher')
+obj.logger = hs.logger.new('HeadphoneAutoPause')
 
---- HeadphoneWatcher.control
+--- HeadphoneAutoPause.control
 --- Variable
---- Table containing one key per application, with the value indicating whether HeadphoneWatcher should try to pause/unpause that application in response to the headphone being plugged/unplugged. The key name must ideally correspond to the name of the corresponding `hs.*` module. Default value:
+--- Table containing one key per application, with the value indicating whether HeadphoneAutoPause should try to pause/unpause that application in response to the headphone being plugged/unplugged. The key name must ideally correspond to the name of the corresponding `hs.*` module. Default value:
 --- ```
 --- {
 ---    itunes = true,
@@ -37,7 +37,7 @@ obj.control = {
    vox = false
 }
 
---- HeadphoneWatcher.defaultControlFns(app)
+--- HeadphoneAutoPause.defaultControlFns(app)
 --- Method
 --- Generate the most common set of application control definition.
 ---
@@ -45,7 +45,7 @@ obj.control = {
 ---  * app - name of the application, with its correct letter casing (i.e. "iTunes"). The name as provided will be used to find the running application, and its lowercase version will be used to find the corresponding `hs.*` module.
 ---
 --- Returns:
----  * A table in the correct format for `HeadphoneWatcher.controlfns`, using the lower-case value of `app` as the module name (for example, if app = "iTunes", the module loaded will be `hs.itunes`, and assuming the functions `isPlaying()`, `play()` and `pause()` exist in that module.
+---  * A table in the correct format for `HeadphoneAutoPause.controlfns`, using the lower-case value of `app` as the module name (for example, if app = "iTunes", the module loaded will be `hs.itunes`, and assuming the functions `isPlaying()`, `play()` and `pause()` exist in that module.
 function obj.defaultControlFns(app)
    local lcapp=string.lower(app)
    return({ appname = app,
@@ -54,10 +54,10 @@ function obj.defaultControlFns(app)
             pause = hs[lcapp].pause })
 end
 
---- HeadphoneWatcher.controlfns
+--- HeadphoneAutoPause.controlfns
 --- Variable
 --- Table containing control functions for each application to control.
---- The keys must correspond to the values in `HeadphoneWatcher.control`, and the value is a table with the following elements:
+--- The keys must correspond to the values in `HeadphoneAutoPause.control`, and the value is a table with the following elements:
 ---  * `appname` - application name (case-sensitive, as the application appears to the system)
 ---  * `isPlaying` - function that returns a true value if the application is playing
 ---  * `play` - function that starts playback in the application
@@ -82,7 +82,7 @@ local wasplaying = {}
 -- Internal cache of audio devices and their watcher functions
 local devs = {}
 
---- HeadphoneWatcher:audiodevwatch(dev_uid, event_name)
+--- HeadphoneAutoPause:audiodevwatch(dev_uid, event_name)
 --- Method
 --- Callback function to use as an audio device watcher, to pause/unpause the application on headphones plugged/unplugged
 function obj:audiodevwatch(dev_uid, event_name)
@@ -115,7 +115,7 @@ function obj:audiodevwatch(dev_uid, event_name)
    end
 end
 
---- HeadphoneWatcher:start()
+--- HeadphoneAutoPause:start()
 --- Method
 --- Start headphone detection on all audio devices that support it
 function obj:start()
@@ -132,7 +132,7 @@ function obj:start()
    end
 end
 
---- HeadphoneWatcher:stop()
+--- HeadphoneAutoPause:stop()
 --- Method
 --- Stop headphone detection
 function obj:stop()
