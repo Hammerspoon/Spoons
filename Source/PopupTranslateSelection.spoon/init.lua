@@ -115,19 +115,19 @@ end
 ---
 --- Parameters:
 ---  * mapping - A table containing hotkey modifier/key details for the following items:
----   * translate - translate the selected text without specifying source/destination languages (source defaults to auto-detect, destination defaults to your last choice or to English)
----   * translate_to_<lang> - translate the selected text to the given destination language. Source language will be auto-detected.
----   * translate_from_<lang> - translate the selected text from the given destination language. Destination language will default to your last choice, or to English.
----   * translate_<from>_<to> - translate the selected text between the given languages.
+---   * `translate` - translate the selected text without specifying source/destination languages (source defaults to auto-detect, destination defaults to your last choice or to English)
+---   * `translate_to_<lang>` - translate the selected text to the given destination language. Source language will be auto-detected.
+---   * `translate_from_<lang>` - translate the selected text from the given destination language. Destination language will default to your last choice, or to English.
+---   * `translate_<from>_<to>` - translate the selected text between the given languages.
 ---
 --- Sample value for `mapping`:
 --- ```
 ---  {
----     translate_to_en = { hyper, "e" },
----     translate_to_de = { hyper, "d" },
----     translate_to_es = { hyper, "s" },
----     translate_de_en = { shift_hyper, "e" },
----     translate_en_de = { shift_hyper, "d" },
+---     translate_to_en = { { "ctrl", "alt", "cmd" }, "e" },
+---     translate_to_de = { { "ctrl", "alt", "cmd" }, "d" },
+---     translate_to_es = { { "ctrl", "alt", "cmd" }, "s" },
+---     translate_de_en = { { "shift", "ctrl", "alt", "cmd" }, "e" },
+---     translate_en_de = { { "shift", "ctrl", "alt", "cmd" }, "d" },
 ---  }
 --- ```
 function obj:bindHotkeys(mapping)
