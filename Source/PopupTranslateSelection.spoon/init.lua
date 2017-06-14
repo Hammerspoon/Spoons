@@ -119,6 +119,17 @@ end
 ---   * translate_to_<lang> - translate the selected text to the given destination language. Source language will be auto-detected.
 ---   * translate_from_<lang> - translate the selected text from the given destination language. Destination language will default to your last choice, or to English.
 ---   * translate_<from>_<to> - translate the selected text between the given languages.
+---
+--- Sample value for `mapping`:
+--- ```
+---  {
+---     translate_to_en = { hyper, "e" },
+---     translate_to_de = { hyper, "d" },
+---     translate_to_es = { hyper, "s" },
+---     translate_de_en = { shift_hyper, "e" },
+---     translate_en_de = { shift_hyper, "d" },
+---  }
+--- ```
 function obj:bindHotkeys(mapping)
    local def = {}
    for action,key in pairs(mapping) do
