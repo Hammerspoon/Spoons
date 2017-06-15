@@ -188,6 +188,8 @@ function obj:start()
    hs.keycodes.inputSourceChanged(function()
          self:getLayoutAndDrawIndicators()
    end)
+   -- This solves the problem that the callback would not be called until the second layout change after a restart
+   hs.focus()
    return self
 end
 
