@@ -26,7 +26,7 @@ function obj.getVPNConnections()
             set old_delims to AppleScript's text item delimiters
             repeat with the_item in the_list
                 if the_string is equal to "" then
-                    set the_string to the_item
+                    set the_string to the_string & the_item
                 else
                     set the_string to the_string & delimiter & the_item
                 end if
@@ -44,7 +44,7 @@ function obj.getVPNConnections()
         end tell
     ]])
 
-    if code == false then
+    if code == false or output == nil or output == "" then
         return connections
     end
 
