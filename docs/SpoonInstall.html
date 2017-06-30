@@ -1,0 +1,438 @@
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hammerspoon docs: SpoonInstall</title>
+    <style type="text/css">
+      a { text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      th { background-color: #DDDDDD; vertical-align: top; padding: 3px; }
+      td { width: 100%; background-color: #EEEEEE; vertical-align: top; padding: 3px; }
+      table { width: 100% ; border: 1px solid #0; text-align: left; }
+      section > table table td { width: 0; }
+    </style>
+    <link rel="stylesheet" href="docs.css" type="text/css" media="screen" />
+  </head>
+  <body>
+    <header>
+      <h1><a href="./index.html">docs</a> &raquo; SpoonInstall</h1>
+      <p>Install and manage Spoons and Spoon repositories</p>
+<p>Download: <a href="https://github.com/Hammerspoon/Spoons/raw/master/Spoons/SpoonInstall.spoon.zip">https://github.com/Hammerspoon/Spoons/raw/master/Spoons/SpoonInstall.spoon.zip</a></p>
+
+      </header>
+      <h3>API Overview</h3>
+      <ul>
+        <li>Variables - Configurable values</li>
+          <ul>
+            <li><a href="#logger">logger</a></li>
+            <li><a href="#repos">repos</a></li>
+            <li><a href="#use_syncinstall">use_syncinstall</a></li>
+          </ul>
+        <li>Methods - API calls which can only be made on an object returned by a constructor</li>
+          <ul>
+            <li><a href="#andUse">andUse</a></li>
+            <li><a href="#asyncInstallSpoonFromRepo">asyncInstallSpoonFromRepo</a></li>
+            <li><a href="#asyncInstallSpoonFromZipURL">asyncInstallSpoonFromZipURL</a></li>
+            <li><a href="#asyncUpdateRepo">asyncUpdateRepo</a></li>
+            <li><a href="#installSpoonFromRepo">installSpoonFromRepo</a></li>
+            <li><a href="#installSpoonFromZipURL">installSpoonFromZipURL</a></li>
+            <li><a href="#repolist">repolist</a></li>
+            <li><a href="#search">search</a></li>
+            <li><a href="#updateAllRepos">updateAllRepos</a></li>
+            <li><a href="#updateRepo">updateRepo</a></li>
+          </ul>
+      </ul>
+      <h3>API Documentation</h3>
+        <h4 class="documentation-section">Variables</h4>
+          <section id="logger">
+            <a name="//apple_ref/cpp/Variable/logger" class="dashAnchor"></a>
+            <h5><a href="#logger">logger</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>SpoonInstall.logger</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="repos">
+            <a name="//apple_ref/cpp/Variable/repos" class="dashAnchor"></a>
+            <h5><a href="#repos">repos</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>SpoonInstall.repos</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Table containing the list of available Spoon repositories. The key
+of each entry is an identifier for the repository, and its value
+is a table with the following entries:</p>
+<ul>
+<li>desc - Human-readable description for the repository</li>
+<li>url - Base URL for the repository. For now the repository is assumed to be hosted in GitHub, and the URL should be the main base URL of the repository. Repository metadata needs to be stored under <code>docs/docs.json</code>, and the Spoon zip files need to be stored under <code>Spoons/</code>.</li>
+</ul>
+<p>Default value:</p>
+
+<pre><code>{
+   default = {
+      url = "https://github.com/Hammerspoon/Spoons",
+      desc = "Main Hammerspoon Spoon repository",
+   }
+}</code></pre>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="use_syncinstall">
+            <a name="//apple_ref/cpp/Variable/use_syncinstall" class="dashAnchor"></a>
+            <h5><a href="#use_syncinstall">use_syncinstall</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>SpoonInstall.use_syncinstall</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>If <code>true</code>, <code>andUse()</code> will update repos and install packages synchronously. Defaults to <code>false</code>.</p>
+<p>Keep in mind that if you set this to <code>true</code>, Hammerspoon will
+block until all missing Spoons are installed, but the notifications
+will happen at a more "human readable" rate.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+        <h4 class="documentation-section">Methods</h4>
+          <section id="andUse">
+            <a name="//apple_ref/cpp/Method/andUse" class="dashAnchor"></a>
+            <h5><a href="#andUse">andUse</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>SpoonInstall:andUse(name, arg)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Declaratively install, load and configure a Spoon</p>
+<p>Parameters:</p>
+<ul>
+<li>name - the name of the Spoon to install (without the <code>.spoon</code> extension). If the Spoon is already installed, it will be loaded using <code>hs.loadSpoon()</code>. If it is not installed, it will be installed using <code>SpoonInstall:asyncInstallSpoonFromRepo()</code> and then loaded.</li>
+<li>arg - if provided, can be used to specify the configuration of the Spoon. The following keys are recognized (all are optional):<ul>
+<li>repo - repository from where the Spoon should be installed if not present in the system, as defined in <code>SpoonInstall.repos</code>. Defaults to <code>"default"</code>.</li>
+<li>config - a table containing variables to be stored in the Spoon object to configure it. For example, <code>config = { answer = 42 }</code> will result in <code>spoon.&lt;LoadedSpoon&gt;.answer</code> being set to 42.</li>
+<li>hotkeys - a table containing hotkey bindings. If provided, will be passed as-is to the Spoon's <code>bindHotkeys()</code> method. The special string <code>"default"</code> can be given to use the Spoons <code>defaultHotkeys</code> variable, if it exists.</li>
+<li>fn - a function which will be called with the freshly-loaded Spoon object as its first argument.</li>
+<li>loglevel - if the Spoon has a variable called <code>logger</code>, its <code>setLogLevel()</code> method will be called with this value.</li>
+<li>start - if <code>true</code>, call the Spoon's <code>start()</code> method after configuring everything else.</li>
+<li>disable - if <code>true</code>, do nothing. Easier than commenting it out when you want to temporarily disable a spoon.</li>
+</ul>
+</li>
+</ul>
+<p>Returns:</p>
+<ul>
+<li>None</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="asyncInstallSpoonFromRepo">
+            <a name="//apple_ref/cpp/Method/asyncInstallSpoonFromRepo" class="dashAnchor"></a>
+            <h5><a href="#asyncInstallSpoonFromRepo">asyncInstallSpoonFromRepo</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>SpoonInstall:asyncInstallSpoonFromRepo(name, repo, callback)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Asynchronously install a Spoon from a registered repository</p>
+<p>Parameters:</p>
+<ul>
+<li>name - Name of the Spoon to install.</li>
+<li>repo - Name of the repository to use. Defaults to <code>"default"</code></li>
+<li>callback - if given, a function to call after the installation finishes (also if it fails). The function receives the following arguments:<ul>
+<li>urlparts - Result of calling <code>hs.http.urlParts</code> on the URL of the Spoon zip file</li>
+<li>success - boolean indicating whether the installation was successful</li>
+</ul>
+</li>
+</ul>
+<p>Returns:</p>
+<ul>
+<li><code>true</code> if the installation was correctly initiated (i.e. the repo and spoon name were correct), <code>false</code> otherwise.</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="asyncInstallSpoonFromZipURL">
+            <a name="//apple_ref/cpp/Method/asyncInstallSpoonFromZipURL" class="dashAnchor"></a>
+            <h5><a href="#asyncInstallSpoonFromZipURL">asyncInstallSpoonFromZipURL</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>SpoonInstall:asyncInstallSpoonFromZipURL(url, callback)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Asynchronously download a Spoon zip file and install it.</p>
+<p>Parameters:</p>
+<ul>
+<li>url - URL of the zip file to install.</li>
+<li>callback - if given, a function to call after the installation finishes (also if it fails). The function receives the following arguments:<ul>
+<li>urlparts - Result of calling <code>hs.http.urlParts</code> on the URL of the Spoon zip file</li>
+<li>success - boolean indicating whether the installation was successful</li>
+</ul>
+</li>
+</ul>
+<p>Returns:</p>
+<ul>
+<li><code>true</code> if the installation was correctly initiated (i.e. the URL is valid), <code>false</code> otherwise</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="asyncUpdateRepo">
+            <a name="//apple_ref/cpp/Method/asyncUpdateRepo" class="dashAnchor"></a>
+            <h5><a href="#asyncUpdateRepo">asyncUpdateRepo</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>SpoonInstall:asyncUpdateRepo(repo, callback)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Asynchronously fetch the information about the contents of a Spoon repository</p>
+<p>Parameters:</p>
+<ul>
+<li>repo - name of the repository to update. Defaults to <code>"default"</code>.</li>
+<li>callback - if given, a function to be called after the update finishes (also if it fails). The function will receive the following arguments:<ul>
+<li>repo - name of the repository</li>
+<li>success - boolean indicating whether the update succeeded</li>
+</ul>
+</li>
+</ul>
+<p>Returns:</p>
+<ul>
+<li><code>true</code> if the update was correctly initiated (i.e. the repo name is valid), <code>nil</code> otherwise</li>
+</ul>
+<p>Notes:</p>
+<ul>
+<li>For now, the repository data is not persisted, so you need to update it after every restart if you want to use any of the install functions.</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="installSpoonFromRepo">
+            <a name="//apple_ref/cpp/Method/installSpoonFromRepo" class="dashAnchor"></a>
+            <h5><a href="#installSpoonFromRepo">installSpoonFromRepo</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>SpoonInstall:installSpoonFromRepo(name, repo)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Synchronously install a Spoon from a registered repository</p>
+<p>Parameters:</p>
+<ul>
+<li>name = Name of the Spoon to install.</li>
+<li>repo - Name of the repository to use. Defaults to <code>"default"</code></li>
+</ul>
+<p>Returns:</p>
+<ul>
+<li><code>true</code> if the installation was successful, <code>nil</code> otherwise.</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="installSpoonFromZipURL">
+            <a name="//apple_ref/cpp/Method/installSpoonFromZipURL" class="dashAnchor"></a>
+            <h5><a href="#installSpoonFromZipURL">installSpoonFromZipURL</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>SpoonInstall:installSpoonFromZipURL(url)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Synchronously download a Spoon zip file and install it.</p>
+<p>Parameters:</p>
+<ul>
+<li>url - URL of the zip file to install.</li>
+</ul>
+<p>Returns:</p>
+<ul>
+<li><code>true</code> if the installation was successful, <code>nil</code> otherwise</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="repolist">
+            <a name="//apple_ref/cpp/Method/repolist" class="dashAnchor"></a>
+            <h5><a href="#repolist">repolist</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>SpoonInstall:repolist()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Return a sorted list of registered Spoon repositories</p>
+<p>Parameters:</p>
+<ul>
+<li>None</li>
+</ul>
+<p>Returns:</p>
+<ul>
+<li>Table containing a list of strings with the repository identifiers</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="search">
+            <a name="//apple_ref/cpp/Method/search" class="dashAnchor"></a>
+            <h5><a href="#search">search</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>SpoonInstall:search(pat)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Search repositories for a pattern</p>
+<p>Parameters:</p>
+<ul>
+<li>pat - Lua pattern that will be matched against the name and description of each spoon in the registered repositories. All text is converted to lowercase before searching it, so you can use all-lowercase in your pattern.</li>
+</ul>
+<p>Returns:</p>
+<ul>
+<li>Table containing a list of matching entries. Each entry is a table with the following keys:<ul>
+<li>name - Spoon name</li>
+<li>desc - description of the spoon</li>
+<li>repo - identifier in the repository where the match was found</li>
+</ul>
+</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="updateAllRepos">
+            <a name="//apple_ref/cpp/Method/updateAllRepos" class="dashAnchor"></a>
+            <h5><a href="#updateAllRepos">updateAllRepos</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>SpoonInstall:updateAllRepos()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Synchronously fetch the information about the contents of all Spoon repositories registered in <code>SpoonInstall.repos</code></p>
+<p>Parameters:</p>
+<ul>
+<li>None</li>
+</ul>
+<p>Returns:</p>
+<ul>
+<li>None</li>
+</ul>
+<p>Notes:</p>
+<ul>
+<li>This is a synchronous call, which means Hammerspoon will be blocked until it finishes.</li>
+<li>For now, the repository data is not persisted, so you need to update it after every restart if you want to use any of the install functions.</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="updateRepo">
+            <a name="//apple_ref/cpp/Method/updateRepo" class="dashAnchor"></a>
+            <h5><a href="#updateRepo">updateRepo</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>SpoonInstall:updateRepo(repo)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Synchronously fetch the information about the contents of a Spoon repository</p>
+<p>Parameters:</p>
+<ul>
+<li>repo - name of the repository to update. Defaults to <code>"default"</code>.</li>
+</ul>
+<p>Returns:</p>
+<ul>
+<li><code>true</code> if the update was successful, <code>nil</code> otherwise</li>
+</ul>
+<p>Notes:</p>
+<ul>
+<li>This is a synchronous call, which means Hammerspoon will be blocked until it finishes. For use in your configuration files, it's advisable to use <code>SpoonInstall.asyncUpdateRepo()</code> instead.</li>
+<li>For now, the repository data is not persisted, so you need to update it after every restart if you want to use any of the install functions.</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+  </body>
+</html>

@@ -610,6 +610,89 @@
     "type": "Method"
   },
   {
+    "desc": "Install and manage Spoons and Spoon repositories",
+    "name": "SpoonInstall",
+    "type": "Module"
+  },
+  {
+    "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+    "module": "SpoonInstall",
+    "name": "logger",
+    "type": "Variable"
+  },
+  {
+    "desc": "Table containing the list of available Spoon repositories. The key",
+    "module": "SpoonInstall",
+    "name": "repos",
+    "type": "Variable"
+  },
+  {
+    "desc": "If `true`, `andUse()` will update repos and install packages synchronously. Defaults to `false`.",
+    "module": "SpoonInstall",
+    "name": "use_syncinstall",
+    "type": "Variable"
+  },
+  {
+    "desc": "Declaratively install, load and configure a Spoon",
+    "module": "SpoonInstall",
+    "name": "andUse",
+    "type": "Method"
+  },
+  {
+    "desc": "Asynchronously install a Spoon from a registered repository",
+    "module": "SpoonInstall",
+    "name": "asyncInstallSpoonFromRepo",
+    "type": "Method"
+  },
+  {
+    "desc": "Asynchronously download a Spoon zip file and install it.",
+    "module": "SpoonInstall",
+    "name": "asyncInstallSpoonFromZipURL",
+    "type": "Method"
+  },
+  {
+    "desc": "Asynchronously fetch the information about the contents of a Spoon repository",
+    "module": "SpoonInstall",
+    "name": "asyncUpdateRepo",
+    "type": "Method"
+  },
+  {
+    "desc": "Synchronously install a Spoon from a registered repository",
+    "module": "SpoonInstall",
+    "name": "installSpoonFromRepo",
+    "type": "Method"
+  },
+  {
+    "desc": "Synchronously download a Spoon zip file and install it.",
+    "module": "SpoonInstall",
+    "name": "installSpoonFromZipURL",
+    "type": "Method"
+  },
+  {
+    "desc": "Return a sorted list of registered Spoon repositories",
+    "module": "SpoonInstall",
+    "name": "repolist",
+    "type": "Method"
+  },
+  {
+    "desc": "Search repositories for a pattern",
+    "module": "SpoonInstall",
+    "name": "search",
+    "type": "Method"
+  },
+  {
+    "desc": "Synchronously fetch the information about the contents of all Spoon repositories registered in `SpoonInstall.repos`",
+    "module": "SpoonInstall",
+    "name": "updateAllRepos",
+    "type": "Method"
+  },
+  {
+    "desc": "Synchronously fetch the information about the contents of a Spoon repository",
+    "module": "SpoonInstall",
+    "name": "updateRepo",
+    "type": "Method"
+  },
+  {
     "desc": "Keep a history of the clipboard, only for text entries",
     "name": "TextClipboardHistory",
     "type": "Module"
