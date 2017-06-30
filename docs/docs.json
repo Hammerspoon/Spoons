@@ -2695,6 +2695,15 @@
         "type": "Variable"
       },
       {
+        "def": "URLDispatcher.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "name": "logger",
+        "signature": "URLDispatcher.logger",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
         "def": "URLDispatcher.url_patterns",
         "desc": "URL dispatch rules.",
         "doc": "URL dispatch rules.\nA table containing a list of dispatch rules. Each rule should be its own table in the format: `{ \"url pattern\", \"application bundle ID\" }`, and they are evaluated in the order they are declared. Note that the patterns are [Lua patterns](https://www.lua.org/pil/20.2.html) and not regular expressions. Defaults to an empty table, which has the effect of having all URLs dispatched to the `default_handler`.",
@@ -2733,6 +2742,15 @@
         "signature": "URLDispatcher:dispatchURL(scheme, host, params, fullUrl)",
         "stripped_doc": "Parameters (according to the [httpCallback](http://www.hammerspoon.org/docs/hs.urlevent.html#httpCallback) specification):\n * scheme - A string containing the URL scheme (i.e. \"http\")\n * host - A string containing the host requested (e.g. \"www.hammerspoon.org\")\n * params - A table containing the key/value pairs of all the URL parameters\n * fullURL - A string containing the full, original URL",
         "type": "Method"
+      },
+      {
+        "def": "URLDispatcher.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "name": "logger",
+        "signature": "URLDispatcher.logger",
+        "stripped_doc": "",
+        "type": "Variable"
       },
       {
         "def": "URLDispatcher:start()",
