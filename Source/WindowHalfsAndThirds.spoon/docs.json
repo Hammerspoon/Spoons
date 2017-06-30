@@ -1,0 +1,262 @@
+[
+  {
+    "Constant" : [
+
+    ],
+    "submodules" : [
+
+    ],
+    "Function" : [
+
+    ],
+    "Variable" : [
+      {
+        "doc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "name" : "logger",
+        "stripped_doc" : [
+          "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
+        ],
+        "def" : "WindowHalfsAndThirds.logger",
+        "notes" : [
+
+        ],
+        "signature" : "WindowHalfsAndThirds.logger",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "doc" : "Table containing a sample set of hotkeys that can be\nassigned to the different operations. These are not bound\nby default - if you want to use them you have to call:\n`spoon.WindowHalfsAndThirds:bindHotkeys(spoon.WindowHalfsAndThirds.defaultHotkeys)`\nafter loading the spoon. Value:\n```\n {\n    left_half   = { {\"ctrl\",        \"cmd\"}, \"Left\" },\n    right_half  = { {\"ctrl\",        \"cmd\"}, \"Right\" },\n    top_half    = { {\"ctrl\",        \"cmd\"}, \"Up\" },\n    bottom_half = { {\"ctrl\",        \"cmd\"}, \"Down\" },\n    third_left  = { {\"ctrl\", \"alt\"       }, \"Left\" },\n    third_right = { {\"ctrl\", \"alt\"       }, \"Right\" },\n    third_up    = { {\"ctrl\", \"alt\"       }, \"Up\" },\n    third_down  = { {\"ctrl\", \"alt\"       }, \"Down\" },\n    top_left    = { {\"ctrl\",        \"cmd\"}, \"1\" },\n    top_right   = { {\"ctrl\",        \"cmd\"}, \"2\" },\n    bottom_left = { {\"ctrl\",        \"cmd\"}, \"3\" },\n    bottom_right= { {\"ctrl\",        \"cmd\"}, \"4\" },\n    max_toggle  = { {\"ctrl\", \"alt\", \"cmd\"}, \"f\" },\n    max         = { {\"ctrl\", \"alt\", \"cmd\"}, \"Up\" },\n }\n```",
+        "name" : "defaultHotkeys",
+        "stripped_doc" : [
+          "Table containing a sample set of hotkeys that can be",
+          "assigned to the different operations. These are not bound",
+          "by default - if you want to use them you have to call:",
+          "`spoon.WindowHalfsAndThirds:bindHotkeys(spoon.WindowHalfsAndThirds.defaultHotkeys)`",
+          "after loading the spoon. Value:",
+          "```",
+          " {",
+          "    left_half   = { {\"ctrl\",        \"cmd\"}, \"Left\" },",
+          "    right_half  = { {\"ctrl\",        \"cmd\"}, \"Right\" },",
+          "    top_half    = { {\"ctrl\",        \"cmd\"}, \"Up\" },",
+          "    bottom_half = { {\"ctrl\",        \"cmd\"}, \"Down\" },",
+          "    third_left  = { {\"ctrl\", \"alt\"       }, \"Left\" },",
+          "    third_right = { {\"ctrl\", \"alt\"       }, \"Right\" },",
+          "    third_up    = { {\"ctrl\", \"alt\"       }, \"Up\" },",
+          "    third_down  = { {\"ctrl\", \"alt\"       }, \"Down\" },",
+          "    top_left    = { {\"ctrl\",        \"cmd\"}, \"1\" },",
+          "    top_right   = { {\"ctrl\",        \"cmd\"}, \"2\" },",
+          "    bottom_left = { {\"ctrl\",        \"cmd\"}, \"3\" },",
+          "    bottom_right= { {\"ctrl\",        \"cmd\"}, \"4\" },",
+          "    max_toggle  = { {\"ctrl\", \"alt\", \"cmd\"}, \"f\" },",
+          "    max         = { {\"ctrl\", \"alt\", \"cmd\"}, \"Up\" },",
+          " }",
+          "```"
+        ],
+        "def" : "WindowHalfsAndThirds.defaultHotkeys",
+        "notes" : [
+
+        ],
+        "signature" : "WindowHalfsAndThirds.defaultHotkeys",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "desc" : "Table containing a sample set of hotkeys that can be",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "doc" : "If `true`, set [setFrameCorrectness](http:\/\/www.hammerspoon.org\/docs\/hs.window.html#setFrameCorrectness) for some resizing operations which fail when the window extends beyonds screen boundaries. This may cause some jerkiness in the resizing, so experiment and determine if you need it. Defaults to `false`",
+        "name" : "use_frame_correctness",
+        "stripped_doc" : [
+          "If `true`, set [setFrameCorrectness](http:\/\/www.hammerspoon.org\/docs\/hs.window.html#setFrameCorrectness) for some resizing operations which fail when the window extends beyonds screen boundaries. This may cause some jerkiness in the resizing, so experiment and determine if you need it. Defaults to `false`"
+        ],
+        "def" : "WindowHalfsAndThirds.use_frame_correctness",
+        "notes" : [
+
+        ],
+        "signature" : "WindowHalfsAndThirds.use_frame_correctness",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "desc" : "If `true`, set [setFrameCorrectness](http:\/\/www.hammerspoon.org\/docs\/hs.window.html#setFrameCorrectness) for some resizing operations which fail when the window extends beyonds screen boundaries. This may cause some jerkiness in the resizing, so experiment and determine if you need it. Defaults to `false`",
+        "parameters" : [
+
+        ]
+      }
+    ],
+    "stripped_doc" : [
+
+    ],
+    "desc" : "Simple window movement and resizing, focusing on half- and third-of-screen sizes",
+    "type" : "Module",
+    "Deprecated" : [
+
+    ],
+    "Constructor" : [
+
+    ],
+    "doc" : "Simple window movement and resizing, focusing on half- and third-of-screen sizes\n\nDownload: [https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/WindowHalfsAndThirds.spoon.zip](https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/WindowHalfsAndThirds.spoon.zip)",
+    "items" : [
+      {
+        "doc" : "Table containing a sample set of hotkeys that can be\nassigned to the different operations. These are not bound\nby default - if you want to use them you have to call:\n`spoon.WindowHalfsAndThirds:bindHotkeys(spoon.WindowHalfsAndThirds.defaultHotkeys)`\nafter loading the spoon. Value:\n```\n {\n    left_half   = { {\"ctrl\",        \"cmd\"}, \"Left\" },\n    right_half  = { {\"ctrl\",        \"cmd\"}, \"Right\" },\n    top_half    = { {\"ctrl\",        \"cmd\"}, \"Up\" },\n    bottom_half = { {\"ctrl\",        \"cmd\"}, \"Down\" },\n    third_left  = { {\"ctrl\", \"alt\"       }, \"Left\" },\n    third_right = { {\"ctrl\", \"alt\"       }, \"Right\" },\n    third_up    = { {\"ctrl\", \"alt\"       }, \"Up\" },\n    third_down  = { {\"ctrl\", \"alt\"       }, \"Down\" },\n    top_left    = { {\"ctrl\",        \"cmd\"}, \"1\" },\n    top_right   = { {\"ctrl\",        \"cmd\"}, \"2\" },\n    bottom_left = { {\"ctrl\",        \"cmd\"}, \"3\" },\n    bottom_right= { {\"ctrl\",        \"cmd\"}, \"4\" },\n    max_toggle  = { {\"ctrl\", \"alt\", \"cmd\"}, \"f\" },\n    max         = { {\"ctrl\", \"alt\", \"cmd\"}, \"Up\" },\n }\n```",
+        "name" : "defaultHotkeys",
+        "stripped_doc" : [
+          "Table containing a sample set of hotkeys that can be",
+          "assigned to the different operations. These are not bound",
+          "by default - if you want to use them you have to call:",
+          "`spoon.WindowHalfsAndThirds:bindHotkeys(spoon.WindowHalfsAndThirds.defaultHotkeys)`",
+          "after loading the spoon. Value:",
+          "```",
+          " {",
+          "    left_half   = { {\"ctrl\",        \"cmd\"}, \"Left\" },",
+          "    right_half  = { {\"ctrl\",        \"cmd\"}, \"Right\" },",
+          "    top_half    = { {\"ctrl\",        \"cmd\"}, \"Up\" },",
+          "    bottom_half = { {\"ctrl\",        \"cmd\"}, \"Down\" },",
+          "    third_left  = { {\"ctrl\", \"alt\"       }, \"Left\" },",
+          "    third_right = { {\"ctrl\", \"alt\"       }, \"Right\" },",
+          "    third_up    = { {\"ctrl\", \"alt\"       }, \"Up\" },",
+          "    third_down  = { {\"ctrl\", \"alt\"       }, \"Down\" },",
+          "    top_left    = { {\"ctrl\",        \"cmd\"}, \"1\" },",
+          "    top_right   = { {\"ctrl\",        \"cmd\"}, \"2\" },",
+          "    bottom_left = { {\"ctrl\",        \"cmd\"}, \"3\" },",
+          "    bottom_right= { {\"ctrl\",        \"cmd\"}, \"4\" },",
+          "    max_toggle  = { {\"ctrl\", \"alt\", \"cmd\"}, \"f\" },",
+          "    max         = { {\"ctrl\", \"alt\", \"cmd\"}, \"Up\" },",
+          " }",
+          "```"
+        ],
+        "def" : "WindowHalfsAndThirds.defaultHotkeys",
+        "notes" : [
+
+        ],
+        "signature" : "WindowHalfsAndThirds.defaultHotkeys",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "desc" : "Table containing a sample set of hotkeys that can be",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "doc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "name" : "logger",
+        "stripped_doc" : [
+          "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
+        ],
+        "def" : "WindowHalfsAndThirds.logger",
+        "notes" : [
+
+        ],
+        "signature" : "WindowHalfsAndThirds.logger",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "doc" : "If `true`, set [setFrameCorrectness](http:\/\/www.hammerspoon.org\/docs\/hs.window.html#setFrameCorrectness) for some resizing operations which fail when the window extends beyonds screen boundaries. This may cause some jerkiness in the resizing, so experiment and determine if you need it. Defaults to `false`",
+        "name" : "use_frame_correctness",
+        "stripped_doc" : [
+          "If `true`, set [setFrameCorrectness](http:\/\/www.hammerspoon.org\/docs\/hs.window.html#setFrameCorrectness) for some resizing operations which fail when the window extends beyonds screen boundaries. This may cause some jerkiness in the resizing, so experiment and determine if you need it. Defaults to `false`"
+        ],
+        "def" : "WindowHalfsAndThirds.use_frame_correctness",
+        "notes" : [
+
+        ],
+        "signature" : "WindowHalfsAndThirds.use_frame_correctness",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "desc" : "If `true`, set [setFrameCorrectness](http:\/\/www.hammerspoon.org\/docs\/hs.window.html#setFrameCorrectness) for some resizing operations which fail when the window extends beyonds screen boundaries. This may cause some jerkiness in the resizing, so experiment and determine if you need it. Defaults to `false`",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "doc" : "Binds hotkeys for WindowHalfsAndThirds\n\nParameters:\n * mapping - A table containing hotkey objifier\/key details for the following items:\n  * left_half, right_half, top_half, bottom_half - resize to the corresponding half of the screen\n  * third_left, third_right - resize to one horizontal-third of the screen and move left\/right\n  * third_up, third_down - resize to one vertical-third of the screen and move up\/down\n  * max - maximize the window\n  * max_toggle - toggle maximization\n  * screen_left, screen_right - move the window to the left\/right screen (if you have more than one monitor connected, does nothing otherwise)\n  * top_third, middle_third_v, bottom_third - resize and move the window to the corresponding vertical third of the screen\n  * left_third, middle_third_h, right_third - resize and move the window to the corresponding horizontal third of the screen\n  * top_left, top_right, bottom_left, bottom_right - resize and move the window to the corresponding quarter of the screen",
+        "name" : "bindHotkeys",
+        "stripped_doc" : [
+          "Binds hotkeys for WindowHalfsAndThirds",
+          ""
+        ],
+        "def" : "WindowHalfsAndThirds:bindHotkeys(mapping)",
+        "notes" : [
+
+        ],
+        "signature" : "WindowHalfsAndThirds:bindHotkeys(mapping)",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "desc" : "Binds hotkeys for WindowHalfsAndThirds",
+        "parameters" : [
+          " * mapping - A table containing hotkey objifier\/key details for the following items:",
+          "  * left_half, right_half, top_half, bottom_half - resize to the corresponding half of the screen",
+          "  * third_left, third_right - resize to one horizontal-third of the screen and move left\/right",
+          "  * third_up, third_down - resize to one vertical-third of the screen and move up\/down",
+          "  * max - maximize the window",
+          "  * max_toggle - toggle maximization",
+          "  * screen_left, screen_right - move the window to the left\/right screen (if you have more than one monitor connected, does nothing otherwise)",
+          "  * top_third, middle_third_v, bottom_third - resize and move the window to the corresponding vertical third of the screen",
+          "  * left_third, middle_third_h, right_third - resize and move the window to the corresponding horizontal third of the screen",
+          "  * top_left, top_right, bottom_left, bottom_right - resize and move the window to the corresponding quarter of the screen"
+        ]
+      }
+    ],
+    "Command" : [
+
+    ],
+    "Field" : [
+
+    ],
+    "Method" : [
+      {
+        "doc" : "Binds hotkeys for WindowHalfsAndThirds\n\nParameters:\n * mapping - A table containing hotkey objifier\/key details for the following items:\n  * left_half, right_half, top_half, bottom_half - resize to the corresponding half of the screen\n  * third_left, third_right - resize to one horizontal-third of the screen and move left\/right\n  * third_up, third_down - resize to one vertical-third of the screen and move up\/down\n  * max - maximize the window\n  * max_toggle - toggle maximization\n  * screen_left, screen_right - move the window to the left\/right screen (if you have more than one monitor connected, does nothing otherwise)\n  * top_third, middle_third_v, bottom_third - resize and move the window to the corresponding vertical third of the screen\n  * left_third, middle_third_h, right_third - resize and move the window to the corresponding horizontal third of the screen\n  * top_left, top_right, bottom_left, bottom_right - resize and move the window to the corresponding quarter of the screen",
+        "name" : "bindHotkeys",
+        "stripped_doc" : [
+          "Binds hotkeys for WindowHalfsAndThirds",
+          ""
+        ],
+        "def" : "WindowHalfsAndThirds:bindHotkeys(mapping)",
+        "notes" : [
+
+        ],
+        "signature" : "WindowHalfsAndThirds:bindHotkeys(mapping)",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "desc" : "Binds hotkeys for WindowHalfsAndThirds",
+        "parameters" : [
+          " * mapping - A table containing hotkey objifier\/key details for the following items:",
+          "  * left_half, right_half, top_half, bottom_half - resize to the corresponding half of the screen",
+          "  * third_left, third_right - resize to one horizontal-third of the screen and move left\/right",
+          "  * third_up, third_down - resize to one vertical-third of the screen and move up\/down",
+          "  * max - maximize the window",
+          "  * max_toggle - toggle maximization",
+          "  * screen_left, screen_right - move the window to the left\/right screen (if you have more than one monitor connected, does nothing otherwise)",
+          "  * top_third, middle_third_v, bottom_third - resize and move the window to the corresponding vertical third of the screen",
+          "  * left_third, middle_third_h, right_third - resize and move the window to the corresponding horizontal third of the screen",
+          "  * top_left, top_right, bottom_left, bottom_right - resize and move the window to the corresponding quarter of the screen"
+        ]
+      }
+    ],
+    "name" : "WindowHalfsAndThirds"
+  }
+]
