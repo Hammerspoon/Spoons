@@ -1,4 +1,4 @@
---- ==== seal_useractions Seal plugin ====
+--- ==== Seal.plugins.useractions ====
 ---
 --- Allow accessing user-defined bookmarks and arbitrary actions from Seal.
 ---

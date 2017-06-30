@@ -333,15 +333,45 @@
     "type": "Module"
   },
   {
+    "desc": "If `true` (default), bookmarks are always opened with Safari, otherwise they are opened with the default application using the `/usr/bin/open` command.",
+    "module": "Seal",
+    "name": "always_open_with_safari",
+    "type": "Variable"
+  },
+  {
+    "desc": "List of directories where Seal will look for plugins. Defaults to `~/.hammerspoon/seal_plugins/` and the Seal Spoon directory.",
+    "module": "Seal",
+    "name": "plugin_search_paths",
+    "type": "Variable"
+  },
+  {
     "desc": "Binds hotkeys for Seal",
     "module": "Seal",
     "name": "bindHotkeys",
     "type": "Method"
   },
   {
+    "desc": "Loads a plugin from a given file",
+    "module": "Seal",
+    "name": "loadPluginFromFile",
+    "type": "Method"
+  },
+  {
     "desc": "Loads a list of Seal plugins",
     "module": "Seal",
     "name": "loadPlugins",
+    "type": "Method"
+  },
+  {
+    "desc": "Refresh the list of commands provided by all the currently loaded plugins.",
+    "module": "Seal",
+    "name": "refreshAllCommands",
+    "type": "Method"
+  },
+  {
+    "desc": "Refresh the list of commands provided by the given plugin.",
+    "module": "Seal",
+    "name": "refreshCommandsForPlugin",
     "type": "Method"
   },
   {
@@ -361,6 +391,23 @@
     "module": "Seal",
     "name": "stop",
     "type": "Method"
+  },
+  {
+    "desc": "Allow accessing user-defined bookmarks and arbitrary actions from Seal.",
+    "name": "Seal.plugins.useractions",
+    "type": "Module"
+  },
+  {
+    "desc": "",
+    "module": "Seal.plugins.useractions",
+    "name": "actions",
+    "type": "Variable"
+  },
+  {
+    "desc": "",
+    "module": "Seal.plugins.useractions",
+    "name": "get_favicon",
+    "type": "Variable"
   },
   {
     "desc": "Handles \"send current item to OmniFocus\" for multiple applications",

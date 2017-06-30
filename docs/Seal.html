@@ -19,18 +19,69 @@
 <p>Download: <a href="https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Seal.spoon.zip">https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Seal.spoon.zip</a></p>
 
       </header>
+        <h3>Submodules</h3>
+        <ul>
+        <li><a href="Seal.plugins.html">Seal.plugins</a></li>
+        </ul>
       <h3>API Overview</h3>
       <ul>
+        <li>Variables - Configurable values</li>
+          <ul>
+            <li><a href="#always_open_with_safari">always_open_with_safari</a></li>
+            <li><a href="#plugin_search_paths">plugin_search_paths</a></li>
+          </ul>
         <li>Methods - API calls which can only be made on an object returned by a constructor</li>
           <ul>
             <li><a href="#bindHotkeys">bindHotkeys</a></li>
+            <li><a href="#loadPluginFromFile">loadPluginFromFile</a></li>
             <li><a href="#loadPlugins">loadPlugins</a></li>
+            <li><a href="#refreshAllCommands">refreshAllCommands</a></li>
+            <li><a href="#refreshCommandsForPlugin">refreshCommandsForPlugin</a></li>
             <li><a href="#show">show</a></li>
             <li><a href="#start">start</a></li>
             <li><a href="#stop">stop</a></li>
           </ul>
       </ul>
       <h3>API Documentation</h3>
+        <h4 class="documentation-section">Variables</h4>
+          <section id="always_open_with_safari">
+            <a name="//apple_ref/cpp/Variable/always_open_with_safari" class="dashAnchor"></a>
+            <h5><a href="#always_open_with_safari">always_open_with_safari</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Seal.plugins.safari_bookmarks.always_open_with_safari</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>If <code>true</code> (default), bookmarks are always opened with Safari, otherwise they are opened with the default application using the <code>/usr/bin/open</code> command.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="plugin_search_paths">
+            <a name="//apple_ref/cpp/Variable/plugin_search_paths" class="dashAnchor"></a>
+            <h5><a href="#plugin_search_paths">plugin_search_paths</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Seal.plugin_search_paths</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>List of directories where Seal will look for plugins. Defaults to <code>~/.hammerspoon/seal_plugins/</code> and the Seal Spoon directory.</p>
+</td>
+              </tr>
+            </table>
+          </section>
         <h4 class="documentation-section">Methods</h4>
           <section id="bindHotkeys">
             <a name="//apple_ref/cpp/Method/bindHotkeys" class="dashAnchor"></a>
@@ -57,6 +108,40 @@
 <p>Returns:</p>
 <ul>
 <li>The Seal object</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="loadPluginFromFile">
+            <a name="//apple_ref/cpp/Method/loadPluginFromFile" class="dashAnchor"></a>
+            <h5><a href="#loadPluginFromFile">loadPluginFromFile</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Seal:loadPluginFromFile(plugin_name, file)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Loads a plugin from a given file</p>
+<p>Parameters:</p>
+<ul>
+<li>plugin<em>name - the name of the plugin, without "seal</em>" at the beginning or ".lua" at the end</li>
+<li>file - the file where the plugin code is stored.</li>
+</ul>
+<p>Returns:</p>
+<ul>
+<li>The Seal object if the plugin was successfully loaded, <code>nil</code> otherwise</li>
+</ul>
+<p>Notes:</p>
+<ul>
+<li>You should normally use <code>Seal:loadPlugins()</code>. This method allows you to load plugins
+from non-standard locations and is mostly a development interface.</li>
+<li>Some plugins may immediately begin doing background work (e.g. Spotlight searches)</li>
 </ul>
 </td>
               </tr>
@@ -90,6 +175,68 @@
 <li>The plugins live inside the Seal.spoon directory</li>
 <li>The plugin names in the list, should not have <code>seal_</code> at the start, or <code>.lua</code> at the end</li>
 <li>Some plugins may immediately begin doing background work (e.g. Spotlight searches)</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="refreshAllCommands">
+            <a name="//apple_ref/cpp/Method/refreshAllCommands" class="dashAnchor"></a>
+            <h5><a href="#refreshAllCommands">refreshAllCommands</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Seal:refreshAllCommands()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Refresh the list of commands provided by all the currently loaded plugins.</p>
+<p>Parameters:</p>
+<ul>
+<li>None</li>
+</ul>
+<p>Returns:</p>
+<ul>
+<li>The Seal object</li>
+</ul>
+<p>Notes:</p>
+<ul>
+<li>Most Seal plugins expose a static list of commands (if any), which are registered at the time the plugin is loaded. This method is used for plugins which expose a dynamic or changing (e.g. depending on configuration) list of commands.</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="refreshCommandsForPlugin">
+            <a name="//apple_ref/cpp/Method/refreshCommandsForPlugin" class="dashAnchor"></a>
+            <h5><a href="#refreshCommandsForPlugin">refreshCommandsForPlugin</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Seal:refreshCommandsForPlugin(plugin_name)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Refresh the list of commands provided by the given plugin.</p>
+<p>Parameters:</p>
+<ul>
+<li>plugin_name - the name of the plugin. Should be the name as passed to <code>loadPlugins()</code> or <code>loadPluginFromFile</code>.</li>
+</ul>
+<p>Returns:</p>
+<ul>
+<li>The Seal object</li>
+</ul>
+<p>Notes:</p>
+<ul>
+<li>Most Seal plugins expose a static list of commands (if any), which are registered at the time the plugin is loaded. This method is used for plugins which expose a dynamic or changing (e.g. depending on configuration) list of commands.</li>
 </ul>
 </td>
               </tr>
