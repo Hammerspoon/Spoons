@@ -128,6 +128,53 @@
     "type": "Method"
   },
   {
+    "desc": "Add some missing hotkeys for opening a note in Evernote, and for common tag sets",
+    "name": "EvernoteOpenAndTag",
+    "type": "Module"
+  },
+  {
+    "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+    "module": "EvernoteOpenAndTag",
+    "name": "logger",
+    "type": "Variable"
+  },
+  {
+    "desc": "Binds hotkeys for EvernoteOpenAndTag",
+    "module": "EvernoteOpenAndTag",
+    "name": "bindHotkeys",
+    "type": "Method"
+  },
+  {
+    "desc": "Returns `true` if Evernote is the frontmost application",
+    "module": "EvernoteOpenAndTag",
+    "name": "evernoteIsFrontmost",
+    "type": "Method"
+  },
+  {
+    "desc": "Apply the given tags to the selected Evernote notes",
+    "module": "EvernoteOpenAndTag",
+    "name": "inlineTagCurrentNote",
+    "type": "Method"
+  },
+  {
+    "desc": "Open the current Evernote note in a new window and apply the given tags to it",
+    "module": "EvernoteOpenAndTag",
+    "name": "openAndTagCurrentNote",
+    "type": "Method"
+  },
+  {
+    "desc": "Open the currently-selected Evernote notes in new windows.",
+    "module": "EvernoteOpenAndTag",
+    "name": "openCurrentNoteInWindow",
+    "type": "Method"
+  },
+  {
+    "desc": "Assigns tags to the currently-selected Evernote notes",
+    "module": "EvernoteOpenAndTag",
+    "name": "tagCurrentNote",
+    "type": "Method"
+  },
+  {
     "desc": "Show a fading-and-zooming image in the center of the screen",
     "name": "FadeLogo",
     "type": "Module"
