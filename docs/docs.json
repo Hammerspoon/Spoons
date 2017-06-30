@@ -3967,6 +3967,106 @@
     "Function": [],
     "Method": [
       {
+        "def": "WindowGrid:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for WindowGrid",
+        "doc": "Binds hotkeys for WindowGrid\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n  * show_grid - show the grid overlay",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * mapping - A table containing hotkey objifier/key details for the following items:",
+          "  * show_grid - show the grid overlay"
+        ],
+        "signature": "WindowGrid:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "WindowGrid:start()",
+        "desc": "Sets the grid configuration according to `WindowGrid.gridGeometries`.",
+        "doc": "Sets the grid configuration according to `WindowGrid.gridGeometries`.",
+        "name": "start",
+        "signature": "WindowGrid:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [
+      {
+        "def": "WindowGrid.gridGeometries",
+        "desc": "Table containing a list of arguments to be passed to grid.setGrid(). Each element in the table is itself a table with 1-3 arguments as defined for [hs.grid.setGrid()](http://www.hammerspoon.org/docs/hs.grid.html#setGrid). Defaults to an empty list, which results in the default 3x3 grid for all screen from `hs.grid`.",
+        "doc": "Table containing a list of arguments to be passed to grid.setGrid(). Each element in the table is itself a table with 1-3 arguments as defined for [hs.grid.setGrid()](http://www.hammerspoon.org/docs/hs.grid.html#setGrid). Defaults to an empty list, which results in the default 3x3 grid for all screen from `hs.grid`.",
+        "name": "gridGeometries",
+        "signature": "WindowGrid.gridGeometries",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "WindowGrid.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "name": "logger",
+        "signature": "WindowGrid.logger",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "desc": "Configure and assign hotkey for `hs.grid`",
+    "doc": "Configure and assign hotkey for `hs.grid`\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WindowGrid.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WindowGrid.spoon.zip)",
+    "items": [
+      {
+        "def": "WindowGrid:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for WindowGrid",
+        "doc": "Binds hotkeys for WindowGrid\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n  * show_grid - show the grid overlay",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * mapping - A table containing hotkey objifier/key details for the following items:",
+          "  * show_grid - show the grid overlay"
+        ],
+        "signature": "WindowGrid:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "WindowGrid.gridGeometries",
+        "desc": "Table containing a list of arguments to be passed to grid.setGrid(). Each element in the table is itself a table with 1-3 arguments as defined for [hs.grid.setGrid()](http://www.hammerspoon.org/docs/hs.grid.html#setGrid). Defaults to an empty list, which results in the default 3x3 grid for all screen from `hs.grid`.",
+        "doc": "Table containing a list of arguments to be passed to grid.setGrid(). Each element in the table is itself a table with 1-3 arguments as defined for [hs.grid.setGrid()](http://www.hammerspoon.org/docs/hs.grid.html#setGrid). Defaults to an empty list, which results in the default 3x3 grid for all screen from `hs.grid`.",
+        "name": "gridGeometries",
+        "signature": "WindowGrid.gridGeometries",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "WindowGrid.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "name": "logger",
+        "signature": "WindowGrid.logger",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "WindowGrid:start()",
+        "desc": "Sets the grid configuration according to `WindowGrid.gridGeometries`.",
+        "doc": "Sets the grid configuration according to `WindowGrid.gridGeometries`.",
+        "name": "start",
+        "signature": "WindowGrid:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "name": "WindowGrid",
+    "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WindowGrid.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WindowGrid.spoon.zip)",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
         "def": "WindowHalfsAndThirds:bindHotkeys(mapping)",
         "desc": "Binds hotkeys for WindowHalfsAndThirds",
         "doc": "Binds hotkeys for WindowHalfsAndThirds\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n  * left_half, right_half, top_half, bottom_half - resize to the corresponding half of the screen\n  * third_left, third_right - resize to one horizontal-third of the screen and move left/right\n  * third_up, third_down - resize to one vertical-third of the screen and move up/down\n  * max - maximize the window\n  * max_toggle - toggle maximization\n  * screen_left, screen_right - move the window to the left/right screen (if you have more than one monitor connected, does nothing otherwise)\n  * top_third, middle_third_v, bottom_third - resize and move the window to the corresponding vertical third of the screen\n  * left_third, middle_third_h, right_third - resize and move the window to the corresponding horizontal third of the screen\n  * top_left, top_right, bottom_left, bottom_right - resize and move the window to the corresponding quarter of the screen",

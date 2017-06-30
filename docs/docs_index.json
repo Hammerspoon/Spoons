@@ -1011,6 +1011,35 @@
     "type": "Method"
   },
   {
+    "desc": "Configure and assign hotkey for `hs.grid`",
+    "name": "WindowGrid",
+    "type": "Module"
+  },
+  {
+    "desc": "Table containing a list of arguments to be passed to grid.setGrid(). Each element in the table is itself a table with 1-3 arguments as defined for [hs.grid.setGrid()](http://www.hammerspoon.org/docs/hs.grid.html#setGrid). Defaults to an empty list, which results in the default 3x3 grid for all screen from `hs.grid`.",
+    "module": "WindowGrid",
+    "name": "gridGeometries",
+    "type": "Variable"
+  },
+  {
+    "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+    "module": "WindowGrid",
+    "name": "logger",
+    "type": "Variable"
+  },
+  {
+    "desc": "Binds hotkeys for WindowGrid",
+    "module": "WindowGrid",
+    "name": "bindHotkeys",
+    "type": "Method"
+  },
+  {
+    "desc": "Sets the grid configuration according to `WindowGrid.gridGeometries`.",
+    "module": "WindowGrid",
+    "name": "start",
+    "type": "Method"
+  },
+  {
     "desc": "Simple window movement and resizing, focusing on half- and third-of-screen sizes",
     "name": "WindowHalfsAndThirds",
     "type": "Module"

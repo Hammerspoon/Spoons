@@ -1,0 +1,122 @@
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hammerspoon docs: WindowGrid</title>
+    <style type="text/css">
+      a { text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      th { background-color: #DDDDDD; vertical-align: top; padding: 3px; }
+      td { width: 100%; background-color: #EEEEEE; vertical-align: top; padding: 3px; }
+      table { width: 100% ; border: 1px solid #0; text-align: left; }
+      section > table table td { width: 0; }
+    </style>
+    <link rel="stylesheet" href="docs.css" type="text/css" media="screen" />
+  </head>
+  <body>
+    <header>
+      <h1><a href="./index.html">docs</a> &raquo; WindowGrid</h1>
+      <p>Configure and assign hotkey for <code>hs.grid</code></p>
+<p>Download: <a href="https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WindowGrid.spoon.zip">https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WindowGrid.spoon.zip</a></p>
+
+      </header>
+      <h3>API Overview</h3>
+      <ul>
+        <li>Variables - Configurable values</li>
+          <ul>
+            <li><a href="#gridGeometries">gridGeometries</a></li>
+            <li><a href="#logger">logger</a></li>
+          </ul>
+        <li>Methods - API calls which can only be made on an object returned by a constructor</li>
+          <ul>
+            <li><a href="#bindHotkeys">bindHotkeys</a></li>
+            <li><a href="#start">start</a></li>
+          </ul>
+      </ul>
+      <h3>API Documentation</h3>
+        <h4 class="documentation-section">Variables</h4>
+          <section id="gridGeometries">
+            <a name="//apple_ref/cpp/Variable/gridGeometries" class="dashAnchor"></a>
+            <h5><a href="#gridGeometries">gridGeometries</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>WindowGrid.gridGeometries</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Table containing a list of arguments to be passed to grid.setGrid(). Each element in the table is itself a table with 1-3 arguments as defined for <a href="http://www.hammerspoon.org/docs/hs.grid.html#setGrid">hs.grid.setGrid()</a>. Defaults to an empty list, which results in the default 3x3 grid for all screen from <code>hs.grid</code>.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="logger">
+            <a name="//apple_ref/cpp/Variable/logger" class="dashAnchor"></a>
+            <h5><a href="#logger">logger</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>WindowGrid.logger</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+        <h4 class="documentation-section">Methods</h4>
+          <section id="bindHotkeys">
+            <a name="//apple_ref/cpp/Method/bindHotkeys" class="dashAnchor"></a>
+            <h5><a href="#bindHotkeys">bindHotkeys</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>WindowGrid:bindHotkeys(mapping)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Binds hotkeys for WindowGrid</p>
+<p>Parameters:</p>
+<ul>
+<li>mapping - A table containing hotkey objifier/key details for the following items:<ul>
+<li>show_grid - show the grid overlay</li>
+</ul>
+</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="start">
+            <a name="//apple_ref/cpp/Method/start" class="dashAnchor"></a>
+            <h5><a href="#start">start</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>WindowGrid:start()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Sets the grid configuration according to <code>WindowGrid.gridGeometries</code>.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+  </body>
+</html>
