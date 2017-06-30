@@ -29,6 +29,8 @@ of <code>brew update</code>.</p>
           <ul>
             <li><a href="#brew_info_delay_sec">brew_info_delay_sec</a></li>
             <li><a href="#brew_info_style">brew_info_style</a></li>
+            <li><a href="#select_text_if_needed">select_text_if_needed</a></li>
+            <li><a href="#select_text_modifiers">select_text_modifiers</a></li>
           </ul>
         <li>Methods - API calls which can only be made on an object returned by a constructor</li>
           <ul>
@@ -79,6 +81,44 @@ of <code>brew update</code>.</p>
               </tr>
             </table>
           </section>
+          <section id="select_text_if_needed">
+            <a name="//apple_ref/cpp/Variable/select_text_if_needed" class="dashAnchor"></a>
+            <h5><a href="#select_text_if_needed">select_text_if_needed</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>BrewInfo.select_text_if_needed</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>If <code>true</code>, and no text is currently selected in the terminal, issue a double-click to select the text below the cursor, and use that as the input to <code>brew info</code>. See also <code>BrewInfo.select_text_modifiers</code>. Defaults to <code>true</code>.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="select_text_modifiers">
+            <a name="//apple_ref/cpp/Variable/select_text_modifiers" class="dashAnchor"></a>
+            <h5><a href="#select_text_modifiers">select_text_modifiers</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>BrewInfo.select_text_modifiers</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Table containing the modifiers to be used together with a double-click when <code>BrewInfo.select_text_if_needed</code> is true. Defaults to <code>{cmd = true, shift = true}</code> to issue a Cmd-Shift-double-click, which will select a continuous non-space string in Terminal and iTerm2.</p>
+</td>
+              </tr>
+            </table>
+          </section>
         <h4 class="documentation-section">Methods</h4>
           <section id="bindHotkeys">
             <a name="//apple_ref/cpp/Method/bindHotkeys" class="dashAnchor"></a>
@@ -100,6 +140,8 @@ of <code>brew update</code>.</p>
 <li>mapping - A table containing hotkey modifier/key details for the following items:<ul>
 <li>show_brew_info - Show output of <code>brew info</code> using the selected text as package name</li>
 <li>open_brew_url - Open the homepage of the formula whose name is currently selected</li>
+<li>show_brew_cask_info - Show output of <code>brew cask info</code> using the selected text as package name</li>
+<li>open_brew_cask_url - Open the homepage of the Cask whose name is currently selected</li>
 </ul>
 </li>
 </ul>
@@ -113,7 +155,7 @@ of <code>brew update</code>.</p>
             <table>
               <tr>
                 <th>Signature</th>
-                <td><code>BrewInfo:openBrewURL(pkg)</code></td>
+                <td><code>BrewInfo:openBrewURL(pkg, subcommand)</code></td>
               </tr>
               <tr>
                 <th>Type</th>
@@ -121,10 +163,11 @@ of <code>brew update</code>.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Opens the homepage for Formula <code>pkg</code></p>
+                <td><p>Opens the homepage for package <code>pkg</code>, as obtained from the <code>homepage</code> field in <code>brew &lt;subcommand&gt; cat &lt;pkg&gt;</code></p>
 <p>Parameters:</p>
 <ul>
 <li>pkg - name of the package to query</li>
+<li>subcommand - brew subcommand to use for the <code>cat</code> command. Defaults to an empty string, which results in "brew cat <pkg>" being run. For example, if <code>subcommand</code> is "cask", the <code>brew cask cat &lt;pkg&gt;</code> command will be used.</li>
 </ul>
 <p>Returns:</p>
 <ul>
@@ -140,7 +183,7 @@ of <code>brew update</code>.</p>
             <table>
               <tr>
                 <th>Signature</th>
-                <td><code>BrewInfo:openBrewURLCurSel()</code></td>
+                <td><code>BrewInfo:openBrewURLCurSel(subcommand)</code></td>
               </tr>
               <tr>
                 <th>Type</th>
@@ -148,7 +191,11 @@ of <code>brew update</code>.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Display <code>brew info</code> using the selected text as the package name</p>
+                <td><p>Opens the homepage for the currently-selected package, as obtained from the <code>homepage</code> field in <code>brew &lt;subcommand&gt; cat &lt;pkg&gt;</code></p>
+<p>Parameters:</p>
+<ul>
+<li>subcommand - brew subcommand to use for the <code>cat</code> command. Defaults to an empty string, which results in "brew cat <pkg>" being run. For example, if <code>subcommand</code> is "cask", the <code>brew cask cat &lt;pkg&gt;</code> command will be used.</li>
+</ul>
 <p>Returns:</p>
 <ul>
 <li>The Spoon object</li>
@@ -163,7 +210,7 @@ of <code>brew update</code>.</p>
             <table>
               <tr>
                 <th>Signature</th>
-                <td><code>BrewInfo:showBrewInfo(pkg)</code></td>
+                <td><code>BrewInfo:showBrewInfo(pkg, subcommand)</code></td>
               </tr>
               <tr>
                 <th>Type</th>
@@ -171,10 +218,11 @@ of <code>brew update</code>.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Displays an alert with the output of <code>brew info &lt;pkg&gt;</code></p>
+                <td><p>Displays an alert with the output of <code>brew &lt;subcommand&gt; info &lt;pkg&gt;</code></p>
 <p>Parameters:</p>
 <ul>
 <li>pkg - name of the package to query</li>
+<li>subcommand - brew subcommand to use for the <code>info</code> command. Defaults to an empty string, which results in "brew info <pkg>" being run. For example, if <code>subcommand</code> is "cask", the <code>brew cask info &lt;pkg&gt;</code> command will be used.</li>
 </ul>
 <p>Returns:</p>
 <ul>
@@ -190,7 +238,7 @@ of <code>brew update</code>.</p>
             <table>
               <tr>
                 <th>Signature</th>
-                <td><code>BrewInfo:showBrewInfoCurSel()</code></td>
+                <td><code>BrewInfo:showBrewInfoCurSel(subcommand)</code></td>
               </tr>
               <tr>
                 <th>Type</th>
@@ -198,7 +246,11 @@ of <code>brew update</code>.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Display <code>brew info</code> using the selected text as the package name</p>
+                <td><p>Display <code>brew &lt;subcommand&gt; info</code> using the selected text as the package name</p>
+<p>Parameters:</p>
+<ul>
+<li>subcommand - brew subcommand to use for the <code>info</code> command. Defaults to an empty string, which results in "brew info" being run. For example, if <code>subcommand</code> is "cask", the <code>brew cask info</code> command will be used.</li>
+</ul>
 <p>Returns:</p>
 <ul>
 <li>The Spoon object</li>

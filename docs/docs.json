@@ -10,68 +10,78 @@
       {
         "def": "BrewInfo:bindHotkeys(mapping)",
         "desc": "Binds hotkeys for BrewInfo",
-        "doc": "Binds hotkeys for BrewInfo\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for the following items:\n  * show_brew_info - Show output of `brew info` using the selected text as package name\n  * open_brew_url - Open the homepage of the formula whose name is currently selected",
+        "doc": "Binds hotkeys for BrewInfo\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for the following items:\n  * show_brew_info - Show output of `brew info` using the selected text as package name\n  * open_brew_url - Open the homepage of the formula whose name is currently selected\n  * show_brew_cask_info - Show output of `brew cask info` using the selected text as package name\n  * open_brew_cask_url - Open the homepage of the Cask whose name is currently selected",
         "name": "bindHotkeys",
         "parameters": [
           " * mapping - A table containing hotkey modifier/key details for the following items:",
           "  * show_brew_info - Show output of `brew info` using the selected text as package name",
-          "  * open_brew_url - Open the homepage of the formula whose name is currently selected"
+          "  * open_brew_url - Open the homepage of the formula whose name is currently selected",
+          "  * show_brew_cask_info - Show output of `brew cask info` using the selected text as package name",
+          "  * open_brew_cask_url - Open the homepage of the Cask whose name is currently selected"
         ],
         "signature": "BrewInfo:bindHotkeys(mapping)",
         "stripped_doc": "",
         "type": "Method"
       },
       {
-        "def": "BrewInfo:openBrewURL(pkg)",
-        "desc": "Opens the homepage for Formula `pkg`",
-        "doc": "Opens the homepage for Formula `pkg`\n\nParameters:\n * pkg - name of the package to query\n\nReturns:\n * The Spoon object",
+        "def": "BrewInfo:openBrewURL(pkg, subcommand)",
+        "desc": "Opens the homepage for package `pkg`, as obtained from the `homepage` field in `brew <subcommand> cat <pkg>`",
+        "doc": "Opens the homepage for package `pkg`, as obtained from the `homepage` field in `brew <subcommand> cat <pkg>`\n\nParameters:\n * pkg - name of the package to query\n * subcommand - brew subcommand to use for the `cat` command. Defaults to an empty string, which results in \"brew cat <pkg>\" being run. For example, if `subcommand` is \"cask\", the `brew cask cat <pkg>` command will be used.\n\nReturns:\n * The Spoon object",
         "name": "openBrewURL",
         "parameters": [
-          " * pkg - name of the package to query"
+          " * pkg - name of the package to query",
+          " * subcommand - brew subcommand to use for the `cat` command. Defaults to an empty string, which results in \"brew cat <pkg>\" being run. For example, if `subcommand` is \"cask\", the `brew cask cat <pkg>` command will be used."
         ],
         "returns": [
           " * The Spoon object"
         ],
-        "signature": "BrewInfo:openBrewURL(pkg)",
+        "signature": "BrewInfo:openBrewURL(pkg, subcommand)",
         "stripped_doc": "",
         "type": "Method"
       },
       {
-        "def": "BrewInfo:openBrewURLCurSel()",
-        "desc": "Display `brew info` using the selected text as the package name",
-        "doc": "Display `brew info` using the selected text as the package name\n\nReturns:\n * The Spoon object",
+        "def": "BrewInfo:openBrewURLCurSel(subcommand)",
+        "desc": "Opens the homepage for the currently-selected package, as obtained from the `homepage` field in `brew <subcommand> cat <pkg>`",
+        "doc": "Opens the homepage for the currently-selected package, as obtained from the `homepage` field in `brew <subcommand> cat <pkg>`\n\nParameters:\n * subcommand - brew subcommand to use for the `cat` command. Defaults to an empty string, which results in \"brew cat <pkg>\" being run. For example, if `subcommand` is \"cask\", the `brew cask cat <pkg>` command will be used.\n\nReturns:\n * The Spoon object",
         "name": "openBrewURLCurSel",
+        "parameters": [
+          " * subcommand - brew subcommand to use for the `cat` command. Defaults to an empty string, which results in \"brew cat <pkg>\" being run. For example, if `subcommand` is \"cask\", the `brew cask cat <pkg>` command will be used."
+        ],
         "returns": [
           " * The Spoon object"
         ],
-        "signature": "BrewInfo:openBrewURLCurSel()",
+        "signature": "BrewInfo:openBrewURLCurSel(subcommand)",
         "stripped_doc": "",
         "type": "Method"
       },
       {
-        "def": "BrewInfo:showBrewInfo(pkg)",
-        "desc": "Displays an alert with the output of `brew info <pkg>`",
-        "doc": "Displays an alert with the output of `brew info <pkg>`\n\nParameters:\n * pkg - name of the package to query\n\nReturns:\n * The Spoon object",
+        "def": "BrewInfo:showBrewInfo(pkg, subcommand)",
+        "desc": "Displays an alert with the output of `brew <subcommand> info <pkg>`",
+        "doc": "Displays an alert with the output of `brew <subcommand> info <pkg>`\n\nParameters:\n * pkg - name of the package to query\n * subcommand - brew subcommand to use for the `info` command. Defaults to an empty string, which results in \"brew info <pkg>\" being run. For example, if `subcommand` is \"cask\", the `brew cask info <pkg>` command will be used.\n\nReturns:\n * The Spoon object",
         "name": "showBrewInfo",
         "parameters": [
-          " * pkg - name of the package to query"
+          " * pkg - name of the package to query",
+          " * subcommand - brew subcommand to use for the `info` command. Defaults to an empty string, which results in \"brew info <pkg>\" being run. For example, if `subcommand` is \"cask\", the `brew cask info <pkg>` command will be used."
         ],
         "returns": [
           " * The Spoon object"
         ],
-        "signature": "BrewInfo:showBrewInfo(pkg)",
+        "signature": "BrewInfo:showBrewInfo(pkg, subcommand)",
         "stripped_doc": "",
         "type": "Method"
       },
       {
-        "def": "BrewInfo:showBrewInfoCurSel()",
-        "desc": "Display `brew info` using the selected text as the package name",
-        "doc": "Display `brew info` using the selected text as the package name\n\nReturns:\n * The Spoon object",
+        "def": "BrewInfo:showBrewInfoCurSel(subcommand)",
+        "desc": "Display `brew <subcommand> info` using the selected text as the package name",
+        "doc": "Display `brew <subcommand> info` using the selected text as the package name\n\nParameters:\n * subcommand - brew subcommand to use for the `info` command. Defaults to an empty string, which results in \"brew info\" being run. For example, if `subcommand` is \"cask\", the `brew cask info` command will be used.\n\nReturns:\n * The Spoon object",
         "name": "showBrewInfoCurSel",
+        "parameters": [
+          " * subcommand - brew subcommand to use for the `info` command. Defaults to an empty string, which results in \"brew info\" being run. For example, if `subcommand` is \"cask\", the `brew cask info` command will be used."
+        ],
         "returns": [
           " * The Spoon object"
         ],
-        "signature": "BrewInfo:showBrewInfoCurSel()",
+        "signature": "BrewInfo:showBrewInfoCurSel(subcommand)",
         "stripped_doc": "",
         "type": "Method"
       }
@@ -94,6 +104,24 @@
         "signature": "BrewInfo.brew_info_style",
         "stripped_doc": "",
         "type": "Variable"
+      },
+      {
+        "def": "BrewInfo.select_text_if_needed",
+        "desc": "If `true`, and no text is currently selected in the terminal, issue a double-click to select the text below the cursor, and use that as the input to `brew info`. See also `BrewInfo.select_text_modifiers`. Defaults to `true`.",
+        "doc": "If `true`, and no text is currently selected in the terminal, issue a double-click to select the text below the cursor, and use that as the input to `brew info`. See also `BrewInfo.select_text_modifiers`. Defaults to `true`.",
+        "name": "select_text_if_needed",
+        "signature": "BrewInfo.select_text_if_needed",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "BrewInfo.select_text_modifiers",
+        "desc": "Table containing the modifiers to be used together with a double-click when `BrewInfo.select_text_if_needed` is true. Defaults to `{cmd = true, shift = true}` to issue a Cmd-Shift-double-click, which will select a continuous non-space string in Terminal and iTerm2.",
+        "doc": "Table containing the modifiers to be used together with a double-click when `BrewInfo.select_text_if_needed` is true. Defaults to `{cmd = true, shift = true}` to issue a Cmd-Shift-double-click, which will select a continuous non-space string in Terminal and iTerm2.",
+        "name": "select_text_modifiers",
+        "signature": "BrewInfo.select_text_modifiers",
+        "stripped_doc": "",
+        "type": "Variable"
       }
     ],
     "desc": "Display pop-up with Homebrew Formula info, or open their URL",
@@ -102,12 +130,14 @@
       {
         "def": "BrewInfo:bindHotkeys(mapping)",
         "desc": "Binds hotkeys for BrewInfo",
-        "doc": "Binds hotkeys for BrewInfo\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for the following items:\n  * show_brew_info - Show output of `brew info` using the selected text as package name\n  * open_brew_url - Open the homepage of the formula whose name is currently selected",
+        "doc": "Binds hotkeys for BrewInfo\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for the following items:\n  * show_brew_info - Show output of `brew info` using the selected text as package name\n  * open_brew_url - Open the homepage of the formula whose name is currently selected\n  * show_brew_cask_info - Show output of `brew cask info` using the selected text as package name\n  * open_brew_cask_url - Open the homepage of the Cask whose name is currently selected",
         "name": "bindHotkeys",
         "parameters": [
           " * mapping - A table containing hotkey modifier/key details for the following items:",
           "  * show_brew_info - Show output of `brew info` using the selected text as package name",
-          "  * open_brew_url - Open the homepage of the formula whose name is currently selected"
+          "  * open_brew_url - Open the homepage of the formula whose name is currently selected",
+          "  * show_brew_cask_info - Show output of `brew cask info` using the selected text as package name",
+          "  * open_brew_cask_url - Open the homepage of the Cask whose name is currently selected"
         ],
         "signature": "BrewInfo:bindHotkeys(mapping)",
         "stripped_doc": "",
@@ -132,56 +162,82 @@
         "type": "Variable"
       },
       {
-        "def": "BrewInfo:openBrewURL(pkg)",
-        "desc": "Opens the homepage for Formula `pkg`",
-        "doc": "Opens the homepage for Formula `pkg`\n\nParameters:\n * pkg - name of the package to query\n\nReturns:\n * The Spoon object",
+        "def": "BrewInfo:openBrewURL(pkg, subcommand)",
+        "desc": "Opens the homepage for package `pkg`, as obtained from the `homepage` field in `brew <subcommand> cat <pkg>`",
+        "doc": "Opens the homepage for package `pkg`, as obtained from the `homepage` field in `brew <subcommand> cat <pkg>`\n\nParameters:\n * pkg - name of the package to query\n * subcommand - brew subcommand to use for the `cat` command. Defaults to an empty string, which results in \"brew cat <pkg>\" being run. For example, if `subcommand` is \"cask\", the `brew cask cat <pkg>` command will be used.\n\nReturns:\n * The Spoon object",
         "name": "openBrewURL",
         "parameters": [
-          " * pkg - name of the package to query"
+          " * pkg - name of the package to query",
+          " * subcommand - brew subcommand to use for the `cat` command. Defaults to an empty string, which results in \"brew cat <pkg>\" being run. For example, if `subcommand` is \"cask\", the `brew cask cat <pkg>` command will be used."
         ],
         "returns": [
           " * The Spoon object"
         ],
-        "signature": "BrewInfo:openBrewURL(pkg)",
+        "signature": "BrewInfo:openBrewURL(pkg, subcommand)",
         "stripped_doc": "",
         "type": "Method"
       },
       {
-        "def": "BrewInfo:openBrewURLCurSel()",
-        "desc": "Display `brew info` using the selected text as the package name",
-        "doc": "Display `brew info` using the selected text as the package name\n\nReturns:\n * The Spoon object",
+        "def": "BrewInfo:openBrewURLCurSel(subcommand)",
+        "desc": "Opens the homepage for the currently-selected package, as obtained from the `homepage` field in `brew <subcommand> cat <pkg>`",
+        "doc": "Opens the homepage for the currently-selected package, as obtained from the `homepage` field in `brew <subcommand> cat <pkg>`\n\nParameters:\n * subcommand - brew subcommand to use for the `cat` command. Defaults to an empty string, which results in \"brew cat <pkg>\" being run. For example, if `subcommand` is \"cask\", the `brew cask cat <pkg>` command will be used.\n\nReturns:\n * The Spoon object",
         "name": "openBrewURLCurSel",
+        "parameters": [
+          " * subcommand - brew subcommand to use for the `cat` command. Defaults to an empty string, which results in \"brew cat <pkg>\" being run. For example, if `subcommand` is \"cask\", the `brew cask cat <pkg>` command will be used."
+        ],
         "returns": [
           " * The Spoon object"
         ],
-        "signature": "BrewInfo:openBrewURLCurSel()",
+        "signature": "BrewInfo:openBrewURLCurSel(subcommand)",
         "stripped_doc": "",
         "type": "Method"
       },
       {
-        "def": "BrewInfo:showBrewInfo(pkg)",
-        "desc": "Displays an alert with the output of `brew info <pkg>`",
-        "doc": "Displays an alert with the output of `brew info <pkg>`\n\nParameters:\n * pkg - name of the package to query\n\nReturns:\n * The Spoon object",
+        "def": "BrewInfo.select_text_if_needed",
+        "desc": "If `true`, and no text is currently selected in the terminal, issue a double-click to select the text below the cursor, and use that as the input to `brew info`. See also `BrewInfo.select_text_modifiers`. Defaults to `true`.",
+        "doc": "If `true`, and no text is currently selected in the terminal, issue a double-click to select the text below the cursor, and use that as the input to `brew info`. See also `BrewInfo.select_text_modifiers`. Defaults to `true`.",
+        "name": "select_text_if_needed",
+        "signature": "BrewInfo.select_text_if_needed",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "BrewInfo.select_text_modifiers",
+        "desc": "Table containing the modifiers to be used together with a double-click when `BrewInfo.select_text_if_needed` is true. Defaults to `{cmd = true, shift = true}` to issue a Cmd-Shift-double-click, which will select a continuous non-space string in Terminal and iTerm2.",
+        "doc": "Table containing the modifiers to be used together with a double-click when `BrewInfo.select_text_if_needed` is true. Defaults to `{cmd = true, shift = true}` to issue a Cmd-Shift-double-click, which will select a continuous non-space string in Terminal and iTerm2.",
+        "name": "select_text_modifiers",
+        "signature": "BrewInfo.select_text_modifiers",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "BrewInfo:showBrewInfo(pkg, subcommand)",
+        "desc": "Displays an alert with the output of `brew <subcommand> info <pkg>`",
+        "doc": "Displays an alert with the output of `brew <subcommand> info <pkg>`\n\nParameters:\n * pkg - name of the package to query\n * subcommand - brew subcommand to use for the `info` command. Defaults to an empty string, which results in \"brew info <pkg>\" being run. For example, if `subcommand` is \"cask\", the `brew cask info <pkg>` command will be used.\n\nReturns:\n * The Spoon object",
         "name": "showBrewInfo",
         "parameters": [
-          " * pkg - name of the package to query"
+          " * pkg - name of the package to query",
+          " * subcommand - brew subcommand to use for the `info` command. Defaults to an empty string, which results in \"brew info <pkg>\" being run. For example, if `subcommand` is \"cask\", the `brew cask info <pkg>` command will be used."
         ],
         "returns": [
           " * The Spoon object"
         ],
-        "signature": "BrewInfo:showBrewInfo(pkg)",
+        "signature": "BrewInfo:showBrewInfo(pkg, subcommand)",
         "stripped_doc": "",
         "type": "Method"
       },
       {
-        "def": "BrewInfo:showBrewInfoCurSel()",
-        "desc": "Display `brew info` using the selected text as the package name",
-        "doc": "Display `brew info` using the selected text as the package name\n\nReturns:\n * The Spoon object",
+        "def": "BrewInfo:showBrewInfoCurSel(subcommand)",
+        "desc": "Display `brew <subcommand> info` using the selected text as the package name",
+        "doc": "Display `brew <subcommand> info` using the selected text as the package name\n\nParameters:\n * subcommand - brew subcommand to use for the `info` command. Defaults to an empty string, which results in \"brew info\" being run. For example, if `subcommand` is \"cask\", the `brew cask info` command will be used.\n\nReturns:\n * The Spoon object",
         "name": "showBrewInfoCurSel",
+        "parameters": [
+          " * subcommand - brew subcommand to use for the `info` command. Defaults to an empty string, which results in \"brew info\" being run. For example, if `subcommand` is \"cask\", the `brew cask info` command will be used."
+        ],
         "returns": [
           " * The Spoon object"
         ],
-        "signature": "BrewInfo:showBrewInfoCurSel()",
+        "signature": "BrewInfo:showBrewInfoCurSel(subcommand)",
         "stripped_doc": "",
         "type": "Method"
       }

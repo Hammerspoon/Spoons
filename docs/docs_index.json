@@ -17,31 +17,43 @@
     "type": "Variable"
   },
   {
+    "desc": "If `true`, and no text is currently selected in the terminal, issue a double-click to select the text below the cursor, and use that as the input to `brew info`. See also `BrewInfo.select_text_modifiers`. Defaults to `true`.",
+    "module": "BrewInfo",
+    "name": "select_text_if_needed",
+    "type": "Variable"
+  },
+  {
+    "desc": "Table containing the modifiers to be used together with a double-click when `BrewInfo.select_text_if_needed` is true. Defaults to `{cmd = true, shift = true}` to issue a Cmd-Shift-double-click, which will select a continuous non-space string in Terminal and iTerm2.",
+    "module": "BrewInfo",
+    "name": "select_text_modifiers",
+    "type": "Variable"
+  },
+  {
     "desc": "Binds hotkeys for BrewInfo",
     "module": "BrewInfo",
     "name": "bindHotkeys",
     "type": "Method"
   },
   {
-    "desc": "Opens the homepage for Formula `pkg`",
+    "desc": "Opens the homepage for package `pkg`, as obtained from the `homepage` field in `brew <subcommand> cat <pkg>`",
     "module": "BrewInfo",
     "name": "openBrewURL",
     "type": "Method"
   },
   {
-    "desc": "Display `brew info` using the selected text as the package name",
+    "desc": "Opens the homepage for the currently-selected package, as obtained from the `homepage` field in `brew <subcommand> cat <pkg>`",
     "module": "BrewInfo",
     "name": "openBrewURLCurSel",
     "type": "Method"
   },
   {
-    "desc": "Displays an alert with the output of `brew info <pkg>`",
+    "desc": "Displays an alert with the output of `brew <subcommand> info <pkg>`",
     "module": "BrewInfo",
     "name": "showBrewInfo",
     "type": "Method"
   },
   {
-    "desc": "Display `brew info` using the selected text as the package name",
+    "desc": "Display `brew <subcommand> info` using the selected text as the package name",
     "module": "BrewInfo",
     "name": "showBrewInfoCurSel",
     "type": "Method"
