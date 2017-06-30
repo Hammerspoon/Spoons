@@ -1,0 +1,151 @@
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hammerspoon docs: WindowHalfsAndThirds</title>
+    <style type="text/css">
+      a { text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      th { background-color: #DDDDDD; vertical-align: top; padding: 3px; }
+      td { width: 100%; background-color: #EEEEEE; vertical-align: top; padding: 3px; }
+      table { width: 100% ; border: 1px solid #0; text-align: left; }
+      section > table table td { width: 0; }
+    </style>
+    <link rel="stylesheet" href="docs.css" type="text/css" media="screen" />
+  </head>
+  <body>
+    <header>
+      <h1><a href="./index.html">docs</a> &raquo; WindowHalfsAndThirds</h1>
+      <p>Simple window movement and resizing, focusing on half- and third-of-screen sizes</p>
+<p>Download: <a href="https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WindowHalfsAndThirds.spoon.zip">https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WindowHalfsAndThirds.spoon.zip</a></p>
+
+      </header>
+      <h3>API Overview</h3>
+      <ul>
+        <li>Variables - Configurable values</li>
+          <ul>
+            <li><a href="#defaultHotkeys">defaultHotkeys</a></li>
+            <li><a href="#logger">logger</a></li>
+            <li><a href="#use_frame_correctness">use_frame_correctness</a></li>
+          </ul>
+        <li>Methods - API calls which can only be made on an object returned by a constructor</li>
+          <ul>
+            <li><a href="#bindHotkeys">bindHotkeys</a></li>
+          </ul>
+      </ul>
+      <h3>API Documentation</h3>
+        <h4 class="documentation-section">Variables</h4>
+          <section id="defaultHotkeys">
+            <a name="//apple_ref/cpp/Variable/defaultHotkeys" class="dashAnchor"></a>
+            <h5><a href="#defaultHotkeys">defaultHotkeys</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>WindowHalfsAndThirds.defaultHotkeys</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Table containing a sample set of hotkeys that can be
+assigned to the different operations. These are not bound
+by default - if you want to use them you have to call:
+<code>spoon.WindowHalfsAndThirds:bindHotkeys(spoon.WindowHalfsAndThirds.defaultHotkeys)</code>
+after loading the spoon. Value:</p>
+
+<pre><code> {
+    left_half   = { {"ctrl",        "cmd"}, "Left" },
+    right_half  = { {"ctrl",        "cmd"}, "Right" },
+    top_half    = { {"ctrl",        "cmd"}, "Up" },
+    bottom_half = { {"ctrl",        "cmd"}, "Down" },
+    third_left  = { {"ctrl", "alt"       }, "Left" },
+    third_right = { {"ctrl", "alt"       }, "Right" },
+    third_up    = { {"ctrl", "alt"       }, "Up" },
+    third_down  = { {"ctrl", "alt"       }, "Down" },
+    top_left    = { {"ctrl",        "cmd"}, "1" },
+    top_right   = { {"ctrl",        "cmd"}, "2" },
+    bottom_left = { {"ctrl",        "cmd"}, "3" },
+    bottom_right= { {"ctrl",        "cmd"}, "4" },
+    max_toggle  = { {"ctrl", "alt", "cmd"}, "f" },
+    max         = { {"ctrl", "alt", "cmd"}, "Up" },
+ }</code></pre>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="logger">
+            <a name="//apple_ref/cpp/Variable/logger" class="dashAnchor"></a>
+            <h5><a href="#logger">logger</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>WindowHalfsAndThirds.logger</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="use_frame_correctness">
+            <a name="//apple_ref/cpp/Variable/use_frame_correctness" class="dashAnchor"></a>
+            <h5><a href="#use_frame_correctness">use_frame_correctness</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>WindowHalfsAndThirds.use_frame_correctness</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>If <code>true</code>, set <a href="http://www.hammerspoon.org/docs/hs.window.html#setFrameCorrectness">setFrameCorrectness</a> for some resizing operations which fail when the window extends beyonds screen boundaries. This may cause some jerkiness in the resizing, so experiment and determine if you need it. Defaults to <code>false</code></p>
+</td>
+              </tr>
+            </table>
+          </section>
+        <h4 class="documentation-section">Methods</h4>
+          <section id="bindHotkeys">
+            <a name="//apple_ref/cpp/Method/bindHotkeys" class="dashAnchor"></a>
+            <h5><a href="#bindHotkeys">bindHotkeys</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>WindowHalfsAndThirds:bindHotkeys(mapping)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Binds hotkeys for WindowHalfsAndThirds</p>
+<p>Parameters:</p>
+<ul>
+<li>mapping - A table containing hotkey objifier/key details for the following items:<ul>
+<li>left_half, right_half, top_half, bottom_half - resize to the corresponding half of the screen</li>
+<li>third_left, third_right - resize to one horizontal-third of the screen and move left/right</li>
+<li>third_up, third_down - resize to one vertical-third of the screen and move up/down</li>
+<li>max - maximize the window</li>
+<li>max_toggle - toggle maximization</li>
+<li>screen_left, screen_right - move the window to the left/right screen (if you have more than one monitor connected, does nothing otherwise)</li>
+<li>top_third, middle_third_v, bottom_third - resize and move the window to the corresponding vertical third of the screen</li>
+<li>left_third, middle_third_h, right_third - resize and move the window to the corresponding horizontal third of the screen</li>
+<li>top_left, top_right, bottom_left, bottom_right - resize and move the window to the corresponding quarter of the screen</li>
+</ul>
+</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+  </body>
+</html>

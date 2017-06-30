@@ -926,5 +926,34 @@
     "module": "WiFiTransitions",
     "name": "start",
     "type": "Method"
+  },
+  {
+    "desc": "Simple window movement and resizing, focusing on half- and third-of-screen sizes",
+    "name": "WindowHalfsAndThirds",
+    "type": "Module"
+  },
+  {
+    "desc": "Table containing a sample set of hotkeys that can be",
+    "module": "WindowHalfsAndThirds",
+    "name": "defaultHotkeys",
+    "type": "Variable"
+  },
+  {
+    "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+    "module": "WindowHalfsAndThirds",
+    "name": "logger",
+    "type": "Variable"
+  },
+  {
+    "desc": "If `true`, set [setFrameCorrectness](http://www.hammerspoon.org/docs/hs.window.html#setFrameCorrectness) for some resizing operations which fail when the window extends beyonds screen boundaries. This may cause some jerkiness in the resizing, so experiment and determine if you need it. Defaults to `false`",
+    "module": "WindowHalfsAndThirds",
+    "name": "use_frame_correctness",
+    "type": "Variable"
+  },
+  {
+    "desc": "Binds hotkeys for WindowHalfsAndThirds",
+    "module": "WindowHalfsAndThirds",
+    "name": "bindHotkeys",
+    "type": "Method"
   }
 ]
