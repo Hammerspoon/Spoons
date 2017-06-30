@@ -792,8 +792,8 @@
       },
       {
         "def": "MenubarFlag:getLayoutAndDrawindicators",
-        "desc": "Draw indicators for the current keyboard layout",
-        "doc": "Draw indicators for the current keyboard layout\n\nParameters:\n * None\n\nReturns:\n * The MenubarFlag object",
+        "desc": "Draw indicators for the current keyboard method or layout",
+        "doc": "Draw indicators for the current keyboard method or layout\n\nParameters:\n * None\n\nReturns:\n * The MenubarFlag object",
         "name": "getLayoutAndDrawindicators",
         "parameters": [
           " * None"
@@ -909,8 +909,8 @@
       },
       {
         "def": "MenubarFlag:getLayoutAndDrawindicators",
-        "desc": "Draw indicators for the current keyboard layout",
-        "doc": "Draw indicators for the current keyboard layout\n\nParameters:\n * None\n\nReturns:\n * The MenubarFlag object",
+        "desc": "Draw indicators for the current keyboard method or layout",
+        "doc": "Draw indicators for the current keyboard method or layout\n\nParameters:\n * None\n\nReturns:\n * The MenubarFlag object",
         "name": "getLayoutAndDrawindicators",
         "parameters": [
           " * None"

@@ -252,7 +252,7 @@
     "type": "Method"
   },
   {
-    "desc": "Draw indicators for the current keyboard layout",
+    "desc": "Draw indicators for the current keyboard method or layout",
     "module": "MenubarFlag",
     "name": "getLayoutAndDrawindicators",
     "type": "Method"
