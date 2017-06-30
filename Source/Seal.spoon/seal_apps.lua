@@ -157,7 +157,7 @@ end
 
 function obj.completionCallback(rowInfo)
    if rowInfo["type"] == "launchOrFocus" then
-      hs.open(rowInfo["path"])
+      hs.execute(string.format("/usr/bin/open '%s'", rowInfo["path"]))
    elseif rowInfo["type"] == "kill" then
       hs.application.get(rowInfo["pid"]):kill()
    elseif rowInfo["type"] == "reveal" then
