@@ -1,0 +1,198 @@
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hammerspoon docs: HeadphoneAutoPause</title>
+    <style type="text/css">
+      a { text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      th { background-color: #DDDDDD; vertical-align: top; padding: 3px; }
+      td { width: 100%; background-color: #EEEEEE; vertical-align: top; padding: 3px; }
+      table { width: 100% ; border: 1px solid #0; text-align: left; }
+      section > table table td { width: 0; }
+    </style>
+    <link rel="stylesheet" href="docs.css" type="text/css" media="screen" />
+  </head>
+  <body>
+    <header>
+      <h1><a href="./index.html">docs</a> &raquo; HeadphoneAutoPause</h1>
+      <p>Play/pause music players when headphones are connected/disconnected</p>
+<p>Download: <a href="https://github.com/Hammerspoon/Spoons/raw/master/Spoons/HeadphoneAutoPause.spoon.zip">https://github.com/Hammerspoon/Spoons/raw/master/Spoons/HeadphoneAutoPause.spoon.zip</a></p>
+
+      </header>
+      <h3>API Overview</h3>
+      <ul>
+        <li>Variables - Configurable values</li>
+          <ul>
+            <li><a href="#control">control</a></li>
+            <li><a href="#controlfns">controlfns</a></li>
+            <li><a href="#logger">logger</a></li>
+          </ul>
+        <li>Methods - API calls which can only be made on an object returned by a constructor</li>
+          <ul>
+            <li><a href="#audiodevwatch">audiodevwatch</a></li>
+            <li><a href="#defaultControlFns">defaultControlFns</a></li>
+            <li><a href="#start">start</a></li>
+            <li><a href="#stop">stop</a></li>
+          </ul>
+      </ul>
+      <h3>API Documentation</h3>
+        <h4 class="documentation-section">Variables</h4>
+          <section id="control">
+            <a name="//apple_ref/cpp/Variable/control" class="dashAnchor"></a>
+            <h5><a href="#control">control</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>HeadphoneAutoPause.control</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Table containing one key per application, with the value indicating whether HeadphoneAutoPause should try to pause/unpause that application in response to the headphone being plugged/unplugged. The key name must ideally correspond to the name of the corresponding <code>hs.*</code> module. Default value:</p>
+
+<pre><code>{
+   itunes = true,
+   spotify = true,
+   deezer = true,
+   vox = false -- Vox has built-in headphone detection support
+}</code></pre>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="controlfns">
+            <a name="//apple_ref/cpp/Variable/controlfns" class="dashAnchor"></a>
+            <h5><a href="#controlfns">controlfns</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>HeadphoneAutoPause.controlfns</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Table containing control functions for each application to control.
+The keys must correspond to the values in <code>HeadphoneAutoPause.control</code>, and the value is a table with the following elements:</p>
+<ul>
+<li><code>appname</code> - application name (case-sensitive, as the application appears to the system)</li>
+<li><code>isPlaying</code> - function that returns a true value if the application is playing</li>
+<li><code>play</code> - function that starts playback in the application</li>
+<li><code>pause</code> - function that pauses playback in the application</li>
+</ul>
+<p>The default value includes definitions for iTunes, Spotify, Deezer and Vox, using the corresponding functions from <code>hs.itunes</code>, <code>hs.spotify</code>, <code>hs.deezer</code> and <code>hs.vox</code>, respectively.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="logger">
+            <a name="//apple_ref/cpp/Variable/logger" class="dashAnchor"></a>
+            <h5><a href="#logger">logger</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>HeadphoneAutoPause.logger</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+        <h4 class="documentation-section">Methods</h4>
+          <section id="audiodevwatch">
+            <a name="//apple_ref/cpp/Method/audiodevwatch" class="dashAnchor"></a>
+            <h5><a href="#audiodevwatch">audiodevwatch</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>HeadphoneAutoPause:audiodevwatch(dev_uid, event_name)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Callback function to use as an audio device watcher, to pause/unpause the application on headphones plugged/unplugged</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="defaultControlFns">
+            <a name="//apple_ref/cpp/Method/defaultControlFns" class="dashAnchor"></a>
+            <h5><a href="#defaultControlFns">defaultControlFns</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>HeadphoneAutoPause.defaultControlFns(app)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Generate the most common set of application control definition.</p>
+<p>Parameters:</p>
+<ul>
+<li>app - name of the application, with its correct letter casing (i.e. "iTunes"). The name as provided will be used to find the running application, and its lowercase version will be used to find the corresponding <code>hs.*</code> module.</li>
+</ul>
+<p>Returns:</p>
+<ul>
+<li>A table in the correct format for <code>HeadphoneAutoPause.controlfns</code>, using the lower-case value of <code>app</code> as the module name (for example, if app = "iTunes", the module loaded will be <code>hs.itunes</code>, and assuming the functions <code>isPlaying()</code>, <code>play()</code> and <code>pause()</code> exist in that module.</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="start">
+            <a name="//apple_ref/cpp/Method/start" class="dashAnchor"></a>
+            <h5><a href="#start">start</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>HeadphoneAutoPause:start()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Start headphone detection on all audio devices that support it</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="stop">
+            <a name="//apple_ref/cpp/Method/stop" class="dashAnchor"></a>
+            <h5><a href="#stop">stop</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>HeadphoneAutoPause:stop()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Stop headphone detection</p>
+</td>
+              </tr>
+            </table>
+          </section>
+  </body>
+</html>

@@ -340,6 +340,53 @@
     "type": "Method"
   },
   {
+    "desc": "Show a popup window with the translation of the currently selected (or other) text",
+    "name": "PopupTranslateSelection",
+    "type": "Module"
+  },
+  {
+    "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+    "module": "PopupTranslateSelection",
+    "name": "logger",
+    "type": "Variable"
+  },
+  {
+    "desc": "If true, pressing ESC on the popup window will close it. Defaults to `true`",
+    "module": "PopupTranslateSelection",
+    "name": "popup_close_on_escape",
+    "type": "Variable"
+  },
+  {
+    "desc": "`hs.geometry` object representing the size to use for the translation popup window. Defaults to `hs.geometry.size(770, 610)`.",
+    "module": "PopupTranslateSelection",
+    "name": "popup_size",
+    "type": "Variable"
+  },
+  {
+    "desc": "Value representing the window style to be used for the translation popup window. This value needs to be a valid argument to [`hs.webview.setStyle()`](http://www.hammerspoon.org/docs/hs.webview.html#windowStyle) (i.e. a combination of values from [`hs.webview.windowMasks`](http://www.hammerspoon.org/docs/hs.webview.html#windowMasks[]). Default value: `hs.webview.windowMasks.utility|hs.webview.windowMasks.HUD|hs.webview.windowMasks.titled|hs.webview.windowMasks.closable`",
+    "module": "PopupTranslateSelection",
+    "name": "popup_style",
+    "type": "Variable"
+  },
+  {
+    "desc": "Binds hotkeys for PopupTranslateSelection",
+    "module": "PopupTranslateSelection",
+    "name": "bindHotkeys",
+    "type": "Method"
+  },
+  {
+    "desc": "Display a translation popup with the translation of the given text between the specified languages",
+    "module": "PopupTranslateSelection",
+    "name": "translatePopup",
+    "type": "Method"
+  },
+  {
+    "desc": "Get the current selected text in the frontmost window and display a translation popup with the translation between the specified languages",
+    "module": "PopupTranslateSelection",
+    "name": "translateSelectionPopup",
+    "type": "Method"
+  },
+  {
     "desc": "Give your screens rounded corners",
     "name": "RoundedCorners",
     "type": "Module"
