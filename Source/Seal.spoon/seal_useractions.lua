@@ -119,7 +119,6 @@ function obj:commands()
          local choice = obj.buildChoice(k,v)
          hotkeys_def[k] = hs.fnutils.partial(obj.completionCallback, choice)
          hotkeys_map[k] = v.hotkey
-         hs.printf("def=%s, map=%s", hs.inspect(hotkeys_def), hs.inspect(hotkeys_map))
          any_hotkeys = true
       end
    end
