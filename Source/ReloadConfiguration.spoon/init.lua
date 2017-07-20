@@ -43,6 +43,7 @@ function obj:start()
     for _,dir in pairs(self.watch_paths) do
         self.watchers[dir] = hs.pathwatcher.new(dir, hs.reload):start()
     end
+    return self
 end
 
 return obj
