@@ -1,0 +1,163 @@
+[
+  {
+    "Constant" : [
+
+    ],
+    "submodules" : [
+
+    ],
+    "Function" : [
+
+    ],
+    "Variable" : [
+
+    ],
+    "stripped_doc" : [
+
+    ],
+    "desc" : "Tiny countdown with visual indicator",
+    "Deprecated" : [
+
+    ],
+    "type" : "Module",
+    "Constructor" : [
+
+    ],
+    "doc" : "Tiny countdown with visual indicator\n\nDownload: [https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/TinyCountdown.spoon.zip](https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/TinyCountdown.spoon.zip)",
+    "Method" : [
+      {
+        "doc" : "Start a countdown for `minutes` minutes immediately. Calling this method again will kill the existing countdown instance.\n\nParameters:\n * minutes - How many minutes",
+        "stripped_doc" : [
+          "Start a countdown for `minutes` minutes immediately. Calling this method again will kill the existing countdown instance.",
+          ""
+        ],
+        "parameters" : [
+          " * minutes - How many minutes"
+        ],
+        "def" : "TinyCountdown:startFor(minutes)",
+        "notes" : [
+
+        ],
+        "signature" : "TinyCountdown:startFor(minutes)",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "desc" : "Start a countdown for `minutes` minutes immediately. Calling this method again will kill the existing countdown instance.",
+        "name" : "startFor"
+      },
+      {
+        "doc" : "Pause or resume the existing countdown.",
+        "stripped_doc" : [
+          "Pause or resume the existing countdown."
+        ],
+        "parameters" : [
+
+        ],
+        "def" : "TinyCountdown:pauseOrResume()",
+        "notes" : [
+
+        ],
+        "signature" : "TinyCountdown:pauseOrResume()",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "desc" : "Pause or resume the existing countdown.",
+        "name" : "pauseOrResume"
+      },
+      {
+        "doc" : "Set the progress of visual indicator to `progress`.\n\nParameters:\n * progress - an number specifying the value of progress (0.0 - 1.0)",
+        "stripped_doc" : [
+          "Set the progress of visual indicator to `progress`.",
+          ""
+        ],
+        "parameters" : [
+          " * progress - an number specifying the value of progress (0.0 - 1.0)"
+        ],
+        "def" : "TinyCountdown:setProgress(progress)",
+        "notes" : [
+
+        ],
+        "signature" : "TinyCountdown:setProgress(progress)",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "desc" : "Set the progress of visual indicator to `progress`.",
+        "name" : "setProgress"
+      }
+    ],
+    "Command" : [
+
+    ],
+    "Field" : [
+
+    ],
+    "items" : [
+      {
+        "doc" : "Pause or resume the existing countdown.",
+        "stripped_doc" : [
+          "Pause or resume the existing countdown."
+        ],
+        "parameters" : [
+
+        ],
+        "def" : "TinyCountdown:pauseOrResume()",
+        "notes" : [
+
+        ],
+        "signature" : "TinyCountdown:pauseOrResume()",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "desc" : "Pause or resume the existing countdown.",
+        "name" : "pauseOrResume"
+      },
+      {
+        "doc" : "Set the progress of visual indicator to `progress`.\n\nParameters:\n * progress - an number specifying the value of progress (0.0 - 1.0)",
+        "stripped_doc" : [
+          "Set the progress of visual indicator to `progress`.",
+          ""
+        ],
+        "parameters" : [
+          " * progress - an number specifying the value of progress (0.0 - 1.0)"
+        ],
+        "def" : "TinyCountdown:setProgress(progress)",
+        "notes" : [
+
+        ],
+        "signature" : "TinyCountdown:setProgress(progress)",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "desc" : "Set the progress of visual indicator to `progress`.",
+        "name" : "setProgress"
+      },
+      {
+        "doc" : "Start a countdown for `minutes` minutes immediately. Calling this method again will kill the existing countdown instance.\n\nParameters:\n * minutes - How many minutes",
+        "stripped_doc" : [
+          "Start a countdown for `minutes` minutes immediately. Calling this method again will kill the existing countdown instance.",
+          ""
+        ],
+        "parameters" : [
+          " * minutes - How many minutes"
+        ],
+        "def" : "TinyCountdown:startFor(minutes)",
+        "notes" : [
+
+        ],
+        "signature" : "TinyCountdown:startFor(minutes)",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "desc" : "Start a countdown for `minutes` minutes immediately. Calling this method again will kill the existing countdown instance.",
+        "name" : "startFor"
+      }
+    ],
+    "name" : "TinyCountdown"
+  }
+]
