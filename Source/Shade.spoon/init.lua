@@ -84,7 +84,7 @@ obj.shadeTransparency = 0.5
 shade:setFillColor({["white"]=0, ["alpha"] = obj.shadeTransparency })
 shade:setStroke(false):setFill(true)
 
---set to cover the whole screen, all spaces and expose
+--set to cover the whole screen, all spaces and exposé
 shade:bringToFront(true):setBehavior(17)
 
 
