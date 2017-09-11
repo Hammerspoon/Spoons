@@ -232,7 +232,11 @@ on item_Process(selectedItems, argv)
 		else
 			--FULL ITEM EXPORT
 			repeat with selectedItem in selectedItems
-				set theProps to (properties of selectedItem)
+				try
+					set theProps to (properties of selectedItem)
+				on error
+					set theProps to selectedItem
+				end try
 				try
 					set theAttachments to attachments of selectedItem
 					set raw_Attendees to attendees of selectedItem
