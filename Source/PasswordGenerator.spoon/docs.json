@@ -1,39 +1,134 @@
 [
   {
-    "doc" : "Generate a password and copy to the clipboard.",
-    "items" : [
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
       {
-        "doc" : "Function used to generate passwords",
-        "type" : "Variable",
-        "name" : "password_generator_function",
-        "def" : "PasswordGenerator.password_generator_function"
+        "def": "PasswordGenerator:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for PasswordGenerator",
+        "doc": "Binds hotkeys for PasswordGenerator\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n  * copy - Generate password and copy to clipboard\n  * paste - Generate password and paste",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * mapping - A table containing hotkey objifier/key details for the following items:",
+          "  * copy - Generate password and copy to clipboard",
+          "  * paste - Generate password and paste"
+        ],
+        "signature": "PasswordGenerator:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
       },
       {
-        "doc" : "Length of generated passwords",
-        "type" : "Variable",
-        "name" : "password_length",
-        "def" : "PasswordGenerator.password_length"
+        "def": "PasswordGenerator:copyPassword()",
+        "desc": "Generates a password and copies to clipboard",
+        "doc": "Generates a password and copies to clipboard\n\nParameters:\n * None\n\n Returns:\n  * The generated password",
+        "name": "copyPassword",
+        "parameters": [
+          " * None"
+        ],
+        "signature": "PasswordGenerator:copyPassword()",
+        "stripped_doc": " Returns:\n  * The generated password",
+        "type": "Method"
       },
       {
-        "doc" : "Binds hotkeys for PasswordGenerator\n\nParameters:\n * copy - Generate password and copy to clipboard\n * paste - Generate password and paste.",
-        "type" : "Method",
-        "name" : "bindHotkeys",
-        "def" : "PasswordGenerator:bindHotkeys(mapping)"
-      },
-      {
-        "doc" : "Generates a password and copies to clipboard\n\nParameters:\n * None\n\nReturns:\n * generated password",
-        "type" : "Method",
-        "name" : "start",
-        "def" : "PasswordGenerator:copyPassword()"
-      },
-      {
-        "doc" : "Generates a password and types it\n\nParameters:\n * None\n\nReturns:\n * generated password",
-        "type" : "Method",
-        "name" : "start",
-        "def" : "PasswordGenerator:pastePassword()"
+        "def": "PasswordGenerator:pastePassword()",
+        "desc": "Generates a password and types it",
+        "doc": "Generates a password and types it\n\nParameters:\n * None\n\n Returns:\n  * The generated password",
+        "name": "pastePassword",
+        "parameters": [
+          " * None"
+        ],
+        "signature": "PasswordGenerator:pastePassword()",
+        "stripped_doc": " Returns:\n  * The generated password",
+        "type": "Method"
       }
     ],
-    "name" : "PasswordGenerator",
-    "desc" : "Generate a password and copy to the clipboard."
+    "Variable": [
+      {
+        "def": "PasswordGenerator.password_generator_function",
+        "desc": "Function used to generate passwords",
+        "doc": "Function used to generate passwords",
+        "name": "password_generator_function",
+        "signature": "PasswordGenerator.password_generator_function",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "PasswordGenerator.password_length",
+        "desc": "Length of generated passwords",
+        "doc": "Length of generated passwords",
+        "name": "password_length",
+        "signature": "PasswordGenerator.password_length",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "desc": "Generate a password and copy to the clipboard.",
+    "doc": "Generate a password and copy to the clipboard.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/PasswordGenerator.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/PasswordGenerator.spoon.zip)",
+    "items": [
+      {
+        "def": "PasswordGenerator:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for PasswordGenerator",
+        "doc": "Binds hotkeys for PasswordGenerator\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n  * copy - Generate password and copy to clipboard\n  * paste - Generate password and paste",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * mapping - A table containing hotkey objifier/key details for the following items:",
+          "  * copy - Generate password and copy to clipboard",
+          "  * paste - Generate password and paste"
+        ],
+        "signature": "PasswordGenerator:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PasswordGenerator:copyPassword()",
+        "desc": "Generates a password and copies to clipboard",
+        "doc": "Generates a password and copies to clipboard\n\nParameters:\n * None\n\n Returns:\n  * The generated password",
+        "name": "copyPassword",
+        "parameters": [
+          " * None"
+        ],
+        "signature": "PasswordGenerator:copyPassword()",
+        "stripped_doc": " Returns:\n  * The generated password",
+        "type": "Method"
+      },
+      {
+        "def": "PasswordGenerator.password_generator_function",
+        "desc": "Function used to generate passwords",
+        "doc": "Function used to generate passwords",
+        "name": "password_generator_function",
+        "signature": "PasswordGenerator.password_generator_function",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "PasswordGenerator.password_length",
+        "desc": "Length of generated passwords",
+        "doc": "Length of generated passwords",
+        "name": "password_length",
+        "signature": "PasswordGenerator.password_length",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "PasswordGenerator:pastePassword()",
+        "desc": "Generates a password and types it",
+        "doc": "Generates a password and types it\n\nParameters:\n * None\n\n Returns:\n  * The generated password",
+        "name": "pastePassword",
+        "parameters": [
+          " * None"
+        ],
+        "signature": "PasswordGenerator:pastePassword()",
+        "stripped_doc": " Returns:\n  * The generated password",
+        "type": "Method"
+      }
+    ],
+    "name": "PasswordGenerator",
+    "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/PasswordGenerator.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/PasswordGenerator.spoon.zip)",
+    "submodules": [],
+    "type": "Module"
   }
 ]

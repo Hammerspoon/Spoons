@@ -53,8 +53,8 @@ end
 ---
 --- Parameters:
 ---  * None
---
---  Returns:
+---
+---  Returns:
 ---   * The generated password
 function obj:copyPassword()
    password = self.password_generator_function()
@@ -69,8 +69,8 @@ end
 ---
 --- Parameters:
 ---  * None
---
---  Returns:
+---
+---  Returns:
 ---   * The generated password
 function obj:pastePassword()
    password = self.password_generator_function()

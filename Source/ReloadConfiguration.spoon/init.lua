@@ -28,8 +28,18 @@ obj.watch_paths = { hs.configdir }
 ---  * mapping - A table containing hotkey modifier/key details for the following items:
 ---   * reloadConfiguration - This will cause the configuration to be reloaded
 function obj:bindHotkeys(mapping)
+<<<<<<< HEAD
    local def = { reloadConfiguration = hs.fnutils.partial(hs.reload, self) }
    hs.spoons.bindHotkeysToSpec(def, mapping)
+=======
+    if (self.hotkey) then
+        self.hotkey:delete()
+    end
+    local mods = mapping["reloadConfiguration"][1]
+    local key = mapping["reloadConfiguration"][2]
+    self.hotkey = hs.hotkey.bind(mods, key, function() hs.reload() end)
+    return self
+>>>>>>> Add ReloadConfiguration spoon
 end
 
 --- ReloadConfiguration:start()
@@ -43,7 +53,10 @@ function obj:start()
     for _,dir in pairs(self.watch_paths) do
         self.watchers[dir] = hs.pathwatcher.new(dir, hs.reload):start()
     end
+<<<<<<< HEAD
     return self
+=======
+>>>>>>> Add ReloadConfiguration spoon
 end
 
 return obj
