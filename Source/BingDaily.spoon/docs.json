@@ -1,41 +1,19 @@
 [
   {
-    "Constant" : [
-
-    ],
-    "submodules" : [
-
-    ],
-    "Function" : [
-
-    ],
-    "Variable" : [
-
-    ],
-    "stripped_doc" : [
-
-    ],
-    "desc" : "Use Bing daily picture as your wallpaper, automatically.",
-    "type" : "Module",
-    "Deprecated" : [
-
-    ],
-    "Constructor" : [
-
-    ],
-    "doc" : "Use Bing daily picture as your wallpaper, automatically.\n\nDownload: [https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/BingDaily.spoon.zip](https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/BingDaily.spoon.zip)",
-    "items" : [
-
-    ],
-    "Command" : [
-
-    ],
-    "Method" : [
-
-    ],
-    "Field" : [
-
-    ],
-    "name" : "BingDaily"
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [],
+    "Variable": [],
+    "desc": "Use Bing daily picture as your wallpaper, automatically.",
+    "doc": "Use Bing daily picture as your wallpaper, automatically.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/BingDaily.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/BingDaily.spoon.zip)",
+    "items": [],
+    "name": "BingDaily",
+    "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/BingDaily.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/BingDaily.spoon.zip)",
+    "submodules": [],
+    "type": "Module"
   }
 ]
