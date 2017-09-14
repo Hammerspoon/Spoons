@@ -1,182 +1,84 @@
 [
   {
-    "Constant" : [
-
-    ],
-    "submodules" : [
-
-    ],
-    "Function" : [
-
-    ],
-    "Variable" : [
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
       {
-        "doc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
-        "parameters" : [
-
+        "def": "WindowScreenLeftAndRight:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for WindowScreenLeftAndRight",
+        "doc": "Binds hotkeys for WindowScreenLeftAndRight\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n  * screen_left, screen_right - move the window to the left/right screen (if you have more than one monitor connected, does nothing otherwise)",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * mapping - A table containing hotkey objifier/key details for the following items:",
+          "  * screen_left, screen_right - move the window to the left/right screen (if you have more than one monitor connected, does nothing otherwise)"
         ],
-        "name" : "logger",
-        "stripped_doc" : [
-          "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
-        ],
-        "notes" : [
-
-        ],
-        "signature" : "WindowScreenLeftAndRight.logger",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
-        "def" : "WindowScreenLeftAndRight.logger"
-      },
-      {
-        "doc" : "Table containing a sample set of hotkeys that can be\nassigned to the different operations. These are not bound\nby default - if you want to use them you have to call:\n`spoon.WindowScreenLeftAndRight:bindHotkeys(spoon.WindowScreenLeftAndRight.defaultHotkeys)`\nafter loading the spoon. Value:\n```\n {\n    screen_left = { {\"ctrl\", \"alt\", \"cmd\"}, \"Left\" },\n    screen_right= { {\"ctrl\", \"alt\", \"cmd\"}, \"Right\" },\n }\n```",
-        "parameters" : [
-
-        ],
-        "name" : "defaultHotkeys",
-        "stripped_doc" : [
-          "Table containing a sample set of hotkeys that can be",
-          "assigned to the different operations. These are not bound",
-          "by default - if you want to use them you have to call:",
-          "`spoon.WindowScreenLeftAndRight:bindHotkeys(spoon.WindowScreenLeftAndRight.defaultHotkeys)`",
-          "after loading the spoon. Value:",
-          "```",
-          " {",
-          "    screen_left = { {\"ctrl\", \"alt\", \"cmd\"}, \"Left\" },",
-          "    screen_right= { {\"ctrl\", \"alt\", \"cmd\"}, \"Right\" },",
-          " }",
-          "```"
-        ],
-        "notes" : [
-
-        ],
-        "signature" : "WindowScreenLeftAndRight.defaultHotkeys",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "desc" : "Table containing a sample set of hotkeys that can be",
-        "def" : "WindowScreenLeftAndRight.defaultHotkeys"
+        "signature": "WindowScreenLeftAndRight:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
       }
     ],
-    "stripped_doc" : [
-
-    ],
-    "desc" : "Move windows to other screens",
-    "Deprecated" : [
-
-    ],
-    "type" : "Module",
-    "Constructor" : [
-
-    ],
-    "doc" : "Move windows to other screens\n\nDownload: [https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/WindowScreenLeftAndRight.spoon.zip](https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/WindowScreenLeftAndRight.spoon.zip)",
-    "Method" : [
+    "Variable": [
       {
-        "doc" : "Binds hotkeys for WindowScreenLeftAndRight\n\nParameters:\n * mapping - A table containing hotkey objifier\/key details for the following items:\n  * screen_left, screen_right - move the window to the left\/right screen (if you have more than one monitor connected, does nothing otherwise)",
-        "parameters" : [
-          " * mapping - A table containing hotkey objifier\/key details for the following items:",
-          "  * screen_left, screen_right - move the window to the left\/right screen (if you have more than one monitor connected, does nothing otherwise)"
-        ],
-        "name" : "bindHotkeys",
-        "stripped_doc" : [
-          "Binds hotkeys for WindowScreenLeftAndRight",
-          ""
-        ],
-        "notes" : [
-
-        ],
-        "signature" : "WindowScreenLeftAndRight:bindHotkeys(mapping)",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "desc" : "Binds hotkeys for WindowScreenLeftAndRight",
-        "def" : "WindowScreenLeftAndRight:bindHotkeys(mapping)"
-      }
-    ],
-    "Command" : [
-
-    ],
-    "items" : [
-      {
-        "doc" : "Table containing a sample set of hotkeys that can be\nassigned to the different operations. These are not bound\nby default - if you want to use them you have to call:\n`spoon.WindowScreenLeftAndRight:bindHotkeys(spoon.WindowScreenLeftAndRight.defaultHotkeys)`\nafter loading the spoon. Value:\n```\n {\n    screen_left = { {\"ctrl\", \"alt\", \"cmd\"}, \"Left\" },\n    screen_right= { {\"ctrl\", \"alt\", \"cmd\"}, \"Right\" },\n }\n```",
-        "parameters" : [
-
-        ],
-        "name" : "defaultHotkeys",
-        "stripped_doc" : [
-          "Table containing a sample set of hotkeys that can be",
-          "assigned to the different operations. These are not bound",
-          "by default - if you want to use them you have to call:",
-          "`spoon.WindowScreenLeftAndRight:bindHotkeys(spoon.WindowScreenLeftAndRight.defaultHotkeys)`",
-          "after loading the spoon. Value:",
-          "```",
-          " {",
-          "    screen_left = { {\"ctrl\", \"alt\", \"cmd\"}, \"Left\" },",
-          "    screen_right= { {\"ctrl\", \"alt\", \"cmd\"}, \"Right\" },",
-          " }",
-          "```"
-        ],
-        "notes" : [
-
-        ],
-        "signature" : "WindowScreenLeftAndRight.defaultHotkeys",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "desc" : "Table containing a sample set of hotkeys that can be",
-        "def" : "WindowScreenLeftAndRight.defaultHotkeys"
+        "def": "WindowScreenLeftAndRight.defaultHotkeys",
+        "desc": "Table containing a sample set of hotkeys that can be",
+        "doc": "Table containing a sample set of hotkeys that can be\nassigned to the different operations. These are not bound\nby default - if you want to use them you have to call:\n`spoon.WindowScreenLeftAndRight:bindHotkeys(spoon.WindowScreenLeftAndRight.defaultHotkeys)`\nafter loading the spoon. Value:\n```\n {\n    screen_left = { {\"ctrl\", \"alt\", \"cmd\"}, \"Left\" },\n    screen_right= { {\"ctrl\", \"alt\", \"cmd\"}, \"Right\" },\n }\n```",
+        "name": "defaultHotkeys",
+        "signature": "WindowScreenLeftAndRight.defaultHotkeys",
+        "stripped_doc": "assigned to the different operations. These are not bound\nby default - if you want to use them you have to call:\n`spoon.WindowScreenLeftAndRight:bindHotkeys(spoon.WindowScreenLeftAndRight.defaultHotkeys)`\nafter loading the spoon. Value:\n```\n {\n    screen_left = { {\"ctrl\", \"alt\", \"cmd\"}, \"Left\" },\n    screen_right= { {\"ctrl\", \"alt\", \"cmd\"}, \"Right\" },\n }\n```",
+        "type": "Variable"
       },
       {
-        "doc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
-        "parameters" : [
-
-        ],
-        "name" : "logger",
-        "stripped_doc" : [
-          "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
-        ],
-        "notes" : [
-
-        ],
-        "signature" : "WindowScreenLeftAndRight.logger",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
-        "def" : "WindowScreenLeftAndRight.logger"
-      },
-      {
-        "doc" : "Binds hotkeys for WindowScreenLeftAndRight\n\nParameters:\n * mapping - A table containing hotkey objifier\/key details for the following items:\n  * screen_left, screen_right - move the window to the left\/right screen (if you have more than one monitor connected, does nothing otherwise)",
-        "parameters" : [
-          " * mapping - A table containing hotkey objifier\/key details for the following items:",
-          "  * screen_left, screen_right - move the window to the left\/right screen (if you have more than one monitor connected, does nothing otherwise)"
-        ],
-        "name" : "bindHotkeys",
-        "stripped_doc" : [
-          "Binds hotkeys for WindowScreenLeftAndRight",
-          ""
-        ],
-        "notes" : [
-
-        ],
-        "signature" : "WindowScreenLeftAndRight:bindHotkeys(mapping)",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "desc" : "Binds hotkeys for WindowScreenLeftAndRight",
-        "def" : "WindowScreenLeftAndRight:bindHotkeys(mapping)"
+        "def": "WindowScreenLeftAndRight.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "name": "logger",
+        "signature": "WindowScreenLeftAndRight.logger",
+        "stripped_doc": "",
+        "type": "Variable"
       }
     ],
-    "Field" : [
-
+    "desc": "Move windows to other screens",
+    "doc": "Move windows to other screens\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WindowScreenLeftAndRight.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WindowScreenLeftAndRight.spoon.zip)",
+    "items": [
+      {
+        "def": "WindowScreenLeftAndRight:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for WindowScreenLeftAndRight",
+        "doc": "Binds hotkeys for WindowScreenLeftAndRight\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n  * screen_left, screen_right - move the window to the left/right screen (if you have more than one monitor connected, does nothing otherwise)",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * mapping - A table containing hotkey objifier/key details for the following items:",
+          "  * screen_left, screen_right - move the window to the left/right screen (if you have more than one monitor connected, does nothing otherwise)"
+        ],
+        "signature": "WindowScreenLeftAndRight:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "WindowScreenLeftAndRight.defaultHotkeys",
+        "desc": "Table containing a sample set of hotkeys that can be",
+        "doc": "Table containing a sample set of hotkeys that can be\nassigned to the different operations. These are not bound\nby default - if you want to use them you have to call:\n`spoon.WindowScreenLeftAndRight:bindHotkeys(spoon.WindowScreenLeftAndRight.defaultHotkeys)`\nafter loading the spoon. Value:\n```\n {\n    screen_left = { {\"ctrl\", \"alt\", \"cmd\"}, \"Left\" },\n    screen_right= { {\"ctrl\", \"alt\", \"cmd\"}, \"Right\" },\n }\n```",
+        "name": "defaultHotkeys",
+        "signature": "WindowScreenLeftAndRight.defaultHotkeys",
+        "stripped_doc": "assigned to the different operations. These are not bound\nby default - if you want to use them you have to call:\n`spoon.WindowScreenLeftAndRight:bindHotkeys(spoon.WindowScreenLeftAndRight.defaultHotkeys)`\nafter loading the spoon. Value:\n```\n {\n    screen_left = { {\"ctrl\", \"alt\", \"cmd\"}, \"Left\" },\n    screen_right= { {\"ctrl\", \"alt\", \"cmd\"}, \"Right\" },\n }\n```",
+        "type": "Variable"
+      },
+      {
+        "def": "WindowScreenLeftAndRight.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "name": "logger",
+        "signature": "WindowScreenLeftAndRight.logger",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
     ],
-    "name" : "WindowScreenLeftAndRight"
+    "name": "WindowScreenLeftAndRight",
+    "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WindowScreenLeftAndRight.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WindowScreenLeftAndRight.spoon.zip)",
+    "submodules": [],
+    "type": "Module"
   }
 ]
