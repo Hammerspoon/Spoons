@@ -1,41 +1,19 @@
 [
   {
-    "Constant" : [
-
-    ],
-    "submodules" : [
-
-    ],
-    "Function" : [
-
-    ],
-    "Variable" : [
-
-    ],
-    "stripped_doc" : [
-
-    ],
-    "Deprecated" : [
-
-    ],
-    "desc" : "Use unsplash images as wallpaper",
-    "type" : "Module",
-    "Constructor" : [
-
-    ],
-    "doc" : "Use unsplash images as wallpaper\n\nDownload: [https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/UnsplashZ.spoon.zip](https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/UnsplashZ.spoon.zip)",
-    "Method" : [
-
-    ],
-    "Command" : [
-
-    ],
-    "items" : [
-
-    ],
-    "Field" : [
-
-    ],
-    "name" : "UnsplashZ"
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [],
+    "Variable": [],
+    "desc": "Use unsplash images as wallpaper",
+    "doc": "Use unsplash images as wallpaper\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/UnsplashZ.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/UnsplashZ.spoon.zip)",
+    "items": [],
+    "name": "UnsplashZ",
+    "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/UnsplashZ.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/UnsplashZ.spoon.zip)",
+    "submodules": [],
+    "type": "Module"
   }
 ]
