@@ -1106,6 +1106,15 @@
     ],
     "Variable": [
       {
+        "def": "HeadphoneAutoPause.autoResume",
+        "desc": "Boolean value indicating if music should be automatically resumed when headphones are plugged in again. Only works if music was automatically paused when headphones were unplugged.",
+        "doc": "Boolean value indicating if music should be automatically resumed when headphones are plugged in again. Only works if music was automatically paused when headphones were unplugged.\n\nDefault value: `true`",
+        "name": "autoResume",
+        "signature": "HeadphoneAutoPause.autoResume",
+        "stripped_doc": "Default value: `true`",
+        "type": "Variable"
+      },
+      {
         "def": "HeadphoneAutoPause.control",
         "desc": "Table containing one key per application, with the value indicating whether HeadphoneAutoPause should try to pause/unpause that application in response to the headphone being plugged/unplugged. The key name must ideally correspond to the name of the corresponding `hs.*` module. Default value:",
         "doc": "Table containing one key per application, with the value indicating whether HeadphoneAutoPause should try to pause/unpause that application in response to the headphone being plugged/unplugged. The key name must ideally correspond to the name of the corresponding `hs.*` module. Default value:\n```\n{\n   itunes = true,\n   spotify = true,\n   deezer = true,\n   vox = false -- Vox has built-in headphone detection support\n}\n```",
@@ -1144,6 +1153,15 @@
         "signature": "HeadphoneAutoPause:audiodevwatch(dev_uid, event_name)",
         "stripped_doc": "",
         "type": "Method"
+      },
+      {
+        "def": "HeadphoneAutoPause.autoResume",
+        "desc": "Boolean value indicating if music should be automatically resumed when headphones are plugged in again. Only works if music was automatically paused when headphones were unplugged.",
+        "doc": "Boolean value indicating if music should be automatically resumed when headphones are plugged in again. Only works if music was automatically paused when headphones were unplugged.\n\nDefault value: `true`",
+        "name": "autoResume",
+        "signature": "HeadphoneAutoPause.autoResume",
+        "stripped_doc": "Default value: `true`",
+        "type": "Variable"
       },
       {
         "def": "HeadphoneAutoPause.control",

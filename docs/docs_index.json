@@ -275,6 +275,12 @@
     "type": "Module"
   },
   {
+    "desc": "Boolean value indicating if music should be automatically resumed when headphones are plugged in again. Only works if music was automatically paused when headphones were unplugged.",
+    "module": "HeadphoneAutoPause",
+    "name": "autoResume",
+    "type": "Variable"
+  },
+  {
     "desc": "Table containing one key per application, with the value indicating whether HeadphoneAutoPause should try to pause/unpause that application in response to the headphone being plugged/unplugged. The key name must ideally correspond to the name of the corresponding `hs.*` module. Default value:",
     "module": "HeadphoneAutoPause",
     "name": "control",
