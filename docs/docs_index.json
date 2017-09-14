@@ -610,6 +610,53 @@
     "type": "Method"
   },
   {
+    "desc": "Creates a semitransparent overlay to reduce screen brightness.",
+    "name": "Shade",
+    "type": "Module"
+  },
+  {
+    "desc": "Flag for Shade status, 'false' means shade off, 'true' means on.",
+    "module": "Shade",
+    "name": "shadeIsOn",
+    "type": "Variable"
+  },
+  {
+    "desc": "Contains the alpha (transparency) of the overlay, from 0.0 (completely",
+    "module": "Shade",
+    "name": "shadeTransparency",
+    "type": "Variable"
+  },
+  {
+    "desc": "Turns shade on/off",
+    "module": "Shade",
+    "name": "toggleShade",
+    "type": "Function"
+  },
+  {
+    "desc": "Binds hotkeys for Shade",
+    "module": "Shade",
+    "name": "bindHotkeys",
+    "type": "Method"
+  },
+  {
+    "desc": "Sets up the Spoon",
+    "module": "Shade",
+    "name": "init",
+    "type": "Method"
+  },
+  {
+    "desc": "Turn the shade on, darkening the screen",
+    "module": "Shade",
+    "name": "start",
+    "type": "Method"
+  },
+  {
+    "desc": "Turn the shade off, brightening the screen",
+    "module": "Shade",
+    "name": "stop",
+    "type": "Method"
+  },
+  {
     "desc": "Install and manage Spoons and Spoon repositories",
     "name": "SpoonInstall",
     "type": "Module"
