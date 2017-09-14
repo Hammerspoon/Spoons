@@ -1,0 +1,191 @@
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hammerspoon docs: WinWin</title>
+    <style type="text/css">
+      a { text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      th { background-color: #DDDDDD; vertical-align: top; padding: 3px; }
+      td { width: 100%; background-color: #EEEEEE; vertical-align: top; padding: 3px; }
+      table { width: 100% ; border: 1px solid #0; text-align: left; }
+      section > table table td { width: 0; }
+    </style>
+    <link rel="stylesheet" href="docs.css" type="text/css" media="screen" />
+  </head>
+  <body>
+    <header>
+      <h1><a href="./index.html">docs</a> &raquo; WinWin</h1>
+      <p>Windows manipulation</p>
+<p>Download: <a href="https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WinWin.spoon.zip">https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WinWin.spoon.zip</a></p>
+
+      </header>
+      <h3>API Overview</h3>
+      <ul>
+        <li>Variables - Configurable values</li>
+          <ul>
+            <li><a href="#gridparts">gridparts</a></li>
+          </ul>
+        <li>Methods - API calls which can only be made on an object returned by a constructor</li>
+          <ul>
+            <li><a href="#centerCursor">centerCursor</a></li>
+            <li><a href="#moveAndResize">moveAndResize</a></li>
+            <li><a href="#moveToScreen">moveToScreen</a></li>
+            <li><a href="#stepMove">stepMove</a></li>
+            <li><a href="#stepResize">stepResize</a></li>
+            <li><a href="#undo">undo</a></li>
+          </ul>
+      </ul>
+      <h3>API Documentation</h3>
+        <h4 class="documentation-section">Variables</h4>
+          <section id="gridparts">
+            <a name="//apple_ref/cpp/Variable/gridparts" class="dashAnchor"></a>
+            <h5><a href="#gridparts">gridparts</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>WinWin.gridparts</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>An integer specifying how many gridparts the screen should be divided into. Defaults to 30.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+        <h4 class="documentation-section">Methods</h4>
+          <section id="centerCursor">
+            <a name="//apple_ref/cpp/Method/centerCursor" class="dashAnchor"></a>
+            <h5><a href="#centerCursor">centerCursor</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>WinWin:centerCursor()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Center the cursor on the focused window.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="moveAndResize">
+            <a name="//apple_ref/cpp/Method/moveAndResize" class="dashAnchor"></a>
+            <h5><a href="#moveAndResize">moveAndResize</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>WinWin:moveAndResize(option)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Move and resize the focused window.</p>
+<p>Parameters:</p>
+<ul>
+<li>option - A string specifying the option, valid strings are: <code>halfleft</code>, <code>halfright</code>, <code>halfup</code>, <code>halfdown</code>, <code>cornerNW</code>, <code>cornerSW</code>, <code>cornerNE</code>, <code>cornerSE</code>, <code>center</code>, <code>fullscreen</code>, <code>expand</code>, <code>shrink</code>.</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="moveToScreen">
+            <a name="//apple_ref/cpp/Method/moveToScreen" class="dashAnchor"></a>
+            <h5><a href="#moveToScreen">moveToScreen</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>WinWin:moveToScreen(direction)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Move the focused window between all of the screens in the <code>direction</code>.</p>
+<p>Parameters:</p>
+<ul>
+<li>direction - A string specifying the direction, valid strings are: <code>left</code>, <code>right</code>, <code>up</code>, <code>down</code>, <code>next</code>.</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="stepMove">
+            <a name="//apple_ref/cpp/Method/stepMove" class="dashAnchor"></a>
+            <h5><a href="#stepMove">stepMove</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>WinWin:stepMove(direction)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Move the focused window in the <code>direction</code> by on step. The step scale equals to the width/height of one gridpart.</p>
+<p>Parameters:</p>
+<ul>
+<li>direction - A string specifying the direction, valid strings are: <code>left</code>, <code>right</code>, <code>up</code>, <code>down</code>.</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="stepResize">
+            <a name="//apple_ref/cpp/Method/stepResize" class="dashAnchor"></a>
+            <h5><a href="#stepResize">stepResize</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>WinWin:stepResize(direction)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Resize the focused window in the <code>direction</code> by on step.</p>
+<p>Parameters:</p>
+<ul>
+<li>direction - A string specifying the direction, valid strings are: <code>left</code>, <code>right</code>, <code>up</code>, <code>down</code>.</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="undo">
+            <a name="//apple_ref/cpp/Method/undo" class="dashAnchor"></a>
+            <h5><a href="#undo">undo</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>WinWin:undo()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Undo the last window manipulation. Only those "moveAndResize" manipulations can be undone.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+  </body>
+</html>

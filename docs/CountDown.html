@@ -1,0 +1,99 @@
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hammerspoon docs: CountDown</title>
+    <style type="text/css">
+      a { text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      th { background-color: #DDDDDD; vertical-align: top; padding: 3px; }
+      td { width: 100%; background-color: #EEEEEE; vertical-align: top; padding: 3px; }
+      table { width: 100% ; border: 1px solid #0; text-align: left; }
+      section > table table td { width: 0; }
+    </style>
+    <link rel="stylesheet" href="docs.css" type="text/css" media="screen" />
+  </head>
+  <body>
+    <header>
+      <h1><a href="./index.html">docs</a> &raquo; CountDown</h1>
+      <p>Tiny countdown with visual indicator</p>
+<p>Download: <a href="https://github.com/Hammerspoon/Spoons/raw/master/Spoons/CountDown.spoon.zip">https://github.com/Hammerspoon/Spoons/raw/master/Spoons/CountDown.spoon.zip</a></p>
+
+      </header>
+      <h3>API Overview</h3>
+      <ul>
+        <li>Methods - API calls which can only be made on an object returned by a constructor</li>
+          <ul>
+            <li><a href="#pauseOrResume">pauseOrResume</a></li>
+            <li><a href="#setProgress">setProgress</a></li>
+            <li><a href="#startFor">startFor</a></li>
+          </ul>
+      </ul>
+      <h3>API Documentation</h3>
+        <h4 class="documentation-section">Methods</h4>
+          <section id="pauseOrResume">
+            <a name="//apple_ref/cpp/Method/pauseOrResume" class="dashAnchor"></a>
+            <h5><a href="#pauseOrResume">pauseOrResume</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>CountDown:pauseOrResume()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Pause or resume the existing countdown.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="setProgress">
+            <a name="//apple_ref/cpp/Method/setProgress" class="dashAnchor"></a>
+            <h5><a href="#setProgress">setProgress</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>CountDown:setProgress(progress)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Set the progress of visual indicator to <code>progress</code>.</p>
+<p>Parameters:</p>
+<ul>
+<li>progress - an number specifying the value of progress (0.0 - 1.0)</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="startFor">
+            <a name="//apple_ref/cpp/Method/startFor" class="dashAnchor"></a>
+            <h5><a href="#startFor">startFor</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>CountDown:startFor(minutes)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Start a countdown for <code>minutes</code> minutes immediately. Calling this method again will kill the existing countdown instance.</p>
+<p>Parameters:</p>
+<ul>
+<li>minutes - How many minutes</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+  </body>
+</html>

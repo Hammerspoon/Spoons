@@ -8,6 +8,60 @@
     "Function": [],
     "Method": [
       {
+        "def": "AClock:toggleShow()",
+        "desc": "Show AClock, if already showing, just hide it.",
+        "doc": "Show AClock, if already showing, just hide it.\n",
+        "name": "toggleShow",
+        "signature": "AClock:toggleShow()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [],
+    "desc": "Just another clock, floating above all",
+    "doc": "Just another clock, floating above all\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/AClock.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/AClock.spoon.zip)",
+    "items": [
+      {
+        "def": "AClock:toggleShow()",
+        "desc": "Show AClock, if already showing, just hide it.",
+        "doc": "Show AClock, if already showing, just hide it.\n",
+        "name": "toggleShow",
+        "signature": "AClock:toggleShow()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "name": "AClock",
+    "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/AClock.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/AClock.spoon.zip)",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [],
+    "Variable": [],
+    "desc": "Use Bing daily picture as your wallpaper, automatically.",
+    "doc": "Use Bing daily picture as your wallpaper, automatically.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/BingDaily.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/BingDaily.spoon.zip)",
+    "items": [],
+    "name": "BingDaily",
+    "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/BingDaily.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/BingDaily.spoon.zip)",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
         "def": "BrewInfo:bindHotkeys(mapping)",
         "desc": "Binds hotkeys for BrewInfo",
         "doc": "Binds hotkeys for BrewInfo\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for the following items:\n  * show_brew_info - Show output of `brew info` using the selected text as package name\n  * open_brew_url - Open the homepage of the formula whose name is currently selected\n  * show_brew_cask_info - Show output of `brew cask info` using the selected text as package name\n  * open_brew_cask_url - Open the homepage of the Cask whose name is currently selected",
@@ -365,6 +419,179 @@
     "Deprecated": [],
     "Field": [],
     "Function": [],
+    "Method": [],
+    "Variable": [],
+    "desc": "A calendar inset into the desktop",
+    "doc": "A calendar inset into the desktop\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Calendar.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Calendar.spoon.zip)",
+    "items": [],
+    "name": "Calendar",
+    "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Calendar.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Calendar.spoon.zip)",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [],
+    "Variable": [],
+    "desc": "A circleclock inset into the desktop",
+    "doc": "A circleclock inset into the desktop\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/CircleClock.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/CircleClock.spoon.zip)",
+    "items": [],
+    "name": "CircleClock",
+    "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/CircleClock.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/CircleClock.spoon.zip)",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
+        "def": "ClipShow:openInBrowserWithRef(refstr)",
+        "desc": "Open content of the clipboard in default browser with specific refstr.",
+        "doc": "Open content of the clipboard in default browser with specific refstr.\n\nParameters:\n * refstr - A optional string specifying which refstr to use. If nil, then open this content in browser directly. The \"refstr\" could be something like this: `https://www.bing.com/search?q=`.",
+        "name": "openInBrowserWithRef",
+        "parameters": [
+          " * refstr - A optional string specifying which refstr to use. If nil, then open this content in browser directly. The \"refstr\" could be something like this: `https://www.bing.com/search?q=`."
+        ],
+        "signature": "ClipShow:openInBrowserWithRef(refstr)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "ClipShow:openWithCommand(command)",
+        "desc": "Open local file with specific command.",
+        "doc": "Open local file with specific command.\n\nParameters:\n * command - A string specifying which command to use. The \"command\" is something like this: `/usr/local/bin/mvim`.",
+        "name": "openWithCommand",
+        "parameters": [
+          " * command - A string specifying which command to use. The \"command\" is something like this: `/usr/local/bin/mvim`."
+        ],
+        "signature": "ClipShow:openWithCommand(command)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "ClipShow:restoreLastSession()",
+        "desc": "Restore the lastsession of system clipboard",
+        "doc": "Restore the lastsession of system clipboard\n",
+        "name": "restoreLastSession",
+        "signature": "ClipShow:restoreLastSession()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "ClipShow:saveToFile()",
+        "desc": "Save content of current canvas to a file, the default location is `~/Desktop/`.",
+        "doc": "Save content of current canvas to a file, the default location is `~/Desktop/`.\n",
+        "name": "saveToFile",
+        "signature": "ClipShow:saveToFile()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "ClipShow:saveToSession()",
+        "desc": "Save clipboard session so we can restore it later",
+        "doc": "Save clipboard session so we can restore it later\n",
+        "name": "saveToSession",
+        "signature": "ClipShow:saveToSession()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "ClipShow:toggleShow()",
+        "desc": "Process the content of system clipboard and show/hide the canvas",
+        "doc": "Process the content of system clipboard and show/hide the canvas\n",
+        "name": "toggleShow",
+        "signature": "ClipShow:toggleShow()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [],
+    "desc": "Show the content of system clipboard",
+    "doc": "Show the content of system clipboard\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/ClipShow.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/ClipShow.spoon.zip)",
+    "items": [
+      {
+        "def": "ClipShow:openInBrowserWithRef(refstr)",
+        "desc": "Open content of the clipboard in default browser with specific refstr.",
+        "doc": "Open content of the clipboard in default browser with specific refstr.\n\nParameters:\n * refstr - A optional string specifying which refstr to use. If nil, then open this content in browser directly. The \"refstr\" could be something like this: `https://www.bing.com/search?q=`.",
+        "name": "openInBrowserWithRef",
+        "parameters": [
+          " * refstr - A optional string specifying which refstr to use. If nil, then open this content in browser directly. The \"refstr\" could be something like this: `https://www.bing.com/search?q=`."
+        ],
+        "signature": "ClipShow:openInBrowserWithRef(refstr)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "ClipShow:openWithCommand(command)",
+        "desc": "Open local file with specific command.",
+        "doc": "Open local file with specific command.\n\nParameters:\n * command - A string specifying which command to use. The \"command\" is something like this: `/usr/local/bin/mvim`.",
+        "name": "openWithCommand",
+        "parameters": [
+          " * command - A string specifying which command to use. The \"command\" is something like this: `/usr/local/bin/mvim`."
+        ],
+        "signature": "ClipShow:openWithCommand(command)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "ClipShow:restoreLastSession()",
+        "desc": "Restore the lastsession of system clipboard",
+        "doc": "Restore the lastsession of system clipboard\n",
+        "name": "restoreLastSession",
+        "signature": "ClipShow:restoreLastSession()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "ClipShow:saveToFile()",
+        "desc": "Save content of current canvas to a file, the default location is `~/Desktop/`.",
+        "doc": "Save content of current canvas to a file, the default location is `~/Desktop/`.\n",
+        "name": "saveToFile",
+        "signature": "ClipShow:saveToFile()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "ClipShow:saveToSession()",
+        "desc": "Save clipboard session so we can restore it later",
+        "doc": "Save clipboard session so we can restore it later\n",
+        "name": "saveToSession",
+        "signature": "ClipShow:saveToSession()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "ClipShow:toggleShow()",
+        "desc": "Process the content of system clipboard and show/hide the canvas",
+        "doc": "Process the content of system clipboard and show/hide the canvas\n",
+        "name": "toggleShow",
+        "signature": "ClipShow:toggleShow()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "name": "ClipShow",
+    "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/ClipShow.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/ClipShow.spoon.zip)",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
     "Method": [
       {
         "def": "ColorPicker:bindHotkeys(mapping)",
@@ -479,6 +706,91 @@
     ],
     "name": "ColorPicker",
     "stripped_doc": "\nClicking on any color will copy its name to the clipboard, cmd-click will copy its RGB code.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/ColorPicker.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/ColorPicker.spoon.zip)",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
+        "def": "CountDown:pauseOrResume()",
+        "desc": "Pause or resume the existing countdown.",
+        "doc": "Pause or resume the existing countdown.\n",
+        "name": "pauseOrResume",
+        "signature": "CountDown:pauseOrResume()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "CountDown:setProgress(progress)",
+        "desc": "Set the progress of visual indicator to `progress`.",
+        "doc": "Set the progress of visual indicator to `progress`.\n\nParameters:\n * progress - an number specifying the value of progress (0.0 - 1.0)",
+        "name": "setProgress",
+        "parameters": [
+          " * progress - an number specifying the value of progress (0.0 - 1.0)"
+        ],
+        "signature": "CountDown:setProgress(progress)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "CountDown:startFor(minutes)",
+        "desc": "Start a countdown for `minutes` minutes immediately. Calling this method again will kill the existing countdown instance.",
+        "doc": "Start a countdown for `minutes` minutes immediately. Calling this method again will kill the existing countdown instance.\n\nParameters:\n * minutes - How many minutes",
+        "name": "startFor",
+        "parameters": [
+          " * minutes - How many minutes"
+        ],
+        "signature": "CountDown:startFor(minutes)",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [],
+    "desc": "Tiny countdown with visual indicator",
+    "doc": "Tiny countdown with visual indicator\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/CountDown.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/CountDown.spoon.zip)",
+    "items": [
+      {
+        "def": "CountDown:pauseOrResume()",
+        "desc": "Pause or resume the existing countdown.",
+        "doc": "Pause or resume the existing countdown.\n",
+        "name": "pauseOrResume",
+        "signature": "CountDown:pauseOrResume()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "CountDown:setProgress(progress)",
+        "desc": "Set the progress of visual indicator to `progress`.",
+        "doc": "Set the progress of visual indicator to `progress`.\n\nParameters:\n * progress - an number specifying the value of progress (0.0 - 1.0)",
+        "name": "setProgress",
+        "parameters": [
+          " * progress - an number specifying the value of progress (0.0 - 1.0)"
+        ],
+        "signature": "CountDown:setProgress(progress)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "CountDown:startFor(minutes)",
+        "desc": "Start a countdown for `minutes` minutes immediately. Calling this method again will kill the existing countdown instance.",
+        "doc": "Start a countdown for `minutes` minutes immediately. Calling this method again will kill the existing countdown instance.\n\nParameters:\n * minutes - How many minutes",
+        "name": "startFor",
+        "parameters": [
+          " * minutes - How many minutes"
+        ],
+        "signature": "CountDown:startFor(minutes)",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "name": "CountDown",
+    "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/CountDown.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/CountDown.spoon.zip)",
     "submodules": [],
     "type": "Module"
   },
@@ -1060,6 +1372,40 @@
     "Deprecated": [],
     "Field": [],
     "Function": [],
+    "Method": [],
+    "Variable": [],
+    "desc": "Use Fn + `h/l/j/k` as arrow keys, `y/u/i/o` as mouse wheel, `,/.` as left/right click.",
+    "doc": "Use Fn + `h/l/j/k` as arrow keys, `y/u/i/o` as mouse wheel, `,/.` as left/right click.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/FnMate.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/FnMate.spoon.zip)",
+    "items": [],
+    "name": "FnMate",
+    "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/FnMate.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/FnMate.spoon.zip)",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [],
+    "Variable": [],
+    "desc": "A horizonal calendar inset into the desktop",
+    "doc": "A horizonal calendar inset into the desktop\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/HCalendar.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/HCalendar.spoon.zip)",
+    "items": [],
+    "name": "HCalendar",
+    "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/HCalendar.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/HCalendar.spoon.zip)",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
     "Method": [
       {
         "def": "HeadphoneAutoPause:audiodevwatch(dev_uid, event_name)",
@@ -1226,6 +1572,294 @@
     ],
     "name": "HeadphoneAutoPause",
     "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/HeadphoneAutoPause.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/HeadphoneAutoPause.spoon.zip)",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
+        "def": "HSaria2:connectToHost(hostaddr, secret)",
+        "desc": "Try connect to `hostaddr` with `secret`. If succeed, they will become default values for following-up oprations.",
+        "doc": "Try connect to `hostaddr` with `secret`. If succeed, they will become default values for following-up oprations.\n\nParameters:\n * hostaddr - A sring specifying aria2 RPC host, including host name and port address. e.g. \"http://localhost:6800/jsonrpc\".\n * secret - A string specifying host secret",
+        "name": "connectToHost",
+        "parameters": [
+          " * hostaddr - A sring specifying aria2 RPC host, including host name and port address. e.g. \"http://localhost:6800/jsonrpc\".",
+          " * secret - A string specifying host secret"
+        ],
+        "signature": "HSaria2:connectToHost(hostaddr, secret)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "HSaria2:newTask(tasktype, urls, hostaddr, secret)",
+        "desc": "Create new regular/bt/metalink task, and send notification when done.",
+        "doc": "Create new regular/bt/metalink task, and send notification when done.\n\nParameters:\n * tasktype - A string specifying task type. The value is one of these: `addUri`, `addTorrent`, `addMetalink`, `nil`. When tasktype is `nil`, aria2 will create a regular download task.\n * urls - A string or a table specifying URL. Multi URLs (table) are only available when tasktype is `addUri` or `nil`.\n * hostaddr - A optional sring specifying aria2 RPC host\n * secret - A optional string specifying host secret",
+        "name": "newTask",
+        "parameters": [
+          " * tasktype - A string specifying task type. The value is one of these: `addUri`, `addTorrent`, `addMetalink`, `nil`. When tasktype is `nil`, aria2 will create a regular download task.",
+          " * urls - A string or a table specifying URL. Multi URLs (table) are only available when tasktype is `addUri` or `nil`.",
+          " * hostaddr - A optional sring specifying aria2 RPC host",
+          " * secret - A optional string specifying host secret"
+        ],
+        "signature": "HSaria2:newTask(tasktype, urls, hostaddr, secret)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "HSaria2:sendCommand(command, gid, hostaddr, secret)",
+        "desc": "Send a command to `hostaddr`, only limited commands are supported.",
+        "doc": "Send a command to `hostaddr`, only limited commands are supported.\n\nParameters:\n * command - A string specifying sending command. The value is one of these: `remove`, `forceRemove`, `pause`, `pauseAll`, `forcePause`, `forcePauseAll`, `unpause`, `unpauseAll`, `purgeDownloadResult`, `removeDownloadResult`.\n * gid - A string specifying GID (aria2 identifies each download by the ID called GID). This Parameter can be optional or not according to the value of `command`.\n * hostaddr - A optional sring specifying aria2 RPC host\n * secret - A optional string specifying host secret",
+        "name": "sendCommand",
+        "parameters": [
+          " * command - A string specifying sending command. The value is one of these: `remove`, `forceRemove`, `pause`, `pauseAll`, `forcePause`, `forcePauseAll`, `unpause`, `unpauseAll`, `purgeDownloadResult`, `removeDownloadResult`.",
+          " * gid - A string specifying GID (aria2 identifies each download by the ID called GID). This Parameter can be optional or not according to the value of `command`.",
+          " * hostaddr - A optional sring specifying aria2 RPC host",
+          " * secret - A optional string specifying host secret"
+        ],
+        "signature": "HSaria2:sendCommand(command, gid, hostaddr, secret)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "HSaria2:togglePanel()",
+        "desc": "Toggle the display of aria2 panel. The panel allows users to interact with aria2, add new tasks, pause them, or remove, purge … etc.",
+        "doc": "Toggle the display of aria2 panel. The panel allows users to interact with aria2, add new tasks, pause them, or remove, purge … etc.\n",
+        "name": "togglePanel",
+        "signature": "HSaria2:togglePanel()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [
+      {
+        "def": "HSaria2.max_items",
+        "desc": "How many items should be created on aria2 panel? Defaults to 5.",
+        "doc": "How many items should be created on aria2 panel? Defaults to 5.",
+        "name": "max_items",
+        "signature": "HSaria2.max_items",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "HSaria2.refresh_interval",
+        "desc": "How often should HSaria2 retrieve data from RPC server? Defaults to 1 (second).",
+        "doc": "How often should HSaria2 retrieve data from RPC server? Defaults to 1 (second).",
+        "name": "refresh_interval",
+        "signature": "HSaria2.refresh_interval",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "desc": "Communicate with [aria2](https://github.com/aria2/aria2), an interactive panel included.",
+    "doc": "Communicate with [aria2](https://github.com/aria2/aria2), an interactive panel included.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/HSaria2.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/HSaria2.spoon.zip)",
+    "items": [
+      {
+        "def": "HSaria2:connectToHost(hostaddr, secret)",
+        "desc": "Try connect to `hostaddr` with `secret`. If succeed, they will become default values for following-up oprations.",
+        "doc": "Try connect to `hostaddr` with `secret`. If succeed, they will become default values for following-up oprations.\n\nParameters:\n * hostaddr - A sring specifying aria2 RPC host, including host name and port address. e.g. \"http://localhost:6800/jsonrpc\".\n * secret - A string specifying host secret",
+        "name": "connectToHost",
+        "parameters": [
+          " * hostaddr - A sring specifying aria2 RPC host, including host name and port address. e.g. \"http://localhost:6800/jsonrpc\".",
+          " * secret - A string specifying host secret"
+        ],
+        "signature": "HSaria2:connectToHost(hostaddr, secret)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "HSaria2.max_items",
+        "desc": "How many items should be created on aria2 panel? Defaults to 5.",
+        "doc": "How many items should be created on aria2 panel? Defaults to 5.",
+        "name": "max_items",
+        "signature": "HSaria2.max_items",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "HSaria2:newTask(tasktype, urls, hostaddr, secret)",
+        "desc": "Create new regular/bt/metalink task, and send notification when done.",
+        "doc": "Create new regular/bt/metalink task, and send notification when done.\n\nParameters:\n * tasktype - A string specifying task type. The value is one of these: `addUri`, `addTorrent`, `addMetalink`, `nil`. When tasktype is `nil`, aria2 will create a regular download task.\n * urls - A string or a table specifying URL. Multi URLs (table) are only available when tasktype is `addUri` or `nil`.\n * hostaddr - A optional sring specifying aria2 RPC host\n * secret - A optional string specifying host secret",
+        "name": "newTask",
+        "parameters": [
+          " * tasktype - A string specifying task type. The value is one of these: `addUri`, `addTorrent`, `addMetalink`, `nil`. When tasktype is `nil`, aria2 will create a regular download task.",
+          " * urls - A string or a table specifying URL. Multi URLs (table) are only available when tasktype is `addUri` or `nil`.",
+          " * hostaddr - A optional sring specifying aria2 RPC host",
+          " * secret - A optional string specifying host secret"
+        ],
+        "signature": "HSaria2:newTask(tasktype, urls, hostaddr, secret)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "HSaria2.refresh_interval",
+        "desc": "How often should HSaria2 retrieve data from RPC server? Defaults to 1 (second).",
+        "doc": "How often should HSaria2 retrieve data from RPC server? Defaults to 1 (second).",
+        "name": "refresh_interval",
+        "signature": "HSaria2.refresh_interval",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "HSaria2:sendCommand(command, gid, hostaddr, secret)",
+        "desc": "Send a command to `hostaddr`, only limited commands are supported.",
+        "doc": "Send a command to `hostaddr`, only limited commands are supported.\n\nParameters:\n * command - A string specifying sending command. The value is one of these: `remove`, `forceRemove`, `pause`, `pauseAll`, `forcePause`, `forcePauseAll`, `unpause`, `unpauseAll`, `purgeDownloadResult`, `removeDownloadResult`.\n * gid - A string specifying GID (aria2 identifies each download by the ID called GID). This Parameter can be optional or not according to the value of `command`.\n * hostaddr - A optional sring specifying aria2 RPC host\n * secret - A optional string specifying host secret",
+        "name": "sendCommand",
+        "parameters": [
+          " * command - A string specifying sending command. The value is one of these: `remove`, `forceRemove`, `pause`, `pauseAll`, `forcePause`, `forcePauseAll`, `unpause`, `unpauseAll`, `purgeDownloadResult`, `removeDownloadResult`.",
+          " * gid - A string specifying GID (aria2 identifies each download by the ID called GID). This Parameter can be optional or not according to the value of `command`.",
+          " * hostaddr - A optional sring specifying aria2 RPC host",
+          " * secret - A optional string specifying host secret"
+        ],
+        "signature": "HSaria2:sendCommand(command, gid, hostaddr, secret)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "HSaria2:togglePanel()",
+        "desc": "Toggle the display of aria2 panel. The panel allows users to interact with aria2, add new tasks, pause them, or remove, purge … etc.",
+        "doc": "Toggle the display of aria2 panel. The panel allows users to interact with aria2, add new tasks, pause them, or remove, purge … etc.\n",
+        "name": "togglePanel",
+        "signature": "HSaria2:togglePanel()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "name": "HSaria2",
+    "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/HSaria2.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/HSaria2.spoon.zip)",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
+        "def": "HSearch:loadSources()",
+        "desc": "Load new sources from `HSearch.search_path`, the search_path defaults to `~/.hammerspoon/private/hsearch_dir` and the HSearch Spoon directory. Only for debug purpose in usual.",
+        "doc": "Load new sources from `HSearch.search_path`, the search_path defaults to `~/.hammerspoon/private/hsearch_dir` and the HSearch Spoon directory. Only for debug purpose in usual.\n",
+        "name": "loadSources",
+        "signature": "HSearch:loadSources()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "HSearch:switchSource()",
+        "desc": "Tigger new source according to hs.chooser's query string and keyword. Only for debug purpose in usual.",
+        "doc": "Tigger new source according to hs.chooser's query string and keyword. Only for debug purpose in usual.\n",
+        "name": "switchSource",
+        "signature": "HSearch:switchSource()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "HSearch:toggleShow()",
+        "desc": "Toggle the display of HSearch",
+        "doc": "Toggle the display of HSearch\n",
+        "name": "toggleShow",
+        "signature": "HSearch:toggleShow()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [],
+    "desc": "Hammerspoon Search",
+    "doc": "Hammerspoon Search\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/HSearch.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/HSearch.spoon.zip)",
+    "items": [
+      {
+        "def": "HSearch:loadSources()",
+        "desc": "Load new sources from `HSearch.search_path`, the search_path defaults to `~/.hammerspoon/private/hsearch_dir` and the HSearch Spoon directory. Only for debug purpose in usual.",
+        "doc": "Load new sources from `HSearch.search_path`, the search_path defaults to `~/.hammerspoon/private/hsearch_dir` and the HSearch Spoon directory. Only for debug purpose in usual.\n",
+        "name": "loadSources",
+        "signature": "HSearch:loadSources()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "HSearch:switchSource()",
+        "desc": "Tigger new source according to hs.chooser's query string and keyword. Only for debug purpose in usual.",
+        "doc": "Tigger new source according to hs.chooser's query string and keyword. Only for debug purpose in usual.\n",
+        "name": "switchSource",
+        "signature": "HSearch:switchSource()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "HSearch:toggleShow()",
+        "desc": "Toggle the display of HSearch",
+        "doc": "Toggle the display of HSearch\n",
+        "name": "toggleShow",
+        "signature": "HSearch:toggleShow()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "name": "HSearch",
+    "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/HSearch.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/HSearch.spoon.zip)",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
+        "def": "KSheet:hide()",
+        "desc": "Hide the cheatsheet webview",
+        "doc": "Hide the cheatsheet webview\n",
+        "name": "hide",
+        "signature": "KSheet:hide()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "KSheet:show()",
+        "desc": "Show current application's keybindings in a webview",
+        "doc": "Show current application's keybindings in a webview\n",
+        "name": "show",
+        "signature": "KSheet:show()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [],
+    "desc": "Keybindings cheatsheet for current application",
+    "doc": "Keybindings cheatsheet for current application\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/KSheet.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/KSheet.spoon.zip)",
+    "items": [
+      {
+        "def": "KSheet:hide()",
+        "desc": "Hide the cheatsheet webview",
+        "doc": "Hide the cheatsheet webview\n",
+        "name": "hide",
+        "signature": "KSheet:hide()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "KSheet:show()",
+        "desc": "Show current application's keybindings in a webview",
+        "doc": "Show current application's keybindings in a webview\n",
+        "name": "show",
+        "signature": "KSheet:show()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "name": "KSheet",
+    "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/KSheet.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/KSheet.spoon.zip)",
     "submodules": [],
     "type": "Module"
   },
@@ -1432,6 +2066,145 @@
     ],
     "name": "MenubarFlag",
     "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MenubarFlag.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MenubarFlag.spoon.zip)\n\nFunctionality inspired by [ShowyEdge](https://pqrs.org/osx/ShowyEdge/index.html.en)",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
+        "def": "ModalMgr:activate(idList, [trayColor], [showKeys])",
+        "desc": "Activate all modal environment in `idList`.",
+        "doc": "Activate all modal environment in `idList`.\n\nParameters:\n * idList - An table specifying IDs of modal environments\n * trayColor - An optional string (e.g. #000000) specifying the color of modalTray, defaults to `nil`.\n * showKeys - A optional boolean value to show all available keybindings, defaults to `nil`.",
+        "name": "activate",
+        "parameters": [
+          " * idList - An table specifying IDs of modal environments",
+          " * trayColor - An optional string (e.g. #000000) specifying the color of modalTray, defaults to `nil`.",
+          " * showKeys - A optional boolean value to show all available keybindings, defaults to `nil`."
+        ],
+        "signature": "ModalMgr:activate(idList, [trayColor], [showKeys])",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "ModalMgr:deactivate(idList)",
+        "desc": "Deactivate modal environments in `idList`.",
+        "doc": "Deactivate modal environments in `idList`.\n\nParameters:\n * idList - An table specifying IDs of modal environments",
+        "name": "deactivate",
+        "parameters": [
+          " * idList - An table specifying IDs of modal environments"
+        ],
+        "signature": "ModalMgr:deactivate(idList)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "ModalMgr:deactivateAll()",
+        "desc": "Deactivate all active modal environments.",
+        "doc": "Deactivate all active modal environments.\n",
+        "name": "deactivateAll",
+        "signature": "ModalMgr:deactivateAll()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "ModalMgr:new(id)",
+        "desc": "Create a new modal keybindings environment",
+        "doc": "Create a new modal keybindings environment\n\nParameters:\n * id - A string specifying ID of new modal keybindings",
+        "name": "new",
+        "parameters": [
+          " * id - A string specifying ID of new modal keybindings"
+        ],
+        "signature": "ModalMgr:new(id)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "ModalMgr:toggleCheatsheet([idList], [force])",
+        "desc": "Toggle the cheatsheet display of current modal environments's keybindings.",
+        "doc": "Toggle the cheatsheet display of current modal environments's keybindings.\n\nParameters:\n * iterList - An table specifying IDs of modal environments or active_list. Optional, defaults to all active environments.\n * force - A optional boolean value to force show cheatsheet, defaults to `nil` (automatically).",
+        "name": "toggleCheatsheet",
+        "parameters": [
+          " * iterList - An table specifying IDs of modal environments or active_list. Optional, defaults to all active environments.",
+          " * force - A optional boolean value to force show cheatsheet, defaults to `nil` (automatically)."
+        ],
+        "signature": "ModalMgr:toggleCheatsheet([idList], [force])",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [],
+    "desc": "Modal keybindings environment management. Just an wrapper of `hs.hotkey.modal`.",
+    "doc": "Modal keybindings environment management. Just an wrapper of `hs.hotkey.modal`.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/ModalMgr.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/ModalMgr.spoon.zip)",
+    "items": [
+      {
+        "def": "ModalMgr:activate(idList, [trayColor], [showKeys])",
+        "desc": "Activate all modal environment in `idList`.",
+        "doc": "Activate all modal environment in `idList`.\n\nParameters:\n * idList - An table specifying IDs of modal environments\n * trayColor - An optional string (e.g. #000000) specifying the color of modalTray, defaults to `nil`.\n * showKeys - A optional boolean value to show all available keybindings, defaults to `nil`.",
+        "name": "activate",
+        "parameters": [
+          " * idList - An table specifying IDs of modal environments",
+          " * trayColor - An optional string (e.g. #000000) specifying the color of modalTray, defaults to `nil`.",
+          " * showKeys - A optional boolean value to show all available keybindings, defaults to `nil`."
+        ],
+        "signature": "ModalMgr:activate(idList, [trayColor], [showKeys])",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "ModalMgr:deactivate(idList)",
+        "desc": "Deactivate modal environments in `idList`.",
+        "doc": "Deactivate modal environments in `idList`.\n\nParameters:\n * idList - An table specifying IDs of modal environments",
+        "name": "deactivate",
+        "parameters": [
+          " * idList - An table specifying IDs of modal environments"
+        ],
+        "signature": "ModalMgr:deactivate(idList)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "ModalMgr:deactivateAll()",
+        "desc": "Deactivate all active modal environments.",
+        "doc": "Deactivate all active modal environments.\n",
+        "name": "deactivateAll",
+        "signature": "ModalMgr:deactivateAll()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "ModalMgr:new(id)",
+        "desc": "Create a new modal keybindings environment",
+        "doc": "Create a new modal keybindings environment\n\nParameters:\n * id - A string specifying ID of new modal keybindings",
+        "name": "new",
+        "parameters": [
+          " * id - A string specifying ID of new modal keybindings"
+        ],
+        "signature": "ModalMgr:new(id)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "ModalMgr:toggleCheatsheet([idList], [force])",
+        "desc": "Toggle the cheatsheet display of current modal environments's keybindings.",
+        "doc": "Toggle the cheatsheet display of current modal environments's keybindings.\n\nParameters:\n * iterList - An table specifying IDs of modal environments or active_list. Optional, defaults to all active environments.\n * force - A optional boolean value to force show cheatsheet, defaults to `nil` (automatically).",
+        "name": "toggleCheatsheet",
+        "parameters": [
+          " * iterList - An table specifying IDs of modal environments or active_list. Optional, defaults to all active environments.",
+          " * force - A optional boolean value to force show cheatsheet, defaults to `nil` (automatically)."
+        ],
+        "signature": "ModalMgr:toggleCheatsheet([idList], [force])",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "name": "ModalMgr",
+    "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/ModalMgr.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/ModalMgr.spoon.zip)",
     "submodules": [],
     "type": "Module"
   },
@@ -2874,6 +3647,43 @@
     "Function": [],
     "Method": [
       {
+        "def": "SpeedMenu:rescan()",
+        "desc": "Redetect the active interface, darkmode …And redraw everything.",
+        "doc": "Redetect the active interface, darkmode …And redraw everything.\n",
+        "name": "rescan",
+        "signature": "SpeedMenu:rescan()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [],
+    "desc": "Menubar netspeed meter",
+    "doc": "Menubar netspeed meter\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/SpeedMenu.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/SpeedMenu.spoon.zip)",
+    "items": [
+      {
+        "def": "SpeedMenu:rescan()",
+        "desc": "Redetect the active interface, darkmode …And redraw everything.",
+        "doc": "Redetect the active interface, darkmode …And redraw everything.\n",
+        "name": "rescan",
+        "signature": "SpeedMenu:rescan()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "name": "SpeedMenu",
+    "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/SpeedMenu.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/SpeedMenu.spoon.zip)",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
         "def": "SpoonInstall:andUse(name, arg)",
         "desc": "Declaratively install, load and configure a Spoon",
         "doc": "Declaratively install, load and configure a Spoon\n\nParameters:\n * name - the name of the Spoon to install (without the `.spoon` extension). If the Spoon is already installed, it will be loaded using `hs.loadSpoon()`. If it is not installed, it will be installed using `SpoonInstall:asyncInstallSpoonFromRepo()` and then loaded.\n * arg - if provided, can be used to specify the configuration of the Spoon. The following keys are recognized (all are optional):\n   * repo - repository from where the Spoon should be installed if not present in the system, as defined in `SpoonInstall.repos`. Defaults to `\"default\"`.\n   * config - a table containing variables to be stored in the Spoon object to configure it. For example, `config = { answer = 42 }` will result in `spoon.<LoadedSpoon>.answer` being set to 42.\n   * hotkeys - a table containing hotkey bindings. If provided, will be passed as-is to the Spoon's `bindHotkeys()` method. The special string `\"default\"` can be given to use the Spoons `defaultHotkeys` variable, if it exists.\n   * fn - a function which will be called with the freshly-loaded Spoon object as its first argument.\n   * loglevel - if the Spoon has a variable called `logger`, its `setLogLevel()` method will be called with this value.\n   * start - if `true`, call the Spoon's `start()` method after configuring everything else.\n   * disable - if `true`, do nothing. Easier than commenting it out when you want to temporarily disable a spoon.\n\nReturns:\n * None",
@@ -3696,6 +4506,23 @@
     "Deprecated": [],
     "Field": [],
     "Function": [],
+    "Method": [],
+    "Variable": [],
+    "desc": "A widget showing time flown in one year.",
+    "doc": "A widget showing time flown in one year.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/TimeFlow.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/TimeFlow.spoon.zip)",
+    "items": [],
+    "name": "TimeFlow",
+    "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/TimeFlow.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/TimeFlow.spoon.zip)",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
     "Method": [
       {
         "def": "ToggleScreenRotation:bindHotkeys(mapping)",
@@ -4168,6 +4995,23 @@
     ],
     "name": "UniversalArchive",
     "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/UniversalArchive.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/UniversalArchive.spoon.zip)\n\nUsing this Spoon enables you to use a single hotkey to archive an\nitem in multiple applications.  Out of the box the following\napplications are supported: Evernote, Mail, Spark and Outlook. You\ncan easily register handlers for new applications (or override the\nbuilt-in ones) using the `registerApplication()` method. If you\nwrite a new handler and feel others could benefit from it, please\nsubmit a pull request!\n\nHandlers can also provide support for archiving to multiple\nlocations, and you can bind different hotkeys for each\ndestination. At the moment only Evernote supports this. See the\ndocumentation for `bindHotkeys()` for the details on how to\nspecify multiple-destination filing hotkeys.",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [],
+    "Variable": [],
+    "desc": "Use unsplash images as wallpaper",
+    "doc": "Use unsplash images as wallpaper\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/UnsplashZ.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/UnsplashZ.spoon.zip)",
+    "items": [],
+    "name": "UnsplashZ",
+    "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/UnsplashZ.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/UnsplashZ.spoon.zip)",
     "submodules": [],
     "type": "Module"
   },
@@ -4702,6 +5546,176 @@
     ],
     "name": "WindowScreenLeftAndRight",
     "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WindowScreenLeftAndRight.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WindowScreenLeftAndRight.spoon.zip)",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
+        "def": "WinWin:centerCursor()",
+        "desc": "Center the cursor on the focused window.",
+        "doc": "Center the cursor on the focused window.\n",
+        "name": "centerCursor",
+        "signature": "WinWin:centerCursor()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "WinWin:moveAndResize(option)",
+        "desc": "Move and resize the focused window.",
+        "doc": "Move and resize the focused window.\n\nParameters:\n * option - A string specifying the option, valid strings are: `halfleft`, `halfright`, `halfup`, `halfdown`, `cornerNW`, `cornerSW`, `cornerNE`, `cornerSE`, `center`, `fullscreen`, `expand`, `shrink`.",
+        "name": "moveAndResize",
+        "parameters": [
+          " * option - A string specifying the option, valid strings are: `halfleft`, `halfright`, `halfup`, `halfdown`, `cornerNW`, `cornerSW`, `cornerNE`, `cornerSE`, `center`, `fullscreen`, `expand`, `shrink`."
+        ],
+        "signature": "WinWin:moveAndResize(option)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "WinWin:moveToScreen(direction)",
+        "desc": "Move the focused window between all of the screens in the `direction`.",
+        "doc": "Move the focused window between all of the screens in the `direction`.\n\nParameters:\n * direction - A string specifying the direction, valid strings are: `left`, `right`, `up`, `down`, `next`.",
+        "name": "moveToScreen",
+        "parameters": [
+          " * direction - A string specifying the direction, valid strings are: `left`, `right`, `up`, `down`, `next`."
+        ],
+        "signature": "WinWin:moveToScreen(direction)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "WinWin:stepMove(direction)",
+        "desc": "Move the focused window in the `direction` by on step. The step scale equals to the width/height of one gridpart.",
+        "doc": "Move the focused window in the `direction` by on step. The step scale equals to the width/height of one gridpart.\n\nParameters:\n * direction - A string specifying the direction, valid strings are: `left`, `right`, `up`, `down`.",
+        "name": "stepMove",
+        "parameters": [
+          " * direction - A string specifying the direction, valid strings are: `left`, `right`, `up`, `down`."
+        ],
+        "signature": "WinWin:stepMove(direction)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "WinWin:stepResize(direction)",
+        "desc": "Resize the focused window in the `direction` by on step.",
+        "doc": "Resize the focused window in the `direction` by on step.\n\nParameters:\n * direction - A string specifying the direction, valid strings are: `left`, `right`, `up`, `down`.",
+        "name": "stepResize",
+        "parameters": [
+          " * direction - A string specifying the direction, valid strings are: `left`, `right`, `up`, `down`."
+        ],
+        "signature": "WinWin:stepResize(direction)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "WinWin:undo()",
+        "desc": "Undo the last window manipulation. Only those \"moveAndResize\" manipulations can be undone.",
+        "doc": "Undo the last window manipulation. Only those \"moveAndResize\" manipulations can be undone.\n",
+        "name": "undo",
+        "signature": "WinWin:undo()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [
+      {
+        "def": "WinWin.gridparts",
+        "desc": "An integer specifying how many gridparts the screen should be divided into. Defaults to 30.",
+        "doc": "An integer specifying how many gridparts the screen should be divided into. Defaults to 30.",
+        "name": "gridparts",
+        "signature": "WinWin.gridparts",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "desc": "Windows manipulation",
+    "doc": "Windows manipulation\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WinWin.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WinWin.spoon.zip)",
+    "items": [
+      {
+        "def": "WinWin:centerCursor()",
+        "desc": "Center the cursor on the focused window.",
+        "doc": "Center the cursor on the focused window.\n",
+        "name": "centerCursor",
+        "signature": "WinWin:centerCursor()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "WinWin.gridparts",
+        "desc": "An integer specifying how many gridparts the screen should be divided into. Defaults to 30.",
+        "doc": "An integer specifying how many gridparts the screen should be divided into. Defaults to 30.",
+        "name": "gridparts",
+        "signature": "WinWin.gridparts",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "WinWin:moveAndResize(option)",
+        "desc": "Move and resize the focused window.",
+        "doc": "Move and resize the focused window.\n\nParameters:\n * option - A string specifying the option, valid strings are: `halfleft`, `halfright`, `halfup`, `halfdown`, `cornerNW`, `cornerSW`, `cornerNE`, `cornerSE`, `center`, `fullscreen`, `expand`, `shrink`.",
+        "name": "moveAndResize",
+        "parameters": [
+          " * option - A string specifying the option, valid strings are: `halfleft`, `halfright`, `halfup`, `halfdown`, `cornerNW`, `cornerSW`, `cornerNE`, `cornerSE`, `center`, `fullscreen`, `expand`, `shrink`."
+        ],
+        "signature": "WinWin:moveAndResize(option)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "WinWin:moveToScreen(direction)",
+        "desc": "Move the focused window between all of the screens in the `direction`.",
+        "doc": "Move the focused window between all of the screens in the `direction`.\n\nParameters:\n * direction - A string specifying the direction, valid strings are: `left`, `right`, `up`, `down`, `next`.",
+        "name": "moveToScreen",
+        "parameters": [
+          " * direction - A string specifying the direction, valid strings are: `left`, `right`, `up`, `down`, `next`."
+        ],
+        "signature": "WinWin:moveToScreen(direction)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "WinWin:stepMove(direction)",
+        "desc": "Move the focused window in the `direction` by on step. The step scale equals to the width/height of one gridpart.",
+        "doc": "Move the focused window in the `direction` by on step. The step scale equals to the width/height of one gridpart.\n\nParameters:\n * direction - A string specifying the direction, valid strings are: `left`, `right`, `up`, `down`.",
+        "name": "stepMove",
+        "parameters": [
+          " * direction - A string specifying the direction, valid strings are: `left`, `right`, `up`, `down`."
+        ],
+        "signature": "WinWin:stepMove(direction)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "WinWin:stepResize(direction)",
+        "desc": "Resize the focused window in the `direction` by on step.",
+        "doc": "Resize the focused window in the `direction` by on step.\n\nParameters:\n * direction - A string specifying the direction, valid strings are: `left`, `right`, `up`, `down`.",
+        "name": "stepResize",
+        "parameters": [
+          " * direction - A string specifying the direction, valid strings are: `left`, `right`, `up`, `down`."
+        ],
+        "signature": "WinWin:stepResize(direction)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "WinWin:undo()",
+        "desc": "Undo the last window manipulation. Only those \"moveAndResize\" manipulations can be undone.",
+        "doc": "Undo the last window manipulation. Only those \"moveAndResize\" manipulations can be undone.\n",
+        "name": "undo",
+        "signature": "WinWin:undo()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "name": "WinWin",
+    "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WinWin.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WinWin.spoon.zip)",
     "submodules": [],
     "type": "Module"
   }

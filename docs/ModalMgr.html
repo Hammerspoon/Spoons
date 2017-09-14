@@ -1,0 +1,150 @@
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hammerspoon docs: ModalMgr</title>
+    <style type="text/css">
+      a { text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      th { background-color: #DDDDDD; vertical-align: top; padding: 3px; }
+      td { width: 100%; background-color: #EEEEEE; vertical-align: top; padding: 3px; }
+      table { width: 100% ; border: 1px solid #0; text-align: left; }
+      section > table table td { width: 0; }
+    </style>
+    <link rel="stylesheet" href="docs.css" type="text/css" media="screen" />
+  </head>
+  <body>
+    <header>
+      <h1><a href="./index.html">docs</a> &raquo; ModalMgr</h1>
+      <p>Modal keybindings environment management. Just an wrapper of <code>hs.hotkey.modal</code>.</p>
+<p>Download: <a href="https://github.com/Hammerspoon/Spoons/raw/master/Spoons/ModalMgr.spoon.zip">https://github.com/Hammerspoon/Spoons/raw/master/Spoons/ModalMgr.spoon.zip</a></p>
+
+      </header>
+      <h3>API Overview</h3>
+      <ul>
+        <li>Methods - API calls which can only be made on an object returned by a constructor</li>
+          <ul>
+            <li><a href="#activate">activate</a></li>
+            <li><a href="#deactivate">deactivate</a></li>
+            <li><a href="#deactivateAll">deactivateAll</a></li>
+            <li><a href="#new">new</a></li>
+            <li><a href="#toggleCheatsheet">toggleCheatsheet</a></li>
+          </ul>
+      </ul>
+      <h3>API Documentation</h3>
+        <h4 class="documentation-section">Methods</h4>
+          <section id="activate">
+            <a name="//apple_ref/cpp/Method/activate" class="dashAnchor"></a>
+            <h5><a href="#activate">activate</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>ModalMgr:activate(idList, [trayColor], [showKeys])</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Activate all modal environment in <code>idList</code>.</p>
+<p>Parameters:</p>
+<ul>
+<li>idList - An table specifying IDs of modal environments</li>
+<li>trayColor - An optional string (e.g. #000000) specifying the color of modalTray, defaults to <code>nil</code>.</li>
+<li>showKeys - A optional boolean value to show all available keybindings, defaults to <code>nil</code>.</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="deactivate">
+            <a name="//apple_ref/cpp/Method/deactivate" class="dashAnchor"></a>
+            <h5><a href="#deactivate">deactivate</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>ModalMgr:deactivate(idList)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Deactivate modal environments in <code>idList</code>.</p>
+<p>Parameters:</p>
+<ul>
+<li>idList - An table specifying IDs of modal environments</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="deactivateAll">
+            <a name="//apple_ref/cpp/Method/deactivateAll" class="dashAnchor"></a>
+            <h5><a href="#deactivateAll">deactivateAll</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>ModalMgr:deactivateAll()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Deactivate all active modal environments.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="new">
+            <a name="//apple_ref/cpp/Method/new" class="dashAnchor"></a>
+            <h5><a href="#new">new</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>ModalMgr:new(id)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Create a new modal keybindings environment</p>
+<p>Parameters:</p>
+<ul>
+<li>id - A string specifying ID of new modal keybindings</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="toggleCheatsheet">
+            <a name="//apple_ref/cpp/Method/toggleCheatsheet" class="dashAnchor"></a>
+            <h5><a href="#toggleCheatsheet">toggleCheatsheet</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>ModalMgr:toggleCheatsheet([idList], [force])</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Toggle the cheatsheet display of current modal environments's keybindings.</p>
+<p>Parameters:</p>
+<ul>
+<li>iterList - An table specifying IDs of modal environments or active_list. Optional, defaults to all active environments.</li>
+<li>force - A optional boolean value to force show cheatsheet, defaults to <code>nil</code> (automatically).</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+  </body>
+</html>

@@ -1,5 +1,21 @@
 [
   {
+    "desc": "Just another clock, floating above all",
+    "name": "AClock",
+    "type": "Module"
+  },
+  {
+    "desc": "Show AClock, if already showing, just hide it.",
+    "module": "AClock",
+    "name": "toggleShow",
+    "type": "Method"
+  },
+  {
+    "desc": "Use Bing daily picture as your wallpaper, automatically.",
+    "name": "BingDaily",
+    "type": "Module"
+  },
+  {
     "desc": "Display pop-up with Homebrew Formula info, or open their URL",
     "name": "BrewInfo",
     "type": "Module"
@@ -82,6 +98,57 @@
     "type": "Method"
   },
   {
+    "desc": "A calendar inset into the desktop",
+    "name": "Calendar",
+    "type": "Module"
+  },
+  {
+    "desc": "A circleclock inset into the desktop",
+    "name": "CircleClock",
+    "type": "Module"
+  },
+  {
+    "desc": "Show the content of system clipboard",
+    "name": "ClipShow",
+    "type": "Module"
+  },
+  {
+    "desc": "Open content of the clipboard in default browser with specific refstr.",
+    "module": "ClipShow",
+    "name": "openInBrowserWithRef",
+    "type": "Method"
+  },
+  {
+    "desc": "Open local file with specific command.",
+    "module": "ClipShow",
+    "name": "openWithCommand",
+    "type": "Method"
+  },
+  {
+    "desc": "Restore the lastsession of system clipboard",
+    "module": "ClipShow",
+    "name": "restoreLastSession",
+    "type": "Method"
+  },
+  {
+    "desc": "Save content of current canvas to a file, the default location is `~/Desktop/`.",
+    "module": "ClipShow",
+    "name": "saveToFile",
+    "type": "Method"
+  },
+  {
+    "desc": "Save clipboard session so we can restore it later",
+    "module": "ClipShow",
+    "name": "saveToSession",
+    "type": "Method"
+  },
+  {
+    "desc": "Process the content of system clipboard and show/hide the canvas",
+    "module": "ClipShow",
+    "name": "toggleShow",
+    "type": "Method"
+  },
+  {
     "desc": "Show a color sample/picker",
     "name": "ColorPicker",
     "type": "Module"
@@ -114,6 +181,29 @@
     "desc": "Toggle display on the screen of a grid with all the colors in the given colortable",
     "module": "ColorPicker",
     "name": "toggleColorSamples",
+    "type": "Method"
+  },
+  {
+    "desc": "Tiny countdown with visual indicator",
+    "name": "CountDown",
+    "type": "Module"
+  },
+  {
+    "desc": "Pause or resume the existing countdown.",
+    "module": "CountDown",
+    "name": "pauseOrResume",
+    "type": "Method"
+  },
+  {
+    "desc": "Set the progress of visual indicator to `progress`.",
+    "module": "CountDown",
+    "name": "setProgress",
+    "type": "Method"
+  },
+  {
+    "desc": "Start a countdown for `minutes` minutes immediately. Calling this method again will kill the existing countdown instance.",
+    "module": "CountDown",
+    "name": "startFor",
     "type": "Method"
   },
   {
@@ -270,6 +360,16 @@
     "type": "Method"
   },
   {
+    "desc": "Use Fn + `h/l/j/k` as arrow keys, `y/u/i/o` as mouse wheel, `,/.` as left/right click.",
+    "name": "FnMate",
+    "type": "Module"
+  },
+  {
+    "desc": "A horizonal calendar inset into the desktop",
+    "name": "HCalendar",
+    "type": "Module"
+  },
+  {
     "desc": "Play/pause music players when headphones are connected/disconnected",
     "name": "HeadphoneAutoPause",
     "type": "Module"
@@ -320,6 +420,87 @@
     "desc": "Stop headphone detection",
     "module": "HeadphoneAutoPause",
     "name": "stop",
+    "type": "Method"
+  },
+  {
+    "desc": "Communicate with [aria2](https://github.com/aria2/aria2), an interactive panel included.",
+    "name": "HSaria2",
+    "type": "Module"
+  },
+  {
+    "desc": "How many items should be created on aria2 panel? Defaults to 5.",
+    "module": "HSaria2",
+    "name": "max_items",
+    "type": "Variable"
+  },
+  {
+    "desc": "How often should HSaria2 retrieve data from RPC server? Defaults to 1 (second).",
+    "module": "HSaria2",
+    "name": "refresh_interval",
+    "type": "Variable"
+  },
+  {
+    "desc": "Try connect to `hostaddr` with `secret`. If succeed, they will become default values for following-up oprations.",
+    "module": "HSaria2",
+    "name": "connectToHost",
+    "type": "Method"
+  },
+  {
+    "desc": "Create new regular/bt/metalink task, and send notification when done.",
+    "module": "HSaria2",
+    "name": "newTask",
+    "type": "Method"
+  },
+  {
+    "desc": "Send a command to `hostaddr`, only limited commands are supported.",
+    "module": "HSaria2",
+    "name": "sendCommand",
+    "type": "Method"
+  },
+  {
+    "desc": "Toggle the display of aria2 panel. The panel allows users to interact with aria2, add new tasks, pause them, or remove, purge … etc.",
+    "module": "HSaria2",
+    "name": "togglePanel",
+    "type": "Method"
+  },
+  {
+    "desc": "Hammerspoon Search",
+    "name": "HSearch",
+    "type": "Module"
+  },
+  {
+    "desc": "Load new sources from `HSearch.search_path`, the search_path defaults to `~/.hammerspoon/private/hsearch_dir` and the HSearch Spoon directory. Only for debug purpose in usual.",
+    "module": "HSearch",
+    "name": "loadSources",
+    "type": "Method"
+  },
+  {
+    "desc": "Tigger new source according to hs.chooser's query string and keyword. Only for debug purpose in usual.",
+    "module": "HSearch",
+    "name": "switchSource",
+    "type": "Method"
+  },
+  {
+    "desc": "Toggle the display of HSearch",
+    "module": "HSearch",
+    "name": "toggleShow",
+    "type": "Method"
+  },
+  {
+    "desc": "Keybindings cheatsheet for current application",
+    "name": "KSheet",
+    "type": "Module"
+  },
+  {
+    "desc": "Hide the cheatsheet webview",
+    "module": "KSheet",
+    "name": "hide",
+    "type": "Method"
+  },
+  {
+    "desc": "Show current application's keybindings in a webview",
+    "module": "KSheet",
+    "name": "show",
     "type": "Method"
   },
   {
@@ -379,6 +560,41 @@
     "desc": "Remove indicators and stop the keyboard layout watcher",
     "module": "MenubarFlag",
     "name": "stop",
+    "type": "Method"
+  },
+  {
+    "desc": "Modal keybindings environment management. Just an wrapper of `hs.hotkey.modal`.",
+    "name": "ModalMgr",
+    "type": "Module"
+  },
+  {
+    "desc": "Activate all modal environment in `idList`.",
+    "module": "ModalMgr",
+    "name": "activate",
+    "type": "Method"
+  },
+  {
+    "desc": "Deactivate modal environments in `idList`.",
+    "module": "ModalMgr",
+    "name": "deactivate",
+    "type": "Method"
+  },
+  {
+    "desc": "Deactivate all active modal environments.",
+    "module": "ModalMgr",
+    "name": "deactivateAll",
+    "type": "Method"
+  },
+  {
+    "desc": "Create a new modal keybindings environment",
+    "module": "ModalMgr",
+    "name": "new",
+    "type": "Method"
+  },
+  {
+    "desc": "Toggle the cheatsheet display of current modal environments's keybindings.",
+    "module": "ModalMgr",
+    "name": "toggleCheatsheet",
     "type": "Method"
   },
   {
@@ -721,6 +937,17 @@
     "type": "Method"
   },
   {
+    "desc": "Menubar netspeed meter",
+    "name": "SpeedMenu",
+    "type": "Module"
+  },
+  {
+    "desc": "Redetect the active interface, darkmode …And redraw everything.",
+    "module": "SpeedMenu",
+    "name": "rescan",
+    "type": "Method"
+  },
+  {
     "desc": "Install and manage Spoons and Spoon repositories",
     "name": "SpoonInstall",
     "type": "Module"
@@ -923,6 +1150,11 @@
     "type": "Method"
   },
   {
+    "desc": "A widget showing time flown in one year.",
+    "name": "TimeFlow",
+    "type": "Module"
+  },
+  {
     "desc": "Toggle rotation on external screens",
     "name": "ToggleScreenRotation",
     "type": "Module"
@@ -1050,6 +1282,11 @@
     "module": "UniversalArchive",
     "name": "universalArchive",
     "type": "Method"
+  },
+  {
+    "desc": "Use unsplash images as wallpaper",
+    "name": "UnsplashZ",
+    "type": "Module"
   },
   {
     "desc": "Route URLs to different applications with pattern matching",
@@ -1200,6 +1437,53 @@
     "desc": "Binds hotkeys for WindowScreenLeftAndRight",
     "module": "WindowScreenLeftAndRight",
     "name": "bindHotkeys",
+    "type": "Method"
+  },
+  {
+    "desc": "Windows manipulation",
+    "name": "WinWin",
+    "type": "Module"
+  },
+  {
+    "desc": "An integer specifying how many gridparts the screen should be divided into. Defaults to 30.",
+    "module": "WinWin",
+    "name": "gridparts",
+    "type": "Variable"
+  },
+  {
+    "desc": "Center the cursor on the focused window.",
+    "module": "WinWin",
+    "name": "centerCursor",
+    "type": "Method"
+  },
+  {
+    "desc": "Move and resize the focused window.",
+    "module": "WinWin",
+    "name": "moveAndResize",
+    "type": "Method"
+  },
+  {
+    "desc": "Move the focused window between all of the screens in the `direction`.",
+    "module": "WinWin",
+    "name": "moveToScreen",
+    "type": "Method"
+  },
+  {
+    "desc": "Move the focused window in the `direction` by on step. The step scale equals to the width/height of one gridpart.",
+    "module": "WinWin",
+    "name": "stepMove",
+    "type": "Method"
+  },
+  {
+    "desc": "Resize the focused window in the `direction` by on step.",
+    "module": "WinWin",
+    "name": "stepResize",
+    "type": "Method"
+  },
+  {
+    "desc": "Undo the last window manipulation. Only those \"moveAndResize\" manipulations can be undone.",
+    "module": "WinWin",
+    "name": "undo",
     "type": "Method"
   }
 ]

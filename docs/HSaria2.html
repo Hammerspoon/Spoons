@@ -1,0 +1,174 @@
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hammerspoon docs: HSaria2</title>
+    <style type="text/css">
+      a { text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      th { background-color: #DDDDDD; vertical-align: top; padding: 3px; }
+      td { width: 100%; background-color: #EEEEEE; vertical-align: top; padding: 3px; }
+      table { width: 100% ; border: 1px solid #0; text-align: left; }
+      section > table table td { width: 0; }
+    </style>
+    <link rel="stylesheet" href="docs.css" type="text/css" media="screen" />
+  </head>
+  <body>
+    <header>
+      <h1><a href="./index.html">docs</a> &raquo; HSaria2</h1>
+      <p>Communicate with <a href="https://github.com/aria2/aria2">aria2</a>, an interactive panel included.</p>
+<p>Download: <a href="https://github.com/Hammerspoon/Spoons/raw/master/Spoons/HSaria2.spoon.zip">https://github.com/Hammerspoon/Spoons/raw/master/Spoons/HSaria2.spoon.zip</a></p>
+
+      </header>
+      <h3>API Overview</h3>
+      <ul>
+        <li>Variables - Configurable values</li>
+          <ul>
+            <li><a href="#max_items">max_items</a></li>
+            <li><a href="#refresh_interval">refresh_interval</a></li>
+          </ul>
+        <li>Methods - API calls which can only be made on an object returned by a constructor</li>
+          <ul>
+            <li><a href="#connectToHost">connectToHost</a></li>
+            <li><a href="#newTask">newTask</a></li>
+            <li><a href="#sendCommand">sendCommand</a></li>
+            <li><a href="#togglePanel">togglePanel</a></li>
+          </ul>
+      </ul>
+      <h3>API Documentation</h3>
+        <h4 class="documentation-section">Variables</h4>
+          <section id="max_items">
+            <a name="//apple_ref/cpp/Variable/max_items" class="dashAnchor"></a>
+            <h5><a href="#max_items">max_items</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>HSaria2.max_items</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>How many items should be created on aria2 panel? Defaults to 5.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="refresh_interval">
+            <a name="//apple_ref/cpp/Variable/refresh_interval" class="dashAnchor"></a>
+            <h5><a href="#refresh_interval">refresh_interval</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>HSaria2.refresh_interval</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>How often should HSaria2 retrieve data from RPC server? Defaults to 1 (second).</p>
+</td>
+              </tr>
+            </table>
+          </section>
+        <h4 class="documentation-section">Methods</h4>
+          <section id="connectToHost">
+            <a name="//apple_ref/cpp/Method/connectToHost" class="dashAnchor"></a>
+            <h5><a href="#connectToHost">connectToHost</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>HSaria2:connectToHost(hostaddr, secret)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Try connect to <code>hostaddr</code> with <code>secret</code>. If succeed, they will become default values for following-up oprations.</p>
+<p>Parameters:</p>
+<ul>
+<li>hostaddr - A sring specifying aria2 RPC host, including host name and port address. e.g. "<a href="http://localhost:6800/jsonrpc">http://localhost:6800/jsonrpc</a>".</li>
+<li>secret - A string specifying host secret</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="newTask">
+            <a name="//apple_ref/cpp/Method/newTask" class="dashAnchor"></a>
+            <h5><a href="#newTask">newTask</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>HSaria2:newTask(tasktype, urls, hostaddr, secret)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Create new regular/bt/metalink task, and send notification when done.</p>
+<p>Parameters:</p>
+<ul>
+<li>tasktype - A string specifying task type. The value is one of these: <code>addUri</code>, <code>addTorrent</code>, <code>addMetalink</code>, <code>nil</code>. When tasktype is <code>nil</code>, aria2 will create a regular download task.</li>
+<li>urls - A string or a table specifying URL. Multi URLs (table) are only available when tasktype is <code>addUri</code> or <code>nil</code>.</li>
+<li>hostaddr - A optional sring specifying aria2 RPC host</li>
+<li>secret - A optional string specifying host secret</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="sendCommand">
+            <a name="//apple_ref/cpp/Method/sendCommand" class="dashAnchor"></a>
+            <h5><a href="#sendCommand">sendCommand</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>HSaria2:sendCommand(command, gid, hostaddr, secret)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Send a command to <code>hostaddr</code>, only limited commands are supported.</p>
+<p>Parameters:</p>
+<ul>
+<li>command - A string specifying sending command. The value is one of these: <code>remove</code>, <code>forceRemove</code>, <code>pause</code>, <code>pauseAll</code>, <code>forcePause</code>, <code>forcePauseAll</code>, <code>unpause</code>, <code>unpauseAll</code>, <code>purgeDownloadResult</code>, <code>removeDownloadResult</code>.</li>
+<li>gid - A string specifying GID (aria2 identifies each download by the ID called GID). This Parameter can be optional or not according to the value of <code>command</code>.</li>
+<li>hostaddr - A optional sring specifying aria2 RPC host</li>
+<li>secret - A optional string specifying host secret</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="togglePanel">
+            <a name="//apple_ref/cpp/Method/togglePanel" class="dashAnchor"></a>
+            <h5><a href="#togglePanel">togglePanel</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>HSaria2:togglePanel()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Toggle the display of aria2 panel. The panel allows users to interact with aria2, add new tasks, pause them, or remove, purge … etc.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+  </body>
+</html>
