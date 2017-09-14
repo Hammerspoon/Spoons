@@ -1,352 +1,178 @@
 [
   {
-    "Constant" : [
-
-    ],
-    "submodules" : [
-
-    ],
-    "Function" : [
-
-    ],
-    "Variable" : [
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
       {
-        "doc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
-        "stripped_doc" : [
-          "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
-        ],
-        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
-        "parameters" : [
-
-        ],
-        "notes" : [
-
-        ],
-        "signature" : "HeadphoneAutoPause.logger",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "def" : "HeadphoneAutoPause.logger",
-        "name" : "logger"
+        "def": "HeadphoneAutoPause:audiodevwatch(dev_uid, event_name)",
+        "desc": "Callback function to use as an audio device watcher, to pause/unpause the application on headphones plugged/unplugged",
+        "doc": "Callback function to use as an audio device watcher, to pause/unpause the application on headphones plugged/unplugged",
+        "name": "audiodevwatch",
+        "signature": "HeadphoneAutoPause:audiodevwatch(dev_uid, event_name)",
+        "stripped_doc": "",
+        "type": "Method"
       },
       {
-        "doc" : "Table containing one key per application, with the value indicating whether HeadphoneAutoPause should try to pause\/unpause that application in response to the headphone being plugged\/unplugged. The key name must ideally correspond to the name of the corresponding `hs.*` module. Default value:\n```\n{\n   itunes = true,\n   spotify = true,\n   deezer = true,\n   vox = false -- Vox has built-in headphone detection support\n}\n```",
-        "stripped_doc" : [
-          "Table containing one key per application, with the value indicating whether HeadphoneAutoPause should try to pause\/unpause that application in response to the headphone being plugged\/unplugged. The key name must ideally correspond to the name of the corresponding `hs.*` module. Default value:",
-          "```",
-          "{",
-          "   itunes = true,",
-          "   spotify = true,",
-          "   deezer = true,",
-          "   vox = false -- Vox has built-in headphone detection support",
-          "}",
-          "```"
+        "def": "HeadphoneAutoPause.defaultControlFns(app)",
+        "desc": "Generate the most common set of application control definition.",
+        "doc": "Generate the most common set of application control definition.\n\nParameters:\n * app - name of the application, with its correct letter casing (i.e. \"iTunes\"). The name as provided will be used to find the running application, and its lowercase version will be used to find the corresponding `hs.*` module.\n\nReturns:\n * A table in the correct format for `HeadphoneAutoPause.controlfns`, using the lower-case value of `app` as the module name (for example, if app = \"iTunes\", the module loaded will be `hs.itunes`, and assuming the functions `isPlaying()`, `play()` and `pause()` exist in that module.",
+        "name": "defaultControlFns",
+        "parameters": [
+          " * app - name of the application, with its correct letter casing (i.e. \"iTunes\"). The name as provided will be used to find the running application, and its lowercase version will be used to find the corresponding `hs.*` module."
         ],
-        "desc" : "Table containing one key per application, with the value indicating whether HeadphoneAutoPause should try to pause\/unpause that application in response to the headphone being plugged\/unplugged. The key name must ideally correspond to the name of the corresponding `hs.*` module. Default value:",
-        "parameters" : [
-
-        ],
-        "notes" : [
-
-        ],
-        "signature" : "HeadphoneAutoPause.control",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "def" : "HeadphoneAutoPause.control",
-        "name" : "control"
-      },
-      {
-        "doc" : "Table containing control functions for each application to control.\nThe keys must correspond to the values in `HeadphoneAutoPause.control`, and the value is a table with the following elements:\n * `appname` - application name (case-sensitive, as the application appears to the system)\n * `isPlaying` - function that returns a true value if the application is playing\n * `play` - function that starts playback in the application\n * `pause` - function that pauses playback in the application\n\nThe default value includes definitions for iTunes, Spotify, Deezer and Vox, using the corresponding functions from `hs.itunes`, `hs.spotify`, `hs.deezer` and `hs.vox`, respectively.",
-        "stripped_doc" : [
-          "Table containing control functions for each application to control.",
-          "The keys must correspond to the values in `HeadphoneAutoPause.control`, and the value is a table with the following elements:",
-          " * `appname` - application name (case-sensitive, as the application appears to the system)",
-          " * `isPlaying` - function that returns a true value if the application is playing",
-          " * `play` - function that starts playback in the application",
-          " * `pause` - function that pauses playback in the application",
-          "",
-          "The default value includes definitions for iTunes, Spotify, Deezer and Vox, using the corresponding functions from `hs.itunes`, `hs.spotify`, `hs.deezer` and `hs.vox`, respectively."
-        ],
-        "desc" : "Table containing control functions for each application to control.",
-        "parameters" : [
-
-        ],
-        "notes" : [
-
-        ],
-        "signature" : "HeadphoneAutoPause.controlfns",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "def" : "HeadphoneAutoPause.controlfns",
-        "name" : "controlfns"
-      }
-    ],
-    "stripped_doc" : [
-
-    ],
-    "Deprecated" : [
-
-    ],
-    "desc" : "Play\/pause music players when headphones are connected\/disconnected",
-    "type" : "Module",
-    "Constructor" : [
-
-    ],
-    "doc" : "Play\/pause music players when headphones are connected\/disconnected\n\nDownload: [https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/HeadphoneAutoPause.spoon.zip](https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/HeadphoneAutoPause.spoon.zip)",
-    "Method" : [
-      {
-        "doc" : "Generate the most common set of application control definition.\n\nParameters:\n * app - name of the application, with its correct letter casing (i.e. \"iTunes\"). The name as provided will be used to find the running application, and its lowercase version will be used to find the corresponding `hs.*` module.\n\nReturns:\n * A table in the correct format for `HeadphoneAutoPause.controlfns`, using the lower-case value of `app` as the module name (for example, if app = \"iTunes\", the module loaded will be `hs.itunes`, and assuming the functions `isPlaying()`, `play()` and `pause()` exist in that module.",
-        "stripped_doc" : [
-          "Generate the most common set of application control definition.",
-          ""
-        ],
-        "desc" : "Generate the most common set of application control definition.",
-        "parameters" : [
-          " * app - name of the application, with its correct letter casing (i.e. \"iTunes\"). The name as provided will be used to find the running application, and its lowercase version will be used to find the corresponding `hs.*` module.",
-          ""
-        ],
-        "notes" : [
-
-        ],
-        "signature" : "HeadphoneAutoPause.defaultControlFns(app)",
-        "type" : "Method",
-        "returns" : [
+        "returns": [
           " * A table in the correct format for `HeadphoneAutoPause.controlfns`, using the lower-case value of `app` as the module name (for example, if app = \"iTunes\", the module loaded will be `hs.itunes`, and assuming the functions `isPlaying()`, `play()` and `pause()` exist in that module."
         ],
-        "def" : "HeadphoneAutoPause.defaultControlFns(app)",
-        "name" : "defaultControlFns"
+        "signature": "HeadphoneAutoPause.defaultControlFns(app)",
+        "stripped_doc": "",
+        "type": "Method"
       },
       {
-        "doc" : "Callback function to use as an audio device watcher, to pause\/unpause the application on headphones plugged\/unplugged",
-        "stripped_doc" : [
-          "Callback function to use as an audio device watcher, to pause\/unpause the application on headphones plugged\/unplugged"
-        ],
-        "desc" : "Callback function to use as an audio device watcher, to pause\/unpause the application on headphones plugged\/unplugged",
-        "parameters" : [
-
-        ],
-        "notes" : [
-
-        ],
-        "signature" : "HeadphoneAutoPause:audiodevwatch(dev_uid, event_name)",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "def" : "HeadphoneAutoPause:audiodevwatch(dev_uid, event_name)",
-        "name" : "audiodevwatch"
+        "def": "HeadphoneAutoPause:start()",
+        "desc": "Start headphone detection on all audio devices that support it",
+        "doc": "Start headphone detection on all audio devices that support it",
+        "name": "start",
+        "signature": "HeadphoneAutoPause:start()",
+        "stripped_doc": "",
+        "type": "Method"
       },
       {
-        "doc" : "Start headphone detection on all audio devices that support it",
-        "stripped_doc" : [
-          "Start headphone detection on all audio devices that support it"
-        ],
-        "desc" : "Start headphone detection on all audio devices that support it",
-        "parameters" : [
-
-        ],
-        "notes" : [
-
-        ],
-        "signature" : "HeadphoneAutoPause:start()",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "def" : "HeadphoneAutoPause:start()",
-        "name" : "start"
-      },
-      {
-        "doc" : "Stop headphone detection",
-        "stripped_doc" : [
-          "Stop headphone detection"
-        ],
-        "desc" : "Stop headphone detection",
-        "parameters" : [
-
-        ],
-        "notes" : [
-
-        ],
-        "signature" : "HeadphoneAutoPause:stop()",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "def" : "HeadphoneAutoPause:stop()",
-        "name" : "stop"
+        "def": "HeadphoneAutoPause:stop()",
+        "desc": "Stop headphone detection",
+        "doc": "Stop headphone detection",
+        "name": "stop",
+        "signature": "HeadphoneAutoPause:stop()",
+        "stripped_doc": "",
+        "type": "Method"
       }
     ],
-    "Command" : [
-
+    "Variable": [
+      {
+        "def": "HeadphoneAutoPause.autoResume",
+        "desc": "Boolean value indicating if music should be automatically resumed when headphones are plugged in again. Only works if music was automatically paused when headphones were unplugged.",
+        "doc": "Boolean value indicating if music should be automatically resumed when headphones are plugged in again. Only works if music was automatically paused when headphones were unplugged.\n\nDefault value: `true`",
+        "name": "autoResume",
+        "signature": "HeadphoneAutoPause.autoResume",
+        "stripped_doc": "Default value: `true`",
+        "type": "Variable"
+      },
+      {
+        "def": "HeadphoneAutoPause.control",
+        "desc": "Table containing one key per application, with the value indicating whether HeadphoneAutoPause should try to pause/unpause that application in response to the headphone being plugged/unplugged. The key name must ideally correspond to the name of the corresponding `hs.*` module. Default value:",
+        "doc": "Table containing one key per application, with the value indicating whether HeadphoneAutoPause should try to pause/unpause that application in response to the headphone being plugged/unplugged. The key name must ideally correspond to the name of the corresponding `hs.*` module. Default value:\n```\n{\n   itunes = true,\n   spotify = true,\n   deezer = true,\n   vox = false -- Vox has built-in headphone detection support\n}\n```",
+        "name": "control",
+        "signature": "HeadphoneAutoPause.control",
+        "stripped_doc": "```\n{\n   itunes = true,\n   spotify = true,\n   deezer = true,\n   vox = false -- Vox has built-in headphone detection support\n}\n```",
+        "type": "Variable"
+      },
+      {
+        "def": "HeadphoneAutoPause.controlfns",
+        "desc": "Table containing control functions for each application to control.",
+        "doc": "Table containing control functions for each application to control.\nThe keys must correspond to the values in `HeadphoneAutoPause.control`, and the value is a table with the following elements:\n * `appname` - application name (case-sensitive, as the application appears to the system)\n * `isPlaying` - function that returns a true value if the application is playing\n * `play` - function that starts playback in the application\n * `pause` - function that pauses playback in the application\n\nThe default value includes definitions for iTunes, Spotify, Deezer and Vox, using the corresponding functions from `hs.itunes`, `hs.spotify`, `hs.deezer` and `hs.vox`, respectively.",
+        "name": "controlfns",
+        "signature": "HeadphoneAutoPause.controlfns",
+        "stripped_doc": "The keys must correspond to the values in `HeadphoneAutoPause.control`, and the value is a table with the following elements:\n * `appname` - application name (case-sensitive, as the application appears to the system)\n * `isPlaying` - function that returns a true value if the application is playing\n * `play` - function that starts playback in the application\n * `pause` - function that pauses playback in the application\nThe default value includes definitions for iTunes, Spotify, Deezer and Vox, using the corresponding functions from `hs.itunes`, `hs.spotify`, `hs.deezer` and `hs.vox`, respectively.",
+        "type": "Variable"
+      },
+      {
+        "def": "HeadphoneAutoPause.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "name": "logger",
+        "signature": "HeadphoneAutoPause.logger",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
     ],
-    "items" : [
+    "desc": "Play/pause music players when headphones are connected/disconnected",
+    "doc": "Play/pause music players when headphones are connected/disconnected\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/HeadphoneAutoPause.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/HeadphoneAutoPause.spoon.zip)",
+    "items": [
       {
-        "doc" : "Table containing one key per application, with the value indicating whether HeadphoneAutoPause should try to pause\/unpause that application in response to the headphone being plugged\/unplugged. The key name must ideally correspond to the name of the corresponding `hs.*` module. Default value:\n```\n{\n   itunes = true,\n   spotify = true,\n   deezer = true,\n   vox = false -- Vox has built-in headphone detection support\n}\n```",
-        "stripped_doc" : [
-          "Table containing one key per application, with the value indicating whether HeadphoneAutoPause should try to pause\/unpause that application in response to the headphone being plugged\/unplugged. The key name must ideally correspond to the name of the corresponding `hs.*` module. Default value:",
-          "```",
-          "{",
-          "   itunes = true,",
-          "   spotify = true,",
-          "   deezer = true,",
-          "   vox = false -- Vox has built-in headphone detection support",
-          "}",
-          "```"
-        ],
-        "desc" : "Table containing one key per application, with the value indicating whether HeadphoneAutoPause should try to pause\/unpause that application in response to the headphone being plugged\/unplugged. The key name must ideally correspond to the name of the corresponding `hs.*` module. Default value:",
-        "parameters" : [
-
-        ],
-        "notes" : [
-
-        ],
-        "signature" : "HeadphoneAutoPause.control",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "def" : "HeadphoneAutoPause.control",
-        "name" : "control"
+        "def": "HeadphoneAutoPause:audiodevwatch(dev_uid, event_name)",
+        "desc": "Callback function to use as an audio device watcher, to pause/unpause the application on headphones plugged/unplugged",
+        "doc": "Callback function to use as an audio device watcher, to pause/unpause the application on headphones plugged/unplugged",
+        "name": "audiodevwatch",
+        "signature": "HeadphoneAutoPause:audiodevwatch(dev_uid, event_name)",
+        "stripped_doc": "",
+        "type": "Method"
       },
       {
-        "doc" : "Table containing control functions for each application to control.\nThe keys must correspond to the values in `HeadphoneAutoPause.control`, and the value is a table with the following elements:\n * `appname` - application name (case-sensitive, as the application appears to the system)\n * `isPlaying` - function that returns a true value if the application is playing\n * `play` - function that starts playback in the application\n * `pause` - function that pauses playback in the application\n\nThe default value includes definitions for iTunes, Spotify, Deezer and Vox, using the corresponding functions from `hs.itunes`, `hs.spotify`, `hs.deezer` and `hs.vox`, respectively.",
-        "stripped_doc" : [
-          "Table containing control functions for each application to control.",
-          "The keys must correspond to the values in `HeadphoneAutoPause.control`, and the value is a table with the following elements:",
-          " * `appname` - application name (case-sensitive, as the application appears to the system)",
-          " * `isPlaying` - function that returns a true value if the application is playing",
-          " * `play` - function that starts playback in the application",
-          " * `pause` - function that pauses playback in the application",
-          "",
-          "The default value includes definitions for iTunes, Spotify, Deezer and Vox, using the corresponding functions from `hs.itunes`, `hs.spotify`, `hs.deezer` and `hs.vox`, respectively."
-        ],
-        "desc" : "Table containing control functions for each application to control.",
-        "parameters" : [
-
-        ],
-        "notes" : [
-
-        ],
-        "signature" : "HeadphoneAutoPause.controlfns",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "def" : "HeadphoneAutoPause.controlfns",
-        "name" : "controlfns"
+        "def": "HeadphoneAutoPause.autoResume",
+        "desc": "Boolean value indicating if music should be automatically resumed when headphones are plugged in again. Only works if music was automatically paused when headphones were unplugged.",
+        "doc": "Boolean value indicating if music should be automatically resumed when headphones are plugged in again. Only works if music was automatically paused when headphones were unplugged.\n\nDefault value: `true`",
+        "name": "autoResume",
+        "signature": "HeadphoneAutoPause.autoResume",
+        "stripped_doc": "Default value: `true`",
+        "type": "Variable"
       },
       {
-        "doc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
-        "stripped_doc" : [
-          "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
-        ],
-        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
-        "parameters" : [
-
-        ],
-        "notes" : [
-
-        ],
-        "signature" : "HeadphoneAutoPause.logger",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "def" : "HeadphoneAutoPause.logger",
-        "name" : "logger"
+        "def": "HeadphoneAutoPause.control",
+        "desc": "Table containing one key per application, with the value indicating whether HeadphoneAutoPause should try to pause/unpause that application in response to the headphone being plugged/unplugged. The key name must ideally correspond to the name of the corresponding `hs.*` module. Default value:",
+        "doc": "Table containing one key per application, with the value indicating whether HeadphoneAutoPause should try to pause/unpause that application in response to the headphone being plugged/unplugged. The key name must ideally correspond to the name of the corresponding `hs.*` module. Default value:\n```\n{\n   itunes = true,\n   spotify = true,\n   deezer = true,\n   vox = false -- Vox has built-in headphone detection support\n}\n```",
+        "name": "control",
+        "signature": "HeadphoneAutoPause.control",
+        "stripped_doc": "```\n{\n   itunes = true,\n   spotify = true,\n   deezer = true,\n   vox = false -- Vox has built-in headphone detection support\n}\n```",
+        "type": "Variable"
       },
       {
-        "doc" : "Callback function to use as an audio device watcher, to pause\/unpause the application on headphones plugged\/unplugged",
-        "stripped_doc" : [
-          "Callback function to use as an audio device watcher, to pause\/unpause the application on headphones plugged\/unplugged"
-        ],
-        "desc" : "Callback function to use as an audio device watcher, to pause\/unpause the application on headphones plugged\/unplugged",
-        "parameters" : [
-
-        ],
-        "notes" : [
-
-        ],
-        "signature" : "HeadphoneAutoPause:audiodevwatch(dev_uid, event_name)",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "def" : "HeadphoneAutoPause:audiodevwatch(dev_uid, event_name)",
-        "name" : "audiodevwatch"
+        "def": "HeadphoneAutoPause.controlfns",
+        "desc": "Table containing control functions for each application to control.",
+        "doc": "Table containing control functions for each application to control.\nThe keys must correspond to the values in `HeadphoneAutoPause.control`, and the value is a table with the following elements:\n * `appname` - application name (case-sensitive, as the application appears to the system)\n * `isPlaying` - function that returns a true value if the application is playing\n * `play` - function that starts playback in the application\n * `pause` - function that pauses playback in the application\n\nThe default value includes definitions for iTunes, Spotify, Deezer and Vox, using the corresponding functions from `hs.itunes`, `hs.spotify`, `hs.deezer` and `hs.vox`, respectively.",
+        "name": "controlfns",
+        "signature": "HeadphoneAutoPause.controlfns",
+        "stripped_doc": "The keys must correspond to the values in `HeadphoneAutoPause.control`, and the value is a table with the following elements:\n * `appname` - application name (case-sensitive, as the application appears to the system)\n * `isPlaying` - function that returns a true value if the application is playing\n * `play` - function that starts playback in the application\n * `pause` - function that pauses playback in the application\nThe default value includes definitions for iTunes, Spotify, Deezer and Vox, using the corresponding functions from `hs.itunes`, `hs.spotify`, `hs.deezer` and `hs.vox`, respectively.",
+        "type": "Variable"
       },
       {
-        "doc" : "Generate the most common set of application control definition.\n\nParameters:\n * app - name of the application, with its correct letter casing (i.e. \"iTunes\"). The name as provided will be used to find the running application, and its lowercase version will be used to find the corresponding `hs.*` module.\n\nReturns:\n * A table in the correct format for `HeadphoneAutoPause.controlfns`, using the lower-case value of `app` as the module name (for example, if app = \"iTunes\", the module loaded will be `hs.itunes`, and assuming the functions `isPlaying()`, `play()` and `pause()` exist in that module.",
-        "stripped_doc" : [
-          "Generate the most common set of application control definition.",
-          ""
+        "def": "HeadphoneAutoPause.defaultControlFns(app)",
+        "desc": "Generate the most common set of application control definition.",
+        "doc": "Generate the most common set of application control definition.\n\nParameters:\n * app - name of the application, with its correct letter casing (i.e. \"iTunes\"). The name as provided will be used to find the running application, and its lowercase version will be used to find the corresponding `hs.*` module.\n\nReturns:\n * A table in the correct format for `HeadphoneAutoPause.controlfns`, using the lower-case value of `app` as the module name (for example, if app = \"iTunes\", the module loaded will be `hs.itunes`, and assuming the functions `isPlaying()`, `play()` and `pause()` exist in that module.",
+        "name": "defaultControlFns",
+        "parameters": [
+          " * app - name of the application, with its correct letter casing (i.e. \"iTunes\"). The name as provided will be used to find the running application, and its lowercase version will be used to find the corresponding `hs.*` module."
         ],
-        "desc" : "Generate the most common set of application control definition.",
-        "parameters" : [
-          " * app - name of the application, with its correct letter casing (i.e. \"iTunes\"). The name as provided will be used to find the running application, and its lowercase version will be used to find the corresponding `hs.*` module.",
-          ""
-        ],
-        "notes" : [
-
-        ],
-        "signature" : "HeadphoneAutoPause.defaultControlFns(app)",
-        "type" : "Method",
-        "returns" : [
+        "returns": [
           " * A table in the correct format for `HeadphoneAutoPause.controlfns`, using the lower-case value of `app` as the module name (for example, if app = \"iTunes\", the module loaded will be `hs.itunes`, and assuming the functions `isPlaying()`, `play()` and `pause()` exist in that module."
         ],
-        "def" : "HeadphoneAutoPause.defaultControlFns(app)",
-        "name" : "defaultControlFns"
+        "signature": "HeadphoneAutoPause.defaultControlFns(app)",
+        "stripped_doc": "",
+        "type": "Method"
       },
       {
-        "doc" : "Start headphone detection on all audio devices that support it",
-        "stripped_doc" : [
-          "Start headphone detection on all audio devices that support it"
-        ],
-        "desc" : "Start headphone detection on all audio devices that support it",
-        "parameters" : [
-
-        ],
-        "notes" : [
-
-        ],
-        "signature" : "HeadphoneAutoPause:start()",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "def" : "HeadphoneAutoPause:start()",
-        "name" : "start"
+        "def": "HeadphoneAutoPause.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "name": "logger",
+        "signature": "HeadphoneAutoPause.logger",
+        "stripped_doc": "",
+        "type": "Variable"
       },
       {
-        "doc" : "Stop headphone detection",
-        "stripped_doc" : [
-          "Stop headphone detection"
-        ],
-        "desc" : "Stop headphone detection",
-        "parameters" : [
-
-        ],
-        "notes" : [
-
-        ],
-        "signature" : "HeadphoneAutoPause:stop()",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "def" : "HeadphoneAutoPause:stop()",
-        "name" : "stop"
+        "def": "HeadphoneAutoPause:start()",
+        "desc": "Start headphone detection on all audio devices that support it",
+        "doc": "Start headphone detection on all audio devices that support it",
+        "name": "start",
+        "signature": "HeadphoneAutoPause:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "HeadphoneAutoPause:stop()",
+        "desc": "Stop headphone detection",
+        "doc": "Stop headphone detection",
+        "name": "stop",
+        "signature": "HeadphoneAutoPause:stop()",
+        "stripped_doc": "",
+        "type": "Method"
       }
     ],
-    "Field" : [
-
-    ],
-    "name" : "HeadphoneAutoPause"
+    "name": "HeadphoneAutoPause",
+    "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/HeadphoneAutoPause.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/HeadphoneAutoPause.spoon.zip)",
+    "submodules": [],
+    "type": "Module"
   }
 ]
