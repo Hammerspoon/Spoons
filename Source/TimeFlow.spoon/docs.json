@@ -1,41 +1,19 @@
 [
   {
-    "Constant" : [
-
-    ],
-    "submodules" : [
-
-    ],
-    "Function" : [
-
-    ],
-    "Variable" : [
-
-    ],
-    "stripped_doc" : [
-
-    ],
-    "Deprecated" : [
-
-    ],
-    "type" : "Module",
-    "desc" : "A widget showing time flown in one year.",
-    "Constructor" : [
-
-    ],
-    "doc" : "A widget showing time flown in one year.\n\nDownload: [https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/TimeFlow.spoon.zip](https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/TimeFlow.spoon.zip)",
-    "Field" : [
-
-    ],
-    "items" : [
-
-    ],
-    "Command" : [
-
-    ],
-    "Method" : [
-
-    ],
-    "name" : "TimeFlow"
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [],
+    "Variable": [],
+    "desc": "A widget showing time flown in one year.",
+    "doc": "A widget showing time flown in one year.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/TimeFlow.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/TimeFlow.spoon.zip)",
+    "items": [],
+    "name": "TimeFlow",
+    "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/TimeFlow.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/TimeFlow.spoon.zip)",
+    "submodules": [],
+    "type": "Module"
   }
 ]
