@@ -5,6 +5,7 @@ if [ "$1" == "" -o "$2" == "" ]; then
     exit 1
 fi
 
+set -x
 
 PR="$1"
 SPOON="$2"

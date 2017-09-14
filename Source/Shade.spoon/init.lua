@@ -2,7 +2,7 @@
 ---
 --- Creates a semitransparent overlay to reduce screen brightness.
 ---
---- Download: 
+--- Download: https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Shade.spoon.zip
 
 local obj = {}
 obj.__index = obj
@@ -84,7 +84,7 @@ obj.shadeTransparency = 0.5
 shade:setFillColor({["white"]=0, ["alpha"] = obj.shadeTransparency })
 shade:setStroke(false):setFill(true)
 
---set to cover the whole screen, all spaces and exposé
+--set to cover the whole screen, all spaces and expose
 shade:bringToFront(true):setBehavior(17)
 
 
