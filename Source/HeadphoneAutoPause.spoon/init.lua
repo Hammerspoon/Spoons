@@ -37,6 +37,13 @@ obj.control = {
    vox = false
 }
 
+--- HeadphoneAutoPause.autoResume
+--- Variable
+--- Boolean value indicating if music should be automatically resumed when headphones are plugged in again. Only works if music was automatically paused when headphones were unplugged.
+---
+--- Default value: `true`
+obj.autoResume = true
+
 --- HeadphoneAutoPause.defaultControlFns(app)
 --- Method
 --- Generate the most common set of application control definition.
@@ -91,11 +98,13 @@ function obj:audiodevwatch(dev_uid, event_name)
    if event_name == 'jack' then
       if dev:jackConnected() then
          self.logger.d("Headphones connected")
-         for app, playercontrol in pairs(self.controlfns) do
-            if self.control[app] and hs.appfinder.appFromName(playercontrol.appname) and wasplaying[app] then
-               self.logger.df("Resuming playback in %s", playercontrol.appname)
-               hs.notify.show("Headphones plugged", "Resuming " .. playercontrol.appname .. " playback", "")
-               playercontrol.play()
+         if self.autoResume then
+            for app, playercontrol in pairs(self.controlfns) do
+               if self.control[app] and hs.appfinder.appFromName(playercontrol.appname) and wasplaying[app] then
+                  self.logger.df("Resuming playback in %s", playercontrol.appname)
+                  hs.notify.show("Headphones plugged", "Resuming " .. playercontrol.appname .. " playback", "")
+                  playercontrol.play()
+               end
             end
          end
       else
