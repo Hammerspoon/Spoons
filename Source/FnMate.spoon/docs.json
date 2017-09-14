@@ -1,41 +1,19 @@
 [
   {
-    "Constant" : [
-
-    ],
-    "submodules" : [
-
-    ],
-    "Function" : [
-
-    ],
-    "Variable" : [
-
-    ],
-    "stripped_doc" : [
-
-    ],
-    "desc" : "Use Fn + `h\/l\/j\/k` as arrow keys, `y\/u\/i\/o` as mouse wheel, `,\/.` as left\/right click.",
-    "Deprecated" : [
-
-    ],
-    "type" : "Module",
-    "Constructor" : [
-
-    ],
-    "doc" : "Use Fn + `h\/l\/j\/k` as arrow keys, `y\/u\/i\/o` as mouse wheel, `,\/.` as left\/right click.\n\nDownload: [https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/FnMate.spoon.zip](https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/FnMate.spoon.zip)",
-    "Field" : [
-
-    ],
-    "Command" : [
-
-    ],
-    "items" : [
-
-    ],
-    "Method" : [
-
-    ],
-    "name" : "FnMate"
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [],
+    "Variable": [],
+    "desc": "Use Fn + `h/l/j/k` as arrow keys, `y/u/i/o` as mouse wheel, `,/.` as left/right click.",
+    "doc": "Use Fn + `h/l/j/k` as arrow keys, `y/u/i/o` as mouse wheel, `,/.` as left/right click.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/FnMate.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/FnMate.spoon.zip)",
+    "items": [],
+    "name": "FnMate",
+    "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/FnMate.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/FnMate.spoon.zip)",
+    "submodules": [],
+    "type": "Module"
   }
 ]
