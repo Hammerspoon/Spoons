@@ -1,494 +1,403 @@
 [
   {
-    "Constant" : [
-
-    ],
-    "submodules" : [
-
-    ],
-    "Function" : [
-
-    ],
-    "Variable" : [
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
       {
-        "def" : "Seal.plugin_search_paths",
-        "name" : "plugin_search_paths",
-        "stripped_doc" : [
-          "List of directories where Seal will look for plugins. Defaults to `~\/.hammerspoon\/seal_plugins\/` and the Seal Spoon directory."
+        "def": "Seal:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for Seal",
+        "doc": "Binds hotkeys for Seal\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for the following items:\n  * show - This will cause Seal's UI to be shown\n\nReturns:\n * The Seal object",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * mapping - A table containing hotkey modifier/key details for the following items:",
+          "  * show - This will cause Seal's UI to be shown"
         ],
-        "doc" : "List of directories where Seal will look for plugins. Defaults to `~\/.hammerspoon\/seal_plugins\/` and the Seal Spoon directory.",
-        "notes" : [
-
+        "returns": [
+          " * The Seal object"
         ],
-        "signature" : "Seal.plugin_search_paths",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "desc" : "List of directories where Seal will look for plugins. Defaults to `~\/.hammerspoon\/seal_plugins\/` and the Seal Spoon directory.",
-        "parameters" : [
-
-        ]
+        "signature": "Seal:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
       },
       {
-        "def" : "Seal.plugins.safari_bookmarks.always_open_with_safari",
-        "name" : "plugins",
-        "stripped_doc" : [
-          "If `true` (default), bookmarks are always opened with Safari, otherwise they are opened with the default application using the `\/usr\/bin\/open` command."
-        ],
-        "doc" : "If `true` (default), bookmarks are always opened with Safari, otherwise they are opened with the default application using the `\/usr\/bin\/open` command.",
-        "notes" : [
-
-        ],
-        "signature" : "Seal.plugins.safari_bookmarks.always_open_with_safari",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "desc" : "If `true` (default), bookmarks are always opened with Safari, otherwise they are opened with the default application using the `\/usr\/bin\/open` command.",
-        "parameters" : [
-
-        ]
-      }
-    ],
-    "stripped_doc" : [
-
-    ],
-    "desc" : "Pluggable launch bar",
-    "Deprecated" : [
-
-    ],
-    "type" : "Module",
-    "Constructor" : [
-
-    ],
-    "doc" : "Pluggable launch bar\n\nDownload: [https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/Seal.spoon.zip](https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/Seal.spoon.zip)",
-    "Method" : [
-      {
-        "def" : "Seal:refreshCommandsForPlugin(plugin_name)",
-        "name" : "refreshCommandsForPlugin",
-        "stripped_doc" : [
-          "Refresh the list of commands provided by the given plugin.",
-          ""
-        ],
-        "doc" : "Refresh the list of commands provided by the given plugin.\n\nParameters:\n * plugin_name - the name of the plugin. Should be the name as passed to `loadPlugins()` or `loadPluginFromFile`.\n\nReturns:\n * The Seal object\n\nNotes:\n * Most Seal plugins expose a static list of commands (if any), which are registered at the time the plugin is loaded. This method is used for plugins which expose a dynamic or changing (e.g. depending on configuration) list of commands.",
-        "notes" : [
-          " * Most Seal plugins expose a static list of commands (if any), which are registered at the time the plugin is loaded. This method is used for plugins which expose a dynamic or changing (e.g. depending on configuration) list of commands."
-        ],
-        "signature" : "Seal:refreshCommandsForPlugin(plugin_name)",
-        "type" : "Method",
-        "returns" : [
-          " * The Seal object",
-          ""
-        ],
-        "desc" : "Refresh the list of commands provided by the given plugin.",
-        "parameters" : [
-          " * plugin_name - the name of the plugin. Should be the name as passed to `loadPlugins()` or `loadPluginFromFile`.",
-          ""
-        ]
-      },
-      {
-        "def" : "Seal:refreshAllCommands()",
-        "name" : "refreshAllCommands",
-        "stripped_doc" : [
-          "Refresh the list of commands provided by all the currently loaded plugins.",
-          ""
-        ],
-        "doc" : "Refresh the list of commands provided by all the currently loaded plugins.\n\nParameters:\n * None\n\nReturns:\n * The Seal object\n\nNotes:\n * Most Seal plugins expose a static list of commands (if any), which are registered at the time the plugin is loaded. This method is used for plugins which expose a dynamic or changing (e.g. depending on configuration) list of commands.",
-        "notes" : [
-          " * Most Seal plugins expose a static list of commands (if any), which are registered at the time the plugin is loaded. This method is used for plugins which expose a dynamic or changing (e.g. depending on configuration) list of commands."
-        ],
-        "signature" : "Seal:refreshAllCommands()",
-        "type" : "Method",
-        "returns" : [
-          " * The Seal object",
-          ""
-        ],
-        "desc" : "Refresh the list of commands provided by all the currently loaded plugins.",
-        "parameters" : [
-          " * None",
-          ""
-        ]
-      },
-      {
-        "def" : "Seal:loadPluginFromFile(plugin_name, file)",
-        "name" : "loadPluginFromFile",
-        "stripped_doc" : [
-          "Loads a plugin from a given file",
-          ""
-        ],
-        "doc" : "Loads a plugin from a given file\n\nParameters:\n * plugin_name - the name of the plugin, without \"seal_\" at the beginning or \".lua\" at the end\n * file - the file where the plugin code is stored.\n\nReturns:\n * The Seal object if the plugin was successfully loaded, `nil` otherwise\n\nNotes:\n * You should normally use `Seal:loadPlugins()`. This method allows you to load plugins\n   from non-standard locations and is mostly a development interface.\n * Some plugins may immediately begin doing background work (e.g. Spotlight searches)",
-        "notes" : [
+        "def": "Seal:loadPluginFromFile(plugin_name, file)",
+        "desc": "Loads a plugin from a given file",
+        "doc": "Loads a plugin from a given file\n\nParameters:\n * plugin_name - the name of the plugin, without \"seal_\" at the beginning or \".lua\" at the end\n * file - the file where the plugin code is stored.\n\nReturns:\n * The Seal object if the plugin was successfully loaded, `nil` otherwise\n\nNotes:\n * You should normally use `Seal:loadPlugins()`. This method allows you to load plugins\n   from non-standard locations and is mostly a development interface.\n * Some plugins may immediately begin doing background work (e.g. Spotlight searches)",
+        "name": "loadPluginFromFile",
+        "notes": [
           " * You should normally use `Seal:loadPlugins()`. This method allows you to load plugins",
           "   from non-standard locations and is mostly a development interface.",
           " * Some plugins may immediately begin doing background work (e.g. Spotlight searches)"
         ],
-        "signature" : "Seal:loadPluginFromFile(plugin_name, file)",
-        "type" : "Method",
-        "returns" : [
-          " * The Seal object if the plugin was successfully loaded, `nil` otherwise",
-          ""
-        ],
-        "desc" : "Loads a plugin from a given file",
-        "parameters" : [
+        "parameters": [
           " * plugin_name - the name of the plugin, without \"seal_\" at the beginning or \".lua\" at the end",
-          " * file - the file where the plugin code is stored.",
-          ""
-        ]
+          " * file - the file where the plugin code is stored."
+        ],
+        "returns": [
+          " * The Seal object if the plugin was successfully loaded, `nil` otherwise"
+        ],
+        "signature": "Seal:loadPluginFromFile(plugin_name, file)",
+        "stripped_doc": "",
+        "type": "Method"
       },
       {
-        "def" : "Seal:loadPlugins(plugins)",
-        "name" : "loadPlugins",
-        "stripped_doc" : [
-          "Loads a list of Seal plugins",
-          ""
-        ],
-        "doc" : "Loads a list of Seal plugins\n\nParameters:\n * plugins - A list containing the names of plugins to load\n\nReturns:\n * The Seal object\n\nNotes:\n * The plugins live inside the Seal.spoon directory\n * The plugin names in the list, should not have `seal_` at the start, or `.lua` at the end\n * Some plugins may immediately begin doing background work (e.g. Spotlight searches)",
-        "notes" : [
+        "def": "Seal:loadPlugins(plugins)",
+        "desc": "Loads a list of Seal plugins",
+        "doc": "Loads a list of Seal plugins\n\nParameters:\n * plugins - A list containing the names of plugins to load\n\nReturns:\n * The Seal object\n\nNotes:\n * The plugins live inside the Seal.spoon directory\n * The plugin names in the list, should not have `seal_` at the start, or `.lua` at the end\n * Some plugins may immediately begin doing background work (e.g. Spotlight searches)",
+        "name": "loadPlugins",
+        "notes": [
           " * The plugins live inside the Seal.spoon directory",
           " * The plugin names in the list, should not have `seal_` at the start, or `.lua` at the end",
           " * Some plugins may immediately begin doing background work (e.g. Spotlight searches)"
         ],
-        "signature" : "Seal:loadPlugins(plugins)",
-        "type" : "Method",
-        "returns" : [
-          " * The Seal object",
-          ""
+        "parameters": [
+          " * plugins - A list containing the names of plugins to load"
         ],
-        "desc" : "Loads a list of Seal plugins",
-        "parameters" : [
-          " * plugins - A list containing the names of plugins to load",
-          ""
-        ]
-      },
-      {
-        "def" : "Seal:bindHotkeys(mapping)",
-        "name" : "bindHotkeys",
-        "stripped_doc" : [
-          "Binds hotkeys for Seal",
-          ""
-        ],
-        "doc" : "Binds hotkeys for Seal\n\nParameters:\n * mapping - A table containing hotkey modifier\/key details for the following items:\n  * show - This will cause Seal's UI to be shown\n\nReturns:\n * The Seal object",
-        "notes" : [
-
-        ],
-        "signature" : "Seal:bindHotkeys(mapping)",
-        "type" : "Method",
-        "returns" : [
+        "returns": [
           " * The Seal object"
         ],
-        "desc" : "Binds hotkeys for Seal",
-        "parameters" : [
-          " * mapping - A table containing hotkey modifier\/key details for the following items:",
-          "  * show - This will cause Seal's UI to be shown",
-          ""
-        ]
+        "signature": "Seal:loadPlugins(plugins)",
+        "stripped_doc": "",
+        "type": "Method"
       },
       {
-        "def" : "Seal:start()",
-        "name" : "start",
-        "stripped_doc" : [
-          "Starts Seal",
-          ""
+        "def": "Seal:refreshAllCommands()",
+        "desc": "Refresh the list of commands provided by all the currently loaded plugins.",
+        "doc": "Refresh the list of commands provided by all the currently loaded plugins.\n\nParameters:\n * None\n\nReturns:\n * The Seal object\n\nNotes:\n * Most Seal plugins expose a static list of commands (if any), which are registered at the time the plugin is loaded. This method is used for plugins which expose a dynamic or changing (e.g. depending on configuration) list of commands.",
+        "name": "refreshAllCommands",
+        "notes": [
+          " * Most Seal plugins expose a static list of commands (if any), which are registered at the time the plugin is loaded. This method is used for plugins which expose a dynamic or changing (e.g. depending on configuration) list of commands."
         ],
-        "doc" : "Starts Seal\n\nParameters:\n * None\n\nReturns:\n * The Seal object",
-        "notes" : [
-
+        "parameters": [
+          " * None"
         ],
-        "signature" : "Seal:start()",
-        "type" : "Method",
-        "returns" : [
+        "returns": [
           " * The Seal object"
         ],
-        "desc" : "Starts Seal",
-        "parameters" : [
-          " * None",
-          ""
-        ]
+        "signature": "Seal:refreshAllCommands()",
+        "stripped_doc": "",
+        "type": "Method"
       },
       {
-        "def" : "Seal:stop()",
-        "name" : "stop",
-        "stripped_doc" : [
-          "Stops Seal",
-          ""
+        "def": "Seal:refreshCommandsForPlugin(plugin_name)",
+        "desc": "Refresh the list of commands provided by the given plugin.",
+        "doc": "Refresh the list of commands provided by the given plugin.\n\nParameters:\n * plugin_name - the name of the plugin. Should be the name as passed to `loadPlugins()` or `loadPluginFromFile`.\n\nReturns:\n * The Seal object\n\nNotes:\n * Most Seal plugins expose a static list of commands (if any), which are registered at the time the plugin is loaded. This method is used for plugins which expose a dynamic or changing (e.g. depending on configuration) list of commands.",
+        "name": "refreshCommandsForPlugin",
+        "notes": [
+          " * Most Seal plugins expose a static list of commands (if any), which are registered at the time the plugin is loaded. This method is used for plugins which expose a dynamic or changing (e.g. depending on configuration) list of commands."
         ],
-        "doc" : "Stops Seal\n\nParameters:\n * None\n\nReturns:\n * The Seal object\n\nNotes:\n * Some Seal plugins will continue performing background work even after this call (e.g. Spotlight searches)",
-        "notes" : [
-          " * Some Seal plugins will continue performing background work even after this call (e.g. Spotlight searches)"
+        "parameters": [
+          " * plugin_name - the name of the plugin. Should be the name as passed to `loadPlugins()` or `loadPluginFromFile`."
         ],
-        "signature" : "Seal:stop()",
-        "type" : "Method",
-        "returns" : [
-          " * The Seal object",
-          ""
+        "returns": [
+          " * The Seal object"
         ],
-        "desc" : "Stops Seal",
-        "parameters" : [
-          " * None",
-          ""
-        ]
+        "signature": "Seal:refreshCommandsForPlugin(plugin_name)",
+        "stripped_doc": "",
+        "type": "Method"
       },
       {
-        "def" : "Seal:show()",
-        "name" : "show",
-        "stripped_doc" : [
-          "Shows the Seal UI",
-          ""
-        ],
-        "doc" : "Shows the Seal UI\n\nParameters:\n * None\n\nReturns:\n * None\n\nNotes:\n * This may be useful if you wish to show Seal in response to something other than its hotkey",
-        "notes" : [
+        "def": "Seal:show()",
+        "desc": "Shows the Seal UI",
+        "doc": "Shows the Seal UI\n\nParameters:\n * None\n\nReturns:\n * None\n\nNotes:\n * This may be useful if you wish to show Seal in response to something other than its hotkey",
+        "name": "show",
+        "notes": [
           " * This may be useful if you wish to show Seal in response to something other than its hotkey"
         ],
-        "signature" : "Seal:show()",
-        "type" : "Method",
-        "returns" : [
-          " * None",
-          ""
+        "parameters": [
+          " * None"
         ],
-        "desc" : "Shows the Seal UI",
-        "parameters" : [
-          " * None",
-          ""
-        ]
-      }
-    ],
-    "Command" : [
-
-    ],
-    "Field" : [
-
-    ],
-    "items" : [
-      {
-        "def" : "Seal.plugin_search_paths",
-        "name" : "plugin_search_paths",
-        "stripped_doc" : [
-          "List of directories where Seal will look for plugins. Defaults to `~\/.hammerspoon\/seal_plugins\/` and the Seal Spoon directory."
+        "returns": [
+          " * None"
         ],
-        "doc" : "List of directories where Seal will look for plugins. Defaults to `~\/.hammerspoon\/seal_plugins\/` and the Seal Spoon directory.",
-        "notes" : [
-
-        ],
-        "signature" : "Seal.plugin_search_paths",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "desc" : "List of directories where Seal will look for plugins. Defaults to `~\/.hammerspoon\/seal_plugins\/` and the Seal Spoon directory.",
-        "parameters" : [
-
-        ]
+        "signature": "Seal:show()",
+        "stripped_doc": "",
+        "type": "Method"
       },
       {
-        "def" : "Seal.plugins.safari_bookmarks.always_open_with_safari",
-        "name" : "plugins",
-        "stripped_doc" : [
-          "If `true` (default), bookmarks are always opened with Safari, otherwise they are opened with the default application using the `\/usr\/bin\/open` command."
+        "def": "Seal:start()",
+        "desc": "Starts Seal",
+        "doc": "Starts Seal\n\nParameters:\n * None\n\nReturns:\n * The Seal object",
+        "name": "start",
+        "parameters": [
+          " * None"
         ],
-        "doc" : "If `true` (default), bookmarks are always opened with Safari, otherwise they are opened with the default application using the `\/usr\/bin\/open` command.",
-        "notes" : [
-
-        ],
-        "signature" : "Seal.plugins.safari_bookmarks.always_open_with_safari",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "desc" : "If `true` (default), bookmarks are always opened with Safari, otherwise they are opened with the default application using the `\/usr\/bin\/open` command.",
-        "parameters" : [
-
-        ]
-      },
-      {
-        "def" : "Seal:bindHotkeys(mapping)",
-        "name" : "bindHotkeys",
-        "stripped_doc" : [
-          "Binds hotkeys for Seal",
-          ""
-        ],
-        "doc" : "Binds hotkeys for Seal\n\nParameters:\n * mapping - A table containing hotkey modifier\/key details for the following items:\n  * show - This will cause Seal's UI to be shown\n\nReturns:\n * The Seal object",
-        "notes" : [
-
-        ],
-        "signature" : "Seal:bindHotkeys(mapping)",
-        "type" : "Method",
-        "returns" : [
+        "returns": [
           " * The Seal object"
         ],
-        "desc" : "Binds hotkeys for Seal",
-        "parameters" : [
-          " * mapping - A table containing hotkey modifier\/key details for the following items:",
-          "  * show - This will cause Seal's UI to be shown",
-          ""
-        ]
+        "signature": "Seal:start()",
+        "stripped_doc": "",
+        "type": "Method"
       },
       {
-        "def" : "Seal:loadPluginFromFile(plugin_name, file)",
-        "name" : "loadPluginFromFile",
-        "stripped_doc" : [
-          "Loads a plugin from a given file",
-          ""
+        "def": "Seal:stop()",
+        "desc": "Stops Seal",
+        "doc": "Stops Seal\n\nParameters:\n * None\n\nReturns:\n * The Seal object\n\nNotes:\n * Some Seal plugins will continue performing background work even after this call (e.g. Spotlight searches)",
+        "name": "stop",
+        "notes": [
+          " * Some Seal plugins will continue performing background work even after this call (e.g. Spotlight searches)"
         ],
-        "doc" : "Loads a plugin from a given file\n\nParameters:\n * plugin_name - the name of the plugin, without \"seal_\" at the beginning or \".lua\" at the end\n * file - the file where the plugin code is stored.\n\nReturns:\n * The Seal object if the plugin was successfully loaded, `nil` otherwise\n\nNotes:\n * You should normally use `Seal:loadPlugins()`. This method allows you to load plugins\n   from non-standard locations and is mostly a development interface.\n * Some plugins may immediately begin doing background work (e.g. Spotlight searches)",
-        "notes" : [
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * The Seal object"
+        ],
+        "signature": "Seal:stop()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [
+      {
+        "def": "Seal.plugins.safari_bookmarks.always_open_with_safari",
+        "desc": "If `true` (default), bookmarks are always opened with Safari, otherwise they are opened with the default application using the `/usr/bin/open` command.",
+        "doc": "If `true` (default), bookmarks are always opened with Safari, otherwise they are opened with the default application using the `/usr/bin/open` command.",
+        "name": "always_open_with_safari",
+        "signature": "Seal.plugins.safari_bookmarks.always_open_with_safari",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "Seal.plugin_search_paths",
+        "desc": "List of directories where Seal will look for plugins. Defaults to `~/.hammerspoon/seal_plugins/` and the Seal Spoon directory.",
+        "doc": "List of directories where Seal will look for plugins. Defaults to `~/.hammerspoon/seal_plugins/` and the Seal Spoon directory.",
+        "name": "plugin_search_paths",
+        "signature": "Seal.plugin_search_paths",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "desc": "Pluggable launch bar",
+    "doc": "Pluggable launch bar\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Seal.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Seal.spoon.zip)",
+    "items": [
+      {
+        "def": "Seal.plugins.safari_bookmarks.always_open_with_safari",
+        "desc": "If `true` (default), bookmarks are always opened with Safari, otherwise they are opened with the default application using the `/usr/bin/open` command.",
+        "doc": "If `true` (default), bookmarks are always opened with Safari, otherwise they are opened with the default application using the `/usr/bin/open` command.",
+        "name": "always_open_with_safari",
+        "signature": "Seal.plugins.safari_bookmarks.always_open_with_safari",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "Seal:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for Seal",
+        "doc": "Binds hotkeys for Seal\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for the following items:\n  * show - This will cause Seal's UI to be shown\n\nReturns:\n * The Seal object",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * mapping - A table containing hotkey modifier/key details for the following items:",
+          "  * show - This will cause Seal's UI to be shown"
+        ],
+        "returns": [
+          " * The Seal object"
+        ],
+        "signature": "Seal:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Seal:loadPluginFromFile(plugin_name, file)",
+        "desc": "Loads a plugin from a given file",
+        "doc": "Loads a plugin from a given file\n\nParameters:\n * plugin_name - the name of the plugin, without \"seal_\" at the beginning or \".lua\" at the end\n * file - the file where the plugin code is stored.\n\nReturns:\n * The Seal object if the plugin was successfully loaded, `nil` otherwise\n\nNotes:\n * You should normally use `Seal:loadPlugins()`. This method allows you to load plugins\n   from non-standard locations and is mostly a development interface.\n * Some plugins may immediately begin doing background work (e.g. Spotlight searches)",
+        "name": "loadPluginFromFile",
+        "notes": [
           " * You should normally use `Seal:loadPlugins()`. This method allows you to load plugins",
           "   from non-standard locations and is mostly a development interface.",
           " * Some plugins may immediately begin doing background work (e.g. Spotlight searches)"
         ],
-        "signature" : "Seal:loadPluginFromFile(plugin_name, file)",
-        "type" : "Method",
-        "returns" : [
-          " * The Seal object if the plugin was successfully loaded, `nil` otherwise",
-          ""
-        ],
-        "desc" : "Loads a plugin from a given file",
-        "parameters" : [
+        "parameters": [
           " * plugin_name - the name of the plugin, without \"seal_\" at the beginning or \".lua\" at the end",
-          " * file - the file where the plugin code is stored.",
-          ""
-        ]
+          " * file - the file where the plugin code is stored."
+        ],
+        "returns": [
+          " * The Seal object if the plugin was successfully loaded, `nil` otherwise"
+        ],
+        "signature": "Seal:loadPluginFromFile(plugin_name, file)",
+        "stripped_doc": "",
+        "type": "Method"
       },
       {
-        "def" : "Seal:loadPlugins(plugins)",
-        "name" : "loadPlugins",
-        "stripped_doc" : [
-          "Loads a list of Seal plugins",
-          ""
-        ],
-        "doc" : "Loads a list of Seal plugins\n\nParameters:\n * plugins - A list containing the names of plugins to load\n\nReturns:\n * The Seal object\n\nNotes:\n * The plugins live inside the Seal.spoon directory\n * The plugin names in the list, should not have `seal_` at the start, or `.lua` at the end\n * Some plugins may immediately begin doing background work (e.g. Spotlight searches)",
-        "notes" : [
+        "def": "Seal:loadPlugins(plugins)",
+        "desc": "Loads a list of Seal plugins",
+        "doc": "Loads a list of Seal plugins\n\nParameters:\n * plugins - A list containing the names of plugins to load\n\nReturns:\n * The Seal object\n\nNotes:\n * The plugins live inside the Seal.spoon directory\n * The plugin names in the list, should not have `seal_` at the start, or `.lua` at the end\n * Some plugins may immediately begin doing background work (e.g. Spotlight searches)",
+        "name": "loadPlugins",
+        "notes": [
           " * The plugins live inside the Seal.spoon directory",
           " * The plugin names in the list, should not have `seal_` at the start, or `.lua` at the end",
           " * Some plugins may immediately begin doing background work (e.g. Spotlight searches)"
         ],
-        "signature" : "Seal:loadPlugins(plugins)",
-        "type" : "Method",
-        "returns" : [
-          " * The Seal object",
-          ""
+        "parameters": [
+          " * plugins - A list containing the names of plugins to load"
         ],
-        "desc" : "Loads a list of Seal plugins",
-        "parameters" : [
-          " * plugins - A list containing the names of plugins to load",
-          ""
-        ]
-      },
-      {
-        "def" : "Seal:refreshAllCommands()",
-        "name" : "refreshAllCommands",
-        "stripped_doc" : [
-          "Refresh the list of commands provided by all the currently loaded plugins.",
-          ""
-        ],
-        "doc" : "Refresh the list of commands provided by all the currently loaded plugins.\n\nParameters:\n * None\n\nReturns:\n * The Seal object\n\nNotes:\n * Most Seal plugins expose a static list of commands (if any), which are registered at the time the plugin is loaded. This method is used for plugins which expose a dynamic or changing (e.g. depending on configuration) list of commands.",
-        "notes" : [
-          " * Most Seal plugins expose a static list of commands (if any), which are registered at the time the plugin is loaded. This method is used for plugins which expose a dynamic or changing (e.g. depending on configuration) list of commands."
-        ],
-        "signature" : "Seal:refreshAllCommands()",
-        "type" : "Method",
-        "returns" : [
-          " * The Seal object",
-          ""
-        ],
-        "desc" : "Refresh the list of commands provided by all the currently loaded plugins.",
-        "parameters" : [
-          " * None",
-          ""
-        ]
-      },
-      {
-        "def" : "Seal:refreshCommandsForPlugin(plugin_name)",
-        "name" : "refreshCommandsForPlugin",
-        "stripped_doc" : [
-          "Refresh the list of commands provided by the given plugin.",
-          ""
-        ],
-        "doc" : "Refresh the list of commands provided by the given plugin.\n\nParameters:\n * plugin_name - the name of the plugin. Should be the name as passed to `loadPlugins()` or `loadPluginFromFile`.\n\nReturns:\n * The Seal object\n\nNotes:\n * Most Seal plugins expose a static list of commands (if any), which are registered at the time the plugin is loaded. This method is used for plugins which expose a dynamic or changing (e.g. depending on configuration) list of commands.",
-        "notes" : [
-          " * Most Seal plugins expose a static list of commands (if any), which are registered at the time the plugin is loaded. This method is used for plugins which expose a dynamic or changing (e.g. depending on configuration) list of commands."
-        ],
-        "signature" : "Seal:refreshCommandsForPlugin(plugin_name)",
-        "type" : "Method",
-        "returns" : [
-          " * The Seal object",
-          ""
-        ],
-        "desc" : "Refresh the list of commands provided by the given plugin.",
-        "parameters" : [
-          " * plugin_name - the name of the plugin. Should be the name as passed to `loadPlugins()` or `loadPluginFromFile`.",
-          ""
-        ]
-      },
-      {
-        "def" : "Seal:show()",
-        "name" : "show",
-        "stripped_doc" : [
-          "Shows the Seal UI",
-          ""
-        ],
-        "doc" : "Shows the Seal UI\n\nParameters:\n * None\n\nReturns:\n * None\n\nNotes:\n * This may be useful if you wish to show Seal in response to something other than its hotkey",
-        "notes" : [
-          " * This may be useful if you wish to show Seal in response to something other than its hotkey"
-        ],
-        "signature" : "Seal:show()",
-        "type" : "Method",
-        "returns" : [
-          " * None",
-          ""
-        ],
-        "desc" : "Shows the Seal UI",
-        "parameters" : [
-          " * None",
-          ""
-        ]
-      },
-      {
-        "def" : "Seal:start()",
-        "name" : "start",
-        "stripped_doc" : [
-          "Starts Seal",
-          ""
-        ],
-        "doc" : "Starts Seal\n\nParameters:\n * None\n\nReturns:\n * The Seal object",
-        "notes" : [
-
-        ],
-        "signature" : "Seal:start()",
-        "type" : "Method",
-        "returns" : [
+        "returns": [
           " * The Seal object"
         ],
-        "desc" : "Starts Seal",
-        "parameters" : [
-          " * None",
-          ""
-        ]
+        "signature": "Seal:loadPlugins(plugins)",
+        "stripped_doc": "",
+        "type": "Method"
       },
       {
-        "def" : "Seal:stop()",
-        "name" : "stop",
-        "stripped_doc" : [
-          "Stops Seal",
-          ""
+        "def": "Seal.plugin_search_paths",
+        "desc": "List of directories where Seal will look for plugins. Defaults to `~/.hammerspoon/seal_plugins/` and the Seal Spoon directory.",
+        "doc": "List of directories where Seal will look for plugins. Defaults to `~/.hammerspoon/seal_plugins/` and the Seal Spoon directory.",
+        "name": "plugin_search_paths",
+        "signature": "Seal.plugin_search_paths",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "Seal:refreshAllCommands()",
+        "desc": "Refresh the list of commands provided by all the currently loaded plugins.",
+        "doc": "Refresh the list of commands provided by all the currently loaded plugins.\n\nParameters:\n * None\n\nReturns:\n * The Seal object\n\nNotes:\n * Most Seal plugins expose a static list of commands (if any), which are registered at the time the plugin is loaded. This method is used for plugins which expose a dynamic or changing (e.g. depending on configuration) list of commands.",
+        "name": "refreshAllCommands",
+        "notes": [
+          " * Most Seal plugins expose a static list of commands (if any), which are registered at the time the plugin is loaded. This method is used for plugins which expose a dynamic or changing (e.g. depending on configuration) list of commands."
         ],
-        "doc" : "Stops Seal\n\nParameters:\n * None\n\nReturns:\n * The Seal object\n\nNotes:\n * Some Seal plugins will continue performing background work even after this call (e.g. Spotlight searches)",
-        "notes" : [
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * The Seal object"
+        ],
+        "signature": "Seal:refreshAllCommands()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Seal:refreshCommandsForPlugin(plugin_name)",
+        "desc": "Refresh the list of commands provided by the given plugin.",
+        "doc": "Refresh the list of commands provided by the given plugin.\n\nParameters:\n * plugin_name - the name of the plugin. Should be the name as passed to `loadPlugins()` or `loadPluginFromFile`.\n\nReturns:\n * The Seal object\n\nNotes:\n * Most Seal plugins expose a static list of commands (if any), which are registered at the time the plugin is loaded. This method is used for plugins which expose a dynamic or changing (e.g. depending on configuration) list of commands.",
+        "name": "refreshCommandsForPlugin",
+        "notes": [
+          " * Most Seal plugins expose a static list of commands (if any), which are registered at the time the plugin is loaded. This method is used for plugins which expose a dynamic or changing (e.g. depending on configuration) list of commands."
+        ],
+        "parameters": [
+          " * plugin_name - the name of the plugin. Should be the name as passed to `loadPlugins()` or `loadPluginFromFile`."
+        ],
+        "returns": [
+          " * The Seal object"
+        ],
+        "signature": "Seal:refreshCommandsForPlugin(plugin_name)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Seal:show()",
+        "desc": "Shows the Seal UI",
+        "doc": "Shows the Seal UI\n\nParameters:\n * None\n\nReturns:\n * None\n\nNotes:\n * This may be useful if you wish to show Seal in response to something other than its hotkey",
+        "name": "show",
+        "notes": [
+          " * This may be useful if you wish to show Seal in response to something other than its hotkey"
+        ],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "Seal:show()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Seal:start()",
+        "desc": "Starts Seal",
+        "doc": "Starts Seal\n\nParameters:\n * None\n\nReturns:\n * The Seal object",
+        "name": "start",
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * The Seal object"
+        ],
+        "signature": "Seal:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Seal:stop()",
+        "desc": "Stops Seal",
+        "doc": "Stops Seal\n\nParameters:\n * None\n\nReturns:\n * The Seal object\n\nNotes:\n * Some Seal plugins will continue performing background work even after this call (e.g. Spotlight searches)",
+        "name": "stop",
+        "notes": [
           " * Some Seal plugins will continue performing background work even after this call (e.g. Spotlight searches)"
         ],
-        "signature" : "Seal:stop()",
-        "type" : "Method",
-        "returns" : [
-          " * The Seal object",
-          ""
+        "parameters": [
+          " * None"
         ],
-        "desc" : "Stops Seal",
-        "parameters" : [
-          " * None",
-          ""
-        ]
+        "returns": [
+          " * The Seal object"
+        ],
+        "signature": "Seal:stop()",
+        "stripped_doc": "",
+        "type": "Method"
       }
     ],
-    "name" : "Seal"
+    "name": "Seal",
+    "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Seal.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Seal.spoon.zip)",
+    "submodules": [
+      "plugins"
+    ],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [],
+    "Variable": [
+      {
+        "def": "Seal.plugins.useractions.actions",
+        "desc": "",
+        "doc": "\nA table containing the definitions of static user-defined actions. Each entry is indexed by the name of the entry as it will be shown in the chooser. Its value is a table which can have the following keys (one of `fn` or `url` is required. If both are provided, `url` is ignored):\n * fn - A function which will be called when the entry is selected. The function receives no arguments.\n * url - A URL which will be opened when the entry is selected. Can also be non-HTTP URLs, such as `mailto:` or other app-specific URLs.\n * icon - (optional) An `hs.image` object that will be shown next to the entry in the chooser. If not provided, `Seal.plugins.useractions.default_icon` is used. For `url` bookmarks, it can be set to `\"favicon\"` to fetch and use the website's favicon.\n * keyword - (optional) A command by which this action will be invoked, effectively turning it into a Seal command. Any arguments passed to the command will be handled as follows:\n   * For `fn` actions, passed as an argument to the function\n   * For `url` actions, substituted into the URL, taking the place of any occurrences of `${query}`.\n * hotkey - (optional) A hotkey specification in the form `{ modifiers, key }` by which this action can be invoked.\n\nExample configuration:\n```\nspoon.Seal:loadPlugins({\"useractions\"})\nspoon.Seal.plugins.useractions.actions =\n   {\n      [\"Hammerspoon docs webpage\"] = {\n         url = \"http://hammerspoon.org/docs/\",\n         icon = hs.image.imageFromName(hs.image.systemImageNames.ApplicationIcon),\n         hotkey = { hyper, \"h\" }\n      },\n      [\"Leave corpnet\"] = {\n         fn = function()\n            spoon.WiFiTransitions:processTransition('foo', 'corpnet01')\n         end,\n      },\n      [\"Arrive in corpnet\"] = {\n         fn = function()\n            spoon.WiFiTransitions:processTransition('corpnet01', 'foo')\n         end,\n      },\n      [\"Translate using Leo\"] = {\n         url = \"http://dict.leo.org/ende/index_de.html#/search=${query}\",\n         icon = 'favicon',\n         keyword = \"leo\",\n      },\n      [\"Tell me something\"] = {\n         keyword = \"tellme\",\n         fn = function(str) hs.alert.show(str) end,\n      }\n```",
+        "name": "actions",
+        "signature": "Seal.plugins.useractions.actions",
+        "stripped_doc": "A table containing the definitions of static user-defined actions. Each entry is indexed by the name of the entry as it will be shown in the chooser. Its value is a table which can have the following keys (one of `fn` or `url` is required. If both are provided, `url` is ignored):\n * fn - A function which will be called when the entry is selected. The function receives no arguments.\n * url - A URL which will be opened when the entry is selected. Can also be non-HTTP URLs, such as `mailto:` or other app-specific URLs.\n * icon - (optional) An `hs.image` object that will be shown next to the entry in the chooser. If not provided, `Seal.plugins.useractions.default_icon` is used. For `url` bookmarks, it can be set to `\"favicon\"` to fetch and use the website's favicon.\n * keyword - (optional) A command by which this action will be invoked, effectively turning it into a Seal command. Any arguments passed to the command will be handled as follows:\n   * For `fn` actions, passed as an argument to the function\n   * For `url` actions, substituted into the URL, taking the place of any occurrences of `${query}`.\n * hotkey - (optional) A hotkey specification in the form `{ modifiers, key }` by which this action can be invoked.\nExample configuration:\n```\nspoon.Seal:loadPlugins({\"useractions\"})\nspoon.Seal.plugins.useractions.actions =\n   {\n      [\"Hammerspoon docs webpage\"] = {\n         url = \"http://hammerspoon.org/docs/\",\n         icon = hs.image.imageFromName(hs.image.systemImageNames.ApplicationIcon),\n         hotkey = { hyper, \"h\" }\n      },\n      [\"Leave corpnet\"] = {\n         fn = function()\n            spoon.WiFiTransitions:processTransition('foo', 'corpnet01')\n         end,\n      },\n      [\"Arrive in corpnet\"] = {\n         fn = function()\n            spoon.WiFiTransitions:processTransition('corpnet01', 'foo')\n         end,\n      },\n      [\"Translate using Leo\"] = {\n         url = \"http://dict.leo.org/ende/index_de.html#/search=${query}\",\n         icon = 'favicon',\n         keyword = \"leo\",\n      },\n      [\"Tell me something\"] = {\n         keyword = \"tellme\",\n         fn = function(str) hs.alert.show(str) end,\n      }\n```",
+        "type": "Variable"
+      },
+      {
+        "def": "Seal.plugins.useractions.get_favicon",
+        "desc": "",
+        "doc": "\nIf `true`, attempt to obtain the favicon for URLs added through the `add` command, and use it in the chooser.",
+        "name": "get_favicon",
+        "signature": "Seal.plugins.useractions.get_favicon",
+        "stripped_doc": "If `true`, attempt to obtain the favicon for URLs added through the `add` command, and use it in the chooser.",
+        "type": "Variable"
+      }
+    ],
+    "desc": "Allow accessing user-defined bookmarks and arbitrary actions from Seal.",
+    "doc": "Allow accessing user-defined bookmarks and arbitrary actions from Seal.\n",
+    "items": [
+      {
+        "def": "Seal.plugins.useractions.actions",
+        "desc": "",
+        "doc": "\nA table containing the definitions of static user-defined actions. Each entry is indexed by the name of the entry as it will be shown in the chooser. Its value is a table which can have the following keys (one of `fn` or `url` is required. If both are provided, `url` is ignored):\n * fn - A function which will be called when the entry is selected. The function receives no arguments.\n * url - A URL which will be opened when the entry is selected. Can also be non-HTTP URLs, such as `mailto:` or other app-specific URLs.\n * icon - (optional) An `hs.image` object that will be shown next to the entry in the chooser. If not provided, `Seal.plugins.useractions.default_icon` is used. For `url` bookmarks, it can be set to `\"favicon\"` to fetch and use the website's favicon.\n * keyword - (optional) A command by which this action will be invoked, effectively turning it into a Seal command. Any arguments passed to the command will be handled as follows:\n   * For `fn` actions, passed as an argument to the function\n   * For `url` actions, substituted into the URL, taking the place of any occurrences of `${query}`.\n * hotkey - (optional) A hotkey specification in the form `{ modifiers, key }` by which this action can be invoked.\n\nExample configuration:\n```\nspoon.Seal:loadPlugins({\"useractions\"})\nspoon.Seal.plugins.useractions.actions =\n   {\n      [\"Hammerspoon docs webpage\"] = {\n         url = \"http://hammerspoon.org/docs/\",\n         icon = hs.image.imageFromName(hs.image.systemImageNames.ApplicationIcon),\n         hotkey = { hyper, \"h\" }\n      },\n      [\"Leave corpnet\"] = {\n         fn = function()\n            spoon.WiFiTransitions:processTransition('foo', 'corpnet01')\n         end,\n      },\n      [\"Arrive in corpnet\"] = {\n         fn = function()\n            spoon.WiFiTransitions:processTransition('corpnet01', 'foo')\n         end,\n      },\n      [\"Translate using Leo\"] = {\n         url = \"http://dict.leo.org/ende/index_de.html#/search=${query}\",\n         icon = 'favicon',\n         keyword = \"leo\",\n      },\n      [\"Tell me something\"] = {\n         keyword = \"tellme\",\n         fn = function(str) hs.alert.show(str) end,\n      }\n```",
+        "name": "actions",
+        "signature": "Seal.plugins.useractions.actions",
+        "stripped_doc": "A table containing the definitions of static user-defined actions. Each entry is indexed by the name of the entry as it will be shown in the chooser. Its value is a table which can have the following keys (one of `fn` or `url` is required. If both are provided, `url` is ignored):\n * fn - A function which will be called when the entry is selected. The function receives no arguments.\n * url - A URL which will be opened when the entry is selected. Can also be non-HTTP URLs, such as `mailto:` or other app-specific URLs.\n * icon - (optional) An `hs.image` object that will be shown next to the entry in the chooser. If not provided, `Seal.plugins.useractions.default_icon` is used. For `url` bookmarks, it can be set to `\"favicon\"` to fetch and use the website's favicon.\n * keyword - (optional) A command by which this action will be invoked, effectively turning it into a Seal command. Any arguments passed to the command will be handled as follows:\n   * For `fn` actions, passed as an argument to the function\n   * For `url` actions, substituted into the URL, taking the place of any occurrences of `${query}`.\n * hotkey - (optional) A hotkey specification in the form `{ modifiers, key }` by which this action can be invoked.\nExample configuration:\n```\nspoon.Seal:loadPlugins({\"useractions\"})\nspoon.Seal.plugins.useractions.actions =\n   {\n      [\"Hammerspoon docs webpage\"] = {\n         url = \"http://hammerspoon.org/docs/\",\n         icon = hs.image.imageFromName(hs.image.systemImageNames.ApplicationIcon),\n         hotkey = { hyper, \"h\" }\n      },\n      [\"Leave corpnet\"] = {\n         fn = function()\n            spoon.WiFiTransitions:processTransition('foo', 'corpnet01')\n         end,\n      },\n      [\"Arrive in corpnet\"] = {\n         fn = function()\n            spoon.WiFiTransitions:processTransition('corpnet01', 'foo')\n         end,\n      },\n      [\"Translate using Leo\"] = {\n         url = \"http://dict.leo.org/ende/index_de.html#/search=${query}\",\n         icon = 'favicon',\n         keyword = \"leo\",\n      },\n      [\"Tell me something\"] = {\n         keyword = \"tellme\",\n         fn = function(str) hs.alert.show(str) end,\n      }\n```",
+        "type": "Variable"
+      },
+      {
+        "def": "Seal.plugins.useractions.get_favicon",
+        "desc": "",
+        "doc": "\nIf `true`, attempt to obtain the favicon for URLs added through the `add` command, and use it in the chooser.",
+        "name": "get_favicon",
+        "signature": "Seal.plugins.useractions.get_favicon",
+        "stripped_doc": "If `true`, attempt to obtain the favicon for URLs added through the `add` command, and use it in the chooser.",
+        "type": "Variable"
+      }
+    ],
+    "name": "Seal.plugins.useractions",
+    "stripped_doc": "",
+    "submodules": [],
+    "type": "Module"
   }
 ]
