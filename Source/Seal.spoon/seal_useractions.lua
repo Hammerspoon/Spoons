@@ -72,11 +72,11 @@ obj.all_actions = nil
 function update_all_actions()
    if (obj.all_actions == nil) then
       obj.all_actions = {}
-      for k,v in pairs(obj.actions) do obj.all_actions[k] = v end
+      for k,v in pairs(obj.actions) do obj.all_actions[k] = hs.fnutils.copy(v) end
       for k,v in pairs(obj.stored_actions) do
-         obj.all_actions[k] = v
+         obj.all_actions[k] = hs.fnutils.copy(v)
          if v.encoded_icon then
-            v.icon = hs.image.imageFromURL(v.encoded_icon)
+            obj.all_actions[k].icon = hs.image.imageFromURL(v.encoded_icon)
          end
       end
    end
@@ -119,7 +119,6 @@ function obj:commands()
          local choice = obj.buildChoice(k,v)
          hotkeys_def[k] = hs.fnutils.partial(obj.completionCallback, choice)
          hotkeys_map[k] = v.hotkey
-         hs.printf("def=%s, map=%s", hs.inspect(hotkeys_def), hs.inspect(hotkeys_map))
          any_hotkeys = true
       end
    end
