@@ -1,163 +1,87 @@
 [
   {
-    "Constant" : [
-
-    ],
-    "submodules" : [
-
-    ],
-    "Function" : [
-
-    ],
-    "Variable" : [
-
-    ],
-    "stripped_doc" : [
-
-    ],
-    "Deprecated" : [
-
-    ],
-    "type" : "Module",
-    "desc" : "Tiny countdown with visual indicator",
-    "Constructor" : [
-
-    ],
-    "items" : [
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
       {
-        "parameters" : [
-
-        ],
-        "stripped_doc" : [
-          "Pause or resume the existing countdown."
-        ],
-        "desc" : "Pause or resume the existing countdown.",
-        "doc" : "Pause or resume the existing countdown.",
-        "notes" : [
-
-        ],
-        "signature" : "CountDown:pauseOrResume()",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "def" : "CountDown:pauseOrResume()",
-        "name" : "pauseOrResume"
+        "def": "CountDown:pauseOrResume()",
+        "desc": "Pause or resume the existing countdown.",
+        "doc": "Pause or resume the existing countdown.\n",
+        "name": "pauseOrResume",
+        "signature": "CountDown:pauseOrResume()",
+        "stripped_doc": "",
+        "type": "Method"
       },
       {
-        "parameters" : [
+        "def": "CountDown:setProgress(progress)",
+        "desc": "Set the progress of visual indicator to `progress`.",
+        "doc": "Set the progress of visual indicator to `progress`.\n\nParameters:\n * progress - an number specifying the value of progress (0.0 - 1.0)",
+        "name": "setProgress",
+        "parameters": [
           " * progress - an number specifying the value of progress (0.0 - 1.0)"
         ],
-        "stripped_doc" : [
-          "Set the progress of visual indicator to `progress`.",
-          ""
-        ],
-        "desc" : "Set the progress of visual indicator to `progress`.",
-        "doc" : "Set the progress of visual indicator to `progress`.\n\nParameters:\n * progress - an number specifying the value of progress (0.0 - 1.0)",
-        "notes" : [
-
-        ],
-        "signature" : "CountDown:setProgress(progress)",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "def" : "CountDown:setProgress(progress)",
-        "name" : "setProgress"
+        "signature": "CountDown:setProgress(progress)",
+        "stripped_doc": "",
+        "type": "Method"
       },
       {
-        "parameters" : [
+        "def": "CountDown:startFor(minutes)",
+        "desc": "Start a countdown for `minutes` minutes immediately. Calling this method again will kill the existing countdown instance.",
+        "doc": "Start a countdown for `minutes` minutes immediately. Calling this method again will kill the existing countdown instance.\n\nParameters:\n * minutes - How many minutes",
+        "name": "startFor",
+        "parameters": [
           " * minutes - How many minutes"
         ],
-        "stripped_doc" : [
-          "Start a countdown for `minutes` minutes immediately. Calling this method again will kill the existing countdown instance.",
-          ""
-        ],
-        "desc" : "Start a countdown for `minutes` minutes immediately. Calling this method again will kill the existing countdown instance.",
-        "doc" : "Start a countdown for `minutes` minutes immediately. Calling this method again will kill the existing countdown instance.\n\nParameters:\n * minutes - How many minutes",
-        "notes" : [
-
-        ],
-        "signature" : "CountDown:startFor(minutes)",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "def" : "CountDown:startFor(minutes)",
-        "name" : "startFor"
+        "signature": "CountDown:startFor(minutes)",
+        "stripped_doc": "",
+        "type": "Method"
       }
     ],
-    "Method" : [
+    "Variable": [],
+    "desc": "Tiny countdown with visual indicator",
+    "doc": "Tiny countdown with visual indicator\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/CountDown.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/CountDown.spoon.zip)",
+    "items": [
       {
-        "parameters" : [
-          " * minutes - How many minutes"
-        ],
-        "stripped_doc" : [
-          "Start a countdown for `minutes` minutes immediately. Calling this method again will kill the existing countdown instance.",
-          ""
-        ],
-        "desc" : "Start a countdown for `minutes` minutes immediately. Calling this method again will kill the existing countdown instance.",
-        "doc" : "Start a countdown for `minutes` minutes immediately. Calling this method again will kill the existing countdown instance.\n\nParameters:\n * minutes - How many minutes",
-        "notes" : [
-
-        ],
-        "signature" : "CountDown:startFor(minutes)",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "def" : "CountDown:startFor(minutes)",
-        "name" : "startFor"
+        "def": "CountDown:pauseOrResume()",
+        "desc": "Pause or resume the existing countdown.",
+        "doc": "Pause or resume the existing countdown.\n",
+        "name": "pauseOrResume",
+        "signature": "CountDown:pauseOrResume()",
+        "stripped_doc": "",
+        "type": "Method"
       },
       {
-        "parameters" : [
-
-        ],
-        "stripped_doc" : [
-          "Pause or resume the existing countdown."
-        ],
-        "desc" : "Pause or resume the existing countdown.",
-        "doc" : "Pause or resume the existing countdown.",
-        "notes" : [
-
-        ],
-        "signature" : "CountDown:pauseOrResume()",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "def" : "CountDown:pauseOrResume()",
-        "name" : "pauseOrResume"
-      },
-      {
-        "parameters" : [
+        "def": "CountDown:setProgress(progress)",
+        "desc": "Set the progress of visual indicator to `progress`.",
+        "doc": "Set the progress of visual indicator to `progress`.\n\nParameters:\n * progress - an number specifying the value of progress (0.0 - 1.0)",
+        "name": "setProgress",
+        "parameters": [
           " * progress - an number specifying the value of progress (0.0 - 1.0)"
         ],
-        "stripped_doc" : [
-          "Set the progress of visual indicator to `progress`.",
-          ""
+        "signature": "CountDown:setProgress(progress)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "CountDown:startFor(minutes)",
+        "desc": "Start a countdown for `minutes` minutes immediately. Calling this method again will kill the existing countdown instance.",
+        "doc": "Start a countdown for `minutes` minutes immediately. Calling this method again will kill the existing countdown instance.\n\nParameters:\n * minutes - How many minutes",
+        "name": "startFor",
+        "parameters": [
+          " * minutes - How many minutes"
         ],
-        "desc" : "Set the progress of visual indicator to `progress`.",
-        "doc" : "Set the progress of visual indicator to `progress`.\n\nParameters:\n * progress - an number specifying the value of progress (0.0 - 1.0)",
-        "notes" : [
-
-        ],
-        "signature" : "CountDown:setProgress(progress)",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "def" : "CountDown:setProgress(progress)",
-        "name" : "setProgress"
+        "signature": "CountDown:startFor(minutes)",
+        "stripped_doc": "",
+        "type": "Method"
       }
     ],
-    "Command" : [
-
-    ],
-    "Field" : [
-
-    ],
-    "doc" : "Tiny countdown with visual indicator\n\nDownload: [https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/CountDown.spoon.zip](https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/CountDown.spoon.zip)",
-    "name" : "CountDown"
+    "name": "CountDown",
+    "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/CountDown.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/CountDown.spoon.zip)",
+    "submodules": [],
+    "type": "Module"
   }
 ]
