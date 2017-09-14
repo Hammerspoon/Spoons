@@ -405,6 +405,41 @@
     "type": "Method"
   },
   {
+    "desc": "Generate a password and copy to the clipboard.",
+    "name": "PasswordGenerator",
+    "type": "Module"
+  },
+  {
+    "desc": "Function used to generate passwords",
+    "module": "PasswordGenerator",
+    "name": "password_generator_function",
+    "type": "Variable"
+  },
+  {
+    "desc": "Length of generated passwords",
+    "module": "PasswordGenerator",
+    "name": "password_length",
+    "type": "Variable"
+  },
+  {
+    "desc": "Binds hotkeys for PasswordGenerator",
+    "module": "PasswordGenerator",
+    "name": "bindHotkeys",
+    "type": "Method"
+  },
+  {
+    "desc": "Generates a password and copies to clipboard",
+    "module": "PasswordGenerator",
+    "name": "copyPassword",
+    "type": "Method"
+  },
+  {
+    "desc": "Generates a password and types it",
+    "module": "PasswordGenerator",
+    "name": "pastePassword",
+    "type": "Method"
+  },
+  {
     "desc": "Show a popup window with the translation of the currently selected (or other) text",
     "name": "PopupTranslateSelection",
     "type": "Module"
@@ -449,6 +484,29 @@
     "desc": "Get the current selected text in the frontmost window and display a translation popup with the translation between the specified languages",
     "module": "PopupTranslateSelection",
     "name": "translateSelectionPopup",
+    "type": "Method"
+  },
+  {
+    "desc": "Adds a hotkey to reload the hammerspoon configuration, and a pathwatcher to automatically reload on changes.",
+    "name": "ReloadConfiguration",
+    "type": "Module"
+  },
+  {
+    "desc": "List of directories to watch for changes, defaults to hs.configdir",
+    "module": "ReloadConfiguration",
+    "name": "watch_paths",
+    "type": "Variable"
+  },
+  {
+    "desc": "Binds hotkeys for ReloadConfiguration",
+    "module": "ReloadConfiguration",
+    "name": "bindHotkeys",
+    "type": "Method"
+  },
+  {
+    "desc": "Start ReloadConfiguration",
+    "module": "ReloadConfiguration",
+    "name": "start",
     "type": "Method"
   },
   {

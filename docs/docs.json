@@ -1538,6 +1538,138 @@
     "Function": [],
     "Method": [
       {
+        "def": "PasswordGenerator:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for PasswordGenerator",
+        "doc": "Binds hotkeys for PasswordGenerator\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n  * copy - Generate password and copy to clipboard\n  * paste - Generate password and paste",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * mapping - A table containing hotkey objifier/key details for the following items:",
+          "  * copy - Generate password and copy to clipboard",
+          "  * paste - Generate password and paste"
+        ],
+        "signature": "PasswordGenerator:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PasswordGenerator:copyPassword()",
+        "desc": "Generates a password and copies to clipboard",
+        "doc": "Generates a password and copies to clipboard\n\nParameters:\n * None\n\n Returns:\n  * The generated password",
+        "name": "copyPassword",
+        "parameters": [
+          " * None"
+        ],
+        "signature": "PasswordGenerator:copyPassword()",
+        "stripped_doc": " Returns:\n  * The generated password",
+        "type": "Method"
+      },
+      {
+        "def": "PasswordGenerator:pastePassword()",
+        "desc": "Generates a password and types it",
+        "doc": "Generates a password and types it\n\nParameters:\n * None\n\n Returns:\n  * The generated password",
+        "name": "pastePassword",
+        "parameters": [
+          " * None"
+        ],
+        "signature": "PasswordGenerator:pastePassword()",
+        "stripped_doc": " Returns:\n  * The generated password",
+        "type": "Method"
+      }
+    ],
+    "Variable": [
+      {
+        "def": "PasswordGenerator.password_generator_function",
+        "desc": "Function used to generate passwords",
+        "doc": "Function used to generate passwords",
+        "name": "password_generator_function",
+        "signature": "PasswordGenerator.password_generator_function",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "PasswordGenerator.password_length",
+        "desc": "Length of generated passwords",
+        "doc": "Length of generated passwords",
+        "name": "password_length",
+        "signature": "PasswordGenerator.password_length",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "desc": "Generate a password and copy to the clipboard.",
+    "doc": "Generate a password and copy to the clipboard.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/PasswordGenerator.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/PasswordGenerator.spoon.zip)",
+    "items": [
+      {
+        "def": "PasswordGenerator:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for PasswordGenerator",
+        "doc": "Binds hotkeys for PasswordGenerator\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n  * copy - Generate password and copy to clipboard\n  * paste - Generate password and paste",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * mapping - A table containing hotkey objifier/key details for the following items:",
+          "  * copy - Generate password and copy to clipboard",
+          "  * paste - Generate password and paste"
+        ],
+        "signature": "PasswordGenerator:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PasswordGenerator:copyPassword()",
+        "desc": "Generates a password and copies to clipboard",
+        "doc": "Generates a password and copies to clipboard\n\nParameters:\n * None\n\n Returns:\n  * The generated password",
+        "name": "copyPassword",
+        "parameters": [
+          " * None"
+        ],
+        "signature": "PasswordGenerator:copyPassword()",
+        "stripped_doc": " Returns:\n  * The generated password",
+        "type": "Method"
+      },
+      {
+        "def": "PasswordGenerator.password_generator_function",
+        "desc": "Function used to generate passwords",
+        "doc": "Function used to generate passwords",
+        "name": "password_generator_function",
+        "signature": "PasswordGenerator.password_generator_function",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "PasswordGenerator.password_length",
+        "desc": "Length of generated passwords",
+        "doc": "Length of generated passwords",
+        "name": "password_length",
+        "signature": "PasswordGenerator.password_length",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "PasswordGenerator:pastePassword()",
+        "desc": "Generates a password and types it",
+        "doc": "Generates a password and types it\n\nParameters:\n * None\n\n Returns:\n  * The generated password",
+        "name": "pastePassword",
+        "parameters": [
+          " * None"
+        ],
+        "signature": "PasswordGenerator:pastePassword()",
+        "stripped_doc": " Returns:\n  * The generated password",
+        "type": "Method"
+      }
+    ],
+    "name": "PasswordGenerator",
+    "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/PasswordGenerator.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/PasswordGenerator.spoon.zip)",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
         "def": "PopupTranslateSelection:bindHotkeys(mapping)",
         "desc": "Binds hotkeys for PopupTranslateSelection",
         "doc": "Binds hotkeys for PopupTranslateSelection\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for the following items:\n  * `translate` - translate the selected text without specifying source/destination languages (source defaults to auto-detect, destination defaults to your last choice or to English)\n  * `translate_to_<lang>` - translate the selected text to the given destination language. Source language will be auto-detected.\n  * `translate_from_<lang>` - translate the selected text from the given destination language. Destination language will default to your last choice, or to English.\n  * `translate_<from>_<to>` - translate the selected text between the given languages.\n\nSample value for `mapping`:\n```\n {\n    translate_to_en = { { \"ctrl\", \"alt\", \"cmd\" }, \"e\" },\n    translate_to_de = { { \"ctrl\", \"alt\", \"cmd\" }, \"d\" },\n    translate_to_es = { { \"ctrl\", \"alt\", \"cmd\" }, \"s\" },\n    translate_de_en = { { \"shift\", \"ctrl\", \"alt\", \"cmd\" }, \"e\" },\n    translate_en_de = { { \"shift\", \"ctrl\", \"alt\", \"cmd\" }, \"d\" },\n }\n```",
@@ -1716,6 +1848,94 @@
     ],
     "name": "PopupTranslateSelection",
     "stripped_doc": "\nSupported language codes are listed at https://cloud.google.com/translate/docs/languages\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/PopupTranslateSelection.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/PopupTranslateSelection.spoon.zip)",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
+        "def": "ReloadConfiguration:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for ReloadConfiguration",
+        "doc": "Binds hotkeys for ReloadConfiguration\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for the following items:\n  * reloadConfiguration - This will cause the configuration to be reloaded",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * mapping - A table containing hotkey modifier/key details for the following items:",
+          "  * reloadConfiguration - This will cause the configuration to be reloaded"
+        ],
+        "signature": "ReloadConfiguration:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "ReloadConfiguration:start()",
+        "desc": "Start ReloadConfiguration",
+        "doc": "Start ReloadConfiguration\n\nParameters:\n * None",
+        "name": "start",
+        "parameters": [
+          " * None"
+        ],
+        "signature": "ReloadConfiguration:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [
+      {
+        "def": "ReloadConfiguration.watch_paths",
+        "desc": "List of directories to watch for changes, defaults to hs.configdir",
+        "doc": "List of directories to watch for changes, defaults to hs.configdir",
+        "name": "watch_paths",
+        "signature": "ReloadConfiguration.watch_paths",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "desc": "Adds a hotkey to reload the hammerspoon configuration, and a pathwatcher to automatically reload on changes.",
+    "doc": "Adds a hotkey to reload the hammerspoon configuration, and a pathwatcher to automatically reload on changes.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/ReloadConfiguration.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/ReloadConfiguration.spoon.zip)",
+    "items": [
+      {
+        "def": "ReloadConfiguration:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for ReloadConfiguration",
+        "doc": "Binds hotkeys for ReloadConfiguration\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for the following items:\n  * reloadConfiguration - This will cause the configuration to be reloaded",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * mapping - A table containing hotkey modifier/key details for the following items:",
+          "  * reloadConfiguration - This will cause the configuration to be reloaded"
+        ],
+        "signature": "ReloadConfiguration:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "ReloadConfiguration:start()",
+        "desc": "Start ReloadConfiguration",
+        "doc": "Start ReloadConfiguration\n\nParameters:\n * None",
+        "name": "start",
+        "parameters": [
+          " * None"
+        ],
+        "signature": "ReloadConfiguration:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "ReloadConfiguration.watch_paths",
+        "desc": "List of directories to watch for changes, defaults to hs.configdir",
+        "doc": "List of directories to watch for changes, defaults to hs.configdir",
+        "name": "watch_paths",
+        "signature": "ReloadConfiguration.watch_paths",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "name": "ReloadConfiguration",
+    "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/ReloadConfiguration.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/ReloadConfiguration.spoon.zip)",
     "submodules": [],
     "type": "Module"
   },
