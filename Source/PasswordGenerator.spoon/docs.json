@@ -1,0 +1,39 @@
+[
+  {
+    "doc" : "Generate a password and copy to the clipboard.",
+    "items" : [
+      {
+        "doc" : "Function used to generate passwords",
+        "type" : "Variable",
+        "name" : "password_generator_function",
+        "def" : "PasswordGenerator.password_generator_function"
+      },
+      {
+        "doc" : "Length of generated passwords",
+        "type" : "Variable",
+        "name" : "password_length",
+        "def" : "PasswordGenerator.password_length"
+      },
+      {
+        "doc" : "Binds hotkeys for PasswordGenerator\n\nParameters:\n * copy - Generate password and copy to clipboard\n * paste - Generate password and paste.",
+        "type" : "Method",
+        "name" : "bindHotkeys",
+        "def" : "PasswordGenerator:bindHotkeys(mapping)"
+      },
+      {
+        "doc" : "Generates a password and copies to clipboard\n\nParameters:\n * None\n\nReturns:\n * generated password",
+        "type" : "Method",
+        "name" : "start",
+        "def" : "PasswordGenerator:copyPassword()"
+      },
+      {
+        "doc" : "Generates a password and types it\n\nParameters:\n * None\n\nReturns:\n * generated password",
+        "type" : "Method",
+        "name" : "start",
+        "def" : "PasswordGenerator:pastePassword()"
+      }
+    ],
+    "name" : "PasswordGenerator",
+    "desc" : "Generate a password and copy to the clipboard."
+  }
+]

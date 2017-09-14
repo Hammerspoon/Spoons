@@ -1,0 +1,27 @@
+[
+  {
+    "doc" : "Adds a hotkey to reload the hammerspoon configuration, and a pathwatcher to automatically reload on changes",
+    "items" : [
+      {
+        "doc" : "List of directories to watch for changes, defaults to hs.configdir",
+        "type" : "Variable",
+        "name" : "watch_paths",
+        "def" : "ReloadConfiguration.watch_paths"
+      },
+      {
+        "doc" : "Binds hotkeys for ReloadConfiguration\n\nParameters:\n * reloadConfiguration - This will cause the configuration to be reloaded.",
+        "type" : "Method",
+        "name" : "bindHotkeys",
+        "def" : "ReloadConfiguration:bindHotkeys(mapping)"
+      },
+      {
+        "doc" : "Starts a pathwatch for each directory in watch_paths\n\nParameters:\n * None\n\nReturns:\n * None",
+        "type" : "Method",
+        "name" : "start",
+        "def" : "ReloadConfiguration:start()"
+      }
+    ],
+    "name" : "ReloadConfiguration",
+    "desc" : "Reloads the configuration when a configuration file is changed or when a hotkey is pressed"
+  }
+]
