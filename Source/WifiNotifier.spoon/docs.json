@@ -1,0 +1,165 @@
+[
+  {
+    "Constant" : [
+
+    ],
+    "submodules" : [
+
+    ],
+    "Function" : [
+
+    ],
+    "Variable" : [
+
+    ],
+    "stripped_doc" : [
+
+    ],
+    "type" : "Module",
+    "Deprecated" : [
+
+    ],
+    "desc" : "Receive notifications every time your wifi network changes.",
+    "Constructor" : [
+
+    ],
+    "Field" : [
+
+    ],
+    "Method" : [
+      {
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "Initialize the WifiNotifier spoon",
+          ""
+        ],
+        "doc" : "Initialize the WifiNotifier spoon\n\nReturns:\n* The WifiNotifier object",
+        "name" : "init",
+        "notes" : [
+
+        ],
+        "signature" : "WifiNotifier:init()",
+        "type" : "Method",
+        "returns" : [
+          "* The WifiNotifier object"
+        ],
+        "desc" : "Initialize the WifiNotifier spoon",
+        "def" : "WifiNotifier:init()"
+      },
+      {
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "Starts the wifiNotifier",
+          ""
+        ],
+        "doc" : "Starts the wifiNotifier\n\nReturns:\n* The WifiNotifier object",
+        "name" : "start",
+        "notes" : [
+
+        ],
+        "signature" : "WifiNotifier:start()",
+        "type" : "Method",
+        "returns" : [
+          "* The WifiNotifier object"
+        ],
+        "desc" : "Starts the wifiNotifier",
+        "def" : "WifiNotifier:start()"
+      },
+      {
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "Fires whenever the wifiWatcher detects an SSID change.",
+          ""
+        ],
+        "doc" : "Fires whenever the wifiWatcher detects an SSID change.\n\nReturns:\n* The WifiNotifier object",
+        "name" : "ssidChangedCallback",
+        "notes" : [
+
+        ],
+        "signature" : "WifiNotifier:ssidChangedCallback()",
+        "type" : "Method",
+        "returns" : [
+          "* The WifiNotifier object"
+        ],
+        "desc" : "Fires whenever the wifiWatcher detects an SSID change.",
+        "def" : "WifiNotifier:ssidChangedCallback()"
+      }
+    ],
+    "Command" : [
+
+    ],
+    "doc" : "Receive notifications every time your wifi network changes.",
+    "items" : [
+      {
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "Initialize the WifiNotifier spoon",
+          ""
+        ],
+        "doc" : "Initialize the WifiNotifier spoon\n\nReturns:\n* The WifiNotifier object",
+        "name" : "init",
+        "notes" : [
+
+        ],
+        "signature" : "WifiNotifier:init()",
+        "type" : "Method",
+        "returns" : [
+          "* The WifiNotifier object"
+        ],
+        "desc" : "Initialize the WifiNotifier spoon",
+        "def" : "WifiNotifier:init()"
+      },
+      {
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "Fires whenever the wifiWatcher detects an SSID change.",
+          ""
+        ],
+        "doc" : "Fires whenever the wifiWatcher detects an SSID change.\n\nReturns:\n* The WifiNotifier object",
+        "name" : "ssidChangedCallback",
+        "notes" : [
+
+        ],
+        "signature" : "WifiNotifier:ssidChangedCallback()",
+        "type" : "Method",
+        "returns" : [
+          "* The WifiNotifier object"
+        ],
+        "desc" : "Fires whenever the wifiWatcher detects an SSID change.",
+        "def" : "WifiNotifier:ssidChangedCallback()"
+      },
+      {
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "Starts the wifiNotifier",
+          ""
+        ],
+        "doc" : "Starts the wifiNotifier\n\nReturns:\n* The WifiNotifier object",
+        "name" : "start",
+        "notes" : [
+
+        ],
+        "signature" : "WifiNotifier:start()",
+        "type" : "Method",
+        "returns" : [
+          "* The WifiNotifier object"
+        ],
+        "desc" : "Starts the wifiNotifier",
+        "def" : "WifiNotifier:start()"
+      }
+    ],
+    "name" : "WifiNotifier"
+  }
+]
