@@ -1,6 +1,7 @@
 --- === WifiNotifier ===
 ---
 --- Receive notifications every time your wifi network changes.
+--- Download: https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WifiNotifier.spoon.zip
 
 
 local obj = {}
