@@ -5190,7 +5190,7 @@
     ],
     "Variable": [],
     "desc": "Receive notifications every time your wifi network changes.",
-    "doc": "Receive notifications every time your wifi network changes.\nDownload: https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WifiNotifier.spoon.zip",
+    "doc": "Receive notifications every time your wifi network changes.\n\nDownload: https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WifiNotifier.spoon.zip",
     "items": [
       {
         "def": "WifiNotifier:init()",
@@ -5230,7 +5230,7 @@
       }
     ],
     "name": "WifiNotifier",
-    "stripped_doc": "Download: https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WifiNotifier.spoon.zip",
+    "stripped_doc": "\nDownload: https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WifiNotifier.spoon.zip",
     "submodules": [],
     "type": "Module"
   },
