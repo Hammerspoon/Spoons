@@ -5152,6 +5152,97 @@
     "Function": [],
     "Method": [
       {
+        "def": "WifiNotifier:init()",
+        "desc": "Initialize the WifiNotifier spoon",
+        "doc": "Initialize the WifiNotifier spoon\n\nReturns:\n* The WifiNotifier object",
+        "name": "init",
+        "returns": [
+          "* The WifiNotifier object"
+        ],
+        "signature": "WifiNotifier:init()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "WifiNotifier:ssidChangedCallback()",
+        "desc": "Fires whenever the wifiWatcher detects an SSID change.",
+        "doc": "Fires whenever the wifiWatcher detects an SSID change.\n\nReturns:\n* The WifiNotifier object",
+        "name": "ssidChangedCallback",
+        "returns": [
+          "* The WifiNotifier object"
+        ],
+        "signature": "WifiNotifier:ssidChangedCallback()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "WifiNotifier:start()",
+        "desc": "Starts the wifiNotifier",
+        "doc": "Starts the wifiNotifier\n\nReturns:\n* The WifiNotifier object",
+        "name": "start",
+        "returns": [
+          "* The WifiNotifier object"
+        ],
+        "signature": "WifiNotifier:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [],
+    "desc": "Receive notifications every time your wifi network changes.",
+    "doc": "Receive notifications every time your wifi network changes.",
+    "items": [
+      {
+        "def": "WifiNotifier:init()",
+        "desc": "Initialize the WifiNotifier spoon",
+        "doc": "Initialize the WifiNotifier spoon\n\nReturns:\n* The WifiNotifier object",
+        "name": "init",
+        "returns": [
+          "* The WifiNotifier object"
+        ],
+        "signature": "WifiNotifier:init()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "WifiNotifier:ssidChangedCallback()",
+        "desc": "Fires whenever the wifiWatcher detects an SSID change.",
+        "doc": "Fires whenever the wifiWatcher detects an SSID change.\n\nReturns:\n* The WifiNotifier object",
+        "name": "ssidChangedCallback",
+        "returns": [
+          "* The WifiNotifier object"
+        ],
+        "signature": "WifiNotifier:ssidChangedCallback()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "WifiNotifier:start()",
+        "desc": "Starts the wifiNotifier",
+        "doc": "Starts the wifiNotifier\n\nReturns:\n* The WifiNotifier object",
+        "name": "start",
+        "returns": [
+          "* The WifiNotifier object"
+        ],
+        "signature": "WifiNotifier:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "name": "WifiNotifier",
+    "stripped_doc": "",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
         "def": "WiFiTransitions:processTransition(new_ssid, prev_ssid, interface)",
         "desc": "Process the rules and execute any actions corresponding to the specified transition.",
         "doc": "Process the rules and execute any actions corresponding to the specified transition.\n\nThis method is called internally by the `hs.wifi.watcher` object\nwhen WiFi transitions happen. It does not get any system\ninformation nor does it set any Spoon state information, so it can\nalso be used to \"trigger\" transitions manually, either for testing\nor if the automated processing fails for any reason.\n\nParameters:\n * new_ssid - new SSID name\n * prev_ssid - previous SSID name. Defaults to `nil`\n * interface - interface where the transition occurred. Defaults to `nil`",

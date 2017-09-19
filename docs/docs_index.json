@@ -1330,6 +1330,29 @@
     "type": "Method"
   },
   {
+    "desc": "Receive notifications every time your wifi network changes.",
+    "name": "WifiNotifier",
+    "type": "Module"
+  },
+  {
+    "desc": "Initialize the WifiNotifier spoon",
+    "module": "WifiNotifier",
+    "name": "init",
+    "type": "Method"
+  },
+  {
+    "desc": "Fires whenever the wifiWatcher detects an SSID change.",
+    "module": "WifiNotifier",
+    "name": "ssidChangedCallback",
+    "type": "Method"
+  },
+  {
+    "desc": "Starts the wifiNotifier",
+    "module": "WifiNotifier",
+    "name": "start",
+    "type": "Method"
+  },
+  {
     "desc": "Allow arbitrary actions when transitioning between SSIDs",
     "name": "WiFiTransitions",
     "type": "Module"
