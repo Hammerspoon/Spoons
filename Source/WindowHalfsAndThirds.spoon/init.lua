@@ -42,6 +42,7 @@ obj.logger = hs.logger.new('WindowHalfsAndThirds')
 ---     bottom_right= { {"ctrl",        "cmd"}, "4" },
 ---     max_toggle  = { {"ctrl", "alt", "cmd"}, "f" },
 ---     max         = { {"ctrl", "alt", "cmd"}, "Up" },
+---     undo        = { {        "alt", "cmd"}, "z" },
 ---  }
 --- ```
 obj.defaultHotkeys = {
@@ -59,12 +60,44 @@ obj.defaultHotkeys = {
    bottom_right= { {"ctrl",        "cmd"}, "4" },
    max_toggle  = { {"ctrl", "alt", "cmd"}, "f" },
    max         = { {"ctrl", "alt", "cmd"}, "Up" },
+   undo        = { {        "alt", "cmd"}, "z" },
 }
 
 --- WindowHalfsAndThirds.use_frame_correctness
 --- Variable
 --- If `true`, set [setFrameCorrectness](http://www.hammerspoon.org/docs/hs.window.html#setFrameCorrectness) for some resizing operations which fail when the window extends beyonds screen boundaries. This may cause some jerkiness in the resizing, so experiment and determine if you need it. Defaults to `false`
 obj.use_frame_correctness = false
+
+--- WindowHalfsAndThirds.clear_cache_after_seconds
+--- Variable
+--- We don't want our undo frame cache filling all available memory. Let's clear it after it hasn't been used for a while.
+obj.clear_cache_after_seconds = 60*60
+
+-- Private utility functions
+local function round(x)
+   return x + 0.5 - (x + 0.5) % 1
+end
+local function windowIsMaxmized(win)
+   local ur, r = win:screen():toUnitRect(win:frame()), round
+   return r(ur.x) == 0 and r(ur.y) == 0 and r(ur.w) == 1 and r(ur.h) == 1
+end
+local function cacheWindow(win)
+   local win = win or hs.window.focusedWindow()
+   if (win == nil) or (win:id() == nil) then
+      return
+   end
+   obj._frameCache[win:id()] = win:frame()
+   obj._frameCacheClearTimer:start()
+end
+local function restoreWindowFromCache(win)
+   local win = win or hs.window.focusedWindow()
+   if (not win) or (not win:id()) or (not obj._frameCache[win:id()]) then
+      return
+   end
+   local old_cache = win:frame()
+   win:setFrame(obj._frameCache[win:id()])
+   obj._frameCache[win:id()] = old_cache
+end
 
 -- --------------------------------------------------------------------
 -- Base window resizing and moving functions
@@ -124,6 +157,7 @@ function obj.resizeCurrentWindow(how, use_fc_preference)
    end
 
    if use_fc_preference then _setFC() end
+   cacheWindow(win)
    win:move(newrect)
    if use_fc_preference then _restoreFC() end
 end
@@ -134,17 +168,17 @@ function obj.toggleMaximized()
    if (win == nil) or (win:id() == nil) then
       return
    end
-   if obj._frameCache[win:id()] then
-      win:setFrame(obj._frameCache[win:id()])
-      obj._frameCache[win:id()] = nil
+   if windowIsMaxmized(win) then
+      restoreWindowFromCache(win)
    else
-      obj._frameCache[win:id()] = win:frame()
+      cacheWindow(win)
       win:maximize()
    end
 end
 
+
 -- Get the horizontal third of the screen in which a window is at the moment
-function get_horizontal_third(win)
+local function get_horizontal_third(win)
    if win == nil then
       return
    end
@@ -156,7 +190,7 @@ function get_horizontal_third(win)
 end
 
 -- Get the vertical third of the screen in which a window is at the moment
-function get_vertical_third(win)
+local function get_vertical_third(win)
    if win == nil then
       return
    end
@@ -187,9 +221,13 @@ obj.bottomLeft     = hs.fnutils.partial(obj.resizeCurrentWindow, "bottom_left")
 obj.bottomRight    = hs.fnutils.partial(obj.resizeCurrentWindow, "bottom_right")
 obj.maximize       = hs.fnutils.partial(obj.resizeCurrentWindow, "max", true)
 
+-- Undo window size changes if there've been any
+function obj.undo() restoreWindowFromCache() end
+
+
 function obj.oneThirdLeft()
-         local win = hs.window.focusedWindow()
-         if win ~= nil then
+   local win = hs.window.focusedWindow()
+   if win ~= nil then
       local third = get_horizontal_third(win)
       obj.resizeCurrentWindow("hthird-" .. math.max(third-1,0))
    end
@@ -234,6 +272,7 @@ end
 ---   * top_third, middle_third_v, bottom_third - resize and move the window to the corresponding vertical third of the screen
 ---   * left_third, middle_third_h, right_third - resize and move the window to the corresponding horizontal third of the screen
 ---   * top_left, top_right, bottom_left, bottom_right - resize and move the window to the corresponding quarter of the screen
+---   * undo - restore window to position before last move
 function obj:bindHotkeys(mapping)
    local hotkeyDefinitions = {
       left_half = self.leftHalf,
@@ -256,6 +295,7 @@ function obj:bindHotkeys(mapping)
       top_right = self.topRight,
       bottom_left = self.bottomLeft,
       bottom_right = self.bottomRight,
+      undo = self.undo,
    }
    hs.spoons.bindHotkeysToSpec(hotkeyDefinitions, mapping)
    return self
@@ -264,6 +304,7 @@ end
 function obj:init()
    -- Window cache for window maximize toggler
    self._frameCache = {}
+   obj._frameCacheClearTimer = hs.timer.delayed.new(obj.clear_cache_after_seconds, function() obj._frameCache = {} end)
 end
 
 return obj
