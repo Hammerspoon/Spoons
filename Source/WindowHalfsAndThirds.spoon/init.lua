@@ -43,6 +43,7 @@ obj.logger = hs.logger.new('WindowHalfsAndThirds')
 ---     max_toggle  = { {"ctrl", "alt", "cmd"}, "f" },
 ---     max         = { {"ctrl", "alt", "cmd"}, "Up" },
 ---     undo        = { {        "alt", "cmd"}, "z" },
+---     center      = { {        "alt", "cmd"}, "c" },
 ---  }
 --- ```
 obj.defaultHotkeys = {
@@ -61,6 +62,7 @@ obj.defaultHotkeys = {
    max_toggle  = { {"ctrl", "alt", "cmd"}, "f" },
    max         = { {"ctrl", "alt", "cmd"}, "Up" },
    undo        = { {        "alt", "cmd"}, "z" },
+   center      = { {        "alt", "cmd"}, "c" },
 }
 
 --- WindowHalfsAndThirds.use_frame_correctness
@@ -224,6 +226,15 @@ obj.maximize       = hs.fnutils.partial(obj.resizeCurrentWindow, "max", true)
 -- Undo window size changes if there've been any
 function obj.undo() restoreWindowFromCache() end
 
+-- Center window on screen
+function obj.center()
+   local win = hs.window.focusedWindow()
+   if win then
+      cacheWindow(win)
+      win:centerOnScreen()
+   end
+end
+
 
 function obj.oneThirdLeft()
    local win = hs.window.focusedWindow()
@@ -273,6 +284,7 @@ end
 ---   * left_third, middle_third_h, right_third - resize and move the window to the corresponding horizontal third of the screen
 ---   * top_left, top_right, bottom_left, bottom_right - resize and move the window to the corresponding quarter of the screen
 ---   * undo - restore window to position before last move
+---   * center - move window to center of screen
 function obj:bindHotkeys(mapping)
    local hotkeyDefinitions = {
       left_half = self.leftHalf,
@@ -296,6 +308,7 @@ function obj:bindHotkeys(mapping)
       bottom_left = self.bottomLeft,
       bottom_right = self.bottomRight,
       undo = self.undo,
+      center = self.center,
    }
    hs.spoons.bindHotkeysToSpec(hotkeyDefinitions, mapping)
    return self
