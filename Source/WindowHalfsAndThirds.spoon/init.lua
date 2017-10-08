@@ -9,7 +9,7 @@ obj.__index = obj
 
 -- Metadata
 obj.name = "WindowHalfsAndThirds"
-obj.version = "0.1"
+obj.version = "0.2"
 obj.author = "Diego Zamboni <diego@zzamboni.org>"
 obj.homepage = "https://github.com/Hammerspoon/Spoons"
 obj.license = "MIT - https://opensource.org/licenses/MIT"
@@ -44,6 +44,8 @@ obj.logger = hs.logger.new('WindowHalfsAndThirds')
 ---     max         = { {"ctrl", "alt", "cmd"}, "Up" },
 ---     undo        = { {        "alt", "cmd"}, "z" },
 ---     center      = { {        "alt", "cmd"}, "c" },
+---     larger      = { {        "alt", "cmd", "shift"}, "Right" },
+---     smaller     = { {        "alt", "cmd", "shift"}, "Left" },
 ---  }
 --- ```
 obj.defaultHotkeys = {
@@ -63,6 +65,8 @@ obj.defaultHotkeys = {
    max          = { {"ctrl", "alt", "cmd"}, "Up" },
    undo         = { {        "alt", "cmd"}, "z" },
    center       = { {        "alt", "cmd"}, "c" },
+   larger       = { {        "alt", "cmd", "shift"}, "Right" },
+   smaller      = { {        "alt", "cmd", "shift"}, "Left" },
 }
 
 --- WindowHalfsAndThirds.use_frame_correctness
@@ -193,6 +197,16 @@ local function restoreWindowFromCache(win)
    return win
 end
 
+function obj.script_path_raw(n)
+   return (debug.getinfo(n or 2, "S").source)
+end
+function obj.script_path(n)
+   local str = obj.script_path_raw(n or 2):sub(2)
+   return str:match("(.*/)")
+end
+function obj.generate_docs_json()
+   io.open(obj.script_path().."docs.json","w"):write(hs.doc.builder.genJSON(obj.script_path())):close()
+end
 
 -- Internal functions to store/restore the current value of setFrameCorrectness.
 local function _setFrameCorrectness()
@@ -328,6 +342,54 @@ function obj.center(win)
    return obj
 end
 
+--- WindowHalfsAndThirds:larger(win)
+--- Method
+--- Make win larger than its current size
+---
+--- Parameters:
+---  * win - hs.window to use, defaults to hs.window.focusedWindow()
+---
+--- Returns:
+---  * the WindowHalfsAndThirds object
+function obj.larger(win)
+   local win = win or hs.window.focusedWindow()
+   if win then
+      cacheWindow(win, nil)
+      local cw = current_window_rect(win)
+      local move_to_rect = {}
+      move_to_rect[1] = math.max(cw[1]-0.02,0)
+      move_to_rect[2] = math.max(cw[2]-0.02,0)
+      move_to_rect[3] = math.min(cw[3]+0.04,1 - move_to_rect[1])
+      move_to_rect[4] = math.min(cw[4]+0.04,1 - move_to_rect[2])
+      win:move(move_to_rect)
+   end
+   return obj
+end
+
+--- WindowHalfsAndThirds:smaller(win)
+--- Method
+--- Make win smaller than its current size
+---
+--- Parameters:
+---  * win - hs.window to use, defaults to hs.window.focusedWindow()
+---
+--- Returns:
+---  * the WindowHalfsAndThirds object
+function obj.smaller(win)
+   local win = win or hs.window.focusedWindow()
+   if win then
+      cacheWindow(win, nil)
+      local cw = current_window_rect(win)
+      local move_to_rect = {}
+      move_to_rect[3] = math.max(cw[3]-0.04,0.1)
+      move_to_rect[4] = cw[4] > 0.95 and 1 or math.max(cw[4]-0.04,0.1) -- some windows (MacVim) don't size to 1
+      move_to_rect[1] = math.min(cw[1]+0.02,1 - move_to_rect[3])
+      move_to_rect[2] = cw[2] == 0 and 0 or math.min(cw[2]+0.02,1 - move_to_rect[4])
+      win:move(move_to_rect)
+   end
+   return obj
+end
+
 --- WindowHalfsAndThirds:bindHotkeys(mapping)
 --- Method
 --- Binds hotkeys for WindowHalfsAndThirds
@@ -344,6 +406,8 @@ end
 ---   * top_left, top_right, bottom_left, bottom_right - resize and move the window to the corresponding quarter of the screen
 ---   * undo - restore window to position before last move
 ---   * center - move window to center of screen
+---   * larger - grow window larger than its current size
+---   * smaller - shrink window smaller than its current size
 ---
 --- Returns:
 ---  * the WindowHalfsAndThirds object
@@ -371,6 +435,8 @@ function obj:bindHotkeys(mapping)
       bottom_right = self.bottomRight,
       undo = self.undo,
       center = self.center,
+      larger = self.larger,
+      smaller = self.smaller,
       -- Legacy (`action` names changed for internal consistency, old names preserved)
       left = self.leftHalf,
       right = self.rightHalf,
