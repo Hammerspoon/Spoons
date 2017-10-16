@@ -358,7 +358,7 @@
     ],
     "Variable": [],
     "desc": "Prevent the screen from going to sleep",
-    "doc": "Prevent the screen from going to sleep\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Caffeine.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Caffeine.spoon.zip)",
+    "doc": "Prevent the screen from going to sleep\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Caffeine.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Caffeine.spoon.zip)",
     "items": [
       {
         "def": "Caffeine:bindHotkeys(mapping)",
@@ -408,7 +408,7 @@
       }
     ],
     "name": "Caffeine",
-    "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Caffeine.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Caffeine.spoon.zip)",
+    "stripped_doc": "Download: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Caffeine.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Caffeine.spoon.zip)",
     "submodules": [],
     "type": "Module"
   },
