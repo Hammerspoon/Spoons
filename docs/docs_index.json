@@ -1416,6 +1416,12 @@
     "type": "Module"
   },
   {
+    "desc": "We don't want our undo frame cache filling all available memory. Let's clear it after it hasn't been used for a while.",
+    "module": "WindowHalfsAndThirds",
+    "name": "clear_cache_after_seconds",
+    "type": "Variable"
+  },
+  {
     "desc": "Table containing a sample set of hotkeys that can be",
     "module": "WindowHalfsAndThirds",
     "name": "defaultHotkeys",
@@ -1437,6 +1443,42 @@
     "desc": "Binds hotkeys for WindowHalfsAndThirds",
     "module": "WindowHalfsAndThirds",
     "name": "bindHotkeys",
+    "type": "Method"
+  },
+  {
+    "desc": "Center window on screen",
+    "module": "WindowHalfsAndThirds",
+    "name": "center",
+    "type": "Method"
+  },
+  {
+    "desc": "Make win larger than its current size",
+    "module": "WindowHalfsAndThirds",
+    "name": "larger",
+    "type": "Method"
+  },
+  {
+    "desc": "Resize to the left half of the screen.",
+    "module": "WindowHalfsAndThirds",
+    "name": "leftHalf",
+    "type": "Method"
+  },
+  {
+    "desc": "Make win smaller than its current size",
+    "module": "WindowHalfsAndThirds",
+    "name": "smaller",
+    "type": "Method"
+  },
+  {
+    "desc": "Toggle win between its normal size, and being maximized",
+    "module": "WindowHalfsAndThirds",
+    "name": "toggleMaximized",
+    "type": "Method"
+  },
+  {
+    "desc": "Undo window size changes for win if there've been any in WindowHalfsAndThirds.clear_cache_after_seconds",
+    "module": "WindowHalfsAndThirds",
+    "name": "undo",
     "type": "Method"
   },
   {

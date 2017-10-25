@@ -5453,7 +5453,7 @@
       {
         "def": "WindowHalfsAndThirds:bindHotkeys(mapping)",
         "desc": "Binds hotkeys for WindowHalfsAndThirds",
-        "doc": "Binds hotkeys for WindowHalfsAndThirds\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n  * left_half, right_half, top_half, bottom_half - resize to the corresponding half of the screen\n  * third_left, third_right - resize to one horizontal-third of the screen and move left/right\n  * third_up, third_down - resize to one vertical-third of the screen and move up/down\n  * max - maximize the window\n  * max_toggle - toggle maximization\n  * screen_left, screen_right - move the window to the left/right screen (if you have more than one monitor connected, does nothing otherwise)\n  * top_third, middle_third_v, bottom_third - resize and move the window to the corresponding vertical third of the screen\n  * left_third, middle_third_h, right_third - resize and move the window to the corresponding horizontal third of the screen\n  * top_left, top_right, bottom_left, bottom_right - resize and move the window to the corresponding quarter of the screen",
+        "doc": "Binds hotkeys for WindowHalfsAndThirds\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n  * left_half, right_half, top_half, bottom_half - resize to the corresponding half of the screen\n  * third_left, third_right - resize to one horizontal-third of the screen and move left/right\n  * third_up, third_down - resize to one vertical-third of the screen and move up/down\n  * max - maximize the window\n  * max_toggle - toggle maximization\n  * left_third, middle_third_h, right_third - resize and move the window to the corresponding horizontal third of the screen\n  * top_third, middle_third_v, bottom_third - resize and move the window to the corresponding vertical third of the screen\n  * top_left, top_right, bottom_left, bottom_right - resize and move the window to the corresponding quarter of the screen\n  * undo - restore window to position before last move\n  * center - move window to center of screen\n  * larger - grow window larger than its current size\n  * smaller - shrink window smaller than its current size\n\nReturns:\n * the WindowHalfsAndThirds object",
         "name": "bindHotkeys",
         "parameters": [
           " * mapping - A table containing hotkey objifier/key details for the following items:",
@@ -5462,24 +5462,129 @@
           "  * third_up, third_down - resize to one vertical-third of the screen and move up/down",
           "  * max - maximize the window",
           "  * max_toggle - toggle maximization",
-          "  * screen_left, screen_right - move the window to the left/right screen (if you have more than one monitor connected, does nothing otherwise)",
-          "  * top_third, middle_third_v, bottom_third - resize and move the window to the corresponding vertical third of the screen",
           "  * left_third, middle_third_h, right_third - resize and move the window to the corresponding horizontal third of the screen",
-          "  * top_left, top_right, bottom_left, bottom_right - resize and move the window to the corresponding quarter of the screen"
+          "  * top_third, middle_third_v, bottom_third - resize and move the window to the corresponding vertical third of the screen",
+          "  * top_left, top_right, bottom_left, bottom_right - resize and move the window to the corresponding quarter of the screen",
+          "  * undo - restore window to position before last move",
+          "  * center - move window to center of screen",
+          "  * larger - grow window larger than its current size",
+          "  * smaller - shrink window smaller than its current size"
+        ],
+        "returns": [
+          " * the WindowHalfsAndThirds object"
         ],
         "signature": "WindowHalfsAndThirds:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "WindowHalfsAndThirds:center(win)",
+        "desc": "Center window on screen",
+        "doc": "Center window on screen\n\nParameters:\n * win - hs.window to use, defaults to hs.window.focusedWindow()\n\nReturns:\n * the WindowHalfsAndThirds object",
+        "name": "center",
+        "parameters": [
+          " * win - hs.window to use, defaults to hs.window.focusedWindow()"
+        ],
+        "returns": [
+          " * the WindowHalfsAndThirds object"
+        ],
+        "signature": "WindowHalfsAndThirds:center(win)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "WindowHalfsAndThirds:larger(win)",
+        "desc": "Make win larger than its current size",
+        "doc": "Make win larger than its current size\n\nParameters:\n * win - hs.window to use, defaults to hs.window.focusedWindow()\n\nReturns:\n * the WindowHalfsAndThirds object",
+        "name": "larger",
+        "parameters": [
+          " * win - hs.window to use, defaults to hs.window.focusedWindow()"
+        ],
+        "returns": [
+          " * the WindowHalfsAndThirds object"
+        ],
+        "signature": "WindowHalfsAndThirds:larger(win)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "WindowHalfsAndThirds:leftHalf(win)",
+        "desc": "Resize to the left half of the screen.",
+        "doc": "Resize to the left half of the screen.\nAlso various other action methods. See WindowHalfsAndThirds:bindHotkeys for details\n  .leftHalf .rightHalf .topHalf .bottomHalf .thirdLeft .thirdRight .leftThird .middleThirdH .rightThird\n  .thirdUp .thirdDown .topThird .middleThirdV .bottomThird .topLeft .topRight .bottomLeft .bottomRight\n  .maximize\n\nParameters:\n * win - hs.window to use, defaults to hs.window.focusedWindow()\n\nReturns:\n * the WindowHalfsAndThirds object",
+        "name": "leftHalf",
+        "parameters": [
+          " * win - hs.window to use, defaults to hs.window.focusedWindow()"
+        ],
+        "returns": [
+          " * the WindowHalfsAndThirds object"
+        ],
+        "signature": "WindowHalfsAndThirds:leftHalf(win)",
+        "stripped_doc": "Also various other action methods. See WindowHalfsAndThirds:bindHotkeys for details\n  .leftHalf .rightHalf .topHalf .bottomHalf .thirdLeft .thirdRight .leftThird .middleThirdH .rightThird\n  .thirdUp .thirdDown .topThird .middleThirdV .bottomThird .topLeft .topRight .bottomLeft .bottomRight\n  .maximize",
+        "type": "Method"
+      },
+      {
+        "def": "WindowHalfsAndThirds:smaller(win)",
+        "desc": "Make win smaller than its current size",
+        "doc": "Make win smaller than its current size\n\nParameters:\n * win - hs.window to use, defaults to hs.window.focusedWindow()\n\nReturns:\n * the WindowHalfsAndThirds object",
+        "name": "smaller",
+        "parameters": [
+          " * win - hs.window to use, defaults to hs.window.focusedWindow()"
+        ],
+        "returns": [
+          " * the WindowHalfsAndThirds object"
+        ],
+        "signature": "WindowHalfsAndThirds:smaller(win)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "WindowHalfsAndThirds:toggleMaximized(win)",
+        "desc": "Toggle win between its normal size, and being maximized",
+        "doc": "Toggle win between its normal size, and being maximized\n\nParameters:\n * win - hs.window to use, defaults to hs.window.focusedWindow()\n\nReturns:\n * the WindowHalfsAndThirds object",
+        "name": "toggleMaximized",
+        "parameters": [
+          " * win - hs.window to use, defaults to hs.window.focusedWindow()"
+        ],
+        "returns": [
+          " * the WindowHalfsAndThirds object"
+        ],
+        "signature": "WindowHalfsAndThirds:toggleMaximized(win)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "WindowHalfsAndThirds:undo(win)",
+        "desc": "Undo window size changes for win if there've been any in WindowHalfsAndThirds.clear_cache_after_seconds",
+        "doc": "Undo window size changes for win if there've been any in WindowHalfsAndThirds.clear_cache_after_seconds\n\nParameters:\n * win - hs.window to use, defaults to hs.window.focusedWindow()\n\nReturns:\n * the WindowHalfsAndThirds object",
+        "name": "undo",
+        "parameters": [
+          " * win - hs.window to use, defaults to hs.window.focusedWindow()"
+        ],
+        "returns": [
+          " * the WindowHalfsAndThirds object"
+        ],
+        "signature": "WindowHalfsAndThirds:undo(win)",
         "stripped_doc": "",
         "type": "Method"
       }
     ],
     "Variable": [
       {
+        "def": "WindowHalfsAndThirds.clear_cache_after_seconds",
+        "desc": "We don't want our undo frame cache filling all available memory. Let's clear it after it hasn't been used for a while.",
+        "doc": "We don't want our undo frame cache filling all available memory. Let's clear it after it hasn't been used for a while.",
+        "name": "clear_cache_after_seconds",
+        "signature": "WindowHalfsAndThirds.clear_cache_after_seconds",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
         "def": "WindowHalfsAndThirds.defaultHotkeys",
         "desc": "Table containing a sample set of hotkeys that can be",
-        "doc": "Table containing a sample set of hotkeys that can be\nassigned to the different operations. These are not bound\nby default - if you want to use them you have to call:\n`spoon.WindowHalfsAndThirds:bindHotkeys(spoon.WindowHalfsAndThirds.defaultHotkeys)`\nafter loading the spoon. Value:\n```\n {\n    left_half   = { {\"ctrl\",        \"cmd\"}, \"Left\" },\n    right_half  = { {\"ctrl\",        \"cmd\"}, \"Right\" },\n    top_half    = { {\"ctrl\",        \"cmd\"}, \"Up\" },\n    bottom_half = { {\"ctrl\",        \"cmd\"}, \"Down\" },\n    third_left  = { {\"ctrl\", \"alt\"       }, \"Left\" },\n    third_right = { {\"ctrl\", \"alt\"       }, \"Right\" },\n    third_up    = { {\"ctrl\", \"alt\"       }, \"Up\" },\n    third_down  = { {\"ctrl\", \"alt\"       }, \"Down\" },\n    top_left    = { {\"ctrl\",        \"cmd\"}, \"1\" },\n    top_right   = { {\"ctrl\",        \"cmd\"}, \"2\" },\n    bottom_left = { {\"ctrl\",        \"cmd\"}, \"3\" },\n    bottom_right= { {\"ctrl\",        \"cmd\"}, \"4\" },\n    max_toggle  = { {\"ctrl\", \"alt\", \"cmd\"}, \"f\" },\n    max         = { {\"ctrl\", \"alt\", \"cmd\"}, \"Up\" },\n }\n```",
+        "doc": "Table containing a sample set of hotkeys that can be\nassigned to the different operations. These are not bound\nby default - if you want to use them you have to call:\n`spoon.WindowHalfsAndThirds:bindHotkeys(spoon.WindowHalfsAndThirds.defaultHotkeys)`\nafter loading the spoon. Value:\n```\n {\n    left_half   = { {\"ctrl\",        \"cmd\"}, \"Left\" },\n    right_half  = { {\"ctrl\",        \"cmd\"}, \"Right\" },\n    top_half    = { {\"ctrl\",        \"cmd\"}, \"Up\" },\n    bottom_half = { {\"ctrl\",        \"cmd\"}, \"Down\" },\n    third_left  = { {\"ctrl\", \"alt\"       }, \"Left\" },\n    third_right = { {\"ctrl\", \"alt\"       }, \"Right\" },\n    third_up    = { {\"ctrl\", \"alt\"       }, \"Up\" },\n    third_down  = { {\"ctrl\", \"alt\"       }, \"Down\" },\n    top_left    = { {\"ctrl\",        \"cmd\"}, \"1\" },\n    top_right   = { {\"ctrl\",        \"cmd\"}, \"2\" },\n    bottom_left = { {\"ctrl\",        \"cmd\"}, \"3\" },\n    bottom_right= { {\"ctrl\",        \"cmd\"}, \"4\" },\n    max_toggle  = { {\"ctrl\", \"alt\", \"cmd\"}, \"f\" },\n    max         = { {\"ctrl\", \"alt\", \"cmd\"}, \"Up\" },\n    undo        = { {        \"alt\", \"cmd\"}, \"z\" },\n    center      = { {        \"alt\", \"cmd\"}, \"c\" },\n    larger      = { {        \"alt\", \"cmd\", \"shift\"}, \"Right\" },\n    smaller     = { {        \"alt\", \"cmd\", \"shift\"}, \"Left\" },\n }\n```",
         "name": "defaultHotkeys",
         "signature": "WindowHalfsAndThirds.defaultHotkeys",
-        "stripped_doc": "assigned to the different operations. These are not bound\nby default - if you want to use them you have to call:\n`spoon.WindowHalfsAndThirds:bindHotkeys(spoon.WindowHalfsAndThirds.defaultHotkeys)`\nafter loading the spoon. Value:\n```\n {\n    left_half   = { {\"ctrl\",        \"cmd\"}, \"Left\" },\n    right_half  = { {\"ctrl\",        \"cmd\"}, \"Right\" },\n    top_half    = { {\"ctrl\",        \"cmd\"}, \"Up\" },\n    bottom_half = { {\"ctrl\",        \"cmd\"}, \"Down\" },\n    third_left  = { {\"ctrl\", \"alt\"       }, \"Left\" },\n    third_right = { {\"ctrl\", \"alt\"       }, \"Right\" },\n    third_up    = { {\"ctrl\", \"alt\"       }, \"Up\" },\n    third_down  = { {\"ctrl\", \"alt\"       }, \"Down\" },\n    top_left    = { {\"ctrl\",        \"cmd\"}, \"1\" },\n    top_right   = { {\"ctrl\",        \"cmd\"}, \"2\" },\n    bottom_left = { {\"ctrl\",        \"cmd\"}, \"3\" },\n    bottom_right= { {\"ctrl\",        \"cmd\"}, \"4\" },\n    max_toggle  = { {\"ctrl\", \"alt\", \"cmd\"}, \"f\" },\n    max         = { {\"ctrl\", \"alt\", \"cmd\"}, \"Up\" },\n }\n```",
+        "stripped_doc": "assigned to the different operations. These are not bound\nby default - if you want to use them you have to call:\n`spoon.WindowHalfsAndThirds:bindHotkeys(spoon.WindowHalfsAndThirds.defaultHotkeys)`\nafter loading the spoon. Value:\n```\n {\n    left_half   = { {\"ctrl\",        \"cmd\"}, \"Left\" },\n    right_half  = { {\"ctrl\",        \"cmd\"}, \"Right\" },\n    top_half    = { {\"ctrl\",        \"cmd\"}, \"Up\" },\n    bottom_half = { {\"ctrl\",        \"cmd\"}, \"Down\" },\n    third_left  = { {\"ctrl\", \"alt\"       }, \"Left\" },\n    third_right = { {\"ctrl\", \"alt\"       }, \"Right\" },\n    third_up    = { {\"ctrl\", \"alt\"       }, \"Up\" },\n    third_down  = { {\"ctrl\", \"alt\"       }, \"Down\" },\n    top_left    = { {\"ctrl\",        \"cmd\"}, \"1\" },\n    top_right   = { {\"ctrl\",        \"cmd\"}, \"2\" },\n    bottom_left = { {\"ctrl\",        \"cmd\"}, \"3\" },\n    bottom_right= { {\"ctrl\",        \"cmd\"}, \"4\" },\n    max_toggle  = { {\"ctrl\", \"alt\", \"cmd\"}, \"f\" },\n    max         = { {\"ctrl\", \"alt\", \"cmd\"}, \"Up\" },\n    undo        = { {        \"alt\", \"cmd\"}, \"z\" },\n    center      = { {        \"alt\", \"cmd\"}, \"c\" },\n    larger      = { {        \"alt\", \"cmd\", \"shift\"}, \"Right\" },\n    smaller     = { {        \"alt\", \"cmd\", \"shift\"}, \"Left\" },\n }\n```",
         "type": "Variable"
       },
       {
@@ -5507,7 +5612,7 @@
       {
         "def": "WindowHalfsAndThirds:bindHotkeys(mapping)",
         "desc": "Binds hotkeys for WindowHalfsAndThirds",
-        "doc": "Binds hotkeys for WindowHalfsAndThirds\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n  * left_half, right_half, top_half, bottom_half - resize to the corresponding half of the screen\n  * third_left, third_right - resize to one horizontal-third of the screen and move left/right\n  * third_up, third_down - resize to one vertical-third of the screen and move up/down\n  * max - maximize the window\n  * max_toggle - toggle maximization\n  * screen_left, screen_right - move the window to the left/right screen (if you have more than one monitor connected, does nothing otherwise)\n  * top_third, middle_third_v, bottom_third - resize and move the window to the corresponding vertical third of the screen\n  * left_third, middle_third_h, right_third - resize and move the window to the corresponding horizontal third of the screen\n  * top_left, top_right, bottom_left, bottom_right - resize and move the window to the corresponding quarter of the screen",
+        "doc": "Binds hotkeys for WindowHalfsAndThirds\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n  * left_half, right_half, top_half, bottom_half - resize to the corresponding half of the screen\n  * third_left, third_right - resize to one horizontal-third of the screen and move left/right\n  * third_up, third_down - resize to one vertical-third of the screen and move up/down\n  * max - maximize the window\n  * max_toggle - toggle maximization\n  * left_third, middle_third_h, right_third - resize and move the window to the corresponding horizontal third of the screen\n  * top_third, middle_third_v, bottom_third - resize and move the window to the corresponding vertical third of the screen\n  * top_left, top_right, bottom_left, bottom_right - resize and move the window to the corresponding quarter of the screen\n  * undo - restore window to position before last move\n  * center - move window to center of screen\n  * larger - grow window larger than its current size\n  * smaller - shrink window smaller than its current size\n\nReturns:\n * the WindowHalfsAndThirds object",
         "name": "bindHotkeys",
         "parameters": [
           " * mapping - A table containing hotkey objifier/key details for the following items:",
@@ -5516,23 +5621,83 @@
           "  * third_up, third_down - resize to one vertical-third of the screen and move up/down",
           "  * max - maximize the window",
           "  * max_toggle - toggle maximization",
-          "  * screen_left, screen_right - move the window to the left/right screen (if you have more than one monitor connected, does nothing otherwise)",
-          "  * top_third, middle_third_v, bottom_third - resize and move the window to the corresponding vertical third of the screen",
           "  * left_third, middle_third_h, right_third - resize and move the window to the corresponding horizontal third of the screen",
-          "  * top_left, top_right, bottom_left, bottom_right - resize and move the window to the corresponding quarter of the screen"
+          "  * top_third, middle_third_v, bottom_third - resize and move the window to the corresponding vertical third of the screen",
+          "  * top_left, top_right, bottom_left, bottom_right - resize and move the window to the corresponding quarter of the screen",
+          "  * undo - restore window to position before last move",
+          "  * center - move window to center of screen",
+          "  * larger - grow window larger than its current size",
+          "  * smaller - shrink window smaller than its current size"
+        ],
+        "returns": [
+          " * the WindowHalfsAndThirds object"
         ],
         "signature": "WindowHalfsAndThirds:bindHotkeys(mapping)",
         "stripped_doc": "",
         "type": "Method"
       },
       {
+        "def": "WindowHalfsAndThirds:center(win)",
+        "desc": "Center window on screen",
+        "doc": "Center window on screen\n\nParameters:\n * win - hs.window to use, defaults to hs.window.focusedWindow()\n\nReturns:\n * the WindowHalfsAndThirds object",
+        "name": "center",
+        "parameters": [
+          " * win - hs.window to use, defaults to hs.window.focusedWindow()"
+        ],
+        "returns": [
+          " * the WindowHalfsAndThirds object"
+        ],
+        "signature": "WindowHalfsAndThirds:center(win)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "WindowHalfsAndThirds.clear_cache_after_seconds",
+        "desc": "We don't want our undo frame cache filling all available memory. Let's clear it after it hasn't been used for a while.",
+        "doc": "We don't want our undo frame cache filling all available memory. Let's clear it after it hasn't been used for a while.",
+        "name": "clear_cache_after_seconds",
+        "signature": "WindowHalfsAndThirds.clear_cache_after_seconds",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
         "def": "WindowHalfsAndThirds.defaultHotkeys",
         "desc": "Table containing a sample set of hotkeys that can be",
-        "doc": "Table containing a sample set of hotkeys that can be\nassigned to the different operations. These are not bound\nby default - if you want to use them you have to call:\n`spoon.WindowHalfsAndThirds:bindHotkeys(spoon.WindowHalfsAndThirds.defaultHotkeys)`\nafter loading the spoon. Value:\n```\n {\n    left_half   = { {\"ctrl\",        \"cmd\"}, \"Left\" },\n    right_half  = { {\"ctrl\",        \"cmd\"}, \"Right\" },\n    top_half    = { {\"ctrl\",        \"cmd\"}, \"Up\" },\n    bottom_half = { {\"ctrl\",        \"cmd\"}, \"Down\" },\n    third_left  = { {\"ctrl\", \"alt\"       }, \"Left\" },\n    third_right = { {\"ctrl\", \"alt\"       }, \"Right\" },\n    third_up    = { {\"ctrl\", \"alt\"       }, \"Up\" },\n    third_down  = { {\"ctrl\", \"alt\"       }, \"Down\" },\n    top_left    = { {\"ctrl\",        \"cmd\"}, \"1\" },\n    top_right   = { {\"ctrl\",        \"cmd\"}, \"2\" },\n    bottom_left = { {\"ctrl\",        \"cmd\"}, \"3\" },\n    bottom_right= { {\"ctrl\",        \"cmd\"}, \"4\" },\n    max_toggle  = { {\"ctrl\", \"alt\", \"cmd\"}, \"f\" },\n    max         = { {\"ctrl\", \"alt\", \"cmd\"}, \"Up\" },\n }\n```",
+        "doc": "Table containing a sample set of hotkeys that can be\nassigned to the different operations. These are not bound\nby default - if you want to use them you have to call:\n`spoon.WindowHalfsAndThirds:bindHotkeys(spoon.WindowHalfsAndThirds.defaultHotkeys)`\nafter loading the spoon. Value:\n```\n {\n    left_half   = { {\"ctrl\",        \"cmd\"}, \"Left\" },\n    right_half  = { {\"ctrl\",        \"cmd\"}, \"Right\" },\n    top_half    = { {\"ctrl\",        \"cmd\"}, \"Up\" },\n    bottom_half = { {\"ctrl\",        \"cmd\"}, \"Down\" },\n    third_left  = { {\"ctrl\", \"alt\"       }, \"Left\" },\n    third_right = { {\"ctrl\", \"alt\"       }, \"Right\" },\n    third_up    = { {\"ctrl\", \"alt\"       }, \"Up\" },\n    third_down  = { {\"ctrl\", \"alt\"       }, \"Down\" },\n    top_left    = { {\"ctrl\",        \"cmd\"}, \"1\" },\n    top_right   = { {\"ctrl\",        \"cmd\"}, \"2\" },\n    bottom_left = { {\"ctrl\",        \"cmd\"}, \"3\" },\n    bottom_right= { {\"ctrl\",        \"cmd\"}, \"4\" },\n    max_toggle  = { {\"ctrl\", \"alt\", \"cmd\"}, \"f\" },\n    max         = { {\"ctrl\", \"alt\", \"cmd\"}, \"Up\" },\n    undo        = { {        \"alt\", \"cmd\"}, \"z\" },\n    center      = { {        \"alt\", \"cmd\"}, \"c\" },\n    larger      = { {        \"alt\", \"cmd\", \"shift\"}, \"Right\" },\n    smaller     = { {        \"alt\", \"cmd\", \"shift\"}, \"Left\" },\n }\n```",
         "name": "defaultHotkeys",
         "signature": "WindowHalfsAndThirds.defaultHotkeys",
-        "stripped_doc": "assigned to the different operations. These are not bound\nby default - if you want to use them you have to call:\n`spoon.WindowHalfsAndThirds:bindHotkeys(spoon.WindowHalfsAndThirds.defaultHotkeys)`\nafter loading the spoon. Value:\n```\n {\n    left_half   = { {\"ctrl\",        \"cmd\"}, \"Left\" },\n    right_half  = { {\"ctrl\",        \"cmd\"}, \"Right\" },\n    top_half    = { {\"ctrl\",        \"cmd\"}, \"Up\" },\n    bottom_half = { {\"ctrl\",        \"cmd\"}, \"Down\" },\n    third_left  = { {\"ctrl\", \"alt\"       }, \"Left\" },\n    third_right = { {\"ctrl\", \"alt\"       }, \"Right\" },\n    third_up    = { {\"ctrl\", \"alt\"       }, \"Up\" },\n    third_down  = { {\"ctrl\", \"alt\"       }, \"Down\" },\n    top_left    = { {\"ctrl\",        \"cmd\"}, \"1\" },\n    top_right   = { {\"ctrl\",        \"cmd\"}, \"2\" },\n    bottom_left = { {\"ctrl\",        \"cmd\"}, \"3\" },\n    bottom_right= { {\"ctrl\",        \"cmd\"}, \"4\" },\n    max_toggle  = { {\"ctrl\", \"alt\", \"cmd\"}, \"f\" },\n    max         = { {\"ctrl\", \"alt\", \"cmd\"}, \"Up\" },\n }\n```",
+        "stripped_doc": "assigned to the different operations. These are not bound\nby default - if you want to use them you have to call:\n`spoon.WindowHalfsAndThirds:bindHotkeys(spoon.WindowHalfsAndThirds.defaultHotkeys)`\nafter loading the spoon. Value:\n```\n {\n    left_half   = { {\"ctrl\",        \"cmd\"}, \"Left\" },\n    right_half  = { {\"ctrl\",        \"cmd\"}, \"Right\" },\n    top_half    = { {\"ctrl\",        \"cmd\"}, \"Up\" },\n    bottom_half = { {\"ctrl\",        \"cmd\"}, \"Down\" },\n    third_left  = { {\"ctrl\", \"alt\"       }, \"Left\" },\n    third_right = { {\"ctrl\", \"alt\"       }, \"Right\" },\n    third_up    = { {\"ctrl\", \"alt\"       }, \"Up\" },\n    third_down  = { {\"ctrl\", \"alt\"       }, \"Down\" },\n    top_left    = { {\"ctrl\",        \"cmd\"}, \"1\" },\n    top_right   = { {\"ctrl\",        \"cmd\"}, \"2\" },\n    bottom_left = { {\"ctrl\",        \"cmd\"}, \"3\" },\n    bottom_right= { {\"ctrl\",        \"cmd\"}, \"4\" },\n    max_toggle  = { {\"ctrl\", \"alt\", \"cmd\"}, \"f\" },\n    max         = { {\"ctrl\", \"alt\", \"cmd\"}, \"Up\" },\n    undo        = { {        \"alt\", \"cmd\"}, \"z\" },\n    center      = { {        \"alt\", \"cmd\"}, \"c\" },\n    larger      = { {        \"alt\", \"cmd\", \"shift\"}, \"Right\" },\n    smaller     = { {        \"alt\", \"cmd\", \"shift\"}, \"Left\" },\n }\n```",
         "type": "Variable"
+      },
+      {
+        "def": "WindowHalfsAndThirds:larger(win)",
+        "desc": "Make win larger than its current size",
+        "doc": "Make win larger than its current size\n\nParameters:\n * win - hs.window to use, defaults to hs.window.focusedWindow()\n\nReturns:\n * the WindowHalfsAndThirds object",
+        "name": "larger",
+        "parameters": [
+          " * win - hs.window to use, defaults to hs.window.focusedWindow()"
+        ],
+        "returns": [
+          " * the WindowHalfsAndThirds object"
+        ],
+        "signature": "WindowHalfsAndThirds:larger(win)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "WindowHalfsAndThirds:leftHalf(win)",
+        "desc": "Resize to the left half of the screen.",
+        "doc": "Resize to the left half of the screen.\nAlso various other action methods. See WindowHalfsAndThirds:bindHotkeys for details\n  .leftHalf .rightHalf .topHalf .bottomHalf .thirdLeft .thirdRight .leftThird .middleThirdH .rightThird\n  .thirdUp .thirdDown .topThird .middleThirdV .bottomThird .topLeft .topRight .bottomLeft .bottomRight\n  .maximize\n\nParameters:\n * win - hs.window to use, defaults to hs.window.focusedWindow()\n\nReturns:\n * the WindowHalfsAndThirds object",
+        "name": "leftHalf",
+        "parameters": [
+          " * win - hs.window to use, defaults to hs.window.focusedWindow()"
+        ],
+        "returns": [
+          " * the WindowHalfsAndThirds object"
+        ],
+        "signature": "WindowHalfsAndThirds:leftHalf(win)",
+        "stripped_doc": "Also various other action methods. See WindowHalfsAndThirds:bindHotkeys for details\n  .leftHalf .rightHalf .topHalf .bottomHalf .thirdLeft .thirdRight .leftThird .middleThirdH .rightThird\n  .thirdUp .thirdDown .topThird .middleThirdV .bottomThird .topLeft .topRight .bottomLeft .bottomRight\n  .maximize",
+        "type": "Method"
       },
       {
         "def": "WindowHalfsAndThirds.logger",
@@ -5542,6 +5707,51 @@
         "signature": "WindowHalfsAndThirds.logger",
         "stripped_doc": "",
         "type": "Variable"
+      },
+      {
+        "def": "WindowHalfsAndThirds:smaller(win)",
+        "desc": "Make win smaller than its current size",
+        "doc": "Make win smaller than its current size\n\nParameters:\n * win - hs.window to use, defaults to hs.window.focusedWindow()\n\nReturns:\n * the WindowHalfsAndThirds object",
+        "name": "smaller",
+        "parameters": [
+          " * win - hs.window to use, defaults to hs.window.focusedWindow()"
+        ],
+        "returns": [
+          " * the WindowHalfsAndThirds object"
+        ],
+        "signature": "WindowHalfsAndThirds:smaller(win)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "WindowHalfsAndThirds:toggleMaximized(win)",
+        "desc": "Toggle win between its normal size, and being maximized",
+        "doc": "Toggle win between its normal size, and being maximized\n\nParameters:\n * win - hs.window to use, defaults to hs.window.focusedWindow()\n\nReturns:\n * the WindowHalfsAndThirds object",
+        "name": "toggleMaximized",
+        "parameters": [
+          " * win - hs.window to use, defaults to hs.window.focusedWindow()"
+        ],
+        "returns": [
+          " * the WindowHalfsAndThirds object"
+        ],
+        "signature": "WindowHalfsAndThirds:toggleMaximized(win)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "WindowHalfsAndThirds:undo(win)",
+        "desc": "Undo window size changes for win if there've been any in WindowHalfsAndThirds.clear_cache_after_seconds",
+        "doc": "Undo window size changes for win if there've been any in WindowHalfsAndThirds.clear_cache_after_seconds\n\nParameters:\n * win - hs.window to use, defaults to hs.window.focusedWindow()\n\nReturns:\n * the WindowHalfsAndThirds object",
+        "name": "undo",
+        "parameters": [
+          " * win - hs.window to use, defaults to hs.window.focusedWindow()"
+        ],
+        "returns": [
+          " * the WindowHalfsAndThirds object"
+        ],
+        "signature": "WindowHalfsAndThirds:undo(win)",
+        "stripped_doc": "",
+        "type": "Method"
       },
       {
         "def": "WindowHalfsAndThirds.use_frame_correctness",

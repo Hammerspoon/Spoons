@@ -23,6 +23,7 @@
       <ul>
         <li>Variables - Configurable values</li>
           <ul>
+            <li><a href="#clear_cache_after_seconds">clear_cache_after_seconds</a></li>
             <li><a href="#defaultHotkeys">defaultHotkeys</a></li>
             <li><a href="#logger">logger</a></li>
             <li><a href="#use_frame_correctness">use_frame_correctness</a></li>
@@ -30,10 +31,35 @@
         <li>Methods - API calls which can only be made on an object returned by a constructor</li>
           <ul>
             <li><a href="#bindHotkeys">bindHotkeys</a></li>
+            <li><a href="#center">center</a></li>
+            <li><a href="#larger">larger</a></li>
+            <li><a href="#leftHalf">leftHalf</a></li>
+            <li><a href="#smaller">smaller</a></li>
+            <li><a href="#toggleMaximized">toggleMaximized</a></li>
+            <li><a href="#undo">undo</a></li>
           </ul>
       </ul>
       <h3>API Documentation</h3>
         <h4 class="documentation-section">Variables</h4>
+          <section id="clear_cache_after_seconds">
+            <a name="//apple_ref/cpp/Variable/clear_cache_after_seconds" class="dashAnchor"></a>
+            <h5><a href="#clear_cache_after_seconds">clear_cache_after_seconds</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>WindowHalfsAndThirds.clear_cache_after_seconds</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>We don't want our undo frame cache filling all available memory. Let's clear it after it hasn't been used for a while.</p>
+</td>
+              </tr>
+            </table>
+          </section>
           <section id="defaultHotkeys">
             <a name="//apple_ref/cpp/Variable/defaultHotkeys" class="dashAnchor"></a>
             <h5><a href="#defaultHotkeys">defaultHotkeys</a></h5>
@@ -69,6 +95,10 @@ after loading the spoon. Value:</p>
     bottom_right= { {"ctrl",        "cmd"}, "4" },
     max_toggle  = { {"ctrl", "alt", "cmd"}, "f" },
     max         = { {"ctrl", "alt", "cmd"}, "Up" },
+    undo        = { {        "alt", "cmd"}, "z" },
+    center      = { {        "alt", "cmd"}, "c" },
+    larger      = { {        "alt", "cmd", "shift"}, "Right" },
+    smaller     = { {        "alt", "cmd", "shift"}, "Left" },
  }</code></pre>
 </td>
               </tr>
@@ -136,12 +166,185 @@ after loading the spoon. Value:</p>
 <li>third_up, third_down - resize to one vertical-third of the screen and move up/down</li>
 <li>max - maximize the window</li>
 <li>max_toggle - toggle maximization</li>
-<li>screen_left, screen_right - move the window to the left/right screen (if you have more than one monitor connected, does nothing otherwise)</li>
-<li>top_third, middle_third_v, bottom_third - resize and move the window to the corresponding vertical third of the screen</li>
 <li>left_third, middle_third_h, right_third - resize and move the window to the corresponding horizontal third of the screen</li>
+<li>top_third, middle_third_v, bottom_third - resize and move the window to the corresponding vertical third of the screen</li>
 <li>top_left, top_right, bottom_left, bottom_right - resize and move the window to the corresponding quarter of the screen</li>
+<li>undo - restore window to position before last move</li>
+<li>center - move window to center of screen</li>
+<li>larger - grow window larger than its current size</li>
+<li>smaller - shrink window smaller than its current size</li>
 </ul>
 </li>
+</ul>
+<p>Returns:</p>
+<ul>
+<li>the WindowHalfsAndThirds object</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="center">
+            <a name="//apple_ref/cpp/Method/center" class="dashAnchor"></a>
+            <h5><a href="#center">center</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>WindowHalfsAndThirds:center(win)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Center window on screen</p>
+<p>Parameters:</p>
+<ul>
+<li>win - hs.window to use, defaults to hs.window.focusedWindow()</li>
+</ul>
+<p>Returns:</p>
+<ul>
+<li>the WindowHalfsAndThirds object</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="larger">
+            <a name="//apple_ref/cpp/Method/larger" class="dashAnchor"></a>
+            <h5><a href="#larger">larger</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>WindowHalfsAndThirds:larger(win)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Make win larger than its current size</p>
+<p>Parameters:</p>
+<ul>
+<li>win - hs.window to use, defaults to hs.window.focusedWindow()</li>
+</ul>
+<p>Returns:</p>
+<ul>
+<li>the WindowHalfsAndThirds object</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="leftHalf">
+            <a name="//apple_ref/cpp/Method/leftHalf" class="dashAnchor"></a>
+            <h5><a href="#leftHalf">leftHalf</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>WindowHalfsAndThirds:leftHalf(win)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Resize to the left half of the screen.
+Also various other action methods. See WindowHalfsAndThirds:bindHotkeys for details
+  .leftHalf .rightHalf .topHalf .bottomHalf .thirdLeft .thirdRight .leftThird .middleThirdH .rightThird
+  .thirdUp .thirdDown .topThird .middleThirdV .bottomThird .topLeft .topRight .bottomLeft .bottomRight
+  .maximize</p>
+<p>Parameters:</p>
+<ul>
+<li>win - hs.window to use, defaults to hs.window.focusedWindow()</li>
+</ul>
+<p>Returns:</p>
+<ul>
+<li>the WindowHalfsAndThirds object</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="smaller">
+            <a name="//apple_ref/cpp/Method/smaller" class="dashAnchor"></a>
+            <h5><a href="#smaller">smaller</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>WindowHalfsAndThirds:smaller(win)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Make win smaller than its current size</p>
+<p>Parameters:</p>
+<ul>
+<li>win - hs.window to use, defaults to hs.window.focusedWindow()</li>
+</ul>
+<p>Returns:</p>
+<ul>
+<li>the WindowHalfsAndThirds object</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="toggleMaximized">
+            <a name="//apple_ref/cpp/Method/toggleMaximized" class="dashAnchor"></a>
+            <h5><a href="#toggleMaximized">toggleMaximized</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>WindowHalfsAndThirds:toggleMaximized(win)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Toggle win between its normal size, and being maximized</p>
+<p>Parameters:</p>
+<ul>
+<li>win - hs.window to use, defaults to hs.window.focusedWindow()</li>
+</ul>
+<p>Returns:</p>
+<ul>
+<li>the WindowHalfsAndThirds object</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="undo">
+            <a name="//apple_ref/cpp/Method/undo" class="dashAnchor"></a>
+            <h5><a href="#undo">undo</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>WindowHalfsAndThirds:undo(win)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Undo window size changes for win if there've been any in WindowHalfsAndThirds.clear_cache_after_seconds</p>
+<p>Parameters:</p>
+<ul>
+<li>win - hs.window to use, defaults to hs.window.focusedWindow()</li>
+</ul>
+<p>Returns:</p>
+<ul>
+<li>the WindowHalfsAndThirds object</li>
 </ul>
 </td>
               </tr>
