@@ -23,6 +23,7 @@ local modifyNameMap = function(info, add)
             icon = hs.image.imageFromAppBundle(bundleID)
          end
          local displayname = item.kMDItemDisplayName
+         displayname = displayname:gsub("%.app$", "", 1)
          if string.find(item.kMDItemPath, "%.prefPane$") then
             displayname = item.kMDItemDisplayName .. " preferences"
             icon = hs.image.iconForFile(item.kMDItemPath)
