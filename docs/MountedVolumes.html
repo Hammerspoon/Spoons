@@ -1,0 +1,378 @@
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hammerspoon docs: MountedVolumes</title>
+    <style type="text/css">
+      a { text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      th { background-color: #DDDDDD; vertical-align: top; padding: 3px; }
+      td { width: 100%; background-color: #EEEEEE; vertical-align: top; padding: 3px; }
+      table { width: 100% ; border: 1px solid #0; text-align: left; }
+      section > table table td { width: 0; }
+    </style>
+    <link rel="stylesheet" href="docs.css" type="text/css" media="screen" />
+  </head>
+  <body>
+    <header>
+      <h1><a href="./index.html">docs</a> &raquo; MountedVolumes</h1>
+      <p>Displays a list of mounted volumes and a pie chart for each indicating free space on the desktop</p>
+<p>Download: <a href="https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MountedVolumes.spoon.zip">https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MountedVolumes.spoon.zip</a></p>
+
+      </header>
+      <h3>API Overview</h3>
+      <ul>
+        <li>Variables - Configurable values</li>
+          <ul>
+            <li><a href="#backgroundBorder">backgroundBorder</a></li>
+            <li><a href="#backgroundColor">backgroundColor</a></li>
+            <li><a href="#capacityColor">capacityColor</a></li>
+            <li><a href="#checkInterval">checkInterval</a></li>
+            <li><a href="#cornerRadius">cornerRadius</a></li>
+            <li><a href="#enableEjectButton">enableEjectButton</a></li>
+            <li><a href="#freeColor">freeColor</a></li>
+            <li><a href="#growsDownwards">growsDownwards</a></li>
+            <li><a href="#location">location</a></li>
+            <li><a href="#textStyle">textStyle</a></li>
+            <li><a href="#unitsInSI">unitsInSI</a></li>
+          </ul>
+        <li>Methods - API calls which can only be made on an object returned by a constructor</li>
+          <ul>
+            <li><a href="#bindHotkeys">bindHotkeys</a></li>
+            <li><a href="#hide">hide</a></li>
+            <li><a href="#show">show</a></li>
+          </ul>
+      </ul>
+      <h3>API Documentation</h3>
+        <h4 class="documentation-section">Variables</h4>
+          <section id="backgroundBorder">
+            <a name="//apple_ref/cpp/Variable/backgroundBorder" class="dashAnchor"></a>
+            <h5><a href="#backgroundBorder">backgroundBorder</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>MountedVolumes.backgroundBorder</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>A table, as defined in <code>hs.drawing.color</code>, specifying the color of the volume lists border. Defaults to <code>{ alpha = .5 }</code></p>
+<p>Changes will take effect when the next volume change occurs, when the next usage check occurs (see <code>MountedVolumes.checkInterval</code>), or when <code>MountedVolumes:show</code> is invoked, whichever occurs first.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="backgroundColor">
+            <a name="//apple_ref/cpp/Variable/backgroundColor" class="dashAnchor"></a>
+            <h5><a href="#backgroundColor">backgroundColor</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>MountedVolumes.backgroundColor</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>A table, as defined in <code>hs.drawing.color</code>, specifying the color of the volume lists background. Defaults to <code>{ alpha = .7, white = .5 }</code></p>
+<p>Changes will take effect when the next volume change occurs, when the next usage check occurs (see <code>MountedVolumes.checkInterval</code>), or when <code>MountedVolumes:show</code> is invoked, whichever occurs first.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="capacityColor">
+            <a name="//apple_ref/cpp/Variable/capacityColor" class="dashAnchor"></a>
+            <h5><a href="#capacityColor">capacityColor</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>MountedVolumes.capacityColor</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>A table, as defined in <code>hs.drawing.color</code>, specifying the color to use for the in use portion of the volume's capacity pie chart. Defaults to <code>hs.drawing.color.x11.orangered</code></p>
+<p>Changes will take effect when the next volume change occurs, when the next usage check occurs (see <code>MountedVolumes.checkInterval</code>), or when <code>MountedVolumes:show</code> is invoked, whichever occurs first.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="checkInterval">
+            <a name="//apple_ref/cpp/Variable/checkInterval" class="dashAnchor"></a>
+            <h5><a href="#checkInterval">checkInterval</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>MountedVolumes.checkInterval</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>A number, default 120, specifying how often in seconds the free space on mounted volumes should be polled for current usage data.</p>
+<p>Changes will take effect when the next volume change occurs, when the next usage check occurs (see <code>MountedVolumes.checkInterval</code>), or when <code>MountedVolumes:show</code> is invoked, whichever occurs first.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="cornerRadius">
+            <a name="//apple_ref/cpp/Variable/cornerRadius" class="dashAnchor"></a>
+            <h5><a href="#cornerRadius">cornerRadius</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>MountedVolumes.cornerRadius</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>A number, default 5, specifying how rounded the corners of the volume list background should be.</p>
+<p>Changes will take effect when the next volume change occurs, when the next usage check occurs (see <code>MountedVolumes.checkInterval</code>), or when <code>MountedVolumes:show</code> is invoked, whichever occurs first.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="enableEjectButton">
+            <a name="//apple_ref/cpp/Variable/enableEjectButton" class="dashAnchor"></a>
+            <h5><a href="#enableEjectButton">enableEjectButton</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>MountedVolumes.enableEjectButton</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>A boolean, default true, indicating whether the eject button displayed next to removable volumes is enabled.</p>
+<p>Changes will take effect when the next volume change occurs, when the next usage check occurs (see <code>MountedVolumes.checkInterval</code>), or when <code>MountedVolumes:show</code> is invoked, whichever occurs first.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="freeColor">
+            <a name="//apple_ref/cpp/Variable/freeColor" class="dashAnchor"></a>
+            <h5><a href="#freeColor">freeColor</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>MountedVolumes.freeColor</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>A table, as defined in <code>hs.drawing.color</code>, specifying the color to use for the free portion of the volume's capacity pie chart. Defaults to <code>hs.drawing.color.x11.mediumspringgreen</code></p>
+<p>Changes will take effect when the next volume change occurs, when the next usage check occurs (see <code>MountedVolumes.checkInterval</code>), or when <code>MountedVolumes:show</code> is invoked, whichever occurs first.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="growsDownwards">
+            <a name="//apple_ref/cpp/Variable/growsDownwards" class="dashAnchor"></a>
+            <h5><a href="#growsDownwards">growsDownwards</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>MountedVolumes.growsDownwards</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>A boolean, default true, indicating whether the displayed list grows downwards or upwards as more volumes are mounted.
+Note that if this value is true, then <code>MountedVolumes.location</code> specifies the upper left corner of the display.  If this value is false, then <code>MountedVolumes.location</code> specifies the bottom left corner of the display.</p>
+<p>Changes will take effect when the next volume change occurs, when the next usage check occurs (see <code>MountedVolumes.checkInterval</code>), or when <code>MountedVolumes:show</code> is invoked, whichever occurs first.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="location">
+            <a name="//apple_ref/cpp/Variable/location" class="dashAnchor"></a>
+            <h5><a href="#location">location</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>MountedVolumes.location</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>A table specifying the location on the screen of the starting corner of the display. Defaults to <code>{ x = 20, y = 22 }</code>.
+See also <code>MountedValues.growsDownwards</code>.</p>
+<p>Changes will take effect when the next volume change occurs, when the next usage check occurs (see <code>MountedVolumes.checkInterval</code>), or when <code>MountedVolumes:show</code> is invoked, whichever occurs first.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="textStyle">
+            <a name="//apple_ref/cpp/Variable/textStyle" class="dashAnchor"></a>
+            <h5><a href="#textStyle">textStyle</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>MountedVolumes.textStyle</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>A table specifying the style as defined in <code>hs.styledtext</code> to display the volume name and usage details with. Defaults to:</p>
+
+<pre><code>{
+    font = { name = "Menlo", size = 10 },
+    color = { alpha = 1.0 },
+    paragraphStyle = { alignment = "center" },
+}
+
+</code></pre>
+<p>Changes will take effect when the next volume change occurs, when the next usage check occurs (see <code>MountedVolumes.checkInterval</code>), or when <code>MountedVolumes:show</code> is invoked, whichever occurs first.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="unitsInSI">
+            <a name="//apple_ref/cpp/Variable/unitsInSI" class="dashAnchor"></a>
+            <h5><a href="#unitsInSI">unitsInSI</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>MountedVolumes.unitsInSI</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Boolean, default false, indicating whether capacity is displayed in SI units (1 GB = 10^9 bytes) or Gibibytes (1 GiB = 2^30 bytes).</p>
+<p>Changes will take effect when the next volume change occurs, when the next usage check occurs (see <code>MountedVolumes.checkInterval</code>), or when <code>MountedVolumes:show</code> is invoked, whichever occurs first.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+        <h4 class="documentation-section">Methods</h4>
+          <section id="bindHotkeys">
+            <a name="//apple_ref/cpp/Method/bindHotkeys" class="dashAnchor"></a>
+            <h5><a href="#bindHotkeys">bindHotkeys</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>MountedVolumes:bindHotkeys(mapping)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Binds hotkeys for MountedVolumes</p>
+<p>Parameters:</p>
+<ul>
+<li><code>mapping</code> - A table containing hotkey modifier/key details for one or more of the following commands:<ul>
+<li>"show"   - Show the volume list</li>
+<li>"hide"   - Hide the volume list</li>
+<li>"toggle" - If the volume list is visible then hide it; otherwise show the list.</li>
+</ul>
+</li>
+</ul>
+<p>Returns:</p>
+<ul>
+<li>None</li>
+</ul>
+<p>Notes:</p>
+<ul>
+<li>the <code>mapping</code> table is a table of one or more key-value pairs of the format <code>command = { { modifiers }, key }</code> where:<ul>
+<li><code>command</code>   - is one of the commands listed above</li>
+<li><code>modifiers</code> - is a table containing keyboard modifiers, as specified in <code>hs.hotkey.bind()</code></li>
+<li><code>key</code>       - is a string containing the name of a keyboard key, as specified in <code>hs.hotkey.bind()</code></li>
+</ul>
+</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="hide">
+            <a name="//apple_ref/cpp/Method/hide" class="dashAnchor"></a>
+            <h5><a href="#hide">hide</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>MountedVolumes:hide()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Hide the volumes panel on the background and stop watching for volume changes</p>
+<p>Parameters:</p>
+<ul>
+<li>None</li>
+</ul>
+<p>Returns:</p>
+<ul>
+<li>The MountedVolumes object</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="show">
+            <a name="//apple_ref/cpp/Method/show" class="dashAnchor"></a>
+            <h5><a href="#show">show</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>MountedVolumes:show()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Display the volumes panel on the background and update it as volumes are mounted and unmounted.</p>
+<p>Parameters:</p>
+<ul>
+<li>None</li>
+</ul>
+<p>Returns:</p>
+<ul>
+<li>The MountedVolumes object</li>
+</ul>
+<p>Notes:</p>
+<ul>
+<li>If you make a change to any of the variables defining the visual appearance of the volume list, you can force the change to take immediate effect by invoking this method, even if the volume list is already being displayed.</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+  </body>
+</html>
