@@ -80,7 +80,7 @@ end
 
 --- HSearch:switchSource()
 --- Method
---- Tigger new source according to hs.chooser's query string and keyword. Only for debug purpose in usual.
+--- Trigger new source according to `hs.chooser`'s query string and keyword. Only useful for debugging purposes.
 ---
 
 function obj:switchSource()
@@ -165,7 +165,7 @@ end
 
 --- HSearch:loadSources()
 --- Method
---- Load new sources from `HSearch.search_path`, the search_path defaults to `~/.hammerspoon/private/hsearch_dir` and the HSearch Spoon directory. Only for debug purpose in usual.
+--- Load new sources from `HSearch.search_path`, the search_path defaults to `~/.hammerspoon/private/hsearch_dir` and the HSearch Spoon directory. Only useful for debugging purposes.
 ---
 
 function obj:loadSources()
