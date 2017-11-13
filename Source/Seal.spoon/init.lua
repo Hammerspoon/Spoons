@@ -140,7 +140,7 @@ end
 ---
 --- Parameters:
 ---  * mapping - A table containing hotkey modifier/key details for the following items:
----   * show - This will cause Seal's UI to be shown
+---   * show - This will cause Seal's UI to be shown or hidden
 ---
 --- Returns:
 ---  * The Seal object
@@ -150,7 +150,7 @@ function obj:bindHotkeys(mapping)
     end
     local showMods = mapping["show"][1]
     local showKey = mapping["show"][2]
-    self.hotkeyShow = hs.hotkey.new(showMods, showKey, function() self:show() end)
+    self.hotkeyShow = hs.hotkey.new(showMods, showKey, function() self:toggle() end)
 
     return self
 end
@@ -208,6 +208,15 @@ end
 function obj:show()
     self.chooser:show()
     return self
+end
+
+function obj:toggle()
+  if self.chooser:isVisible() then
+    self.chooser:hide()
+  else
+    self.chooser:show()
+  end
+  return self
 end
 
 function obj.completionCallback(rowInfo)
