@@ -142,7 +142,7 @@ end
 function obj:start(howlong)
    if not howlong then howlong = self.run_time end
    self:show()
-   hs.timer.doAfter(howlong, hs.fnutils.partial(self.zoom and self.zoom_and_fade or self.hide, self))
+   obj._timer = hs.timer.doAfter(howlong, hs.fnutils.partial(self.zoom and self.zoom_and_fade or self.hide, self))
 end
 
 return obj
