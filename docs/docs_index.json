@@ -615,6 +615,95 @@
     "type": "Method"
   },
   {
+    "desc": "Displays a list of mounted volumes and a pie chart for each indicating free space on the desktop",
+    "name": "MountedVolumes",
+    "type": "Module"
+  },
+  {
+    "desc": "A table, as defined in `hs.drawing.color`, specifying the color of the volume lists border. Defaults to `{ alpha = .5 }`",
+    "module": "MountedVolumes",
+    "name": "backgroundBorder",
+    "type": "Variable"
+  },
+  {
+    "desc": "A table, as defined in `hs.drawing.color`, specifying the color of the volume lists background. Defaults to `{ alpha = .7, white = .5 }`",
+    "module": "MountedVolumes",
+    "name": "backgroundColor",
+    "type": "Variable"
+  },
+  {
+    "desc": "A table, as defined in `hs.drawing.color`, specifying the color to use for the in use portion of the volume's capacity pie chart. Defaults to `hs.drawing.color.x11.orangered`",
+    "module": "MountedVolumes",
+    "name": "capacityColor",
+    "type": "Variable"
+  },
+  {
+    "desc": "A number, default 120, specifying how often in seconds the free space on mounted volumes should be polled for current usage data.",
+    "module": "MountedVolumes",
+    "name": "checkInterval",
+    "type": "Variable"
+  },
+  {
+    "desc": "A number, default 5, specifying how rounded the corners of the volume list background should be.",
+    "module": "MountedVolumes",
+    "name": "cornerRadius",
+    "type": "Variable"
+  },
+  {
+    "desc": "A boolean, default true, indicating whether the eject button displayed next to removable volumes is enabled.",
+    "module": "MountedVolumes",
+    "name": "enableEjectButton",
+    "type": "Variable"
+  },
+  {
+    "desc": "A table, as defined in `hs.drawing.color`, specifying the color to use for the free portion of the volume's capacity pie chart. Defaults to `hs.drawing.color.x11.mediumspringgreen`",
+    "module": "MountedVolumes",
+    "name": "freeColor",
+    "type": "Variable"
+  },
+  {
+    "desc": "A boolean, default true, indicating whether the displayed list grows downwards or upwards as more volumes are mounted.",
+    "module": "MountedVolumes",
+    "name": "growsDownwards",
+    "type": "Variable"
+  },
+  {
+    "desc": "A table specifying the location on the screen of the starting corner of the display. Defaults to `{ x = 20, y = 22 }`.",
+    "module": "MountedVolumes",
+    "name": "location",
+    "type": "Variable"
+  },
+  {
+    "desc": "A table specifying the style as defined in `hs.styledtext` to display the volume name and usage details with. Defaults to:",
+    "module": "MountedVolumes",
+    "name": "textStyle",
+    "type": "Variable"
+  },
+  {
+    "desc": "Boolean, default false, indicating whether capacity is displayed in SI units (1 GB = 10^9 bytes) or Gibibytes (1 GiB = 2^30 bytes).",
+    "module": "MountedVolumes",
+    "name": "unitsInSI",
+    "type": "Variable"
+  },
+  {
+    "desc": "Binds hotkeys for MountedVolumes",
+    "module": "MountedVolumes",
+    "name": "bindHotkeys",
+    "type": "Method"
+  },
+  {
+    "desc": "Hide the volumes panel on the background and stop watching for volume changes",
+    "module": "MountedVolumes",
+    "name": "hide",
+    "type": "Method"
+  },
+  {
+    "desc": "Display the volumes panel on the background and update it as volumes are mounted and unmounted.",
+    "module": "MountedVolumes",
+    "name": "show",
+    "type": "Method"
+  },
+  {
     "desc": "Draws a circle around the mouse pointer when a hotkey is pressed",
     "name": "MouseCircle",
     "type": "Module"
