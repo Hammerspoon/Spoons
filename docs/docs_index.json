@@ -423,6 +423,23 @@
     "type": "Method"
   },
   {
+    "desc": "Override High Sierra behaviour and send all media keys (play/prev/next) to iTunes",
+    "name": "HighSierraiTunesMediaFix",
+    "type": "Module"
+  },
+  {
+    "desc": "Starts the hs.eventtap that powers this Spoon",
+    "module": "HighSierraiTunesMediaFix",
+    "name": "start",
+    "type": "Method"
+  },
+  {
+    "desc": "Stops the hs.eventtap that powers this Spoon",
+    "module": "HighSierraiTunesMediaFix",
+    "name": "stop",
+    "type": "Method"
+  },
+  {
     "desc": "Communicate with [aria2](https://github.com/aria2/aria2), an interactive panel included.",
     "name": "HSaria2",
     "type": "Module"

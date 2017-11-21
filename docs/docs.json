@@ -1584,6 +1584,85 @@
     "Function": [],
     "Method": [
       {
+        "def": "HighSierraiTunesMediaFix:start()",
+        "desc": "Starts the hs.eventtap that powers this Spoon",
+        "doc": "Starts the hs.eventtap that powers this Spoon\n\nParameters:\n * None\n\nReturns:\n * The HighSierraiTunesMediaFix object",
+        "name": "start",
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * The HighSierraiTunesMediaFix object"
+        ],
+        "signature": "HighSierraiTunesMediaFix:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "HighSierraiTunesMediaFix:stop()",
+        "desc": "Stops the hs.eventtap that powers this Spoon",
+        "doc": "Stops the hs.eventtap that powers this Spoon\n\nParameters:\n * None\n\nReturns:\n * The HighSierraiTunesMediaFix object",
+        "name": "stop",
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * The HighSierraiTunesMediaFix object"
+        ],
+        "signature": "HighSierraiTunesMediaFix:stop()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [],
+    "desc": "Override High Sierra behaviour and send all media keys (play/prev/next) to iTunes",
+    "doc": "Override High Sierra behaviour and send all media keys (play/prev/next) to iTunes",
+    "items": [
+      {
+        "def": "HighSierraiTunesMediaFix:start()",
+        "desc": "Starts the hs.eventtap that powers this Spoon",
+        "doc": "Starts the hs.eventtap that powers this Spoon\n\nParameters:\n * None\n\nReturns:\n * The HighSierraiTunesMediaFix object",
+        "name": "start",
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * The HighSierraiTunesMediaFix object"
+        ],
+        "signature": "HighSierraiTunesMediaFix:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "HighSierraiTunesMediaFix:stop()",
+        "desc": "Stops the hs.eventtap that powers this Spoon",
+        "doc": "Stops the hs.eventtap that powers this Spoon\n\nParameters:\n * None\n\nReturns:\n * The HighSierraiTunesMediaFix object",
+        "name": "stop",
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * The HighSierraiTunesMediaFix object"
+        ],
+        "signature": "HighSierraiTunesMediaFix:stop()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "name": "HighSierraiTunesMediaFix",
+    "stripped_doc": "",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
         "def": "HSaria2:connectToHost(hostaddr, secret)",
         "desc": "Try connect to `hostaddr` with `secret`. If succeed, they will become default values for following-up oprations.",
         "doc": "Try connect to `hostaddr` with `secret`. If succeed, they will become default values for following-up oprations.\n\nParameters:\n * hostaddr - A sring specifying aria2 RPC host, including host name and port address. e.g. \"http://localhost:6800/jsonrpc\".\n * secret - A string specifying host secret",
