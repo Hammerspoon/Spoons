@@ -486,13 +486,13 @@
     "type": "Module"
   },
   {
-    "desc": "Load new sources from `HSearch.search_path`, the search_path defaults to `~/.hammerspoon/private/hsearch_dir` and the HSearch Spoon directory. Only for debug purpose in usual.",
+    "desc": "Load new sources from `HSearch.search_path`, the search_path defaults to `~/.hammerspoon/private/hsearch_dir` and the HSearch Spoon directory. Only useful for debugging purposes.",
     "module": "HSearch",
     "name": "loadSources",
     "type": "Method"
   },
   {
-    "desc": "Tigger new source according to hs.chooser's query string and keyword. Only for debug purpose in usual.",
+    "desc": "Trigger new source according to `hs.chooser`'s query string and keyword. Only useful for debugging purposes.",
     "module": "HSearch",
     "name": "switchSource",
     "type": "Method"

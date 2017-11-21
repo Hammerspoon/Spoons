@@ -1824,8 +1824,8 @@
     "Method": [
       {
         "def": "HSearch:loadSources()",
-        "desc": "Load new sources from `HSearch.search_path`, the search_path defaults to `~/.hammerspoon/private/hsearch_dir` and the HSearch Spoon directory. Only for debug purpose in usual.",
-        "doc": "Load new sources from `HSearch.search_path`, the search_path defaults to `~/.hammerspoon/private/hsearch_dir` and the HSearch Spoon directory. Only for debug purpose in usual.\n",
+        "desc": "Load new sources from `HSearch.search_path`, the search_path defaults to `~/.hammerspoon/private/hsearch_dir` and the HSearch Spoon directory. Only useful for debugging purposes.",
+        "doc": "Load new sources from `HSearch.search_path`, the search_path defaults to `~/.hammerspoon/private/hsearch_dir` and the HSearch Spoon directory. Only useful for debugging purposes.\n",
         "name": "loadSources",
         "signature": "HSearch:loadSources()",
         "stripped_doc": "",
@@ -1833,8 +1833,8 @@
       },
       {
         "def": "HSearch:switchSource()",
-        "desc": "Tigger new source according to hs.chooser's query string and keyword. Only for debug purpose in usual.",
-        "doc": "Tigger new source according to hs.chooser's query string and keyword. Only for debug purpose in usual.\n",
+        "desc": "Trigger new source according to `hs.chooser`'s query string and keyword. Only useful for debugging purposes.",
+        "doc": "Trigger new source according to `hs.chooser`'s query string and keyword. Only useful for debugging purposes.\n",
         "name": "switchSource",
         "signature": "HSearch:switchSource()",
         "stripped_doc": "",
@@ -1856,8 +1856,8 @@
     "items": [
       {
         "def": "HSearch:loadSources()",
-        "desc": "Load new sources from `HSearch.search_path`, the search_path defaults to `~/.hammerspoon/private/hsearch_dir` and the HSearch Spoon directory. Only for debug purpose in usual.",
-        "doc": "Load new sources from `HSearch.search_path`, the search_path defaults to `~/.hammerspoon/private/hsearch_dir` and the HSearch Spoon directory. Only for debug purpose in usual.\n",
+        "desc": "Load new sources from `HSearch.search_path`, the search_path defaults to `~/.hammerspoon/private/hsearch_dir` and the HSearch Spoon directory. Only useful for debugging purposes.",
+        "doc": "Load new sources from `HSearch.search_path`, the search_path defaults to `~/.hammerspoon/private/hsearch_dir` and the HSearch Spoon directory. Only useful for debugging purposes.\n",
         "name": "loadSources",
         "signature": "HSearch:loadSources()",
         "stripped_doc": "",
@@ -1865,8 +1865,8 @@
       },
       {
         "def": "HSearch:switchSource()",
-        "desc": "Tigger new source according to hs.chooser's query string and keyword. Only for debug purpose in usual.",
-        "doc": "Tigger new source according to hs.chooser's query string and keyword. Only for debug purpose in usual.\n",
+        "desc": "Trigger new source according to `hs.chooser`'s query string and keyword. Only useful for debugging purposes.",
+        "doc": "Trigger new source according to `hs.chooser`'s query string and keyword. Only useful for debugging purposes.\n",
         "name": "switchSource",
         "signature": "HSearch:switchSource()",
         "stripped_doc": "",
