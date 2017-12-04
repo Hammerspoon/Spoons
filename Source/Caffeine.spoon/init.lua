@@ -62,7 +62,9 @@ end
 function obj:start()
     self.menuBarItem = hs.menubar.new()
     self.menuBarItem:setClickCallback(self.clicked)
-    self.hotkeyToggle:enable()
+    if (self.hotkeyToggle) then
+        self.hotkeyToggle:enable()
+    end
     self.setDisplay(hs.caffeinate.get("displayIdle"))
 
     return self
@@ -79,7 +81,9 @@ end
 ---  * The Caffeine object
 function obj:stop()
     self.menuBarItem:delete()
-    self.hotkeyToggle:disable()
+    if (self.hotkeyToggle) then
+        self.hotkeyToggle:disable()
+    end
     self.menuBarItem = nil
     return self
 end
