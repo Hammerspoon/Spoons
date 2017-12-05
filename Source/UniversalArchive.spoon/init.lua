@@ -66,7 +66,7 @@ obj.evernote_delay_before_typing = 0.2
 function obj:evernoteArchive(where)
    local ev = hs.appfinder.appFromName("Evernote")
    -- Archiving Evernote notes
-   if ev:selectMenuItem({"Note", "Move To Notebook…"}) then
+   if (ev:selectMenuItem({"Note", "Move To Notebook…"}) or ev:selectMenuItem({"Note", "Move to Notebook…"})) then
       local dest = where 
       if dest == nil then
          dest = self.evernote_archive_notebook
