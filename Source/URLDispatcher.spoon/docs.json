@@ -56,10 +56,10 @@
         ],
         "stripped_doc" : [
           "URL dispatch rules.",
-          "A table containing a list of dispatch rules. Each rule should be its own table in the format: `{ \"url pattern\", \"application bundle ID\" }`, and they are evaluated in the order they are declared. Note that the patterns are [Lua patterns](https:\/\/www.lua.org\/pil\/20.2.html) and not regular expressions. Defaults to an empty table, which has the effect of having all URLs dispatched to the `default_handler`."
+          "A table containing a list of dispatch rules. Each rule should be its own table in the format: `{ \"url pattern\", \"application bundle ID\", function }`, and they are evaluated in the order they are declared. Note that the patterns are [Lua patterns](https:\/\/www.lua.org\/pil\/20.2.html) and not regular expressions. Defaults to an empty table, which has the effect of having all URLs dispatched to the `default_handler`."
         ],
         "name" : "url_patterns",
-        "doc" : "URL dispatch rules.\nA table containing a list of dispatch rules. Each rule should be its own table in the format: `{ \"url pattern\", \"application bundle ID\" }`, and they are evaluated in the order they are declared. Note that the patterns are [Lua patterns](https:\/\/www.lua.org\/pil\/20.2.html) and not regular expressions. Defaults to an empty table, which has the effect of having all URLs dispatched to the `default_handler`.",
+        "doc" : "URL dispatch rules.\nA table containing a list of dispatch rules. Each rule should be its own table in the format: `{ \"url pattern\", \"application bundle ID\", function }`, and they are evaluated in the order they are declared. Note that the patterns are [Lua patterns](https:\/\/www.lua.org\/pil\/20.2.html) and not regular expressions. Defaults to an empty table, which has the effect of having all URLs dispatched to the `default_handler`.",
         "notes" : [
 
         ],
@@ -224,10 +224,10 @@
         ],
         "stripped_doc" : [
           "URL dispatch rules.",
-          "A table containing a list of dispatch rules. Each rule should be its own table in the format: `{ \"url pattern\", \"application bundle ID\" }`, and they are evaluated in the order they are declared. Note that the patterns are [Lua patterns](https:\/\/www.lua.org\/pil\/20.2.html) and not regular expressions. Defaults to an empty table, which has the effect of having all URLs dispatched to the `default_handler`."
+          "A table containing a list of dispatch rules. Each rule should be its own table in the format: `{ \"url pattern\", \"application bundle ID\", function }`, and they are evaluated in the order they are declared. Note that the patterns are [Lua patterns](https:\/\/www.lua.org\/pil\/20.2.html) and not regular expressions. Defaults to an empty table, which has the effect of having all URLs dispatched to the `default_handler`."
         ],
         "name" : "url_patterns",
-        "doc" : "URL dispatch rules.\nA table containing a list of dispatch rules. Each rule should be its own table in the format: `{ \"url pattern\", \"application bundle ID\" }`, and they are evaluated in the order they are declared. Note that the patterns are [Lua patterns](https:\/\/www.lua.org\/pil\/20.2.html) and not regular expressions. Defaults to an empty table, which has the effect of having all URLs dispatched to the `default_handler`.",
+        "doc" : "URL dispatch rules.\nA table containing a list of dispatch rules. Each rule should be its own table in the format: `{ \"url pattern\", \"application bundle ID\", function }`, and they are evaluated in the order they are declared. Note that the patterns are [Lua patterns](https:\/\/www.lua.org\/pil\/20.2.html) and not regular expressions. Defaults to an empty table, which has the effect of having all URLs dispatched to the `default_handler`.",
         "notes" : [
 
         ],
