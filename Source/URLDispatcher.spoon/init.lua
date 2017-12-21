@@ -69,12 +69,18 @@ function obj:dispatchURL(scheme, host, params, fullUrl)
    for i,pair in ipairs(self.url_patterns) do
       local p = pair[1]
       local app = pair[2]
+      local func = pair[3]
       if string.match(url, p) then
          id = app
          if id ~= nil then
             self.logger.df("Match found, opening with '%s'", id)
             hs.application.launchOrFocusByBundleID(id)
             hs.urlevent.openURLWithBundle(url, id)
+            return
+         end
+         if func ~= nil then
+            self.logger.df("Match found, calling func '%s'", func)
+            func(url)
             return
          end
       end
