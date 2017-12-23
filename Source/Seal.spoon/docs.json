@@ -10,11 +10,12 @@
       {
         "def": "Seal:bindHotkeys(mapping)",
         "desc": "Binds hotkeys for Seal",
-        "doc": "Binds hotkeys for Seal\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for the following items:\n  * show - This will cause Seal's UI to be shown\n\nReturns:\n * The Seal object",
+        "doc": "Binds hotkeys for Seal\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for the following (optional) items:\n  * show - This will cause Seal's UI to be shown\n  * toggle - This will cause Seal's UI to be shown or hidden depending on its current state\n\nReturns:\n * The Seal object",
         "name": "bindHotkeys",
         "parameters": [
-          " * mapping - A table containing hotkey modifier/key details for the following items:",
-          "  * show - This will cause Seal's UI to be shown"
+          " * mapping - A table containing hotkey modifier/key details for the following (optional) items:",
+          "  * show - This will cause Seal's UI to be shown",
+          "  * toggle - This will cause Seal's UI to be shown or hidden depending on its current state"
         ],
         "returns": [
           " * The Seal object"
@@ -148,6 +149,21 @@
           " * The Seal object"
         ],
         "signature": "Seal:stop()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Seal:toggle()",
+        "desc": "Shows or hides the Seal UI",
+        "doc": "Shows or hides the Seal UI\n\nParameters:\n * None\n\nReturns:\n * None",
+        "name": "toggle",
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "Seal:toggle()",
         "stripped_doc": "",
         "type": "Method"
       }
@@ -187,11 +203,12 @@
       {
         "def": "Seal:bindHotkeys(mapping)",
         "desc": "Binds hotkeys for Seal",
-        "doc": "Binds hotkeys for Seal\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for the following items:\n  * show - This will cause Seal's UI to be shown\n\nReturns:\n * The Seal object",
+        "doc": "Binds hotkeys for Seal\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for the following (optional) items:\n  * show - This will cause Seal's UI to be shown\n  * toggle - This will cause Seal's UI to be shown or hidden depending on its current state\n\nReturns:\n * The Seal object",
         "name": "bindHotkeys",
         "parameters": [
-          " * mapping - A table containing hotkey modifier/key details for the following items:",
-          "  * show - This will cause Seal's UI to be shown"
+          " * mapping - A table containing hotkey modifier/key details for the following (optional) items:",
+          "  * show - This will cause Seal's UI to be shown",
+          "  * toggle - This will cause Seal's UI to be shown or hidden depending on its current state"
         ],
         "returns": [
           " * The Seal object"
@@ -334,6 +351,21 @@
           " * The Seal object"
         ],
         "signature": "Seal:stop()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Seal:toggle()",
+        "desc": "Shows or hides the Seal UI",
+        "doc": "Shows or hides the Seal UI\n\nParameters:\n * None\n\nReturns:\n * None",
+        "name": "toggle",
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "Seal:toggle()",
         "stripped_doc": "",
         "type": "Method"
       }
