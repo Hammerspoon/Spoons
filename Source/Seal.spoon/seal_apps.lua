@@ -12,6 +12,8 @@ obj.appSearchPaths = {
    "~/Library/PreferencePanes",
    "/System/Library/CoreServices/Applications",
    "/usr/local/Cellar",
+   "/Library/Scripts",
+   "~/Library/Scripts"
 }
 
 local modifyNameMap = function(info, add)
@@ -23,6 +25,7 @@ local modifyNameMap = function(info, add)
             icon = hs.image.imageFromAppBundle(bundleID)
          end
          local displayname = item.kMDItemDisplayName
+         displayname = displayname:gsub("%.app$", "", 1)
          if string.find(item.kMDItemPath, "%.prefPane$") then
             displayname = item.kMDItemDisplayName .. " preferences"
             icon = hs.image.iconForFile(item.kMDItemPath)
@@ -50,7 +53,7 @@ local updateNameMap = function(obj, msg, info)
    end
 end
 
-obj.spotlight = hs.spotlight.new():queryString([[ (kMDItemContentType = "com.apple.application-bundle") || (kMDItemContentType = "com.apple.systempreference.prefpane") ]])
+obj.spotlight = hs.spotlight.new():queryString([[ (kMDItemContentType = "com.apple.application-bundle") || (kMDItemContentType = "com.apple.systempreference.prefpane")  || (kMDItemContentType = "com.apple.applescript.text")  || (kMDItemContentType = "com.apple.applescript.script") ]])
    :callbackMessages("didUpdate", "inProgress")
    :setCallback(updateNameMap)
    :searchScopes(obj.appSearchPaths)
@@ -157,7 +160,11 @@ end
 
 function obj.completionCallback(rowInfo)
    if rowInfo["type"] == "launchOrFocus" then
-      hs.execute(string.format("/usr/bin/open '%s'", rowInfo["path"]))
+      if string.find(rowInfo["path"], "%.applescript$") or string.find(rowInfo["path"], "%.scpt$") then
+         hs.execute(string.format("/usr/bin/osascript '%s'", rowInfo["path"]))
+      else
+         hs.execute(string.format("/usr/bin/open '%s'", rowInfo["path"]))
+      end
    elseif rowInfo["type"] == "kill" then
       hs.application.get(rowInfo["pid"]):kill()
    elseif rowInfo["type"] == "reveal" then
