@@ -16,6 +16,7 @@ obj.license = "MIT - https://opensource.org/licenses/MIT"
 
 obj.chooser = nil
 obj.hotkeyShow = nil
+obj.hotkeyToggle = nil
 obj.plugins = {}
 obj.commands = {}
 obj.queryChangedTimer = nil
@@ -139,8 +140,9 @@ end
 --- Binds hotkeys for Seal
 ---
 --- Parameters:
----  * mapping - A table containing hotkey modifier/key details for the following items:
+---  * mapping - A table containing hotkey modifier/key details for the following (optional) items:
 ---   * show - This will cause Seal's UI to be shown
+---   * toggle - This will cause Seal's UI to be shown or hidden depending on its current state
 ---
 --- Returns:
 ---  * The Seal object
@@ -148,9 +150,20 @@ function obj:bindHotkeys(mapping)
     if (self.hotkeyShow) then
         self.hotkeyShow:delete()
     end
-    local showMods = mapping["show"][1]
-    local showKey = mapping["show"][2]
-    self.hotkeyShow = hs.hotkey.new(showMods, showKey, function() self:show() end)
+    if (self.hotkeyToggle) then
+        self.hotkeyToggle:delete()
+    end
+
+    if mapping["show"] ~= nil then
+        local showMods = mapping["show"][1]
+        local showKey = mapping["show"][2]
+        self.hotkeyShow = hs.hotkey.new(showMods, showKey, function() self:show() end)
+    end
+    if mapping["toggle"] ~= nil then
+        local toggleMods = mapping["toggle"][1]
+        local toggleKey = mapping["toggle"][2]
+        self.hotkeyToggle = hs.hotkey.new(toggleMods, toggleKey, function() self:toggle() end)
+    end
 
     return self
 end
@@ -168,6 +181,9 @@ function obj:start()
     print("-- Starting Seal")
     if self.hotkeyShow then
         self.hotkeyShow:enable()
+    end
+    if self.hotkeyToggle then
+        self.hotkeyToggle:enable()
     end
     return self
 end
@@ -190,6 +206,9 @@ function obj:stop()
     if self.hotkeyShow then
         self.hotkeyShow:disable()
     end
+    if self.hotkeyToggle then
+        self.hotkeyToggle:disable()
+    end
     return self
 end
 
@@ -207,6 +226,24 @@ end
 ---  * This may be useful if you wish to show Seal in response to something other than its hotkey
 function obj:show()
     self.chooser:show()
+    return self
+end
+
+--- Seal:toggle()
+--- Method
+--- Shows or hides the Seal UI
+---
+--- Parameters:
+---  * None
+---
+--- Returns:
+---  * None
+function obj:toggle()
+    if self.chooser:isVisible() then
+        self.chooser:hide()
+    else
+        self.chooser:show()
+    end
     return self
 end
 
