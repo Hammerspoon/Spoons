@@ -932,6 +932,12 @@
     "type": "Method"
   },
   {
+    "desc": "Shows or hides the Seal UI",
+    "module": "Seal",
+    "name": "toggle",
+    "type": "Method"
+  },
+  {
     "desc": "Allow accessing user-defined bookmarks and arbitrary actions from Seal.",
     "name": "Seal.plugins.useractions",
     "type": "Module"
