@@ -17,7 +17,7 @@ local spoons  = require("hs.spoons")
 local obj    = {
 -- Metadata
     name      = "MountedVolumes",
-    version   = "0.1",
+    version   = "0.2",
     author    = "A-Ron",
     homepage  = "https://github.com/Hammerspoon/Spoons",
     license   = "MIT - https://opensource.org/licenses/MIT",
@@ -25,9 +25,14 @@ local obj    = {
 }
 local metadataKeys = {} ; for k, v in fnutils.sortByKeys(obj) do table.insert(metadataKeys, k) end
 
-local bytesInGB = {
-    [false] = 1024 * 1024 * 1024,
-    [true]  = 1000 * 1000 * 1000, -- SI units
+-- local bytesInGB = {
+--     [false] = 1024 * 1024 * 1024,
+--     [true]  = 1000 * 1000 * 1000, -- SI units
+-- }
+
+local unitDetails = {
+    [false] = { factor = 1024, labels = { "KiB", "MiB", "GiB", "TiB" } },
+    [true]  = { factor = 1000, labels = { "KB",  "MB",  "GB",  "TB"  } },
 }
 
 local round = function(number, scale)
@@ -35,15 +40,31 @@ local round = function(number, scale)
     return math.floor(number * (10^scale) + .5) / (10^scale)
 end
 
+local isnan = function(x) return x ~= x end
+
 local getStats = function()
     local results = {}
     for i,v in fnutils.sortByKeys(fs.volume.allVolumes()) do
+        local total, avail, label = v.NSURLVolumeTotalCapacityKey, v.NSURLVolumeAvailableCapacityKey, "bytes"
+        for i2 = #unitDetails[obj.unitsInSI].labels, 1, -1 do
+            local scale = unitDetails[obj.unitsInSI].factor ^ i2
+            local newTotal = round(v.NSURLVolumeTotalCapacityKey     / scale)
+            local newAvail = round(v.NSURLVolumeAvailableCapacityKey / scale)
+            if newTotal > 1 and newAvail > 1 and not isnan(newAvail / newTotal) then
+                total, avail, label = newTotal, newAvail, unitDetails[obj.unitsInSI].labels[i2]
+                break
+            end
+        end
+
         table.insert(results, {
             v.NSURLVolumeNameKey,
-            round(v.NSURLVolumeTotalCapacityKey     / bytesInGB[obj.unitsInSI]),
-            round(v.NSURLVolumeAvailableCapacityKey / bytesInGB[obj.unitsInSI]),
+--             round(v.NSURLVolumeTotalCapacityKey     / bytesInGB[obj.unitsInSI]),
+--             round(v.NSURLVolumeAvailableCapacityKey / bytesInGB[obj.unitsInSI]),
+            total,
+            avail,
             v.NSURLVolumeIsRemovableKey and true or false,
             i,
+            label,
         })
     end
     return results
@@ -76,7 +97,8 @@ local updateVolumes = function(...)
     local legends, height, width = {}, 0, 0
     for i,v in ipairs(volumeData) do
         table.insert(legends, stext.new(
-            string.format("%s\n%s of %s %s\nAvailable", v[1], v[3], v[2], (obj.unitsInSI and "GB" or "GiB")),
+--             string.format("%s\n%s of %s %s\nAvailable", v[1], v[3], v[2], (obj.unitsInSI and "GB" or "GiB")),
+            string.format("%s\n%s of %s %s\nAvailable", v[1], v[3], v[2], v[6]),
             obj.textStyle
         ))
         local tmp = obj.canvas:minimumTextSize(legends[#legends])
