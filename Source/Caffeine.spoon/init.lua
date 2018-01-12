@@ -60,6 +60,7 @@ end
 --- Returns:
 ---  * The Caffeine object
 function obj:start()
+    if self.menuBarItem then self:stop() end
     self.menuBarItem = hs.menubar.new()
     self.menuBarItem:setClickCallback(self.clicked)
     if (self.hotkeyToggle) then
@@ -80,7 +81,7 @@ end
 --- Returns:
 ---  * The Caffeine object
 function obj:stop()
-    self.menuBarItem:delete()
+    if self.menuBarItem then self.menuBarItem:delete() end
     if (self.hotkeyToggle) then
         self.hotkeyToggle:disable()
     end
