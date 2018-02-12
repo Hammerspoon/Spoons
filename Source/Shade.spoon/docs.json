@@ -1,0 +1,213 @@
+[
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [
+      {
+        "def": "Shade:toggleShade()",
+        "desc": "Turns shade on/off",
+        "doc": "Turns shade on/off\n\nParameters:\n * None\n\nReturns:\n * None",
+        "name": "toggleShade",
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "Shade:toggleShade()",
+        "stripped_doc": "",
+        "type": "Function"
+      }
+    ],
+    "Method": [
+      {
+        "def": "Shade:bindHotkeys(map)",
+        "desc": "Binds hotkeys for Shade",
+        "doc": "Binds hotkeys for Shade\n\nParameters:\n * map - A table containing hotkey modifier/key details for the following item:\n  * toggleShade - This will toggle the shade on/off, and update the menubar graphic\nE.g.: { toggleShade = {\"cmd\",\"alt\",\"ctrl\"},\"s\" }\n\nReturns:\n * None",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * map - A table containing hotkey modifier/key details for the following item:",
+          "  * toggleShade - This will toggle the shade on/off, and update the menubar graphic",
+          "E.g.: { toggleShade = {\"cmd\",\"alt\",\"ctrl\"},\"s\" }"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "Shade:bindHotkeys(map)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Shade:init()",
+        "desc": "Sets up the Spoon",
+        "doc": "Sets up the Spoon\n\nParameters:\n * None\n\nReturns:\n * None",
+        "name": "init",
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "Shade:init()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Shade:start()",
+        "desc": "Turn the shade on, darkening the screen",
+        "doc": "Turn the shade on, darkening the screen\n\nParameters:\n * None\n\nReturns:\n * None",
+        "name": "start",
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "Shade:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Shade:stop()",
+        "desc": "Turn the shade off, brightening the screen",
+        "doc": "Turn the shade off, brightening the screen\n\nParameters:\n * None\n\nReturns:\n * None",
+        "name": "stop",
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "Shade:stop()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [
+      {
+        "def": "Shade.shadeIsOn",
+        "desc": "Flag for Shade status, 'false' means shade off, 'true' means on.",
+        "doc": "Flag for Shade status, 'false' means shade off, 'true' means on.",
+        "name": "shadeIsOn",
+        "signature": "Shade.shadeIsOn",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "Shade.shadeTransparency",
+        "desc": "Contains the alpha (transparency) of the overlay, from 0.0 (completely",
+        "doc": "Contains the alpha (transparency) of the overlay, from 0.0 (completely\ntransparent to 1.0 (completely opaque). Default is 0.5.",
+        "name": "shadeTransparency",
+        "signature": "Shade.shadeTransparency",
+        "stripped_doc": "transparent to 1.0 (completely opaque). Default is 0.5.",
+        "type": "Variable"
+      }
+    ],
+    "desc": "Creates a semitransparent overlay to reduce screen brightness.",
+    "doc": "Creates a semitransparent overlay to reduce screen brightness.\n\nDownload: https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Shade.spoon.zip",
+    "items": [
+      {
+        "def": "Shade:bindHotkeys(map)",
+        "desc": "Binds hotkeys for Shade",
+        "doc": "Binds hotkeys for Shade\n\nParameters:\n * map - A table containing hotkey modifier/key details for the following item:\n  * toggleShade - This will toggle the shade on/off, and update the menubar graphic\nE.g.: { toggleShade = {\"cmd\",\"alt\",\"ctrl\"},\"s\" }\n\nReturns:\n * None",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * map - A table containing hotkey modifier/key details for the following item:",
+          "  * toggleShade - This will toggle the shade on/off, and update the menubar graphic",
+          "E.g.: { toggleShade = {\"cmd\",\"alt\",\"ctrl\"},\"s\" }"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "Shade:bindHotkeys(map)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Shade:init()",
+        "desc": "Sets up the Spoon",
+        "doc": "Sets up the Spoon\n\nParameters:\n * None\n\nReturns:\n * None",
+        "name": "init",
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "Shade:init()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Shade.shadeIsOn",
+        "desc": "Flag for Shade status, 'false' means shade off, 'true' means on.",
+        "doc": "Flag for Shade status, 'false' means shade off, 'true' means on.",
+        "name": "shadeIsOn",
+        "signature": "Shade.shadeIsOn",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "Shade.shadeTransparency",
+        "desc": "Contains the alpha (transparency) of the overlay, from 0.0 (completely",
+        "doc": "Contains the alpha (transparency) of the overlay, from 0.0 (completely\ntransparent to 1.0 (completely opaque). Default is 0.5.",
+        "name": "shadeTransparency",
+        "signature": "Shade.shadeTransparency",
+        "stripped_doc": "transparent to 1.0 (completely opaque). Default is 0.5.",
+        "type": "Variable"
+      },
+      {
+        "def": "Shade:start()",
+        "desc": "Turn the shade on, darkening the screen",
+        "doc": "Turn the shade on, darkening the screen\n\nParameters:\n * None\n\nReturns:\n * None",
+        "name": "start",
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "Shade:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Shade:stop()",
+        "desc": "Turn the shade off, brightening the screen",
+        "doc": "Turn the shade off, brightening the screen\n\nParameters:\n * None\n\nReturns:\n * None",
+        "name": "stop",
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "Shade:stop()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Shade:toggleShade()",
+        "desc": "Turns shade on/off",
+        "doc": "Turns shade on/off\n\nParameters:\n * None\n\nReturns:\n * None",
+        "name": "toggleShade",
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "Shade:toggleShade()",
+        "stripped_doc": "",
+        "type": "Function"
+      }
+    ],
+    "name": "Shade",
+    "stripped_doc": "\nDownload: https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Shade.spoon.zip",
+    "submodules": [],
+    "type": "Module"
+  }
+]
