@@ -103,7 +103,7 @@ obj.shade:setStroke(false):setFill(true)
 
 
 
---set to cover the whole screen, all spaces and exposé
+--set to cover the whole screen, all spaces and expose
 obj.shade:bringToFront(true):setBehavior(17)
 
 
