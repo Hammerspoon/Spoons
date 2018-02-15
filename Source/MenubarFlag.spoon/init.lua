@@ -60,7 +60,7 @@ obj.indicatorInAllSpaces = true
 --- or complex, programmatically-generated:
 --- ```
 --- ["U.S."] = (
----    function() res={} 
+---    function() res={}
 ---       for i = 0,10,1 do
 ---          table.insert(res, col.blue)
 ---          table.insert(res, col.white)
@@ -81,8 +81,18 @@ obj.colors = {
    German = {col.black, col.red, col.yellow},
 }
 
-obj.logger = hs.logger.new('MenubarFlag')
+--- MenubarFlag.timerFreq
+--- Variable
+--- Number to indicate how frequently (in seconds) should the menubar indicator be updated. Defaults to 1.0.
+---
+--- Sometimes Hammerspoon misses the callback when the keyboard layout
+--- changes. As a workaround, MenuBarFlag can automatically update the
+--- indicator at a fixed frequency. The timer can be disabled by
+--- setting this parameter to 0.
+obj.timerFreq = 1.0
 
+obj.logger = hs.logger.new('MenubarFlag')
+obj.timer = nil
 ----------------------------------------------------------------------
 
 -- Internal variables
@@ -190,6 +200,9 @@ function obj:start()
    end)
    -- This solves the problem that the callback would not be called until the second layout change after a restart
    hs.focus()
+   if (self.timerFreq > 0.0) then
+     self.timer = hs.timer.new(self.timerFreq, function() self:getLayoutAndDrawIndicators() end):start()
+   end
    return self
 end
 
@@ -197,9 +210,13 @@ end
 --- Method
 --- Remove indicators and stop the keyboard layout watcher
 function obj:stop()
-   delIndicators()
-   hs.keycodes.inputSourceChanged(nil)
-   return self
+  delIndicators()
+  if self.timer ~= nil then
+    self.timer:stop()
+    self.timer = nil
+  end
+  hs.keycodes.inputSourceChanged(nil)
+  return self
 end
 
 return obj
