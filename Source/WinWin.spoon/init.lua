@@ -137,6 +137,8 @@ function obj:moveAndResize(option)
             cwin:setFrame({x=wf.x-stepw, y=wf.y-steph, w=wf.w+(stepw*2), h=wf.h+(steph*2)})
         elseif option == "shrink" then
             cwin:setFrame({x=wf.x+stepw, y=wf.y+steph, w=wf.w-(stepw*2), h=wf.h-(steph*2)})
+        else
+            hs.alert.show("Unknown option: " .. option)
         end
     else
         hs.alert.show("No focused window!")
@@ -163,6 +165,8 @@ function obj:moveToScreen(direction)
             cwin:moveOneScreenEast()
         elseif option == "next" then
             cwin:moveToScreen(cscreen:next())
+        else
+            hs.alert.show("Unknown direction: " .. option)
         end
     else
         hs.alert.show("No focused window!")
