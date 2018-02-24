@@ -117,7 +117,7 @@ function obj:render()
                 { action="clip", type="circle", center=data.center, radius=radius, reversePath=true, },
                 { action="fill", type="rectangle", frame={x=0, y=0, w=radius, h=radius, }, fillColor={ alpha=1, }},
                 { type="resetClip", }
-            ):behavior(hs.canvas.windowBehaviors.canJoinAllSpaces):show()
+            ):behavior(hs.canvas.windowBehaviors.canJoinAllSpaces):level(self.level):show()
         end
     end)
 end
