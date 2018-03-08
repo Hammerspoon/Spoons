@@ -1,286 +1,154 @@
 [
   {
-    "Constant" : [
-
-    ],
-    "submodules" : [
-
-    ],
-    "Function" : [
-
-    ],
-    "Variable" : [
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
       {
-        "doc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
-        "stripped_doc" : [
-          "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
-        ],
-        "parameters" : [
-
-        ],
-        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
-        "notes" : [
-
-        ],
-        "signature" : "TimeMachineProgress.logger",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "def" : "TimeMachineProgress.logger",
-        "name" : "logger"
+        "def": "TimeMachineProgress:refresh()",
+        "desc": "Update the indicator",
+        "doc": "Update the indicator",
+        "name": "refresh",
+        "signature": "TimeMachineProgress:refresh()",
+        "stripped_doc": "",
+        "type": "Method"
       },
       {
-        "doc" : "Integer specifying how often the indicator should be refreshed. Defaults to 5 seconds.",
-        "stripped_doc" : [
-          "Integer specifying how often the indicator should be refreshed. Defaults to 5 seconds."
+        "def": "TimeMachineProgress:start()",
+        "desc": "Starts the indicator",
+        "doc": "Starts the indicator\n\nParameters:\n * None\n\nReturns:\n * The TimeMachineProgress object",
+        "name": "start",
+        "parameters": [
+          " * None"
         ],
-        "parameters" : [
-
+        "returns": [
+          " * The TimeMachineProgress object"
         ],
-        "desc" : "Integer specifying how often the indicator should be refreshed. Defaults to 5 seconds.",
-        "notes" : [
-
-        ],
-        "signature" : "TimeMachineProgress.refresh_interval",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "def" : "TimeMachineProgress.refresh_interval",
-        "name" : "refresh_interval"
+        "signature": "TimeMachineProgress:start()",
+        "stripped_doc": "",
+        "type": "Method"
       },
       {
-        "doc" : "Image to use for the indicator. Defaults to the Time Machine application icon, obtained as `hs.image.imageFromAppBundle('com.apple.backup.launcher'):setSize({w=16,h=16})`.",
-        "stripped_doc" : [
-          "Image to use for the indicator. Defaults to the Time Machine application icon, obtained as `hs.image.imageFromAppBundle('com.apple.backup.launcher'):setSize({w=16,h=16})`."
+        "def": "TimeMachineProgress:stop()",
+        "desc": "Stops the indicator",
+        "doc": "Stops the indicator\n\nParameters:\n * None\n\nReturns:\n * The TimeMachineProgress object",
+        "name": "stop",
+        "parameters": [
+          " * None"
         ],
-        "parameters" : [
-
+        "returns": [
+          " * The TimeMachineProgress object"
         ],
-        "desc" : "Image to use for the indicator. Defaults to the Time Machine application icon, obtained as `hs.image.imageFromAppBundle('com.apple.backup.launcher'):setSize({w=16,h=16})`.",
-        "notes" : [
-
-        ],
-        "signature" : "TimeMachineProgress.backupIcon",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "def" : "TimeMachineProgress.backupIcon",
-        "name" : "backupIcon"
+        "signature": "TimeMachineProgress:stop()",
+        "stripped_doc": "",
+        "type": "Method"
       }
     ],
-    "stripped_doc" : [
-
-    ],
-    "type" : "Module",
-    "desc" : "Show Time Machine backup progress in a menubar indicator.",
-    "Deprecated" : [
-
-    ],
-    "Constructor" : [
-
-    ],
-    "doc" : "Show Time Machine backup progress in a menubar indicator.\n\nIf no backup is in progress, the indicator disappears. When a\nbackup is in preparation of in progress, the indicator is shown,\nindicating current state\/progress of the backup.\n\nDownload: [https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/TimeMachineProgress.spoon.zip](https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/TimeMachineProgress.spoon.zip)",
-    "Method" : [
+    "Variable": [
       {
-        "doc" : "Update the indicator",
-        "stripped_doc" : [
-          "Update the indicator"
-        ],
-        "parameters" : [
-
-        ],
-        "desc" : "Update the indicator",
-        "notes" : [
-
-        ],
-        "signature" : "TimeMachineProgress:refresh()",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "def" : "TimeMachineProgress:refresh()",
-        "name" : "refresh"
+        "def": "TimeMachineProgress.backupIcon",
+        "desc": "Image to use for the indicator. Defaults to the Time Machine application icon, obtained as `hs.image.imageFromAppBundle('com.apple.backup.launcher'):setSize({w=16,h=16})`.",
+        "doc": "Image to use for the indicator. Defaults to the Time Machine application icon, obtained as `hs.image.imageFromAppBundle('com.apple.backup.launcher'):setSize({w=16,h=16})`.",
+        "name": "backupIcon",
+        "signature": "TimeMachineProgress.backupIcon",
+        "stripped_doc": "",
+        "type": "Variable"
       },
       {
-        "doc" : "Starts the indicator\n\nParameters:\n * None\n\nReturns:\n * The TimeMachineProgress object",
-        "stripped_doc" : [
-          "Starts the indicator",
-          ""
-        ],
-        "parameters" : [
-          " * None",
-          ""
-        ],
-        "desc" : "Starts the indicator",
-        "notes" : [
-
-        ],
-        "signature" : "TimeMachineProgress:start()",
-        "type" : "Method",
-        "returns" : [
-          " * The TimeMachineProgress object"
-        ],
-        "def" : "TimeMachineProgress:start()",
-        "name" : "start"
+        "def": "TimeMachineProgress.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "name": "logger",
+        "signature": "TimeMachineProgress.logger",
+        "stripped_doc": "",
+        "type": "Variable"
       },
       {
-        "doc" : "Stops the indicator\n\nParameters:\n * None\n\nReturns:\n * The TimeMachineProgress object",
-        "stripped_doc" : [
-          "Stops the indicator",
-          ""
-        ],
-        "parameters" : [
-          " * None",
-          ""
-        ],
-        "desc" : "Stops the indicator",
-        "notes" : [
-
-        ],
-        "signature" : "TimeMachineProgress:stop()",
-        "type" : "Method",
-        "returns" : [
-          " * The TimeMachineProgress object"
-        ],
-        "def" : "TimeMachineProgress:stop()",
-        "name" : "stop"
+        "def": "TimeMachineProgress.refresh_interval",
+        "desc": "Integer specifying how often the indicator should be refreshed. Defaults to 5 seconds.",
+        "doc": "Integer specifying how often the indicator should be refreshed. Defaults to 5 seconds.",
+        "name": "refresh_interval",
+        "signature": "TimeMachineProgress.refresh_interval",
+        "stripped_doc": "",
+        "type": "Variable"
       }
     ],
-    "Command" : [
-
-    ],
-    "items" : [
+    "desc": "Show Time Machine backup progress in a menubar indicator.",
+    "doc": "Show Time Machine backup progress in a menubar indicator.\n\nIf no backup is in progress, the indicator disappears. When a\nbackup is in preparation of in progress, the indicator is shown,\nindicating current state/progress of the backup.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/TimeMachineProgress.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/TimeMachineProgress.spoon.zip)",
+    "items": [
       {
-        "doc" : "Image to use for the indicator. Defaults to the Time Machine application icon, obtained as `hs.image.imageFromAppBundle('com.apple.backup.launcher'):setSize({w=16,h=16})`.",
-        "stripped_doc" : [
-          "Image to use for the indicator. Defaults to the Time Machine application icon, obtained as `hs.image.imageFromAppBundle('com.apple.backup.launcher'):setSize({w=16,h=16})`."
-        ],
-        "parameters" : [
-
-        ],
-        "desc" : "Image to use for the indicator. Defaults to the Time Machine application icon, obtained as `hs.image.imageFromAppBundle('com.apple.backup.launcher'):setSize({w=16,h=16})`.",
-        "notes" : [
-
-        ],
-        "signature" : "TimeMachineProgress.backupIcon",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "def" : "TimeMachineProgress.backupIcon",
-        "name" : "backupIcon"
+        "def": "TimeMachineProgress.backupIcon",
+        "desc": "Image to use for the indicator. Defaults to the Time Machine application icon, obtained as `hs.image.imageFromAppBundle('com.apple.backup.launcher'):setSize({w=16,h=16})`.",
+        "doc": "Image to use for the indicator. Defaults to the Time Machine application icon, obtained as `hs.image.imageFromAppBundle('com.apple.backup.launcher'):setSize({w=16,h=16})`.",
+        "name": "backupIcon",
+        "signature": "TimeMachineProgress.backupIcon",
+        "stripped_doc": "",
+        "type": "Variable"
       },
       {
-        "doc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
-        "stripped_doc" : [
-          "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
-        ],
-        "parameters" : [
-
-        ],
-        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
-        "notes" : [
-
-        ],
-        "signature" : "TimeMachineProgress.logger",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "def" : "TimeMachineProgress.logger",
-        "name" : "logger"
+        "def": "TimeMachineProgress.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "name": "logger",
+        "signature": "TimeMachineProgress.logger",
+        "stripped_doc": "",
+        "type": "Variable"
       },
       {
-        "doc" : "Integer specifying how often the indicator should be refreshed. Defaults to 5 seconds.",
-        "stripped_doc" : [
-          "Integer specifying how often the indicator should be refreshed. Defaults to 5 seconds."
-        ],
-        "parameters" : [
-
-        ],
-        "desc" : "Integer specifying how often the indicator should be refreshed. Defaults to 5 seconds.",
-        "notes" : [
-
-        ],
-        "signature" : "TimeMachineProgress.refresh_interval",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "def" : "TimeMachineProgress.refresh_interval",
-        "name" : "refresh_interval"
+        "def": "TimeMachineProgress:refresh()",
+        "desc": "Update the indicator",
+        "doc": "Update the indicator",
+        "name": "refresh",
+        "signature": "TimeMachineProgress:refresh()",
+        "stripped_doc": "",
+        "type": "Method"
       },
       {
-        "doc" : "Update the indicator",
-        "stripped_doc" : [
-          "Update the indicator"
-        ],
-        "parameters" : [
-
-        ],
-        "desc" : "Update the indicator",
-        "notes" : [
-
-        ],
-        "signature" : "TimeMachineProgress:refresh()",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "def" : "TimeMachineProgress:refresh()",
-        "name" : "refresh"
+        "def": "TimeMachineProgress.refresh_interval",
+        "desc": "Integer specifying how often the indicator should be refreshed. Defaults to 5 seconds.",
+        "doc": "Integer specifying how often the indicator should be refreshed. Defaults to 5 seconds.",
+        "name": "refresh_interval",
+        "signature": "TimeMachineProgress.refresh_interval",
+        "stripped_doc": "",
+        "type": "Variable"
       },
       {
-        "doc" : "Starts the indicator\n\nParameters:\n * None\n\nReturns:\n * The TimeMachineProgress object",
-        "stripped_doc" : [
-          "Starts the indicator",
-          ""
+        "def": "TimeMachineProgress:start()",
+        "desc": "Starts the indicator",
+        "doc": "Starts the indicator\n\nParameters:\n * None\n\nReturns:\n * The TimeMachineProgress object",
+        "name": "start",
+        "parameters": [
+          " * None"
         ],
-        "parameters" : [
-          " * None",
-          ""
-        ],
-        "desc" : "Starts the indicator",
-        "notes" : [
-
-        ],
-        "signature" : "TimeMachineProgress:start()",
-        "type" : "Method",
-        "returns" : [
+        "returns": [
           " * The TimeMachineProgress object"
         ],
-        "def" : "TimeMachineProgress:start()",
-        "name" : "start"
+        "signature": "TimeMachineProgress:start()",
+        "stripped_doc": "",
+        "type": "Method"
       },
       {
-        "doc" : "Stops the indicator\n\nParameters:\n * None\n\nReturns:\n * The TimeMachineProgress object",
-        "stripped_doc" : [
-          "Stops the indicator",
-          ""
+        "def": "TimeMachineProgress:stop()",
+        "desc": "Stops the indicator",
+        "doc": "Stops the indicator\n\nParameters:\n * None\n\nReturns:\n * The TimeMachineProgress object",
+        "name": "stop",
+        "parameters": [
+          " * None"
         ],
-        "parameters" : [
-          " * None",
-          ""
-        ],
-        "desc" : "Stops the indicator",
-        "notes" : [
-
-        ],
-        "signature" : "TimeMachineProgress:stop()",
-        "type" : "Method",
-        "returns" : [
+        "returns": [
           " * The TimeMachineProgress object"
         ],
-        "def" : "TimeMachineProgress:stop()",
-        "name" : "stop"
+        "signature": "TimeMachineProgress:stop()",
+        "stripped_doc": "",
+        "type": "Method"
       }
     ],
-    "Field" : [
-
-    ],
-    "name" : "TimeMachineProgress"
+    "name": "TimeMachineProgress",
+    "stripped_doc": "\nIf no backup is in progress, the indicator disappears. When a\nbackup is in preparation of in progress, the indicator is shown,\nindicating current state/progress of the backup.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/TimeMachineProgress.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/TimeMachineProgress.spoon.zip)",
+    "submodules": [],
+    "type": "Module"
   }
 ]
