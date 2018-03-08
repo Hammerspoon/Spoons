@@ -580,6 +580,35 @@
     "type": "Method"
   },
   {
+    "desc": "With this script you will be able to move the window in halves and in corners using your keyboard and mainly using arrows. You would also be able to resize them by thirds, quarters, or halves.",
+    "name": "MiroWindowsManager",
+    "type": "Module"
+  },
+  {
+    "desc": "The sizes that the window can have in full-screen. ",
+    "module": "MiroWindowsManager",
+    "name": "fullScreenSizes",
+    "type": "Variable"
+  },
+  {
+    "desc": "The screen's size using `hs.grid.setGrid()`",
+    "module": "MiroWindowsManager",
+    "name": "GRID",
+    "type": "Variable"
+  },
+  {
+    "desc": "The sizes that the window can have. ",
+    "module": "MiroWindowsManager",
+    "name": "sizes",
+    "type": "Variable"
+  },
+  {
+    "desc": "Binds hotkeys for Miro's Windows Manager",
+    "module": "MiroWindowsManager",
+    "name": "bindHotkeys",
+    "type": "Method"
+  },
+  {
     "desc": "Modal keybindings environment management. Just an wrapper of `hs.hotkey.modal`.",
     "name": "ModalMgr",
     "type": "Module"
