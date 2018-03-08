@@ -29,6 +29,7 @@
             <li><a href="#indicatorAlpha">indicatorAlpha</a></li>
             <li><a href="#indicatorHeight">indicatorHeight</a></li>
             <li><a href="#indicatorInAllSpaces">indicatorInAllSpaces</a></li>
+            <li><a href="#timerFreq">timerFreq</a></li>
           </ul>
         <li>Methods - API calls which can only be made on an object returned by a constructor</li>
           <ul>
@@ -89,7 +90,7 @@ found, then the indicators are removed when that layout is active.</p>
 <p>or complex, programmatically-generated:</p>
 
 <pre><code>["U.S."] = (
-   function() res={} 
+   function() res={}
       for i = 0,10,1 do
          table.insert(res, col.blue)
          table.insert(res, col.white)
@@ -159,6 +160,29 @@ found, then the indicators are removed when that layout is active.</p>
               <tr>
                 <th>Description</th>
                 <td><p>Boolean to specify whether the indicator should be shown in all spaces (this includes full-screen mode). Defaults to <code>true</code></p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="timerFreq">
+            <a name="//apple_ref/cpp/Variable/timerFreq" class="dashAnchor"></a>
+            <h5><a href="#timerFreq">timerFreq</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>MenubarFlag.timerFreq</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Number to indicate how frequently (in seconds) should the menubar indicator be updated. Defaults to 1.0.</p>
+<p>Sometimes Hammerspoon misses the callback when the keyboard layout
+changes. As a workaround, MenuBarFlag can automatically update the
+indicator at a fixed frequency. The timer can be disabled by
+setting this parameter to 0.</p>
 </td>
               </tr>
             </table>

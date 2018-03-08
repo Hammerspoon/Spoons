@@ -556,6 +556,12 @@
     "type": "Variable"
   },
   {
+    "desc": "Number to indicate how frequently (in seconds) should the menubar indicator be updated. Defaults to 1.0.",
+    "module": "MenubarFlag",
+    "name": "timerFreq",
+    "type": "Variable"
+  },
+  {
     "desc": "Draw the indicators corresponding to the given layout name",
     "module": "MenubarFlag",
     "name": "drawIndicators",
