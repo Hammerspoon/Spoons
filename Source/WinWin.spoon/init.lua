@@ -44,6 +44,8 @@ function obj:stepMove(direction)
             cwin:setTopLeft({x=wtopleft.x, y=wtopleft.y-steph})
         elseif direction == "down" then
             cwin:setTopLeft({x=wtopleft.x, y=wtopleft.y+steph})
+        else
+            hs.alert.show("Unknown direction: " .. direction)
         end
     else
         hs.alert.show("No focused window!")
@@ -72,6 +74,8 @@ function obj:stepResize(direction)
             cwin:setSize({w=wsize.w, h=wsize.h-steph})
         elseif direction == "down" then
             cwin:setSize({w=wsize.w, h=wsize.h+steph})
+        else
+            hs.alert.show("Unknown direction: " .. direction)
         end
     else
         hs.alert.show("No focused window!")
@@ -137,6 +141,8 @@ function obj:moveAndResize(option)
             cwin:setFrame({x=wf.x-stepw, y=wf.y-steph, w=wf.w+(stepw*2), h=wf.h+(steph*2)})
         elseif option == "shrink" then
             cwin:setFrame({x=wf.x+stepw, y=wf.y+steph, w=wf.w-(stepw*2), h=wf.h-(steph*2)})
+        else
+            hs.alert.show("Unknown option: " .. option)
         end
     else
         hs.alert.show("No focused window!")
@@ -153,16 +159,18 @@ function obj:moveToScreen(direction)
     local cwin = hs.window.focusedWindow()
     if cwin then
         local cscreen = cwin:screen()
-        if option == "up" then
+        if direction == "up" then
             cwin:moveOneScreenNorth()
-        elseif option == "down" then
+        elseif direction == "down" then
             cwin:moveOneScreenSouth()
-        elseif option == "left" then
+        elseif direction == "left" then
             cwin:moveOneScreenWest()
-        elseif option == "right" then
+        elseif direction == "right" then
             cwin:moveOneScreenEast()
-        elseif option == "next" then
+        elseif direction == "next" then
             cwin:moveToScreen(cscreen:next())
+        else
+            hs.alert.show("Unknown direction: " .. direction)
         end
     else
         hs.alert.show("No focused window!")
