@@ -1,0 +1,382 @@
+[
+  {
+    "Constant" : [
+
+    ],
+    "submodules" : [
+
+    ],
+    "Function" : [
+
+    ],
+    "Variable" : [
+      {
+        "desc" : "`hs.geometry` object representing the size to use for the translation popup window. Defaults to `hs.geometry.size(770, 610)`.",
+        "stripped_doc" : [
+          "`hs.geometry` object representing the size to use for the translation popup window. Defaults to `hs.geometry.size(770, 610)`."
+        ],
+        "parameters" : [
+
+        ],
+        "doc" : "`hs.geometry` object representing the size to use for the translation popup window. Defaults to `hs.geometry.size(770, 610)`.",
+        "notes" : [
+
+        ],
+        "signature" : "DeepLTranslate.popup_size",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "DeepLTranslate.popup_size",
+        "name" : "popup_size"
+      },
+      {
+        "desc" : "Value representing the window style to be used for the translation popup window. This value needs to be a valid argument to [`hs.webview.setStyle()`](http:\/\/www.hammerspoon.org\/docs\/hs.webview.html#windowStyle) (i.e. a combination of values from [`hs.webview.windowMasks`](http:\/\/www.hammerspoon.org\/docs\/hs.webview.html#windowMasks[]). Default value: `hs.webview.windowMasks.utility|hs.webview.windowMasks.HUD|hs.webview.windowMasks.titled|hs.webview.windowMasks.closable`",
+        "stripped_doc" : [
+          "Value representing the window style to be used for the translation popup window. This value needs to be a valid argument to [`hs.webview.setStyle()`](http:\/\/www.hammerspoon.org\/docs\/hs.webview.html#windowStyle) (i.e. a combination of values from [`hs.webview.windowMasks`](http:\/\/www.hammerspoon.org\/docs\/hs.webview.html#windowMasks[]). Default value: `hs.webview.windowMasks.utility|hs.webview.windowMasks.HUD|hs.webview.windowMasks.titled|hs.webview.windowMasks.closable`"
+        ],
+        "parameters" : [
+
+        ],
+        "doc" : "Value representing the window style to be used for the translation popup window. This value needs to be a valid argument to [`hs.webview.setStyle()`](http:\/\/www.hammerspoon.org\/docs\/hs.webview.html#windowStyle) (i.e. a combination of values from [`hs.webview.windowMasks`](http:\/\/www.hammerspoon.org\/docs\/hs.webview.html#windowMasks[]). Default value: `hs.webview.windowMasks.utility|hs.webview.windowMasks.HUD|hs.webview.windowMasks.titled|hs.webview.windowMasks.closable`",
+        "notes" : [
+
+        ],
+        "signature" : "DeepLTranslate.popup_style",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "DeepLTranslate.popup_style",
+        "name" : "popup_style"
+      },
+      {
+        "desc" : "If true, pressing ESC on the popup window will close it. Defaults to `true`",
+        "stripped_doc" : [
+          "If true, pressing ESC on the popup window will close it. Defaults to `true`"
+        ],
+        "parameters" : [
+
+        ],
+        "doc" : "If true, pressing ESC on the popup window will close it. Defaults to `true`",
+        "notes" : [
+
+        ],
+        "signature" : "DeepLTranslate.popup_close_on_escape",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "DeepLTranslate.popup_close_on_escape",
+        "name" : "popup_close_on_escape"
+      },
+      {
+        "desc" : "If true, the popup window will close after translated text is copied to pasteboard. Defaults to `true`",
+        "stripped_doc" : [
+          "If true, the popup window will close after translated text is copied to pasteboard. Defaults to `true`"
+        ],
+        "parameters" : [
+
+        ],
+        "doc" : "If true, the popup window will close after translated text is copied to pasteboard. Defaults to `true`",
+        "notes" : [
+
+        ],
+        "signature" : "DeepLTranslate.popup_close_after_copy",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "DeepLTranslate.popup_close_after_copy",
+        "name" : "popup_close_after_copy"
+      },
+      {
+        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "stripped_doc" : [
+          "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
+        ],
+        "parameters" : [
+
+        ],
+        "doc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "notes" : [
+
+        ],
+        "signature" : "DeepLTranslate.logger",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "DeepLTranslate.logger",
+        "name" : "logger"
+      }
+    ],
+    "stripped_doc" : [
+
+    ],
+    "Deprecated" : [
+
+    ],
+    "type" : "Module",
+    "desc" : "Show a popup window with the translation of the currently selected text",
+    "Constructor" : [
+
+    ],
+    "Field" : [
+
+    ],
+    "Method" : [
+      {
+        "desc" : "Display a translation popup with the translation of the given text",
+        "stripped_doc" : [
+          "Display a translation popup with the translation of the given text",
+          ""
+        ],
+        "parameters" : [
+          " * text - string containing the text to translate",
+          ""
+        ],
+        "doc" : "Display a translation popup with the translation of the given text\n\nParameters:\n * text - string containing the text to translate\n\nReturns:\n * The DeepLTranslate object",
+        "notes" : [
+
+        ],
+        "signature" : "DeepLTranslate:translatePopup(text)",
+        "type" : "Method",
+        "returns" : [
+          " * The DeepLTranslate object"
+        ],
+        "def" : "DeepLTranslate:translatePopup(text)",
+        "name" : "translatePopup"
+      },
+      {
+        "desc" : "Get the current selected text in the frontmost window and display a translation popup with the translation between the specified languages",
+        "stripped_doc" : [
+          "Get the current selected text in the frontmost window and display a translation popup with the translation between the specified languages",
+          ""
+        ],
+        "parameters" : [
+
+        ],
+        "doc" : "Get the current selected text in the frontmost window and display a translation popup with the translation between the specified languages\n\nReturns:\n * The DeepLTranslate object",
+        "notes" : [
+
+        ],
+        "signature" : "DeepLTranslate:translateSelectionPopup()",
+        "type" : "Method",
+        "returns" : [
+          " * The DeepLTranslate object"
+        ],
+        "def" : "DeepLTranslate:translateSelectionPopup()",
+        "name" : "translateSelectionPopup"
+      },
+      {
+        "desc" : "Binds hotkeys for DeepLTranslate",
+        "stripped_doc" : [
+          "Binds hotkeys for DeepLTranslate",
+          ""
+        ],
+        "parameters" : [
+          " * mapping - A table containing hotkey modifier\/key details for the following items:",
+          "  * `translate` - translate the selected text without specifying source\/destination languages (source defaults to auto-detect, destination defaults to your last choice or to English)",
+          "",
+          "Sample value for `mapping`:",
+          "```",
+          " {",
+          "    translate = { { \"ctrl\", \"alt\", \"cmd\" }, \"e\" },",
+          " }",
+          "```"
+        ],
+        "doc" : "Binds hotkeys for DeepLTranslate\n\nParameters:\n * mapping - A table containing hotkey modifier\/key details for the following items:\n  * `translate` - translate the selected text without specifying source\/destination languages (source defaults to auto-detect, destination defaults to your last choice or to English)\n\nSample value for `mapping`:\n```\n {\n    translate = { { \"ctrl\", \"alt\", \"cmd\" }, \"e\" },\n }\n```",
+        "notes" : [
+
+        ],
+        "signature" : "DeepLTranslate:bindHotkeys(mapping)",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "def" : "DeepLTranslate:bindHotkeys(mapping)",
+        "name" : "bindHotkeys"
+      }
+    ],
+    "Command" : [
+
+    ],
+    "doc" : "Show a popup window with the translation of the currently selected text\n\nThe spoon uses the deepl.com translator page\nThe selected text is copied into the source field, the translation is copied to pasteboard\n\nSupported language codes are listed at https:\/\/www.deepl.com\/translator\n\nDownload: [https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/DeepLTranslate.spoon.zip](https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/DeepLTranslate.spoon.zip)",
+    "items" : [
+      {
+        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "stripped_doc" : [
+          "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
+        ],
+        "parameters" : [
+
+        ],
+        "doc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "notes" : [
+
+        ],
+        "signature" : "DeepLTranslate.logger",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "DeepLTranslate.logger",
+        "name" : "logger"
+      },
+      {
+        "desc" : "If true, the popup window will close after translated text is copied to pasteboard. Defaults to `true`",
+        "stripped_doc" : [
+          "If true, the popup window will close after translated text is copied to pasteboard. Defaults to `true`"
+        ],
+        "parameters" : [
+
+        ],
+        "doc" : "If true, the popup window will close after translated text is copied to pasteboard. Defaults to `true`",
+        "notes" : [
+
+        ],
+        "signature" : "DeepLTranslate.popup_close_after_copy",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "DeepLTranslate.popup_close_after_copy",
+        "name" : "popup_close_after_copy"
+      },
+      {
+        "desc" : "If true, pressing ESC on the popup window will close it. Defaults to `true`",
+        "stripped_doc" : [
+          "If true, pressing ESC on the popup window will close it. Defaults to `true`"
+        ],
+        "parameters" : [
+
+        ],
+        "doc" : "If true, pressing ESC on the popup window will close it. Defaults to `true`",
+        "notes" : [
+
+        ],
+        "signature" : "DeepLTranslate.popup_close_on_escape",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "DeepLTranslate.popup_close_on_escape",
+        "name" : "popup_close_on_escape"
+      },
+      {
+        "desc" : "`hs.geometry` object representing the size to use for the translation popup window. Defaults to `hs.geometry.size(770, 610)`.",
+        "stripped_doc" : [
+          "`hs.geometry` object representing the size to use for the translation popup window. Defaults to `hs.geometry.size(770, 610)`."
+        ],
+        "parameters" : [
+
+        ],
+        "doc" : "`hs.geometry` object representing the size to use for the translation popup window. Defaults to `hs.geometry.size(770, 610)`.",
+        "notes" : [
+
+        ],
+        "signature" : "DeepLTranslate.popup_size",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "DeepLTranslate.popup_size",
+        "name" : "popup_size"
+      },
+      {
+        "desc" : "Value representing the window style to be used for the translation popup window. This value needs to be a valid argument to [`hs.webview.setStyle()`](http:\/\/www.hammerspoon.org\/docs\/hs.webview.html#windowStyle) (i.e. a combination of values from [`hs.webview.windowMasks`](http:\/\/www.hammerspoon.org\/docs\/hs.webview.html#windowMasks[]). Default value: `hs.webview.windowMasks.utility|hs.webview.windowMasks.HUD|hs.webview.windowMasks.titled|hs.webview.windowMasks.closable`",
+        "stripped_doc" : [
+          "Value representing the window style to be used for the translation popup window. This value needs to be a valid argument to [`hs.webview.setStyle()`](http:\/\/www.hammerspoon.org\/docs\/hs.webview.html#windowStyle) (i.e. a combination of values from [`hs.webview.windowMasks`](http:\/\/www.hammerspoon.org\/docs\/hs.webview.html#windowMasks[]). Default value: `hs.webview.windowMasks.utility|hs.webview.windowMasks.HUD|hs.webview.windowMasks.titled|hs.webview.windowMasks.closable`"
+        ],
+        "parameters" : [
+
+        ],
+        "doc" : "Value representing the window style to be used for the translation popup window. This value needs to be a valid argument to [`hs.webview.setStyle()`](http:\/\/www.hammerspoon.org\/docs\/hs.webview.html#windowStyle) (i.e. a combination of values from [`hs.webview.windowMasks`](http:\/\/www.hammerspoon.org\/docs\/hs.webview.html#windowMasks[]). Default value: `hs.webview.windowMasks.utility|hs.webview.windowMasks.HUD|hs.webview.windowMasks.titled|hs.webview.windowMasks.closable`",
+        "notes" : [
+
+        ],
+        "signature" : "DeepLTranslate.popup_style",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "DeepLTranslate.popup_style",
+        "name" : "popup_style"
+      },
+      {
+        "desc" : "Binds hotkeys for DeepLTranslate",
+        "stripped_doc" : [
+          "Binds hotkeys for DeepLTranslate",
+          ""
+        ],
+        "parameters" : [
+          " * mapping - A table containing hotkey modifier\/key details for the following items:",
+          "  * `translate` - translate the selected text without specifying source\/destination languages (source defaults to auto-detect, destination defaults to your last choice or to English)",
+          "",
+          "Sample value for `mapping`:",
+          "```",
+          " {",
+          "    translate = { { \"ctrl\", \"alt\", \"cmd\" }, \"e\" },",
+          " }",
+          "```"
+        ],
+        "doc" : "Binds hotkeys for DeepLTranslate\n\nParameters:\n * mapping - A table containing hotkey modifier\/key details for the following items:\n  * `translate` - translate the selected text without specifying source\/destination languages (source defaults to auto-detect, destination defaults to your last choice or to English)\n\nSample value for `mapping`:\n```\n {\n    translate = { { \"ctrl\", \"alt\", \"cmd\" }, \"e\" },\n }\n```",
+        "notes" : [
+
+        ],
+        "signature" : "DeepLTranslate:bindHotkeys(mapping)",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "def" : "DeepLTranslate:bindHotkeys(mapping)",
+        "name" : "bindHotkeys"
+      },
+      {
+        "desc" : "Display a translation popup with the translation of the given text",
+        "stripped_doc" : [
+          "Display a translation popup with the translation of the given text",
+          ""
+        ],
+        "parameters" : [
+          " * text - string containing the text to translate",
+          ""
+        ],
+        "doc" : "Display a translation popup with the translation of the given text\n\nParameters:\n * text - string containing the text to translate\n\nReturns:\n * The DeepLTranslate object",
+        "notes" : [
+
+        ],
+        "signature" : "DeepLTranslate:translatePopup(text)",
+        "type" : "Method",
+        "returns" : [
+          " * The DeepLTranslate object"
+        ],
+        "def" : "DeepLTranslate:translatePopup(text)",
+        "name" : "translatePopup"
+      },
+      {
+        "desc" : "Get the current selected text in the frontmost window and display a translation popup with the translation between the specified languages",
+        "stripped_doc" : [
+          "Get the current selected text in the frontmost window and display a translation popup with the translation between the specified languages",
+          ""
+        ],
+        "parameters" : [
+
+        ],
+        "doc" : "Get the current selected text in the frontmost window and display a translation popup with the translation between the specified languages\n\nReturns:\n * The DeepLTranslate object",
+        "notes" : [
+
+        ],
+        "signature" : "DeepLTranslate:translateSelectionPopup()",
+        "type" : "Method",
+        "returns" : [
+          " * The DeepLTranslate object"
+        ],
+        "def" : "DeepLTranslate:translateSelectionPopup()",
+        "name" : "translateSelectionPopup"
+      }
+    ],
+    "name" : "DeepLTranslate"
+  }
+]
