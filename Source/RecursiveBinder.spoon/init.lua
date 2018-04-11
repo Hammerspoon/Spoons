@@ -164,6 +164,8 @@ local function createKeyName(key)
    -- create proper key name for helper
    local modifierTable = key[1]
    local keyString = key[2]
+   -- add a little mapping for space
+   if keyString == 'space' then keyString = 'SPC' end
    if #modifierTable == 1 and modifierTable[1] == 'shift' and string.len(keyString) == 1 then
       -- shift + key map to Uppercase key
       -- shift + d --> D
