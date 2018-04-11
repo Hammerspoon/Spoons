@@ -141,7 +141,7 @@ end
 
 function obj:init()
    obj.chooser = hs.chooser.new(runCommand)
-   obj.chooser:choices(obj.getCommandList)
+   obj.chooser:choices(getCommandList)
    obj.chooser:searchSubText(true)
    return obj.chooser
 end
