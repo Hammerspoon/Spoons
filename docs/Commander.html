@@ -1,0 +1,206 @@
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hammerspoon docs: Commander</title>
+    <style type="text/css">
+      a { text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      th { background-color: #DDDDDD; vertical-align: top; padding: 3px; }
+      td { width: 100%; background-color: #EEEEEE; vertical-align: top; padding: 3px; }
+      table { width: 100% ; border: 1px solid #0; text-align: left; }
+      section > table table td { width: 0; }
+    </style>
+    <link rel="stylesheet" href="docs.css" type="text/css" media="screen" />
+  </head>
+  <body>
+    <header>
+      <h1><a href="./index.html">docs</a> &raquo; Commander</h1>
+      <p>This spoon lets execute commands from other spoon by a chooser.</p>
+<p>The way of Commander to generate it command list is
+it goes to each spoon and extract all public functions inside the spoon table.
+for each function the name is set to "spoonName.functionName".
+if the spoon has a table called <code>commandderCommandTable</code>, Commander will
+ignore everything else and take whatever is in the table.
+In this case the naming convention is the same.
+Then Commander grabs all the functions in global table.
+functions are tested against <code>Commander.ignoredCommandList</code>,
+except when spoon author provides a <code>commanderCommandList</code>.</p>
+<p>Commander.chooser is the chooser, you can set background color, rows, etc, to it.</p>
+
+      </header>
+      <h3>API Overview</h3>
+      <ul>
+        <li>Variables - Configurable values</li>
+          <ul>
+            <li><a href="#commandTable">commandTable</a></li>
+            <li><a href="#forceLayout">forceLayout</a></li>
+            <li><a href="#forceMethod">forceMethod</a></li>
+            <li><a href="#ignoredCommandList">ignoredCommandList</a></li>
+          </ul>
+        <li>Functions - API calls offered directly by the extension</li>
+          <ul>
+            <li><a href="#addCommand">addCommand</a></li>
+            <li><a href="#resetCommandTable">resetCommandTable</a></li>
+            <li><a href="#show">show</a></li>
+          </ul>
+      </ul>
+      <h3>API Documentation</h3>
+        <h4 class="documentation-section">Variables</h4>
+          <section id="commandTable">
+            <a name="//apple_ref/cpp/Variable/commandTable" class="dashAnchor"></a>
+            <h5><a href="#commandTable">commandTable</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Commander.commandTable</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>This is the table which stores all the commands
+Each key is the name of the command,
+and each value is the actual function.
+you can add your custom commands to it.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="forceLayout">
+            <a name="//apple_ref/cpp/Variable/forceLayout" class="dashAnchor"></a>
+            <h5><a href="#forceLayout">forceLayout</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Commander.forceLayout</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>If you want to switch to a layout when enabled chooser,
+set this to name of that layout</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="forceMethod">
+            <a name="//apple_ref/cpp/Variable/forceMethod" class="dashAnchor"></a>
+            <h5><a href="#forceMethod">forceMethod</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Commander.forceMethod</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>If you want to switch to a method when enabled chooser,
+set this to name of that method</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="ignoredCommandList">
+            <a name="//apple_ref/cpp/Variable/ignoredCommandList" class="dashAnchor"></a>
+            <h5><a href="#ignoredCommandList">ignoredCommandList</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Commander.ignoredCommandList</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>This list contains all the ignored function names,
+any function matches the name inside this list will not
+be added to Commander.commandTable.</p>
+<p>The list contains normal lua builtin functions
+and some hammerspoon functions that generally shouldn't
+be a command, such as init, bindHotkeys, etc.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+        <h4 class="documentation-section">Functions</h4>
+          <section id="addCommand">
+            <a name="//apple_ref/cpp/Function/addCommand" class="dashAnchor"></a>
+            <h5><a href="#addCommand">addCommand</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Commander.addCommand(commandTable)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Function</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Add a command to Commander.commandTable</p>
+<p>Parameters:</p>
+<ul>
+<li>comamndTable - It is a table with same form of Commander.commandTable
+<pre><code>           key is name of command, value is the function.</code></pre>
+</li>
+</ul>
+<p>Note:
+Commander doesn't test the name against Commander.ignoredCommandList
+because it assumes you know what you are doing.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="resetCommandTable">
+            <a name="//apple_ref/cpp/Function/resetCommandTable" class="dashAnchor"></a>
+            <h5><a href="#resetCommandTable">resetCommandTable</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Commander.resetCommandTable()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Function</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>This function simply set Commander.commandTable to {},
+Then the next time commander chooser is called
+it will generate the table again.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="show">
+            <a name="//apple_ref/cpp/Function/show" class="dashAnchor"></a>
+            <h5><a href="#show">show</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Commander.show()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Function</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>This function shows the command chooser.
+Bind this to a hotkey to use commander.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+  </body>
+</html>

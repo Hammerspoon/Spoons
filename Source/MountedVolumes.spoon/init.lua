@@ -25,10 +25,6 @@ local obj    = {
 }
 local metadataKeys = {} ; for k, v in fnutils.sortByKeys(obj) do table.insert(metadataKeys, k) end
 
--- local bytesInGB = {
---     [false] = 1024 * 1024 * 1024,
---     [true]  = 1000 * 1000 * 1000, -- SI units
--- }
 
 local unitDetails = {
     [false] = { factor = 1024, labels = { "KiB", "MiB", "GiB", "TiB" } },
@@ -58,11 +54,12 @@ local getStats = function()
 
         table.insert(results, {
             v.NSURLVolumeNameKey,
---             round(v.NSURLVolumeTotalCapacityKey     / bytesInGB[obj.unitsInSI]),
---             round(v.NSURLVolumeAvailableCapacityKey / bytesInGB[obj.unitsInSI]),
             total,
             avail,
-            v.NSURLVolumeIsRemovableKey and true or false,
+-- ejectability is a pain to figure out... and even this misses internal partitions which are not
+-- the boot partition (e.g. BOOTCAMP)
+            (v.NSURLVolumeIsRemovableKey or v.NSURLVolumeIsEjectableKey or not v.NSURLVolumeIsInternalKey)
+                and true or false, -- normalize the above into a predictable value
             i,
             label,
         })
@@ -97,7 +94,6 @@ local updateVolumes = function(...)
     local legends, height, width = {}, 0, 0
     for i,v in ipairs(volumeData) do
         table.insert(legends, stext.new(
---             string.format("%s\n%s of %s %s\nAvailable", v[1], v[3], v[2], (obj.unitsInSI and "GB" or "GiB")),
             string.format("%s\n%s of %s %s\nAvailable", v[1], v[3], v[2], v[6]),
             obj.textStyle
         ))
