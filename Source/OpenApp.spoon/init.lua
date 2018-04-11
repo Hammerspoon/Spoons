@@ -2,6 +2,9 @@
 ---
 --- open a chooser to open apps.
 
+obj = {}
+obj.__index = obj
+
 -- Metadata
 obj.name = "OpenApp"
 obj.version = "0.7"
@@ -9,8 +12,6 @@ obj.author = "Yuan Fu <casouri@gmail.com>"
 obj.homepage = "https://github.com/Hammerspoon/Spoons"
 obj.license = "MIT - https://opensource.org/licenses/MIT"
 
-obj = {}
-obj.__index = obj
 
 --- OpenApp.searchPath
 --- Variable
