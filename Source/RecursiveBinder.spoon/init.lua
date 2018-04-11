@@ -126,7 +126,7 @@ end
 ---    to pass to RecursiveBinder.recursiveBind()
 function obj.singleKey(key, name)
    local mod = {}
-   if key == keyboardUpper(key) then
+   if key == keyboardUpper(key) and string.len(key) == 1 then
       mod = {'shift'}
       key = string.lower(key)
    end
@@ -143,9 +143,10 @@ end
 local function createKeyName(key)
    -- key is in the form {{modifers}, key, (optional) name}
    -- create proper key name for helper
-   if #key[1] == 1 and key[1][1] == 'shift' then
+   if #key[1] == 1 and key[1][1] == 'shift' and string.len(key[2]) == 1 then
       -- shift + key map to Uppercase key
       -- shift + d --> D
+      -- if key is not on letter(space), don't do it.
       return keyboardUpper(key[2])
    else
       -- append each modifiers together
