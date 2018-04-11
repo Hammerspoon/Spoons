@@ -1,0 +1,118 @@
+[
+  {
+    "Constant" : [
+
+    ],
+    "submodules" : [
+
+    ],
+    "Function" : [
+      {
+        "def" : "OpenApp.show()",
+        "stripped_doc" : [
+          "Call this function to pop chooser to choose applications."
+        ],
+        "doc" : "Call this function to pop chooser to choose applications.",
+        "parameters" : [
+
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "OpenApp.show()",
+        "type" : "Function",
+        "returns" : [
+
+        ],
+        "name" : "show",
+        "desc" : "Call this function to pop chooser to choose applications."
+      }
+    ],
+    "Variable" : [
+      {
+        "def" : "OpenApp.searchPath",
+        "stripped_doc" : [
+          "OpenApp search paths in this list for applications."
+        ],
+        "doc" : "OpenApp search paths in this list for applications.",
+        "parameters" : [
+
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "OpenApp.searchPath",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "searchPath",
+        "desc" : "OpenApp search paths in this list for applications."
+      }
+    ],
+    "stripped_doc" : [
+
+    ],
+    "Deprecated" : [
+
+    ],
+    "type" : "Module",
+    "desc" : "open a chooser to open apps.",
+    "Constructor" : [
+
+    ],
+    "items" : [
+      {
+        "def" : "OpenApp.searchPath",
+        "stripped_doc" : [
+          "OpenApp search paths in this list for applications."
+        ],
+        "doc" : "OpenApp search paths in this list for applications.",
+        "parameters" : [
+
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "OpenApp.searchPath",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "searchPath",
+        "desc" : "OpenApp search paths in this list for applications."
+      },
+      {
+        "def" : "OpenApp.show()",
+        "stripped_doc" : [
+          "Call this function to pop chooser to choose applications."
+        ],
+        "doc" : "Call this function to pop chooser to choose applications.",
+        "parameters" : [
+
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "OpenApp.show()",
+        "type" : "Function",
+        "returns" : [
+
+        ],
+        "name" : "show",
+        "desc" : "Call this function to pop chooser to choose applications."
+      }
+    ],
+    "Field" : [
+
+    ],
+    "doc" : "open a chooser to open apps.",
+    "Method" : [
+
+    ],
+    "Command" : [
+
+    ],
+    "name" : "OpenApp"
+  }
+]
