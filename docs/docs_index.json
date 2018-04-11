@@ -184,6 +184,53 @@
     "type": "Method"
   },
   {
+    "desc": "This spoon lets execute commands from other spoon by a chooser.",
+    "name": "Commander",
+    "type": "Module"
+  },
+  {
+    "desc": "This is the table which stores all the commands",
+    "module": "Commander",
+    "name": "commandTable",
+    "type": "Variable"
+  },
+  {
+    "desc": "If you want to switch to a layout when enabled chooser,",
+    "module": "Commander",
+    "name": "forceLayout",
+    "type": "Variable"
+  },
+  {
+    "desc": "If you want to switch to a method when enabled chooser,",
+    "module": "Commander",
+    "name": "forceMethod",
+    "type": "Variable"
+  },
+  {
+    "desc": "This list contains all the ignored function names,",
+    "module": "Commander",
+    "name": "ignoredCommandList",
+    "type": "Variable"
+  },
+  {
+    "desc": "Add a command to Commander.commandTable",
+    "module": "Commander",
+    "name": "addCommand",
+    "type": "Function"
+  },
+  {
+    "desc": "This function simply set Commander.commandTable to {},",
+    "module": "Commander",
+    "name": "resetCommandTable",
+    "type": "Function"
+  },
+  {
+    "desc": "This function shows the command chooser.",
+    "module": "Commander",
+    "name": "show",
+    "type": "Function"
+  },
+  {
     "desc": "Tiny countdown with visual indicator",
     "name": "CountDown",
     "type": "Module"
