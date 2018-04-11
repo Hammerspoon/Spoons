@@ -127,8 +127,6 @@ function obj.singleKey(key, name)
    local mod = {}
    if key == keyboardUpper(key) then
       mod = {'shift'}
-      print('shift+'..key)
-      print(mod)
       key = string.lower(key)
    end
 
