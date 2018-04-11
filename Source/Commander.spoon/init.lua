@@ -53,11 +53,25 @@ obj.ignoredCommandList = {
    'xpcall', 'next', 'rawlen', 'type', 'ipairs','bindHotkeys'
 }
 
+--- Commander.forceLayout
+--- Variable
+--- If you want to switch to a layout when enabled chooser,
+--- set this to name of that layout
+obj.forceLayout = nil
+
+--- Commander.forceMethod
+--- Variable
+--- If you want to switch to a method when enabled chooser,
+--- set this to name of that method
+obj.forceMethod = nil
+
 --- Commander.show()
 --- Function
 --- This function shows the command chooser.
 --- Bind this to a hotkey to use commander. 
 function obj.show()
+   hs.keycodes.setLayout(obj.forceLayout or '')
+   hs.keycodes.setMethod(obj.forceMethod or '')
    obj.chooser:show()
 end
 

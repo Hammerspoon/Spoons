@@ -13,10 +13,10 @@
           "This function shows the command chooser.",
           "Bind this to a hotkey to use commander."
         ],
-        "desc" : "This function shows the command chooser.",
         "parameters" : [
 
         ],
+        "desc" : "This function shows the command chooser.",
         "notes" : [
 
         ],
@@ -25,8 +25,8 @@
         "returns" : [
 
         ],
-        "def" : "Commander.show()",
-        "name" : "show"
+        "name" : "show",
+        "def" : "Commander.show()"
       },
       {
         "doc" : "Add a command to Commander.commandTable\n\nParameters:\n* comamndTable - It is a table with same form of Commander.commandTable\n                 key is name of command, value is the function.\n\nNote:\nCommander doesn't test the name against Commander.ignoredCommandList\nbecause it assumes you know what you are doing.",
@@ -34,7 +34,6 @@
           "Add a command to Commander.commandTable",
           ""
         ],
-        "desc" : "Add a command to Commander.commandTable",
         "parameters" : [
           "* comamndTable - It is a table with same form of Commander.commandTable",
           "                 key is name of command, value is the function.",
@@ -43,6 +42,7 @@
           "Commander doesn't test the name against Commander.ignoredCommandList",
           "because it assumes you know what you are doing."
         ],
+        "desc" : "Add a command to Commander.commandTable",
         "notes" : [
 
         ],
@@ -51,8 +51,8 @@
         "returns" : [
 
         ],
-        "def" : "Commander.addCommand(commandTable)",
-        "name" : "addCommand"
+        "name" : "addCommand",
+        "def" : "Commander.addCommand(commandTable)"
       },
       {
         "doc" : "This function simply set Commander.commandTable to {},\nThen the next time commander chooser is called\nit will generate the table again.",
@@ -61,10 +61,10 @@
           "Then the next time commander chooser is called",
           "it will generate the table again."
         ],
-        "desc" : "This function simply set Commander.commandTable to {},",
         "parameters" : [
 
         ],
+        "desc" : "This function simply set Commander.commandTable to {},",
         "notes" : [
 
         ],
@@ -73,8 +73,8 @@
         "returns" : [
 
         ],
-        "def" : "Commander.resetCommandTable()",
-        "name" : "resetCommandTable"
+        "name" : "resetCommandTable",
+        "def" : "Commander.resetCommandTable()"
       }
     ],
     "Variable" : [
@@ -86,10 +86,10 @@
           "and each value is the actual function.",
           "you can add your custom commands to it."
         ],
-        "desc" : "This is the table which stores all the commands",
         "parameters" : [
 
         ],
+        "desc" : "This is the table which stores all the commands",
         "notes" : [
 
         ],
@@ -98,8 +98,8 @@
         "returns" : [
 
         ],
-        "def" : "Commander.commandTable",
-        "name" : "commandTable"
+        "name" : "commandTable",
+        "def" : "Commander.commandTable"
       },
       {
         "doc" : "This list contains all the ignored function names,\nany function matches the name inside this list will not\nbe added to Commander.commandTable.\n\nThe list contains normal lua builtin functions\nand some hammerspoon functions that generally shouldn't\nbe a command, such as init, bindHotkeys, etc.",
@@ -112,10 +112,10 @@
           "and some hammerspoon functions that generally shouldn't",
           "be a command, such as init, bindHotkeys, etc."
         ],
-        "desc" : "This list contains all the ignored function names,",
         "parameters" : [
 
         ],
+        "desc" : "This list contains all the ignored function names,",
         "notes" : [
 
         ],
@@ -124,18 +124,60 @@
         "returns" : [
 
         ],
-        "def" : "Commander.ignoredCommandList",
-        "name" : "ignoredCommandList"
+        "name" : "ignoredCommandList",
+        "def" : "Commander.ignoredCommandList"
+      },
+      {
+        "doc" : "If you want to switch to a layout when enabled chooser,\nset this to name of that layout",
+        "stripped_doc" : [
+          "If you want to switch to a layout when enabled chooser,",
+          "set this to name of that layout"
+        ],
+        "parameters" : [
+
+        ],
+        "desc" : "If you want to switch to a layout when enabled chooser,",
+        "notes" : [
+
+        ],
+        "signature" : "Commander.forceLayout",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "forceLayout",
+        "def" : "Commander.forceLayout"
+      },
+      {
+        "doc" : "If you want to switch to a method when enabled chooser,\nset this to name of that method",
+        "stripped_doc" : [
+          "If you want to switch to a method when enabled chooser,",
+          "set this to name of that method"
+        ],
+        "parameters" : [
+
+        ],
+        "desc" : "If you want to switch to a method when enabled chooser,",
+        "notes" : [
+
+        ],
+        "signature" : "Commander.forceMethod",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "forceMethod",
+        "def" : "Commander.forceMethod"
       }
     ],
     "stripped_doc" : [
 
     ],
-    "type" : "Module",
-    "desc" : "This spoon lets execute commands from other spoon by a chooser.",
     "Deprecated" : [
 
     ],
+    "type" : "Module",
+    "desc" : "This spoon lets execute commands from other spoon by a chooser.",
     "Constructor" : [
 
     ],
@@ -144,6 +186,9 @@
 
     ],
     "Command" : [
+
+    ],
+    "Field" : [
 
     ],
     "items" : [
@@ -155,10 +200,10 @@
           "and each value is the actual function.",
           "you can add your custom commands to it."
         ],
-        "desc" : "This is the table which stores all the commands",
         "parameters" : [
 
         ],
+        "desc" : "This is the table which stores all the commands",
         "notes" : [
 
         ],
@@ -167,8 +212,50 @@
         "returns" : [
 
         ],
-        "def" : "Commander.commandTable",
-        "name" : "commandTable"
+        "name" : "commandTable",
+        "def" : "Commander.commandTable"
+      },
+      {
+        "doc" : "If you want to switch to a layout when enabled chooser,\nset this to name of that layout",
+        "stripped_doc" : [
+          "If you want to switch to a layout when enabled chooser,",
+          "set this to name of that layout"
+        ],
+        "parameters" : [
+
+        ],
+        "desc" : "If you want to switch to a layout when enabled chooser,",
+        "notes" : [
+
+        ],
+        "signature" : "Commander.forceLayout",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "forceLayout",
+        "def" : "Commander.forceLayout"
+      },
+      {
+        "doc" : "If you want to switch to a method when enabled chooser,\nset this to name of that method",
+        "stripped_doc" : [
+          "If you want to switch to a method when enabled chooser,",
+          "set this to name of that method"
+        ],
+        "parameters" : [
+
+        ],
+        "desc" : "If you want to switch to a method when enabled chooser,",
+        "notes" : [
+
+        ],
+        "signature" : "Commander.forceMethod",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "forceMethod",
+        "def" : "Commander.forceMethod"
       },
       {
         "doc" : "This list contains all the ignored function names,\nany function matches the name inside this list will not\nbe added to Commander.commandTable.\n\nThe list contains normal lua builtin functions\nand some hammerspoon functions that generally shouldn't\nbe a command, such as init, bindHotkeys, etc.",
@@ -181,10 +268,10 @@
           "and some hammerspoon functions that generally shouldn't",
           "be a command, such as init, bindHotkeys, etc."
         ],
-        "desc" : "This list contains all the ignored function names,",
         "parameters" : [
 
         ],
+        "desc" : "This list contains all the ignored function names,",
         "notes" : [
 
         ],
@@ -193,8 +280,8 @@
         "returns" : [
 
         ],
-        "def" : "Commander.ignoredCommandList",
-        "name" : "ignoredCommandList"
+        "name" : "ignoredCommandList",
+        "def" : "Commander.ignoredCommandList"
       },
       {
         "doc" : "Add a command to Commander.commandTable\n\nParameters:\n* comamndTable - It is a table with same form of Commander.commandTable\n                 key is name of command, value is the function.\n\nNote:\nCommander doesn't test the name against Commander.ignoredCommandList\nbecause it assumes you know what you are doing.",
@@ -202,7 +289,6 @@
           "Add a command to Commander.commandTable",
           ""
         ],
-        "desc" : "Add a command to Commander.commandTable",
         "parameters" : [
           "* comamndTable - It is a table with same form of Commander.commandTable",
           "                 key is name of command, value is the function.",
@@ -211,6 +297,7 @@
           "Commander doesn't test the name against Commander.ignoredCommandList",
           "because it assumes you know what you are doing."
         ],
+        "desc" : "Add a command to Commander.commandTable",
         "notes" : [
 
         ],
@@ -219,8 +306,8 @@
         "returns" : [
 
         ],
-        "def" : "Commander.addCommand(commandTable)",
-        "name" : "addCommand"
+        "name" : "addCommand",
+        "def" : "Commander.addCommand(commandTable)"
       },
       {
         "doc" : "This function simply set Commander.commandTable to {},\nThen the next time commander chooser is called\nit will generate the table again.",
@@ -229,10 +316,10 @@
           "Then the next time commander chooser is called",
           "it will generate the table again."
         ],
-        "desc" : "This function simply set Commander.commandTable to {},",
         "parameters" : [
 
         ],
+        "desc" : "This function simply set Commander.commandTable to {},",
         "notes" : [
 
         ],
@@ -241,8 +328,8 @@
         "returns" : [
 
         ],
-        "def" : "Commander.resetCommandTable()",
-        "name" : "resetCommandTable"
+        "name" : "resetCommandTable",
+        "def" : "Commander.resetCommandTable()"
       },
       {
         "doc" : "This function shows the command chooser.\nBind this to a hotkey to use commander.",
@@ -250,10 +337,10 @@
           "This function shows the command chooser.",
           "Bind this to a hotkey to use commander."
         ],
-        "desc" : "This function shows the command chooser.",
         "parameters" : [
 
         ],
+        "desc" : "This function shows the command chooser.",
         "notes" : [
 
         ],
@@ -262,12 +349,9 @@
         "returns" : [
 
         ],
-        "def" : "Commander.show()",
-        "name" : "show"
+        "name" : "show",
+        "def" : "Commander.show()"
       }
-    ],
-    "Field" : [
-
     ],
     "name" : "Commander"
   }
