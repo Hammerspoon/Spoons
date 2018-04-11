@@ -18,10 +18,24 @@ obj.license = "MIT - https://opensource.org/licenses/MIT"
 --- OpenApp search paths in this list for applications.
 obj.searchPath = {'/Applications'}
 
+--- OpenApp.forceLayout
+--- Variable
+--- If you want to switch to a layout when enabled chooser,
+--- set this to name of that layout
+obj.forceLayout = nil
+
+--- OpenApp.forceMethod
+--- Variable
+--- If you want to switch to a method when enabled chooser,
+--- set this to name of that method
+obj.forceMethod = nil
+
 --- OpenApp.show()
 --- Function
 --- Call this function to pop chooser to choose applications.
 function obj.show()
+   hs.keycodes.setLayout(obj.forceLayout or '')
+   hs.keycodes.setMethod(obj.forceMethod or '')
    obj.chooser:show()
 end
 
