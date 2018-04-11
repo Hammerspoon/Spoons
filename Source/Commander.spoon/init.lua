@@ -1,6 +1,6 @@
 --- === Commander ===
 ---
---- This spoon lets execute commands from other spoon by a chooser.
+--- This spoon lets you execute commands from other spoon by a chooser.
 ---
 --- The way of Commander to generate it command list is
 --- it goes to each spoon and extract all public functions inside the spoon table.

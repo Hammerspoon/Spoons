@@ -173,7 +173,7 @@
     "stripped_doc" : [
 
     ],
-    "desc" : "This spoon lets execute commands from other spoon by a chooser.",
+    "desc" : "This spoon lets you execute commands from other spoon by a chooser.",
     "Deprecated" : [
 
     ],
@@ -181,7 +181,7 @@
     "Constructor" : [
 
     ],
-    "doc" : "This spoon lets execute commands from other spoon by a chooser.\n\nThe way of Commander to generate it command list is\nit goes to each spoon and extract all public functions inside the spoon table.\nfor each function the name is set to \"spoonName.functionName\".\nif the spoon has a table called `commandderCommandTable`, Commander will\nignore everything else and take whatever is in the table.\nIn this case the naming convention is the same.\nThen Commander grabs all the functions in global table.\nfunctions are tested against `Commander.ignoredCommandList`,\nexcept when spoon author provides a `commanderCommandList`.\n\nCommander.chooser is the chooser, you can set background color, rows, etc, to it.\n\n[Click to download](https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/Commander.spoon.zip)",
+    "doc" : "This spoon lets you execute commands from other spoon by a chooser.\n\nThe way of Commander to generate it command list is\nit goes to each spoon and extract all public functions inside the spoon table.\nfor each function the name is set to \"spoonName.functionName\".\nif the spoon has a table called `commandderCommandTable`, Commander will\nignore everything else and take whatever is in the table.\nIn this case the naming convention is the same.\nThen Commander grabs all the functions in global table.\nfunctions are tested against `Commander.ignoredCommandList`,\nexcept when spoon author provides a `commanderCommandList`.\n\nCommander.chooser is the chooser, you can set background color, rows, etc, to it.\n\n[Click to download](https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/Commander.spoon.zip)",
     "Field" : [
 
     ],
