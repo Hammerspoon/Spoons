@@ -14,6 +14,8 @@
 ---
 --- Commander.chooser is the chooser, you can set background color, rows, etc, to it.
 
+--- [Click to download](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Commander.spoon.zip)
+
 local obj={}
 obj.__index = obj
 
