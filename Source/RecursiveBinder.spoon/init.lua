@@ -2,6 +2,8 @@
 ---
 --- A spoon that let you bind sequential bindings.
 --- It also (optionally) shows a bar about current keys bindings.
+---
+--- [Click to download](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/RecursiveBinder.spoon.zip)
 
 local obj={}
 obj.__index = obj
@@ -50,14 +52,12 @@ obj.showBindHelper = true
 --- RecursiveBinder.helperModifierMapping()
 --- Variable
 --- The mapping used to display modifiers on helper.
----
 --- Default to {
 ---  command = '⌘',
 ---  control = '⌃',
 ---  option = '⌥',
 ---  shift = '⇧',
 --- }
-
 obj.helperModifierMapping = {
    command = '⌘',
    control = '⌃',
