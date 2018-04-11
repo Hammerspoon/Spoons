@@ -1,0 +1,274 @@
+[
+  {
+    "Constant" : [
+
+    ],
+    "submodules" : [
+
+    ],
+    "Function" : [
+      {
+        "doc" : "This function shows the command chooser.\nBind this to a hotkey to use commander.",
+        "stripped_doc" : [
+          "This function shows the command chooser.",
+          "Bind this to a hotkey to use commander."
+        ],
+        "desc" : "This function shows the command chooser.",
+        "parameters" : [
+
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "Commander.show()",
+        "type" : "Function",
+        "returns" : [
+
+        ],
+        "def" : "Commander.show()",
+        "name" : "show"
+      },
+      {
+        "doc" : "Add a command to Commander.commandTable\n\nParameters:\n* comamndTable - It is a table with same form of Commander.commandTable\n                 key is name of command, value is the function.\n\nNote:\nCommander doesn't test the name against Commander.ignoredCommandList\nbecause it assumes you know what you are doing.",
+        "stripped_doc" : [
+          "Add a command to Commander.commandTable",
+          ""
+        ],
+        "desc" : "Add a command to Commander.commandTable",
+        "parameters" : [
+          "* comamndTable - It is a table with same form of Commander.commandTable",
+          "                 key is name of command, value is the function.",
+          "",
+          "Note:",
+          "Commander doesn't test the name against Commander.ignoredCommandList",
+          "because it assumes you know what you are doing."
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "Commander.addCommand(commandTable)",
+        "type" : "Function",
+        "returns" : [
+
+        ],
+        "def" : "Commander.addCommand(commandTable)",
+        "name" : "addCommand"
+      },
+      {
+        "doc" : "This function simply set Commander.commandTable to {},\nThen the next time commander chooser is called\nit will generate the table again.",
+        "stripped_doc" : [
+          "This function simply set Commander.commandTable to {},",
+          "Then the next time commander chooser is called",
+          "it will generate the table again."
+        ],
+        "desc" : "This function simply set Commander.commandTable to {},",
+        "parameters" : [
+
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "Commander.resetCommandTable()",
+        "type" : "Function",
+        "returns" : [
+
+        ],
+        "def" : "Commander.resetCommandTable()",
+        "name" : "resetCommandTable"
+      }
+    ],
+    "Variable" : [
+      {
+        "doc" : "This is the table which stores all the commands\nEach key is the name of the command,\nand each value is the actual function.\nyou can add your custom commands to it.",
+        "stripped_doc" : [
+          "This is the table which stores all the commands",
+          "Each key is the name of the command,",
+          "and each value is the actual function.",
+          "you can add your custom commands to it."
+        ],
+        "desc" : "This is the table which stores all the commands",
+        "parameters" : [
+
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "Commander.commandTable",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "Commander.commandTable",
+        "name" : "commandTable"
+      },
+      {
+        "doc" : "This list contains all the ignored function names,\nany function matches the name inside this list will not\nbe added to Commander.commandTable.\n\nThe list contains normal lua builtin functions\nand some hammerspoon functions that generally shouldn't\nbe a command, such as init, bindHotkeys, etc.",
+        "stripped_doc" : [
+          "This list contains all the ignored function names,",
+          "any function matches the name inside this list will not",
+          "be added to Commander.commandTable.",
+          "",
+          "The list contains normal lua builtin functions",
+          "and some hammerspoon functions that generally shouldn't",
+          "be a command, such as init, bindHotkeys, etc."
+        ],
+        "desc" : "This list contains all the ignored function names,",
+        "parameters" : [
+
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "Commander.ignoredCommandList",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "Commander.ignoredCommandList",
+        "name" : "ignoredCommandList"
+      }
+    ],
+    "stripped_doc" : [
+
+    ],
+    "type" : "Module",
+    "desc" : "This spoon lets execute commands from other spoon by a chooser.",
+    "Deprecated" : [
+
+    ],
+    "Constructor" : [
+
+    ],
+    "doc" : "This spoon lets execute commands from other spoon by a chooser.\n\nThe way of Commander to generate it command list is\nit goes to each spoon and extract all public functions inside the spoon table.\nfor each function the name is set to \"spoonName.functionName\".\nif the spoon has a table called `commandderCommandTable`, Commander will\nignore everything else and take whatever is in the table.\nIn this case the naming convention is the same.\nThen Commander grabs all the functions in global table.\nfunctions are tested against `Commander.ignoredCommandList`,\nexcept when spoon author provides a `commanderCommandList`.\n\nCommander.chooser is the chooser, you can set background color, rows, etc, to it.",
+    "Method" : [
+
+    ],
+    "Command" : [
+
+    ],
+    "items" : [
+      {
+        "doc" : "This is the table which stores all the commands\nEach key is the name of the command,\nand each value is the actual function.\nyou can add your custom commands to it.",
+        "stripped_doc" : [
+          "This is the table which stores all the commands",
+          "Each key is the name of the command,",
+          "and each value is the actual function.",
+          "you can add your custom commands to it."
+        ],
+        "desc" : "This is the table which stores all the commands",
+        "parameters" : [
+
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "Commander.commandTable",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "Commander.commandTable",
+        "name" : "commandTable"
+      },
+      {
+        "doc" : "This list contains all the ignored function names,\nany function matches the name inside this list will not\nbe added to Commander.commandTable.\n\nThe list contains normal lua builtin functions\nand some hammerspoon functions that generally shouldn't\nbe a command, such as init, bindHotkeys, etc.",
+        "stripped_doc" : [
+          "This list contains all the ignored function names,",
+          "any function matches the name inside this list will not",
+          "be added to Commander.commandTable.",
+          "",
+          "The list contains normal lua builtin functions",
+          "and some hammerspoon functions that generally shouldn't",
+          "be a command, such as init, bindHotkeys, etc."
+        ],
+        "desc" : "This list contains all the ignored function names,",
+        "parameters" : [
+
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "Commander.ignoredCommandList",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "Commander.ignoredCommandList",
+        "name" : "ignoredCommandList"
+      },
+      {
+        "doc" : "Add a command to Commander.commandTable\n\nParameters:\n* comamndTable - It is a table with same form of Commander.commandTable\n                 key is name of command, value is the function.\n\nNote:\nCommander doesn't test the name against Commander.ignoredCommandList\nbecause it assumes you know what you are doing.",
+        "stripped_doc" : [
+          "Add a command to Commander.commandTable",
+          ""
+        ],
+        "desc" : "Add a command to Commander.commandTable",
+        "parameters" : [
+          "* comamndTable - It is a table with same form of Commander.commandTable",
+          "                 key is name of command, value is the function.",
+          "",
+          "Note:",
+          "Commander doesn't test the name against Commander.ignoredCommandList",
+          "because it assumes you know what you are doing."
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "Commander.addCommand(commandTable)",
+        "type" : "Function",
+        "returns" : [
+
+        ],
+        "def" : "Commander.addCommand(commandTable)",
+        "name" : "addCommand"
+      },
+      {
+        "doc" : "This function simply set Commander.commandTable to {},\nThen the next time commander chooser is called\nit will generate the table again.",
+        "stripped_doc" : [
+          "This function simply set Commander.commandTable to {},",
+          "Then the next time commander chooser is called",
+          "it will generate the table again."
+        ],
+        "desc" : "This function simply set Commander.commandTable to {},",
+        "parameters" : [
+
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "Commander.resetCommandTable()",
+        "type" : "Function",
+        "returns" : [
+
+        ],
+        "def" : "Commander.resetCommandTable()",
+        "name" : "resetCommandTable"
+      },
+      {
+        "doc" : "This function shows the command chooser.\nBind this to a hotkey to use commander.",
+        "stripped_doc" : [
+          "This function shows the command chooser.",
+          "Bind this to a hotkey to use commander."
+        ],
+        "desc" : "This function shows the command chooser.",
+        "parameters" : [
+
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "Commander.show()",
+        "type" : "Function",
+        "returns" : [
+
+        ],
+        "def" : "Commander.show()",
+        "name" : "show"
+      }
+    ],
+    "Field" : [
+
+    ],
+    "name" : "Commander"
+  }
+]
