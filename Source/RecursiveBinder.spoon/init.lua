@@ -1,35 +1,36 @@
---- === Binder ===
+--- === RecursiveBinder ===
 ---
 --- A spoon that let you bind sequential bindings.
+--- It also (optionally) shows a bar about current keys bindings.
 
 local obj={}
 obj.__index = obj
 
 
 -- Metadata
-obj.name = "Binder"
+obj.name = "RecursiveBinder"
 obj.version = "0.7"
 obj.author = "Yuan Fu <casouri@gmail.com>"
 obj.homepage = "https://github.com/Hammerspoon/Spoons"
 obj.license = "MIT - https://opensource.org/licenses/MIT"
 
 
---- Binder.escapeKey
+--- RecursiveBinder.escapeKey
 --- Variable
 --- key to abort, default to {keyNone, 'escape'}
 obj.escapeKey = {keyNone, 'escape'}
 
---- Binder.helperEntryEachLine
+--- RecursiveBinder.helperEntryEachLine
 --- Variable
 --- Number of entries each line of helper. Default to 5.
 obj.helperEntryEachLine = 5
 
---- Binder.helperEntryLengthInChar
+--- RecursiveBinder.helperEntryLengthInChar
 --- Variable
 --- Length of each entry in char. Default to 20.
 obj.helperEntryLengthInChar = 20
 
---- Binder.helperFormat
+--- RecursiveBinder.helperFormat
 --- Variable
 --- format of helper, the helper is just a hs.alert
 --- default to {atScreenEdge=2,
@@ -41,7 +42,7 @@ obj.helperFormat = {atScreenEdge=2,
                     textFont='Courier',
                     textSize=20}
 
---- Binder.showBindHelper()
+--- RecursiveBinder.showBindHelper()
 --- Variable
 --- whether to show helper, can be true of false
 obj.showBindHelper = true
@@ -111,7 +112,7 @@ local function keyboardUpper(key)
    end
 end
 
---- Binder.singleKey(key, name)
+--- RecursiveBinder.singleKey(key, name)
 --- Method
 --- this function simply return a table with empty modifiers
 --- also it translates capital letters to normal letter with shift modifer
@@ -122,7 +123,7 @@ end
 ---
 --- Returns:
 ---  * a table of modifiers and keys and names, ready to be used in keymap
----    to pass to Binder.recursiveBind()
+---    to pass to RecursiveBinder.recursiveBind()
 function obj.singleKey(key, name)
    local mod = {}
    if key == keyboardUpper(key) then
@@ -197,7 +198,7 @@ local function killHelper()
    hs.alert.closeSpecific(previousHelperID)
 end
 
---- Binder.recursiveBind(keymap)
+--- RecursiveBinder.recursiveBind(keymap)
 --- Method
 --- Bind sequential keys by a nested keymap.
 ---
