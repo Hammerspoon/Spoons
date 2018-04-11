@@ -47,6 +47,24 @@ obj.helperFormat = {atScreenEdge=2,
 --- whether to show helper, can be true of false
 obj.showBindHelper = true
 
+--- RecursiveBinder.helperModifierMapping()
+--- Variable
+--- The mapping used to display modifiers on helper.
+---
+--- Default to {
+---  command = '⌘',
+---  control = '⌃',
+---  option = '⌥',
+---  shift = '⇧',
+--- }
+
+obj.helperModifierMapping = {
+   command = '⌘',
+   control = '⌃',
+   option = '⌥',
+   shift = '⇧',
+}
+
 -- used by next model to close previous helper
 local previousHelperID = nil
 
@@ -138,30 +156,34 @@ function obj.singleKey(key, name)
    end
 end
 
+
 -- generate a string representation of a key spec
 -- {{'shift', 'command'}, 'a} -> 'shift+command+a'
 local function createKeyName(key)
    -- key is in the form {{modifers}, key, (optional) name}
    -- create proper key name for helper
-   if #key[1] == 1 and key[1][1] == 'shift' and string.len(key[2]) == 1 then
+   local modifierTable = key[1]
+   local keyString = key[2]
+   if #modifierTable == 1 and modifierTable[1] == 'shift' and string.len(keyString) == 1 then
       -- shift + key map to Uppercase key
       -- shift + d --> D
       -- if key is not on letter(space), don't do it.
-      return keyboardUpper(key[2])
+      return keyboardUpper(keyString)
    else
       -- append each modifiers together
       local keyName = ''
-      if #key[1] >= 1 then
-         for count = 1, #key[1] do
+      if #modifierTable >= 1 then
+         for count = 1, #modifierTable do
+            local modifier = modifierTable[count]
             if count == 1 then
-               keyName = key[1][count]
+               keyName = obj.helperModifierMapping[modifier]..' + '
             else 
-               keyName = keyName..' + '..key[1][count]
+               keyName = keyName..obj.helperModifierMapping[modifier]..' + '
             end
          end
       end
       -- finally append key, e.g. 'f', after modifers
-      return keyName..key[2]
+      return keyName..keyString
    end
 end
 
