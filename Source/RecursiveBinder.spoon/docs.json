@@ -11,14 +11,12 @@
     ],
     "Variable" : [
       {
-        "doc" : "key to abort, default to {keyNone, 'escape'}",
+        "name" : "escapeKey",
         "stripped_doc" : [
           "key to abort, default to {keyNone, 'escape'}"
         ],
-        "desc" : "key to abort, default to {keyNone, 'escape'}",
-        "parameters" : [
-
-        ],
+        "def" : "RecursiveBinder.escapeKey",
+        "doc" : "key to abort, default to {keyNone, 'escape'}",
         "notes" : [
 
         ],
@@ -27,18 +25,18 @@
         "returns" : [
 
         ],
-        "name" : "escapeKey",
-        "def" : "RecursiveBinder.escapeKey"
+        "desc" : "key to abort, default to {keyNone, 'escape'}",
+        "parameters" : [
+
+        ]
       },
       {
-        "doc" : "Number of entries each line of helper. Default to 5.",
+        "name" : "helperEntryEachLine",
         "stripped_doc" : [
           "Number of entries each line of helper. Default to 5."
         ],
-        "desc" : "Number of entries each line of helper. Default to 5.",
-        "parameters" : [
-
-        ],
+        "def" : "RecursiveBinder.helperEntryEachLine",
+        "doc" : "Number of entries each line of helper. Default to 5.",
         "notes" : [
 
         ],
@@ -47,18 +45,18 @@
         "returns" : [
 
         ],
-        "name" : "helperEntryEachLine",
-        "def" : "RecursiveBinder.helperEntryEachLine"
+        "desc" : "Number of entries each line of helper. Default to 5.",
+        "parameters" : [
+
+        ]
       },
       {
-        "doc" : "Length of each entry in char. Default to 20.",
+        "name" : "helperEntryLengthInChar",
         "stripped_doc" : [
           "Length of each entry in char. Default to 20."
         ],
-        "desc" : "Length of each entry in char. Default to 20.",
-        "parameters" : [
-
-        ],
+        "def" : "RecursiveBinder.helperEntryLengthInChar",
+        "doc" : "Length of each entry in char. Default to 20.",
         "notes" : [
 
         ],
@@ -67,11 +65,13 @@
         "returns" : [
 
         ],
-        "name" : "helperEntryLengthInChar",
-        "def" : "RecursiveBinder.helperEntryLengthInChar"
+        "desc" : "Length of each entry in char. Default to 20.",
+        "parameters" : [
+
+        ]
       },
       {
-        "doc" : "format of helper, the helper is just a hs.alert\ndefault to {atScreenEdge=2,\n            strokeColor={ white = 0, alpha = 2 },\n            textFont='SF Mono'\n            textSize=20}",
+        "name" : "helperFormat",
         "stripped_doc" : [
           "format of helper, the helper is just a hs.alert",
           "default to {atScreenEdge=2,",
@@ -79,10 +79,8 @@
           "            textFont='SF Mono'",
           "            textSize=20}"
         ],
-        "desc" : "format of helper, the helper is just a hs.alert",
-        "parameters" : [
-
-        ],
+        "def" : "RecursiveBinder.helperFormat",
+        "doc" : "format of helper, the helper is just a hs.alert\ndefault to {atScreenEdge=2,\n            strokeColor={ white = 0, alpha = 2 },\n            textFont='SF Mono'\n            textSize=20}",
         "notes" : [
 
         ],
@@ -91,18 +89,18 @@
         "returns" : [
 
         ],
-        "name" : "helperFormat",
-        "def" : "RecursiveBinder.helperFormat"
+        "desc" : "format of helper, the helper is just a hs.alert",
+        "parameters" : [
+
+        ]
       },
       {
-        "doc" : "whether to show helper, can be true of false",
+        "name" : "showBindHelper",
         "stripped_doc" : [
           "whether to show helper, can be true of false"
         ],
-        "desc" : "whether to show helper, can be true of false",
-        "parameters" : [
-
-        ],
+        "def" : "RecursiveBinder.showBindHelper()",
+        "doc" : "whether to show helper, can be true of false",
         "notes" : [
 
         ],
@@ -111,96 +109,58 @@
         "returns" : [
 
         ],
-        "name" : "showBindHelper",
-        "def" : "RecursiveBinder.showBindHelper()"
+        "desc" : "whether to show helper, can be true of false",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "name" : "helperModifierMapping",
+        "stripped_doc" : [
+          "The mapping used to display modifiers on helper.",
+          "",
+          "Default to {",
+          " command = '⌘',",
+          " control = '⌃',",
+          " option = '⌥',",
+          " shift = '⇧',",
+          "}"
+        ],
+        "def" : "RecursiveBinder.helperModifierMapping()",
+        "doc" : "The mapping used to display modifiers on helper.\n\nDefault to {\n command = '⌘',\n control = '⌃',\n option = '⌥',\n shift = '⇧',\n}",
+        "notes" : [
+
+        ],
+        "signature" : "RecursiveBinder.helperModifierMapping()",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "desc" : "The mapping used to display modifiers on helper.",
+        "parameters" : [
+
+        ]
       }
     ],
     "stripped_doc" : [
 
     ],
+    "desc" : "A spoon that let you bind sequential bindings.",
+    "type" : "Module",
     "Deprecated" : [
 
     ],
-    "type" : "Module",
-    "desc" : "A spoon that let you bind sequential bindings.",
     "Constructor" : [
-
-    ],
-    "Field" : [
-
-    ],
-    "Method" : [
-      {
-        "doc" : "this function simply return a table with empty modifiers\nalso it translates capital letters to normal letter with shift modifer\n\nParameters:\n * key - a letter\n * name - the description to pass to the keys binding function\n\nReturns:\n * a table of modifiers and keys and names, ready to be used in keymap\n   to pass to RecursiveBinder.recursiveBind()",
-        "stripped_doc" : [
-          "this function simply return a table with empty modifiers",
-          "also it translates capital letters to normal letter with shift modifer",
-          ""
-        ],
-        "desc" : "this function simply return a table with empty modifiers",
-        "parameters" : [
-          " * key - a letter",
-          " * name - the description to pass to the keys binding function",
-          ""
-        ],
-        "notes" : [
-
-        ],
-        "signature" : "RecursiveBinder.singleKey(key, name)",
-        "type" : "Method",
-        "returns" : [
-          " * a table of modifiers and keys and names, ready to be used in keymap",
-          "   to pass to RecursiveBinder.recursiveBind()"
-        ],
-        "name" : "singleKey",
-        "def" : "RecursiveBinder.singleKey(key, name)"
-      },
-      {
-        "doc" : "Bind sequential keys by a nested keymap.\n\nParameters:\n * keymap - A table that specifies the mapping.\n\nReturns:\n * A function to start. Bind it to a initial key binding.\n\nNote:\nSpec of keymap:\nEvery key is of format {{modifers}, key, (optional) description}\nThe first two element is what you usually pass into a hs.hotkey.bind() function.\n\nEach value of key can be in two form:\n1. A function. Then pressing the key invokes the function\n2. A table. Then pressing the key bring to another layer of keybindings.\n   And the table have the same format of top table: keys to keys, value to table or function",
-        "stripped_doc" : [
-          "Bind sequential keys by a nested keymap.",
-          ""
-        ],
-        "desc" : "Bind sequential keys by a nested keymap.",
-        "parameters" : [
-          " * keymap - A table that specifies the mapping.",
-          ""
-        ],
-        "notes" : [
-
-        ],
-        "signature" : "RecursiveBinder.recursiveBind(keymap)",
-        "type" : "Method",
-        "returns" : [
-          " * A function to start. Bind it to a initial key binding.",
-          "",
-          "Note:",
-          "Spec of keymap:",
-          "Every key is of format {{modifers}, key, (optional) description}",
-          "The first two element is what you usually pass into a hs.hotkey.bind() function.",
-          "",
-          "Each value of key can be in two form:",
-          "1. A function. Then pressing the key invokes the function",
-          "2. A table. Then pressing the key bring to another layer of keybindings.",
-          "   And the table have the same format of top table: keys to keys, value to table or function"
-        ],
-        "name" : "recursiveBind",
-        "def" : "RecursiveBinder.recursiveBind(keymap)"
-      }
-    ],
-    "Command" : [
 
     ],
     "items" : [
       {
-        "doc" : "key to abort, default to {keyNone, 'escape'}",
+        "name" : "escapeKey",
         "stripped_doc" : [
           "key to abort, default to {keyNone, 'escape'}"
         ],
-        "desc" : "key to abort, default to {keyNone, 'escape'}",
-        "parameters" : [
-
-        ],
+        "def" : "RecursiveBinder.escapeKey",
+        "doc" : "key to abort, default to {keyNone, 'escape'}",
         "notes" : [
 
         ],
@@ -209,18 +169,18 @@
         "returns" : [
 
         ],
-        "name" : "escapeKey",
-        "def" : "RecursiveBinder.escapeKey"
+        "desc" : "key to abort, default to {keyNone, 'escape'}",
+        "parameters" : [
+
+        ]
       },
       {
-        "doc" : "Number of entries each line of helper. Default to 5.",
+        "name" : "helperEntryEachLine",
         "stripped_doc" : [
           "Number of entries each line of helper. Default to 5."
         ],
-        "desc" : "Number of entries each line of helper. Default to 5.",
-        "parameters" : [
-
-        ],
+        "def" : "RecursiveBinder.helperEntryEachLine",
+        "doc" : "Number of entries each line of helper. Default to 5.",
         "notes" : [
 
         ],
@@ -229,18 +189,18 @@
         "returns" : [
 
         ],
-        "name" : "helperEntryEachLine",
-        "def" : "RecursiveBinder.helperEntryEachLine"
+        "desc" : "Number of entries each line of helper. Default to 5.",
+        "parameters" : [
+
+        ]
       },
       {
-        "doc" : "Length of each entry in char. Default to 20.",
+        "name" : "helperEntryLengthInChar",
         "stripped_doc" : [
           "Length of each entry in char. Default to 20."
         ],
-        "desc" : "Length of each entry in char. Default to 20.",
-        "parameters" : [
-
-        ],
+        "def" : "RecursiveBinder.helperEntryLengthInChar",
+        "doc" : "Length of each entry in char. Default to 20.",
         "notes" : [
 
         ],
@@ -249,11 +209,13 @@
         "returns" : [
 
         ],
-        "name" : "helperEntryLengthInChar",
-        "def" : "RecursiveBinder.helperEntryLengthInChar"
+        "desc" : "Length of each entry in char. Default to 20.",
+        "parameters" : [
+
+        ]
       },
       {
-        "doc" : "format of helper, the helper is just a hs.alert\ndefault to {atScreenEdge=2,\n            strokeColor={ white = 0, alpha = 2 },\n            textFont='SF Mono'\n            textSize=20}",
+        "name" : "helperFormat",
         "stripped_doc" : [
           "format of helper, the helper is just a hs.alert",
           "default to {atScreenEdge=2,",
@@ -261,10 +223,8 @@
           "            textFont='SF Mono'",
           "            textSize=20}"
         ],
-        "desc" : "format of helper, the helper is just a hs.alert",
-        "parameters" : [
-
-        ],
+        "def" : "RecursiveBinder.helperFormat",
+        "doc" : "format of helper, the helper is just a hs.alert\ndefault to {atScreenEdge=2,\n            strokeColor={ white = 0, alpha = 2 },\n            textFont='SF Mono'\n            textSize=20}",
         "notes" : [
 
         ],
@@ -273,18 +233,45 @@
         "returns" : [
 
         ],
-        "name" : "helperFormat",
-        "def" : "RecursiveBinder.helperFormat"
+        "desc" : "format of helper, the helper is just a hs.alert",
+        "parameters" : [
+
+        ]
       },
       {
-        "doc" : "whether to show helper, can be true of false",
+        "name" : "helperModifierMapping",
+        "stripped_doc" : [
+          "The mapping used to display modifiers on helper.",
+          "",
+          "Default to {",
+          " command = '⌘',",
+          " control = '⌃',",
+          " option = '⌥',",
+          " shift = '⇧',",
+          "}"
+        ],
+        "def" : "RecursiveBinder.helperModifierMapping()",
+        "doc" : "The mapping used to display modifiers on helper.\n\nDefault to {\n command = '⌘',\n control = '⌃',\n option = '⌥',\n shift = '⇧',\n}",
+        "notes" : [
+
+        ],
+        "signature" : "RecursiveBinder.helperModifierMapping()",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "desc" : "The mapping used to display modifiers on helper.",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "name" : "showBindHelper",
         "stripped_doc" : [
           "whether to show helper, can be true of false"
         ],
-        "desc" : "whether to show helper, can be true of false",
-        "parameters" : [
-
-        ],
+        "def" : "RecursiveBinder.showBindHelper()",
+        "doc" : "whether to show helper, can be true of false",
         "notes" : [
 
         ],
@@ -293,20 +280,19 @@
         "returns" : [
 
         ],
-        "name" : "showBindHelper",
-        "def" : "RecursiveBinder.showBindHelper()"
+        "desc" : "whether to show helper, can be true of false",
+        "parameters" : [
+
+        ]
       },
       {
-        "doc" : "Bind sequential keys by a nested keymap.\n\nParameters:\n * keymap - A table that specifies the mapping.\n\nReturns:\n * A function to start. Bind it to a initial key binding.\n\nNote:\nSpec of keymap:\nEvery key is of format {{modifers}, key, (optional) description}\nThe first two element is what you usually pass into a hs.hotkey.bind() function.\n\nEach value of key can be in two form:\n1. A function. Then pressing the key invokes the function\n2. A table. Then pressing the key bring to another layer of keybindings.\n   And the table have the same format of top table: keys to keys, value to table or function",
+        "name" : "recursiveBind",
         "stripped_doc" : [
           "Bind sequential keys by a nested keymap.",
           ""
         ],
-        "desc" : "Bind sequential keys by a nested keymap.",
-        "parameters" : [
-          " * keymap - A table that specifies the mapping.",
-          ""
-        ],
+        "def" : "RecursiveBinder.recursiveBind(keymap)",
+        "doc" : "Bind sequential keys by a nested keymap.\n\nParameters:\n * keymap - A table that specifies the mapping.\n\nReturns:\n * A function to start. Bind it to a initial key binding.\n\nNote:\nSpec of keymap:\nEvery key is of format {{modifers}, key, (optional) description}\nThe first two element is what you usually pass into a hs.hotkey.bind() function.\n\nEach value of key can be in two form:\n1. A function. Then pressing the key invokes the function\n2. A table. Then pressing the key bring to another layer of keybindings.\n   And the table have the same format of top table: keys to keys, value to table or function",
         "notes" : [
 
         ],
@@ -325,22 +311,21 @@
           "2. A table. Then pressing the key bring to another layer of keybindings.",
           "   And the table have the same format of top table: keys to keys, value to table or function"
         ],
-        "name" : "recursiveBind",
-        "def" : "RecursiveBinder.recursiveBind(keymap)"
+        "desc" : "Bind sequential keys by a nested keymap.",
+        "parameters" : [
+          " * keymap - A table that specifies the mapping.",
+          ""
+        ]
       },
       {
-        "doc" : "this function simply return a table with empty modifiers\nalso it translates capital letters to normal letter with shift modifer\n\nParameters:\n * key - a letter\n * name - the description to pass to the keys binding function\n\nReturns:\n * a table of modifiers and keys and names, ready to be used in keymap\n   to pass to RecursiveBinder.recursiveBind()",
+        "name" : "singleKey",
         "stripped_doc" : [
           "this function simply return a table with empty modifiers",
           "also it translates capital letters to normal letter with shift modifer",
           ""
         ],
-        "desc" : "this function simply return a table with empty modifiers",
-        "parameters" : [
-          " * key - a letter",
-          " * name - the description to pass to the keys binding function",
-          ""
-        ],
+        "def" : "RecursiveBinder.singleKey(key, name)",
+        "doc" : "this function simply return a table with empty modifiers\nalso it translates capital letters to normal letter with shift modifer\n\nParameters:\n * key - a letter\n * name - the description to pass to the keys binding function\n\nReturns:\n * a table of modifiers and keys and names, ready to be used in keymap\n   to pass to RecursiveBinder.recursiveBind()",
         "notes" : [
 
         ],
@@ -350,9 +335,78 @@
           " * a table of modifiers and keys and names, ready to be used in keymap",
           "   to pass to RecursiveBinder.recursiveBind()"
         ],
-        "name" : "singleKey",
-        "def" : "RecursiveBinder.singleKey(key, name)"
+        "desc" : "this function simply return a table with empty modifiers",
+        "parameters" : [
+          " * key - a letter",
+          " * name - the description to pass to the keys binding function",
+          ""
+        ]
       }
+    ],
+    "Method" : [
+      {
+        "name" : "singleKey",
+        "stripped_doc" : [
+          "this function simply return a table with empty modifiers",
+          "also it translates capital letters to normal letter with shift modifer",
+          ""
+        ],
+        "def" : "RecursiveBinder.singleKey(key, name)",
+        "doc" : "this function simply return a table with empty modifiers\nalso it translates capital letters to normal letter with shift modifer\n\nParameters:\n * key - a letter\n * name - the description to pass to the keys binding function\n\nReturns:\n * a table of modifiers and keys and names, ready to be used in keymap\n   to pass to RecursiveBinder.recursiveBind()",
+        "notes" : [
+
+        ],
+        "signature" : "RecursiveBinder.singleKey(key, name)",
+        "type" : "Method",
+        "returns" : [
+          " * a table of modifiers and keys and names, ready to be used in keymap",
+          "   to pass to RecursiveBinder.recursiveBind()"
+        ],
+        "desc" : "this function simply return a table with empty modifiers",
+        "parameters" : [
+          " * key - a letter",
+          " * name - the description to pass to the keys binding function",
+          ""
+        ]
+      },
+      {
+        "name" : "recursiveBind",
+        "stripped_doc" : [
+          "Bind sequential keys by a nested keymap.",
+          ""
+        ],
+        "def" : "RecursiveBinder.recursiveBind(keymap)",
+        "doc" : "Bind sequential keys by a nested keymap.\n\nParameters:\n * keymap - A table that specifies the mapping.\n\nReturns:\n * A function to start. Bind it to a initial key binding.\n\nNote:\nSpec of keymap:\nEvery key is of format {{modifers}, key, (optional) description}\nThe first two element is what you usually pass into a hs.hotkey.bind() function.\n\nEach value of key can be in two form:\n1. A function. Then pressing the key invokes the function\n2. A table. Then pressing the key bring to another layer of keybindings.\n   And the table have the same format of top table: keys to keys, value to table or function",
+        "notes" : [
+
+        ],
+        "signature" : "RecursiveBinder.recursiveBind(keymap)",
+        "type" : "Method",
+        "returns" : [
+          " * A function to start. Bind it to a initial key binding.",
+          "",
+          "Note:",
+          "Spec of keymap:",
+          "Every key is of format {{modifers}, key, (optional) description}",
+          "The first two element is what you usually pass into a hs.hotkey.bind() function.",
+          "",
+          "Each value of key can be in two form:",
+          "1. A function. Then pressing the key invokes the function",
+          "2. A table. Then pressing the key bring to another layer of keybindings.",
+          "   And the table have the same format of top table: keys to keys, value to table or function"
+        ],
+        "desc" : "Bind sequential keys by a nested keymap.",
+        "parameters" : [
+          " * keymap - A table that specifies the mapping.",
+          ""
+        ]
+      }
+    ],
+    "Command" : [
+
+    ],
+    "Field" : [
+
     ],
     "doc" : "A spoon that let you bind sequential bindings.\nIt also (optionally) shows a bar about current keys bindings.",
     "name" : "RecursiveBinder"
