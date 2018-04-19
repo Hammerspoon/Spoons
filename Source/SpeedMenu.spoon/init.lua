@@ -20,8 +20,8 @@ function obj:init()
 end
 
 local function data_diff()
-    local in_seq = hs.execute(obj.instr)
-    local out_seq = hs.execute(obj.outstr)
+    local in_seq = tonumber(hs.execute(obj.instr))
+    local out_seq = tonumber(hs.execute(obj.outstr))
     local in_diff = in_seq - obj.inseq
     local out_diff = out_seq - obj.outseq
     if in_diff/1024 > 1024 then
