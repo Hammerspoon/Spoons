@@ -434,6 +434,7 @@ function obj:bindHotkeys(mapping)
       toggle_clipboard = hs.fnutils.partial(self.toggleClipboard, self),
    }
    hs.spoons.bindHotkeysToSpec(def, mapping)
+   obj.mapping = mapping
 end
 
 return obj
