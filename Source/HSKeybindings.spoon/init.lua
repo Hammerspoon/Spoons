@@ -1,6 +1,10 @@
 --- === HSKeybindings ===
 ---
---- Keybindings cheatsheet for current application
+--- Display Keybindings registered with bindHotkeys() and Spoons 
+--- 
+--- Spoons need to set the mapping in obj
+---
+--- Originally based on KSheet.spoon by ashfinal <ashfinal@gmail.com>
 ---
 --- Download: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/HSKeybindings.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/HSKeybindings.spoon.zip)
 
