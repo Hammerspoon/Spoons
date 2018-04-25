@@ -1,6 +1,6 @@
 --- === LookupSelection ===
 ---
---- Show a popup window with the Lexicon entry of the currently selected text
+--- Show a popup window with the currently selected word in lexicon, notes, online help
 ---
 --- The spoon uses hs.urlevent.openURL("dict://" .. text) 
 ---
@@ -93,14 +93,16 @@ end
 ---
 --- Parameters:
 ---  * mapping - A table containing hotkey modifier/key details for the following items:
----   * `lexicon` - 
----   * `neue_notiz` - 
+---   * `lexicon` - open in lexicon app
+---   * `neue_notiz` -  create new note in notes app
+---   * `hsdocs` -  display online help
 ---
 --- Sample value for `mapping`:
 --- ```
 ---  {
 ---     lexicon = { { "ctrl", "alt", "cmd" }, "L" },
 ---     neue_notiz = { { "ctrl", "alt", "cmd" }, "N" },
+---     hsdocs = { { "ctrl", "alt", "cmd" }, "H" },
 ---  }
 --- ```
 function obj:bindHotkeys(mapping)
