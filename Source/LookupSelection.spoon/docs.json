@@ -11,92 +11,12 @@
     ],
     "Variable" : [
       {
-        "desc" : "`hs.geometry` object representing the size to use for the translation popup window. Defaults to `hs.geometry.size(770, 610)`.",
-        "stripped_doc" : [
-          "`hs.geometry` object representing the size to use for the translation popup window. Defaults to `hs.geometry.size(770, 610)`."
-        ],
-        "def" : "LookupSelection.popup_size",
-        "doc" : "`hs.geometry` object representing the size to use for the translation popup window. Defaults to `hs.geometry.size(770, 610)`.",
-        "notes" : [
-
-        ],
-        "signature" : "LookupSelection.popup_size",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "name" : "popup_size",
-        "parameters" : [
-
-        ]
-      },
-      {
-        "desc" : "Value representing the window style to be used for the translation popup window. This value needs to be a valid argument to [`hs.webview.setStyle()`](http:\/\/www.hammerspoon.org\/docs\/hs.webview.html#windowStyle) (i.e. a combination of values from [`hs.webview.windowMasks`](http:\/\/www.hammerspoon.org\/docs\/hs.webview.html#windowMasks[]). Default value: `hs.webview.windowMasks.utility|hs.webview.windowMasks.HUD|hs.webview.windowMasks.titled|hs.webview.windowMasks.closable`",
-        "stripped_doc" : [
-          "Value representing the window style to be used for the translation popup window. This value needs to be a valid argument to [`hs.webview.setStyle()`](http:\/\/www.hammerspoon.org\/docs\/hs.webview.html#windowStyle) (i.e. a combination of values from [`hs.webview.windowMasks`](http:\/\/www.hammerspoon.org\/docs\/hs.webview.html#windowMasks[]). Default value: `hs.webview.windowMasks.utility|hs.webview.windowMasks.HUD|hs.webview.windowMasks.titled|hs.webview.windowMasks.closable`"
-        ],
-        "def" : "LookupSelection.popup_style",
-        "doc" : "Value representing the window style to be used for the translation popup window. This value needs to be a valid argument to [`hs.webview.setStyle()`](http:\/\/www.hammerspoon.org\/docs\/hs.webview.html#windowStyle) (i.e. a combination of values from [`hs.webview.windowMasks`](http:\/\/www.hammerspoon.org\/docs\/hs.webview.html#windowMasks[]). Default value: `hs.webview.windowMasks.utility|hs.webview.windowMasks.HUD|hs.webview.windowMasks.titled|hs.webview.windowMasks.closable`",
-        "notes" : [
-
-        ],
-        "signature" : "LookupSelection.popup_style",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "name" : "popup_style",
-        "parameters" : [
-
-        ]
-      },
-      {
-        "desc" : "If true, pressing ESC on the popup window will close it. Defaults to `true`",
-        "stripped_doc" : [
-          "If true, pressing ESC on the popup window will close it. Defaults to `true`"
-        ],
-        "def" : "LookupSelection.popup_close_on_escape",
-        "doc" : "If true, pressing ESC on the popup window will close it. Defaults to `true`",
-        "notes" : [
-
-        ],
-        "signature" : "LookupSelection.popup_close_on_escape",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "name" : "popup_close_on_escape",
-        "parameters" : [
-
-        ]
-      },
-      {
-        "desc" : "If true, the popup window will close after translated text is copied to pasteboard. Defaults to `true`",
-        "stripped_doc" : [
-          "If true, the popup window will close after translated text is copied to pasteboard. Defaults to `true`"
-        ],
-        "def" : "LookupSelection.popup_close_after_copy",
-        "doc" : "If true, the popup window will close after translated text is copied to pasteboard. Defaults to `true`",
-        "notes" : [
-
-        ],
-        "signature" : "LookupSelection.popup_close_after_copy",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "name" : "popup_close_after_copy",
-        "parameters" : [
-
-        ]
-      },
-      {
-        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "doc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "stripped_doc" : [
           "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
         ],
+        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "def" : "LookupSelection.logger",
-        "doc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "notes" : [
 
         ],
@@ -117,19 +37,79 @@
     "Deprecated" : [
 
     ],
-    "desc" : "Show a popup window with the Lexicon entry of the currently selected text",
+    "desc" : "Show a popup window with the currently selected word in lexicon, notes, online help",
     "type" : "Module",
     "Constructor" : [
 
     ],
+    "doc" : "Show a popup window with the currently selected word in lexicon, notes, online help\n\nThe spoon uses hs.urlevent.openURL(\"dict:\/\/\" .. text) \n\nDownload: [https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/LookupSelection.spoon.zip](https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/LookupSelection.spoon.zip)",
+    "Method" : [
+      {
+        "doc" : "Get the current selected text in the frontmost window and display a translation popup with the translation between the specified languages\n\nReturns:\n * The LookupSelection object",
+        "stripped_doc" : [
+          "Get the current selected text in the frontmost window and display a translation popup with the translation between the specified languages",
+          ""
+        ],
+        "desc" : "Get the current selected text in the frontmost window and display a translation popup with the translation between the specified languages",
+        "def" : "LookupSelection:openLexicon()",
+        "notes" : [
+
+        ],
+        "signature" : "LookupSelection:openLexicon()",
+        "type" : "Method",
+        "returns" : [
+          " * The LookupSelection object"
+        ],
+        "name" : "openLexicon",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "doc" : "Binds hotkeys for LookupSelection\n\nParameters:\n * mapping - A table containing hotkey modifier\/key details for the following items:\n  * `lexicon` - open in lexicon app\n  * `neue_notiz` -  create new note in notes app\n  * `hsdocs` -  display online help\n\nSample value for `mapping`:\n```\n {\n    lexicon = { { \"ctrl\", \"alt\", \"cmd\" }, \"L\" },\n    neue_notiz = { { \"ctrl\", \"alt\", \"cmd\" }, \"N\" },\n    hsdocs = { { \"ctrl\", \"alt\", \"cmd\" }, \"H\" },\n }\n```",
+        "stripped_doc" : [
+          "Binds hotkeys for LookupSelection",
+          ""
+        ],
+        "desc" : "Binds hotkeys for LookupSelection",
+        "def" : "LookupSelection:bindHotkeys(mapping)",
+        "notes" : [
+
+        ],
+        "signature" : "LookupSelection:bindHotkeys(mapping)",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "name" : "bindHotkeys",
+        "parameters" : [
+          " * mapping - A table containing hotkey modifier\/key details for the following items:",
+          "  * `lexicon` - open in lexicon app",
+          "  * `neue_notiz` -  create new note in notes app",
+          "  * `hsdocs` -  display online help",
+          "",
+          "Sample value for `mapping`:",
+          "```",
+          " {",
+          "    lexicon = { { \"ctrl\", \"alt\", \"cmd\" }, \"L\" },",
+          "    neue_notiz = { { \"ctrl\", \"alt\", \"cmd\" }, \"N\" },",
+          "    hsdocs = { { \"ctrl\", \"alt\", \"cmd\" }, \"H\" },",
+          " }",
+          "```"
+        ]
+      }
+    ],
+    "Command" : [
+
+    ],
     "items" : [
       {
-        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "doc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "stripped_doc" : [
           "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
         ],
+        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "def" : "LookupSelection.logger",
-        "doc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "notes" : [
 
         ],
@@ -144,93 +124,13 @@
         ]
       },
       {
-        "desc" : "If true, the popup window will close after translated text is copied to pasteboard. Defaults to `true`",
-        "stripped_doc" : [
-          "If true, the popup window will close after translated text is copied to pasteboard. Defaults to `true`"
-        ],
-        "def" : "LookupSelection.popup_close_after_copy",
-        "doc" : "If true, the popup window will close after translated text is copied to pasteboard. Defaults to `true`",
-        "notes" : [
-
-        ],
-        "signature" : "LookupSelection.popup_close_after_copy",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "name" : "popup_close_after_copy",
-        "parameters" : [
-
-        ]
-      },
-      {
-        "desc" : "If true, pressing ESC on the popup window will close it. Defaults to `true`",
-        "stripped_doc" : [
-          "If true, pressing ESC on the popup window will close it. Defaults to `true`"
-        ],
-        "def" : "LookupSelection.popup_close_on_escape",
-        "doc" : "If true, pressing ESC on the popup window will close it. Defaults to `true`",
-        "notes" : [
-
-        ],
-        "signature" : "LookupSelection.popup_close_on_escape",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "name" : "popup_close_on_escape",
-        "parameters" : [
-
-        ]
-      },
-      {
-        "desc" : "`hs.geometry` object representing the size to use for the translation popup window. Defaults to `hs.geometry.size(770, 610)`.",
-        "stripped_doc" : [
-          "`hs.geometry` object representing the size to use for the translation popup window. Defaults to `hs.geometry.size(770, 610)`."
-        ],
-        "def" : "LookupSelection.popup_size",
-        "doc" : "`hs.geometry` object representing the size to use for the translation popup window. Defaults to `hs.geometry.size(770, 610)`.",
-        "notes" : [
-
-        ],
-        "signature" : "LookupSelection.popup_size",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "name" : "popup_size",
-        "parameters" : [
-
-        ]
-      },
-      {
-        "desc" : "Value representing the window style to be used for the translation popup window. This value needs to be a valid argument to [`hs.webview.setStyle()`](http:\/\/www.hammerspoon.org\/docs\/hs.webview.html#windowStyle) (i.e. a combination of values from [`hs.webview.windowMasks`](http:\/\/www.hammerspoon.org\/docs\/hs.webview.html#windowMasks[]). Default value: `hs.webview.windowMasks.utility|hs.webview.windowMasks.HUD|hs.webview.windowMasks.titled|hs.webview.windowMasks.closable`",
-        "stripped_doc" : [
-          "Value representing the window style to be used for the translation popup window. This value needs to be a valid argument to [`hs.webview.setStyle()`](http:\/\/www.hammerspoon.org\/docs\/hs.webview.html#windowStyle) (i.e. a combination of values from [`hs.webview.windowMasks`](http:\/\/www.hammerspoon.org\/docs\/hs.webview.html#windowMasks[]). Default value: `hs.webview.windowMasks.utility|hs.webview.windowMasks.HUD|hs.webview.windowMasks.titled|hs.webview.windowMasks.closable`"
-        ],
-        "def" : "LookupSelection.popup_style",
-        "doc" : "Value representing the window style to be used for the translation popup window. This value needs to be a valid argument to [`hs.webview.setStyle()`](http:\/\/www.hammerspoon.org\/docs\/hs.webview.html#windowStyle) (i.e. a combination of values from [`hs.webview.windowMasks`](http:\/\/www.hammerspoon.org\/docs\/hs.webview.html#windowMasks[]). Default value: `hs.webview.windowMasks.utility|hs.webview.windowMasks.HUD|hs.webview.windowMasks.titled|hs.webview.windowMasks.closable`",
-        "notes" : [
-
-        ],
-        "signature" : "LookupSelection.popup_style",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "name" : "popup_style",
-        "parameters" : [
-
-        ]
-      },
-      {
-        "desc" : "Binds hotkeys for LookupSelection",
+        "doc" : "Binds hotkeys for LookupSelection\n\nParameters:\n * mapping - A table containing hotkey modifier\/key details for the following items:\n  * `lexicon` - open in lexicon app\n  * `neue_notiz` -  create new note in notes app\n  * `hsdocs` -  display online help\n\nSample value for `mapping`:\n```\n {\n    lexicon = { { \"ctrl\", \"alt\", \"cmd\" }, \"L\" },\n    neue_notiz = { { \"ctrl\", \"alt\", \"cmd\" }, \"N\" },\n    hsdocs = { { \"ctrl\", \"alt\", \"cmd\" }, \"H\" },\n }\n```",
         "stripped_doc" : [
           "Binds hotkeys for LookupSelection",
           ""
         ],
+        "desc" : "Binds hotkeys for LookupSelection",
         "def" : "LookupSelection:bindHotkeys(mapping)",
-        "doc" : "Binds hotkeys for LookupSelection\n\nParameters:\n * mapping - A table containing hotkey modifier\/key details for the following items:\n  * `lexicon` - \n  * `neue_notiz` - \n\nSample value for `mapping`:\n```\n {\n    lexicon = { { \"ctrl\", \"alt\", \"cmd\" }, \"L\" },\n    neue_notiz = { { \"ctrl\", \"alt\", \"cmd\" }, \"N\" },\n }\n```",
         "notes" : [
 
         ],
@@ -242,26 +142,28 @@
         "name" : "bindHotkeys",
         "parameters" : [
           " * mapping - A table containing hotkey modifier\/key details for the following items:",
-          "  * `lexicon` - ",
-          "  * `neue_notiz` - ",
+          "  * `lexicon` - open in lexicon app",
+          "  * `neue_notiz` -  create new note in notes app",
+          "  * `hsdocs` -  display online help",
           "",
           "Sample value for `mapping`:",
           "```",
           " {",
           "    lexicon = { { \"ctrl\", \"alt\", \"cmd\" }, \"L\" },",
           "    neue_notiz = { { \"ctrl\", \"alt\", \"cmd\" }, \"N\" },",
+          "    hsdocs = { { \"ctrl\", \"alt\", \"cmd\" }, \"H\" },",
           " }",
           "```"
         ]
       },
       {
-        "desc" : "Get the current selected text in the frontmost window and display a translation popup with the translation between the specified languages",
+        "doc" : "Get the current selected text in the frontmost window and display a translation popup with the translation between the specified languages\n\nReturns:\n * The LookupSelection object",
         "stripped_doc" : [
           "Get the current selected text in the frontmost window and display a translation popup with the translation between the specified languages",
           ""
         ],
+        "desc" : "Get the current selected text in the frontmost window and display a translation popup with the translation between the specified languages",
         "def" : "LookupSelection:openLexicon()",
-        "doc" : "Get the current selected text in the frontmost window and display a translation popup with the translation between the specified languages\n\nReturns:\n * The LookupSelection object",
         "notes" : [
 
         ],
@@ -276,65 +178,7 @@
         ]
       }
     ],
-    "Method" : [
-      {
-        "desc" : "Get the current selected text in the frontmost window and display a translation popup with the translation between the specified languages",
-        "stripped_doc" : [
-          "Get the current selected text in the frontmost window and display a translation popup with the translation between the specified languages",
-          ""
-        ],
-        "def" : "LookupSelection:openLexicon()",
-        "doc" : "Get the current selected text in the frontmost window and display a translation popup with the translation between the specified languages\n\nReturns:\n * The LookupSelection object",
-        "notes" : [
-
-        ],
-        "signature" : "LookupSelection:openLexicon()",
-        "type" : "Method",
-        "returns" : [
-          " * The LookupSelection object"
-        ],
-        "name" : "openLexicon",
-        "parameters" : [
-
-        ]
-      },
-      {
-        "desc" : "Binds hotkeys for LookupSelection",
-        "stripped_doc" : [
-          "Binds hotkeys for LookupSelection",
-          ""
-        ],
-        "def" : "LookupSelection:bindHotkeys(mapping)",
-        "doc" : "Binds hotkeys for LookupSelection\n\nParameters:\n * mapping - A table containing hotkey modifier\/key details for the following items:\n  * `lexicon` - \n  * `neue_notiz` - \n\nSample value for `mapping`:\n```\n {\n    lexicon = { { \"ctrl\", \"alt\", \"cmd\" }, \"L\" },\n    neue_notiz = { { \"ctrl\", \"alt\", \"cmd\" }, \"N\" },\n }\n```",
-        "notes" : [
-
-        ],
-        "signature" : "LookupSelection:bindHotkeys(mapping)",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "name" : "bindHotkeys",
-        "parameters" : [
-          " * mapping - A table containing hotkey modifier\/key details for the following items:",
-          "  * `lexicon` - ",
-          "  * `neue_notiz` - ",
-          "",
-          "Sample value for `mapping`:",
-          "```",
-          " {",
-          "    lexicon = { { \"ctrl\", \"alt\", \"cmd\" }, \"L\" },",
-          "    neue_notiz = { { \"ctrl\", \"alt\", \"cmd\" }, \"N\" },",
-          " }",
-          "```"
-        ]
-      }
-    ],
-    "doc" : "Show a popup window with the Lexicon entry of the currently selected text\n\nThe spoon uses hs.urlevent.openURL(\"dict:\/\/\" .. text) \n\nDownload: [https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/LookupSelection.spoon.zip](https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/LookupSelection.spoon.zip)",
     "Field" : [
-
-    ],
-    "Command" : [
 
     ],
     "name" : "LookupSelection"
