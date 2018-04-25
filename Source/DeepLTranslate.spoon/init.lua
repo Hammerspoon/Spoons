@@ -50,6 +50,21 @@ obj.logger = hs.logger.new('DeepLTranslate')
 
 ----------------------------------------------------------------------
 
+function obj:modalOKCallback()
+   -- print("modalCallback")
+   hs.eventtap.keyStroke({"cmd"}, "a")
+   hs.eventtap.keyStroke({"cmd"}, "c")
+   hs.eventtap.keyStroke({"cmd"}, "w")
+   self.modal_keys:exit()
+
+   if self.prevFocusedWindow ~= nil then
+      hs.timer.doAfter(1, function() 
+        self.prevFocusedWindow:focus()
+        hs.timer.doAfter(0.5, function() hs.eventtap.keyStroke({"ctrl"}, "v") end)
+      end)
+   end
+end
+
 -- Internal variable - the hs.webview object for the popup
 obj.webview = nil
 
@@ -64,6 +79,11 @@ obj.webview = nil
 ---  * The DeepLTranslate object
 function obj:translatePopup(text)
    local url = "https://www.deepl.com/translator"
+
+   self.modal_keys = hs.hotkey.modal.new()
+   self.modal_keys:bind({"cmd", "alt", "ctrl"}, "O", 
+                              hs.fnutils.partial(self.modalOKCallback, self))
+   self.modal_keys:enter()
    -- Persist the window between calls to reduce startup time on subsequent calls
    if self.webview == nil then
       local rect = hs.geometry.rect(0, 0, self.popup_size.w, self.popup_size.h)
@@ -80,17 +100,74 @@ function obj:translatePopup(text)
    hs.timer.doAfter(1, function() 
          hs.eventtap.keyStroke({"cmd"}, "v")
       end)
-   hs.timer.doAfter(2, function() 
+   hs.timer.doAfter(1.5, function() 
          hs.eventtap.keyStroke({}, "tab")
       end)
 
-   hs.timer.doAfter(5, function() 
+--[[   hs.timer.doAfter(5, function() 
          hs.eventtap.keyStroke({"cmd"}, "a")
          hs.eventtap.keyStroke({"cmd"}, "c")
          if self.popup_close_after_copy then
             hs.eventtap.keyStroke({"cmd"}, "w")
          end
       end)
+--]]
+   return self
+end
+
+--- DeepLTranslate:translatePopup(text)
+--- Method
+--- Display a translation popup with the translation of the given text
+---
+--- Parameters:
+---  * text - string containing the text to translate
+---
+--- Returns:
+---  * The DeepLTranslate object
+function obj:rephrasePopup(text)
+   local url = "https://www.deepl.com/translator"
+
+   self.modal_keys = hs.hotkey.modal.new()
+   self.modal_keys:bind({"cmd", "alt", "ctrl"}, "O", 
+                              hs.fnutils.partial(self.modalOKCallback, self))
+   self.modal_keys:enter()
+   -- Persist the window between calls to reduce startup time on subsequent calls
+   if self.webview == nil then
+      local rect = hs.geometry.rect(0, 0, self.popup_size.w, self.popup_size.h)
+      rect.center = hs.screen.mainScreen():frame().center
+      self.webview=hs.webview.new(rect)
+         :allowTextEntry(true)
+         :windowStyle(self.popup_style)
+         :closeOnEscape(self.popup_close_on_escape)
+   end
+   self.webview:url(url)
+      :bringToFront()
+      :show()
+   self.webview:hswindow():focus()
+   hs.timer.doAfter(1, function() 
+         hs.eventtap.keyStroke({"cmd"}, "v")
+      end)
+   hs.timer.doAfter(1.5, function() 
+         hs.eventtap.keyStroke({}, "tab")
+         hs.timer.doAfter(1.5, function() 
+            hs.eventtap.keyStroke({"cmd"}, "a")
+            hs.timer.doAfter(0.5, function() 
+               hs.eventtap.keyStroke({"cmd"}, "c")
+               hs.timer.usleep(100000)
+               hs.eventtap.keyStroke({"shift"}, "tab")
+               hs.timer.doAfter(1.0, function() 
+                  hs.eventtap.keyStroke({"cmd"}, "a")
+                  hs.eventtap.keyStroke({"cmd"}, "v")
+                  hs.timer.doAfter(1.0, function() 
+                     hs.eventtap.keyStroke({}, "tab")
+                     end)
+                  end)
+
+                end)
+            end)
+
+          end)
+
 
    return self
 end
@@ -109,6 +186,8 @@ function current_selection()
       hs.eventtap.keyStroke({"cmd"}, "c")
       hs.timer.usleep(20000)
       sel=hs.pasteboard.getContents()
+   else
+      print("sel:" .. sel)   
    end
    return (sel or "")
 end
@@ -120,8 +199,15 @@ end
 --- Returns:
 ---  * The DeepLTranslate object
 function obj:translateSelectionPopup()
+   self.prevFocusedWindow = hs.window.focusedWindow()
    local text=current_selection()
    return self:translatePopup(text)
+end
+
+function obj:rephraseSelectionPopup()
+   self.prevFocusedWindow = hs.window.focusedWindow()
+   local text=current_selection()
+   return self:rephrasePopup(text)
 end
 
 --- DeepLTranslate:bindHotkeys(mapping)
@@ -143,11 +229,14 @@ function obj:bindHotkeys(mapping)
    for action,key in pairs(mapping) do
       if action == "translate" then
          def.translate = hs.fnutils.partial(self.translateSelectionPopup, self)
+      elseif action == "rephrase" then
+         def.rephrase = hs.fnutils.partial(self.rephraseSelectionPopup, self)
       else 
          self.logger.ef("Invalid hotkey action '%s'", action)
       end
    end
    hs.spoons.bindHotkeysToSpec(def, mapping)
+   obj.mapping = mapping
 end
 
 return obj
