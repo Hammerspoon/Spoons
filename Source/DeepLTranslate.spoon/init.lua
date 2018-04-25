@@ -3,7 +3,8 @@
 --- Show a popup window with the translation of the currently selected text
 ---
 --- The spoon uses the https://www.deepl.com translator page
---- The selected text is copied into the source field, the translation is copied to pasteboard
+--- The selected text is copied into the source field.  
+--- The modal hotkey cmd+alt+ctrl+O replaces the selected text with the translation
 ---
 --- Supported language codes are listed at https://www.deepl.com/translator
 ---
@@ -60,7 +61,7 @@ function obj:modalOKCallback()
    if self.prevFocusedWindow ~= nil then
       hs.timer.doAfter(1, function() 
         self.prevFocusedWindow:focus()
-        hs.timer.doAfter(0.5, function() hs.eventtap.keyStroke({"ctrl"}, "v") end)
+        hs.timer.doAfter(0.5, function() hs.eventtap.keyStroke({"cmd"}, "v") end)
       end)
    end
 end
@@ -221,7 +222,7 @@ end
 --- Sample value for `mapping`:
 --- ```
 ---  {
----     translate = { { "ctrl", "alt", "cmd" }, "e" },
+---     translate = { { "ctrl", "alt", "cmd" }, "E" },
 ---  }
 --- ```
 function obj:bindHotkeys(mapping)
