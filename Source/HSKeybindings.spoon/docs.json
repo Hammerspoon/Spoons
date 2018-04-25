@@ -1,0 +1,119 @@
+[
+  {
+    "Constant" : [
+
+    ],
+    "submodules" : [
+
+    ],
+    "Function" : [
+
+    ],
+    "Variable" : [
+
+    ],
+    "stripped_doc" : [
+
+    ],
+    "type" : "Module",
+    "Deprecated" : [
+
+    ],
+    "desc" : "Keybindings cheatsheet for current application",
+    "Constructor" : [
+
+    ],
+    "Field" : [
+
+    ],
+    "items" : [
+      {
+        "doc" : "Hide the cheatsheet webview",
+        "stripped_doc" : [
+          "Hide the cheatsheet webview"
+        ],
+        "desc" : "Hide the cheatsheet webview",
+        "parameters" : [
+
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "HSKeybindings:hide()",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "name" : "hide",
+        "def" : "HSKeybindings:hide()"
+      },
+      {
+        "doc" : "Show current application's keybindings in a webview",
+        "stripped_doc" : [
+          "Show current application's keybindings in a webview"
+        ],
+        "desc" : "Show current application's keybindings in a webview",
+        "parameters" : [
+
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "HSKeybindings:show()",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "name" : "show",
+        "def" : "HSKeybindings:show()"
+      }
+    ],
+    "Command" : [
+
+    ],
+    "Method" : [
+      {
+        "doc" : "Show current application's keybindings in a webview",
+        "stripped_doc" : [
+          "Show current application's keybindings in a webview"
+        ],
+        "desc" : "Show current application's keybindings in a webview",
+        "parameters" : [
+
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "HSKeybindings:show()",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "name" : "show",
+        "def" : "HSKeybindings:show()"
+      },
+      {
+        "doc" : "Hide the cheatsheet webview",
+        "stripped_doc" : [
+          "Hide the cheatsheet webview"
+        ],
+        "desc" : "Hide the cheatsheet webview",
+        "parameters" : [
+
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "HSKeybindings:hide()",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "name" : "hide",
+        "def" : "HSKeybindings:hide()"
+      }
+    ],
+    "doc" : "Keybindings cheatsheet for current application\n\nDownload: [https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/HSKeybindings.spoon.zip](https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/HSKeybindings.spoon.zip)",
+    "name" : "HSKeybindings"
+  }
+]
