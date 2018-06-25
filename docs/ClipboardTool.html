@@ -1,0 +1,483 @@
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hammerspoon docs: ClipboardTool</title>
+    <style type="text/css">
+      a { text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      th { background-color: #DDDDDD; vertical-align: top; padding: 3px; }
+      td { width: 100%; background-color: #EEEEEE; vertical-align: top; padding: 3px; }
+      table { width: 100% ; border: 1px solid #0; text-align: left; }
+      section > table table td { width: 0; }
+    </style>
+    <link rel="stylesheet" href="docs.css" type="text/css" media="screen" />
+  </head>
+  <body>
+    <header>
+      <h1><a href="./index.html">docs</a> &raquo; ClipboardTool</h1>
+      <p>Keep a history of the clipboard for text entries and manage the entries with a context menu</p>
+<p>Originally based on TextClipboardHistory.spoon by Diego Zamboni with additional functions provided by a context menu 
+and on <a href="https://github.com/VFS/.hammerspoon/blob/master/tools/clipboard.lua">code by VFS</a>, but with many changes and some contributions and inspiration from <a href="https://github.com/asmagill/hammerspoon-config/blob/master/utils/_menus/newClipper.lua">asmagill</a>.</p>
+<p>Download: <a href="https://github.com/Hammerspoon/Spoons/raw/master/Spoons/ClipboardTool.spoon.zip">https://github.com/Hammerspoon/Spoons/raw/master/Spoons/ClipboardTool.spoon.zip</a></p>
+
+      </header>
+      <h3>API Overview</h3>
+      <ul>
+        <li>Variables - Configurable values</li>
+          <ul>
+            <li><a href="#deduplicate">deduplicate</a></li>
+            <li><a href="#frequency">frequency</a></li>
+            <li><a href="#hist_size">hist_size</a></li>
+            <li><a href="#honor_ignoredidentifiers">honor_ignoredidentifiers</a></li>
+            <li><a href="#ignoredIdentifiers">ignoredIdentifiers</a></li>
+            <li><a href="#logger">logger</a></li>
+            <li><a href="#max_entry_size">max_entry_size</a></li>
+            <li><a href="#max_size">max_size</a></li>
+            <li><a href="#menubar_title">menubar_title</a></li>
+            <li><a href="#paste_on_select">paste_on_select</a></li>
+            <li><a href="#show_in_menubar">show_in_menubar</a></li>
+          </ul>
+        <li>Methods - API calls which can only be made on an object returned by a constructor</li>
+          <ul>
+            <li><a href="#bindHotkeys">bindHotkeys</a></li>
+            <li><a href="#checkAndStorePasteboard">checkAndStorePasteboard</a></li>
+            <li><a href="#clearAll">clearAll</a></li>
+            <li><a href="#clearLastItem">clearLastItem</a></li>
+            <li><a href="#pasteboardToClipboard">pasteboardToClipboard</a></li>
+            <li><a href="#shouldBeStored">shouldBeStored</a></li>
+            <li><a href="#showClipboard">showClipboard</a></li>
+            <li><a href="#start">start</a></li>
+            <li><a href="#toggleClipboard">toggleClipboard</a></li>
+            <li><a href="#togglePasteOnSelect">togglePasteOnSelect</a></li>
+          </ul>
+      </ul>
+      <h3>API Documentation</h3>
+        <h4 class="documentation-section">Variables</h4>
+          <section id="deduplicate">
+            <a name="//apple_ref/cpp/Variable/deduplicate" class="dashAnchor"></a>
+            <h5><a href="#deduplicate">deduplicate</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>ClipboardTool.deduplicate</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Whether to remove duplicates from the list, keeping only the latest one. Defaults to <code>true</code>.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="frequency">
+            <a name="//apple_ref/cpp/Variable/frequency" class="dashAnchor"></a>
+            <h5><a href="#frequency">frequency</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>ClipboardTool.frequency</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Speed in seconds to check for clipboard changes. If you check too frequently, you will degrade performance, if you check sparsely you will loose copies. Defaults to 0.8.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="hist_size">
+            <a name="//apple_ref/cpp/Variable/hist_size" class="dashAnchor"></a>
+            <h5><a href="#hist_size">hist_size</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>ClipboardTool.hist_size</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>How many items to keep on history. Defaults to 100</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="honor_ignoredidentifiers">
+            <a name="//apple_ref/cpp/Variable/honor_ignoredidentifiers" class="dashAnchor"></a>
+            <h5><a href="#honor_ignoredidentifiers">honor_ignoredidentifiers</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>ClipboardTool.honor_ignoredidentifiers</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>If <code>true</code>, check the data identifiers set in the pasteboard and ignore entries which match those listed in <code>ClipboardTool.ignoredIdentifiers</code>. The list of identifiers comes from <a href="http://nspasteboard.org">http://nspasteboard.org</a>. Defaults to <code>true</code></p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="ignoredIdentifiers">
+            <a name="//apple_ref/cpp/Variable/ignoredIdentifiers" class="dashAnchor"></a>
+            <h5><a href="#ignoredIdentifiers">ignoredIdentifiers</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>ClipboardTool.ignoredIdentifiers</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Types of clipboard entries to ignore, see <a href="http://nspasteboard.org">http://nspasteboard.org</a>. Code from <a href="https://github.com/asmagill/hammerspoon-config/blob/master/utils/_menus/newClipper.lua">https://github.com/asmagill/hammerspoon-config/blob/master/utils/_menus/newClipper.lua</a>. Default value (don't modify unless you know what you are doing):</p>
+
+<pre><code> {
+    ["de.petermaurer.TransientPasteboardType"] = true, -- Transient : Textpander, TextExpander, Butler
+    ["com.typeit4me.clipping"]                 = true, -- Transient : TypeIt4Me
+    ["Pasteboard generator type"]              = true, -- Transient : Typinator
+    ["com.agilebits.onepassword"]              = true, -- Confidential : 1Password
+    ["org.nspasteboard.TransientType"]         = true, -- Universal, Transient
+    ["org.nspasteboard.ConcealedType"]         = true, -- Universal, Concealed
+    ["org.nspasteboard.AutoGeneratedType"]     = true, -- Universal, Automatic
+ }</code></pre>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="logger">
+            <a name="//apple_ref/cpp/Variable/logger" class="dashAnchor"></a>
+            <h5><a href="#logger">logger</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>ClipboardTool.logger</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="max_entry_size">
+            <a name="//apple_ref/cpp/Variable/max_entry_size" class="dashAnchor"></a>
+            <h5><a href="#max_entry_size">max_entry_size</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>ClipboardTool.max_entry_size</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>maximum size of a text entry</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="max_size">
+            <a name="//apple_ref/cpp/Variable/max_size" class="dashAnchor"></a>
+            <h5><a href="#max_size">max_size</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>ClipboardTool.max_size</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Whether to check the maximum size of an entry. Defaults to <code>false</code>.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="menubar_title">
+            <a name="//apple_ref/cpp/Variable/menubar_title" class="dashAnchor"></a>
+            <h5><a href="#menubar_title">menubar_title</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>ClipboardTool.menubar_title</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>String to show in the menubar if <code>ClipboardTool.show_in_menubar</code> is <code>true</code>. Defaults to <code>"\u{1f4ce}"</code>, which is the <a href="https://codepoints.net/U+1F4CE">Unicode paperclip character</a></p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="paste_on_select">
+            <a name="//apple_ref/cpp/Variable/paste_on_select" class="dashAnchor"></a>
+            <h5><a href="#paste_on_select">paste_on_select</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>ClipboardTool.paste_on_select</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Whether to auto-type the item when selecting it from the menu. Can be toggled on the fly from the chooser. Defaults to <code>false</code>.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="show_in_menubar">
+            <a name="//apple_ref/cpp/Variable/show_in_menubar" class="dashAnchor"></a>
+            <h5><a href="#show_in_menubar">show_in_menubar</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>ClipboardTool.show_in_menubar</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Whether to show a menubar item to open the clipboard history. Defaults to <code>true</code></p>
+</td>
+              </tr>
+            </table>
+          </section>
+        <h4 class="documentation-section">Methods</h4>
+          <section id="bindHotkeys">
+            <a name="//apple_ref/cpp/Method/bindHotkeys" class="dashAnchor"></a>
+            <h5><a href="#bindHotkeys">bindHotkeys</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>ClipboardTool:bindHotkeys(mapping)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Binds hotkeys for ClipboardTool</p>
+<p>Parameters:</p>
+<ul>
+<li>mapping - A table containing hotkey objifier/key details for the following items:<ul>
+<li>show_clipboard - Display the clipboard history chooser</li>
+<li>toggle_clipboard - Show/hide the clipboard history chooser</li>
+</ul>
+</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="checkAndStorePasteboard">
+            <a name="//apple_ref/cpp/Method/checkAndStorePasteboard" class="dashAnchor"></a>
+            <h5><a href="#checkAndStorePasteboard">checkAndStorePasteboard</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>ClipboardTool:checkAndStorePasteboard()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>If the pasteboard has changed, we add the current item to our history and update the counter</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="clearAll">
+            <a name="//apple_ref/cpp/Method/clearAll" class="dashAnchor"></a>
+            <h5><a href="#clearAll">clearAll</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>ClipboardTool:clearAll()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Clears the clipboard and history</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="clearLastItem">
+            <a name="//apple_ref/cpp/Method/clearLastItem" class="dashAnchor"></a>
+            <h5><a href="#clearLastItem">clearLastItem</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>ClipboardTool:clearLastItem()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Clears the last added to the history</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="pasteboardToClipboard">
+            <a name="//apple_ref/cpp/Method/pasteboardToClipboard" class="dashAnchor"></a>
+            <h5><a href="#pasteboardToClipboard">pasteboardToClipboard</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>ClipboardTool:pasteboardToClipboard(item)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Add the given string to the history</p>
+<p>Parameters:</p>
+<ul>
+<li>item - string to add to the clipboard history</li>
+</ul>
+<p>Returns:</p>
+<ul>
+<li>None</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="shouldBeStored">
+            <a name="//apple_ref/cpp/Method/shouldBeStored" class="dashAnchor"></a>
+            <h5><a href="#shouldBeStored">shouldBeStored</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>ClipboardTool:shouldBeStored()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Verify whether the pasteboard contents matches one of the values in <code>ClipboardTool.ignoredIdentifiers</code></p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="showClipboard">
+            <a name="//apple_ref/cpp/Method/showClipboard" class="dashAnchor"></a>
+            <h5><a href="#showClipboard">showClipboard</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>ClipboardTool:showClipboard()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Display the current clipboard list in a chooser</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="start">
+            <a name="//apple_ref/cpp/Method/start" class="dashAnchor"></a>
+            <h5><a href="#start">start</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>ClipboardTool:start()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Start the clipboard history collector</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="toggleClipboard">
+            <a name="//apple_ref/cpp/Method/toggleClipboard" class="dashAnchor"></a>
+            <h5><a href="#toggleClipboard">toggleClipboard</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>ClipboardTool:toggleClipboard()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Show/hide the clipboard list, depending on its current state</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="togglePasteOnSelect">
+            <a name="//apple_ref/cpp/Method/togglePasteOnSelect" class="dashAnchor"></a>
+            <h5><a href="#togglePasteOnSelect">togglePasteOnSelect</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>ClipboardTool:togglePasteOnSelect()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Toggle the value of <code>ClipboardTool.paste_on_select</code></p>
+</td>
+              </tr>
+            </table>
+          </section>
+  </body>
+</html>

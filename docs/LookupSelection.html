@@ -1,0 +1,116 @@
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hammerspoon docs: LookupSelection</title>
+    <style type="text/css">
+      a { text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      th { background-color: #DDDDDD; vertical-align: top; padding: 3px; }
+      td { width: 100%; background-color: #EEEEEE; vertical-align: top; padding: 3px; }
+      table { width: 100% ; border: 1px solid #0; text-align: left; }
+      section > table table td { width: 0; }
+    </style>
+    <link rel="stylesheet" href="docs.css" type="text/css" media="screen" />
+  </head>
+  <body>
+    <header>
+      <h1><a href="./index.html">docs</a> &raquo; LookupSelection</h1>
+      <p>Show a popup window with the currently selected word in lexicon, notes, online help</p>
+<p>The spoon uses hs.urlevent.openURL("dict://" .. text)</p>
+<p>Download: <a href="https://github.com/Hammerspoon/Spoons/raw/master/Spoons/LookupSelection.spoon.zip">https://github.com/Hammerspoon/Spoons/raw/master/Spoons/LookupSelection.spoon.zip</a></p>
+
+      </header>
+      <h3>API Overview</h3>
+      <ul>
+        <li>Variables - Configurable values</li>
+          <ul>
+            <li><a href="#logger">logger</a></li>
+          </ul>
+        <li>Methods - API calls which can only be made on an object returned by a constructor</li>
+          <ul>
+            <li><a href="#bindHotkeys">bindHotkeys</a></li>
+            <li><a href="#openLexicon">openLexicon</a></li>
+          </ul>
+      </ul>
+      <h3>API Documentation</h3>
+        <h4 class="documentation-section">Variables</h4>
+          <section id="logger">
+            <a name="//apple_ref/cpp/Variable/logger" class="dashAnchor"></a>
+            <h5><a href="#logger">logger</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>LookupSelection.logger</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+        <h4 class="documentation-section">Methods</h4>
+          <section id="bindHotkeys">
+            <a name="//apple_ref/cpp/Method/bindHotkeys" class="dashAnchor"></a>
+            <h5><a href="#bindHotkeys">bindHotkeys</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>LookupSelection:bindHotkeys(mapping)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Binds hotkeys for LookupSelection</p>
+<p>Parameters:</p>
+<ul>
+<li>mapping - A table containing hotkey modifier/key details for the following items:<ul>
+<li><code>lexicon</code> - open in lexicon app</li>
+<li><code>neue_notiz</code> -  create new note in notes app</li>
+<li><code>hsdocs</code> -  display online help</li>
+</ul>
+</li>
+</ul>
+<p>Sample value for <code>mapping</code>:</p>
+
+<pre><code> {
+    lexicon = { { "ctrl", "alt", "cmd" }, "L" },
+    neue_notiz = { { "ctrl", "alt", "cmd" }, "N" },
+    hsdocs = { { "ctrl", "alt", "cmd" }, "H" },
+ }</code></pre>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="openLexicon">
+            <a name="//apple_ref/cpp/Method/openLexicon" class="dashAnchor"></a>
+            <h5><a href="#openLexicon">openLexicon</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>LookupSelection:openLexicon()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Get the current selected text in the frontmost window and display a translation popup with the translation between the specified languages</p>
+<p>Returns:</p>
+<ul>
+<li>The LookupSelection object</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+  </body>
+</html>

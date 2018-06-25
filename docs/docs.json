@@ -455,6 +455,426 @@
     "Function": [],
     "Method": [
       {
+        "def": "ClipboardTool:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for ClipboardTool",
+        "doc": "Binds hotkeys for ClipboardTool\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n  * show_clipboard - Display the clipboard history chooser\n  * toggle_clipboard - Show/hide the clipboard history chooser",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * mapping - A table containing hotkey objifier/key details for the following items:",
+          "  * show_clipboard - Display the clipboard history chooser",
+          "  * toggle_clipboard - Show/hide the clipboard history chooser"
+        ],
+        "signature": "ClipboardTool:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "ClipboardTool:checkAndStorePasteboard()",
+        "desc": "If the pasteboard has changed, we add the current item to our history and update the counter",
+        "doc": "If the pasteboard has changed, we add the current item to our history and update the counter",
+        "name": "checkAndStorePasteboard",
+        "signature": "ClipboardTool:checkAndStorePasteboard()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "ClipboardTool:clearAll()",
+        "desc": "Clears the clipboard and history",
+        "doc": "Clears the clipboard and history",
+        "name": "clearAll",
+        "signature": "ClipboardTool:clearAll()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "ClipboardTool:clearLastItem()",
+        "desc": "Clears the last added to the history",
+        "doc": "Clears the last added to the history",
+        "name": "clearLastItem",
+        "signature": "ClipboardTool:clearLastItem()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "ClipboardTool:pasteboardToClipboard(item)",
+        "desc": "Add the given string to the history",
+        "doc": "Add the given string to the history\n\nParameters:\n * item - string to add to the clipboard history\n\nReturns:\n * None",
+        "name": "pasteboardToClipboard",
+        "parameters": [
+          " * item - string to add to the clipboard history"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "ClipboardTool:pasteboardToClipboard(item)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "ClipboardTool:shouldBeStored()",
+        "desc": "Verify whether the pasteboard contents matches one of the values in `ClipboardTool.ignoredIdentifiers`",
+        "doc": "Verify whether the pasteboard contents matches one of the values in `ClipboardTool.ignoredIdentifiers`",
+        "name": "shouldBeStored",
+        "signature": "ClipboardTool:shouldBeStored()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "ClipboardTool:showClipboard()",
+        "desc": "Display the current clipboard list in a chooser",
+        "doc": "Display the current clipboard list in a chooser",
+        "name": "showClipboard",
+        "signature": "ClipboardTool:showClipboard()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "ClipboardTool:start()",
+        "desc": "Start the clipboard history collector",
+        "doc": "Start the clipboard history collector",
+        "name": "start",
+        "signature": "ClipboardTool:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "ClipboardTool:toggleClipboard()",
+        "desc": "Show/hide the clipboard list, depending on its current state",
+        "doc": "Show/hide the clipboard list, depending on its current state",
+        "name": "toggleClipboard",
+        "signature": "ClipboardTool:toggleClipboard()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "ClipboardTool:togglePasteOnSelect()",
+        "desc": "Toggle the value of `ClipboardTool.paste_on_select`",
+        "doc": "Toggle the value of `ClipboardTool.paste_on_select`",
+        "name": "togglePasteOnSelect",
+        "signature": "ClipboardTool:togglePasteOnSelect()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [
+      {
+        "def": "ClipboardTool.deduplicate",
+        "desc": "Whether to remove duplicates from the list, keeping only the latest one. Defaults to `true`.",
+        "doc": "Whether to remove duplicates from the list, keeping only the latest one. Defaults to `true`.",
+        "name": "deduplicate",
+        "signature": "ClipboardTool.deduplicate",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "ClipboardTool.frequency",
+        "desc": "Speed in seconds to check for clipboard changes. If you check too frequently, you will degrade performance, if you check sparsely you will loose copies. Defaults to 0.8.",
+        "doc": "Speed in seconds to check for clipboard changes. If you check too frequently, you will degrade performance, if you check sparsely you will loose copies. Defaults to 0.8.",
+        "name": "frequency",
+        "signature": "ClipboardTool.frequency",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "ClipboardTool.hist_size",
+        "desc": "How many items to keep on history. Defaults to 100",
+        "doc": "How many items to keep on history. Defaults to 100",
+        "name": "hist_size",
+        "signature": "ClipboardTool.hist_size",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "ClipboardTool.honor_ignoredidentifiers",
+        "desc": "If `true`, check the data identifiers set in the pasteboard and ignore entries which match those listed in `ClipboardTool.ignoredIdentifiers`. The list of identifiers comes from http://nspasteboard.org. Defaults to `true`",
+        "doc": "If `true`, check the data identifiers set in the pasteboard and ignore entries which match those listed in `ClipboardTool.ignoredIdentifiers`. The list of identifiers comes from http://nspasteboard.org. Defaults to `true`",
+        "name": "honor_ignoredidentifiers",
+        "signature": "ClipboardTool.honor_ignoredidentifiers",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "ClipboardTool.ignoredIdentifiers",
+        "desc": "Types of clipboard entries to ignore, see http://nspasteboard.org. Code from https://github.com/asmagill/hammerspoon-config/blob/master/utils/_menus/newClipper.lua. Default value (don't modify unless you know what you are doing):",
+        "doc": "Types of clipboard entries to ignore, see http://nspasteboard.org. Code from https://github.com/asmagill/hammerspoon-config/blob/master/utils/_menus/newClipper.lua. Default value (don't modify unless you know what you are doing):\n```\n {\n    [\"de.petermaurer.TransientPasteboardType\"] = true, -- Transient : Textpander, TextExpander, Butler\n    [\"com.typeit4me.clipping\"]                 = true, -- Transient : TypeIt4Me\n    [\"Pasteboard generator type\"]              = true, -- Transient : Typinator\n    [\"com.agilebits.onepassword\"]              = true, -- Confidential : 1Password\n    [\"org.nspasteboard.TransientType\"]         = true, -- Universal, Transient\n    [\"org.nspasteboard.ConcealedType\"]         = true, -- Universal, Concealed\n    [\"org.nspasteboard.AutoGeneratedType\"]     = true, -- Universal, Automatic\n }\n```",
+        "name": "ignoredIdentifiers",
+        "signature": "ClipboardTool.ignoredIdentifiers",
+        "stripped_doc": "```\n {\n    [\"de.petermaurer.TransientPasteboardType\"] = true, -- Transient : Textpander, TextExpander, Butler\n    [\"com.typeit4me.clipping\"]                 = true, -- Transient : TypeIt4Me\n    [\"Pasteboard generator type\"]              = true, -- Transient : Typinator\n    [\"com.agilebits.onepassword\"]              = true, -- Confidential : 1Password\n    [\"org.nspasteboard.TransientType\"]         = true, -- Universal, Transient\n    [\"org.nspasteboard.ConcealedType\"]         = true, -- Universal, Concealed\n    [\"org.nspasteboard.AutoGeneratedType\"]     = true, -- Universal, Automatic\n }\n```",
+        "type": "Variable"
+      },
+      {
+        "def": "ClipboardTool.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "name": "logger",
+        "signature": "ClipboardTool.logger",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "ClipboardTool.max_entry_size",
+        "desc": "maximum size of a text entry",
+        "doc": "maximum size of a text entry",
+        "name": "max_entry_size",
+        "signature": "ClipboardTool.max_entry_size",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "ClipboardTool.max_size",
+        "desc": "Whether to check the maximum size of an entry. Defaults to `false`.",
+        "doc": "Whether to check the maximum size of an entry. Defaults to `false`.",
+        "name": "max_size",
+        "signature": "ClipboardTool.max_size",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "ClipboardTool.menubar_title",
+        "desc": "String to show in the menubar if `ClipboardTool.show_in_menubar` is `true`. Defaults to `\"\\u{1f4ce}\"`, which is the [Unicode paperclip character](https://codepoints.net/U+1F4CE)",
+        "doc": "String to show in the menubar if `ClipboardTool.show_in_menubar` is `true`. Defaults to `\"\\u{1f4ce}\"`, which is the [Unicode paperclip character](https://codepoints.net/U+1F4CE)",
+        "name": "menubar_title",
+        "signature": "ClipboardTool.menubar_title",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "ClipboardTool.paste_on_select",
+        "desc": "Whether to auto-type the item when selecting it from the menu. Can be toggled on the fly from the chooser. Defaults to `false`.",
+        "doc": "Whether to auto-type the item when selecting it from the menu. Can be toggled on the fly from the chooser. Defaults to `false`.",
+        "name": "paste_on_select",
+        "signature": "ClipboardTool.paste_on_select",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "ClipboardTool.show_in_menubar",
+        "desc": "Whether to show a menubar item to open the clipboard history. Defaults to `true`",
+        "doc": "Whether to show a menubar item to open the clipboard history. Defaults to `true`",
+        "name": "show_in_menubar",
+        "signature": "ClipboardTool.show_in_menubar",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "desc": "Keep a history of the clipboard for text entries and manage the entries with a context menu",
+    "doc": "Keep a history of the clipboard for text entries and manage the entries with a context menu\n\nOriginally based on TextClipboardHistory.spoon by Diego Zamboni with additional functions provided by a context menu \nand on [code by VFS](https://github.com/VFS/.hammerspoon/blob/master/tools/clipboard.lua), but with many changes and some contributions and inspiration from [asmagill](https://github.com/asmagill/hammerspoon-config/blob/master/utils/_menus/newClipper.lua).\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/ClipboardTool.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/ClipboardTool.spoon.zip)",
+    "items": [
+      {
+        "def": "ClipboardTool:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for ClipboardTool",
+        "doc": "Binds hotkeys for ClipboardTool\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n  * show_clipboard - Display the clipboard history chooser\n  * toggle_clipboard - Show/hide the clipboard history chooser",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * mapping - A table containing hotkey objifier/key details for the following items:",
+          "  * show_clipboard - Display the clipboard history chooser",
+          "  * toggle_clipboard - Show/hide the clipboard history chooser"
+        ],
+        "signature": "ClipboardTool:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "ClipboardTool:checkAndStorePasteboard()",
+        "desc": "If the pasteboard has changed, we add the current item to our history and update the counter",
+        "doc": "If the pasteboard has changed, we add the current item to our history and update the counter",
+        "name": "checkAndStorePasteboard",
+        "signature": "ClipboardTool:checkAndStorePasteboard()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "ClipboardTool:clearAll()",
+        "desc": "Clears the clipboard and history",
+        "doc": "Clears the clipboard and history",
+        "name": "clearAll",
+        "signature": "ClipboardTool:clearAll()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "ClipboardTool:clearLastItem()",
+        "desc": "Clears the last added to the history",
+        "doc": "Clears the last added to the history",
+        "name": "clearLastItem",
+        "signature": "ClipboardTool:clearLastItem()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "ClipboardTool.deduplicate",
+        "desc": "Whether to remove duplicates from the list, keeping only the latest one. Defaults to `true`.",
+        "doc": "Whether to remove duplicates from the list, keeping only the latest one. Defaults to `true`.",
+        "name": "deduplicate",
+        "signature": "ClipboardTool.deduplicate",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "ClipboardTool.frequency",
+        "desc": "Speed in seconds to check for clipboard changes. If you check too frequently, you will degrade performance, if you check sparsely you will loose copies. Defaults to 0.8.",
+        "doc": "Speed in seconds to check for clipboard changes. If you check too frequently, you will degrade performance, if you check sparsely you will loose copies. Defaults to 0.8.",
+        "name": "frequency",
+        "signature": "ClipboardTool.frequency",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "ClipboardTool.hist_size",
+        "desc": "How many items to keep on history. Defaults to 100",
+        "doc": "How many items to keep on history. Defaults to 100",
+        "name": "hist_size",
+        "signature": "ClipboardTool.hist_size",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "ClipboardTool.honor_ignoredidentifiers",
+        "desc": "If `true`, check the data identifiers set in the pasteboard and ignore entries which match those listed in `ClipboardTool.ignoredIdentifiers`. The list of identifiers comes from http://nspasteboard.org. Defaults to `true`",
+        "doc": "If `true`, check the data identifiers set in the pasteboard and ignore entries which match those listed in `ClipboardTool.ignoredIdentifiers`. The list of identifiers comes from http://nspasteboard.org. Defaults to `true`",
+        "name": "honor_ignoredidentifiers",
+        "signature": "ClipboardTool.honor_ignoredidentifiers",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "ClipboardTool.ignoredIdentifiers",
+        "desc": "Types of clipboard entries to ignore, see http://nspasteboard.org. Code from https://github.com/asmagill/hammerspoon-config/blob/master/utils/_menus/newClipper.lua. Default value (don't modify unless you know what you are doing):",
+        "doc": "Types of clipboard entries to ignore, see http://nspasteboard.org. Code from https://github.com/asmagill/hammerspoon-config/blob/master/utils/_menus/newClipper.lua. Default value (don't modify unless you know what you are doing):\n```\n {\n    [\"de.petermaurer.TransientPasteboardType\"] = true, -- Transient : Textpander, TextExpander, Butler\n    [\"com.typeit4me.clipping\"]                 = true, -- Transient : TypeIt4Me\n    [\"Pasteboard generator type\"]              = true, -- Transient : Typinator\n    [\"com.agilebits.onepassword\"]              = true, -- Confidential : 1Password\n    [\"org.nspasteboard.TransientType\"]         = true, -- Universal, Transient\n    [\"org.nspasteboard.ConcealedType\"]         = true, -- Universal, Concealed\n    [\"org.nspasteboard.AutoGeneratedType\"]     = true, -- Universal, Automatic\n }\n```",
+        "name": "ignoredIdentifiers",
+        "signature": "ClipboardTool.ignoredIdentifiers",
+        "stripped_doc": "```\n {\n    [\"de.petermaurer.TransientPasteboardType\"] = true, -- Transient : Textpander, TextExpander, Butler\n    [\"com.typeit4me.clipping\"]                 = true, -- Transient : TypeIt4Me\n    [\"Pasteboard generator type\"]              = true, -- Transient : Typinator\n    [\"com.agilebits.onepassword\"]              = true, -- Confidential : 1Password\n    [\"org.nspasteboard.TransientType\"]         = true, -- Universal, Transient\n    [\"org.nspasteboard.ConcealedType\"]         = true, -- Universal, Concealed\n    [\"org.nspasteboard.AutoGeneratedType\"]     = true, -- Universal, Automatic\n }\n```",
+        "type": "Variable"
+      },
+      {
+        "def": "ClipboardTool.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "name": "logger",
+        "signature": "ClipboardTool.logger",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "ClipboardTool.max_entry_size",
+        "desc": "maximum size of a text entry",
+        "doc": "maximum size of a text entry",
+        "name": "max_entry_size",
+        "signature": "ClipboardTool.max_entry_size",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "ClipboardTool.max_size",
+        "desc": "Whether to check the maximum size of an entry. Defaults to `false`.",
+        "doc": "Whether to check the maximum size of an entry. Defaults to `false`.",
+        "name": "max_size",
+        "signature": "ClipboardTool.max_size",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "ClipboardTool.menubar_title",
+        "desc": "String to show in the menubar if `ClipboardTool.show_in_menubar` is `true`. Defaults to `\"\\u{1f4ce}\"`, which is the [Unicode paperclip character](https://codepoints.net/U+1F4CE)",
+        "doc": "String to show in the menubar if `ClipboardTool.show_in_menubar` is `true`. Defaults to `\"\\u{1f4ce}\"`, which is the [Unicode paperclip character](https://codepoints.net/U+1F4CE)",
+        "name": "menubar_title",
+        "signature": "ClipboardTool.menubar_title",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "ClipboardTool.paste_on_select",
+        "desc": "Whether to auto-type the item when selecting it from the menu. Can be toggled on the fly from the chooser. Defaults to `false`.",
+        "doc": "Whether to auto-type the item when selecting it from the menu. Can be toggled on the fly from the chooser. Defaults to `false`.",
+        "name": "paste_on_select",
+        "signature": "ClipboardTool.paste_on_select",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "ClipboardTool:pasteboardToClipboard(item)",
+        "desc": "Add the given string to the history",
+        "doc": "Add the given string to the history\n\nParameters:\n * item - string to add to the clipboard history\n\nReturns:\n * None",
+        "name": "pasteboardToClipboard",
+        "parameters": [
+          " * item - string to add to the clipboard history"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "ClipboardTool:pasteboardToClipboard(item)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "ClipboardTool:shouldBeStored()",
+        "desc": "Verify whether the pasteboard contents matches one of the values in `ClipboardTool.ignoredIdentifiers`",
+        "doc": "Verify whether the pasteboard contents matches one of the values in `ClipboardTool.ignoredIdentifiers`",
+        "name": "shouldBeStored",
+        "signature": "ClipboardTool:shouldBeStored()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "ClipboardTool.show_in_menubar",
+        "desc": "Whether to show a menubar item to open the clipboard history. Defaults to `true`",
+        "doc": "Whether to show a menubar item to open the clipboard history. Defaults to `true`",
+        "name": "show_in_menubar",
+        "signature": "ClipboardTool.show_in_menubar",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "ClipboardTool:showClipboard()",
+        "desc": "Display the current clipboard list in a chooser",
+        "doc": "Display the current clipboard list in a chooser",
+        "name": "showClipboard",
+        "signature": "ClipboardTool:showClipboard()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "ClipboardTool:start()",
+        "desc": "Start the clipboard history collector",
+        "doc": "Start the clipboard history collector",
+        "name": "start",
+        "signature": "ClipboardTool:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "ClipboardTool:toggleClipboard()",
+        "desc": "Show/hide the clipboard list, depending on its current state",
+        "doc": "Show/hide the clipboard list, depending on its current state",
+        "name": "toggleClipboard",
+        "signature": "ClipboardTool:toggleClipboard()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "ClipboardTool:togglePasteOnSelect()",
+        "desc": "Toggle the value of `ClipboardTool.paste_on_select`",
+        "doc": "Toggle the value of `ClipboardTool.paste_on_select`",
+        "name": "togglePasteOnSelect",
+        "signature": "ClipboardTool:togglePasteOnSelect()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "name": "ClipboardTool",
+    "stripped_doc": "\nOriginally based on TextClipboardHistory.spoon by Diego Zamboni with additional functions provided by a context menu \nand on [code by VFS](https://github.com/VFS/.hammerspoon/blob/master/tools/clipboard.lua), but with many changes and some contributions and inspiration from [asmagill](https://github.com/asmagill/hammerspoon-config/blob/master/utils/_menus/newClipper.lua).\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/ClipboardTool.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/ClipboardTool.spoon.zip)",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
         "def": "ClipShow:openInBrowserWithRef(refstr)",
         "desc": "Open content of the clipboard in default browser with specific refstr.",
         "doc": "Open content of the clipboard in default browser with specific refstr.\n\nParameters:\n * refstr - A optional string specifying which refstr to use. If nil, then open this content in browser directly. The \"refstr\" could be something like this: `https://www.bing.com/search?q=`.",
@@ -945,6 +1365,196 @@
     ],
     "name": "CountDown",
     "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/CountDown.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/CountDown.spoon.zip)",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
+        "def": "DeepLTranslate:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for DeepLTranslate",
+        "doc": "Binds hotkeys for DeepLTranslate\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for the following items:\n  * `translate` - translate the selected text without specifying source/destination languages (source defaults to auto-detect, destination defaults to your last choice or to English)\n\nSample value for `mapping`:\n```\n {\n    translate = { { \"ctrl\", \"alt\", \"cmd\" }, \"E\" },\n }\n```",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * mapping - A table containing hotkey modifier/key details for the following items:",
+          "  * `translate` - translate the selected text without specifying source/destination languages (source defaults to auto-detect, destination defaults to your last choice or to English)"
+        ],
+        "signature": "DeepLTranslate:bindHotkeys(mapping)",
+        "stripped_doc": "Sample value for `mapping`:\n```\n {\n    translate = { { \"ctrl\", \"alt\", \"cmd\" }, \"E\" },\n }\n```",
+        "type": "Method"
+      },
+      {
+        "def": "DeepLTranslate:translatePopup(text)",
+        "desc": "Display a translation popup with the translation of the given text",
+        "doc": "Display a translation popup with the translation of the given text\n\nParameters:\n * text - string containing the text to translate\n\nReturns:\n * The DeepLTranslate object",
+        "name": "translatePopup",
+        "parameters": [
+          " * text - string containing the text to translate"
+        ],
+        "returns": [
+          " * The DeepLTranslate object"
+        ],
+        "signature": "DeepLTranslate:translatePopup(text)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "DeepLTranslate:translateSelectionPopup()",
+        "desc": "Get the current selected text in the frontmost window and display a translation popup with the translation between the specified languages",
+        "doc": "Get the current selected text in the frontmost window and display a translation popup with the translation between the specified languages\n\nReturns:\n * The DeepLTranslate object",
+        "name": "translateSelectionPopup",
+        "returns": [
+          " * The DeepLTranslate object"
+        ],
+        "signature": "DeepLTranslate:translateSelectionPopup()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [
+      {
+        "def": "DeepLTranslate.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "name": "logger",
+        "signature": "DeepLTranslate.logger",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "DeepLTranslate.popup_close_after_copy",
+        "desc": "If true, the popup window will close after translated text is copied to pasteboard. Defaults to `true`",
+        "doc": "If true, the popup window will close after translated text is copied to pasteboard. Defaults to `true`",
+        "name": "popup_close_after_copy",
+        "signature": "DeepLTranslate.popup_close_after_copy",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "DeepLTranslate.popup_close_on_escape",
+        "desc": "If true, pressing ESC on the popup window will close it. Defaults to `true`",
+        "doc": "If true, pressing ESC on the popup window will close it. Defaults to `true`",
+        "name": "popup_close_on_escape",
+        "signature": "DeepLTranslate.popup_close_on_escape",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "DeepLTranslate.popup_size",
+        "desc": "`hs.geometry` object representing the size to use for the translation popup window. Defaults to `hs.geometry.size(770, 610)`.",
+        "doc": "`hs.geometry` object representing the size to use for the translation popup window. Defaults to `hs.geometry.size(770, 610)`.",
+        "name": "popup_size",
+        "signature": "DeepLTranslate.popup_size",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "DeepLTranslate.popup_style",
+        "desc": "Value representing the window style to be used for the translation popup window. This value needs to be a valid argument to [`hs.webview.setStyle()`](http://www.hammerspoon.org/docs/hs.webview.html#windowStyle) (i.e. a combination of values from [`hs.webview.windowMasks`](http://www.hammerspoon.org/docs/hs.webview.html#windowMasks[]). Default value: `hs.webview.windowMasks.utility|hs.webview.windowMasks.HUD|hs.webview.windowMasks.titled|hs.webview.windowMasks.closable`",
+        "doc": "Value representing the window style to be used for the translation popup window. This value needs to be a valid argument to [`hs.webview.setStyle()`](http://www.hammerspoon.org/docs/hs.webview.html#windowStyle) (i.e. a combination of values from [`hs.webview.windowMasks`](http://www.hammerspoon.org/docs/hs.webview.html#windowMasks[]). Default value: `hs.webview.windowMasks.utility|hs.webview.windowMasks.HUD|hs.webview.windowMasks.titled|hs.webview.windowMasks.closable`",
+        "name": "popup_style",
+        "signature": "DeepLTranslate.popup_style",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "desc": "Show a popup window with the translation of the currently selected text",
+    "doc": "Show a popup window with the translation of the currently selected text\n\nThe spoon uses the https://www.deepl.com translator page\nThe selected text is copied into the source field.  \nThe modal hotkey cmd+alt+ctrl+O replaces the selected text with the translation\n\nSupported language codes are listed at https://www.deepl.com/translator\n\nThis is just an adaption of the Spoon PopupTranslateSelection written by Diego Zamboni\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/DeepLTranslate.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/DeepLTranslate.spoon.zip)",
+    "items": [
+      {
+        "def": "DeepLTranslate:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for DeepLTranslate",
+        "doc": "Binds hotkeys for DeepLTranslate\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for the following items:\n  * `translate` - translate the selected text without specifying source/destination languages (source defaults to auto-detect, destination defaults to your last choice or to English)\n\nSample value for `mapping`:\n```\n {\n    translate = { { \"ctrl\", \"alt\", \"cmd\" }, \"E\" },\n }\n```",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * mapping - A table containing hotkey modifier/key details for the following items:",
+          "  * `translate` - translate the selected text without specifying source/destination languages (source defaults to auto-detect, destination defaults to your last choice or to English)"
+        ],
+        "signature": "DeepLTranslate:bindHotkeys(mapping)",
+        "stripped_doc": "Sample value for `mapping`:\n```\n {\n    translate = { { \"ctrl\", \"alt\", \"cmd\" }, \"E\" },\n }\n```",
+        "type": "Method"
+      },
+      {
+        "def": "DeepLTranslate.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "name": "logger",
+        "signature": "DeepLTranslate.logger",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "DeepLTranslate.popup_close_after_copy",
+        "desc": "If true, the popup window will close after translated text is copied to pasteboard. Defaults to `true`",
+        "doc": "If true, the popup window will close after translated text is copied to pasteboard. Defaults to `true`",
+        "name": "popup_close_after_copy",
+        "signature": "DeepLTranslate.popup_close_after_copy",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "DeepLTranslate.popup_close_on_escape",
+        "desc": "If true, pressing ESC on the popup window will close it. Defaults to `true`",
+        "doc": "If true, pressing ESC on the popup window will close it. Defaults to `true`",
+        "name": "popup_close_on_escape",
+        "signature": "DeepLTranslate.popup_close_on_escape",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "DeepLTranslate.popup_size",
+        "desc": "`hs.geometry` object representing the size to use for the translation popup window. Defaults to `hs.geometry.size(770, 610)`.",
+        "doc": "`hs.geometry` object representing the size to use for the translation popup window. Defaults to `hs.geometry.size(770, 610)`.",
+        "name": "popup_size",
+        "signature": "DeepLTranslate.popup_size",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "DeepLTranslate.popup_style",
+        "desc": "Value representing the window style to be used for the translation popup window. This value needs to be a valid argument to [`hs.webview.setStyle()`](http://www.hammerspoon.org/docs/hs.webview.html#windowStyle) (i.e. a combination of values from [`hs.webview.windowMasks`](http://www.hammerspoon.org/docs/hs.webview.html#windowMasks[]). Default value: `hs.webview.windowMasks.utility|hs.webview.windowMasks.HUD|hs.webview.windowMasks.titled|hs.webview.windowMasks.closable`",
+        "doc": "Value representing the window style to be used for the translation popup window. This value needs to be a valid argument to [`hs.webview.setStyle()`](http://www.hammerspoon.org/docs/hs.webview.html#windowStyle) (i.e. a combination of values from [`hs.webview.windowMasks`](http://www.hammerspoon.org/docs/hs.webview.html#windowMasks[]). Default value: `hs.webview.windowMasks.utility|hs.webview.windowMasks.HUD|hs.webview.windowMasks.titled|hs.webview.windowMasks.closable`",
+        "name": "popup_style",
+        "signature": "DeepLTranslate.popup_style",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "DeepLTranslate:translatePopup(text)",
+        "desc": "Display a translation popup with the translation of the given text",
+        "doc": "Display a translation popup with the translation of the given text\n\nParameters:\n * text - string containing the text to translate\n\nReturns:\n * The DeepLTranslate object",
+        "name": "translatePopup",
+        "parameters": [
+          " * text - string containing the text to translate"
+        ],
+        "returns": [
+          " * The DeepLTranslate object"
+        ],
+        "signature": "DeepLTranslate:translatePopup(text)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "DeepLTranslate:translateSelectionPopup()",
+        "desc": "Get the current selected text in the frontmost window and display a translation popup with the translation between the specified languages",
+        "doc": "Get the current selected text in the frontmost window and display a translation popup with the translation between the specified languages\n\nReturns:\n * The DeepLTranslate object",
+        "name": "translateSelectionPopup",
+        "returns": [
+          " * The DeepLTranslate object"
+        ],
+        "signature": "DeepLTranslate:translateSelectionPopup()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "name": "DeepLTranslate",
+    "stripped_doc": "\nThe spoon uses the https://www.deepl.com translator page\nThe selected text is copied into the source field.  \nThe modal hotkey cmd+alt+ctrl+O replaces the selected text with the translation\n\nSupported language codes are listed at https://www.deepl.com/translator\n\nThis is just an adaption of the Spoon PopupTranslateSelection written by Diego Zamboni\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/DeepLTranslate.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/DeepLTranslate.spoon.zip)",
     "submodules": [],
     "type": "Module"
   },
@@ -2050,6 +2660,61 @@
     "Function": [],
     "Method": [
       {
+        "def": "HSKeybindings:hide()",
+        "desc": "Hide the cheatsheet webview",
+        "doc": "Hide the cheatsheet webview\n",
+        "name": "hide",
+        "signature": "HSKeybindings:hide()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "HSKeybindings:show()",
+        "desc": "Show current application's keybindings in a webview",
+        "doc": "Show current application's keybindings in a webview\n",
+        "name": "show",
+        "signature": "HSKeybindings:show()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [],
+    "desc": "Display Keybindings registered with bindHotkeys() and Spoons ",
+    "doc": "Display Keybindings registered with bindHotkeys() and Spoons \n\nSpoons need to set the mapping in obj\n\nOriginally based on KSheet.spoon by ashfinal <ashfinal@gmail.com>\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/HSKeybindings.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/HSKeybindings.spoon.zip)",
+    "items": [
+      {
+        "def": "HSKeybindings:hide()",
+        "desc": "Hide the cheatsheet webview",
+        "doc": "Hide the cheatsheet webview\n",
+        "name": "hide",
+        "signature": "HSKeybindings:hide()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "HSKeybindings:show()",
+        "desc": "Show current application's keybindings in a webview",
+        "doc": "Show current application's keybindings in a webview\n",
+        "name": "show",
+        "signature": "HSKeybindings:show()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "name": "HSKeybindings",
+    "stripped_doc": "\nSpoons need to set the mapping in obj\n\nOriginally based on KSheet.spoon by ashfinal <ashfinal@gmail.com>\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/HSKeybindings.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/HSKeybindings.spoon.zip)",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
         "def": "KSheet:hide()",
         "desc": "Hide the cheatsheet webview",
         "doc": "Hide the cheatsheet webview\n",
@@ -2093,6 +2758,98 @@
     ],
     "name": "KSheet",
     "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/KSheet.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/KSheet.spoon.zip)",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
+        "def": "LookupSelection:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for LookupSelection",
+        "doc": "Binds hotkeys for LookupSelection\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for the following items:\n  * `lexicon` - open in lexicon app\n  * `neue_notiz` -  create new note in notes app\n  * `hsdocs` -  display online help\n\nSample value for `mapping`:\n```\n {\n    lexicon = { { \"ctrl\", \"alt\", \"cmd\" }, \"L\" },\n    neue_notiz = { { \"ctrl\", \"alt\", \"cmd\" }, \"N\" },\n    hsdocs = { { \"ctrl\", \"alt\", \"cmd\" }, \"H\" },\n }\n```",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * mapping - A table containing hotkey modifier/key details for the following items:",
+          "  * `lexicon` - open in lexicon app",
+          "  * `neue_notiz` -  create new note in notes app",
+          "  * `hsdocs` -  display online help"
+        ],
+        "signature": "LookupSelection:bindHotkeys(mapping)",
+        "stripped_doc": "Sample value for `mapping`:\n```\n {\n    lexicon = { { \"ctrl\", \"alt\", \"cmd\" }, \"L\" },\n    neue_notiz = { { \"ctrl\", \"alt\", \"cmd\" }, \"N\" },\n    hsdocs = { { \"ctrl\", \"alt\", \"cmd\" }, \"H\" },\n }\n```",
+        "type": "Method"
+      },
+      {
+        "def": "LookupSelection:openLexicon()",
+        "desc": "Get the current selected text in the frontmost window and display a translation popup with the translation between the specified languages",
+        "doc": "Get the current selected text in the frontmost window and display a translation popup with the translation between the specified languages\n\nReturns:\n * The LookupSelection object",
+        "name": "openLexicon",
+        "returns": [
+          " * The LookupSelection object"
+        ],
+        "signature": "LookupSelection:openLexicon()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [
+      {
+        "def": "LookupSelection.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "name": "logger",
+        "signature": "LookupSelection.logger",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "desc": "Show a popup window with the currently selected word in lexicon, notes, online help",
+    "doc": "Show a popup window with the currently selected word in lexicon, notes, online help\n\nThe spoon uses hs.urlevent.openURL(\"dict://\" .. text) \n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/LookupSelection.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/LookupSelection.spoon.zip)",
+    "items": [
+      {
+        "def": "LookupSelection:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for LookupSelection",
+        "doc": "Binds hotkeys for LookupSelection\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for the following items:\n  * `lexicon` - open in lexicon app\n  * `neue_notiz` -  create new note in notes app\n  * `hsdocs` -  display online help\n\nSample value for `mapping`:\n```\n {\n    lexicon = { { \"ctrl\", \"alt\", \"cmd\" }, \"L\" },\n    neue_notiz = { { \"ctrl\", \"alt\", \"cmd\" }, \"N\" },\n    hsdocs = { { \"ctrl\", \"alt\", \"cmd\" }, \"H\" },\n }\n```",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * mapping - A table containing hotkey modifier/key details for the following items:",
+          "  * `lexicon` - open in lexicon app",
+          "  * `neue_notiz` -  create new note in notes app",
+          "  * `hsdocs` -  display online help"
+        ],
+        "signature": "LookupSelection:bindHotkeys(mapping)",
+        "stripped_doc": "Sample value for `mapping`:\n```\n {\n    lexicon = { { \"ctrl\", \"alt\", \"cmd\" }, \"L\" },\n    neue_notiz = { { \"ctrl\", \"alt\", \"cmd\" }, \"N\" },\n    hsdocs = { { \"ctrl\", \"alt\", \"cmd\" }, \"H\" },\n }\n```",
+        "type": "Method"
+      },
+      {
+        "def": "LookupSelection.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "name": "logger",
+        "signature": "LookupSelection.logger",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "LookupSelection:openLexicon()",
+        "desc": "Get the current selected text in the frontmost window and display a translation popup with the translation between the specified languages",
+        "doc": "Get the current selected text in the frontmost window and display a translation popup with the translation between the specified languages\n\nReturns:\n * The LookupSelection object",
+        "name": "openLexicon",
+        "returns": [
+          " * The LookupSelection object"
+        ],
+        "signature": "LookupSelection:openLexicon()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "name": "LookupSelection",
+    "stripped_doc": "\nThe spoon uses hs.urlevent.openURL(\"dict://\" .. text) \n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/LookupSelection.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/LookupSelection.spoon.zip)",
     "submodules": [],
     "type": "Module"
   },

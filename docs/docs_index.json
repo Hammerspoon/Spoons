@@ -108,6 +108,137 @@
     "type": "Module"
   },
   {
+    "desc": "Keep a history of the clipboard for text entries and manage the entries with a context menu",
+    "name": "ClipboardTool",
+    "type": "Module"
+  },
+  {
+    "desc": "Whether to remove duplicates from the list, keeping only the latest one. Defaults to `true`.",
+    "module": "ClipboardTool",
+    "name": "deduplicate",
+    "type": "Variable"
+  },
+  {
+    "desc": "Speed in seconds to check for clipboard changes. If you check too frequently, you will degrade performance, if you check sparsely you will loose copies. Defaults to 0.8.",
+    "module": "ClipboardTool",
+    "name": "frequency",
+    "type": "Variable"
+  },
+  {
+    "desc": "How many items to keep on history. Defaults to 100",
+    "module": "ClipboardTool",
+    "name": "hist_size",
+    "type": "Variable"
+  },
+  {
+    "desc": "If `true`, check the data identifiers set in the pasteboard and ignore entries which match those listed in `ClipboardTool.ignoredIdentifiers`. The list of identifiers comes from http://nspasteboard.org. Defaults to `true`",
+    "module": "ClipboardTool",
+    "name": "honor_ignoredidentifiers",
+    "type": "Variable"
+  },
+  {
+    "desc": "Types of clipboard entries to ignore, see http://nspasteboard.org. Code from https://github.com/asmagill/hammerspoon-config/blob/master/utils/_menus/newClipper.lua. Default value (don't modify unless you know what you are doing):",
+    "module": "ClipboardTool",
+    "name": "ignoredIdentifiers",
+    "type": "Variable"
+  },
+  {
+    "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+    "module": "ClipboardTool",
+    "name": "logger",
+    "type": "Variable"
+  },
+  {
+    "desc": "maximum size of a text entry",
+    "module": "ClipboardTool",
+    "name": "max_entry_size",
+    "type": "Variable"
+  },
+  {
+    "desc": "Whether to check the maximum size of an entry. Defaults to `false`.",
+    "module": "ClipboardTool",
+    "name": "max_size",
+    "type": "Variable"
+  },
+  {
+    "desc": "String to show in the menubar if `ClipboardTool.show_in_menubar` is `true`. Defaults to `\"\\u{1f4ce}\"`, which is the [Unicode paperclip character](https://codepoints.net/U+1F4CE)",
+    "module": "ClipboardTool",
+    "name": "menubar_title",
+    "type": "Variable"
+  },
+  {
+    "desc": "Whether to auto-type the item when selecting it from the menu. Can be toggled on the fly from the chooser. Defaults to `false`.",
+    "module": "ClipboardTool",
+    "name": "paste_on_select",
+    "type": "Variable"
+  },
+  {
+    "desc": "Whether to show a menubar item to open the clipboard history. Defaults to `true`",
+    "module": "ClipboardTool",
+    "name": "show_in_menubar",
+    "type": "Variable"
+  },
+  {
+    "desc": "Binds hotkeys for ClipboardTool",
+    "module": "ClipboardTool",
+    "name": "bindHotkeys",
+    "type": "Method"
+  },
+  {
+    "desc": "If the pasteboard has changed, we add the current item to our history and update the counter",
+    "module": "ClipboardTool",
+    "name": "checkAndStorePasteboard",
+    "type": "Method"
+  },
+  {
+    "desc": "Clears the clipboard and history",
+    "module": "ClipboardTool",
+    "name": "clearAll",
+    "type": "Method"
+  },
+  {
+    "desc": "Clears the last added to the history",
+    "module": "ClipboardTool",
+    "name": "clearLastItem",
+    "type": "Method"
+  },
+  {
+    "desc": "Add the given string to the history",
+    "module": "ClipboardTool",
+    "name": "pasteboardToClipboard",
+    "type": "Method"
+  },
+  {
+    "desc": "Verify whether the pasteboard contents matches one of the values in `ClipboardTool.ignoredIdentifiers`",
+    "module": "ClipboardTool",
+    "name": "shouldBeStored",
+    "type": "Method"
+  },
+  {
+    "desc": "Display the current clipboard list in a chooser",
+    "module": "ClipboardTool",
+    "name": "showClipboard",
+    "type": "Method"
+  },
+  {
+    "desc": "Start the clipboard history collector",
+    "module": "ClipboardTool",
+    "name": "start",
+    "type": "Method"
+  },
+  {
+    "desc": "Show/hide the clipboard list, depending on its current state",
+    "module": "ClipboardTool",
+    "name": "toggleClipboard",
+    "type": "Method"
+  },
+  {
+    "desc": "Toggle the value of `ClipboardTool.paste_on_select`",
+    "module": "ClipboardTool",
+    "name": "togglePasteOnSelect",
+    "type": "Method"
+  },
+  {
     "desc": "Show the content of system clipboard",
     "name": "ClipShow",
     "type": "Module"
@@ -251,6 +382,59 @@
     "desc": "Start a countdown for `minutes` minutes immediately. Calling this method again will kill the existing countdown instance.",
     "module": "CountDown",
     "name": "startFor",
+    "type": "Method"
+  },
+  {
+    "desc": "Show a popup window with the translation of the currently selected text",
+    "name": "DeepLTranslate",
+    "type": "Module"
+  },
+  {
+    "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+    "module": "DeepLTranslate",
+    "name": "logger",
+    "type": "Variable"
+  },
+  {
+    "desc": "If true, the popup window will close after translated text is copied to pasteboard. Defaults to `true`",
+    "module": "DeepLTranslate",
+    "name": "popup_close_after_copy",
+    "type": "Variable"
+  },
+  {
+    "desc": "If true, pressing ESC on the popup window will close it. Defaults to `true`",
+    "module": "DeepLTranslate",
+    "name": "popup_close_on_escape",
+    "type": "Variable"
+  },
+  {
+    "desc": "`hs.geometry` object representing the size to use for the translation popup window. Defaults to `hs.geometry.size(770, 610)`.",
+    "module": "DeepLTranslate",
+    "name": "popup_size",
+    "type": "Variable"
+  },
+  {
+    "desc": "Value representing the window style to be used for the translation popup window. This value needs to be a valid argument to [`hs.webview.setStyle()`](http://www.hammerspoon.org/docs/hs.webview.html#windowStyle) (i.e. a combination of values from [`hs.webview.windowMasks`](http://www.hammerspoon.org/docs/hs.webview.html#windowMasks[]). Default value: `hs.webview.windowMasks.utility|hs.webview.windowMasks.HUD|hs.webview.windowMasks.titled|hs.webview.windowMasks.closable`",
+    "module": "DeepLTranslate",
+    "name": "popup_style",
+    "type": "Variable"
+  },
+  {
+    "desc": "Binds hotkeys for DeepLTranslate",
+    "module": "DeepLTranslate",
+    "name": "bindHotkeys",
+    "type": "Method"
+  },
+  {
+    "desc": "Display a translation popup with the translation of the given text",
+    "module": "DeepLTranslate",
+    "name": "translatePopup",
+    "type": "Method"
+  },
+  {
+    "desc": "Get the current selected text in the frontmost window and display a translation popup with the translation between the specified languages",
+    "module": "DeepLTranslate",
+    "name": "translateSelectionPopup",
     "type": "Method"
   },
   {
@@ -551,6 +735,23 @@
     "type": "Method"
   },
   {
+    "desc": "Display Keybindings registered with bindHotkeys() and Spoons ",
+    "name": "HSKeybindings",
+    "type": "Module"
+  },
+  {
+    "desc": "Hide the cheatsheet webview",
+    "module": "HSKeybindings",
+    "name": "hide",
+    "type": "Method"
+  },
+  {
+    "desc": "Show current application's keybindings in a webview",
+    "module": "HSKeybindings",
+    "name": "show",
+    "type": "Method"
+  },
+  {
     "desc": "Keybindings cheatsheet for current application",
     "name": "KSheet",
     "type": "Module"
@@ -565,6 +766,29 @@
     "desc": "Show current application's keybindings in a webview",
     "module": "KSheet",
     "name": "show",
+    "type": "Method"
+  },
+  {
+    "desc": "Show a popup window with the currently selected word in lexicon, notes, online help",
+    "name": "LookupSelection",
+    "type": "Module"
+  },
+  {
+    "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+    "module": "LookupSelection",
+    "name": "logger",
+    "type": "Variable"
+  },
+  {
+    "desc": "Binds hotkeys for LookupSelection",
+    "module": "LookupSelection",
+    "name": "bindHotkeys",
+    "type": "Method"
+  },
+  {
+    "desc": "Get the current selected text in the frontmost window and display a translation popup with the translation between the specified languages",
+    "module": "LookupSelection",
+    "name": "openLexicon",
     "type": "Method"
   },
   {
