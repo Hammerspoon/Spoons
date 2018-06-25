@@ -64,18 +64,18 @@ obj.evernote_delay_before_typing = 0.2
 --- Parameters:
 ---  * where - destination notebook. Defaults to the value of `UniversalArchive.evernote_archive_notebook`.
 function obj:evernoteArchive(where)
-   local ev = hs.appfinder.appFromName("Evernote")
-   -- Archiving Evernote notes
-   if (ev:selectMenuItem({"Note", "Move To Notebook…"}) or ev:selectMenuItem({"Note", "Move to Notebook…"})) then
-      local dest = where 
-      if dest == nil then
-         dest = self.evernote_archive_notebook
-      end
-      if self.archive_notifications then
-         hs.notify.show("Evernote", "", "Archiving note to " .. dest)
-      end
-      hs.timer.doAfter(self.evernote_delay_before_typing, function() hs.eventtap.keyStrokes(dest .. "\n") end)
-   else
+  local ev = hs.appfinder.appFromName("Evernote")
+  -- Archiving Evernote notes
+  if (ev:selectMenuItem({"Note", "Move To Notebook…"}) or ev:selectMenuItem({"Note", "Move to Notebook…"}) or ev:selectMenuItem({"Note", "Move Note to…"})) then
+    local dest = where
+    if dest == nil then
+      dest = self.evernote_archive_notebook
+    end
+    if self.archive_notifications then
+      hs.notify.show("Evernote", "", "Archiving note to " .. dest)
+    end
+    hs.timer.doAfter(self.evernote_delay_before_typing, function() hs.eventtap.keyStrokes(dest .. "\n") end)
+  else
       hs.notify.show("Hammerspoon", "", "Something went wrong, couldn't find Evernote's menu item for archiving")
    end
    return self
