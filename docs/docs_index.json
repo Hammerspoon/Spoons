@@ -891,6 +891,59 @@
     "type": "Method"
   },
   {
+    "desc": "A spoon that let you bind sequential bindings.",
+    "name": "RecursiveBinder",
+    "type": "Module"
+  },
+  {
+    "desc": "key to abort, default to {keyNone, 'escape'}",
+    "module": "RecursiveBinder",
+    "name": "escapeKey",
+    "type": "Variable"
+  },
+  {
+    "desc": "Number of entries each line of helper. Default to 5.",
+    "module": "RecursiveBinder",
+    "name": "helperEntryEachLine",
+    "type": "Variable"
+  },
+  {
+    "desc": "Length of each entry in char. Default to 20.",
+    "module": "RecursiveBinder",
+    "name": "helperEntryLengthInChar",
+    "type": "Variable"
+  },
+  {
+    "desc": "format of helper, the helper is just a hs.alert",
+    "module": "RecursiveBinder",
+    "name": "helperFormat",
+    "type": "Variable"
+  },
+  {
+    "desc": "The mapping used to display modifiers on helper.",
+    "module": "RecursiveBinder",
+    "name": "helperModifierMapping",
+    "type": "Variable"
+  },
+  {
+    "desc": "whether to show helper, can be true of false",
+    "module": "RecursiveBinder",
+    "name": "showBindHelper",
+    "type": "Variable"
+  },
+  {
+    "desc": "Bind sequential keys by a nested keymap.",
+    "module": "RecursiveBinder",
+    "name": "recursiveBind",
+    "type": "Method"
+  },
+  {
+    "desc": "this function simply return a table with empty modifiers",
+    "module": "RecursiveBinder",
+    "name": "singleKey",
+    "type": "Method"
+  },
+  {
     "desc": "Adds a hotkey to reload the hammerspoon configuration, and a pathwatcher to automatically reload on changes.",
     "name": "ReloadConfiguration",
     "type": "Module"

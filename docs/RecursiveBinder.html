@@ -1,0 +1,235 @@
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hammerspoon docs: RecursiveBinder</title>
+    <style type="text/css">
+      a { text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      th { background-color: #DDDDDD; vertical-align: top; padding: 3px; }
+      td { width: 100%; background-color: #EEEEEE; vertical-align: top; padding: 3px; }
+      table { width: 100% ; border: 1px solid #0; text-align: left; }
+      section > table table td { width: 0; }
+    </style>
+    <link rel="stylesheet" href="docs.css" type="text/css" media="screen" />
+  </head>
+  <body>
+    <header>
+      <h1><a href="./index.html">docs</a> &raquo; RecursiveBinder</h1>
+      <p>A spoon that let you bind sequential bindings.
+It also (optionally) shows a bar about current keys bindings.</p>
+<p><a href="https://github.com/Hammerspoon/Spoons/raw/master/Spoons/RecursiveBinder.spoon.zip">Click to download</a></p>
+
+      </header>
+      <h3>API Overview</h3>
+      <ul>
+        <li>Variables - Configurable values</li>
+          <ul>
+            <li><a href="#escapeKey">escapeKey</a></li>
+            <li><a href="#helperEntryEachLine">helperEntryEachLine</a></li>
+            <li><a href="#helperEntryLengthInChar">helperEntryLengthInChar</a></li>
+            <li><a href="#helperFormat">helperFormat</a></li>
+            <li><a href="#helperModifierMapping">helperModifierMapping</a></li>
+            <li><a href="#showBindHelper">showBindHelper</a></li>
+          </ul>
+        <li>Methods - API calls which can only be made on an object returned by a constructor</li>
+          <ul>
+            <li><a href="#recursiveBind">recursiveBind</a></li>
+            <li><a href="#singleKey">singleKey</a></li>
+          </ul>
+      </ul>
+      <h3>API Documentation</h3>
+        <h4 class="documentation-section">Variables</h4>
+          <section id="escapeKey">
+            <a name="//apple_ref/cpp/Variable/escapeKey" class="dashAnchor"></a>
+            <h5><a href="#escapeKey">escapeKey</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>RecursiveBinder.escapeKey</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>key to abort, default to {keyNone, 'escape'}</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="helperEntryEachLine">
+            <a name="//apple_ref/cpp/Variable/helperEntryEachLine" class="dashAnchor"></a>
+            <h5><a href="#helperEntryEachLine">helperEntryEachLine</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>RecursiveBinder.helperEntryEachLine</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Number of entries each line of helper. Default to 5.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="helperEntryLengthInChar">
+            <a name="//apple_ref/cpp/Variable/helperEntryLengthInChar" class="dashAnchor"></a>
+            <h5><a href="#helperEntryLengthInChar">helperEntryLengthInChar</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>RecursiveBinder.helperEntryLengthInChar</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Length of each entry in char. Default to 20.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="helperFormat">
+            <a name="//apple_ref/cpp/Variable/helperFormat" class="dashAnchor"></a>
+            <h5><a href="#helperFormat">helperFormat</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>RecursiveBinder.helperFormat</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>format of helper, the helper is just a hs.alert
+default to {atScreenEdge=2,
+            strokeColor={ white = 0, alpha = 2 },
+            textFont='SF Mono'
+            textSize=20}</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="helperModifierMapping">
+            <a name="//apple_ref/cpp/Variable/helperModifierMapping" class="dashAnchor"></a>
+            <h5><a href="#helperModifierMapping">helperModifierMapping</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>RecursiveBinder.helperModifierMapping()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>The mapping used to display modifiers on helper.
+Default to {
+ command = '⌘',
+ control = '⌃',
+ option = '⌥',
+ shift = '⇧',
+}</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="showBindHelper">
+            <a name="//apple_ref/cpp/Variable/showBindHelper" class="dashAnchor"></a>
+            <h5><a href="#showBindHelper">showBindHelper</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>RecursiveBinder.showBindHelper()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>whether to show helper, can be true of false</p>
+</td>
+              </tr>
+            </table>
+          </section>
+        <h4 class="documentation-section">Methods</h4>
+          <section id="recursiveBind">
+            <a name="//apple_ref/cpp/Method/recursiveBind" class="dashAnchor"></a>
+            <h5><a href="#recursiveBind">recursiveBind</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>RecursiveBinder.recursiveBind(keymap)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Bind sequential keys by a nested keymap.</p>
+<p>Parameters:</p>
+<ul>
+<li>keymap - A table that specifies the mapping.</li>
+</ul>
+<p>Returns:</p>
+<ul>
+<li>A function to start. Bind it to a initial key binding.</li>
+</ul>
+<p>Note:
+Spec of keymap:
+Every key is of format {{modifers}, key, (optional) description}
+The first two element is what you usually pass into a hs.hotkey.bind() function.</p>
+<p>Each value of key can be in two form:</p>
+<ol>
+<li>A function. Then pressing the key invokes the function</li>
+<li>A table. Then pressing the key bring to another layer of keybindings.
+And the table have the same format of top table: keys to keys, value to table or function</li>
+</ol>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="singleKey">
+            <a name="//apple_ref/cpp/Method/singleKey" class="dashAnchor"></a>
+            <h5><a href="#singleKey">singleKey</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>RecursiveBinder.singleKey(key, name)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>this function simply return a table with empty modifiers
+also it translates capital letters to normal letter with shift modifer</p>
+<p>Parameters:</p>
+<ul>
+<li>key - a letter</li>
+<li>name - the description to pass to the keys binding function</li>
+</ul>
+<p>Returns:</p>
+<ul>
+<li>a table of modifiers and keys and names, ready to be used in keymap
+to pass to RecursiveBinder.recursiveBind()</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+  </body>
+</html>
