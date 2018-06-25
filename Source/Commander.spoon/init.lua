@@ -1,6 +1,6 @@
 --- === Commander ===
 ---
---- This spoon lets execute commands from other spoon by a chooser.
+--- This spoon lets you execute commands from other spoon by a chooser.
 ---
 --- The way of Commander to generate it command list is
 --- it goes to each spoon and extract all public functions inside the spoon table.
@@ -13,6 +13,9 @@
 --- except when spoon author provides a `commanderCommandList`.
 ---
 --- Commander.chooser is the chooser, you can set background color, rows, etc, to it.
+---
+--- [Click to download](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Commander.spoon.zip)
+
 
 local obj={}
 obj.__index = obj
