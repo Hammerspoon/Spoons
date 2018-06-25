@@ -1,186 +1,94 @@
 [
   {
-    "Constant" : [
-
-    ],
-    "submodules" : [
-
-    ],
-    "Function" : [
-
-    ],
-    "Variable" : [
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
       {
-        "doc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
-        "stripped_doc" : [
-          "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
-        ],
-        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
-        "def" : "LookupSelection.logger",
-        "notes" : [
-
-        ],
-        "signature" : "LookupSelection.logger",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "name" : "logger",
-        "parameters" : [
-
-        ]
-      }
-    ],
-    "stripped_doc" : [
-
-    ],
-    "Deprecated" : [
-
-    ],
-    "desc" : "Show a popup window with the currently selected word in lexicon, notes, online help",
-    "type" : "Module",
-    "Constructor" : [
-
-    ],
-    "doc" : "Show a popup window with the currently selected word in lexicon, notes, online help\n\nThe spoon uses hs.urlevent.openURL(\"dict:\/\/\" .. text) \n\nDownload: [https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/LookupSelection.spoon.zip](https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/LookupSelection.spoon.zip)",
-    "Method" : [
-      {
-        "doc" : "Get the current selected text in the frontmost window and display a translation popup with the translation between the specified languages\n\nReturns:\n * The LookupSelection object",
-        "stripped_doc" : [
-          "Get the current selected text in the frontmost window and display a translation popup with the translation between the specified languages",
-          ""
-        ],
-        "desc" : "Get the current selected text in the frontmost window and display a translation popup with the translation between the specified languages",
-        "def" : "LookupSelection:openLexicon()",
-        "notes" : [
-
-        ],
-        "signature" : "LookupSelection:openLexicon()",
-        "type" : "Method",
-        "returns" : [
-          " * The LookupSelection object"
-        ],
-        "name" : "openLexicon",
-        "parameters" : [
-
-        ]
-      },
-      {
-        "doc" : "Binds hotkeys for LookupSelection\n\nParameters:\n * mapping - A table containing hotkey modifier\/key details for the following items:\n  * `lexicon` - open in lexicon app\n  * `neue_notiz` -  create new note in notes app\n  * `hsdocs` -  display online help\n\nSample value for `mapping`:\n```\n {\n    lexicon = { { \"ctrl\", \"alt\", \"cmd\" }, \"L\" },\n    neue_notiz = { { \"ctrl\", \"alt\", \"cmd\" }, \"N\" },\n    hsdocs = { { \"ctrl\", \"alt\", \"cmd\" }, \"H\" },\n }\n```",
-        "stripped_doc" : [
-          "Binds hotkeys for LookupSelection",
-          ""
-        ],
-        "desc" : "Binds hotkeys for LookupSelection",
-        "def" : "LookupSelection:bindHotkeys(mapping)",
-        "notes" : [
-
-        ],
-        "signature" : "LookupSelection:bindHotkeys(mapping)",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "name" : "bindHotkeys",
-        "parameters" : [
-          " * mapping - A table containing hotkey modifier\/key details for the following items:",
+        "def": "LookupSelection:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for LookupSelection",
+        "doc": "Binds hotkeys for LookupSelection\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for the following items:\n  * `lexicon` - open in lexicon app\n  * `neue_notiz` -  create new note in notes app\n  * `hsdocs` -  display online help\n\nSample value for `mapping`:\n```\n {\n    lexicon = { { \"ctrl\", \"alt\", \"cmd\" }, \"L\" },\n    neue_notiz = { { \"ctrl\", \"alt\", \"cmd\" }, \"N\" },\n    hsdocs = { { \"ctrl\", \"alt\", \"cmd\" }, \"H\" },\n }\n```",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * mapping - A table containing hotkey modifier/key details for the following items:",
           "  * `lexicon` - open in lexicon app",
           "  * `neue_notiz` -  create new note in notes app",
-          "  * `hsdocs` -  display online help",
-          "",
-          "Sample value for `mapping`:",
-          "```",
-          " {",
-          "    lexicon = { { \"ctrl\", \"alt\", \"cmd\" }, \"L\" },",
-          "    neue_notiz = { { \"ctrl\", \"alt\", \"cmd\" }, \"N\" },",
-          "    hsdocs = { { \"ctrl\", \"alt\", \"cmd\" }, \"H\" },",
-          " }",
-          "```"
-        ]
-      }
-    ],
-    "Command" : [
-
-    ],
-    "items" : [
-      {
-        "doc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
-        "stripped_doc" : [
-          "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
+          "  * `hsdocs` -  display online help"
         ],
-        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
-        "def" : "LookupSelection.logger",
-        "notes" : [
-
-        ],
-        "signature" : "LookupSelection.logger",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "name" : "logger",
-        "parameters" : [
-
-        ]
+        "signature": "LookupSelection:bindHotkeys(mapping)",
+        "stripped_doc": "Sample value for `mapping`:\n```\n {\n    lexicon = { { \"ctrl\", \"alt\", \"cmd\" }, \"L\" },\n    neue_notiz = { { \"ctrl\", \"alt\", \"cmd\" }, \"N\" },\n    hsdocs = { { \"ctrl\", \"alt\", \"cmd\" }, \"H\" },\n }\n```",
+        "type": "Method"
       },
       {
-        "doc" : "Binds hotkeys for LookupSelection\n\nParameters:\n * mapping - A table containing hotkey modifier\/key details for the following items:\n  * `lexicon` - open in lexicon app\n  * `neue_notiz` -  create new note in notes app\n  * `hsdocs` -  display online help\n\nSample value for `mapping`:\n```\n {\n    lexicon = { { \"ctrl\", \"alt\", \"cmd\" }, \"L\" },\n    neue_notiz = { { \"ctrl\", \"alt\", \"cmd\" }, \"N\" },\n    hsdocs = { { \"ctrl\", \"alt\", \"cmd\" }, \"H\" },\n }\n```",
-        "stripped_doc" : [
-          "Binds hotkeys for LookupSelection",
-          ""
-        ],
-        "desc" : "Binds hotkeys for LookupSelection",
-        "def" : "LookupSelection:bindHotkeys(mapping)",
-        "notes" : [
-
-        ],
-        "signature" : "LookupSelection:bindHotkeys(mapping)",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "name" : "bindHotkeys",
-        "parameters" : [
-          " * mapping - A table containing hotkey modifier\/key details for the following items:",
-          "  * `lexicon` - open in lexicon app",
-          "  * `neue_notiz` -  create new note in notes app",
-          "  * `hsdocs` -  display online help",
-          "",
-          "Sample value for `mapping`:",
-          "```",
-          " {",
-          "    lexicon = { { \"ctrl\", \"alt\", \"cmd\" }, \"L\" },",
-          "    neue_notiz = { { \"ctrl\", \"alt\", \"cmd\" }, \"N\" },",
-          "    hsdocs = { { \"ctrl\", \"alt\", \"cmd\" }, \"H\" },",
-          " }",
-          "```"
-        ]
-      },
-      {
-        "doc" : "Get the current selected text in the frontmost window and display a translation popup with the translation between the specified languages\n\nReturns:\n * The LookupSelection object",
-        "stripped_doc" : [
-          "Get the current selected text in the frontmost window and display a translation popup with the translation between the specified languages",
-          ""
-        ],
-        "desc" : "Get the current selected text in the frontmost window and display a translation popup with the translation between the specified languages",
-        "def" : "LookupSelection:openLexicon()",
-        "notes" : [
-
-        ],
-        "signature" : "LookupSelection:openLexicon()",
-        "type" : "Method",
-        "returns" : [
+        "def": "LookupSelection:openLexicon()",
+        "desc": "Get the current selected text in the frontmost window and display a translation popup with the translation between the specified languages",
+        "doc": "Get the current selected text in the frontmost window and display a translation popup with the translation between the specified languages\n\nReturns:\n * The LookupSelection object",
+        "name": "openLexicon",
+        "returns": [
           " * The LookupSelection object"
         ],
-        "name" : "openLexicon",
-        "parameters" : [
-
-        ]
+        "signature": "LookupSelection:openLexicon()",
+        "stripped_doc": "",
+        "type": "Method"
       }
     ],
-    "Field" : [
-
+    "Variable": [
+      {
+        "def": "LookupSelection.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "name": "logger",
+        "signature": "LookupSelection.logger",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
     ],
-    "name" : "LookupSelection"
+    "desc": "Show a popup window with the currently selected word in lexicon, notes, online help",
+    "doc": "Show a popup window with the currently selected word in lexicon, notes, online help\n\nThe spoon uses hs.urlevent.openURL(\"dict://\" .. text) \n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/LookupSelection.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/LookupSelection.spoon.zip)",
+    "items": [
+      {
+        "def": "LookupSelection:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for LookupSelection",
+        "doc": "Binds hotkeys for LookupSelection\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for the following items:\n  * `lexicon` - open in lexicon app\n  * `neue_notiz` -  create new note in notes app\n  * `hsdocs` -  display online help\n\nSample value for `mapping`:\n```\n {\n    lexicon = { { \"ctrl\", \"alt\", \"cmd\" }, \"L\" },\n    neue_notiz = { { \"ctrl\", \"alt\", \"cmd\" }, \"N\" },\n    hsdocs = { { \"ctrl\", \"alt\", \"cmd\" }, \"H\" },\n }\n```",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * mapping - A table containing hotkey modifier/key details for the following items:",
+          "  * `lexicon` - open in lexicon app",
+          "  * `neue_notiz` -  create new note in notes app",
+          "  * `hsdocs` -  display online help"
+        ],
+        "signature": "LookupSelection:bindHotkeys(mapping)",
+        "stripped_doc": "Sample value for `mapping`:\n```\n {\n    lexicon = { { \"ctrl\", \"alt\", \"cmd\" }, \"L\" },\n    neue_notiz = { { \"ctrl\", \"alt\", \"cmd\" }, \"N\" },\n    hsdocs = { { \"ctrl\", \"alt\", \"cmd\" }, \"H\" },\n }\n```",
+        "type": "Method"
+      },
+      {
+        "def": "LookupSelection.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "name": "logger",
+        "signature": "LookupSelection.logger",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "LookupSelection:openLexicon()",
+        "desc": "Get the current selected text in the frontmost window and display a translation popup with the translation between the specified languages",
+        "doc": "Get the current selected text in the frontmost window and display a translation popup with the translation between the specified languages\n\nReturns:\n * The LookupSelection object",
+        "name": "openLexicon",
+        "returns": [
+          " * The LookupSelection object"
+        ],
+        "signature": "LookupSelection:openLexicon()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "name": "LookupSelection",
+    "stripped_doc": "\nThe spoon uses hs.urlevent.openURL(\"dict://\" .. text) \n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/LookupSelection.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/LookupSelection.spoon.zip)",
+    "submodules": [],
+    "type": "Module"
   }
 ]
