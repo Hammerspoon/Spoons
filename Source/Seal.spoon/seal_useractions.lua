@@ -135,8 +135,8 @@ end
 function obj.buildChoice(action, v)
    local icon, kind
    local choice=nil
-   if type(v) == 'table' and v.keyword == nil then
-      if v.fn then
+   if type(v) == 'table' then
+     if v.fn then
          kind = 'runFunction'
       elseif v.url then
          kind = 'openURL'
