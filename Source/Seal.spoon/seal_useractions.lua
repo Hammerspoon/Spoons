@@ -135,8 +135,8 @@ end
 function obj.buildChoice(action, v)
    local icon, kind
    local choice=nil
-   if type(v) == 'table' and v.keyword == nil then
-      if v.fn then
+   if type(v) == 'table' then
+     if v.fn then
          kind = 'runFunction'
       elseif v.url then
          kind = 'openURL'
@@ -224,6 +224,9 @@ end
 
 function obj.choicesActionKeyword(action, def, query)
    local choices = {}
+   if query == ".*" then
+     query = ""
+   end
    local choice = {
       text = def.keyword .. " " .. query,
       subText = action,
