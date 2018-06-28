@@ -224,6 +224,9 @@ end
 
 function obj.choicesActionKeyword(action, def, query)
    local choices = {}
+   if query == ".*" then
+     query = ""
+   end
    local choice = {
       text = def.keyword .. " " .. query,
       subText = action,
