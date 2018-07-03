@@ -63,6 +63,7 @@ function mod:current_selection()
       if (sel == nil or sel == "") and self.select_text_if_needed then
          -- Simulate a double click to select the text under the cursor
          leftDoubleClick(self.select_text_modifiers)
+         hs.timer.usleep(20000)
          sel = elem:selectedText()
       end
       return sel
