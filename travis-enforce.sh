@@ -26,3 +26,4 @@ if [ "${FAILED}" != "0" ]; then
     exit 1
 fi
 
+echo "ALL CHECKS PASSED."
