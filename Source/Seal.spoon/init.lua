@@ -21,7 +21,7 @@ obj.plugins = {}
 obj.commands = {}
 obj.queryChangedTimer = nil
 
-obj.spoonPath = hs.spoons.script_path()
+obj.spoonPath = hs.spoons.scriptPath()
 
 --- Seal.plugin_search_paths
 --- Variable
