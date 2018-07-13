@@ -22,7 +22,7 @@ local obj    = {
     license   = "MIT - https://opensource.org/licenses/MIT",
     spoonPath = debug.getinfo(1, "S").source:match("^@(.+/).+%.lua$"),
 }
-obj.version   = "0.2",
+obj.version   = "0.2"
 local metadataKeys = {} ; for k, v in fnutils.sortByKeys(obj) do table.insert(metadataKeys, k) end
 
 
