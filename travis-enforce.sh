@@ -11,7 +11,7 @@ pushd Source || exit
 echo "Checking for obj.version conformance..."
 for spoon in * ; do
     echo -n "  ${spoon}: "
-    VERSIONSTR=$(grep -E "obj.version = ['\"][0-9.]+['\"]" "${spoon}/init.lua" | awk '{ print $NF}')
+    VERSIONSTR=$(grep -E "obj.version[ ]*=[ ]*['\"][0-9.]+['\"]" "${spoon}/init.lua" | awk '{ print $NF}')
     if [ "${VERSIONSTR}" == "" ]; then
         echo "UNKNOWN"
         FAILED=1
