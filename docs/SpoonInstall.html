@@ -32,6 +32,7 @@
             <li><a href="#andUse">andUse</a></li>
             <li><a href="#asyncInstallSpoonFromRepo">asyncInstallSpoonFromRepo</a></li>
             <li><a href="#asyncInstallSpoonFromZipURL">asyncInstallSpoonFromZipURL</a></li>
+            <li><a href="#asyncUpdateAllRepos">asyncUpdateAllRepos</a></li>
             <li><a href="#asyncUpdateRepo">asyncUpdateRepo</a></li>
             <li><a href="#installSpoonFromRepo">installSpoonFromRepo</a></li>
             <li><a href="#installSpoonFromZipURL">installSpoonFromZipURL</a></li>
@@ -215,6 +216,37 @@ will happen at a more "human readable" rate.</p>
 <p>Returns:</p>
 <ul>
 <li><code>true</code> if the installation was correctly initiated (i.e. the URL is valid), <code>false</code> otherwise</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="asyncUpdateAllRepos">
+            <a name="//apple_ref/cpp/Method/asyncUpdateAllRepos" class="dashAnchor"></a>
+            <h5><a href="#asyncUpdateAllRepos">asyncUpdateAllRepos</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>SpoonInstall:asyncUpdateAllRepos()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Asynchronously fetch the information about the contents of all Spoon repositories registered in <code>SpoonInstall.repos</code></p>
+<p>Parameters:</p>
+<ul>
+<li>None</li>
+</ul>
+<p>Returns:</p>
+<ul>
+<li>None</li>
+</ul>
+<p>Notes:</p>
+<ul>
+<li>For now, the repository data is not persisted, so you need to update it after every restart if you want to use any of the install functions.</li>
 </ul>
 </td>
               </tr>

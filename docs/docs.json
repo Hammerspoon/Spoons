@@ -5416,6 +5416,24 @@
         "type": "Method"
       },
       {
+        "def": "SpoonInstall:asyncUpdateAllRepos()",
+        "desc": "Asynchronously fetch the information about the contents of all Spoon repositories registered in `SpoonInstall.repos`",
+        "doc": "Asynchronously fetch the information about the contents of all Spoon repositories registered in `SpoonInstall.repos`\n\nParameters:\n * None\n\nReturns:\n * None\n\nNotes:\n * For now, the repository data is not persisted, so you need to update it after every restart if you want to use any of the install functions.",
+        "name": "asyncUpdateAllRepos",
+        "notes": [
+          " * For now, the repository data is not persisted, so you need to update it after every restart if you want to use any of the install functions."
+        ],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "SpoonInstall:asyncUpdateAllRepos()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
         "def": "SpoonInstall:asyncUpdateRepo(repo, callback)",
         "desc": "Asynchronously fetch the information about the contents of a Spoon repository",
         "doc": "Asynchronously fetch the information about the contents of a Spoon repository\n\nParameters:\n * repo - name of the repository to update. Defaults to `\"default\"`.\n * callback - if given, a function to be called after the update finishes (also if it fails). The function will receive the following arguments:\n   * repo - name of the repository\n   * success - boolean indicating whether the update succeeded\n\nReturns:\n * `true` if the update was correctly initiated (i.e. the repo name is valid), `nil` otherwise\n\nNotes:\n * For now, the repository data is not persisted, so you need to update it after every restart if you want to use any of the install functions.",
@@ -5628,6 +5646,24 @@
           " * `true` if the installation was correctly initiated (i.e. the URL is valid), `false` otherwise"
         ],
         "signature": "SpoonInstall:asyncInstallSpoonFromZipURL(url, callback)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "SpoonInstall:asyncUpdateAllRepos()",
+        "desc": "Asynchronously fetch the information about the contents of all Spoon repositories registered in `SpoonInstall.repos`",
+        "doc": "Asynchronously fetch the information about the contents of all Spoon repositories registered in `SpoonInstall.repos`\n\nParameters:\n * None\n\nReturns:\n * None\n\nNotes:\n * For now, the repository data is not persisted, so you need to update it after every restart if you want to use any of the install functions.",
+        "name": "asyncUpdateAllRepos",
+        "notes": [
+          " * For now, the repository data is not persisted, so you need to update it after every restart if you want to use any of the install functions."
+        ],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "SpoonInstall:asyncUpdateAllRepos()",
         "stripped_doc": "",
         "type": "Method"
       },

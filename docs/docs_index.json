@@ -1460,6 +1460,12 @@
     "type": "Method"
   },
   {
+    "desc": "Asynchronously fetch the information about the contents of all Spoon repositories registered in `SpoonInstall.repos`",
+    "module": "SpoonInstall",
+    "name": "asyncUpdateAllRepos",
+    "type": "Method"
+  },
+  {
     "desc": "Asynchronously fetch the information about the contents of a Spoon repository",
     "module": "SpoonInstall",
     "name": "asyncUpdateRepo",
