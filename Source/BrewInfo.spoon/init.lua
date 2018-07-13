@@ -12,9 +12,12 @@
 local mod={}
 mod.__index = mod
 
+-- Conformance hack, our Travis linter expects the object to be called "obj"
+local obj=mod
+
 -- Metadata
 mod.name = "BrewInfo"
-mod.version = "1.1"
+obj.version = "1.1"
 mod.author = "Diego Zamboni <diego@zzamboni.org>"
 mod.homepage = "https://github.com/Hammerspoon/Spoons"
 mod.license = "MIT - https://opensource.org/licenses/MIT"
