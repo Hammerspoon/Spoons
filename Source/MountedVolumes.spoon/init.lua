@@ -17,12 +17,12 @@ local spoons  = require("hs.spoons")
 local obj    = {
 -- Metadata
     name      = "MountedVolumes",
-    version   = "0.2",
     author    = "A-Ron",
     homepage  = "https://github.com/Hammerspoon/Spoons",
     license   = "MIT - https://opensource.org/licenses/MIT",
     spoonPath = debug.getinfo(1, "S").source:match("^@(.+/).+%.lua$"),
 }
+obj.version   = "0.2",
 local metadataKeys = {} ; for k, v in fnutils.sortByKeys(obj) do table.insert(metadataKeys, k) end
 
 
