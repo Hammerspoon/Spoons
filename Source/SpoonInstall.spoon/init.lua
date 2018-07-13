@@ -153,6 +153,24 @@ function obj:updateRepo(repo)
    end
 end
 
+--- SpoonInstall:asyncUpdateAllRepos()
+--- Method
+--- Asynchronously fetch the information about the contents of all Spoon repositories registered in `SpoonInstall.repos`
+---
+--- Parameters:
+---  * None
+---
+--- Returns:
+---  * None
+---
+--- Notes:
+---  * For now, the repository data is not persisted, so you need to update it after every restart if you want to use any of the install functions.
+function obj:asyncUpdateAllRepos()
+   for k,v in pairs(self.repos) do
+      self:asyncUpdateRepo(k)
+   end
+end
+
 --- SpoonInstall:updateAllRepos()
 --- Method
 --- Synchronously fetch the information about the contents of all Spoon repositories registered in `SpoonInstall.repos`
