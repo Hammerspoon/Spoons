@@ -15,7 +15,7 @@
         "signature": "SpeedMenu:rescan()",
         "stripped_doc": "",
         "type": "Method"
-            },
+      },
       {
         "def": "SpeedMenu:start()",
         "desc": "Start SpeedMenu.",
