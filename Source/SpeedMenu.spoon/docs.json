@@ -15,6 +15,33 @@
         "signature": "SpeedMenu:rescan()",
         "stripped_doc": "",
         "type": "Method"
+            },
+      {
+        "def": "SpeedMenu:start()",
+        "desc": "Start SpeedMenu.",
+        "doc": "Start SpeedMenu.\n",
+        "name": "start",
+        "signature": "SpeedMenu:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "SpeedMenu:stop()",
+        "desc": "Stop SpeedMenu.",
+        "doc": "Stop SpeedMenu.\n",
+        "name": "stop",
+        "signature": "SpeedMenu:stop()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "SpeedMenu:toggle()",
+        "desc": "If SpeedMenu is running, call SpeedMenu:stop(), otherwise call SpeedMenu:start().",
+        "doc": "If SpeedMenu is running, call SpeedMenu:stop(), otherwise call SpeedMenu:start().\n",
+        "name": "toggle",
+        "signature": "SpeedMenu:toggle()",
+        "stripped_doc": "",
+        "type": "Method"
       }
     ],
     "Variable": [],
