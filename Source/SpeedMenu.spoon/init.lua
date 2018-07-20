@@ -15,8 +15,7 @@ obj.homepage = "https://github.com/Hammerspoon/Spoons"
 obj.license = "MIT - https://opensource.org/licenses/MIT"
 
 function obj:init()
-    self.menubar = hs.menubar.new()
-    obj:rescan()
+    self.menubar = hs.menubar.new(false)
 end
 
 function obj:start()
