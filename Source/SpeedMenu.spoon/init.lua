@@ -19,6 +19,24 @@ function obj:init()
     obj:rescan()
 end
 
+function obj:start()
+    obj.menubar:returnToMenuBar()
+    obj:rescan()
+end
+
+function obj:stop()
+    obj.menubar:removeFromMenuBar()
+    obj.timer:stop()
+end
+
+function obj:toggle()
+    if obj.timer:running() then
+        obj:stop()
+    else
+        obj:start()
+    end
+end
+
 local function data_diff()
     local in_seq = hs.execute(obj.instr)
     local out_seq = hs.execute(obj.outstr)
