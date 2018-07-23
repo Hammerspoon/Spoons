@@ -3,6 +3,15 @@
 --- Pluggable launch bar
 ---
 --- Download: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Seal.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Seal.spoon.zip)
+---
+--- Seal includes a number of plugins, which you can choose to load (see `:loadPlugins()` below):
+---  * apps : Launch applications by name
+---  * safari_bookmarks : Open Safari bookmarks (this is broken since at least High Sierra)
+---  * calc : Simple calculator
+---  * vpn : Connect and disconnect VPNs (currently supports Viscosity and macOS system preferences)A
+---  * useractions : User defined custom actions
+---  * screencapture : Lets you take screenshots in various ways
+seal_calc.lua			seal_screencapture.lua		seal_viscosity.lua
 
 local obj = {}
 obj.__index = obj
