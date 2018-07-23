@@ -11,7 +11,6 @@
 ---  * vpn : Connect and disconnect VPNs (currently supports Viscosity and macOS system preferences)A
 ---  * useractions : User defined custom actions
 ---  * screencapture : Lets you take screenshots in various ways
-seal_calc.lua			seal_screencapture.lua		seal_viscosity.lua
 
 local obj = {}
 obj.__index = obj
