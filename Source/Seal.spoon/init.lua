@@ -341,6 +341,7 @@ return obj
 ---
 --- Various APIs for Seal plugins
 
+-- This isn't really shown, but it's necessary to force Seal.plugins.html to render
 --- Seal.plugins
 --- Constant
 --- This is a table containing all of the loaded plugins for Seal. You should interact with it only via documented API that the plugins expose.
