@@ -1297,6 +1297,17 @@
     "type": "Method"
   },
   {
+    "desc": "A plugin to quickly open URLs containing a search/query term",
+    "name": "Seal.plugins.urlformats",
+    "type": "Module"
+  },
+  {
+    "desc": "Gets or sets the current providers table",
+    "module": "Seal.plugins.urlformats",
+    "name": "providersTable",
+    "type": "Method"
+  },
+  {
     "desc": "Allow accessing user-defined bookmarks and arbitrary actions from Seal.",
     "name": "Seal.plugins.useractions",
     "type": "Module"

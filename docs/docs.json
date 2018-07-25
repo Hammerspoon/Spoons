@@ -4688,7 +4688,7 @@
       }
     ],
     "desc": "Pluggable launch bar",
-    "doc": "Pluggable launch bar\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Seal.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Seal.spoon.zip)\n\nSeal includes a number of plugins, which you can choose to load (see `:loadPlugins()` below):\n * apps : Launch applications by name\n * safari_bookmarks : Open Safari bookmarks (this is broken since at least High Sierra)\n * calc : Simple calculator\n * vpn : Connect and disconnect VPNs (currently supports Viscosity and macOS system preferences)A\n * useractions : User defined custom actions\n * screencapture : Lets you take screenshots in various ways",
+    "doc": "Pluggable launch bar\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Seal.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Seal.spoon.zip)\n\nSeal includes a number of plugins, which you can choose to load (see `:loadPlugins()` below):\n * apps : Launch applications by name\n * safari_bookmarks : Open Safari bookmarks (this is broken since at least High Sierra)\n * calc : Simple calculator\n * vpn : Connect and disconnect VPNs (currently supports Viscosity and macOS system preferences)A\n * useractions : User defined custom actions\n * screencapture : Lets you take screenshots in various ways\n * urls : User defined URL formats to open",
     "items": [
       {
         "def": "Seal.plugins.safari_bookmarks.always_open_with_safari",
@@ -4870,10 +4870,81 @@
       }
     ],
     "name": "Seal",
-    "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Seal.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Seal.spoon.zip)\n\nSeal includes a number of plugins, which you can choose to load (see `:loadPlugins()` below):\n * apps : Launch applications by name\n * safari_bookmarks : Open Safari bookmarks (this is broken since at least High Sierra)\n * calc : Simple calculator\n * vpn : Connect and disconnect VPNs (currently supports Viscosity and macOS system preferences)A\n * useractions : User defined custom actions\n * screencapture : Lets you take screenshots in various ways",
+    "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Seal.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Seal.spoon.zip)\n\nSeal includes a number of plugins, which you can choose to load (see `:loadPlugins()` below):\n * apps : Launch applications by name\n * safari_bookmarks : Open Safari bookmarks (this is broken since at least High Sierra)\n * calc : Simple calculator\n * vpn : Connect and disconnect VPNs (currently supports Viscosity and macOS system preferences)A\n * useractions : User defined custom actions\n * screencapture : Lets you take screenshots in various ways\n * urls : User defined URL formats to open",
     "submodules": [
       "plugins"
     ],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
+        "def": "Seal.plugins.urlformats:providersTable(aTable)",
+        "desc": "Gets or sets the current providers table",
+        "doc": "Gets or sets the current providers table\n\nParameters:\n * aTable - An optional table of providers, which must contain the following keys:\n   * name - A string naming the provider, which will be shown in the Seal results\n   * url - A string containing the URL to insert the user's query into. This should contain one and only one `%s`\n\nReturns:\n * Either a table of current providers, if no parameter was passed, or nothing if a parmameter was passed.\n\nNotes:\n * An example table might look like:\n```lua\n{\n  rhbz = { name = \"Red Hat Bugzilla\", url = \"https://bugzilla.redhat.com/show_bug.cgi?id=%s\", },\n  lp = { name = \"Launchpad Bug\", url = \"https://launchpad.net/bugs/%s\", },\n}\n```",
+        "name": "providersTable",
+        "notes": [
+          " * An example table might look like:",
+          "```lua",
+          "{",
+          "  rhbz = { name = \"Red Hat Bugzilla\", url = \"https://bugzilla.redhat.com/show_bug.cgi?id=%s\", },",
+          "  lp = { name = \"Launchpad Bug\", url = \"https://launchpad.net/bugs/%s\", },",
+          "}",
+          "```"
+        ],
+        "parameters": [
+          " * aTable - An optional table of providers, which must contain the following keys:",
+          "   * name - A string naming the provider, which will be shown in the Seal results",
+          "   * url - A string containing the URL to insert the user's query into. This should contain one and only one `%s`"
+        ],
+        "returns": [
+          " * Either a table of current providers, if no parameter was passed, or nothing if a parmameter was passed."
+        ],
+        "signature": "Seal.plugins.urlformats:providersTable(aTable)",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [],
+    "desc": "A plugin to quickly open URLs containing a search/query term",
+    "doc": "A plugin to quickly open URLs containing a search/query term\nThis plugin is invoked with the `uf` keyword and requires some configuration, see `:providersTable()`\n\nThe way this works is by defining a set of providers, each of which contains a URL with a `%s` somewhere insert it.\nWhen the user types `uf` in Seal, followed by some more characters, those characters will be inserted into the string at the point where the `%s` is.\n\nBy way of an example, you could define a provider with a url like `http://bugs.mycorp.com/showBug?id=%s`, and just need to type `uf 123456` in Seal to get a quick shortcut to open the full URL.",
+    "items": [
+      {
+        "def": "Seal.plugins.urlformats:providersTable(aTable)",
+        "desc": "Gets or sets the current providers table",
+        "doc": "Gets or sets the current providers table\n\nParameters:\n * aTable - An optional table of providers, which must contain the following keys:\n   * name - A string naming the provider, which will be shown in the Seal results\n   * url - A string containing the URL to insert the user's query into. This should contain one and only one `%s`\n\nReturns:\n * Either a table of current providers, if no parameter was passed, or nothing if a parmameter was passed.\n\nNotes:\n * An example table might look like:\n```lua\n{\n  rhbz = { name = \"Red Hat Bugzilla\", url = \"https://bugzilla.redhat.com/show_bug.cgi?id=%s\", },\n  lp = { name = \"Launchpad Bug\", url = \"https://launchpad.net/bugs/%s\", },\n}\n```",
+        "name": "providersTable",
+        "notes": [
+          " * An example table might look like:",
+          "```lua",
+          "{",
+          "  rhbz = { name = \"Red Hat Bugzilla\", url = \"https://bugzilla.redhat.com/show_bug.cgi?id=%s\", },",
+          "  lp = { name = \"Launchpad Bug\", url = \"https://launchpad.net/bugs/%s\", },",
+          "}",
+          "```"
+        ],
+        "parameters": [
+          " * aTable - An optional table of providers, which must contain the following keys:",
+          "   * name - A string naming the provider, which will be shown in the Seal results",
+          "   * url - A string containing the URL to insert the user's query into. This should contain one and only one `%s`"
+        ],
+        "returns": [
+          " * Either a table of current providers, if no parameter was passed, or nothing if a parmameter was passed."
+        ],
+        "signature": "Seal.plugins.urlformats:providersTable(aTable)",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "name": "Seal.plugins.urlformats",
+    "stripped_doc": "This plugin is invoked with the `uf` keyword and requires some configuration, see `:providersTable()`\n\nThe way this works is by defining a set of providers, each of which contains a URL with a `%s` somewhere insert it.\nWhen the user types `uf` in Seal, followed by some more characters, those characters will be inserted into the string at the point where the `%s` is.\n\nBy way of an example, you could define a provider with a url like `http://bugs.mycorp.com/showBug?id=%s`, and just need to type `uf 123456` in Seal to get a quick shortcut to open the full URL.",
+    "submodules": [],
     "type": "Module"
   },
   {

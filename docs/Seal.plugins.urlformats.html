@@ -1,0 +1,75 @@
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hammerspoon docs: Seal.plugins.urlformats</title>
+    <style type="text/css">
+      a { text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      th { background-color: #DDDDDD; vertical-align: top; padding: 3px; }
+      td { width: 100%; background-color: #EEEEEE; vertical-align: top; padding: 3px; }
+      table { width: 100% ; border: 1px solid #0; text-align: left; }
+      section > table table td { width: 0; }
+    </style>
+    <link rel="stylesheet" href="docs.css" type="text/css" media="screen" />
+  </head>
+  <body>
+    <header>
+      <h1><a href="./index.html">docs</a> &raquo; Seal.plugins.urlformats</h1>
+      <p>A plugin to quickly open URLs containing a search/query term
+This plugin is invoked with the <code>uf</code> keyword and requires some configuration, see <code>:providersTable()</code></p>
+<p>The way this works is by defining a set of providers, each of which contains a URL with a <code>%s</code> somewhere insert it.
+When the user types <code>uf</code> in Seal, followed by some more characters, those characters will be inserted into the string at the point where the <code>%s</code> is.</p>
+<p>By way of an example, you could define a provider with a url like <code>http://bugs.mycorp.com/showBug?id=%s</code>, and just need to type <code>uf 123456</code> in Seal to get a quick shortcut to open the full URL.</p>
+
+      </header>
+      <h3>API Overview</h3>
+      <ul>
+        <li>Methods - API calls which can only be made on an object returned by a constructor</li>
+          <ul>
+            <li><a href="#providersTable">providersTable</a></li>
+          </ul>
+      </ul>
+      <h3>API Documentation</h3>
+        <h4 class="documentation-section">Methods</h4>
+          <section id="providersTable">
+            <a name="//apple_ref/cpp/Method/providersTable" class="dashAnchor"></a>
+            <h5><a href="#providersTable">providersTable</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Seal.plugins.urlformats:providersTable(aTable)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Gets or sets the current providers table</p>
+<p>Parameters:</p>
+<ul>
+<li>aTable - An optional table of providers, which must contain the following keys:<ul>
+<li>name - A string naming the provider, which will be shown in the Seal results</li>
+<li>url - A string containing the URL to insert the user's query into. This should contain one and only one <code>%s</code></li>
+</ul>
+</li>
+</ul>
+<p>Returns:</p>
+<ul>
+<li>Either a table of current providers, if no parameter was passed, or nothing if a parmameter was passed.</li>
+</ul>
+<p>Notes:</p>
+<ul>
+<li>An example table might look like:<div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="n">rhbz</span> <span class="o">=</span> <span class="p">{</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Red Hat Bugzilla&quot;</span><span class="p">,</span> <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://bugzilla.redhat.com/show_bug.cgi?id=%s&quot;</span><span class="p">,</span> <span class="p">},</span>
+<span class="n">lp</span> <span class="o">=</span> <span class="p">{</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Launchpad Bug&quot;</span><span class="p">,</span> <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://launchpad.net/bugs/%s&quot;</span><span class="p">,</span> <span class="p">},</span>
+<span class="p">}</span>
+</pre></div>
+</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+  </body>
+</html>
