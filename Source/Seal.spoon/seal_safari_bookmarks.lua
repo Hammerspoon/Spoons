@@ -1,3 +1,7 @@
+--- === Seal.plugins.safari_bookmarks ===
+--- Access Safari bookmarks from Seal
+---
+--- Note: Apple has changed the way Safari stores bookmarks and this plugin no longer works on recent macOS releases.
 local obj = {}
 obj.__index = obj
 obj.__name = "seal_safari_bookmarks"

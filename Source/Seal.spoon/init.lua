@@ -11,7 +11,7 @@
 ---  * vpn : Connect and disconnect VPNs (currently supports Viscosity and macOS system preferences)A
 ---  * useractions : User defined custom actions
 ---  * screencapture : Lets you take screenshots in various ways
----  * urls : User defined URL formats to open
+---  * urlformats : User defined URL formats to open
 
 local obj = {}
 obj.__index = obj
@@ -340,3 +340,7 @@ return obj
 --- === Seal.plugins ===
 ---
 --- Various APIs for Seal plugins
+
+--- Seal.plugins
+--- Constant
+--- This is a table containing all of the loaded plugins for Seal. You should interact with it only via documented API that the plugins expose.

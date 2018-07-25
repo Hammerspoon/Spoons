@@ -170,15 +170,6 @@
     ],
     "Variable": [
       {
-        "def": "Seal.plugins.safari_bookmarks.always_open_with_safari",
-        "desc": "If `true` (default), bookmarks are always opened with Safari, otherwise they are opened with the default application using the `/usr/bin/open` command.",
-        "doc": "If `true` (default), bookmarks are always opened with Safari, otherwise they are opened with the default application using the `/usr/bin/open` command.",
-        "name": "always_open_with_safari",
-        "signature": "Seal.plugins.safari_bookmarks.always_open_with_safari",
-        "stripped_doc": "",
-        "type": "Variable"
-      },
-      {
         "def": "Seal.plugin_search_paths",
         "desc": "List of directories where Seal will look for plugins. Defaults to `~/.hammerspoon/seal_plugins/` and the Seal Spoon directory.",
         "doc": "List of directories where Seal will look for plugins. Defaults to `~/.hammerspoon/seal_plugins/` and the Seal Spoon directory.",
@@ -189,17 +180,8 @@
       }
     ],
     "desc": "Pluggable launch bar",
-    "doc": "Pluggable launch bar\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Seal.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Seal.spoon.zip)\n\nSeal includes a number of plugins, which you can choose to load (see `:loadPlugins()` below):\n * apps : Launch applications by name\n * safari_bookmarks : Open Safari bookmarks (this is broken since at least High Sierra)\n * calc : Simple calculator\n * vpn : Connect and disconnect VPNs (currently supports Viscosity and macOS system preferences)A\n * useractions : User defined custom actions\n * screencapture : Lets you take screenshots in various ways\n * urls : User defined URL formats to open",
+    "doc": "Pluggable launch bar\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Seal.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Seal.spoon.zip)\n\nSeal includes a number of plugins, which you can choose to load (see `:loadPlugins()` below):\n * apps : Launch applications by name\n * safari_bookmarks : Open Safari bookmarks (this is broken since at least High Sierra)\n * calc : Simple calculator\n * vpn : Connect and disconnect VPNs (currently supports Viscosity and macOS system preferences)A\n * useractions : User defined custom actions\n * screencapture : Lets you take screenshots in various ways\n * urlformats : User defined URL formats to open",
     "items": [
-      {
-        "def": "Seal.plugins.safari_bookmarks.always_open_with_safari",
-        "desc": "If `true` (default), bookmarks are always opened with Safari, otherwise they are opened with the default application using the `/usr/bin/open` command.",
-        "doc": "If `true` (default), bookmarks are always opened with Safari, otherwise they are opened with the default application using the `/usr/bin/open` command.",
-        "name": "always_open_with_safari",
-        "signature": "Seal.plugins.safari_bookmarks.always_open_with_safari",
-        "stripped_doc": "",
-        "type": "Variable"
-      },
       {
         "def": "Seal:bindHotkeys(mapping)",
         "desc": "Binds hotkeys for Seal",
@@ -371,10 +353,68 @@
       }
     ],
     "name": "Seal",
-    "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Seal.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Seal.spoon.zip)\n\nSeal includes a number of plugins, which you can choose to load (see `:loadPlugins()` below):\n * apps : Launch applications by name\n * safari_bookmarks : Open Safari bookmarks (this is broken since at least High Sierra)\n * calc : Simple calculator\n * vpn : Connect and disconnect VPNs (currently supports Viscosity and macOS system preferences)A\n * useractions : User defined custom actions\n * screencapture : Lets you take screenshots in various ways\n * urls : User defined URL formats to open",
+    "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Seal.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Seal.spoon.zip)\n\nSeal includes a number of plugins, which you can choose to load (see `:loadPlugins()` below):\n * apps : Launch applications by name\n * safari_bookmarks : Open Safari bookmarks (this is broken since at least High Sierra)\n * calc : Simple calculator\n * vpn : Connect and disconnect VPNs (currently supports Viscosity and macOS system preferences)A\n * useractions : User defined custom actions\n * screencapture : Lets you take screenshots in various ways\n * urlformats : User defined URL formats to open",
     "submodules": [
       "plugins"
     ],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [],
+    "Variable": [],
+    "desc": "Various APIs for Seal plugins",
+    "doc": "Various APIs for Seal plugins",
+    "items": [],
+    "name": "Seal.plugins",
+    "stripped_doc": "",
+    "submodules": [
+      "safari_bookmarks",
+      "urlformats",
+      "useractions"
+    ],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [],
+    "Variable": [
+      {
+        "def": "Seal.plugins.safari_bookmarks.always_open_with_safari",
+        "desc": "If `true` (default), bookmarks are always opened with Safari, otherwise they are opened with the default application using the `/usr/bin/open` command.",
+        "doc": "If `true` (default), bookmarks are always opened with Safari, otherwise they are opened with the default application using the `/usr/bin/open` command.",
+        "name": "always_open_with_safari",
+        "signature": "Seal.plugins.safari_bookmarks.always_open_with_safari",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "desc": "",
+    "doc": "\nNote: Apple has changed the way Safari stores bookmarks and this plugin no longer works on recent macOS releases.",
+    "items": [
+      {
+        "def": "Seal.plugins.safari_bookmarks.always_open_with_safari",
+        "desc": "If `true` (default), bookmarks are always opened with Safari, otherwise they are opened with the default application using the `/usr/bin/open` command.",
+        "doc": "If `true` (default), bookmarks are always opened with Safari, otherwise they are opened with the default application using the `/usr/bin/open` command.",
+        "name": "always_open_with_safari",
+        "signature": "Seal.plugins.safari_bookmarks.always_open_with_safari",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "name": "Seal.plugins.safari_bookmarks",
+    "stripped_doc": "Note: Apple has changed the way Safari stores bookmarks and this plugin no longer works on recent macOS releases.",
+    "submodules": [],
     "type": "Module"
   },
   {

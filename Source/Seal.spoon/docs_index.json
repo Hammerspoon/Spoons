@@ -1,0 +1,111 @@
+[
+  {
+    "desc": "Pluggable launch bar",
+    "name": "Seal",
+    "type": "Module"
+  },
+  {
+    "desc": "List of directories where Seal will look for plugins. Defaults to `~/.hammerspoon/seal_plugins/` and the Seal Spoon directory.",
+    "module": "Seal",
+    "name": "plugin_search_paths",
+    "type": "Variable"
+  },
+  {
+    "desc": "Binds hotkeys for Seal",
+    "module": "Seal",
+    "name": "bindHotkeys",
+    "type": "Method"
+  },
+  {
+    "desc": "Loads a plugin from a given file",
+    "module": "Seal",
+    "name": "loadPluginFromFile",
+    "type": "Method"
+  },
+  {
+    "desc": "Loads a list of Seal plugins",
+    "module": "Seal",
+    "name": "loadPlugins",
+    "type": "Method"
+  },
+  {
+    "desc": "Refresh the list of commands provided by all the currently loaded plugins.",
+    "module": "Seal",
+    "name": "refreshAllCommands",
+    "type": "Method"
+  },
+  {
+    "desc": "Refresh the list of commands provided by the given plugin.",
+    "module": "Seal",
+    "name": "refreshCommandsForPlugin",
+    "type": "Method"
+  },
+  {
+    "desc": "Shows the Seal UI",
+    "module": "Seal",
+    "name": "show",
+    "type": "Method"
+  },
+  {
+    "desc": "Starts Seal",
+    "module": "Seal",
+    "name": "start",
+    "type": "Method"
+  },
+  {
+    "desc": "Stops Seal",
+    "module": "Seal",
+    "name": "stop",
+    "type": "Method"
+  },
+  {
+    "desc": "Shows or hides the Seal UI",
+    "module": "Seal",
+    "name": "toggle",
+    "type": "Method"
+  },
+  {
+    "desc": "Various APIs for Seal plugins",
+    "name": "Seal.plugins",
+    "type": "Module"
+  },
+  {
+    "desc": "",
+    "name": "Seal.plugins.safari_bookmarks",
+    "type": "Module"
+  },
+  {
+    "desc": "If `true` (default), bookmarks are always opened with Safari, otherwise they are opened with the default application using the `/usr/bin/open` command.",
+    "module": "Seal.plugins.safari_bookmarks",
+    "name": "always_open_with_safari",
+    "type": "Variable"
+  },
+  {
+    "desc": "A plugin to quickly open URLs containing a search/query term",
+    "name": "Seal.plugins.urlformats",
+    "type": "Module"
+  },
+  {
+    "desc": "Gets or sets the current providers table",
+    "module": "Seal.plugins.urlformats",
+    "name": "providersTable",
+    "type": "Method"
+  },
+  {
+    "desc": "Allow accessing user-defined bookmarks and arbitrary actions from Seal.",
+    "name": "Seal.plugins.useractions",
+    "type": "Module"
+  },
+  {
+    "desc": "",
+    "module": "Seal.plugins.useractions",
+    "name": "actions",
+    "type": "Variable"
+  },
+  {
+    "desc": "",
+    "module": "Seal.plugins.useractions",
+    "name": "get_favicon",
+    "type": "Variable"
+  }
+]

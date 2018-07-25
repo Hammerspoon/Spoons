@@ -1231,12 +1231,6 @@
     "type": "Module"
   },
   {
-    "desc": "If `true` (default), bookmarks are always opened with Safari, otherwise they are opened with the default application using the `/usr/bin/open` command.",
-    "module": "Seal",
-    "name": "always_open_with_safari",
-    "type": "Variable"
-  },
-  {
     "desc": "List of directories where Seal will look for plugins. Defaults to `~/.hammerspoon/seal_plugins/` and the Seal Spoon directory.",
     "module": "Seal",
     "name": "plugin_search_paths",
@@ -1295,6 +1289,22 @@
     "module": "Seal",
     "name": "toggle",
     "type": "Method"
+  },
+  {
+    "desc": "Various APIs for Seal plugins",
+    "name": "Seal.plugins",
+    "type": "Module"
+  },
+  {
+    "desc": "",
+    "name": "Seal.plugins.safari_bookmarks",
+    "type": "Module"
+  },
+  {
+    "desc": "If `true` (default), bookmarks are always opened with Safari, otherwise they are opened with the default application using the `/usr/bin/open` command.",
+    "module": "Seal.plugins.safari_bookmarks",
+    "name": "always_open_with_safari",
+    "type": "Variable"
   },
   {
     "desc": "A plugin to quickly open URLs containing a search/query term",
