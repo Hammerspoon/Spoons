@@ -56,7 +56,7 @@ obj.actions = {}
 --- Seal.plugins.useractions.get_favicon
 --- Variable
 ---
---- If `true`, attempt to obtain the favicon for URLs added through the `add` command, and use it in the chooser.
+--- If `true`, attempt to obtain the favicon for URLs added through the `add` command, and use it in the chooser. Defaults to `true`
 obj.get_favicon = true
 
 -- Internal functions for storing/retrieving bookmarks in the settings database.

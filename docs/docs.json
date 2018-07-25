@@ -5008,10 +5008,10 @@
       {
         "def": "Seal.plugins.useractions.get_favicon",
         "desc": "",
-        "doc": "\nIf `true`, attempt to obtain the favicon for URLs added through the `add` command, and use it in the chooser.",
+        "doc": "\nIf `true`, attempt to obtain the favicon for URLs added through the `add` command, and use it in the chooser. Defaults to `true`",
         "name": "get_favicon",
         "signature": "Seal.plugins.useractions.get_favicon",
-        "stripped_doc": "If `true`, attempt to obtain the favicon for URLs added through the `add` command, and use it in the chooser.",
+        "stripped_doc": "If `true`, attempt to obtain the favicon for URLs added through the `add` command, and use it in the chooser. Defaults to `true`",
         "type": "Variable"
       }
     ],
@@ -5030,10 +5030,10 @@
       {
         "def": "Seal.plugins.useractions.get_favicon",
         "desc": "",
-        "doc": "\nIf `true`, attempt to obtain the favicon for URLs added through the `add` command, and use it in the chooser.",
+        "doc": "\nIf `true`, attempt to obtain the favicon for URLs added through the `add` command, and use it in the chooser. Defaults to `true`",
         "name": "get_favicon",
         "signature": "Seal.plugins.useractions.get_favicon",
-        "stripped_doc": "If `true`, attempt to obtain the favicon for URLs added through the `add` command, and use it in the chooser.",
+        "stripped_doc": "If `true`, attempt to obtain the favicon for URLs added through the `add` command, and use it in the chooser. Defaults to `true`",
         "type": "Variable"
       }
     ],
