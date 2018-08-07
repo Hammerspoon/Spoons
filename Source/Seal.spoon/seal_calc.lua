@@ -16,11 +16,15 @@ function obj.bareCalc(query)
     if query == nil or query == "" then
         return choices
     end
+
+    -- Filter out commas and dollar signs
+    query, _ = query:gsub("[%,%$]", "")
+
     -- We need to determine if the query only contains mathematical calculations
     -- To do this we'll see if it matches the inverse of that set of characters
     if string.match(query, "[^%d^%.^%+^%-^/^%*^%^^ ^%(^%)]") == nil then
         local choice = {}
-        local compile_result,fn = load("return "..query)
+        local compile_result, fn = load("return " .. query)
         if type(compile_result) == "function" then
             local result = compile_result()
             choice["text"] = result
