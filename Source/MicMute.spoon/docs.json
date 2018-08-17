@@ -1,0 +1,39 @@
+[
+  {
+    "Command" : [],
+    "Constant" : [],
+    "Constructor" : [],
+    "Deprecated" : [],
+    "Field" : [],
+    "Function" : [],
+    "Method" : [
+      {
+        "def": "MicMute:toggleMicMute()",
+        "desc": "Toggle mic mute on/off",
+        "doc": "Toggle mic mute on/off",
+        "name": "toggleMicMute",
+        "signature": "MicMute:toggleMicMute()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable" : [],
+    "desc" : "Microphone Mute Toggle and status indicator",
+    "doc" : "Microphone Mute Toggle and status indicator\n\nDownload: [https://github.com/dctucker/Spoons/raw/master/Spoons/MicMute.spoon.zip](https://github.com/dctucker/Spoons/raw/master/Spoons/MicMute.spoon.zip)",
+    "items" : [
+      {
+        "def": "MicMute:toggleMicMute()",
+        "desc": "Toggle mic mute on/off",
+        "doc": "Toggle mic mute on/off",
+        "name": "toggleMicMute",
+        "signature": "MicMute:toggleMicMute()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "name" : "MicMute",
+    "stripped_doc": "\nDownload: [https://github.com/dctucker/Spoons/raw/master/Spoons/MicMute.spoon.zip](https://github.com/dctucker/Spoons/raw/master/Spoons/MicMute.spoon.zip)",
+    "submodules" : [],
+    "type" : "Module"
+  }
+]
