@@ -1,39 +1,125 @@
 [
   {
-    "Command" : [],
-    "Constant" : [],
-    "Constructor" : [],
-    "Deprecated" : [],
-    "Field" : [],
-    "Function" : [],
+    "Constant" : [
+
+    ],
+    "submodules" : [
+
+    ],
+    "Function" : [
+
+    ],
+    "Variable" : [
+
+    ],
+    "stripped_doc" : [
+
+    ],
+    "desc" : "Microphone Mute Toggle and status indicator",
+    "Deprecated" : [
+
+    ],
+    "type" : "Module",
+    "Constructor" : [
+
+    ],
+    "Field" : [
+
+    ],
     "Method" : [
       {
-        "def": "MicMute:toggleMicMute()",
-        "desc": "Toggle mic mute on/off",
-        "doc": "Toggle mic mute on/off",
-        "name": "toggleMicMute",
-        "signature": "MicMute:toggleMicMute()",
-        "stripped_doc": "",
-        "type": "Method"
+        "desc" : "Toggle mic mute on\/off",
+        "stripped_doc" : [
+          "Toggle mic mute on\/off"
+        ],
+        "def" : "MicMute:toggleMicMute()",
+        "doc" : "Toggle mic mute on\/off",
+        "notes" : [
+
+        ],
+        "signature" : "MicMute:toggleMicMute()",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "name" : "toggleMicMute",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "desc" : "Binds hotkeys for MicMute",
+        "stripped_doc" : [
+          "Binds hotkeys for MicMute",
+          ""
+        ],
+        "def" : "MicMute:bindHotkeys(mapping, latch_timeout)",
+        "doc" : "Binds hotkeys for MicMute\n\nParameters:\n * mapping - A table containing hotkey modifier\/key details for the following items:\n  * toggle - This will cause the microphone mute status to be toggled. Hold for momentary, press quickly for toggle.\n * latch_timeout - Time in seconds to hold the hotkey before momentary mode takes over, in which the mute will be toggled again when hotkey is released. Latch if released before this time. 0.75 for 750 milliseconds is a good value.",
+        "notes" : [
+
+        ],
+        "signature" : "MicMute:bindHotkeys(mapping, latch_timeout)",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "name" : "bindHotkeys",
+        "parameters" : [
+          " * mapping - A table containing hotkey modifier\/key details for the following items:",
+          "  * toggle - This will cause the microphone mute status to be toggled. Hold for momentary, press quickly for toggle.",
+          " * latch_timeout - Time in seconds to hold the hotkey before momentary mode takes over, in which the mute will be toggled again when hotkey is released. Latch if released before this time. 0.75 for 750 milliseconds is a good value."
+        ]
       }
     ],
-    "Variable" : [],
-    "desc" : "Microphone Mute Toggle and status indicator",
-    "doc" : "Microphone Mute Toggle and status indicator\n\nDownload: [https://github.com/dctucker/Spoons/raw/master/Spoons/MicMute.spoon.zip](https://github.com/dctucker/Spoons/raw/master/Spoons/MicMute.spoon.zip)",
+    "Command" : [
+
+    ],
     "items" : [
       {
-        "def": "MicMute:toggleMicMute()",
-        "desc": "Toggle mic mute on/off",
-        "doc": "Toggle mic mute on/off",
-        "name": "toggleMicMute",
-        "signature": "MicMute:toggleMicMute()",
-        "stripped_doc": "",
-        "type": "Method"
+        "desc" : "Binds hotkeys for MicMute",
+        "stripped_doc" : [
+          "Binds hotkeys for MicMute",
+          ""
+        ],
+        "def" : "MicMute:bindHotkeys(mapping, latch_timeout)",
+        "doc" : "Binds hotkeys for MicMute\n\nParameters:\n * mapping - A table containing hotkey modifier\/key details for the following items:\n  * toggle - This will cause the microphone mute status to be toggled. Hold for momentary, press quickly for toggle.\n * latch_timeout - Time in seconds to hold the hotkey before momentary mode takes over, in which the mute will be toggled again when hotkey is released. Latch if released before this time. 0.75 for 750 milliseconds is a good value.",
+        "notes" : [
+
+        ],
+        "signature" : "MicMute:bindHotkeys(mapping, latch_timeout)",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "name" : "bindHotkeys",
+        "parameters" : [
+          " * mapping - A table containing hotkey modifier\/key details for the following items:",
+          "  * toggle - This will cause the microphone mute status to be toggled. Hold for momentary, press quickly for toggle.",
+          " * latch_timeout - Time in seconds to hold the hotkey before momentary mode takes over, in which the mute will be toggled again when hotkey is released. Latch if released before this time. 0.75 for 750 milliseconds is a good value."
+        ]
+      },
+      {
+        "desc" : "Toggle mic mute on\/off",
+        "stripped_doc" : [
+          "Toggle mic mute on\/off"
+        ],
+        "def" : "MicMute:toggleMicMute()",
+        "doc" : "Toggle mic mute on\/off",
+        "notes" : [
+
+        ],
+        "signature" : "MicMute:toggleMicMute()",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "name" : "toggleMicMute",
+        "parameters" : [
+
+        ]
       }
     ],
-    "name" : "MicMute",
-    "stripped_doc": "\nDownload: [https://github.com/dctucker/Spoons/raw/master/Spoons/MicMute.spoon.zip](https://github.com/dctucker/Spoons/raw/master/Spoons/MicMute.spoon.zip)",
-    "submodules" : [],
-    "type" : "Module"
+    "doc" : "Microphone Mute Toggle and status indicator\n\nDownload: [https:\/\/github.com\/dctucker\/Spoons\/raw\/master\/Spoons\/MicMute.spoon.zip](https:\/\/github.com\/dctucker\/Spoons\/raw\/master\/Spoons\/MicMute.spoon.zip)",
+    "name" : "MicMute"
   }
 ]
