@@ -1,0 +1,876 @@
+[
+  {
+    "Constant" : [
+
+    ],
+    "submodules" : [
+
+    ],
+    "Function" : [
+
+    ],
+    "Variable" : [
+      {
+        "def" : "Pastebin.api_dev_key",
+        "stripped_doc" : [
+          "String api developer key. Can be found [here](http:\/\/pastebin.com\/api)"
+        ],
+        "doc" : "String api developer key. Can be found [here](http:\/\/pastebin.com\/api)",
+        "desc" : "String api developer key. Can be found [here](http:\/\/pastebin.com\/api)",
+        "notes" : [
+
+        ],
+        "signature" : "Pastebin.api_dev_key",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "api_dev_key",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "def" : "Pastebin.api_user_key",
+        "stripped_doc" : [
+          "String api user key. Can be generated [here](http:\/\/pastebin.com\/api\/api_user_key.html)"
+        ],
+        "doc" : "String api user key. Can be generated [here](http:\/\/pastebin.com\/api\/api_user_key.html)",
+        "desc" : "String api user key. Can be generated [here](http:\/\/pastebin.com\/api\/api_user_key.html)",
+        "notes" : [
+
+        ],
+        "signature" : "Pastebin.api_user_key",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "api_user_key",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "def" : "Pastebin.private",
+        "stripped_doc" : [
+          "Integer indicating whether a paste should be public, unlisted, or private. Default is 0 (public). (0=public, 1=unlisted, 2=private)"
+        ],
+        "doc" : "Integer indicating whether a paste should be public, unlisted, or private. Default is 0 (public). (0=public, 1=unlisted, 2=private)",
+        "desc" : "Integer indicating whether a paste should be public, unlisted, or private. Default is 0 (public). (0=public, 1=unlisted, 2=private)",
+        "notes" : [
+
+        ],
+        "signature" : "Pastebin.private",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "private",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "def" : "Pastebin.expire",
+        "stripped_doc" : [
+          "String indicating how long until the paste expires. Default is 'N' (Never)"
+        ],
+        "doc" : "String indicating how long until the paste expires. Default is 'N' (Never)",
+        "desc" : "String indicating how long until the paste expires. Default is 'N' (Never)",
+        "notes" : [
+
+        ],
+        "signature" : "Pastebin.expire",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "expire",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "def" : "Pastebin.format",
+        "stripped_doc" : [
+          "String indicating the format of the paste. Default is 'text' (plain text). ",
+          "Valid formats at this time are (current list can be found [here](https:\/\/pastebin.com\/api#5)): ",
+          "'4cs'",
+          "'6502acme'",
+          "'6502kickass'",
+          "'6502tasm'",
+          "'abap'",
+          "'actionscript'",
+          "'actionscript3'",
+          "'ada'",
+          "'aimms'",
+          "'algol68'",
+          "'apache'",
+          "'applescript'",
+          "'apt_sources'",
+          "'arm'",
+          "'asm'",
+          "'asp'",
+          "'asymptote'",
+          "'autoconf'",
+          "'autohotkey'",
+          "'autoit'",
+          "'avisynth'",
+          "'awk'",
+          "'bascomavr'",
+          "'bash'",
+          "'basic4gl'",
+          "'dos'",
+          "'bibtex'",
+          "'blitzbasic'",
+          "'b3d'",
+          "'bmx'",
+          "'bnf'",
+          "'boo'",
+          "'bf'",
+          "'c'",
+          "'c_winapi'",
+          "'c_mac'",
+          "'cil'",
+          "'csharp'",
+          "'cpp'",
+          "'cpp-winapi'",
+          "'cpp-qt'",
+          "'c_loadrunner'",
+          "'caddcl'",
+          "'cadlisp'",
+          "'ceylon'",
+          "'cfdg'",
+          "'chaiscript'",
+          "'chapel'",
+          "'clojure'",
+          "'klonec'",
+          "'klonecpp'",
+          "'cmake'",
+          "'cobol'",
+          "'coffeescript'",
+          "'cfm'",
+          "'css'",
+          "'cuesheet'",
+          "'d'",
+          "'dart'",
+          "'dcl'",
+          "'dcpu16'",
+          "'dcs'",
+          "'delphi'",
+          "'oxygene'",
+          "'diff'",
+          "'div'",
+          "'dot'",
+          "'e'",
+          "'ezt'",
+          "'ecmascript'",
+          "'eiffel'",
+          "'email'",
+          "'epc'",
+          "'erlang'",
+          "'euphoria'",
+          "'fsharp'",
+          "'falcon'",
+          "'filemaker'",
+          "'fo'",
+          "'f1'",
+          "'fortran'",
+          "'freebasic'",
+          "'freeswitch'",
+          "'gambas'",
+          "'gml'",
+          "'gdb'",
+          "'genero'",
+          "'genie'",
+          "'gettext'",
+          "'go'",
+          "'groovy'",
+          "'gwbasic'",
+          "'haskell'",
+          "'haxe'",
+          "'hicest'",
+          "'hq9plus'",
+          "'html4strict'",
+          "'html5'",
+          "'icon'",
+          "'idl'",
+          "'ini'",
+          "'inno'",
+          "'intercal'",
+          "'io'",
+          "'ispfpanel'",
+          "'j'",
+          "'java'",
+          "'java5'",
+          "'javascript'",
+          "'jcl'",
+          "'jquery'",
+          "'json'",
+          "'julia'",
+          "'kixtart'",
+          "'kotlin'",
+          "'latex'",
+          "'ldif'",
+          "'lb'",
+          "'lsl2'",
+          "'lisp'",
+          "'llvm'",
+          "'locobasic'",
+          "'logtalk'",
+          "'lolcode'",
+          "'lotusformulas'",
+          "'lotusscript'",
+          "'lscript'",
+          "'lua'",
+          "'m68k'",
+          "'magiksf'",
+          "'make'",
+          "'mapbasic'",
+          "'markdown'",
+          "'matlab'",
+          "'mirc'",
+          "'mmix'",
+          "'modula2'",
+          "'modula3'",
+          "'68000devpac'",
+          "'mpasm'",
+          "'mxml'",
+          "'mysql'",
+          "'nagios'",
+          "'netrexx'",
+          "'newlisp'",
+          "'nginx'",
+          "'nim'",
+          "'text'",
+          "'nsis'",
+          "'oberon2'",
+          "'objeck'",
+          "'objc'",
+          "'ocaml-brief'",
+          "'ocaml'",
+          "'octave'",
+          "'oorexx'",
+          "'pf'",
+          "'glsl'",
+          "'oobas'",
+          "'oracle11'",
+          "'oracle8'",
+          "'oz'",
+          "'parasail'",
+          "'parigp'",
+          "'pascal'",
+          "'pawn'",
+          "'pcre'",
+          "'per'",
+          "'perl'",
+          "'perl6'",
+          "'php'",
+          "'php-brief'",
+          "'pic16'",
+          "'pike'",
+          "'pixelbender'",
+          "'pli'",
+          "'plsql'",
+          "'postgresql'",
+          "'postscript'",
+          "'povray'",
+          "'powerbuilder'",
+          "'powershell'",
+          "'proftpd'",
+          "'progress'",
+          "'prolog'",
+          "'properties'",
+          "'providex'",
+          "'puppet'",
+          "'purebasic'",
+          "'pycon'",
+          "'python'",
+          "'pys60'",
+          "'q'",
+          "'qbasic'",
+          "'qml'",
+          "'rsplus'",
+          "'racket'",
+          "'rails'",
+          "'rbs'",
+          "'rebol'",
+          "'reg'",
+          "'rexx'",
+          "'robots'",
+          "'rpmspec'",
+          "'ruby'",
+          "'gnuplot'",
+          "'rust'",
+          "'sas'",
+          "'scala'",
+          "'scheme'",
+          "'scilab'",
+          "'scl'",
+          "'sdlbasic'",
+          "'smalltalk'",
+          "'smarty'",
+          "'spark'",
+          "'sparql'",
+          "'sqf'",
+          "'sql'",
+          "'standardml'",
+          "'stonescript'",
+          "'sclang'",
+          "'swift'",
+          "'systemverilog'",
+          "'tsql'",
+          "'tcl'",
+          "'teraterm'",
+          "'thinbasic'",
+          "'typoscript'",
+          "'unicon'",
+          "'uscript'",
+          "'upc'",
+          "'urbi'",
+          "'vala'",
+          "'vbnet'",
+          "'vbscript'",
+          "'vedit'",
+          "'verilog'",
+          "'vhdl'",
+          "'vim'",
+          "'visualprolog'",
+          "'vb'",
+          "'visualfoxpro'",
+          "'whitespace'",
+          "'whois'",
+          "'winbatch'",
+          "'xbasic'",
+          "'xml'",
+          "'xorg_conf'",
+          "'xpp'",
+          "'yaml'",
+          "'z80'",
+          "'zxbasic'"
+        ],
+        "doc" : "String indicating the format of the paste. Default is 'text' (plain text). \nValid formats at this time are (current list can be found [here](https:\/\/pastebin.com\/api#5)): \n'4cs'\n'6502acme'\n'6502kickass'\n'6502tasm'\n'abap'\n'actionscript'\n'actionscript3'\n'ada'\n'aimms'\n'algol68'\n'apache'\n'applescript'\n'apt_sources'\n'arm'\n'asm'\n'asp'\n'asymptote'\n'autoconf'\n'autohotkey'\n'autoit'\n'avisynth'\n'awk'\n'bascomavr'\n'bash'\n'basic4gl'\n'dos'\n'bibtex'\n'blitzbasic'\n'b3d'\n'bmx'\n'bnf'\n'boo'\n'bf'\n'c'\n'c_winapi'\n'c_mac'\n'cil'\n'csharp'\n'cpp'\n'cpp-winapi'\n'cpp-qt'\n'c_loadrunner'\n'caddcl'\n'cadlisp'\n'ceylon'\n'cfdg'\n'chaiscript'\n'chapel'\n'clojure'\n'klonec'\n'klonecpp'\n'cmake'\n'cobol'\n'coffeescript'\n'cfm'\n'css'\n'cuesheet'\n'd'\n'dart'\n'dcl'\n'dcpu16'\n'dcs'\n'delphi'\n'oxygene'\n'diff'\n'div'\n'dot'\n'e'\n'ezt'\n'ecmascript'\n'eiffel'\n'email'\n'epc'\n'erlang'\n'euphoria'\n'fsharp'\n'falcon'\n'filemaker'\n'fo'\n'f1'\n'fortran'\n'freebasic'\n'freeswitch'\n'gambas'\n'gml'\n'gdb'\n'genero'\n'genie'\n'gettext'\n'go'\n'groovy'\n'gwbasic'\n'haskell'\n'haxe'\n'hicest'\n'hq9plus'\n'html4strict'\n'html5'\n'icon'\n'idl'\n'ini'\n'inno'\n'intercal'\n'io'\n'ispfpanel'\n'j'\n'java'\n'java5'\n'javascript'\n'jcl'\n'jquery'\n'json'\n'julia'\n'kixtart'\n'kotlin'\n'latex'\n'ldif'\n'lb'\n'lsl2'\n'lisp'\n'llvm'\n'locobasic'\n'logtalk'\n'lolcode'\n'lotusformulas'\n'lotusscript'\n'lscript'\n'lua'\n'm68k'\n'magiksf'\n'make'\n'mapbasic'\n'markdown'\n'matlab'\n'mirc'\n'mmix'\n'modula2'\n'modula3'\n'68000devpac'\n'mpasm'\n'mxml'\n'mysql'\n'nagios'\n'netrexx'\n'newlisp'\n'nginx'\n'nim'\n'text'\n'nsis'\n'oberon2'\n'objeck'\n'objc'\n'ocaml-brief'\n'ocaml'\n'octave'\n'oorexx'\n'pf'\n'glsl'\n'oobas'\n'oracle11'\n'oracle8'\n'oz'\n'parasail'\n'parigp'\n'pascal'\n'pawn'\n'pcre'\n'per'\n'perl'\n'perl6'\n'php'\n'php-brief'\n'pic16'\n'pike'\n'pixelbender'\n'pli'\n'plsql'\n'postgresql'\n'postscript'\n'povray'\n'powerbuilder'\n'powershell'\n'proftpd'\n'progress'\n'prolog'\n'properties'\n'providex'\n'puppet'\n'purebasic'\n'pycon'\n'python'\n'pys60'\n'q'\n'qbasic'\n'qml'\n'rsplus'\n'racket'\n'rails'\n'rbs'\n'rebol'\n'reg'\n'rexx'\n'robots'\n'rpmspec'\n'ruby'\n'gnuplot'\n'rust'\n'sas'\n'scala'\n'scheme'\n'scilab'\n'scl'\n'sdlbasic'\n'smalltalk'\n'smarty'\n'spark'\n'sparql'\n'sqf'\n'sql'\n'standardml'\n'stonescript'\n'sclang'\n'swift'\n'systemverilog'\n'tsql'\n'tcl'\n'teraterm'\n'thinbasic'\n'typoscript'\n'unicon'\n'uscript'\n'upc'\n'urbi'\n'vala'\n'vbnet'\n'vbscript'\n'vedit'\n'verilog'\n'vhdl'\n'vim'\n'visualprolog'\n'vb'\n'visualfoxpro'\n'whitespace'\n'whois'\n'winbatch'\n'xbasic'\n'xml'\n'xorg_conf'\n'xpp'\n'yaml'\n'z80'\n'zxbasic'",
+        "desc" : "String indicating the format of the paste. Default is 'text' (plain text).",
+        "notes" : [
+
+        ],
+        "signature" : "Pastebin.format",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "format",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "def" : "Pastebin.logger",
+        "stripped_doc" : [
+          "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
+        ],
+        "doc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "notes" : [
+
+        ],
+        "signature" : "Pastebin.logger",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "logger",
+        "parameters" : [
+
+        ]
+      }
+    ],
+    "stripped_doc" : [
+
+    ],
+    "Deprecated" : [
+
+    ],
+    "type" : "Module",
+    "desc" : "Send clipboard contents to Pastebin",
+    "Constructor" : [
+
+    ],
+    "items" : [
+      {
+        "def" : "Pastebin.api_dev_key",
+        "stripped_doc" : [
+          "String api developer key. Can be found [here](http:\/\/pastebin.com\/api)"
+        ],
+        "doc" : "String api developer key. Can be found [here](http:\/\/pastebin.com\/api)",
+        "desc" : "String api developer key. Can be found [here](http:\/\/pastebin.com\/api)",
+        "notes" : [
+
+        ],
+        "signature" : "Pastebin.api_dev_key",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "api_dev_key",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "def" : "Pastebin.api_user_key",
+        "stripped_doc" : [
+          "String api user key. Can be generated [here](http:\/\/pastebin.com\/api\/api_user_key.html)"
+        ],
+        "doc" : "String api user key. Can be generated [here](http:\/\/pastebin.com\/api\/api_user_key.html)",
+        "desc" : "String api user key. Can be generated [here](http:\/\/pastebin.com\/api\/api_user_key.html)",
+        "notes" : [
+
+        ],
+        "signature" : "Pastebin.api_user_key",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "api_user_key",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "def" : "Pastebin.expire",
+        "stripped_doc" : [
+          "String indicating how long until the paste expires. Default is 'N' (Never)"
+        ],
+        "doc" : "String indicating how long until the paste expires. Default is 'N' (Never)",
+        "desc" : "String indicating how long until the paste expires. Default is 'N' (Never)",
+        "notes" : [
+
+        ],
+        "signature" : "Pastebin.expire",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "expire",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "def" : "Pastebin.format",
+        "stripped_doc" : [
+          "String indicating the format of the paste. Default is 'text' (plain text). ",
+          "Valid formats at this time are (current list can be found [here](https:\/\/pastebin.com\/api#5)): ",
+          "'4cs'",
+          "'6502acme'",
+          "'6502kickass'",
+          "'6502tasm'",
+          "'abap'",
+          "'actionscript'",
+          "'actionscript3'",
+          "'ada'",
+          "'aimms'",
+          "'algol68'",
+          "'apache'",
+          "'applescript'",
+          "'apt_sources'",
+          "'arm'",
+          "'asm'",
+          "'asp'",
+          "'asymptote'",
+          "'autoconf'",
+          "'autohotkey'",
+          "'autoit'",
+          "'avisynth'",
+          "'awk'",
+          "'bascomavr'",
+          "'bash'",
+          "'basic4gl'",
+          "'dos'",
+          "'bibtex'",
+          "'blitzbasic'",
+          "'b3d'",
+          "'bmx'",
+          "'bnf'",
+          "'boo'",
+          "'bf'",
+          "'c'",
+          "'c_winapi'",
+          "'c_mac'",
+          "'cil'",
+          "'csharp'",
+          "'cpp'",
+          "'cpp-winapi'",
+          "'cpp-qt'",
+          "'c_loadrunner'",
+          "'caddcl'",
+          "'cadlisp'",
+          "'ceylon'",
+          "'cfdg'",
+          "'chaiscript'",
+          "'chapel'",
+          "'clojure'",
+          "'klonec'",
+          "'klonecpp'",
+          "'cmake'",
+          "'cobol'",
+          "'coffeescript'",
+          "'cfm'",
+          "'css'",
+          "'cuesheet'",
+          "'d'",
+          "'dart'",
+          "'dcl'",
+          "'dcpu16'",
+          "'dcs'",
+          "'delphi'",
+          "'oxygene'",
+          "'diff'",
+          "'div'",
+          "'dot'",
+          "'e'",
+          "'ezt'",
+          "'ecmascript'",
+          "'eiffel'",
+          "'email'",
+          "'epc'",
+          "'erlang'",
+          "'euphoria'",
+          "'fsharp'",
+          "'falcon'",
+          "'filemaker'",
+          "'fo'",
+          "'f1'",
+          "'fortran'",
+          "'freebasic'",
+          "'freeswitch'",
+          "'gambas'",
+          "'gml'",
+          "'gdb'",
+          "'genero'",
+          "'genie'",
+          "'gettext'",
+          "'go'",
+          "'groovy'",
+          "'gwbasic'",
+          "'haskell'",
+          "'haxe'",
+          "'hicest'",
+          "'hq9plus'",
+          "'html4strict'",
+          "'html5'",
+          "'icon'",
+          "'idl'",
+          "'ini'",
+          "'inno'",
+          "'intercal'",
+          "'io'",
+          "'ispfpanel'",
+          "'j'",
+          "'java'",
+          "'java5'",
+          "'javascript'",
+          "'jcl'",
+          "'jquery'",
+          "'json'",
+          "'julia'",
+          "'kixtart'",
+          "'kotlin'",
+          "'latex'",
+          "'ldif'",
+          "'lb'",
+          "'lsl2'",
+          "'lisp'",
+          "'llvm'",
+          "'locobasic'",
+          "'logtalk'",
+          "'lolcode'",
+          "'lotusformulas'",
+          "'lotusscript'",
+          "'lscript'",
+          "'lua'",
+          "'m68k'",
+          "'magiksf'",
+          "'make'",
+          "'mapbasic'",
+          "'markdown'",
+          "'matlab'",
+          "'mirc'",
+          "'mmix'",
+          "'modula2'",
+          "'modula3'",
+          "'68000devpac'",
+          "'mpasm'",
+          "'mxml'",
+          "'mysql'",
+          "'nagios'",
+          "'netrexx'",
+          "'newlisp'",
+          "'nginx'",
+          "'nim'",
+          "'text'",
+          "'nsis'",
+          "'oberon2'",
+          "'objeck'",
+          "'objc'",
+          "'ocaml-brief'",
+          "'ocaml'",
+          "'octave'",
+          "'oorexx'",
+          "'pf'",
+          "'glsl'",
+          "'oobas'",
+          "'oracle11'",
+          "'oracle8'",
+          "'oz'",
+          "'parasail'",
+          "'parigp'",
+          "'pascal'",
+          "'pawn'",
+          "'pcre'",
+          "'per'",
+          "'perl'",
+          "'perl6'",
+          "'php'",
+          "'php-brief'",
+          "'pic16'",
+          "'pike'",
+          "'pixelbender'",
+          "'pli'",
+          "'plsql'",
+          "'postgresql'",
+          "'postscript'",
+          "'povray'",
+          "'powerbuilder'",
+          "'powershell'",
+          "'proftpd'",
+          "'progress'",
+          "'prolog'",
+          "'properties'",
+          "'providex'",
+          "'puppet'",
+          "'purebasic'",
+          "'pycon'",
+          "'python'",
+          "'pys60'",
+          "'q'",
+          "'qbasic'",
+          "'qml'",
+          "'rsplus'",
+          "'racket'",
+          "'rails'",
+          "'rbs'",
+          "'rebol'",
+          "'reg'",
+          "'rexx'",
+          "'robots'",
+          "'rpmspec'",
+          "'ruby'",
+          "'gnuplot'",
+          "'rust'",
+          "'sas'",
+          "'scala'",
+          "'scheme'",
+          "'scilab'",
+          "'scl'",
+          "'sdlbasic'",
+          "'smalltalk'",
+          "'smarty'",
+          "'spark'",
+          "'sparql'",
+          "'sqf'",
+          "'sql'",
+          "'standardml'",
+          "'stonescript'",
+          "'sclang'",
+          "'swift'",
+          "'systemverilog'",
+          "'tsql'",
+          "'tcl'",
+          "'teraterm'",
+          "'thinbasic'",
+          "'typoscript'",
+          "'unicon'",
+          "'uscript'",
+          "'upc'",
+          "'urbi'",
+          "'vala'",
+          "'vbnet'",
+          "'vbscript'",
+          "'vedit'",
+          "'verilog'",
+          "'vhdl'",
+          "'vim'",
+          "'visualprolog'",
+          "'vb'",
+          "'visualfoxpro'",
+          "'whitespace'",
+          "'whois'",
+          "'winbatch'",
+          "'xbasic'",
+          "'xml'",
+          "'xorg_conf'",
+          "'xpp'",
+          "'yaml'",
+          "'z80'",
+          "'zxbasic'"
+        ],
+        "doc" : "String indicating the format of the paste. Default is 'text' (plain text). \nValid formats at this time are (current list can be found [here](https:\/\/pastebin.com\/api#5)): \n'4cs'\n'6502acme'\n'6502kickass'\n'6502tasm'\n'abap'\n'actionscript'\n'actionscript3'\n'ada'\n'aimms'\n'algol68'\n'apache'\n'applescript'\n'apt_sources'\n'arm'\n'asm'\n'asp'\n'asymptote'\n'autoconf'\n'autohotkey'\n'autoit'\n'avisynth'\n'awk'\n'bascomavr'\n'bash'\n'basic4gl'\n'dos'\n'bibtex'\n'blitzbasic'\n'b3d'\n'bmx'\n'bnf'\n'boo'\n'bf'\n'c'\n'c_winapi'\n'c_mac'\n'cil'\n'csharp'\n'cpp'\n'cpp-winapi'\n'cpp-qt'\n'c_loadrunner'\n'caddcl'\n'cadlisp'\n'ceylon'\n'cfdg'\n'chaiscript'\n'chapel'\n'clojure'\n'klonec'\n'klonecpp'\n'cmake'\n'cobol'\n'coffeescript'\n'cfm'\n'css'\n'cuesheet'\n'd'\n'dart'\n'dcl'\n'dcpu16'\n'dcs'\n'delphi'\n'oxygene'\n'diff'\n'div'\n'dot'\n'e'\n'ezt'\n'ecmascript'\n'eiffel'\n'email'\n'epc'\n'erlang'\n'euphoria'\n'fsharp'\n'falcon'\n'filemaker'\n'fo'\n'f1'\n'fortran'\n'freebasic'\n'freeswitch'\n'gambas'\n'gml'\n'gdb'\n'genero'\n'genie'\n'gettext'\n'go'\n'groovy'\n'gwbasic'\n'haskell'\n'haxe'\n'hicest'\n'hq9plus'\n'html4strict'\n'html5'\n'icon'\n'idl'\n'ini'\n'inno'\n'intercal'\n'io'\n'ispfpanel'\n'j'\n'java'\n'java5'\n'javascript'\n'jcl'\n'jquery'\n'json'\n'julia'\n'kixtart'\n'kotlin'\n'latex'\n'ldif'\n'lb'\n'lsl2'\n'lisp'\n'llvm'\n'locobasic'\n'logtalk'\n'lolcode'\n'lotusformulas'\n'lotusscript'\n'lscript'\n'lua'\n'm68k'\n'magiksf'\n'make'\n'mapbasic'\n'markdown'\n'matlab'\n'mirc'\n'mmix'\n'modula2'\n'modula3'\n'68000devpac'\n'mpasm'\n'mxml'\n'mysql'\n'nagios'\n'netrexx'\n'newlisp'\n'nginx'\n'nim'\n'text'\n'nsis'\n'oberon2'\n'objeck'\n'objc'\n'ocaml-brief'\n'ocaml'\n'octave'\n'oorexx'\n'pf'\n'glsl'\n'oobas'\n'oracle11'\n'oracle8'\n'oz'\n'parasail'\n'parigp'\n'pascal'\n'pawn'\n'pcre'\n'per'\n'perl'\n'perl6'\n'php'\n'php-brief'\n'pic16'\n'pike'\n'pixelbender'\n'pli'\n'plsql'\n'postgresql'\n'postscript'\n'povray'\n'powerbuilder'\n'powershell'\n'proftpd'\n'progress'\n'prolog'\n'properties'\n'providex'\n'puppet'\n'purebasic'\n'pycon'\n'python'\n'pys60'\n'q'\n'qbasic'\n'qml'\n'rsplus'\n'racket'\n'rails'\n'rbs'\n'rebol'\n'reg'\n'rexx'\n'robots'\n'rpmspec'\n'ruby'\n'gnuplot'\n'rust'\n'sas'\n'scala'\n'scheme'\n'scilab'\n'scl'\n'sdlbasic'\n'smalltalk'\n'smarty'\n'spark'\n'sparql'\n'sqf'\n'sql'\n'standardml'\n'stonescript'\n'sclang'\n'swift'\n'systemverilog'\n'tsql'\n'tcl'\n'teraterm'\n'thinbasic'\n'typoscript'\n'unicon'\n'uscript'\n'upc'\n'urbi'\n'vala'\n'vbnet'\n'vbscript'\n'vedit'\n'verilog'\n'vhdl'\n'vim'\n'visualprolog'\n'vb'\n'visualfoxpro'\n'whitespace'\n'whois'\n'winbatch'\n'xbasic'\n'xml'\n'xorg_conf'\n'xpp'\n'yaml'\n'z80'\n'zxbasic'",
+        "desc" : "String indicating the format of the paste. Default is 'text' (plain text).",
+        "notes" : [
+
+        ],
+        "signature" : "Pastebin.format",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "format",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "def" : "Pastebin.logger",
+        "stripped_doc" : [
+          "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
+        ],
+        "doc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "notes" : [
+
+        ],
+        "signature" : "Pastebin.logger",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "logger",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "def" : "Pastebin.private",
+        "stripped_doc" : [
+          "Integer indicating whether a paste should be public, unlisted, or private. Default is 0 (public). (0=public, 1=unlisted, 2=private)"
+        ],
+        "doc" : "Integer indicating whether a paste should be public, unlisted, or private. Default is 0 (public). (0=public, 1=unlisted, 2=private)",
+        "desc" : "Integer indicating whether a paste should be public, unlisted, or private. Default is 0 (public). (0=public, 1=unlisted, 2=private)",
+        "notes" : [
+
+        ],
+        "signature" : "Pastebin.private",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "private",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "def" : "Pastebin:bindHotkeys(mapping)",
+        "stripped_doc" : [
+          "Binds hotkeys for Pastebin",
+          ""
+        ],
+        "doc" : "Binds hotkeys for Pastebin\n\nParameters:\n * mapping - A table containing hotkey objifier\/key details for the following items:\n  * paste - paste to Pastebin",
+        "desc" : "Binds hotkeys for Pastebin",
+        "notes" : [
+
+        ],
+        "signature" : "Pastebin:bindHotkeys(mapping)",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "name" : "bindHotkeys",
+        "parameters" : [
+          " * mapping - A table containing hotkey objifier\/key details for the following items:",
+          "  * paste - paste to Pastebin"
+        ]
+      },
+      {
+        "def" : "Pastebin:paste(private, expire, format)",
+        "stripped_doc" : [
+          "Pastes an item to Pastebin using the Pastebin api",
+          ""
+        ],
+        "doc" : "Pastes an item to Pastebin using the Pastebin api\n\nParameters:\n * private - Integer specifying whether the paste should be public, private, or unlisted. Defaults to obj.private (0=public)\n * expire - String specifying the TTL for the paste. Defaults to obj.expire ('N'=never). Valid values are listed on obj.expire\n * format - String specifying the appropriate Pastebin format enum. Default is obj.format ('text'). Valid values are listed on obj.format",
+        "desc" : "Pastes an item to Pastebin using the Pastebin api",
+        "notes" : [
+
+        ],
+        "signature" : "Pastebin:paste(private, expire, format)",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "name" : "paste",
+        "parameters" : [
+          " * private - Integer specifying whether the paste should be public, private, or unlisted. Defaults to obj.private (0=public)",
+          " * expire - String specifying the TTL for the paste. Defaults to obj.expire ('N'=never). Valid values are listed on obj.expire",
+          " * format - String specifying the appropriate Pastebin format enum. Default is obj.format ('text'). Valid values are listed on obj.format"
+        ]
+      }
+    ],
+    "Method" : [
+      {
+        "def" : "Pastebin:paste(private, expire, format)",
+        "stripped_doc" : [
+          "Pastes an item to Pastebin using the Pastebin api",
+          ""
+        ],
+        "doc" : "Pastes an item to Pastebin using the Pastebin api\n\nParameters:\n * private - Integer specifying whether the paste should be public, private, or unlisted. Defaults to obj.private (0=public)\n * expire - String specifying the TTL for the paste. Defaults to obj.expire ('N'=never). Valid values are listed on obj.expire\n * format - String specifying the appropriate Pastebin format enum. Default is obj.format ('text'). Valid values are listed on obj.format",
+        "desc" : "Pastes an item to Pastebin using the Pastebin api",
+        "notes" : [
+
+        ],
+        "signature" : "Pastebin:paste(private, expire, format)",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "name" : "paste",
+        "parameters" : [
+          " * private - Integer specifying whether the paste should be public, private, or unlisted. Defaults to obj.private (0=public)",
+          " * expire - String specifying the TTL for the paste. Defaults to obj.expire ('N'=never). Valid values are listed on obj.expire",
+          " * format - String specifying the appropriate Pastebin format enum. Default is obj.format ('text'). Valid values are listed on obj.format"
+        ]
+      },
+      {
+        "def" : "Pastebin:bindHotkeys(mapping)",
+        "stripped_doc" : [
+          "Binds hotkeys for Pastebin",
+          ""
+        ],
+        "doc" : "Binds hotkeys for Pastebin\n\nParameters:\n * mapping - A table containing hotkey objifier\/key details for the following items:\n  * paste - paste to Pastebin",
+        "desc" : "Binds hotkeys for Pastebin",
+        "notes" : [
+
+        ],
+        "signature" : "Pastebin:bindHotkeys(mapping)",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "name" : "bindHotkeys",
+        "parameters" : [
+          " * mapping - A table containing hotkey objifier\/key details for the following items:",
+          "  * paste - paste to Pastebin"
+        ]
+      }
+    ],
+    "Command" : [
+
+    ],
+    "Field" : [
+
+    ],
+    "doc" : "Send clipboard contents to Pastebin\n\nConversion of tldm's pastebin gist to a Spoon https:\/\/gist.github.com\/tdlm\/5eba0299f2924a8aaf46\nCode by @tdlm, spoon by Tyler Thrailkill <tyler.b.thrailkill@gmail.com>\n\nhttps:\/\/github.com\/snowe2010",
+    "name" : "Pastebin"
+  }
+]
