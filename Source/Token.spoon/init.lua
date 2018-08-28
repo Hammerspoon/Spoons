@@ -77,7 +77,7 @@ end
 ---   * generate - generate and type token
 function obj:bindHotkeys(keys)
     hs.hotkey.bindSpec(keys["generate"], function()
-        self.token_keystroke()
+        self:token_keystroke()
     end)
 end
 
