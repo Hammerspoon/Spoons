@@ -365,7 +365,7 @@ function obj:bindHotkeys(keys)
         keys['paste'],
         'Paste an item to Pastebin.',
         function()
-            self.paste()
+            self:paste()
         end
     )
 end
