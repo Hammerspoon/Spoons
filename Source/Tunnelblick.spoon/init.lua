@@ -86,7 +86,7 @@ function obj:bindHotkeys(keys)
         keys['login'],
         'Login to Tunnelblick',
         function()
-            self.connect()
+            self:connect()
         end
     )
 end
