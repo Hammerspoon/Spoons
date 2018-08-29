@@ -1,282 +1,138 @@
 [
   {
-    "Constant" : [
-
-    ],
-    "submodules" : [
-
-    ],
-    "Function" : [
-
-    ],
-    "Variable" : [
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
       {
-        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
-        "def" : "Tunnelblick.logger",
-        "stripped_doc" : [
-          "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
-        ],
-        "doc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
-        "notes" : [
-
-        ],
-        "signature" : "Tunnelblick.logger",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "name" : "logger",
-        "parameters" : [
-
-        ]
-      },
-      {
-        "desc" : "Function returning the password to login to the vpn connection with",
-        "def" : "Tunnelblick.password_fn",
-        "stripped_doc" : [
-          "Function returning the password to login to the vpn connection with"
-        ],
-        "doc" : "Function returning the password to login to the vpn connection with",
-        "notes" : [
-
-        ],
-        "signature" : "Tunnelblick.password_fn",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "name" : "password_fn",
-        "parameters" : [
-
-        ]
-      },
-      {
-        "desc" : "String username to log in with",
-        "def" : "Tunnelblick.username",
-        "stripped_doc" : [
-          "String username to log in with"
-        ],
-        "doc" : "String username to log in with",
-        "notes" : [
-
-        ],
-        "signature" : "Tunnelblick.username",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "name" : "username",
-        "parameters" : [
-
-        ]
-      },
-      {
-        "desc" : "String connection name",
-        "def" : "Tunnelblick.connection_name",
-        "stripped_doc" : [
-          "String connection name"
-        ],
-        "doc" : "String connection name",
-        "notes" : [
-
-        ],
-        "signature" : "Tunnelblick.connection_name",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "name" : "connection_name",
-        "parameters" : [
-
-        ]
-      }
-    ],
-    "stripped_doc" : [
-
-    ],
-    "Deprecated" : [
-
-    ],
-    "desc" : "connect to a Tunnelblick OpenVPN connection using a shortcut",
-    "type" : "Module",
-    "Constructor" : [
-
-    ],
-    "doc" : "connect to a Tunnelblick OpenVPN connection using a shortcut\nUses applescript to interact with Tunnelblick's window\n\nwritten by Tyler Thrailkill <tyler.b.thrailkill@gmail.com>\n\nhttps:\/\/github.com\/snowe2010",
-    "Method" : [
-      {
-        "desc" : "Performs the connection operation using a username, password, and connection_name",
-        "def" : "Tunnelblick:connect()",
-        "stripped_doc" : [
-          "Performs the connection operation using a username, password, and connection_name"
-        ],
-        "doc" : "Performs the connection operation using a username, password, and connection_name",
-        "notes" : [
-
-        ],
-        "signature" : "Tunnelblick:connect()",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "name" : "connect",
-        "parameters" : [
-
-        ]
-      },
-      {
-        "desc" : "Binds hotkeys for Tunnelblick",
-        "def" : "Tunnelblick:bindHotkeys(mapping)",
-        "stripped_doc" : [
-          "Binds hotkeys for Tunnelblick",
-          ""
-        ],
-        "doc" : "Binds hotkeys for Tunnelblick\n\nParameters:\n * mapping - A table containing hotkey objifier\/key details for the following items:\n  * login - login to tunnelblick shortcut",
-        "notes" : [
-
-        ],
-        "signature" : "Tunnelblick:bindHotkeys(mapping)",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "name" : "bindHotkeys",
-        "parameters" : [
-          " * mapping - A table containing hotkey objifier\/key details for the following items:",
+        "def": "Tunnelblick:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for Tunnelblick",
+        "doc": "Binds hotkeys for Tunnelblick\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n  * login - login to tunnelblick shortcut",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * mapping - A table containing hotkey objifier/key details for the following items:",
           "  * login - login to tunnelblick shortcut"
-        ]
+        ],
+        "signature": "Tunnelblick:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Tunnelblick:connect()",
+        "desc": "Performs the connection operation using a username, password, and connection_name",
+        "doc": "Performs the connection operation using a username, password, and connection_name",
+        "name": "connect",
+        "signature": "Tunnelblick:connect()",
+        "stripped_doc": "",
+        "type": "Method"
       }
     ],
-    "Field" : [
-
+    "Variable": [
+      {
+        "def": "Tunnelblick.connection_name",
+        "desc": "String connection name",
+        "doc": "String connection name",
+        "name": "connection_name",
+        "signature": "Tunnelblick.connection_name",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "Tunnelblick.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "name": "logger",
+        "signature": "Tunnelblick.logger",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "Tunnelblick.password_fn",
+        "desc": "Function returning the password to login to the vpn connection with",
+        "doc": "Function returning the password to login to the vpn connection with",
+        "name": "password_fn",
+        "signature": "Tunnelblick.password_fn",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "Tunnelblick.username",
+        "desc": "String username to log in with",
+        "doc": "String username to log in with",
+        "name": "username",
+        "signature": "Tunnelblick.username",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
     ],
-    "Command" : [
-
-    ],
-    "items" : [
+    "desc": "connect to a Tunnelblick OpenVPN connection using a shortcut",
+    "doc": "connect to a Tunnelblick OpenVPN connection using a shortcut\nUses applescript to interact with Tunnelblick's window\n\nwritten by Tyler Thrailkill <tyler.b.thrailkill@gmail.com>\n\nhttps://github.com/snowe2010",
+    "items": [
       {
-        "desc" : "String connection name",
-        "def" : "Tunnelblick.connection_name",
-        "stripped_doc" : [
-          "String connection name"
-        ],
-        "doc" : "String connection name",
-        "notes" : [
-
-        ],
-        "signature" : "Tunnelblick.connection_name",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "name" : "connection_name",
-        "parameters" : [
-
-        ]
-      },
-      {
-        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
-        "def" : "Tunnelblick.logger",
-        "stripped_doc" : [
-          "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
-        ],
-        "doc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
-        "notes" : [
-
-        ],
-        "signature" : "Tunnelblick.logger",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "name" : "logger",
-        "parameters" : [
-
-        ]
-      },
-      {
-        "desc" : "Function returning the password to login to the vpn connection with",
-        "def" : "Tunnelblick.password_fn",
-        "stripped_doc" : [
-          "Function returning the password to login to the vpn connection with"
-        ],
-        "doc" : "Function returning the password to login to the vpn connection with",
-        "notes" : [
-
-        ],
-        "signature" : "Tunnelblick.password_fn",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "name" : "password_fn",
-        "parameters" : [
-
-        ]
-      },
-      {
-        "desc" : "String username to log in with",
-        "def" : "Tunnelblick.username",
-        "stripped_doc" : [
-          "String username to log in with"
-        ],
-        "doc" : "String username to log in with",
-        "notes" : [
-
-        ],
-        "signature" : "Tunnelblick.username",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "name" : "username",
-        "parameters" : [
-
-        ]
-      },
-      {
-        "desc" : "Binds hotkeys for Tunnelblick",
-        "def" : "Tunnelblick:bindHotkeys(mapping)",
-        "stripped_doc" : [
-          "Binds hotkeys for Tunnelblick",
-          ""
-        ],
-        "doc" : "Binds hotkeys for Tunnelblick\n\nParameters:\n * mapping - A table containing hotkey objifier\/key details for the following items:\n  * login - login to tunnelblick shortcut",
-        "notes" : [
-
-        ],
-        "signature" : "Tunnelblick:bindHotkeys(mapping)",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "name" : "bindHotkeys",
-        "parameters" : [
-          " * mapping - A table containing hotkey objifier\/key details for the following items:",
+        "def": "Tunnelblick:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for Tunnelblick",
+        "doc": "Binds hotkeys for Tunnelblick\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n  * login - login to tunnelblick shortcut",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * mapping - A table containing hotkey objifier/key details for the following items:",
           "  * login - login to tunnelblick shortcut"
-        ]
+        ],
+        "signature": "Tunnelblick:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
       },
       {
-        "desc" : "Performs the connection operation using a username, password, and connection_name",
-        "def" : "Tunnelblick:connect()",
-        "stripped_doc" : [
-          "Performs the connection operation using a username, password, and connection_name"
-        ],
-        "doc" : "Performs the connection operation using a username, password, and connection_name",
-        "notes" : [
-
-        ],
-        "signature" : "Tunnelblick:connect()",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "name" : "connect",
-        "parameters" : [
-
-        ]
+        "def": "Tunnelblick:connect()",
+        "desc": "Performs the connection operation using a username, password, and connection_name",
+        "doc": "Performs the connection operation using a username, password, and connection_name",
+        "name": "connect",
+        "signature": "Tunnelblick:connect()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Tunnelblick.connection_name",
+        "desc": "String connection name",
+        "doc": "String connection name",
+        "name": "connection_name",
+        "signature": "Tunnelblick.connection_name",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "Tunnelblick.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "name": "logger",
+        "signature": "Tunnelblick.logger",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "Tunnelblick.password_fn",
+        "desc": "Function returning the password to login to the vpn connection with",
+        "doc": "Function returning the password to login to the vpn connection with",
+        "name": "password_fn",
+        "signature": "Tunnelblick.password_fn",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "Tunnelblick.username",
+        "desc": "String username to log in with",
+        "doc": "String username to log in with",
+        "name": "username",
+        "signature": "Tunnelblick.username",
+        "stripped_doc": "",
+        "type": "Variable"
       }
     ],
-    "name" : "Tunnelblick"
+    "name": "Tunnelblick",
+    "stripped_doc": "Uses applescript to interact with Tunnelblick's window\n\nwritten by Tyler Thrailkill <tyler.b.thrailkill@gmail.com>\n\nhttps://github.com/snowe2010",
+    "submodules": [],
+    "type": "Module"
   }
 ]
