@@ -752,6 +752,23 @@
     "type": "Method"
   },
   {
+    "desc": "Load items from Keychain. Provides no hotkeys and maintains no state",
+    "name": "Keychain",
+    "type": "Module"
+  },
+  {
+    "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+    "module": "Keychain",
+    "name": "logger",
+    "type": "Variable"
+  },
+  {
+    "desc": "Retrieve an item from the Login Keychain",
+    "module": "Keychain",
+    "name": "login_keychain",
+    "type": "Method"
+  },
+  {
     "desc": "Keybindings cheatsheet for current application",
     "name": "KSheet",
     "type": "Module"
@@ -1048,6 +1065,11 @@
     "module": "MouseCircle",
     "name": "show",
     "type": "Method"
+  },
+  {
+    "desc": "Move window to the space to the right or left",
+    "name": "Move Spaces",
+    "type": "Module"
   },
   {
     "desc": "Generate a password and copy to the clipboard.",
@@ -1760,6 +1782,82 @@
     "desc": "Toggle Skype between muted/unmuted, whether it is focused or not",
     "module": "ToggleSkypeMute",
     "name": "toggle",
+    "type": "Method"
+  },
+  {
+    "desc": "generate google authenticator token value keystrokes",
+    "name": "Token",
+    "type": "Module"
+  },
+  {
+    "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+    "module": "Token",
+    "name": "logger",
+    "type": "Variable"
+  },
+  {
+    "desc": "String indicating the Keychain name of the Shared Key used in the OTP HMAC-SHA1 generation",
+    "module": "Token",
+    "name": "secret_key",
+    "type": "Variable"
+  },
+  {
+    "desc": "Binds hotkeys for Token",
+    "module": "Token",
+    "name": "bindHotkeys",
+    "type": "Method"
+  },
+  {
+    "desc": "Retrieves the token using an HOTP/TOTP Secret Key stored in the keychain",
+    "module": "Token",
+    "name": "get_token",
+    "type": "Method"
+  },
+  {
+    "desc": "read a token secret key from keychain, generate a code and make keystrokes for it",
+    "module": "Token",
+    "name": "token_keystroke",
+    "type": "Method"
+  },
+  {
+    "desc": "connect to a Tunnelblick OpenVPN connection using a shortcut",
+    "name": "Tunnelblick",
+    "type": "Module"
+  },
+  {
+    "desc": "String connection name",
+    "module": "Tunnelblick",
+    "name": "connection_name",
+    "type": "Variable"
+  },
+  {
+    "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+    "module": "Tunnelblick",
+    "name": "logger",
+    "type": "Variable"
+  },
+  {
+    "desc": "Function returning the password to login to the vpn connection with",
+    "module": "Tunnelblick",
+    "name": "password_fn",
+    "type": "Variable"
+  },
+  {
+    "desc": "String username to log in with",
+    "module": "Tunnelblick",
+    "name": "username",
+    "type": "Variable"
+  },
+  {
+    "desc": "Binds hotkeys for Tunnelblick",
+    "module": "Tunnelblick",
+    "name": "bindHotkeys",
+    "type": "Method"
+  },
+  {
+    "desc": "Performs the connection operation using a username, password, and connection_name",
+    "module": "Tunnelblick",
+    "name": "connect",
     "type": "Method"
   },
   {

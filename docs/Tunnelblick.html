@@ -1,0 +1,164 @@
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hammerspoon docs: Tunnelblick</title>
+    <style type="text/css">
+      a { text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      th { background-color: #DDDDDD; vertical-align: top; padding: 3px; }
+      td { width: 100%; background-color: #EEEEEE; vertical-align: top; padding: 3px; }
+      table { width: 100% ; border: 1px solid #0; text-align: left; }
+      section > table table td { width: 0; }
+    </style>
+    <link rel="stylesheet" href="docs.css" type="text/css" media="screen" />
+  </head>
+  <body>
+    <header>
+      <h1><a href="./index.html">docs</a> &raquo; Tunnelblick</h1>
+      <p>connect to a Tunnelblick OpenVPN connection using a shortcut
+Uses applescript to interact with Tunnelblick's window</p>
+<p>written by Tyler Thrailkill <a href="mailto:tyler.b.thrailkill@gmail.com">tyler.b.thrailkill@gmail.com</a></p>
+<p><a href="https://github.com/snowe2010">https://github.com/snowe2010</a></p>
+
+      </header>
+      <h3>API Overview</h3>
+      <ul>
+        <li>Variables - Configurable values</li>
+          <ul>
+            <li><a href="#connection_name">connection_name</a></li>
+            <li><a href="#logger">logger</a></li>
+            <li><a href="#password_fn">password_fn</a></li>
+            <li><a href="#username">username</a></li>
+          </ul>
+        <li>Methods - API calls which can only be made on an object returned by a constructor</li>
+          <ul>
+            <li><a href="#bindHotkeys">bindHotkeys</a></li>
+            <li><a href="#connect">connect</a></li>
+          </ul>
+      </ul>
+      <h3>API Documentation</h3>
+        <h4 class="documentation-section">Variables</h4>
+          <section id="connection_name">
+            <a name="//apple_ref/cpp/Variable/connection_name" class="dashAnchor"></a>
+            <h5><a href="#connection_name">connection_name</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Tunnelblick.connection_name</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>String connection name</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="logger">
+            <a name="//apple_ref/cpp/Variable/logger" class="dashAnchor"></a>
+            <h5><a href="#logger">logger</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Tunnelblick.logger</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="password_fn">
+            <a name="//apple_ref/cpp/Variable/password_fn" class="dashAnchor"></a>
+            <h5><a href="#password_fn">password_fn</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Tunnelblick.password_fn</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Function returning the password to login to the vpn connection with</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="username">
+            <a name="//apple_ref/cpp/Variable/username" class="dashAnchor"></a>
+            <h5><a href="#username">username</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Tunnelblick.username</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>String username to log in with</p>
+</td>
+              </tr>
+            </table>
+          </section>
+        <h4 class="documentation-section">Methods</h4>
+          <section id="bindHotkeys">
+            <a name="//apple_ref/cpp/Method/bindHotkeys" class="dashAnchor"></a>
+            <h5><a href="#bindHotkeys">bindHotkeys</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Tunnelblick:bindHotkeys(mapping)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Binds hotkeys for Tunnelblick</p>
+<p>Parameters:</p>
+<ul>
+<li>mapping - A table containing hotkey objifier/key details for the following items:<ul>
+<li>login - login to tunnelblick shortcut</li>
+</ul>
+</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="connect">
+            <a name="//apple_ref/cpp/Method/connect" class="dashAnchor"></a>
+            <h5><a href="#connect">connect</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Tunnelblick:connect()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Performs the connection operation using a username, password, and connection_name</p>
+</td>
+              </tr>
+            </table>
+          </section>
+  </body>
+</html>

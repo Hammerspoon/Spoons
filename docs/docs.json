@@ -2715,6 +2715,68 @@
     "Function": [],
     "Method": [
       {
+        "def": "Keychain:login_keychain(name)",
+        "desc": "Retrieve an item from the Login Keychain",
+        "doc": "Retrieve an item from the Login Keychain\n\nParameters:\n * name - The name of the item in the Login Keychain you want to retrieve",
+        "name": "login_keychain",
+        "parameters": [
+          " * name - The name of the item in the Login Keychain you want to retrieve"
+        ],
+        "signature": "Keychain:login_keychain(name)",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [
+      {
+        "def": "Keychain.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "name": "logger",
+        "signature": "Keychain.logger",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "desc": "Load items from Keychain. Provides no hotkeys and maintains no state",
+    "doc": "Load items from Keychain. Provides no hotkeys and maintains no state\n\nTyler Thrailkill <tyler.b.thrailkill@gmail.com>\n\nhttps://github.com/snowe2010",
+    "items": [
+      {
+        "def": "Keychain.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "name": "logger",
+        "signature": "Keychain.logger",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "Keychain:login_keychain(name)",
+        "desc": "Retrieve an item from the Login Keychain",
+        "doc": "Retrieve an item from the Login Keychain\n\nParameters:\n * name - The name of the item in the Login Keychain you want to retrieve",
+        "name": "login_keychain",
+        "parameters": [
+          " * name - The name of the item in the Login Keychain you want to retrieve"
+        ],
+        "signature": "Keychain:login_keychain(name)",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "name": "Keychain",
+    "stripped_doc": "\nTyler Thrailkill <tyler.b.thrailkill@gmail.com>\n\nhttps://github.com/snowe2010",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
         "def": "KSheet:hide()",
         "desc": "Hide the cheatsheet webview",
         "doc": "Hide the cheatsheet webview\n",
@@ -3812,6 +3874,23 @@
     ],
     "name": "MouseCircle",
     "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MouseCircle.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MouseCircle.spoon.zip)",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [],
+    "Variable": [],
+    "desc": "Move window to the space to the right or left",
+    "doc": "Move window to the space to the right or left\n\nMuch of the code was written by Szymon Kaliski <hi@szymonkaliski.com>, converted to spoon by Tyler Thrailkill <tyler.b.thrailkill@gmail.com>\n\nhttps://github.com/snowe2010",
+    "items": [],
+    "name": "Move Spaces",
+    "stripped_doc": "\nMuch of the code was written by Szymon Kaliski <hi@szymonkaliski.com>, converted to spoon by Tyler Thrailkill <tyler.b.thrailkill@gmail.com>\n\nhttps://github.com/snowe2010",
     "submodules": [],
     "type": "Module"
   },
@@ -6749,6 +6828,260 @@
     ],
     "name": "ToggleSkypeMute",
     "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/ToggleSkypeMute.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/ToggleSkypeMute.spoon.zip)",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
+        "def": "Token:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for Token",
+        "doc": "Binds hotkeys for Token\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for the following items:\n  * generate - generate and type token",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * mapping - A table containing hotkey modifier/key details for the following items:",
+          "  * generate - generate and type token"
+        ],
+        "signature": "Token:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Token:get_token()",
+        "desc": "Retrieves the token using an HOTP/TOTP Secret Key stored in the keychain",
+        "doc": "Retrieves the token using an HOTP/TOTP Secret Key stored in the keychain",
+        "name": "get_token",
+        "signature": "Token:get_token()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Token:token_keystroke()",
+        "desc": "read a token secret key from keychain, generate a code and make keystrokes for it",
+        "doc": "read a token secret key from keychain, generate a code and make keystrokes for it",
+        "name": "token_keystroke",
+        "signature": "Token:token_keystroke()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [
+      {
+        "def": "Token.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "name": "logger",
+        "signature": "Token.logger",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "Token.secret_key",
+        "desc": "String indicating the Keychain name of the Shared Key used in the OTP HMAC-SHA1 generation",
+        "doc": "String indicating the Keychain name of the Shared Key used in the OTP HMAC-SHA1 generation",
+        "name": "secret_key",
+        "signature": "Token.secret_key",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "desc": "generate google authenticator token value keystrokes",
+    "doc": "generate google authenticator token value keystrokes\nRetrieve a google authenticator token seed from keychain and use this to calculate the current value\nSimulate keystrokes for this token value\n\nwritten by Teun Vink <github@teun.tv>, converted to spoon by Tyler Thrailkill <snowe>\n\nhttps://github.com/teunvink/hammerspoon",
+    "items": [
+      {
+        "def": "Token:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for Token",
+        "doc": "Binds hotkeys for Token\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for the following items:\n  * generate - generate and type token",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * mapping - A table containing hotkey modifier/key details for the following items:",
+          "  * generate - generate and type token"
+        ],
+        "signature": "Token:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Token:get_token()",
+        "desc": "Retrieves the token using an HOTP/TOTP Secret Key stored in the keychain",
+        "doc": "Retrieves the token using an HOTP/TOTP Secret Key stored in the keychain",
+        "name": "get_token",
+        "signature": "Token:get_token()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Token.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "name": "logger",
+        "signature": "Token.logger",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "Token.secret_key",
+        "desc": "String indicating the Keychain name of the Shared Key used in the OTP HMAC-SHA1 generation",
+        "doc": "String indicating the Keychain name of the Shared Key used in the OTP HMAC-SHA1 generation",
+        "name": "secret_key",
+        "signature": "Token.secret_key",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "Token:token_keystroke()",
+        "desc": "read a token secret key from keychain, generate a code and make keystrokes for it",
+        "doc": "read a token secret key from keychain, generate a code and make keystrokes for it",
+        "name": "token_keystroke",
+        "signature": "Token:token_keystroke()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "name": "Token",
+    "stripped_doc": "Retrieve a google authenticator token seed from keychain and use this to calculate the current value\nSimulate keystrokes for this token value\n\nwritten by Teun Vink <github@teun.tv>, converted to spoon by Tyler Thrailkill <snowe>\n\nhttps://github.com/teunvink/hammerspoon",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
+        "def": "Tunnelblick:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for Tunnelblick",
+        "doc": "Binds hotkeys for Tunnelblick\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n  * login - login to tunnelblick shortcut",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * mapping - A table containing hotkey objifier/key details for the following items:",
+          "  * login - login to tunnelblick shortcut"
+        ],
+        "signature": "Tunnelblick:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Tunnelblick:connect()",
+        "desc": "Performs the connection operation using a username, password, and connection_name",
+        "doc": "Performs the connection operation using a username, password, and connection_name",
+        "name": "connect",
+        "signature": "Tunnelblick:connect()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [
+      {
+        "def": "Tunnelblick.connection_name",
+        "desc": "String connection name",
+        "doc": "String connection name",
+        "name": "connection_name",
+        "signature": "Tunnelblick.connection_name",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "Tunnelblick.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "name": "logger",
+        "signature": "Tunnelblick.logger",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "Tunnelblick.password_fn",
+        "desc": "Function returning the password to login to the vpn connection with",
+        "doc": "Function returning the password to login to the vpn connection with",
+        "name": "password_fn",
+        "signature": "Tunnelblick.password_fn",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "Tunnelblick.username",
+        "desc": "String username to log in with",
+        "doc": "String username to log in with",
+        "name": "username",
+        "signature": "Tunnelblick.username",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "desc": "connect to a Tunnelblick OpenVPN connection using a shortcut",
+    "doc": "connect to a Tunnelblick OpenVPN connection using a shortcut\nUses applescript to interact with Tunnelblick's window\n\nwritten by Tyler Thrailkill <tyler.b.thrailkill@gmail.com>\n\nhttps://github.com/snowe2010",
+    "items": [
+      {
+        "def": "Tunnelblick:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for Tunnelblick",
+        "doc": "Binds hotkeys for Tunnelblick\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n  * login - login to tunnelblick shortcut",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * mapping - A table containing hotkey objifier/key details for the following items:",
+          "  * login - login to tunnelblick shortcut"
+        ],
+        "signature": "Tunnelblick:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Tunnelblick:connect()",
+        "desc": "Performs the connection operation using a username, password, and connection_name",
+        "doc": "Performs the connection operation using a username, password, and connection_name",
+        "name": "connect",
+        "signature": "Tunnelblick:connect()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Tunnelblick.connection_name",
+        "desc": "String connection name",
+        "doc": "String connection name",
+        "name": "connection_name",
+        "signature": "Tunnelblick.connection_name",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "Tunnelblick.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "name": "logger",
+        "signature": "Tunnelblick.logger",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "Tunnelblick.password_fn",
+        "desc": "Function returning the password to login to the vpn connection with",
+        "doc": "Function returning the password to login to the vpn connection with",
+        "name": "password_fn",
+        "signature": "Tunnelblick.password_fn",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "Tunnelblick.username",
+        "desc": "String username to log in with",
+        "doc": "String username to log in with",
+        "name": "username",
+        "signature": "Tunnelblick.username",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "name": "Tunnelblick",
+    "stripped_doc": "Uses applescript to interact with Tunnelblick's window\n\nwritten by Tyler Thrailkill <tyler.b.thrailkill@gmail.com>\n\nhttps://github.com/snowe2010",
     "submodules": [],
     "type": "Module"
   },

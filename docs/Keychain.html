@@ -1,0 +1,80 @@
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hammerspoon docs: Keychain</title>
+    <style type="text/css">
+      a { text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      th { background-color: #DDDDDD; vertical-align: top; padding: 3px; }
+      td { width: 100%; background-color: #EEEEEE; vertical-align: top; padding: 3px; }
+      table { width: 100% ; border: 1px solid #0; text-align: left; }
+      section > table table td { width: 0; }
+    </style>
+    <link rel="stylesheet" href="docs.css" type="text/css" media="screen" />
+  </head>
+  <body>
+    <header>
+      <h1><a href="./index.html">docs</a> &raquo; Keychain</h1>
+      <p>Load items from Keychain. Provides no hotkeys and maintains no state</p>
+<p>Tyler Thrailkill <a href="mailto:tyler.b.thrailkill@gmail.com">tyler.b.thrailkill@gmail.com</a></p>
+<p><a href="https://github.com/snowe2010">https://github.com/snowe2010</a></p>
+
+      </header>
+      <h3>API Overview</h3>
+      <ul>
+        <li>Variables - Configurable values</li>
+          <ul>
+            <li><a href="#logger">logger</a></li>
+          </ul>
+        <li>Methods - API calls which can only be made on an object returned by a constructor</li>
+          <ul>
+            <li><a href="#login_keychain">login_keychain</a></li>
+          </ul>
+      </ul>
+      <h3>API Documentation</h3>
+        <h4 class="documentation-section">Variables</h4>
+          <section id="logger">
+            <a name="//apple_ref/cpp/Variable/logger" class="dashAnchor"></a>
+            <h5><a href="#logger">logger</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Keychain.logger</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+        <h4 class="documentation-section">Methods</h4>
+          <section id="login_keychain">
+            <a name="//apple_ref/cpp/Method/login_keychain" class="dashAnchor"></a>
+            <h5><a href="#login_keychain">login_keychain</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Keychain:login_keychain(name)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Retrieve an item from the Login Keychain</p>
+<p>Parameters:</p>
+<ul>
+<li>name - The name of the item in the Login Keychain you want to retrieve</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+  </body>
+</html>
