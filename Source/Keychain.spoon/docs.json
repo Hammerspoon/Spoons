@@ -1,120 +1,64 @@
 [
   {
-    "Constant" : [
-
-    ],
-    "submodules" : [
-
-    ],
-    "Function" : [
-
-    ],
-    "Variable" : [
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
       {
-        "name" : "logger",
-        "doc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
-        "stripped_doc" : [
-          "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
+        "def": "Keychain:login_keychain(name)",
+        "desc": "Retrieve an item from the Login Keychain",
+        "doc": "Retrieve an item from the Login Keychain\n\nParameters:\n * name - The name of the item in the Login Keychain you want to retrieve",
+        "name": "login_keychain",
+        "parameters": [
+          " * name - The name of the item in the Login Keychain you want to retrieve"
         ],
-        "parameters" : [
-
-        ],
-        "notes" : [
-
-        ],
-        "signature" : "Keychain.logger",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "def" : "Keychain.logger",
-        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
+        "signature": "Keychain:login_keychain(name)",
+        "stripped_doc": "",
+        "type": "Method"
       }
     ],
-    "stripped_doc" : [
-
-    ],
-    "Deprecated" : [
-
-    ],
-    "type" : "Module",
-    "desc" : "Load items from Keychain. Provides no hotkeys and maintains no state",
-    "Constructor" : [
-
-    ],
-    "items" : [
+    "Variable": [
       {
-        "name" : "logger",
-        "doc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
-        "stripped_doc" : [
-          "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
-        ],
-        "parameters" : [
-
-        ],
-        "notes" : [
-
-        ],
-        "signature" : "Keychain.logger",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "def" : "Keychain.logger",
-        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
+        "def": "Keychain.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "name": "logger",
+        "signature": "Keychain.logger",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "desc": "Load items from Keychain. Provides no hotkeys and maintains no state",
+    "doc": "Load items from Keychain. Provides no hotkeys and maintains no state\n\nTyler Thrailkill <tyler.b.thrailkill@gmail.com>\n\nhttps://github.com/snowe2010",
+    "items": [
+      {
+        "def": "Keychain.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "name": "logger",
+        "signature": "Keychain.logger",
+        "stripped_doc": "",
+        "type": "Variable"
       },
       {
-        "name" : "login_keychain",
-        "doc" : "Retrieve an item from the Login Keychain\n\nParameters:\n * name - The name of the item in the Login Keychain you want to retrieve",
-        "stripped_doc" : [
-          "Retrieve an item from the Login Keychain",
-          ""
-        ],
-        "parameters" : [
+        "def": "Keychain:login_keychain(name)",
+        "desc": "Retrieve an item from the Login Keychain",
+        "doc": "Retrieve an item from the Login Keychain\n\nParameters:\n * name - The name of the item in the Login Keychain you want to retrieve",
+        "name": "login_keychain",
+        "parameters": [
           " * name - The name of the item in the Login Keychain you want to retrieve"
         ],
-        "notes" : [
-
-        ],
-        "signature" : "Keychain:login_keychain(name)",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "def" : "Keychain:login_keychain(name)",
-        "desc" : "Retrieve an item from the Login Keychain"
+        "signature": "Keychain:login_keychain(name)",
+        "stripped_doc": "",
+        "type": "Method"
       }
     ],
-    "Method" : [
-      {
-        "name" : "login_keychain",
-        "doc" : "Retrieve an item from the Login Keychain\n\nParameters:\n * name - The name of the item in the Login Keychain you want to retrieve",
-        "stripped_doc" : [
-          "Retrieve an item from the Login Keychain",
-          ""
-        ],
-        "parameters" : [
-          " * name - The name of the item in the Login Keychain you want to retrieve"
-        ],
-        "notes" : [
-
-        ],
-        "signature" : "Keychain:login_keychain(name)",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "def" : "Keychain:login_keychain(name)",
-        "desc" : "Retrieve an item from the Login Keychain"
-      }
-    ],
-    "Command" : [
-
-    ],
-    "doc" : "Load items from Keychain. Provides no hotkeys and maintains no state\n\nTyler Thrailkill <tyler.b.thrailkill@gmail.com>\n\nhttps:\/\/github.com\/snowe2010",
-    "Field" : [
-
-    ],
-    "name" : "Keychain"
+    "name": "Keychain",
+    "stripped_doc": "\nTyler Thrailkill <tyler.b.thrailkill@gmail.com>\n\nhttps://github.com/snowe2010",
+    "submodules": [],
+    "type": "Module"
   }
 ]
