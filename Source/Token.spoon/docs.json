@@ -1,0 +1,282 @@
+[
+  {
+    "Constant" : [
+
+    ],
+    "submodules" : [
+
+    ],
+    "Function" : [
+
+    ],
+    "Variable" : [
+      {
+        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "doc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "stripped_doc" : [
+          "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
+        ],
+        "name" : "logger",
+        "notes" : [
+
+        ],
+        "signature" : "Token.logger",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "Token.logger",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "desc" : "String indicating the Keychain name of the Shared Key used in the OTP HMAC-SHA1 generation",
+        "doc" : "String indicating the Keychain name of the Shared Key used in the OTP HMAC-SHA1 generation",
+        "stripped_doc" : [
+          "String indicating the Keychain name of the Shared Key used in the OTP HMAC-SHA1 generation"
+        ],
+        "name" : "secret_key",
+        "notes" : [
+
+        ],
+        "signature" : "Token.secret_key",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "Token.secret_key",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "desc" : "String name of keychain item containing password to prepend to the token generation",
+        "doc" : "String name of keychain item containing password to prepend to the token generation",
+        "stripped_doc" : [
+          "String name of keychain item containing password to prepend to the token generation"
+        ],
+        "name" : "password",
+        "notes" : [
+
+        ],
+        "signature" : "Token.password",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "Token.password",
+        "parameters" : [
+
+        ]
+      }
+    ],
+    "stripped_doc" : [
+
+    ],
+    "Deprecated" : [
+
+    ],
+    "type" : "Module",
+    "desc" : "generate google authenticator token value keystrokes",
+    "Constructor" : [
+
+    ],
+    "doc" : "generate google authenticator token value keystrokes\nRetrieve a google authenticator token seed from keychain and use this to calculate the current value\nSimulate keystrokes for this token value\nOptionally prepend a password from the keychain\n\nwritten by Teun Vink <github@teun.tv>, converted to spoon by Tyler Thrailkill <snowe>\n\nhttps:\/\/github.com\/teunvink\/hammerspoon",
+    "Method" : [
+      {
+        "desc" : "read a token secret key from keychain, generate a code and make keystrokes for it",
+        "doc" : "read a token secret key from keychain, generate a code and make keystrokes for it",
+        "stripped_doc" : [
+          "read a token secret key from keychain, generate a code and make keystrokes for it"
+        ],
+        "name" : "token_keystroke",
+        "notes" : [
+
+        ],
+        "signature" : "Token:token_keystroke()",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "def" : "Token:token_keystroke()",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "desc" : "Retrieves the token using an HOTP\/TOTP Secret Key stored in the keychain",
+        "doc" : "Retrieves the token using an HOTP\/TOTP Secret Key stored in the keychain",
+        "stripped_doc" : [
+          "Retrieves the token using an HOTP\/TOTP Secret Key stored in the keychain"
+        ],
+        "name" : "get_token",
+        "notes" : [
+
+        ],
+        "signature" : "Token:get_token()",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "def" : "Token:get_token()",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "desc" : "Binds hotkeys for Token",
+        "doc" : "Binds hotkeys for Token\n\nParameters:\n * mapping - A table containing hotkey modifier\/key details for the following items:\n  * generate - generate and type token",
+        "stripped_doc" : [
+          "Binds hotkeys for Token",
+          ""
+        ],
+        "name" : "bindHotkeys",
+        "notes" : [
+
+        ],
+        "signature" : "Token:bindHotkeys(mapping)",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "def" : "Token:bindHotkeys(mapping)",
+        "parameters" : [
+          " * mapping - A table containing hotkey modifier\/key details for the following items:",
+          "  * generate - generate and type token"
+        ]
+      }
+    ],
+    "Command" : [
+
+    ],
+    "Field" : [
+
+    ],
+    "items" : [
+      {
+        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "doc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "stripped_doc" : [
+          "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
+        ],
+        "name" : "logger",
+        "notes" : [
+
+        ],
+        "signature" : "Token.logger",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "Token.logger",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "desc" : "String name of keychain item containing password to prepend to the token generation",
+        "doc" : "String name of keychain item containing password to prepend to the token generation",
+        "stripped_doc" : [
+          "String name of keychain item containing password to prepend to the token generation"
+        ],
+        "name" : "password",
+        "notes" : [
+
+        ],
+        "signature" : "Token.password",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "Token.password",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "desc" : "String indicating the Keychain name of the Shared Key used in the OTP HMAC-SHA1 generation",
+        "doc" : "String indicating the Keychain name of the Shared Key used in the OTP HMAC-SHA1 generation",
+        "stripped_doc" : [
+          "String indicating the Keychain name of the Shared Key used in the OTP HMAC-SHA1 generation"
+        ],
+        "name" : "secret_key",
+        "notes" : [
+
+        ],
+        "signature" : "Token.secret_key",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "Token.secret_key",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "desc" : "Binds hotkeys for Token",
+        "doc" : "Binds hotkeys for Token\n\nParameters:\n * mapping - A table containing hotkey modifier\/key details for the following items:\n  * generate - generate and type token",
+        "stripped_doc" : [
+          "Binds hotkeys for Token",
+          ""
+        ],
+        "name" : "bindHotkeys",
+        "notes" : [
+
+        ],
+        "signature" : "Token:bindHotkeys(mapping)",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "def" : "Token:bindHotkeys(mapping)",
+        "parameters" : [
+          " * mapping - A table containing hotkey modifier\/key details for the following items:",
+          "  * generate - generate and type token"
+        ]
+      },
+      {
+        "desc" : "Retrieves the token using an HOTP\/TOTP Secret Key stored in the keychain",
+        "doc" : "Retrieves the token using an HOTP\/TOTP Secret Key stored in the keychain",
+        "stripped_doc" : [
+          "Retrieves the token using an HOTP\/TOTP Secret Key stored in the keychain"
+        ],
+        "name" : "get_token",
+        "notes" : [
+
+        ],
+        "signature" : "Token:get_token()",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "def" : "Token:get_token()",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "desc" : "read a token secret key from keychain, generate a code and make keystrokes for it",
+        "doc" : "read a token secret key from keychain, generate a code and make keystrokes for it",
+        "stripped_doc" : [
+          "read a token secret key from keychain, generate a code and make keystrokes for it"
+        ],
+        "name" : "token_keystroke",
+        "notes" : [
+
+        ],
+        "signature" : "Token:token_keystroke()",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "def" : "Token:token_keystroke()",
+        "parameters" : [
+
+        ]
+      }
+    ],
+    "name" : "Token"
+  }
+]
