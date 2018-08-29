@@ -1,0 +1,79 @@
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hammerspoon docs: MicMute</title>
+    <style type="text/css">
+      a { text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      th { background-color: #DDDDDD; vertical-align: top; padding: 3px; }
+      td { width: 100%; background-color: #EEEEEE; vertical-align: top; padding: 3px; }
+      table { width: 100% ; border: 1px solid #0; text-align: left; }
+      section > table table td { width: 0; }
+    </style>
+    <link rel="stylesheet" href="docs.css" type="text/css" media="screen" />
+  </head>
+  <body>
+    <header>
+      <h1><a href="./index.html">docs</a> &raquo; MicMute</h1>
+      <p>Microphone Mute Toggle and status indicator</p>
+<p>Download: <a href="https://github.com/dctucker/Spoons/raw/master/Spoons/MicMute.spoon.zip">https://github.com/dctucker/Spoons/raw/master/Spoons/MicMute.spoon.zip</a></p>
+
+      </header>
+      <h3>API Overview</h3>
+      <ul>
+        <li>Methods - API calls which can only be made on an object returned by a constructor</li>
+          <ul>
+            <li><a href="#bindHotkeys">bindHotkeys</a></li>
+            <li><a href="#toggleMicMute">toggleMicMute</a></li>
+          </ul>
+      </ul>
+      <h3>API Documentation</h3>
+        <h4 class="documentation-section">Methods</h4>
+          <section id="bindHotkeys">
+            <a name="//apple_ref/cpp/Method/bindHotkeys" class="dashAnchor"></a>
+            <h5><a href="#bindHotkeys">bindHotkeys</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>MicMute:bindHotkeys(mapping, latch_timeout)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Binds hotkeys for MicMute</p>
+<p>Parameters:</p>
+<ul>
+<li>mapping - A table containing hotkey modifier/key details for the following items:<ul>
+<li>toggle - This will cause the microphone mute status to be toggled. Hold for momentary, press quickly for toggle.</li>
+</ul>
+</li>
+<li>latch_timeout - Time in seconds to hold the hotkey before momentary mode takes over, in which the mute will be toggled again when hotkey is released. Latch if released before this time. 0.75 for 750 milliseconds is a good value.</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="toggleMicMute">
+            <a name="//apple_ref/cpp/Method/toggleMicMute" class="dashAnchor"></a>
+            <h5><a href="#toggleMicMute">toggleMicMute</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>MicMute:toggleMicMute()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Toggle mic mute on/off</p>
+</td>
+              </tr>
+            </table>
+          </section>
+  </body>
+</html>

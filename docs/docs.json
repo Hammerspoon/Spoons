@@ -3086,6 +3086,71 @@
     "Function": [],
     "Method": [
       {
+        "def": "MicMute:bindHotkeys(mapping, latch_timeout)",
+        "desc": "Binds hotkeys for MicMute",
+        "doc": "Binds hotkeys for MicMute\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for the following items:\n  * toggle - This will cause the microphone mute status to be toggled. Hold for momentary, press quickly for toggle.\n * latch_timeout - Time in seconds to hold the hotkey before momentary mode takes over, in which the mute will be toggled again when hotkey is released. Latch if released before this time. 0.75 for 750 milliseconds is a good value.",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * mapping - A table containing hotkey modifier/key details for the following items:",
+          "  * toggle - This will cause the microphone mute status to be toggled. Hold for momentary, press quickly for toggle.",
+          " * latch_timeout - Time in seconds to hold the hotkey before momentary mode takes over, in which the mute will be toggled again when hotkey is released. Latch if released before this time. 0.75 for 750 milliseconds is a good value."
+        ],
+        "signature": "MicMute:bindHotkeys(mapping, latch_timeout)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "MicMute:toggleMicMute()",
+        "desc": "Toggle mic mute on/off",
+        "doc": "Toggle mic mute on/off\n",
+        "name": "toggleMicMute",
+        "signature": "MicMute:toggleMicMute()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [],
+    "desc": "Microphone Mute Toggle and status indicator",
+    "doc": "Microphone Mute Toggle and status indicator\n\nDownload: [https://github.com/dctucker/Spoons/raw/master/Spoons/MicMute.spoon.zip](https://github.com/dctucker/Spoons/raw/master/Spoons/MicMute.spoon.zip)",
+    "items": [
+      {
+        "def": "MicMute:bindHotkeys(mapping, latch_timeout)",
+        "desc": "Binds hotkeys for MicMute",
+        "doc": "Binds hotkeys for MicMute\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for the following items:\n  * toggle - This will cause the microphone mute status to be toggled. Hold for momentary, press quickly for toggle.\n * latch_timeout - Time in seconds to hold the hotkey before momentary mode takes over, in which the mute will be toggled again when hotkey is released. Latch if released before this time. 0.75 for 750 milliseconds is a good value.",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * mapping - A table containing hotkey modifier/key details for the following items:",
+          "  * toggle - This will cause the microphone mute status to be toggled. Hold for momentary, press quickly for toggle.",
+          " * latch_timeout - Time in seconds to hold the hotkey before momentary mode takes over, in which the mute will be toggled again when hotkey is released. Latch if released before this time. 0.75 for 750 milliseconds is a good value."
+        ],
+        "signature": "MicMute:bindHotkeys(mapping, latch_timeout)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "MicMute:toggleMicMute()",
+        "desc": "Toggle mic mute on/off",
+        "doc": "Toggle mic mute on/off\n",
+        "name": "toggleMicMute",
+        "signature": "MicMute:toggleMicMute()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "name": "MicMute",
+    "stripped_doc": "\nDownload: [https://github.com/dctucker/Spoons/raw/master/Spoons/MicMute.spoon.zip](https://github.com/dctucker/Spoons/raw/master/Spoons/MicMute.spoon.zip)",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
         "def": "MiroWindowsManager:bindHotkeys()",
         "desc": "Binds hotkeys for Miro's Windows Manager",
         "doc": "Binds hotkeys for Miro's Windows Manager\nParameters:\n * mapping - A table containing hotkey details for the following items:\n  * up: for the up action (usually {hyper, \"up\"})\n  * right: for the right action (usually {hyper, \"right\"})\n  * down: for the down action (usually {hyper, \"down\"})\n  * left: for the left action (usually {hyper, \"left\"})\n  * fullscreen: for the full-screen action (e.g. {hyper, \"f\"})\n\nA configuration example can be:\n```\nlocal hyper = {\"ctrl\", \"alt\", \"cmd\"}\nspoon.MiroWindowsManager:bindHotkeys({\n  up = {hyper, \"up\"},\n  right = {hyper, \"right\"},\n  down = {hyper, \"down\"},\n  left = {hyper, \"left\"},\n  fullscreen = {hyper, \"f\"}\n})\n```",
