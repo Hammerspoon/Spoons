@@ -1,41 +1,19 @@
 [
   {
-    "Constant" : [
-
-    ],
-    "submodules" : [
-
-    ],
-    "Function" : [
-
-    ],
-    "Variable" : [
-
-    ],
-    "stripped_doc" : [
-
-    ],
-    "Deprecated" : [
-
-    ],
-    "type" : "Module",
-    "desc" : "Move window to the space to the right or left",
-    "Constructor" : [
-
-    ],
-    "doc" : "Move window to the space to the right or left\n\nMuch of the code was written by Szymon Kaliski <hi@szymonkaliski.com>, converted to spoon by Tyler Thrailkill <tyler.b.thrailkill@gmail.com>\n\nhttps:\/\/github.com\/snowe2010",
-    "Method" : [
-
-    ],
-    "Command" : [
-
-    ],
-    "Field" : [
-
-    ],
-    "items" : [
-
-    ],
-    "name" : "Move Spaces"
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [],
+    "Variable": [],
+    "desc": "Move window to the space to the right or left",
+    "doc": "Move window to the space to the right or left\n\nMuch of the code was written by Szymon Kaliski <hi@szymonkaliski.com>, converted to spoon by Tyler Thrailkill <tyler.b.thrailkill@gmail.com>\n\nhttps://github.com/snowe2010",
+    "items": [],
+    "name": "Move Spaces",
+    "stripped_doc": "\nMuch of the code was written by Szymon Kaliski <hi@szymonkaliski.com>, converted to spoon by Tyler Thrailkill <tyler.b.thrailkill@gmail.com>\n\nhttps://github.com/snowe2010",
+    "submodules": [],
+    "type": "Module"
   }
 ]
