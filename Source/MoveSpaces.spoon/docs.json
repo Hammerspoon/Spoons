@@ -11,7 +11,7 @@
     "desc": "Move window to the space to the right or left",
     "doc": "Move window to the space to the right or left\n\nMuch of the code was written by Szymon Kaliski <hi@szymonkaliski.com>, converted to spoon by Tyler Thrailkill <tyler.b.thrailkill@gmail.com>\n\nhttps://github.com/snowe2010",
     "items": [],
-    "name": "Move Spaces",
+    "name": "MoveSpaces",
     "stripped_doc": "\nMuch of the code was written by Szymon Kaliski <hi@szymonkaliski.com>, converted to spoon by Tyler Thrailkill <tyler.b.thrailkill@gmail.com>\n\nhttps://github.com/snowe2010",
     "submodules": [],
     "type": "Module"
