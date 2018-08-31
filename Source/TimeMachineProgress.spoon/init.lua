@@ -43,16 +43,14 @@ obj.timer = nil
 obj.emulatedoutput = nil
 
 -- Assign these sample values to obj.emulatedoutput to simulate different backup situations
-obj._nobackup = [[Backup session status:
-{
+obj._nobackup = [[{
     ClientID = "com.apple.backupd";
     Percent = 1;
     Running = 0;
 }
 ]]
 
-  obj._preparingbackup = [[Backup session status:
-{
+  obj._preparingbackup = [[{
     BackupPhase = ThinningPreBackup;
     ClientID = "com.apple.backupd";
     DateOfStateChange = "2018-03-01 05:41:00 +0000";
@@ -63,8 +61,7 @@ obj._nobackup = [[Backup session status:
     Stopping = 0;
 }]]
 
-  obj._runningbackup = [[Backup session status:
-{
+  obj._runningbackup = [[{
     BackupPhase = Copying;
     ClientID = "com.apple.backupd";
     DateOfStateChange = "2018-02-28 09:48:14 +0000";
@@ -84,33 +81,36 @@ obj._nobackup = [[Backup session status:
     "_raw_Percent" = "0.5228798743898445";
 }]]
 
-  ;
-
 --- TimeMachineProgress:refresh()
 --- Method
 --- Update the indicator
 function obj:refresh()
-  out = nil
+  local out = nil
   if obj.emulatedoutput then
     out = obj.emulatedoutput
   else
-    out = hs.execute("/usr/bin/tmutil status")
+    out = hs.execute("/usr/bin/tmutil status | /usr/bin/tail -n +2")
   end
-  running = tonumber(string.match(out, "Running = (%d)"))
-  percent = tonumber(string.match(out, "Percent = %\"([-.%d]+)"))
   self.logger.df("tmutil status output: %s\n", out)
-  self.logger.df("running = %d, percent = %s\n", running, percent)
-  if running == 1 then
+  -- Write output to a file and read it using hs.plist
+  local outfile = hs.execute("/usr/bin/mktemp")
+  local f = assert(io.open(outfile, "w"))
+  f:write(out)
+  f:close()
+  data = hs.plist.read(outfile)
+  self.logger.df("formatted data read by hs.plist: %s\n", hs.inspect(data))
+
+  if data['Running'] == '1' then
     self.logger.df("Backup is running")
     if (not self.menuBarItem) then
       self.menuBarItem = hs.menubar.new()
       self.menuBarItem:setIcon(self.backupIcon, false)
     end
     title = nil
-    if (percent == -1) then
+    if (data['Percent'] == '-1' or data['Percent'] == '0') then
       title = "(prep)"
     else
-      title = string.format("%.2f%%", percent*100)
+      title = string.format("%.2f%%", tonumber(data['Percent'])*100)
     end
     self.logger.df("Setting up menubar title to '%s'", title)
     self.menuBarItem:setTitle(title)
