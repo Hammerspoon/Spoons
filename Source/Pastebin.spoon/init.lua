@@ -34,6 +34,16 @@ obj.private = 0
 --- Pastebin.expire
 --- Variable
 --- String indicating how long until the paste expires. Default is 'N' (Never)
+--- Valid expiration times at this time are (current list can be found [here](https://pastebin.com/api#6))
+--- N
+--- 10M
+--- 1H
+--- 1D
+--- 1W
+--- 2W
+--- 1M
+--- 6M
+--- 1Y
 obj.expire = 'N'
 expire_times = {'N', '10M', '1H', '1D', '1W', '2W', '1M', '6M', '1Y'}
 
