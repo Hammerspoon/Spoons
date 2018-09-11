@@ -32,7 +32,7 @@ obj.color = nil
 ---   * show - This will cause the mouse circle to be drawn
 function obj:bindHotkeys(mapping)
     if (self.hotkey) then
-        self.hotkey:delete()
+        self.hotkey:hide(0.5)
     end
     local showMods = mapping["show"][1]
     local showKey = mapping["show"][2]
