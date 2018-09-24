@@ -1,8 +1,22 @@
+--- === Seal.plugins.screencapture ===
+---
+--- A plugin to capture the screen in various ways
 local obj = {}
 obj.__index = obj
 obj.__name = "seal_screencapture"
 
+--- Seal.plugins.screencapture.showPostUI
+--- Variable
+--- Whether or not to show the screen capture UI in macOS 10.14 or later
+obj.showPostUI = true
+
 local static_choices = {
+        {
+            text = "Capture menu",
+            subText = "Show macOS screen capture menu",
+            plugin = obj.__name,
+            type = "screenUI"
+        },
         {
             text = "Capture Screen",
             subText = "Capture the current screen",
@@ -67,10 +81,17 @@ function obj.completionCallback(rowInfo)
         args = "-c"
     elseif scType == "interactive" then
         args = "-i"
+    elseif scType == "screenUI" then
+        args = "-iU"
     elseif scType == "interactive_clipboard" then
         args = "-ci"
     end
 
+    if obj.showPostUI then
+        args = args .. "u"
+    end
+
+    print(hs.inspect(args))
     hs.task.new("/usr/sbin/screencapture", nil, {args, filename}):start()
 end
 
