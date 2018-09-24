@@ -5018,6 +5018,7 @@
     "stripped_doc": "",
     "submodules": [
       "safari_bookmarks",
+      "screencapture",
       "urlformats",
       "useractions"
     ],
@@ -5057,6 +5058,43 @@
     ],
     "name": "Seal.plugins.safari_bookmarks",
     "stripped_doc": "Note: Apple has changed the way Safari stores bookmarks and this plugin no longer works on recent macOS releases.",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [],
+    "Variable": [
+      {
+        "def": "Seal.plugins.screencapture.showPostUI",
+        "desc": "Whether or not to show the screen capture UI in macOS 10.14 or later",
+        "doc": "Whether or not to show the screen capture UI in macOS 10.14 or later",
+        "name": "showPostUI",
+        "signature": "Seal.plugins.screencapture.showPostUI",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "desc": "A plugin to capture the screen in various ways",
+    "doc": "A plugin to capture the screen in various ways",
+    "items": [
+      {
+        "def": "Seal.plugins.screencapture.showPostUI",
+        "desc": "Whether or not to show the screen capture UI in macOS 10.14 or later",
+        "doc": "Whether or not to show the screen capture UI in macOS 10.14 or later",
+        "name": "showPostUI",
+        "signature": "Seal.plugins.screencapture.showPostUI",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "name": "Seal.plugins.screencapture",
+    "stripped_doc": "",
     "submodules": [],
     "type": "Module"
   },

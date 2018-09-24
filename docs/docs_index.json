@@ -1346,6 +1346,17 @@
     "type": "Variable"
   },
   {
+    "desc": "A plugin to capture the screen in various ways",
+    "name": "Seal.plugins.screencapture",
+    "type": "Module"
+  },
+  {
+    "desc": "Whether or not to show the screen capture UI in macOS 10.14 or later",
+    "module": "Seal.plugins.screencapture",
+    "name": "showPostUI",
+    "type": "Variable"
+  },
+  {
     "desc": "A plugin to quickly open URLs containing a search/query term",
     "name": "Seal.plugins.urlformats",
     "type": "Module"
