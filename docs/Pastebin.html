@@ -1,0 +1,474 @@
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hammerspoon docs: Pastebin</title>
+    <style type="text/css">
+      a { text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      th { background-color: #DDDDDD; vertical-align: top; padding: 3px; }
+      td { width: 100%; background-color: #EEEEEE; vertical-align: top; padding: 3px; }
+      table { width: 100% ; border: 1px solid #0; text-align: left; }
+      section > table table td { width: 0; }
+    </style>
+    <link rel="stylesheet" href="docs.css" type="text/css" media="screen" />
+  </head>
+  <body>
+    <header>
+      <h1><a href="./index.html">docs</a> &raquo; Pastebin</h1>
+      <p>Send clipboard contents to Pastebin</p>
+<p>Conversion of tldm's pastebin gist to a Spoon <a href="https://gist.github.com/tdlm/5eba0299f2924a8aaf46">https://gist.github.com/tdlm/5eba0299f2924a8aaf46</a>
+Code by @tdlm, spoon by Tyler Thrailkill <a href="mailto:tyler.b.thrailkill@gmail.com">tyler.b.thrailkill@gmail.com</a></p>
+<p><a href="https://github.com/snowe2010">https://github.com/snowe2010</a></p>
+
+      </header>
+      <h3>API Overview</h3>
+      <ul>
+        <li>Variables - Configurable values</li>
+          <ul>
+            <li><a href="#api_dev_key">api_dev_key</a></li>
+            <li><a href="#api_user_key">api_user_key</a></li>
+            <li><a href="#expire">expire</a></li>
+            <li><a href="#format">format</a></li>
+            <li><a href="#logger">logger</a></li>
+            <li><a href="#private">private</a></li>
+          </ul>
+        <li>Methods - API calls which can only be made on an object returned by a constructor</li>
+          <ul>
+            <li><a href="#bindHotkeys">bindHotkeys</a></li>
+            <li><a href="#paste">paste</a></li>
+          </ul>
+      </ul>
+      <h3>API Documentation</h3>
+        <h4 class="documentation-section">Variables</h4>
+          <section id="api_dev_key">
+            <a name="//apple_ref/cpp/Variable/api_dev_key" class="dashAnchor"></a>
+            <h5><a href="#api_dev_key">api_dev_key</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Pastebin.api_dev_key</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>String api developer key. Can be found <a href="http://pastebin.com/api">here</a></p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="api_user_key">
+            <a name="//apple_ref/cpp/Variable/api_user_key" class="dashAnchor"></a>
+            <h5><a href="#api_user_key">api_user_key</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Pastebin.api_user_key</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>String api user key. Can be generated <a href="http://pastebin.com/api/api_user_key.html">here</a></p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="expire">
+            <a name="//apple_ref/cpp/Variable/expire" class="dashAnchor"></a>
+            <h5><a href="#expire">expire</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Pastebin.expire</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>String indicating how long until the paste expires. Default is 'N' (Never)
+Valid expiration times at this time are (current list can be found <a href="https://pastebin.com/api#6">here</a>)
+N
+10M
+1H
+1D
+1W
+2W
+1M
+6M
+1Y</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="format">
+            <a name="//apple_ref/cpp/Variable/format" class="dashAnchor"></a>
+            <h5><a href="#format">format</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Pastebin.format</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>String indicating the format of the paste. Default is 'text' (plain text). 
+Valid formats at this time are (current list can be found <a href="https://pastebin.com/api#5">here</a>): 
+'4cs'
+'6502acme'
+'6502kickass'
+'6502tasm'
+'abap'
+'actionscript'
+'actionscript3'
+'ada'
+'aimms'
+'algol68'
+'apache'
+'applescript'
+'apt_sources'
+'arm'
+'asm'
+'asp'
+'asymptote'
+'autoconf'
+'autohotkey'
+'autoit'
+'avisynth'
+'awk'
+'bascomavr'
+'bash'
+'basic4gl'
+'dos'
+'bibtex'
+'blitzbasic'
+'b3d'
+'bmx'
+'bnf'
+'boo'
+'bf'
+'c'
+'c_winapi'
+'c_mac'
+'cil'
+'csharp'
+'cpp'
+'cpp-winapi'
+'cpp-qt'
+'c_loadrunner'
+'caddcl'
+'cadlisp'
+'ceylon'
+'cfdg'
+'chaiscript'
+'chapel'
+'clojure'
+'klonec'
+'klonecpp'
+'cmake'
+'cobol'
+'coffeescript'
+'cfm'
+'css'
+'cuesheet'
+'d'
+'dart'
+'dcl'
+'dcpu16'
+'dcs'
+'delphi'
+'oxygene'
+'diff'
+'div'
+'dot'
+'e'
+'ezt'
+'ecmascript'
+'eiffel'
+'email'
+'epc'
+'erlang'
+'euphoria'
+'fsharp'
+'falcon'
+'filemaker'
+'fo'
+'f1'
+'fortran'
+'freebasic'
+'freeswitch'
+'gambas'
+'gml'
+'gdb'
+'genero'
+'genie'
+'gettext'
+'go'
+'groovy'
+'gwbasic'
+'haskell'
+'haxe'
+'hicest'
+'hq9plus'
+'html4strict'
+'html5'
+'icon'
+'idl'
+'ini'
+'inno'
+'intercal'
+'io'
+'ispfpanel'
+'j'
+'java'
+'java5'
+'javascript'
+'jcl'
+'jquery'
+'json'
+'julia'
+'kixtart'
+'kotlin'
+'latex'
+'ldif'
+'lb'
+'lsl2'
+'lisp'
+'llvm'
+'locobasic'
+'logtalk'
+'lolcode'
+'lotusformulas'
+'lotusscript'
+'lscript'
+'lua'
+'m68k'
+'magiksf'
+'make'
+'mapbasic'
+'markdown'
+'matlab'
+'mirc'
+'mmix'
+'modula2'
+'modula3'
+'68000devpac'
+'mpasm'
+'mxml'
+'mysql'
+'nagios'
+'netrexx'
+'newlisp'
+'nginx'
+'nim'
+'text'
+'nsis'
+'oberon2'
+'objeck'
+'objc'
+'ocaml-brief'
+'ocaml'
+'octave'
+'oorexx'
+'pf'
+'glsl'
+'oobas'
+'oracle11'
+'oracle8'
+'oz'
+'parasail'
+'parigp'
+'pascal'
+'pawn'
+'pcre'
+'per'
+'perl'
+'perl6'
+'php'
+'php-brief'
+'pic16'
+'pike'
+'pixelbender'
+'pli'
+'plsql'
+'postgresql'
+'postscript'
+'povray'
+'powerbuilder'
+'powershell'
+'proftpd'
+'progress'
+'prolog'
+'properties'
+'providex'
+'puppet'
+'purebasic'
+'pycon'
+'python'
+'pys60'
+'q'
+'qbasic'
+'qml'
+'rsplus'
+'racket'
+'rails'
+'rbs'
+'rebol'
+'reg'
+'rexx'
+'robots'
+'rpmspec'
+'ruby'
+'gnuplot'
+'rust'
+'sas'
+'scala'
+'scheme'
+'scilab'
+'scl'
+'sdlbasic'
+'smalltalk'
+'smarty'
+'spark'
+'sparql'
+'sqf'
+'sql'
+'standardml'
+'stonescript'
+'sclang'
+'swift'
+'systemverilog'
+'tsql'
+'tcl'
+'teraterm'
+'thinbasic'
+'typoscript'
+'unicon'
+'uscript'
+'upc'
+'urbi'
+'vala'
+'vbnet'
+'vbscript'
+'vedit'
+'verilog'
+'vhdl'
+'vim'
+'visualprolog'
+'vb'
+'visualfoxpro'
+'whitespace'
+'whois'
+'winbatch'
+'xbasic'
+'xml'
+'xorg_conf'
+'xpp'
+'yaml'
+'z80'
+'zxbasic'</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="logger">
+            <a name="//apple_ref/cpp/Variable/logger" class="dashAnchor"></a>
+            <h5><a href="#logger">logger</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Pastebin.logger</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="private">
+            <a name="//apple_ref/cpp/Variable/private" class="dashAnchor"></a>
+            <h5><a href="#private">private</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Pastebin.private</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Integer indicating whether a paste should be public, unlisted, or private. Default is 0 (public). (0=public, 1=unlisted, 2=private)</p>
+</td>
+              </tr>
+            </table>
+          </section>
+        <h4 class="documentation-section">Methods</h4>
+          <section id="bindHotkeys">
+            <a name="//apple_ref/cpp/Method/bindHotkeys" class="dashAnchor"></a>
+            <h5><a href="#bindHotkeys">bindHotkeys</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Pastebin:bindHotkeys(mapping)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Binds hotkeys for Pastebin</p>
+<p>Parameters:</p>
+<ul>
+<li>mapping - A table containing hotkey objifier/key details for the following items:<ul>
+<li>paste - paste to Pastebin</li>
+</ul>
+</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="paste">
+            <a name="//apple_ref/cpp/Method/paste" class="dashAnchor"></a>
+            <h5><a href="#paste">paste</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Pastebin:paste(private, expire, format)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Pastes an item to Pastebin using the Pastebin api</p>
+<p>Parameters:</p>
+<ul>
+<li>private - Integer specifying whether the paste should be public, private, or unlisted. Defaults to obj.private (0=public)</li>
+<li>expire - String specifying the TTL for the paste. Defaults to obj.expire ('N'=never). Valid values are listed on obj.expire</li>
+<li>format - String specifying the appropriate Pastebin format enum. Default is obj.format ('text'). Valid values are listed on obj.format</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+  </body>
+</html>

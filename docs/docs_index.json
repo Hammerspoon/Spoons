@@ -1107,6 +1107,59 @@
     "type": "Method"
   },
   {
+    "desc": "Send clipboard contents to Pastebin",
+    "name": "Pastebin",
+    "type": "Module"
+  },
+  {
+    "desc": "String api developer key. Can be found [here](http://pastebin.com/api)",
+    "module": "Pastebin",
+    "name": "api_dev_key",
+    "type": "Variable"
+  },
+  {
+    "desc": "String api user key. Can be generated [here](http://pastebin.com/api/api_user_key.html)",
+    "module": "Pastebin",
+    "name": "api_user_key",
+    "type": "Variable"
+  },
+  {
+    "desc": "String indicating how long until the paste expires. Default is 'N' (Never)",
+    "module": "Pastebin",
+    "name": "expire",
+    "type": "Variable"
+  },
+  {
+    "desc": "String indicating the format of the paste. Default is 'text' (plain text). ",
+    "module": "Pastebin",
+    "name": "format",
+    "type": "Variable"
+  },
+  {
+    "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+    "module": "Pastebin",
+    "name": "logger",
+    "type": "Variable"
+  },
+  {
+    "desc": "Integer indicating whether a paste should be public, unlisted, or private. Default is 0 (public). (0=public, 1=unlisted, 2=private)",
+    "module": "Pastebin",
+    "name": "private",
+    "type": "Variable"
+  },
+  {
+    "desc": "Binds hotkeys for Pastebin",
+    "module": "Pastebin",
+    "name": "bindHotkeys",
+    "type": "Method"
+  },
+  {
+    "desc": "Pastes an item to Pastebin using the Pastebin api",
+    "module": "Pastebin",
+    "name": "paste",
+    "type": "Method"
+  },
+  {
     "desc": "Show a popup window with the translation of the currently selected (or other) text",
     "name": "PopupTranslateSelection",
     "type": "Module"
