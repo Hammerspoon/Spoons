@@ -1,4 +1,4 @@
---- === Move Spaces ===
+--- === MoveSpaces ===
 ---
 --- Move window to the space to the right or left
 ---
