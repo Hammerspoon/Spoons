@@ -1068,7 +1068,7 @@
   },
   {
     "desc": "Move window to the space to the right or left",
-    "name": "Move Spaces",
+    "name": "MoveSpaces",
     "type": "Module"
   },
   {
