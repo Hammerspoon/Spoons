@@ -2,7 +2,7 @@
 ---
 --- Keep a history of the clipboard for text entries and manage the entries with a context menu
 ---
---- Originally based on TextClipboardHistory.spoon by Diego Zamboni with additional functions provided by a context menu 
+--- Originally based on TextClipboardHistory.spoon by Diego Zamboni with additional functions provided by a context menu
 --- and on [code by VFS](https://github.com/VFS/.hammerspoon/blob/master/tools/clipboard.lua), but with many changes and some contributions and inspiration from [asmagill](https://github.com/asmagill/hammerspoon-config/blob/master/utils/_menus/newClipper.lua).
 ---
 --- Download: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/ClipboardTool.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/ClipboardTool.spoon.zip)
@@ -204,8 +204,8 @@ function obj:pasteboardToClipboard(item)
    _persistHistory() -- updates the saved history
 end
 
--- Internal method: actions of the context menu, special paste 
-function obj:pasteAllWithDelimiter(row, delimiter) 
+-- Internal method: actions of the context menu, special paste
+function obj:pasteAllWithDelimiter(row, delimiter)
   if self.prevFocusedWindow ~= nil then
       self.prevFocusedWindow:focus()
    end
@@ -224,7 +224,7 @@ function obj:pasteAllWithDelimiter(row, delimiter)
 end
 
 -- Internal method: actions of the context menu, delete or rearrange of clips
-function obj:manageClip(row, action) 
+function obj:manageClip(row, action)
     print("manageClip row:" .. row .. ",action:" .. action)
     if action == 0 then
       table.remove (clipboard_history, row)
@@ -236,22 +236,22 @@ function obj:manageClip(row, action)
           i = i + 1
           j = j - 1
         end
-    else  
+    else
       local value = clipboard_history[row]
       local new = row + action
       if new < 1 then new = 1 end
       if new < row then
         table.move(clipboard_history, new, row - 1, new + 1)
-      else    
-        table.move(clipboard_history, row + 1, new, row) 
+      else
+        table.move(clipboard_history, row + 1, new, row)
       end
       clipboard_history[new] = value
     end
     self.selectorobj:refreshChoicesCallback()
 end
 
--- Internal method: 
-function obj:_showContextMenu(row) 
+-- Internal method:
+function obj:_showContextMenu(row)
   print("_showContextMenu row:" .. row)
   point = hs.mouse.getAbsolutePosition()
   local menu = hs.menubar.new(false)
@@ -272,7 +272,7 @@ function obj:_showContextMenu(row)
   menu:popupMenu(point)
   print(hs.inspect(point))
 end
-  
+
 -- Internal function - fill in the chooser options, including the control options
 function obj:_populateChooser()
    menuData = {}
@@ -328,16 +328,16 @@ function obj:shouldBeStored()
    return goAhead
 end
 
--- Internal method: 
+-- Internal method:
 function obj:reduceSize(text)
   print(#text .. " ? " .. tostring(max_entry_size))
   local endingpos = 3000
   local lastLowerPos = 3000
-  repeat 
+  repeat
     lastLowerPos = endingpos
     _, endingpos = string.find(text, "\n\n", endingpos+1)
     print("endingpos:" .. endingpos)
-  until endingpos > obj.max_entry_size  
+  until endingpos > obj.max_entry_size
   return string.sub(text, 1, lastLowerPos)
 end
 
@@ -356,9 +356,9 @@ function obj:checkAndStorePasteboard()
          elseif current_clipboard ~= nil then
            local size = #current_clipboard
            if obj.max_size and size > obj.max_entry_size then
-             local antwort = hs.dialog.blockAlert("Clipboard", "Die Maximale Größe von " .. obj.max_entry_size .. " ist überschritten", "Reduzieren", "Nehmen", "NSCriticalAlertStyle")
-              print("antwort: " .. antwort)
-              if antwort == "Reduzieren" then
+             local answer = hs.dialog.blockAlert("Clipboard", "The maximum size of " .. obj.max_entry_size .. " was exceeded.", "Copy partially", "Copy all", "NSCriticalAlertStyle")
+              print("answer: " .. answer)
+              if answer == "Copy partially" then
                 current_clipboard = self:reduceSize(current_clipboard)
                 size = #current_clipboard
                 end
