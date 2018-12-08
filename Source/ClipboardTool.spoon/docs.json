@@ -211,7 +211,7 @@
       }
     ],
     "desc": "Keep a history of the clipboard for text entries and manage the entries with a context menu",
-    "doc": "Keep a history of the clipboard for text entries and manage the entries with a context menu\n\nOriginally based on TextClipboardHistory.spoon by Diego Zamboni with additional functions provided by a context menu \nand on [code by VFS](https://github.com/VFS/.hammerspoon/blob/master/tools/clipboard.lua), but with many changes and some contributions and inspiration from [asmagill](https://github.com/asmagill/hammerspoon-config/blob/master/utils/_menus/newClipper.lua).\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/ClipboardTool.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/ClipboardTool.spoon.zip)",
+    "doc": "Keep a history of the clipboard for text entries and manage the entries with a context menu\n\nOriginally based on TextClipboardHistory.spoon by Diego Zamboni with additional functions provided by a context menu\nand on [code by VFS](https://github.com/VFS/.hammerspoon/blob/master/tools/clipboard.lua), but with many changes and some contributions and inspiration from [asmagill](https://github.com/asmagill/hammerspoon-config/blob/master/utils/_menus/newClipper.lua).\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/ClipboardTool.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/ClipboardTool.spoon.zip)",
     "items": [
       {
         "def": "ClipboardTool:bindHotkeys(mapping)",
@@ -415,7 +415,7 @@
       }
     ],
     "name": "ClipboardTool",
-    "stripped_doc": "\nOriginally based on TextClipboardHistory.spoon by Diego Zamboni with additional functions provided by a context menu \nand on [code by VFS](https://github.com/VFS/.hammerspoon/blob/master/tools/clipboard.lua), but with many changes and some contributions and inspiration from [asmagill](https://github.com/asmagill/hammerspoon-config/blob/master/utils/_menus/newClipper.lua).\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/ClipboardTool.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/ClipboardTool.spoon.zip)",
+    "stripped_doc": "\nOriginally based on TextClipboardHistory.spoon by Diego Zamboni with additional functions provided by a context menu\nand on [code by VFS](https://github.com/VFS/.hammerspoon/blob/master/tools/clipboard.lua), but with many changes and some contributions and inspiration from [asmagill](https://github.com/asmagill/hammerspoon-config/blob/master/utils/_menus/newClipper.lua).\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/ClipboardTool.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/ClipboardTool.spoon.zip)",
     "submodules": [],
     "type": "Module"
   }
