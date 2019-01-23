@@ -14,12 +14,31 @@ obj.author = "ashfinal <ashfinal@gmail.com>"
 obj.homepage = "https://github.com/Hammerspoon/Spoons"
 obj.license = "MIT - https://opensource.org/licenses/MIT"
 
+--- BingDaily.changeAllSpaces
+--- Variable
+--- If `true` Spoon will set background image to all desktops (spaces).
+--- MacOS doesn't have nice API for it, so
+--- we're using hack - set watcher to space change and set Bing image to active space
+--- Default: false
+obj.changeAllSpaces = false
+
+-- Path to recently downloaded image from Bing
+obj.recentImage = nil
+-- Space watcher object
+obj.spaceWatcher = nil
+
+local function setDesktopImgFromRecent()
+    if obj.recentImage and obj.recentImage ~= hs.screen.mainScreen():desktopImageURL() then
+        hs.screen.mainScreen():desktopImageURL(obj.recentImage)
+    end
+end
+
 local function curl_callback(exitCode, stdOut, stdErr)
     if exitCode == 0 then
         obj.task = nil
         obj.last_pic = hs.http.urlParts(obj.full_url).lastPathComponent
-        local localpath = os.getenv("HOME") .. "/.Trash/" .. hs.http.urlParts(obj.full_url).lastPathComponent
-        hs.screen.mainScreen():desktopImageURL("file://" .. localpath)
+        obj.recentImage = "file://" .. os.getenv("HOME") .. "/.Trash/" .. hs.http.urlParts(obj.full_url).lastPathComponent
+        setDesktopImgFromRecent()
     else
         print(stdOut, stdErr)
     end
@@ -52,12 +71,25 @@ local function bingRequest()
 end
 
 function obj:init()
+end
+
+function obj:start()
     if obj.timer == nil then
         obj.timer = hs.timer.doEvery(3*60*60, function() bingRequest() end)
         obj.timer:setNextTrigger(5)
     else
         obj.timer:start()
     end
+
+    if obj.changeAllSpaces then
+        obj.spaceWatcher = hs.spaces.watcher.new(setDesktopImgFromRecent)
+        obj.spaceWatcher:start()
+    end
+end
+
+function obj:stop()
+    if obj.spaceWatcher then obj.spaceWatcher:stop() end
+    if obj.timer then obj.timer:stop() end
 end
 
 return obj
