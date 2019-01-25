@@ -16,10 +16,9 @@ obj.license = "MIT - https://opensource.org/licenses/MIT"
 
 --- BingDaily.changeAllSpaces
 --- Variable
---- If `true` Spoon will set background image to all desktops (spaces).
---- MacOS doesn't have nice API for it, so
---- we're using hack - set watcher to space change and set Bing image to active space
---- Default: false
+--- If `true` Spoon will set background image to all desktops (spaces)
+---
+--- MacOS doesn't have nice API for it, so we're using hack - set watcher to space change and set Bing image to active space. Default: false
 obj.changeAllSpaces = false
 
 -- Path to recently downloaded image from Bing
