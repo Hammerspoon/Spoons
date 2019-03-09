@@ -20,8 +20,8 @@ obj.appSearchPaths = {
 local modifyNameMap = function(info, add)
    for _, item in ipairs(info) do
       if add then
-         bundleID = item.kMDItemCFBundleIdentifier
-         icon = nil
+         local bundleID = item.kMDItemCFBundleIdentifier
+         local icon = nil
          if bundleID then
             icon = hs.image.imageFromAppBundle(bundleID)
          end
@@ -37,7 +37,7 @@ local modifyNameMap = function(info, add)
             icon = icon
          }
       else
-         obj.appCache[item.kMDItemDisplayName] = nil
+         if item.kMDItemDisplayName then obj.appCache[item.kMDItemDisplayName] = nil end
       end
    end
 end
@@ -120,7 +120,7 @@ function obj.choicesKillCommand(query)
       return choices
    end
    local apps = hs.application.runningApplications()
-   for k, app in pairs(apps) do
+   for _, app in pairs(apps) do
       local name = app:name()
       if string.match(name:lower(), query:lower()) and app:mainWindow() then
          local choice = {}
