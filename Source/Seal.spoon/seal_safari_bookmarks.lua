@@ -14,15 +14,17 @@ obj.icon = hs.image.iconForFileType("com.apple.safari.bookmark")
 obj.always_open_with_safari = true
 
 local modifyNameMap = function(info, add)
+    local name
     for _, item in ipairs(info) do
-        if add then
-            name = item.kMDItemDisplayName
-            url = item.kMDItemURL
-            obj.bookmarkCache[item.kMDItemDisplayName] = {
-                url = item.kMDItemURL,
-            }
-        else
-            obj.bookmarkCache[item.kMDItemDisplayName] = nil
+        name = item.kMDItemDisplayName
+        if name ~= nil then
+            if add then
+                obj.bookmarkCache[name] = {
+                    url = item.kMDItemURL,
+                }
+            else
+                obj.bookmarkCache[name] = nil
+            end
         end
     end
 end
