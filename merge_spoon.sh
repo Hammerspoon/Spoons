@@ -19,6 +19,7 @@ set -eu
 
 ../hammerspoon/scripts/docs/bin/build_docs.py -e ../hammerspoon/scripts/docs/templates/ -o Source/${SPOON}.spoon/ -j -n Source/${SPOON}.spoon/
 rm Source/${SPOON}.spoon/docs_index.json
+git add Source/${SPOON}/docs.json
 git commit -am "Generate docs for ${SPOON}" || true
 make
 git add Spoons/${SPOON}.spoon.zip
