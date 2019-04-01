@@ -2,6 +2,7 @@
 ---
 --- Use mouse scroll wheel and modifiers to adjust volume.
 ---
+--- Download: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/VolumeScroll.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/VolumeScroll.spoon.zip)
 
 local obj={}
 obj.__index = obj
