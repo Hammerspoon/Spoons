@@ -2048,6 +2048,41 @@
     "type": "Method"
   },
   {
+    "desc": "Use mouse scroll wheel and modifiers to adjust volume.",
+    "name": "VolumeScroll",
+    "type": "Module"
+  },
+  {
+    "desc": "Initialize spoon",
+    "module": "VolumeScroll",
+    "name": "init",
+    "type": "Method"
+  },
+  {
+    "desc": "Determine if a table of modifiers are the same modifiers passed into :start()",
+    "module": "VolumeScroll",
+    "name": "sameMods",
+    "type": "Method"
+  },
+  {
+    "desc": "Start event watcher.",
+    "module": "VolumeScroll",
+    "name": "start",
+    "type": "Method"
+  },
+  {
+    "desc": "Stop the scroll watcher",
+    "module": "VolumeScroll",
+    "name": "stop",
+    "type": "Method"
+  },
+  {
+    "desc": "Determine the number of items in a table",
+    "module": "VolumeScroll",
+    "name": "tableLength",
+    "type": "Method"
+  },
+  {
     "desc": "Receive notifications every time your wifi network changes.",
     "name": "WifiNotifier",
     "type": "Module"

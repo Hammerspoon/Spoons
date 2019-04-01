@@ -1,0 +1,165 @@
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hammerspoon docs: VolumeScroll</title>
+    <style type="text/css">
+      a { text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      th { background-color: #DDDDDD; vertical-align: top; padding: 3px; }
+      td { width: 100%; background-color: #EEEEEE; vertical-align: top; padding: 3px; }
+      table { width: 100% ; border: 1px solid #0; text-align: left; }
+      section > table table td { width: 0; }
+    </style>
+    <link rel="stylesheet" href="docs.css" type="text/css" media="screen" />
+  </head>
+  <body>
+    <header>
+      <h1><a href="./index.html">docs</a> &raquo; VolumeScroll</h1>
+      <p>Use mouse scroll wheel and modifiers to adjust volume.</p>
+<p>Download: <a href="https://github.com/Hammerspoon/Spoons/raw/master/Spoons/VolumeScroll.spoon.zip">https://github.com/Hammerspoon/Spoons/raw/master/Spoons/VolumeScroll.spoon.zip</a></p>
+
+      </header>
+      <h3>API Overview</h3>
+      <ul>
+        <li>Methods - API calls which can only be made on an object returned by a constructor</li>
+          <ul>
+            <li><a href="#init">init</a></li>
+            <li><a href="#sameMods">sameMods</a></li>
+            <li><a href="#start">start</a></li>
+            <li><a href="#stop">stop</a></li>
+            <li><a href="#tableLength">tableLength</a></li>
+          </ul>
+      </ul>
+      <h3>API Documentation</h3>
+        <h4 class="documentation-section">Methods</h4>
+          <section id="init">
+            <a name="//apple_ref/cpp/Method/init" class="dashAnchor"></a>
+            <h5><a href="#init">init</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>VolumeScroll:init()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Initialize spoon</p>
+<p>Parameters:</p>
+<p>Returns:</p>
+<ul>
+<li>void</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="sameMods">
+            <a name="//apple_ref/cpp/Method/sameMods" class="dashAnchor"></a>
+            <h5><a href="#sameMods">sameMods</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>VolumeScroll:sameMods()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Determine if a table of modifiers are the same modifiers passed into :start()</p>
+<p>Parameters:</p>
+<ul>
+<li>mods - a table of modifiers</li>
+</ul>
+<p>Returns:</p>
+<ul>
+<li>boolean - true if mods are same, false otherwise</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="start">
+            <a name="//apple_ref/cpp/Method/start" class="dashAnchor"></a>
+            <h5><a href="#start">start</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>VolumeScroll:start()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Start event watcher.</p>
+<p>Parameters:</p>
+<ul>
+<li>mods - a table containing the modifiers to bind in scrolling</li>
+</ul>
+<p>Returns:</p>
+<ul>
+<li>void</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="stop">
+            <a name="//apple_ref/cpp/Method/stop" class="dashAnchor"></a>
+            <h5><a href="#stop">stop</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>VolumeScroll:stop()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Stop the scroll watcher</p>
+<p>Parameters:</p>
+<p>Returns:</p>
+<ul>
+<li>void</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="tableLength">
+            <a name="//apple_ref/cpp/Method/tableLength" class="dashAnchor"></a>
+            <h5><a href="#tableLength">tableLength</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>VolumeScroll:tableLength(T)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Determine the number of items in a table</p>
+<p>Parameters:</p>
+<ul>
+<li>T - a table</li>
+</ul>
+<p>Returns:</p>
+<ul>
+<li>number or boolean - the number of items in the table, false if T is not a table</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+  </body>
+</html>

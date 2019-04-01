@@ -7741,6 +7741,167 @@
     "Function": [],
     "Method": [
       {
+        "def": "VolumeScroll:init()",
+        "desc": "Initialize spoon",
+        "doc": "Initialize spoon\n\nParameters:\n\nReturns:\n * void",
+        "name": "init",
+        "parameters": [],
+        "returns": [
+          " * void"
+        ],
+        "signature": "VolumeScroll:init()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "VolumeScroll:sameMods()",
+        "desc": "Determine if a table of modifiers are the same modifiers passed into :start()",
+        "doc": "Determine if a table of modifiers are the same modifiers passed into :start()\n\nParameters:\n * mods - a table of modifiers\n\nReturns:\n * boolean - true if mods are same, false otherwise",
+        "name": "sameMods",
+        "parameters": [
+          " * mods - a table of modifiers"
+        ],
+        "returns": [
+          " * boolean - true if mods are same, false otherwise"
+        ],
+        "signature": "VolumeScroll:sameMods()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "VolumeScroll:start()",
+        "desc": "Start event watcher.",
+        "doc": "Start event watcher.\n\nParameters:\n * mods - a table containing the modifiers to bind in scrolling\n\nReturns:\n * void",
+        "name": "start",
+        "parameters": [
+          " * mods - a table containing the modifiers to bind in scrolling"
+        ],
+        "returns": [
+          " * void"
+        ],
+        "signature": "VolumeScroll:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "VolumeScroll:stop()",
+        "desc": "Stop the scroll watcher",
+        "doc": "Stop the scroll watcher\n\nParameters:\n\nReturns:\n * void",
+        "name": "stop",
+        "parameters": [],
+        "returns": [
+          " * void"
+        ],
+        "signature": "VolumeScroll:stop()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "VolumeScroll:tableLength(T)",
+        "desc": "Determine the number of items in a table",
+        "doc": "Determine the number of items in a table\n\nParameters:\n * T - a table\n\nReturns:\n * number or boolean - the number of items in the table, false if T is not a table",
+        "name": "tableLength",
+        "parameters": [
+          " * T - a table"
+        ],
+        "returns": [
+          " * number or boolean - the number of items in the table, false if T is not a table"
+        ],
+        "signature": "VolumeScroll:tableLength(T)",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [],
+    "desc": "Use mouse scroll wheel and modifiers to adjust volume.",
+    "doc": "Use mouse scroll wheel and modifiers to adjust volume.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/VolumeScroll.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/VolumeScroll.spoon.zip)",
+    "items": [
+      {
+        "def": "VolumeScroll:init()",
+        "desc": "Initialize spoon",
+        "doc": "Initialize spoon\n\nParameters:\n\nReturns:\n * void",
+        "name": "init",
+        "parameters": [],
+        "returns": [
+          " * void"
+        ],
+        "signature": "VolumeScroll:init()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "VolumeScroll:sameMods()",
+        "desc": "Determine if a table of modifiers are the same modifiers passed into :start()",
+        "doc": "Determine if a table of modifiers are the same modifiers passed into :start()\n\nParameters:\n * mods - a table of modifiers\n\nReturns:\n * boolean - true if mods are same, false otherwise",
+        "name": "sameMods",
+        "parameters": [
+          " * mods - a table of modifiers"
+        ],
+        "returns": [
+          " * boolean - true if mods are same, false otherwise"
+        ],
+        "signature": "VolumeScroll:sameMods()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "VolumeScroll:start()",
+        "desc": "Start event watcher.",
+        "doc": "Start event watcher.\n\nParameters:\n * mods - a table containing the modifiers to bind in scrolling\n\nReturns:\n * void",
+        "name": "start",
+        "parameters": [
+          " * mods - a table containing the modifiers to bind in scrolling"
+        ],
+        "returns": [
+          " * void"
+        ],
+        "signature": "VolumeScroll:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "VolumeScroll:stop()",
+        "desc": "Stop the scroll watcher",
+        "doc": "Stop the scroll watcher\n\nParameters:\n\nReturns:\n * void",
+        "name": "stop",
+        "parameters": [],
+        "returns": [
+          " * void"
+        ],
+        "signature": "VolumeScroll:stop()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "VolumeScroll:tableLength(T)",
+        "desc": "Determine the number of items in a table",
+        "doc": "Determine the number of items in a table\n\nParameters:\n * T - a table\n\nReturns:\n * number or boolean - the number of items in the table, false if T is not a table",
+        "name": "tableLength",
+        "parameters": [
+          " * T - a table"
+        ],
+        "returns": [
+          " * number or boolean - the number of items in the table, false if T is not a table"
+        ],
+        "signature": "VolumeScroll:tableLength(T)",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "name": "VolumeScroll",
+    "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/VolumeScroll.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/VolumeScroll.spoon.zip)",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
         "def": "WifiNotifier:init()",
         "desc": "Initialize the WifiNotifier spoon",
         "doc": "Initialize the WifiNotifier spoon\n\nReturns:\n* The WifiNotifier object",
