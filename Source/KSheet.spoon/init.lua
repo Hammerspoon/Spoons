@@ -211,4 +211,21 @@ function obj:hide()
     self.sheetView:hide()
 end
 
+function obj:toggle()
+  if self.sheetView and self.sheetView:hswindow() and self.sheetView:hswindow():isVisible() then
+    self:hide()
+  else
+    self:show()
+  end
+end
+
+function obj:bindHotkeys(mapping)
+  local actions = {
+    toggle = hs.fnutils.partial(self.toggle, self),
+    show = hs.fnutils.partial(self.show, self),
+    hide = hs.fnutils.partial(self.hide, self)
+  }
+  hs.spoons.bindHotkeysToSpec(actions, mapping)
+end
+
 return obj
