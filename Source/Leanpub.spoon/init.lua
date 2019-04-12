@@ -3,7 +3,7 @@
 --- Spoon to track and notify about Leanpub builds.
 ---
 --- Download:
---- https://github.com/zzamboni/zzSpoons/raw/master/Spoons/Leanpub.spoon.zip
+--- https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Leanpub.spoon.zip
 
 local obj={}
 obj.__index = obj
