@@ -154,7 +154,7 @@
       }
     ],
     "desc": "Spoon to track and notify about Leanpub builds.",
-    "doc": "Spoon to track and notify about Leanpub builds.\n\nDownload:\nhttps://github.com/zzamboni/zzSpoons/raw/master/Spoons/Leanpub.spoon.zip",
+    "doc": "Spoon to track and notify about Leanpub builds.\n\nDownload:\nhttps://github.com/Hammerspoon/Spoons/raw/master/Spoons/Leanpub.spoon.zip",
     "items": [
       {
         "def": "Leanpub.api_key",
@@ -301,7 +301,7 @@
       }
     ],
     "name": "Leanpub",
-    "stripped_doc": "\nDownload:\nhttps://github.com/zzamboni/zzSpoons/raw/master/Spoons/Leanpub.spoon.zip",
+    "stripped_doc": "\nDownload:\nhttps://github.com/Hammerspoon/Spoons/raw/master/Spoons/Leanpub.spoon.zip",
     "submodules": [],
     "type": "Module"
   }
