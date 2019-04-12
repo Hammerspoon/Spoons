@@ -19,7 +19,7 @@
       {
         "def": "Leanpub:displayBookStatus(book)",
         "desc": "Display a notification with the current build status of a book.",
-        "doc": "Display a notification with the current build status of a book.\nOnly produce a notification if the current status is different\nthan the last known one (from the last time `displayBookStatus`\nwas run for the same book).\n\nParameters:\n * book - table containing the information of the book to\n   check. The table must contain the following fields:\n   * slug - URL \"slug\" of the book to check. The slug is the part\n     of the book URL after https://leanpub.com/.\n   * icon - optional icon to show in the notifications for the\n     book, as an `hs.image` object. If this field is not specified\n     but `fetch_leanpub_covers` is true (the default value), this\n     method attempts to fetch the book cover from LeanPub. If the\n     cover can be retrieved, it gets stored in the icon field so\n     it doesn't get fetched every time. You can disable cover\n     fetching for individual books by setting this field\n     explicitly to `false`\n\nReturns:\n * A Lua table containing the status (may be empty), nil if an\n   error occurred",
+        "doc": "Display a notification with the current build status of a book.\nOnly produce a notification if the current status is different\nthan the last known one (from the last time `displayBookStatus`\nwas run for the same book).\n\nParameters:\n * book - table containing the information of the book to\n   check. The table must contain the following fields:\n   * slug - URL \"slug\" of the book to check. The slug is the part\n     of the book URL after https://leanpub.com/.\n   * icon - optional icon to show in the notifications for the\n     book, as an `hs.image` object. If this field is not specified\n     but `fetch_leanpub_covers` is true (the default value), this\n     method attempts to fetch the book cover from Leanpub. If the\n     cover can be retrieved, it gets stored in the icon field so\n     it doesn't get fetched every time. You can disable cover\n     fetching for individual books by setting this field\n     explicitly to `false`\n\nReturns:\n * A Lua table containing the status (may be empty), nil if an\n   error occurred",
         "name": "displayBookStatus",
         "parameters": [
           " * book - table containing the information of the book to",
@@ -29,7 +29,7 @@
           "   * icon - optional icon to show in the notifications for the",
           "     book, as an `hs.image` object. If this field is not specified",
           "     but `fetch_leanpub_covers` is true (the default value), this",
-          "     method attempts to fetch the book cover from LeanPub. If the",
+          "     method attempts to fetch the book cover from Leanpub. If the",
           "     cover can be retrieved, it gets stored in the icon field so",
           "     it doesn't get fetched every time. You can disable cover",
           "     fetching for individual books by setting this field",
@@ -186,7 +186,7 @@
       {
         "def": "Leanpub:displayBookStatus(book)",
         "desc": "Display a notification with the current build status of a book.",
-        "doc": "Display a notification with the current build status of a book.\nOnly produce a notification if the current status is different\nthan the last known one (from the last time `displayBookStatus`\nwas run for the same book).\n\nParameters:\n * book - table containing the information of the book to\n   check. The table must contain the following fields:\n   * slug - URL \"slug\" of the book to check. The slug is the part\n     of the book URL after https://leanpub.com/.\n   * icon - optional icon to show in the notifications for the\n     book, as an `hs.image` object. If this field is not specified\n     but `fetch_leanpub_covers` is true (the default value), this\n     method attempts to fetch the book cover from LeanPub. If the\n     cover can be retrieved, it gets stored in the icon field so\n     it doesn't get fetched every time. You can disable cover\n     fetching for individual books by setting this field\n     explicitly to `false`\n\nReturns:\n * A Lua table containing the status (may be empty), nil if an\n   error occurred",
+        "doc": "Display a notification with the current build status of a book.\nOnly produce a notification if the current status is different\nthan the last known one (from the last time `displayBookStatus`\nwas run for the same book).\n\nParameters:\n * book - table containing the information of the book to\n   check. The table must contain the following fields:\n   * slug - URL \"slug\" of the book to check. The slug is the part\n     of the book URL after https://leanpub.com/.\n   * icon - optional icon to show in the notifications for the\n     book, as an `hs.image` object. If this field is not specified\n     but `fetch_leanpub_covers` is true (the default value), this\n     method attempts to fetch the book cover from Leanpub. If the\n     cover can be retrieved, it gets stored in the icon field so\n     it doesn't get fetched every time. You can disable cover\n     fetching for individual books by setting this field\n     explicitly to `false`\n\nReturns:\n * A Lua table containing the status (may be empty), nil if an\n   error occurred",
         "name": "displayBookStatus",
         "parameters": [
           " * book - table containing the information of the book to",
@@ -196,7 +196,7 @@
           "   * icon - optional icon to show in the notifications for the",
           "     book, as an `hs.image` object. If this field is not specified",
           "     but `fetch_leanpub_covers` is true (the default value), this",
-          "     method attempts to fetch the book cover from LeanPub. If the",
+          "     method attempts to fetch the book cover from Leanpub. If the",
           "     cover can be retrieved, it gets stored in the icon field so",
           "     it doesn't get fetched every time. You can disable cover",
           "     fetching for individual books by setting this field",
