@@ -1,0 +1,344 @@
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hammerspoon docs: Leanpub</title>
+    <style type="text/css">
+      a { text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      th { background-color: #DDDDDD; vertical-align: top; padding: 3px; }
+      td { width: 100%; background-color: #EEEEEE; vertical-align: top; padding: 3px; }
+      table { width: 100% ; border: 1px solid #0; text-align: left; }
+      section > table table td { width: 0; }
+    </style>
+    <link rel="stylesheet" href="docs.css" type="text/css" media="screen" />
+  </head>
+  <body>
+    <header>
+      <h1><a href="./index.html">docs</a> &raquo; Leanpub</h1>
+      <p>Spoon to track and notify about Leanpub builds.</p>
+<p>Download:
+<a href="https://github.com/zzamboni/zzSpoons/raw/master/Spoons/Leanpub.spoon.zip">https://github.com/zzamboni/zzSpoons/raw/master/Spoons/Leanpub.spoon.zip</a></p>
+
+      </header>
+      <h3>API Overview</h3>
+      <ul>
+        <li>Variables - Configurable values</li>
+          <ul>
+            <li><a href="#api_key">api_key</a></li>
+            <li><a href="#check_interval">check_interval</a></li>
+            <li><a href="#fetch_leanpub_covers">fetch_leanpub_covers</a></li>
+            <li><a href="#logger">logger</a></li>
+            <li><a href="#persistent_notification">persistent_notification</a></li>
+            <li><a href="#watch_books">watch_books</a></li>
+          </ul>
+        <li>Methods - API calls which can only be made on an object returned by a constructor</li>
+          <ul>
+            <li><a href="#displayAllBookStatus">displayAllBookStatus</a></li>
+            <li><a href="#displayBookStatus">displayBookStatus</a></li>
+            <li><a href="#fetchBookCover">fetchBookCover</a></li>
+            <li><a href="#getBookStatus">getBookStatus</a></li>
+            <li><a href="#start">start</a></li>
+            <li><a href="#stop">stop</a></li>
+          </ul>
+      </ul>
+      <h3>API Documentation</h3>
+        <h4 class="documentation-section">Variables</h4>
+          <section id="api_key">
+            <a name="//apple_ref/cpp/Variable/api_key" class="dashAnchor"></a>
+            <h5><a href="#api_key">api_key</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Leanpub.api_key</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>String containing the key to use for Leanpub API requests. Get it
+from your Leanpub account under the "Author / Your API Key" menu
+section. No default.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="check_interval">
+            <a name="//apple_ref/cpp/Variable/check_interval" class="dashAnchor"></a>
+            <h5><a href="#check_interval">check_interval</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Leanpub.check_interval</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Integer containing the interval (in seconds) at which the book
+status is checked. Default 5.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="fetch_leanpub_covers">
+            <a name="//apple_ref/cpp/Variable/fetch_leanpub_covers" class="dashAnchor"></a>
+            <h5><a href="#fetch_leanpub_covers">fetch_leanpub_covers</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Leanpub.fetch_leanpub_covers</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Boolean indicating whether we should try to fetch book covers from
+Leanpub (default true)</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="logger">
+            <a name="//apple_ref/cpp/Variable/logger" class="dashAnchor"></a>
+            <h5><a href="#logger">logger</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Leanpub.logger</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Logger object used within the Spoon. Can be accessed to set the
+default log level for the messages coming from the Spoon.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="persistent_notification">
+            <a name="//apple_ref/cpp/Variable/persistent_notification" class="dashAnchor"></a>
+            <h5><a href="#persistent_notification">persistent_notification</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Leanpub.persistent_notification</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Table specifying the Leanpub status for which notifications should
+not disappear automatically. The indices correspond to the values
+of the <code>status</code> field returned by the Leanpub API. Possible values
+are <code>working</code> and <code>complete</code>. Default <code>{ complete = true }</code> to
+keep the "Book generation complete" messages.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="watch_books">
+            <a name="//apple_ref/cpp/Variable/watch_books" class="dashAnchor"></a>
+            <h5><a href="#watch_books">watch_books</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Leanpub.watch_books</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>List of books to watch (by default an empty list). Each element of
+the list must be a table containing the following keys:</p>
+<ul>
+<li>slug - the web page "slug" of the book to watch. The slug of a
+book can be set under the "Book Web Page / Web Page URL" menu
+section in Leanpub.</li>
+<li>icon - optional icon to show in the notifications for the book,
+as an hs.image object. If not specified, and if
+<code>fetch_leanpub_covers</code> is <code>true</code>, then the icon is generated
+automatically from the book cover.</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+        <h4 class="documentation-section">Methods</h4>
+          <section id="displayAllBookStatus">
+            <a name="//apple_ref/cpp/Method/displayAllBookStatus" class="dashAnchor"></a>
+            <h5><a href="#displayAllBookStatus">displayAllBookStatus</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Leanpub:displayAllBookStatus()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Check and display (if needed) the status of all the books in
+<code>watch_books</code></p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="displayBookStatus">
+            <a name="//apple_ref/cpp/Method/displayBookStatus" class="dashAnchor"></a>
+            <h5><a href="#displayBookStatus">displayBookStatus</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Leanpub:displayBookStatus(book)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Display a notification with the current build status of a book.
+Only produce a notification if the current status is different
+than the last known one (from the last time <code>displayBookStatus</code>
+was run for the same book).</p>
+<p>Parameters:</p>
+<ul>
+<li>book - table containing the information of the book to
+check. The table must contain the following fields:<ul>
+<li>slug - URL "slug" of the book to check. The slug is the part
+of the book URL after <a href="https://leanpub.com/">https://leanpub.com/</a>.</li>
+<li>icon - optional icon to show in the notifications for the
+book, as an <code>hs.image</code> object. If this field is not specified
+but <code>fetch_leanpub_covers</code> is true (the default value), this
+method attempts to fetch the book cover from LeanPub. If the
+cover can be retrieved, it gets stored in the icon field so
+it doesn't get fetched every time. You can disable cover
+fetching for individual books by setting this field
+explicitly to <code>false</code></li>
+</ul>
+</li>
+</ul>
+<p>Returns:</p>
+<ul>
+<li>A Lua table containing the status (may be empty), nil if an
+error occurred</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="fetchBookCover">
+            <a name="//apple_ref/cpp/Method/fetchBookCover" class="dashAnchor"></a>
+            <h5><a href="#fetchBookCover">fetchBookCover</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Leanpub:fetchBookCover(slug)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Fetch the cover of a book.</p>
+<p>Parameters:</p>
+<ul>
+<li>book - slug for the book</li>
+</ul>
+<p>Returns:</p>
+<ul>
+<li>The image object if it can be fetched, nil otherwise</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="getBookStatus">
+            <a name="//apple_ref/cpp/Method/getBookStatus" class="dashAnchor"></a>
+            <h5><a href="#getBookStatus">getBookStatus</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Leanpub:getBookStatus(slug)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Get the status of a book given its slug.</p>
+<p>Parameters:</p>
+<ul>
+<li>slug - URL "slug" of the book to check. The slug of a book is
+the part of the URL for your book after <a href="https://leanpub.com/">https://leanpub.com/</a>.</li>
+</ul>
+<p>Returns:</p>
+<ul>
+<li>Table containing the fields returned by the Leanpub API. If the
+book is not being built at the moment, an empty table is
+returned. If an error occurs, returns <code>nil</code>. Samples of the
+return values can be found at
+<a href="https://leanpub.com/help/api#getting-the-job-status">https://leanpub.com/help/api#getting-the-job-status</a></li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="start">
+            <a name="//apple_ref/cpp/Method/start" class="dashAnchor"></a>
+            <h5><a href="#start">start</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Leanpub:start()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Start periodic check for book status, checking every
+check_interval seconds.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="stop">
+            <a name="//apple_ref/cpp/Method/stop" class="dashAnchor"></a>
+            <h5><a href="#stop">stop</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Leanpub:stop()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Stops periodic check for book status, if enabled.
+check_interval seconds.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+  </body>
+</html>

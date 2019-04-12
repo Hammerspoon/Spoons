@@ -786,6 +786,83 @@
     "type": "Method"
   },
   {
+    "desc": "Spoon to track and notify about Leanpub builds.",
+    "name": "Leanpub",
+    "type": "Module"
+  },
+  {
+    "desc": "String containing the key to use for Leanpub API requests. Get it",
+    "module": "Leanpub",
+    "name": "api_key",
+    "type": "Variable"
+  },
+  {
+    "desc": "Integer containing the interval (in seconds) at which the book",
+    "module": "Leanpub",
+    "name": "check_interval",
+    "type": "Variable"
+  },
+  {
+    "desc": "Boolean indicating whether we should try to fetch book covers from",
+    "module": "Leanpub",
+    "name": "fetch_leanpub_covers",
+    "type": "Variable"
+  },
+  {
+    "desc": "Logger object used within the Spoon. Can be accessed to set the",
+    "module": "Leanpub",
+    "name": "logger",
+    "type": "Variable"
+  },
+  {
+    "desc": "Table specifying the Leanpub status for which notifications should",
+    "module": "Leanpub",
+    "name": "persistent_notification",
+    "type": "Variable"
+  },
+  {
+    "desc": "List of books to watch (by default an empty list). Each element of",
+    "module": "Leanpub",
+    "name": "watch_books",
+    "type": "Variable"
+  },
+  {
+    "desc": "Check and display (if needed) the status of all the books in",
+    "module": "Leanpub",
+    "name": "displayAllBookStatus",
+    "type": "Method"
+  },
+  {
+    "desc": "Display a notification with the current build status of a book.",
+    "module": "Leanpub",
+    "name": "displayBookStatus",
+    "type": "Method"
+  },
+  {
+    "desc": "Fetch the cover of a book.",
+    "module": "Leanpub",
+    "name": "fetchBookCover",
+    "type": "Method"
+  },
+  {
+    "desc": "Get the status of a book given its slug.",
+    "module": "Leanpub",
+    "name": "getBookStatus",
+    "type": "Method"
+  },
+  {
+    "desc": "Start periodic check for book status, checking every",
+    "module": "Leanpub",
+    "name": "start",
+    "type": "Method"
+  },
+  {
+    "desc": "Stops periodic check for book status, if enabled.",
+    "module": "Leanpub",
+    "name": "stop",
+    "type": "Method"
+  },
+  {
     "desc": "Show a popup window with the currently selected word in lexicon, notes, online help",
     "name": "LookupSelection",
     "type": "Module"
