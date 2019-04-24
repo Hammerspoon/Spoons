@@ -67,7 +67,8 @@ function obj.choicesURLPart(query)
     --print("choicesURLPart for: "..query)
     local choices = {}
     for name,data in pairs(obj.providers) do
-        local full_url = string.format(data["url"], query)
+        local data_url = data["url"]:gsub("([^%%])%%([^s])", "%1%%%%%2")
+        local full_url = string.format(data_url, query)
         local url_scheme = string.sub(full_url, 1, string.find(full_url, "://") - 1)
         local choice = {}
         choice["text"] = data["name"]
