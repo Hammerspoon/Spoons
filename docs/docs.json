@@ -5233,20 +5233,20 @@
         "type": "Method"
       },
       {
-        "def": "Seal:show()",
+        "def": "Seal:show(query)",
         "desc": "Shows the Seal UI",
-        "doc": "Shows the Seal UI\n\nParameters:\n * None\n\nReturns:\n * None\n\nNotes:\n * This may be useful if you wish to show Seal in response to something other than its hotkey",
+        "doc": "Shows the Seal UI\n\nParameters:\n * query - An optional string to pre-populate the query box with\n\nReturns:\n * None\n\nNotes:\n * This may be useful if you wish to show Seal in response to something other than its hotkey",
         "name": "show",
         "notes": [
           " * This may be useful if you wish to show Seal in response to something other than its hotkey"
         ],
         "parameters": [
-          " * None"
+          " * query - An optional string to pre-populate the query box with"
         ],
         "returns": [
           " * None"
         ],
-        "signature": "Seal:show()",
+        "signature": "Seal:show(query)",
         "stripped_doc": "",
         "type": "Method"
       },
@@ -5284,17 +5284,17 @@
         "type": "Method"
       },
       {
-        "def": "Seal:toggle()",
+        "def": "Seal:toggle(query)",
         "desc": "Shows or hides the Seal UI",
-        "doc": "Shows or hides the Seal UI\n\nParameters:\n * None\n\nReturns:\n * None",
+        "doc": "Shows or hides the Seal UI\n\nParameters:\n * query - An optional string to pre-populate the query box with\n\nReturns:\n * None",
         "name": "toggle",
         "parameters": [
-          " * None"
+          " * query - An optional string to pre-populate the query box with"
         ],
         "returns": [
           " * None"
         ],
-        "signature": "Seal:toggle()",
+        "signature": "Seal:toggle(query)",
         "stripped_doc": "",
         "type": "Method"
       }
@@ -5417,20 +5417,20 @@
         "type": "Method"
       },
       {
-        "def": "Seal:show()",
+        "def": "Seal:show(query)",
         "desc": "Shows the Seal UI",
-        "doc": "Shows the Seal UI\n\nParameters:\n * None\n\nReturns:\n * None\n\nNotes:\n * This may be useful if you wish to show Seal in response to something other than its hotkey",
+        "doc": "Shows the Seal UI\n\nParameters:\n * query - An optional string to pre-populate the query box with\n\nReturns:\n * None\n\nNotes:\n * This may be useful if you wish to show Seal in response to something other than its hotkey",
         "name": "show",
         "notes": [
           " * This may be useful if you wish to show Seal in response to something other than its hotkey"
         ],
         "parameters": [
-          " * None"
+          " * query - An optional string to pre-populate the query box with"
         ],
         "returns": [
           " * None"
         ],
-        "signature": "Seal:show()",
+        "signature": "Seal:show(query)",
         "stripped_doc": "",
         "type": "Method"
       },
@@ -5468,17 +5468,17 @@
         "type": "Method"
       },
       {
-        "def": "Seal:toggle()",
+        "def": "Seal:toggle(query)",
         "desc": "Shows or hides the Seal UI",
-        "doc": "Shows or hides the Seal UI\n\nParameters:\n * None\n\nReturns:\n * None",
+        "doc": "Shows or hides the Seal UI\n\nParameters:\n * query - An optional string to pre-populate the query box with\n\nReturns:\n * None",
         "name": "toggle",
         "parameters": [
-          " * None"
+          " * query - An optional string to pre-populate the query box with"
         ],
         "returns": [
           " * None"
         ],
-        "signature": "Seal:toggle()",
+        "signature": "Seal:toggle(query)",
         "stripped_doc": "",
         "type": "Method"
       }
