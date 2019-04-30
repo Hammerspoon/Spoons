@@ -48,7 +48,13 @@ function obj.choicesPasteboardCommand(query)
         choice["type"] = "copy"
         if pasteboardItem["uti"] then
             choice["subText"] = pasteboardItem["uti"]
-            choice["image"] = hs.image.imageFromAppBundle(pasteboardItem["uti"])
+            if hs.application.defaultAppForUTI then
+                local bundleID = hs.application.defaultAppForUTI(pasteboardItem["uti"])
+                print("Default app for "..pasteboardItem["uti"].." :: "..(bundleID or "(null)"))
+                if bundleID then
+                    choice["image"] = hs.image.imageFromAppBundle(bundleID)
+                end
+            end
         end
         table.insert(choices, choice)
     end
