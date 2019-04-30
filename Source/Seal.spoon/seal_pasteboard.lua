@@ -5,13 +5,13 @@ obj.timer = nil
 obj.lastItem = nil
 obj.itemBuffer = {}
 
---- Spoon.seal.pasteboard.historySize
+--- spoon.Seal.plugins.pasteboard.historySize
 --- Variable
 ---
 --- The number of history items to keep. Defaults to 50
 obj.historySize = 50
 
---- Spoon.seal.pasteboard.saveHistory
+--- spoon.Seal.plugins.pasteboard.saveHistory
 --- Variable
 ---
 --- A boolean, true if Seal should automatically load/save clipboard history. Defaults to true
@@ -83,7 +83,7 @@ function obj.checkPasteboard()
         table.insert(obj.itemBuffer, item)
         shouldSave = true
     end
-    if #obj.itemBuffer > obj.history_size then
+    if #obj.itemBuffer > obj.historySize then
         table.remove(obj.itemBuffer, 1)
         shouldSave = true
     end
