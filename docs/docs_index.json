@@ -1465,6 +1465,23 @@
     "type": "Module"
   },
   {
+    "desc": "Visual pasteboard (ie clipboard) history",
+    "name": "Seal.plugins.pasteboard",
+    "type": "Module"
+  },
+  {
+    "desc": "",
+    "module": "Seal.plugins.pasteboard",
+    "name": "historySize",
+    "type": "Variable"
+  },
+  {
+    "desc": "",
+    "module": "Seal.plugins.pasteboard",
+    "name": "saveHistory",
+    "type": "Variable"
+  },
+  {
     "desc": "",
     "name": "Seal.plugins.safari_bookmarks",
     "type": "Module"
