@@ -374,11 +374,67 @@
     "name": "Seal.plugins",
     "stripped_doc": "",
     "submodules": [
+      "pasteboard",
       "safari_bookmarks",
       "screencapture",
       "urlformats",
       "useractions"
     ],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [],
+    "Variable": [
+      {
+        "def": "Seal.plugins.pasteboard.historySize",
+        "desc": "",
+        "doc": "\nThe number of history items to keep. Defaults to 50",
+        "name": "historySize",
+        "signature": "Seal.plugins.pasteboard.historySize",
+        "stripped_doc": "The number of history items to keep. Defaults to 50",
+        "type": "Variable"
+      },
+      {
+        "def": "Seal.plugins.pasteboard.saveHistory",
+        "desc": "",
+        "doc": "\nA boolean, true if Seal should automatically load/save clipboard history. Defaults to true",
+        "name": "saveHistory",
+        "signature": "Seal.plugins.pasteboard.saveHistory",
+        "stripped_doc": "A boolean, true if Seal should automatically load/save clipboard history. Defaults to true",
+        "type": "Variable"
+      }
+    ],
+    "desc": "Visual pasteboard (ie clipboard) history",
+    "doc": "Visual pasteboard (ie clipboard) history",
+    "items": [
+      {
+        "def": "Seal.plugins.pasteboard.historySize",
+        "desc": "",
+        "doc": "\nThe number of history items to keep. Defaults to 50",
+        "name": "historySize",
+        "signature": "Seal.plugins.pasteboard.historySize",
+        "stripped_doc": "The number of history items to keep. Defaults to 50",
+        "type": "Variable"
+      },
+      {
+        "def": "Seal.plugins.pasteboard.saveHistory",
+        "desc": "",
+        "doc": "\nA boolean, true if Seal should automatically load/save clipboard history. Defaults to true",
+        "name": "saveHistory",
+        "signature": "Seal.plugins.pasteboard.saveHistory",
+        "stripped_doc": "A boolean, true if Seal should automatically load/save clipboard history. Defaults to true",
+        "type": "Variable"
+      }
+    ],
+    "name": "Seal.plugins.pasteboard",
+    "stripped_doc": "",
+    "submodules": [],
     "type": "Module"
   },
   {
