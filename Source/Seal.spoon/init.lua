@@ -222,37 +222,39 @@ function obj:stop()
     return self
 end
 
---- Seal:show()
+--- Seal:show(query)
 --- Method
 --- Shows the Seal UI
 ---
 --- Parameters:
----  * None
+---  * query - An optional string to pre-populate the query box with
 ---
 --- Returns:
 ---  * None
 ---
 --- Notes:
 ---  * This may be useful if you wish to show Seal in response to something other than its hotkey
-function obj:show()
+function obj:show(query)
     self.chooser:show()
+    self.chooser:query(query)
     return self
 end
 
---- Seal:toggle()
+--- Seal:toggle(query)
 --- Method
 --- Shows or hides the Seal UI
 ---
 --- Parameters:
----  * None
+---  * query - An optional string to pre-populate the query box with
 ---
 --- Returns:
 ---  * None
-function obj:toggle()
+function obj:toggle(query)
     if self.chooser:isVisible() then
         self.chooser:hide()
     else
-        self.chooser:show()
+        self:show(query)
+
     end
     return self
 end
