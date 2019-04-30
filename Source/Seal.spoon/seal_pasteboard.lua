@@ -7,13 +7,13 @@ obj.timer = nil
 obj.lastItem = nil
 obj.itemBuffer = {}
 
---- spoon.Seal.plugins.pasteboard.historySize
+--- Seal.plugins.pasteboard.historySize
 --- Variable
 ---
 --- The number of history items to keep. Defaults to 50
 obj.historySize = 50
 
---- spoon.Seal.plugins.pasteboard.saveHistory
+--- Seal.plugins.pasteboard.saveHistory
 --- Variable
 ---
 --- A boolean, true if Seal should automatically load/save clipboard history. Defaults to true
