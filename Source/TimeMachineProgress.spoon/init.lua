@@ -93,7 +93,7 @@ function obj:refresh()
   end
   self.logger.df("tmutil status output: %s\n", out)
   -- Write output to a file and read it using hs.plist
-  local outfile = hs.execute("/usr/bin/mktemp")
+  local outfile = hs.execute("/usr/bin/mktemp"):match( "^%s*(.-)%s*$" )
   local f = assert(io.open(outfile, "w"))
   f:write(out)
   f:close()
