@@ -98,6 +98,7 @@ function obj:refresh()
   f:write(out)
   f:close()
   data = hs.plist.read(outfile)
+  os.remove(outfile)
   self.logger.df("formatted data read by hs.plist: %s\n", hs.inspect(data))
 
   if data['Running'] == '1' then
