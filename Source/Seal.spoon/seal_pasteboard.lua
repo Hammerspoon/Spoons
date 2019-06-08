@@ -65,7 +65,7 @@ function obj.checkPasteboard()
     local pasteboard = hs.pasteboard.getContents()
     local shouldSave = false
     -- FIXME: Filter out things with UTIs documented at http://nspasteboard.org/
-    if pasteboard ~= obj.itemBuffer[#obj.itemBuffer]["text"] then
+    if (#obj.itemBuffer == 0) or (pasteboard ~= obj.itemBuffer[#obj.itemBuffer]["text"]) then
         local currentTypes = hs.pasteboard.allContentTypes()[1]
         for _,aType in pairs(currentTypes) do
             for _,uti in pairs({"de.petermaurer.TransientPasteboardType",
