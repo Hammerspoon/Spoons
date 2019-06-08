@@ -30,6 +30,9 @@ local modifyNameMap = function(info, add)
       end
       if add then
          bundleID = item.kMDItemCFBundleIdentifier
+         if (not icon) and (bundleID) then
+           icon = hs.image.imageFromAppBundle(bundleID)
+         end
          obj.appCache[displayname] = {
             path = item.kMDItemPath,
             bundleID = bundleID,
