@@ -1,0 +1,228 @@
+[
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
+        "def": "HoldToQuit:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for HoldToQuit",
+        "doc": "Binds hotkeys for HoldToQuit\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for the following items:\n  * show - This will define the quit hotkey",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * mapping - A table containing hotkey modifier/key details for the following items:",
+          "  * show - This will define the quit hotkey"
+        ],
+        "signature": "HoldToQuit:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "HoldToQuit:init()",
+        "desc": "Initialize spoon",
+        "doc": "Initialize spoon",
+        "name": "init",
+        "signature": "HoldToQuit:init()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "HoldToQuit.killCurrentApp",
+        "desc": "Kill the frontmost application",
+        "doc": "Kill the frontmost application",
+        "name": "killCurrentApp",
+        "signature": "HoldToQuit.killCurrentApp",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "HoldToQuit:onKeyDown()",
+        "desc": "Start timer on keyDown",
+        "doc": "Start timer on keyDown",
+        "name": "onKeyDown",
+        "signature": "HoldToQuit:onKeyDown()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "HoldToQuit:onKeyUp()",
+        "desc": "Stop Timer & show alert message",
+        "doc": "Stop Timer & show alert message",
+        "name": "onKeyUp",
+        "signature": "HoldToQuit:onKeyUp()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "HoldToQuit:start()",
+        "desc": "Start HoldToQuit with default hotkey",
+        "doc": "Start HoldToQuit with default hotkey",
+        "name": "start",
+        "signature": "HoldToQuit:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "HoldToQuit:stop()",
+        "desc": "Disable HoldToQuit hotkey",
+        "doc": "Disable HoldToQuit hotkey",
+        "name": "stop",
+        "signature": "HoldToQuit:stop()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [
+      {
+        "def": "HoldToQuit.defaultHotkey",
+        "desc": "Default hotkey mapping",
+        "doc": "Default hotkey mapping",
+        "name": "defaultHotkey",
+        "signature": "HoldToQuit.defaultHotkey",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "HoldToQuit.duration",
+        "desc": "Integer containing the duration (in seconds) how long to hold",
+        "doc": "Integer containing the duration (in seconds) how long to hold\nthe hotkey. Default 1.",
+        "name": "duration",
+        "signature": "HoldToQuit.duration",
+        "stripped_doc": "the hotkey. Default 1.",
+        "type": "Variable"
+      },
+      {
+        "def": "HoldToQuit.hotkeyQbj",
+        "desc": "Hotkey object",
+        "doc": "Hotkey object",
+        "name": "hotkeyQbj",
+        "signature": "HoldToQuit.hotkeyQbj",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "HoldToQuit.timer",
+        "desc": "Timer for counting the holding time",
+        "doc": "Timer for counting the holding time",
+        "name": "timer",
+        "signature": "HoldToQuit.timer",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "desc": "Instead of pressing ⌘Q, hold ⌘Q to close applications.",
+    "doc": "Instead of pressing ⌘Q, hold ⌘Q to close applications.",
+    "items": [
+      {
+        "def": "HoldToQuit:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for HoldToQuit",
+        "doc": "Binds hotkeys for HoldToQuit\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for the following items:\n  * show - This will define the quit hotkey",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * mapping - A table containing hotkey modifier/key details for the following items:",
+          "  * show - This will define the quit hotkey"
+        ],
+        "signature": "HoldToQuit:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "HoldToQuit.defaultHotkey",
+        "desc": "Default hotkey mapping",
+        "doc": "Default hotkey mapping",
+        "name": "defaultHotkey",
+        "signature": "HoldToQuit.defaultHotkey",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "HoldToQuit.duration",
+        "desc": "Integer containing the duration (in seconds) how long to hold",
+        "doc": "Integer containing the duration (in seconds) how long to hold\nthe hotkey. Default 1.",
+        "name": "duration",
+        "signature": "HoldToQuit.duration",
+        "stripped_doc": "the hotkey. Default 1.",
+        "type": "Variable"
+      },
+      {
+        "def": "HoldToQuit.hotkeyQbj",
+        "desc": "Hotkey object",
+        "doc": "Hotkey object",
+        "name": "hotkeyQbj",
+        "signature": "HoldToQuit.hotkeyQbj",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "HoldToQuit:init()",
+        "desc": "Initialize spoon",
+        "doc": "Initialize spoon",
+        "name": "init",
+        "signature": "HoldToQuit:init()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "HoldToQuit.killCurrentApp",
+        "desc": "Kill the frontmost application",
+        "doc": "Kill the frontmost application",
+        "name": "killCurrentApp",
+        "signature": "HoldToQuit.killCurrentApp",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "HoldToQuit:onKeyDown()",
+        "desc": "Start timer on keyDown",
+        "doc": "Start timer on keyDown",
+        "name": "onKeyDown",
+        "signature": "HoldToQuit:onKeyDown()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "HoldToQuit:onKeyUp()",
+        "desc": "Stop Timer & show alert message",
+        "doc": "Stop Timer & show alert message",
+        "name": "onKeyUp",
+        "signature": "HoldToQuit:onKeyUp()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "HoldToQuit:start()",
+        "desc": "Start HoldToQuit with default hotkey",
+        "doc": "Start HoldToQuit with default hotkey",
+        "name": "start",
+        "signature": "HoldToQuit:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "HoldToQuit:stop()",
+        "desc": "Disable HoldToQuit hotkey",
+        "doc": "Disable HoldToQuit hotkey",
+        "name": "stop",
+        "signature": "HoldToQuit:stop()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "HoldToQuit.timer",
+        "desc": "Timer for counting the holding time",
+        "doc": "Timer for counting the holding time",
+        "name": "timer",
+        "signature": "HoldToQuit.timer",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "name": "HoldToQuit",
+    "stripped_doc": "",
+    "submodules": [],
+    "type": "Module"
+  }
+]
