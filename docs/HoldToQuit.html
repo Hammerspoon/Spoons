@@ -1,0 +1,262 @@
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hammerspoon docs: HoldToQuit</title>
+    <style type="text/css">
+      a { text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      th { background-color: #DDDDDD; vertical-align: top; padding: 3px; }
+      td { width: 100%; background-color: #EEEEEE; vertical-align: top; padding: 3px; }
+      table { width: 100% ; border: 1px solid #0; text-align: left; }
+      section > table table td { width: 0; }
+    </style>
+    <link rel="stylesheet" href="docs.css" type="text/css" media="screen" />
+  </head>
+  <body>
+    <header>
+      <h1><a href="./index.html">docs</a> &raquo; HoldToQuit</h1>
+      <p>Instead of pressing ⌘Q, hold ⌘Q to close applications.</p>
+
+      </header>
+      <h3>API Overview</h3>
+      <ul>
+        <li>Variables - Configurable values</li>
+          <ul>
+            <li><a href="#defaultHotkey">defaultHotkey</a></li>
+            <li><a href="#duration">duration</a></li>
+            <li><a href="#hotkeyQbj">hotkeyQbj</a></li>
+            <li><a href="#timer">timer</a></li>
+          </ul>
+        <li>Methods - API calls which can only be made on an object returned by a constructor</li>
+          <ul>
+            <li><a href="#bindHotkeys">bindHotkeys</a></li>
+            <li><a href="#init">init</a></li>
+            <li><a href="#killCurrentApp">killCurrentApp</a></li>
+            <li><a href="#onKeyDown">onKeyDown</a></li>
+            <li><a href="#onKeyUp">onKeyUp</a></li>
+            <li><a href="#start">start</a></li>
+            <li><a href="#stop">stop</a></li>
+          </ul>
+      </ul>
+      <h3>API Documentation</h3>
+        <h4 class="documentation-section">Variables</h4>
+          <section id="defaultHotkey">
+            <a name="//apple_ref/cpp/Variable/defaultHotkey" class="dashAnchor"></a>
+            <h5><a href="#defaultHotkey">defaultHotkey</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>HoldToQuit.defaultHotkey</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Default hotkey mapping</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="duration">
+            <a name="//apple_ref/cpp/Variable/duration" class="dashAnchor"></a>
+            <h5><a href="#duration">duration</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>HoldToQuit.duration</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Integer containing the duration (in seconds) how long to hold
+the hotkey. Default 1.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="hotkeyQbj">
+            <a name="//apple_ref/cpp/Variable/hotkeyQbj" class="dashAnchor"></a>
+            <h5><a href="#hotkeyQbj">hotkeyQbj</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>HoldToQuit.hotkeyQbj</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Hotkey object</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="timer">
+            <a name="//apple_ref/cpp/Variable/timer" class="dashAnchor"></a>
+            <h5><a href="#timer">timer</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>HoldToQuit.timer</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Timer for counting the holding time</p>
+</td>
+              </tr>
+            </table>
+          </section>
+        <h4 class="documentation-section">Methods</h4>
+          <section id="bindHotkeys">
+            <a name="//apple_ref/cpp/Method/bindHotkeys" class="dashAnchor"></a>
+            <h5><a href="#bindHotkeys">bindHotkeys</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>HoldToQuit:bindHotkeys(mapping)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Binds hotkeys for HoldToQuit</p>
+<p>Parameters:</p>
+<ul>
+<li>mapping - A table containing hotkey modifier/key details for the following items:<ul>
+<li>show - This will define the quit hotkey</li>
+</ul>
+</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="init">
+            <a name="//apple_ref/cpp/Method/init" class="dashAnchor"></a>
+            <h5><a href="#init">init</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>HoldToQuit:init()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Initialize spoon</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="killCurrentApp">
+            <a name="//apple_ref/cpp/Method/killCurrentApp" class="dashAnchor"></a>
+            <h5><a href="#killCurrentApp">killCurrentApp</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>HoldToQuit.killCurrentApp</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Kill the frontmost application</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="onKeyDown">
+            <a name="//apple_ref/cpp/Method/onKeyDown" class="dashAnchor"></a>
+            <h5><a href="#onKeyDown">onKeyDown</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>HoldToQuit:onKeyDown()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Start timer on keyDown</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="onKeyUp">
+            <a name="//apple_ref/cpp/Method/onKeyUp" class="dashAnchor"></a>
+            <h5><a href="#onKeyUp">onKeyUp</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>HoldToQuit:onKeyUp()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Stop Timer &amp; show alert message</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="start">
+            <a name="//apple_ref/cpp/Method/start" class="dashAnchor"></a>
+            <h5><a href="#start">start</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>HoldToQuit:start()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Start HoldToQuit with default hotkey</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="stop">
+            <a name="//apple_ref/cpp/Method/stop" class="dashAnchor"></a>
+            <h5><a href="#stop">stop</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>HoldToQuit:stop()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Disable HoldToQuit hotkey</p>
+</td>
+              </tr>
+            </table>
+          </section>
+  </body>
+</html>

@@ -671,6 +671,77 @@
     "type": "Method"
   },
   {
+    "desc": "Instead of pressing ⌘Q, hold ⌘Q to close applications.",
+    "name": "HoldToQuit",
+    "type": "Module"
+  },
+  {
+    "desc": "Default hotkey mapping",
+    "module": "HoldToQuit",
+    "name": "defaultHotkey",
+    "type": "Variable"
+  },
+  {
+    "desc": "Integer containing the duration (in seconds) how long to hold",
+    "module": "HoldToQuit",
+    "name": "duration",
+    "type": "Variable"
+  },
+  {
+    "desc": "Hotkey object",
+    "module": "HoldToQuit",
+    "name": "hotkeyQbj",
+    "type": "Variable"
+  },
+  {
+    "desc": "Timer for counting the holding time",
+    "module": "HoldToQuit",
+    "name": "timer",
+    "type": "Variable"
+  },
+  {
+    "desc": "Binds hotkeys for HoldToQuit",
+    "module": "HoldToQuit",
+    "name": "bindHotkeys",
+    "type": "Method"
+  },
+  {
+    "desc": "Initialize spoon",
+    "module": "HoldToQuit",
+    "name": "init",
+    "type": "Method"
+  },
+  {
+    "desc": "Kill the frontmost application",
+    "module": "HoldToQuit",
+    "name": "killCurrentApp",
+    "type": "Method"
+  },
+  {
+    "desc": "Start timer on keyDown",
+    "module": "HoldToQuit",
+    "name": "onKeyDown",
+    "type": "Method"
+  },
+  {
+    "desc": "Stop Timer & show alert message",
+    "module": "HoldToQuit",
+    "name": "onKeyUp",
+    "type": "Method"
+  },
+  {
+    "desc": "Start HoldToQuit with default hotkey",
+    "module": "HoldToQuit",
+    "name": "start",
+    "type": "Method"
+  },
+  {
+    "desc": "Disable HoldToQuit hotkey",
+    "module": "HoldToQuit",
+    "name": "stop",
+    "type": "Method"
+  },
+  {
     "desc": "Communicate with [aria2](https://github.com/aria2/aria2), an interactive panel included.",
     "name": "HSaria2",
     "type": "Module"
