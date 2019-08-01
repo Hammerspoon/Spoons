@@ -1,0 +1,350 @@
+[
+  {
+    "Constant" : [
+
+    ],
+    "submodules" : [
+
+    ],
+    "Function" : [
+
+    ],
+    "Variable" : [
+      {
+        "name" : "appsToKill",
+        "desc" : "A list of strings representing applications to kill\/open, when `PersonalHotspot:connect()` and `PersonalHotspot:disconnect()` are called respectively.",
+        "doc" : "A list of strings representing applications to kill\/open, when `PersonalHotspot:connect()` and `PersonalHotspot:disconnect()` are called respectively.\n\nEach string should be either:\n * a bundle ID string as per `hs.application:bundleID()`, or\n * an application name string as per `hs.application:name()`.",
+        "stripped_doc" : [
+          "A list of strings representing applications to kill\/open, when `PersonalHotspot:connect()` and `PersonalHotspot:disconnect()` are called respectively.",
+          "",
+          "Each string should be either:",
+          " * a bundle ID string as per `hs.application:bundleID()`, or",
+          " * an application name string as per `hs.application:name()`."
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "PersonalHotspot.appsToKill (List)",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "PersonalHotspot.appsToKill (List)",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "name" : "hotspotName",
+        "desc" : "The name of the personal hotspot you want to connect\/disconnect from, e.g., \"John Appleseed’s iPhone\".",
+        "doc" : "The name of the personal hotspot you want to connect\/disconnect from, e.g., \"John Appleseed’s iPhone\".\n\nYou can see the names of available hotspots by clicking on the Wi-Fi icon in the macOS menu bar and looking for menu items under the \"Personal Hotspot(s)\" heading.",
+        "stripped_doc" : [
+          "The name of the personal hotspot you want to connect\/disconnect from, e.g., \"John Appleseed’s iPhone\".",
+          "",
+          "You can see the names of available hotspots by clicking on the Wi-Fi icon in the macOS menu bar and looking for menu items under the \"Personal Hotspot(s)\" heading."
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "PersonalHotspot.hotspotName (String)",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "PersonalHotspot.hotspotName (String)",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "name" : "timeout",
+        "desc" : "The number of seconds to wait for personal hotspot to appear in Wi-Fi menu before attempting to connect\/disconnect. Default is 3 seconds.",
+        "doc" : "The number of seconds to wait for personal hotspot to appear in Wi-Fi menu before attempting to connect\/disconnect. Default is 3 seconds.",
+        "stripped_doc" : [
+          "The number of seconds to wait for personal hotspot to appear in Wi-Fi menu before attempting to connect\/disconnect. Default is 3 seconds."
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "PersonalHotspot.timeout (Number)",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "PersonalHotspot.timeout (Number)",
+        "parameters" : [
+
+        ]
+      }
+    ],
+    "stripped_doc" : [
+
+    ],
+    "Deprecated" : [
+
+    ],
+    "type" : "Module",
+    "desc" : "Connect, disconnect, or toggle connection to\/from a personal hotspot. Optionally kills\/opens a list of apps on connect\/disconnect respectively.",
+    "Constructor" : [
+
+    ],
+    "items" : [
+      {
+        "name" : "appsToKill",
+        "desc" : "A list of strings representing applications to kill\/open, when `PersonalHotspot:connect()` and `PersonalHotspot:disconnect()` are called respectively.",
+        "doc" : "A list of strings representing applications to kill\/open, when `PersonalHotspot:connect()` and `PersonalHotspot:disconnect()` are called respectively.\n\nEach string should be either:\n * a bundle ID string as per `hs.application:bundleID()`, or\n * an application name string as per `hs.application:name()`.",
+        "stripped_doc" : [
+          "A list of strings representing applications to kill\/open, when `PersonalHotspot:connect()` and `PersonalHotspot:disconnect()` are called respectively.",
+          "",
+          "Each string should be either:",
+          " * a bundle ID string as per `hs.application:bundleID()`, or",
+          " * an application name string as per `hs.application:name()`."
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "PersonalHotspot.appsToKill (List)",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "PersonalHotspot.appsToKill (List)",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "name" : "hotspotName",
+        "desc" : "The name of the personal hotspot you want to connect\/disconnect from, e.g., \"John Appleseed’s iPhone\".",
+        "doc" : "The name of the personal hotspot you want to connect\/disconnect from, e.g., \"John Appleseed’s iPhone\".\n\nYou can see the names of available hotspots by clicking on the Wi-Fi icon in the macOS menu bar and looking for menu items under the \"Personal Hotspot(s)\" heading.",
+        "stripped_doc" : [
+          "The name of the personal hotspot you want to connect\/disconnect from, e.g., \"John Appleseed’s iPhone\".",
+          "",
+          "You can see the names of available hotspots by clicking on the Wi-Fi icon in the macOS menu bar and looking for menu items under the \"Personal Hotspot(s)\" heading."
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "PersonalHotspot.hotspotName (String)",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "PersonalHotspot.hotspotName (String)",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "name" : "timeout",
+        "desc" : "The number of seconds to wait for personal hotspot to appear in Wi-Fi menu before attempting to connect\/disconnect. Default is 3 seconds.",
+        "doc" : "The number of seconds to wait for personal hotspot to appear in Wi-Fi menu before attempting to connect\/disconnect. Default is 3 seconds.",
+        "stripped_doc" : [
+          "The number of seconds to wait for personal hotspot to appear in Wi-Fi menu before attempting to connect\/disconnect. Default is 3 seconds."
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "PersonalHotspot.timeout (Number)",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "PersonalHotspot.timeout (Number)",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "name" : "bindHotkeys",
+        "desc" : "Binds hotkey mappings for this spoon.",
+        "doc" : "Binds hotkey mappings for this spoon.\n\nParameters:\n * mapping (Table) - A table with keys who's names correspond to methods of this spoon, and values that represent hotkey mappings. For example:\n   * `{ toggle = { {\"cmd\", \"option\", \"ctrl\" }, \"h\" }`\n\nReturns:\n * Self",
+        "stripped_doc" : [
+          "Binds hotkey mappings for this spoon.",
+          ""
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "PersonalHotspot:bindHotkeys(mapping) -> Self",
+        "type" : "Method",
+        "returns" : [
+          " * Self"
+        ],
+        "def" : "PersonalHotspot:bindHotkeys(mapping) -> Self",
+        "parameters" : [
+          " * mapping (Table) - A table with keys who's names correspond to methods of this spoon, and values that represent hotkey mappings. For example:",
+          "   * `{ toggle = { {\"cmd\", \"option\", \"ctrl\" }, \"h\" }`",
+          ""
+        ]
+      },
+      {
+        "name" : "connect",
+        "desc" : "Tries to connect to the personal hotspot named in `PersonalHotspot.hotspotName`. If `PersonalHotspot.hotspotName` is `nil`, the first hotspot in the Wi-Fi menu will be selected, and `PersonalHotspot.hotspotName` will be assigned to the name of that hotspot. Once connected to the hotspot, the applications specified in `PersonalHotspot.appsToKill` are killed.",
+        "doc" : "Tries to connect to the personal hotspot named in `PersonalHotspot.hotspotName`. If `PersonalHotspot.hotspotName` is `nil`, the first hotspot in the Wi-Fi menu will be selected, and `PersonalHotspot.hotspotName` will be assigned to the name of that hotspot. Once connected to the hotspot, the applications specified in `PersonalHotspot.appsToKill` are killed.\n\nIf there are no hotspots with the name in `PersonalHotspot.hotspotName`, or if `PersonalHotspot.hotspotName` is `nil` and there are no hotspots in the Wi-Fi menu, the Wi-Fi menu will be closed after `PersonalHotspot.timeout` seconds.\n\nReturns:\n * Self",
+        "stripped_doc" : [
+          "Tries to connect to the personal hotspot named in `PersonalHotspot.hotspotName`. If `PersonalHotspot.hotspotName` is `nil`, the first hotspot in the Wi-Fi menu will be selected, and `PersonalHotspot.hotspotName` will be assigned to the name of that hotspot. Once connected to the hotspot, the applications specified in `PersonalHotspot.appsToKill` are killed.",
+          "",
+          "If there are no hotspots with the name in `PersonalHotspot.hotspotName`, or if `PersonalHotspot.hotspotName` is `nil` and there are no hotspots in the Wi-Fi menu, the Wi-Fi menu will be closed after `PersonalHotspot.timeout` seconds.",
+          ""
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "PersonalHotspot:connect() -> Self",
+        "type" : "Method",
+        "returns" : [
+          " * Self"
+        ],
+        "def" : "PersonalHotspot:connect() -> Self",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "name" : "disconnect",
+        "desc" : "If currently connected to the personal hotspot named in `PersonalHotspot.hotspotName`, this method will disconnect from that hotspot and open the applications specified in `PersonalHostspot.appsToKill`.",
+        "doc" : "If currently connected to the personal hotspot named in `PersonalHotspot.hotspotName`, this method will disconnect from that hotspot and open the applications specified in `PersonalHostspot.appsToKill`.\n\nReturns:\n * Self",
+        "stripped_doc" : [
+          "If currently connected to the personal hotspot named in `PersonalHotspot.hotspotName`, this method will disconnect from that hotspot and open the applications specified in `PersonalHostspot.appsToKill`.",
+          ""
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "PersonalHotspot:disconnect() -> Self",
+        "type" : "Method",
+        "returns" : [
+          " * Self"
+        ],
+        "def" : "PersonalHotspot:disconnect() -> Self",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "name" : "toggle",
+        "desc" : "Toggles personal hotspot connection.",
+        "doc" : "Toggles personal hotspot connection.\n\nIf the current wireless network name is `PersonalHotspot.hotspotName` this method calls `PersonalHotspot:disconnect()`, otherwise this method will call `PersonalHotspot:connect()`.\n\nReturns:\n * Self",
+        "stripped_doc" : [
+          "Toggles personal hotspot connection.",
+          "",
+          "If the current wireless network name is `PersonalHotspot.hotspotName` this method calls `PersonalHotspot:disconnect()`, otherwise this method will call `PersonalHotspot:connect()`.",
+          ""
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "PersonalHotspot:toggle() -> Self",
+        "type" : "Method",
+        "returns" : [
+          " * Self"
+        ],
+        "def" : "PersonalHotspot:toggle() -> Self",
+        "parameters" : [
+
+        ]
+      }
+    ],
+    "Method" : [
+      {
+        "name" : "connect",
+        "desc" : "Tries to connect to the personal hotspot named in `PersonalHotspot.hotspotName`. If `PersonalHotspot.hotspotName` is `nil`, the first hotspot in the Wi-Fi menu will be selected, and `PersonalHotspot.hotspotName` will be assigned to the name of that hotspot. Once connected to the hotspot, the applications specified in `PersonalHotspot.appsToKill` are killed.",
+        "doc" : "Tries to connect to the personal hotspot named in `PersonalHotspot.hotspotName`. If `PersonalHotspot.hotspotName` is `nil`, the first hotspot in the Wi-Fi menu will be selected, and `PersonalHotspot.hotspotName` will be assigned to the name of that hotspot. Once connected to the hotspot, the applications specified in `PersonalHotspot.appsToKill` are killed.\n\nIf there are no hotspots with the name in `PersonalHotspot.hotspotName`, or if `PersonalHotspot.hotspotName` is `nil` and there are no hotspots in the Wi-Fi menu, the Wi-Fi menu will be closed after `PersonalHotspot.timeout` seconds.\n\nReturns:\n * Self",
+        "stripped_doc" : [
+          "Tries to connect to the personal hotspot named in `PersonalHotspot.hotspotName`. If `PersonalHotspot.hotspotName` is `nil`, the first hotspot in the Wi-Fi menu will be selected, and `PersonalHotspot.hotspotName` will be assigned to the name of that hotspot. Once connected to the hotspot, the applications specified in `PersonalHotspot.appsToKill` are killed.",
+          "",
+          "If there are no hotspots with the name in `PersonalHotspot.hotspotName`, or if `PersonalHotspot.hotspotName` is `nil` and there are no hotspots in the Wi-Fi menu, the Wi-Fi menu will be closed after `PersonalHotspot.timeout` seconds.",
+          ""
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "PersonalHotspot:connect() -> Self",
+        "type" : "Method",
+        "returns" : [
+          " * Self"
+        ],
+        "def" : "PersonalHotspot:connect() -> Self",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "name" : "disconnect",
+        "desc" : "If currently connected to the personal hotspot named in `PersonalHotspot.hotspotName`, this method will disconnect from that hotspot and open the applications specified in `PersonalHostspot.appsToKill`.",
+        "doc" : "If currently connected to the personal hotspot named in `PersonalHotspot.hotspotName`, this method will disconnect from that hotspot and open the applications specified in `PersonalHostspot.appsToKill`.\n\nReturns:\n * Self",
+        "stripped_doc" : [
+          "If currently connected to the personal hotspot named in `PersonalHotspot.hotspotName`, this method will disconnect from that hotspot and open the applications specified in `PersonalHostspot.appsToKill`.",
+          ""
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "PersonalHotspot:disconnect() -> Self",
+        "type" : "Method",
+        "returns" : [
+          " * Self"
+        ],
+        "def" : "PersonalHotspot:disconnect() -> Self",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "name" : "toggle",
+        "desc" : "Toggles personal hotspot connection.",
+        "doc" : "Toggles personal hotspot connection.\n\nIf the current wireless network name is `PersonalHotspot.hotspotName` this method calls `PersonalHotspot:disconnect()`, otherwise this method will call `PersonalHotspot:connect()`.\n\nReturns:\n * Self",
+        "stripped_doc" : [
+          "Toggles personal hotspot connection.",
+          "",
+          "If the current wireless network name is `PersonalHotspot.hotspotName` this method calls `PersonalHotspot:disconnect()`, otherwise this method will call `PersonalHotspot:connect()`.",
+          ""
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "PersonalHotspot:toggle() -> Self",
+        "type" : "Method",
+        "returns" : [
+          " * Self"
+        ],
+        "def" : "PersonalHotspot:toggle() -> Self",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "name" : "bindHotkeys",
+        "desc" : "Binds hotkey mappings for this spoon.",
+        "doc" : "Binds hotkey mappings for this spoon.\n\nParameters:\n * mapping (Table) - A table with keys who's names correspond to methods of this spoon, and values that represent hotkey mappings. For example:\n   * `{ toggle = { {\"cmd\", \"option\", \"ctrl\" }, \"h\" }`\n\nReturns:\n * Self",
+        "stripped_doc" : [
+          "Binds hotkey mappings for this spoon.",
+          ""
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "PersonalHotspot:bindHotkeys(mapping) -> Self",
+        "type" : "Method",
+        "returns" : [
+          " * Self"
+        ],
+        "def" : "PersonalHotspot:bindHotkeys(mapping) -> Self",
+        "parameters" : [
+          " * mapping (Table) - A table with keys who's names correspond to methods of this spoon, and values that represent hotkey mappings. For example:",
+          "   * `{ toggle = { {\"cmd\", \"option\", \"ctrl\" }, \"h\" }`",
+          ""
+        ]
+      }
+    ],
+    "Command" : [
+
+    ],
+    "doc" : "Connect, disconnect, or toggle connection to\/from a personal hotspot. Optionally kills\/opens a list of apps on connect\/disconnect respectively.\n\nExample configuration (using SpoonInstall.spoon):\n```\nspoon.SpoonInstall:andUse(\n  \"PersonalHotspot\",\n  {\n    config = {\n      hotspotName = \"John Appleseed’s iPhone\",\n      appsToKill = {\n        \"Arq\",\n        \"Arq Agent\",\n        \"Dropbox\"\n      }\n    },\n    hotkeys = {\n      toggle = {{\"cmd\", \"option\", \"ctrl\"}, \"h\"}\n    }\n  }\n)\n```\n\nIf `PersonalHotspot.hotspotName` isn't set, the first personal hotspot in the Wi-Fi menu will be selected, and `PersonalHotspot.hotspotName` will be set to the name of that hotspot.",
+    "Field" : [
+
+    ],
+    "name" : "PersonalHotspot"
+  }
+]
