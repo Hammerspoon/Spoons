@@ -1,0 +1,109 @@
+[
+  {
+    "desc": "Trigger or prevent screen saver/sleep by moving your mouse pointer to specified hot corners on your screen.",
+    "name": "SleepCorners",
+    "type": "Module"
+  },
+  {
+    "desc": "Specifies the height and width in screen pixels, default 20, of the visual feedback to be displayed when the mouse pointer moves into one of the recognized hot corners",
+    "module": "SleepCorners",
+    "name": "feedbackSize",
+    "type": "Variable"
+  },
+  {
+    "desc": "A table, default `{ fn = true }`, specifying keyboard modifiers which if held when the mouse pointer enters the sleep now hot corner will trigger sleep immediately rather then delay for [SleepCorners.sleepDelay](#sleepDelay) seconds.",
+    "module": "SleepCorners",
+    "name": "immediateSleepModifiers",
+    "type": "Variable"
+  },
+  {
+    "desc": "Specifies whether the sleep now corner, when the modifiers defined for [SleepCorners.immediateSleepModifiers](#immediateSleepModifiers) are also held, should trigger the display sleep or lock the users session. Defaults to true.",
+    "module": "SleepCorners",
+    "name": "immediateSleepShouldLock",
+    "type": "Variable"
+  },
+  {
+    "desc": "Specifies the location of the never sleep corner on the screen. Defaults to \"LR\".",
+    "module": "SleepCorners",
+    "name": "neverSleepCorner",
+    "type": "Variable"
+  },
+  {
+    "desc": "A table, default `{ fn = true }`, specifying keyboard modifiers which if held when the mouse pointer enters the never sleep hot corner will disable display sleep and leave it disabled even if the mouse pointer leaves the hot corner. While the never sleep lock is in effect the never sleep visual feedback will remain visible in the appropriate corner of the screen. The never sleep lock may is unlocked when you move the mouse pointer back into the never sleep corner with the modifiers held down a second time or move the mouse pointer into the sleep now corner.",
+    "module": "SleepCorners",
+    "name": "neverSleepLockModifiers",
+    "type": "Variable"
+  },
+  {
+    "desc": "Specifies which action should be preferred if both the sleep now and never sleep hot corners are assigned to the same location on the screen. The default is false.",
+    "module": "SleepCorners",
+    "name": "preferSleepNow",
+    "type": "Variable"
+  },
+  {
+    "desc": "Specifies the number of seconds, default 2, the mouse pointer must remain within the trigger area of the sleep now corner in order to put the system's display to sleep.",
+    "module": "SleepCorners",
+    "name": "sleepDelay",
+    "type": "Variable"
+  },
+  {
+    "desc": "Specifies the location of the sleep now corner on the screen. Defaults to \"LL\".",
+    "module": "SleepCorners",
+    "name": "sleepNowCorner",
+    "type": "Variable"
+  },
+  {
+    "desc": "Specifies whether the sleep now corner should trigger the display sleep or lock the users session. Defaults to false.",
+    "module": "SleepCorners",
+    "name": "sleepNowShouldLock",
+    "type": "Variable"
+  },
+  {
+    "desc": "Specifies the screen on which the sleep corners are made active. Defaults to the value returned by `hs.screen.primaryScreen()`.",
+    "module": "SleepCorners",
+    "name": "sleepScreen",
+    "type": "Variable"
+  },
+  {
+    "desc": "Specifies the height and width in screen pixels, default 2, of the trigger area for the recognized hot corners.",
+    "module": "SleepCorners",
+    "name": "triggerSize",
+    "type": "Variable"
+  },
+  {
+    "desc": "Binds hotkeys for SleepCorners",
+    "module": "SleepCorners",
+    "name": "bindHotkeys",
+    "type": "Method"
+  },
+  {
+    "desc": "Returns whether or not the sleep corners are currently active",
+    "module": "SleepCorners",
+    "name": "isActive",
+    "type": "Method"
+  },
+  {
+    "desc": "Temporarily show the SleepCorner feedback images in their current locations as a reminder of their positions on the screen.",
+    "module": "SleepCorners",
+    "name": "show",
+    "type": "Method"
+  },
+  {
+    "desc": "Starts monitoring the defined sleep corners to allow triggering or preventing the system display  sleep state.",
+    "module": "SleepCorners",
+    "name": "start",
+    "type": "Method"
+  },
+  {
+    "desc": "Stop monitoring the defined sleep corners.",
+    "module": "SleepCorners",
+    "name": "stop",
+    "type": "Method"
+  },
+  {
+    "desc": "Toggles or sets whether or not SleepCorners is currently monitoring the defined screen corners for managing the system display's sleep state and displays an alert indicating the new state of the SleepCorners spoon.",
+    "module": "SleepCorners",
+    "name": "toggle",
+    "type": "Method"
+  }
+]
