@@ -5,6 +5,8 @@
 ---
 --- While this functionality is provided by macOS in the Mission Control System Preferences, it doesn't provide any type of visual feedback so it's easy to forget which corners have been assigned which roles.
 ---
+--- For best results while using this spoon, it is recommended that you disable "Start Screen Saver" and "Disable Screen Saver" if they are currently assigned to a corner with the Mission Control System Preferences Panel as this Spoon can't override them and may result in confusing or incorrect behavior.
+---
 --- The visual feed back provided by this spoon is of a small plus (for triggering sleep now) or a small minus (to prevent sleep) when the mouse pointer is moved into the appropriate corner. This feedback was inspired by a vague recollection of an early Mac screen saver (After Dark maybe?) which provided similar functionality. If someone knows for certain, please inform me and I will give appropriate attribution.
 ---
 --- Note that sleep prevention is not guaranteed; macOS may override our attempts at staying awake in extreme situations (CPU temperature dangerously high, low battery, etc.) See `hs.caffeinate` for more details.
@@ -12,18 +14,6 @@
 --- Download: https://github.com/Hammerspoon/Spoons/raw/master/Spoons/SleepCorners.spoon.zip
 
 -- local logger  = require("hs.logger")
-
-local obj    = {
--- Metadata
-    name      = "SleepCorners",
-    author    = "A-Ron",
-    homepage  = "https://github.com/Hammerspoon/Spoons",
-    license   = "MIT - https://opensource.org/licenses/MIT",
-    spoonPath = debug.getinfo(1, "S").source:match("^@(.+/).+%.lua$"),
-}
--- version is outside of obj table definition to facilitate its auto detection by
--- external documentation generation scripts
-obj.version   = "0.1"
 
 local canvas     = require("hs.canvas")
 local caffeinate = require("hs.caffeinate")
@@ -34,6 +24,18 @@ local fnutils    = require("hs.fnutils")
 local eventtap   = require("hs.eventtap")
 local alert      = require("hs.alert")
 local spoons     = require("hs.spoons")
+
+local obj    = {
+-- Metadata
+    name      = "SleepCorners",
+    author    = "A-Ron",
+    homepage  = "https://github.com/Hammerspoon/Spoons",
+    license   = "MIT - https://opensource.org/licenses/MIT",
+    spoonPath = spoons.scriptPath(),
+}
+-- version is outside of obj table definition to facilitate its auto detection by
+-- external documentation generation scripts
+obj.version   = "0.1"
 
 local metadataKeys = {} ; for k, v in fnutils.sortByKeys(obj) do table.insert(metadataKeys, k) end
 
