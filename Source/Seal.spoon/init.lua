@@ -236,7 +236,7 @@ end
 ---  * This may be useful if you wish to show Seal in response to something other than its hotkey
 function obj:show(query)
     self.chooser:show()
-    self.chooser:query(query)
+    if query then self.chooser:query(query) end
     return self
 end
 
@@ -254,7 +254,6 @@ function obj:toggle(query)
         self.chooser:hide()
     else
         self:show(query)
-
     end
     return self
 end
