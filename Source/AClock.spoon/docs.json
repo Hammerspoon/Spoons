@@ -1,251 +1,147 @@
 [
   {
-    "Constant" : [
-
-    ],
-    "submodules" : [
-
-    ],
-    "Function" : [
-
-    ],
-    "Variable" : [
-
-    ],
-    "stripped_doc" : [
-
-    ],
-    "desc" : "Just another clock, floating above all.",
-    "Deprecated" : [
-
-    ],
-    "type" : "Module",
-    "Constructor" : [
-
-    ],
-    "items" : [
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
       {
-        "name" : "hide",
-        "parameters" : [
-          " * None",
-          ""
+        "def": "AClock:hide()",
+        "desc": "Hide AClock.",
+        "doc": "Hide AClock.\n\nParameters:\n * None\n\nReturns:\n * The AClock object",
+        "name": "hide",
+        "parameters": [
+          " * None"
         ],
-        "stripped_doc" : [
-          "Hide AClock.",
-          ""
-        ],
-        "doc" : "Hide AClock.\n\nParameters:\n * None\n\nReturns:\n * The AClock object",
-        "notes" : [
-
-        ],
-        "signature" : "AClock:hide()",
-        "type" : "Method",
-        "returns" : [
+        "returns": [
           " * The AClock object"
         ],
-        "def" : "AClock:hide()",
-        "desc" : "Hide AClock."
+        "signature": "AClock:hide()",
+        "stripped_doc": "",
+        "type": "Method"
       },
       {
-        "name" : "init",
-        "parameters" : [
-          " * None",
-          ""
+        "def": "AClock:init()",
+        "desc": "init.",
+        "doc": "init.\n\nParameters:\n * None\n\nReturns:\n * The AClock object",
+        "name": "init",
+        "parameters": [
+          " * None"
         ],
-        "stripped_doc" : [
-          "init.",
-          ""
-        ],
-        "doc" : "init.\n\nParameters:\n * None\n\nReturns:\n * The AClock object",
-        "notes" : [
-
-        ],
-        "signature" : "AClock:init()",
-        "type" : "Method",
-        "returns" : [
+        "returns": [
           " * The AClock object"
         ],
-        "def" : "AClock:init()",
-        "desc" : "init."
+        "signature": "AClock:init()",
+        "stripped_doc": "",
+        "type": "Method"
       },
       {
-        "name" : "show",
-        "parameters" : [
-          " * None",
-          ""
+        "def": "AClock:show()",
+        "desc": "Show AClock.",
+        "doc": "Show AClock.\n\nParameters:\n * None\n\nReturns:\n * The AClock object",
+        "name": "show",
+        "parameters": [
+          " * None"
         ],
-        "stripped_doc" : [
-          "Show AClock.",
-          ""
-        ],
-        "doc" : "Show AClock.\n\nParameters:\n * None\n\nReturns:\n * The AClock object",
-        "notes" : [
-
-        ],
-        "signature" : "AClock:show()",
-        "type" : "Method",
-        "returns" : [
+        "returns": [
           " * The AClock object"
         ],
-        "def" : "AClock:show()",
-        "desc" : "Show AClock."
+        "signature": "AClock:show()",
+        "stripped_doc": "",
+        "type": "Method"
       },
       {
-        "name" : "toggleShow",
-        "parameters" : [
-
-        ],
-        "stripped_doc" : [
-          "Show AClock for 4 seconds. If already showing, hide it."
-        ],
-        "doc" : "Show AClock for 4 seconds. If already showing, hide it.",
-        "notes" : [
-
-        ],
-        "signature" : "AClock:toggleShow()",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "def" : "AClock:toggleShow()",
-        "desc" : "Show AClock for 4 seconds. If already showing, hide it."
+        "def": "AClock:toggleShow()",
+        "desc": "Show AClock for 4 seconds. If already showing, hide it.",
+        "doc": "Show AClock for 4 seconds. If already showing, hide it.",
+        "name": "toggleShow",
+        "signature": "AClock:toggleShow()",
+        "stripped_doc": "",
+        "type": "Method"
       },
       {
-        "name" : "toggleShowPersistent",
-        "parameters" : [
-
-        ],
-        "stripped_doc" : [
-          "Show AClock. If already showing, hide it."
-        ],
-        "doc" : "Show AClock. If already showing, hide it.",
-        "notes" : [
-
-        ],
-        "signature" : "AClock:toggleShowPersistent()",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "def" : "AClock:toggleShowPersistent()",
-        "desc" : "Show AClock. If already showing, hide it."
+        "def": "AClock:toggleShowPersistent()",
+        "desc": "Show AClock. If already showing, hide it.",
+        "doc": "Show AClock. If already showing, hide it.",
+        "name": "toggleShowPersistent",
+        "signature": "AClock:toggleShowPersistent()",
+        "stripped_doc": "",
+        "type": "Method"
       }
     ],
-    "Field" : [
-
-    ],
-    "Command" : [
-
-    ],
-    "Method" : [
+    "Variable": [],
+    "desc": "Just another clock, floating above all.",
+    "doc": "Just another clock, floating above all.\n\nConfigurable properties (with default values):\n    format = \"%H:%M\",\n    textFont = \"Impact\",\n    textSize = 135,\n    textColor = {hex=\"#1891C3\"},\n    width = 320,\n    height = 230,\n    showDuration = 4,  -- seconds\n    hotkey = 'escape',\n    hotkeyMods = {},\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/AClock.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/AClock.spoon.zip)",
+    "items": [
       {
-        "name" : "init",
-        "parameters" : [
-          " * None",
-          ""
+        "def": "AClock:hide()",
+        "desc": "Hide AClock.",
+        "doc": "Hide AClock.\n\nParameters:\n * None\n\nReturns:\n * The AClock object",
+        "name": "hide",
+        "parameters": [
+          " * None"
         ],
-        "stripped_doc" : [
-          "init.",
-          ""
-        ],
-        "doc" : "init.\n\nParameters:\n * None\n\nReturns:\n * The AClock object",
-        "notes" : [
-
-        ],
-        "signature" : "AClock:init()",
-        "type" : "Method",
-        "returns" : [
+        "returns": [
           " * The AClock object"
         ],
-        "def" : "AClock:init()",
-        "desc" : "init."
+        "signature": "AClock:hide()",
+        "stripped_doc": "",
+        "type": "Method"
       },
       {
-        "name" : "show",
-        "parameters" : [
-          " * None",
-          ""
+        "def": "AClock:init()",
+        "desc": "init.",
+        "doc": "init.\n\nParameters:\n * None\n\nReturns:\n * The AClock object",
+        "name": "init",
+        "parameters": [
+          " * None"
         ],
-        "stripped_doc" : [
-          "Show AClock.",
-          ""
-        ],
-        "doc" : "Show AClock.\n\nParameters:\n * None\n\nReturns:\n * The AClock object",
-        "notes" : [
-
-        ],
-        "signature" : "AClock:show()",
-        "type" : "Method",
-        "returns" : [
+        "returns": [
           " * The AClock object"
         ],
-        "def" : "AClock:show()",
-        "desc" : "Show AClock."
+        "signature": "AClock:init()",
+        "stripped_doc": "",
+        "type": "Method"
       },
       {
-        "name" : "hide",
-        "parameters" : [
-          " * None",
-          ""
+        "def": "AClock:show()",
+        "desc": "Show AClock.",
+        "doc": "Show AClock.\n\nParameters:\n * None\n\nReturns:\n * The AClock object",
+        "name": "show",
+        "parameters": [
+          " * None"
         ],
-        "stripped_doc" : [
-          "Hide AClock.",
-          ""
-        ],
-        "doc" : "Hide AClock.\n\nParameters:\n * None\n\nReturns:\n * The AClock object",
-        "notes" : [
-
-        ],
-        "signature" : "AClock:hide()",
-        "type" : "Method",
-        "returns" : [
+        "returns": [
           " * The AClock object"
         ],
-        "def" : "AClock:hide()",
-        "desc" : "Hide AClock."
+        "signature": "AClock:show()",
+        "stripped_doc": "",
+        "type": "Method"
       },
       {
-        "name" : "toggleShow",
-        "parameters" : [
-
-        ],
-        "stripped_doc" : [
-          "Show AClock for 4 seconds. If already showing, hide it."
-        ],
-        "doc" : "Show AClock for 4 seconds. If already showing, hide it.",
-        "notes" : [
-
-        ],
-        "signature" : "AClock:toggleShow()",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "def" : "AClock:toggleShow()",
-        "desc" : "Show AClock for 4 seconds. If already showing, hide it."
+        "def": "AClock:toggleShow()",
+        "desc": "Show AClock for 4 seconds. If already showing, hide it.",
+        "doc": "Show AClock for 4 seconds. If already showing, hide it.",
+        "name": "toggleShow",
+        "signature": "AClock:toggleShow()",
+        "stripped_doc": "",
+        "type": "Method"
       },
       {
-        "name" : "toggleShowPersistent",
-        "parameters" : [
-
-        ],
-        "stripped_doc" : [
-          "Show AClock. If already showing, hide it."
-        ],
-        "doc" : "Show AClock. If already showing, hide it.",
-        "notes" : [
-
-        ],
-        "signature" : "AClock:toggleShowPersistent()",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "def" : "AClock:toggleShowPersistent()",
-        "desc" : "Show AClock. If already showing, hide it."
+        "def": "AClock:toggleShowPersistent()",
+        "desc": "Show AClock. If already showing, hide it.",
+        "doc": "Show AClock. If already showing, hide it.",
+        "name": "toggleShowPersistent",
+        "signature": "AClock:toggleShowPersistent()",
+        "stripped_doc": "",
+        "type": "Method"
       }
     ],
-    "doc" : "Just another clock, floating above all.\n\nConfigurable properties (with default values):\n    format = \"%H:%M\",\n    textFont = \"Impact\",\n    textSize = 135,\n    textColor = {hex=\"#1891C3\"},\n    width = 320,\n    height = 230,\n    showDuration = 4,  -- seconds\n    hotkey = 'escape',\n    hotkeyMods = {},\n\nDownload: [https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/AClock.spoon.zip](https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/AClock.spoon.zip)",
-    "name" : "AClock"
+    "name": "AClock",
+    "stripped_doc": "\nConfigurable properties (with default values):\n    format = \"%H:%M\",\n    textFont = \"Impact\",\n    textSize = 135,\n    textColor = {hex=\"#1891C3\"},\n    width = 320,\n    height = 230,\n    showDuration = 4,  -- seconds\n    hotkey = 'escape',\n    hotkeyMods = {},\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/AClock.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/AClock.spoon.zip)",
+    "submodules": [],
+    "type": "Module"
   }
 ]
