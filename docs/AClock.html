@@ -15,7 +15,17 @@
   <body>
     <header>
       <h1><a href="./index.html">docs</a> &raquo; AClock</h1>
-      <p>Just another clock, floating above all</p>
+      <p>Just another clock, floating above all.</p>
+<p>Configurable properties (with default values):
+    format = "%H:%M",
+    textFont = "Impact",
+    textSize = 135,
+    textColor = {hex="#1891C3"},
+    width = 320,
+    height = 230,
+    showDuration = 4,  -- seconds
+    hotkey = 'escape',
+    hotkeyMods = {},</p>
 <p>Download: <a href="https://github.com/Hammerspoon/Spoons/raw/master/Spoons/AClock.spoon.zip">https://github.com/Hammerspoon/Spoons/raw/master/Spoons/AClock.spoon.zip</a></p>
 
       </header>
@@ -23,11 +33,96 @@
       <ul>
         <li>Methods - API calls which can only be made on an object returned by a constructor</li>
           <ul>
+            <li><a href="#hide">hide</a></li>
+            <li><a href="#init">init</a></li>
+            <li><a href="#show">show</a></li>
             <li><a href="#toggleShow">toggleShow</a></li>
+            <li><a href="#toggleShowPersistent">toggleShowPersistent</a></li>
           </ul>
       </ul>
       <h3>API Documentation</h3>
         <h4 class="documentation-section">Methods</h4>
+          <section id="hide">
+            <a name="//apple_ref/cpp/Method/hide" class="dashAnchor"></a>
+            <h5><a href="#hide">hide</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>AClock:hide()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Hide AClock.</p>
+<p>Parameters:</p>
+<ul>
+<li>None</li>
+</ul>
+<p>Returns:</p>
+<ul>
+<li>The AClock object</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="init">
+            <a name="//apple_ref/cpp/Method/init" class="dashAnchor"></a>
+            <h5><a href="#init">init</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>AClock:init()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>init.</p>
+<p>Parameters:</p>
+<ul>
+<li>None</li>
+</ul>
+<p>Returns:</p>
+<ul>
+<li>The AClock object</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="show">
+            <a name="//apple_ref/cpp/Method/show" class="dashAnchor"></a>
+            <h5><a href="#show">show</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>AClock:show()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Show AClock.</p>
+<p>Parameters:</p>
+<ul>
+<li>None</li>
+</ul>
+<p>Returns:</p>
+<ul>
+<li>The AClock object</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
           <section id="toggleShow">
             <a name="//apple_ref/cpp/Method/toggleShow" class="dashAnchor"></a>
             <h5><a href="#toggleShow">toggleShow</a></h5>
@@ -42,7 +137,26 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Show AClock, if already showing, just hide it.</p>
+                <td><p>Show AClock for 4 seconds. If already showing, hide it.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="toggleShowPersistent">
+            <a name="//apple_ref/cpp/Method/toggleShowPersistent" class="dashAnchor"></a>
+            <h5><a href="#toggleShowPersistent">toggleShowPersistent</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>AClock:toggleShowPersistent()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Show AClock. If already showing, hide it.</p>
 </td>
               </tr>
             </table>

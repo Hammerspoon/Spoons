@@ -1,13 +1,37 @@
 [
   {
-    "desc": "Just another clock, floating above all",
+    "desc": "Just another clock, floating above all.",
     "name": "AClock",
     "type": "Module"
   },
   {
-    "desc": "Show AClock, if already showing, just hide it.",
+    "desc": "Hide AClock.",
+    "module": "AClock",
+    "name": "hide",
+    "type": "Method"
+  },
+  {
+    "desc": "init.",
+    "module": "AClock",
+    "name": "init",
+    "type": "Method"
+  },
+  {
+    "desc": "Show AClock.",
+    "module": "AClock",
+    "name": "show",
+    "type": "Method"
+  },
+  {
+    "desc": "Show AClock for 4 seconds. If already showing, hide it.",
     "module": "AClock",
     "name": "toggleShow",
+    "type": "Method"
+  },
+  {
+    "desc": "Show AClock. If already showing, hide it.",
+    "module": "AClock",
+    "name": "toggleShowPersistent",
     "type": "Method"
   },
   {
