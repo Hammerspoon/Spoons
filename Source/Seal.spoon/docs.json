@@ -374,12 +374,135 @@
     "name": "Seal.plugins",
     "stripped_doc": "",
     "submodules": [
+      "apps",
       "pasteboard",
       "safari_bookmarks",
       "screencapture",
       "urlformats",
       "useractions"
     ],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
+        "def": "Seal.plugins.apps:restart()",
+        "desc": "Restarts the Spotlight app searcher",
+        "doc": "Restarts the Spotlight app searcher\n\nParamters:\n * None\n\nReturns:\n * None",
+        "name": "restart",
+        "returns": [
+          " * None"
+        ],
+        "signature": "Seal.plugins.apps:restart()",
+        "stripped_doc": "Paramters:\n * None",
+        "type": "Method"
+      },
+      {
+        "def": "Seal.plugins.apps:start()",
+        "desc": "Starts the Spotlight app searcher",
+        "doc": "Starts the Spotlight app searcher\n\nParamters:\n * None\n\nReturns:\n * None\n\nNotes:\n * This is called automatically when the plugin is loaded",
+        "name": "start",
+        "notes": [
+          " * This is called automatically when the plugin is loaded"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "Seal.plugins.apps:start()",
+        "stripped_doc": "Paramters:\n * None",
+        "type": "Method"
+      },
+      {
+        "def": "Seal.plugins.apps:stop()",
+        "desc": "Stops the Spotlight app searcher",
+        "doc": "Stops the Spotlight app searcher\n\nParamters:\n * None\n\nReturns:\n * None",
+        "name": "stop",
+        "returns": [
+          " * None"
+        ],
+        "signature": "Seal.plugins.apps:stop()",
+        "stripped_doc": "Paramters:\n * None",
+        "type": "Method"
+      }
+    ],
+    "Variable": [
+      {
+        "def": "Seal.plugins.apps.appSearchPaths",
+        "desc": "Table containing the paths to search for launchable items",
+        "doc": "Table containing the paths to search for launchable items\n\nNotes:\n * If you change this, you will need to call `spoon.Seal.plugins.apps:restart()` to force Spotlight to search for new items.",
+        "name": "appSearchPaths",
+        "notes": [
+          " * If you change this, you will need to call `spoon.Seal.plugins.apps:restart()` to force Spotlight to search for new items."
+        ],
+        "signature": "Seal.plugins.apps.appSearchPaths",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "desc": "A plugin to add launchable apps/scripts, making Seal act as a launch bar",
+    "doc": "A plugin to add launchable apps/scripts, making Seal act as a launch bar",
+    "items": [
+      {
+        "def": "Seal.plugins.apps.appSearchPaths",
+        "desc": "Table containing the paths to search for launchable items",
+        "doc": "Table containing the paths to search for launchable items\n\nNotes:\n * If you change this, you will need to call `spoon.Seal.plugins.apps:restart()` to force Spotlight to search for new items.",
+        "name": "appSearchPaths",
+        "notes": [
+          " * If you change this, you will need to call `spoon.Seal.plugins.apps:restart()` to force Spotlight to search for new items."
+        ],
+        "signature": "Seal.plugins.apps.appSearchPaths",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "Seal.plugins.apps:restart()",
+        "desc": "Restarts the Spotlight app searcher",
+        "doc": "Restarts the Spotlight app searcher\n\nParamters:\n * None\n\nReturns:\n * None",
+        "name": "restart",
+        "returns": [
+          " * None"
+        ],
+        "signature": "Seal.plugins.apps:restart()",
+        "stripped_doc": "Paramters:\n * None",
+        "type": "Method"
+      },
+      {
+        "def": "Seal.plugins.apps:start()",
+        "desc": "Starts the Spotlight app searcher",
+        "doc": "Starts the Spotlight app searcher\n\nParamters:\n * None\n\nReturns:\n * None\n\nNotes:\n * This is called automatically when the plugin is loaded",
+        "name": "start",
+        "notes": [
+          " * This is called automatically when the plugin is loaded"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "Seal.plugins.apps:start()",
+        "stripped_doc": "Paramters:\n * None",
+        "type": "Method"
+      },
+      {
+        "def": "Seal.plugins.apps:stop()",
+        "desc": "Stops the Spotlight app searcher",
+        "doc": "Stops the Spotlight app searcher\n\nParamters:\n * None\n\nReturns:\n * None",
+        "name": "stop",
+        "returns": [
+          " * None"
+        ],
+        "signature": "Seal.plugins.apps:stop()",
+        "stripped_doc": "Paramters:\n * None",
+        "type": "Method"
+      }
+    ],
+    "name": "Seal.plugins.apps",
+    "stripped_doc": "",
+    "submodules": [],
     "type": "Module"
   },
   {
