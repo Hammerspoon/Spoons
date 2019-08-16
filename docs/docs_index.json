@@ -1560,6 +1560,35 @@
     "type": "Module"
   },
   {
+    "desc": "A plugin to add launchable apps/scripts, making Seal act as a launch bar",
+    "name": "Seal.plugins.apps",
+    "type": "Module"
+  },
+  {
+    "desc": "Table containing the paths to search for launchable items",
+    "module": "Seal.plugins.apps",
+    "name": "appSearchPaths",
+    "type": "Variable"
+  },
+  {
+    "desc": "Restarts the Spotlight app searcher",
+    "module": "Seal.plugins.apps",
+    "name": "restart",
+    "type": "Method"
+  },
+  {
+    "desc": "Starts the Spotlight app searcher",
+    "module": "Seal.plugins.apps",
+    "name": "start",
+    "type": "Method"
+  },
+  {
+    "desc": "Stops the Spotlight app searcher",
+    "module": "Seal.plugins.apps",
+    "name": "stop",
+    "type": "Method"
+  },
+  {
     "desc": "Visual pasteboard (ie clipboard) history",
     "name": "Seal.plugins.pasteboard",
     "type": "Module"
