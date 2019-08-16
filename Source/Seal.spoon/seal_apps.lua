@@ -4,6 +4,7 @@ obj.__name = "seal_apps"
 obj.appCache = {}
 obj.appSearchPaths = {
    "/Applications",
+   "/System/Applications",
    "~/Applications",
    "/Developer/Applications",
    "/Applications/Xcode.app/Contents/Applications",
