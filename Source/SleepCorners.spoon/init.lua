@@ -32,10 +32,11 @@ local obj    = {
     homepage  = "https://github.com/Hammerspoon/Spoons",
     license   = "MIT - https://opensource.org/licenses/MIT",
     spoonPath = spoons.scriptPath(),
+    spoonMeta = "placeholder for _coresetup metadata creation",
 }
 -- version is outside of obj table definition to facilitate its auto detection by
 -- external documentation generation scripts
-obj.version   = "0.1"
+obj.version   = "0.1.1"
 
 local metadataKeys = {} ; for k, v in fnutils.sortByKeys(obj) do table.insert(metadataKeys, k) end
 
