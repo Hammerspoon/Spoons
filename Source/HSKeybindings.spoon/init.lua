@@ -51,7 +51,7 @@ end
 --]] 
 
 local function getModifiers(modslist)
-  print("getModifiers:" .. inspect(mods))
+  --print("getModifiers:" .. inspect(mods))
   local mods = ''
   for ix, val in ipairs(modslist) do
     mods = mods .. obj.commandEnum[val]
@@ -73,7 +73,7 @@ local function processHotkeys()
     end
   end
 
-  print(inspect(allKeys))
+  --print(inspect(allKeys))
 
   for ix, entry in ipairs(allKeys) do
     if ((ix - 1) % 15) == 0 then
