@@ -9086,6 +9086,116 @@
     "Function": [],
     "Method": [
       {
+        "def": "USBDeviceActions:init() -> Self",
+        "desc": "Creates an `hs.usb.watcher` with a callback that will execute the specified actions for the USB devices in `USBDeviceActions.devices` when they are connected/disconnected, but doesn't start the watcher.",
+        "doc": "Creates an `hs.usb.watcher` with a callback that will execute the specified actions for the USB devices in `USBDeviceActions.devices` when they are connected/disconnected, but doesn't start the watcher.\n\nReturns:\n * Self",
+        "name": "init",
+        "returns": [
+          " * Self"
+        ],
+        "signature": "USBDeviceActions:init() -> Self",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "USBDeviceActions:start() -> Self",
+        "desc": "Starts the `hs.usb.watcher` created by `USBDeviceActions:init()`.",
+        "doc": "Starts the `hs.usb.watcher` created by `USBDeviceActions:init()`.\n\nReturns:\n * Self",
+        "name": "start",
+        "returns": [
+          " * Self"
+        ],
+        "signature": "USBDeviceActions:start() -> Self",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "USBDeviceActions:stop() -> Self",
+        "desc": "Stops the `hs.usb.watcher` created by `USBDeviceActions:init()`.",
+        "doc": "Stops the `hs.usb.watcher` created by `USBDeviceActions:init()`.\n\nReturns:\n * Self",
+        "name": "stop",
+        "returns": [
+          " * Self"
+        ],
+        "signature": "USBDeviceActions:stop() -> Self",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [
+      {
+        "def": "USBDeviceActions.devices (Table)",
+        "desc": "A table where the keys should correspond to `productName`s of USB devices and the values should be tables containing the keys `apps` and/or `fn`. (You can find the `productName` for a connected USB device using `hs.usb.attachedDevices()`).",
+        "doc": "A table where the keys should correspond to `productName`s of USB devices and the values should be tables containing the keys `apps` and/or `fn`. (You can find the `productName` for a connected USB device using `hs.usb.attachedDevices()`).\n\nThe value of the `apps` key should contain a list of apps that will be launched/killed when the USB device is connected/disconnected. The value of the `fn` key should be a single parameter function that will be passed `true`/`false` when the USB device is connected/disconnected.\n\nExample:\n```\n{\n  ScanSnapiX500EE            = { apps = { \"ScanSnap Manager Evernote Edition\" } },\n  Planck                     = { fn = toggleKeyboardLayout },\n  [\"Corne Keyboard (crkbd)\"] = { fn = toggleKeyboardLayout }\n}\n```",
+        "name": "devices",
+        "signature": "USBDeviceActions.devices (Table)",
+        "stripped_doc": "The value of the `apps` key should contain a list of apps that will be launched/killed when the USB device is connected/disconnected. The value of the `fn` key should be a single parameter function that will be passed `true`/`false` when the USB device is connected/disconnected.\nExample:\n```\n{\n  ScanSnapiX500EE            = { apps = { \"ScanSnap Manager Evernote Edition\" } },\n  Planck                     = { fn = toggleKeyboardLayout },\n  [\"Corne Keyboard (crkbd)\"] = { fn = toggleKeyboardLayout }\n}\n```",
+        "type": "Variable"
+      }
+    ],
+    "desc": "Open/close apps or run an arbitrary function when a USB device is connected/disconnected.",
+    "doc": "Open/close apps or run an arbitrary function when a USB device is connected/disconnected.\n\nExample configuration (using SpoonInstall.spoon):\n```\nfunction toggleKeyboardLayout(x)\n  if x then\n    hs.keycodes.setLayout(\"U.S.\")\n  else\n    hs.keycodes.setLayout(\"Colemak\")\n  end\nend\n\nspoonInstall:andUse(\n  \"USBDeviceActions\",\n  {\n    config = {\n      devices = {\n        ScanSnapiX500EE            = { apps = { \"ScanSnap Manager Evernote Edition\" } },\n        Planck                     = { fn = toggleKeyboardLayout },\n        [\"Corne Keyboard (crkbd)\"] = { fn = toggleKeyboardLayout }\n      }\n    },\n    start = true\n  }\n)\n```",
+    "items": [
+      {
+        "def": "USBDeviceActions.devices (Table)",
+        "desc": "A table where the keys should correspond to `productName`s of USB devices and the values should be tables containing the keys `apps` and/or `fn`. (You can find the `productName` for a connected USB device using `hs.usb.attachedDevices()`).",
+        "doc": "A table where the keys should correspond to `productName`s of USB devices and the values should be tables containing the keys `apps` and/or `fn`. (You can find the `productName` for a connected USB device using `hs.usb.attachedDevices()`).\n\nThe value of the `apps` key should contain a list of apps that will be launched/killed when the USB device is connected/disconnected. The value of the `fn` key should be a single parameter function that will be passed `true`/`false` when the USB device is connected/disconnected.\n\nExample:\n```\n{\n  ScanSnapiX500EE            = { apps = { \"ScanSnap Manager Evernote Edition\" } },\n  Planck                     = { fn = toggleKeyboardLayout },\n  [\"Corne Keyboard (crkbd)\"] = { fn = toggleKeyboardLayout }\n}\n```",
+        "name": "devices",
+        "signature": "USBDeviceActions.devices (Table)",
+        "stripped_doc": "The value of the `apps` key should contain a list of apps that will be launched/killed when the USB device is connected/disconnected. The value of the `fn` key should be a single parameter function that will be passed `true`/`false` when the USB device is connected/disconnected.\nExample:\n```\n{\n  ScanSnapiX500EE            = { apps = { \"ScanSnap Manager Evernote Edition\" } },\n  Planck                     = { fn = toggleKeyboardLayout },\n  [\"Corne Keyboard (crkbd)\"] = { fn = toggleKeyboardLayout }\n}\n```",
+        "type": "Variable"
+      },
+      {
+        "def": "USBDeviceActions:init() -> Self",
+        "desc": "Creates an `hs.usb.watcher` with a callback that will execute the specified actions for the USB devices in `USBDeviceActions.devices` when they are connected/disconnected, but doesn't start the watcher.",
+        "doc": "Creates an `hs.usb.watcher` with a callback that will execute the specified actions for the USB devices in `USBDeviceActions.devices` when they are connected/disconnected, but doesn't start the watcher.\n\nReturns:\n * Self",
+        "name": "init",
+        "returns": [
+          " * Self"
+        ],
+        "signature": "USBDeviceActions:init() -> Self",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "USBDeviceActions:start() -> Self",
+        "desc": "Starts the `hs.usb.watcher` created by `USBDeviceActions:init()`.",
+        "doc": "Starts the `hs.usb.watcher` created by `USBDeviceActions:init()`.\n\nReturns:\n * Self",
+        "name": "start",
+        "returns": [
+          " * Self"
+        ],
+        "signature": "USBDeviceActions:start() -> Self",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "USBDeviceActions:stop() -> Self",
+        "desc": "Stops the `hs.usb.watcher` created by `USBDeviceActions:init()`.",
+        "doc": "Stops the `hs.usb.watcher` created by `USBDeviceActions:init()`.\n\nReturns:\n * Self",
+        "name": "stop",
+        "returns": [
+          " * Self"
+        ],
+        "signature": "USBDeviceActions:stop() -> Self",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "name": "USBDeviceActions",
+    "stripped_doc": "\nExample configuration (using SpoonInstall.spoon):\n```\nfunction toggleKeyboardLayout(x)\n  if x then\n    hs.keycodes.setLayout(\"U.S.\")\n  else\n    hs.keycodes.setLayout(\"Colemak\")\n  end\nend\n\nspoonInstall:andUse(\n  \"USBDeviceActions\",\n  {\n    config = {\n      devices = {\n        ScanSnapiX500EE            = { apps = { \"ScanSnap Manager Evernote Edition\" } },\n        Planck                     = { fn = toggleKeyboardLayout },\n        [\"Corne Keyboard (crkbd)\"] = { fn = toggleKeyboardLayout }\n      }\n    },\n    start = true\n  }\n)\n```",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
         "def": "VolumeScroll:init()",
         "desc": "Initialize spoon",
         "doc": "Initialize spoon\n\nParameters:\n\nReturns:\n * void",

@@ -1,0 +1,157 @@
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hammerspoon docs: USBDeviceActions</title>
+    <style type="text/css">
+      a { text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      th { background-color: #DDDDDD; vertical-align: top; padding: 3px; }
+      td { width: 100%; background-color: #EEEEEE; vertical-align: top; padding: 3px; }
+      table { width: 100% ; border: 1px solid #0; text-align: left; }
+      section > table table td { width: 0; }
+    </style>
+    <link rel="stylesheet" href="docs.css" type="text/css" media="screen" />
+  </head>
+  <body>
+    <header>
+      <h1><a href="./index.html">docs</a> &raquo; USBDeviceActions</h1>
+      <p>Open/close apps or run an arbitrary function when a USB device is connected/disconnected.</p>
+<p>Example configuration (using SpoonInstall.spoon):</p>
+
+<pre><code>function toggleKeyboardLayout(x)
+  if x then
+    hs.keycodes.setLayout("U.S.")
+  else
+    hs.keycodes.setLayout("Colemak")
+  end
+end
+
+spoonInstall:andUse(
+  "USBDeviceActions",
+  {
+    config = {
+      devices = {
+        ScanSnapiX500EE            = { apps = { "ScanSnap Manager Evernote Edition" } },
+        Planck                     = { fn = toggleKeyboardLayout },
+        ["Corne Keyboard (crkbd)"] = { fn = toggleKeyboardLayout }
+      }
+    },
+    start = true
+  }
+)</code></pre>
+
+      </header>
+      <h3>API Overview</h3>
+      <ul>
+        <li>Variables - Configurable values</li>
+          <ul>
+            <li><a href="#devices">devices</a></li>
+          </ul>
+        <li>Methods - API calls which can only be made on an object returned by a constructor</li>
+          <ul>
+            <li><a href="#init">init</a></li>
+            <li><a href="#start">start</a></li>
+            <li><a href="#stop">stop</a></li>
+          </ul>
+      </ul>
+      <h3>API Documentation</h3>
+        <h4 class="documentation-section">Variables</h4>
+          <section id="devices">
+            <a name="//apple_ref/cpp/Variable/devices" class="dashAnchor"></a>
+            <h5><a href="#devices">devices</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>USBDeviceActions.devices (Table)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>A table where the keys should correspond to <code>productName</code>s of USB devices and the values should be tables containing the keys <code>apps</code> and/or <code>fn</code>. (You can find the <code>productName</code> for a connected USB device using <code>hs.usb.attachedDevices()</code>).</p>
+<p>The value of the <code>apps</code> key should contain a list of apps that will be launched/killed when the USB device is connected/disconnected. The value of the <code>fn</code> key should be a single parameter function that will be passed <code>true</code>/<code>false</code> when the USB device is connected/disconnected.</p>
+<p>Example:</p>
+
+<pre><code>{
+  ScanSnapiX500EE            = { apps = { "ScanSnap Manager Evernote Edition" } },
+  Planck                     = { fn = toggleKeyboardLayout },
+  ["Corne Keyboard (crkbd)"] = { fn = toggleKeyboardLayout }
+}</code></pre>
+</td>
+              </tr>
+            </table>
+          </section>
+        <h4 class="documentation-section">Methods</h4>
+          <section id="init">
+            <a name="//apple_ref/cpp/Method/init" class="dashAnchor"></a>
+            <h5><a href="#init">init</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>USBDeviceActions:init() -&gt; Self</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Creates an <code>hs.usb.watcher</code> with a callback that will execute the specified actions for the USB devices in <code>USBDeviceActions.devices</code> when they are connected/disconnected, but doesn't start the watcher.</p>
+<p>Returns:</p>
+<ul>
+<li>Self</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="start">
+            <a name="//apple_ref/cpp/Method/start" class="dashAnchor"></a>
+            <h5><a href="#start">start</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>USBDeviceActions:start() -&gt; Self</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Starts the <code>hs.usb.watcher</code> created by <code>USBDeviceActions:init()</code>.</p>
+<p>Returns:</p>
+<ul>
+<li>Self</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="stop">
+            <a name="//apple_ref/cpp/Method/stop" class="dashAnchor"></a>
+            <h5><a href="#stop">stop</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>USBDeviceActions:stop() -&gt; Self</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Stops the <code>hs.usb.watcher</code> created by <code>USBDeviceActions:init()</code>.</p>
+<p>Returns:</p>
+<ul>
+<li>Self</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+  </body>
+</html>

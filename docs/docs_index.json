@@ -2390,6 +2390,35 @@
     "type": "Method"
   },
   {
+    "desc": "Open/close apps or run an arbitrary function when a USB device is connected/disconnected.",
+    "name": "USBDeviceActions",
+    "type": "Module"
+  },
+  {
+    "desc": "A table where the keys should correspond to `productName`s of USB devices and the values should be tables containing the keys `apps` and/or `fn`. (You can find the `productName` for a connected USB device using `hs.usb.attachedDevices()`).",
+    "module": "USBDeviceActions",
+    "name": "devices",
+    "type": "Variable"
+  },
+  {
+    "desc": "Creates an `hs.usb.watcher` with a callback that will execute the specified actions for the USB devices in `USBDeviceActions.devices` when they are connected/disconnected, but doesn't start the watcher.",
+    "module": "USBDeviceActions",
+    "name": "init",
+    "type": "Method"
+  },
+  {
+    "desc": "Starts the `hs.usb.watcher` created by `USBDeviceActions:init()`.",
+    "module": "USBDeviceActions",
+    "name": "start",
+    "type": "Method"
+  },
+  {
+    "desc": "Stops the `hs.usb.watcher` created by `USBDeviceActions:init()`.",
+    "module": "USBDeviceActions",
+    "name": "stop",
+    "type": "Method"
+  },
+  {
     "desc": "Use mouse scroll wheel and modifiers to adjust volume.",
     "name": "VolumeScroll",
     "type": "Module"
