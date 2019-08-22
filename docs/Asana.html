@@ -1,0 +1,117 @@
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hammerspoon docs: Asana</title>
+    <style type="text/css">
+      a { text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      th { background-color: #DDDDDD; vertical-align: top; padding: 3px; }
+      td { width: 100%; background-color: #EEEEEE; vertical-align: top; padding: 3px; }
+      table { width: 100% ; border: 1px solid #0; text-align: left; }
+      section > table table td { width: 0; }
+    </style>
+    <link rel="stylesheet" href="docs.css" type="text/css" media="screen" />
+  </head>
+  <body>
+    <header>
+      <h1><a href="./index.html">docs</a> &raquo; Asana</h1>
+      <p>Simple spoon that creates a new task in Asana with a given name in a given workspace.</p>
+<p>Example configuration (using SpoonInstall.spoon and Seal.spoon):</p>
+
+<pre><code>-- Load configuration constants used throughout the code
+consts = require "configConsts" -- just a table
+
+-- Load Asana spoon and configure it with API key
+spoon.SpoonInstall:andUse("Asana", { config = { apiKey = consts.asanaApiKey } })
+
+-- Load Seal and setup user actions to add task to Asana workspaces
+spoon.SpoonInstall:andUse(
+  "Seal",
+  {
+    fn = function(x)
+      x:loadPlugins({"apps", "calc", "useractions", "rot13"})
+      x.plugins.useractions.actions = {
+        ["New Asana task in " .. consts.asanaWorkWorkspaceName] = {
+          fn = function(y) spoon.Asana:createTask(y, consts.asanaWorkWorkspaceName) end,
+          keyword = "awork"
+        },
+        ["New Asana task in " .. consts.asanaPersonalWorkspaceName] = {
+          fn = function(y) spoon.Asana:createTask(y, consts.asanaPersonalWorkspaceName) end,
+          keyword = "ahome"
+        }
+      }
+      x:refreshAllCommands()
+    end,
+    start = true,
+    hotkeys = { toggle = { "cmd", "space" } }
+  }
+)</code></pre>
+<p>With this setup, adding a new task to Asana is as easy pressing <code>Command + Space</code> to launch Seal and entering, e.g., "awork Do that thing I forgot to do".</p>
+
+      </header>
+      <h3>API Overview</h3>
+      <ul>
+        <li>Variables - Configurable values</li>
+          <ul>
+            <li><a href="#apiKey">apiKey</a></li>
+          </ul>
+        <li>Methods - API calls which can only be made on an object returned by a constructor</li>
+          <ul>
+            <li><a href="#createTask">createTask</a></li>
+          </ul>
+      </ul>
+      <h3>API Documentation</h3>
+        <h4 class="documentation-section">Variables</h4>
+          <section id="apiKey">
+            <a name="//apple_ref/cpp/Variable/apiKey" class="dashAnchor"></a>
+            <h5><a href="#apiKey">apiKey</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Asana.apiKey (String)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>A "personal access token" for Asana. You can create one here: <a href="https://app.asana.com/0/developer-console">https://app.asana.com/0/developer-console</a></p>
+</td>
+              </tr>
+            </table>
+          </section>
+        <h4 class="documentation-section">Methods</h4>
+          <section id="createTask">
+            <a name="//apple_ref/cpp/Method/createTask" class="dashAnchor"></a>
+            <h5><a href="#createTask">createTask</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Asana:createTask(taskName, workspaceName) -&gt; Self</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Creates a new task named <code>taskName</code> in the workspace <code>workspaceName</code>.</p>
+<p>Example:</p>
+
+<pre><code>spoon.Asana.createTask("Do that thing I forgot about", "My Company Workspace")</code></pre>
+<p>Parameters:</p>
+<ul>
+<li>taskName (String)      - The title of the Asana task.</li>
+<li>WorkspaceName (String) - The name of the workspace in which to create the task.</li>
+</ul>
+<p>Returns:</p>
+<ul>
+<li>Self</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+  </body>
+</html>

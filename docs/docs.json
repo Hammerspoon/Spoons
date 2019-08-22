@@ -151,6 +151,76 @@
     "Deprecated": [],
     "Field": [],
     "Function": [],
+    "Method": [
+      {
+        "def": "Asana:createTask(taskName, workspaceName) -> Self",
+        "desc": "Creates a new task named `taskName` in the workspace `workspaceName`.",
+        "doc": "Creates a new task named `taskName` in the workspace `workspaceName`.\n\nExample:\n```\nspoon.Asana.createTask(\"Do that thing I forgot about\", \"My Company Workspace\")\n```\n\nParameters:\n * taskName (String)      - The title of the Asana task.\n * WorkspaceName (String) - The name of the workspace in which to create the task.\n\nReturns:\n * Self",
+        "name": "createTask",
+        "parameters": [
+          " * taskName (String)      - The title of the Asana task.",
+          " * WorkspaceName (String) - The name of the workspace in which to create the task."
+        ],
+        "returns": [
+          " * Self"
+        ],
+        "signature": "Asana:createTask(taskName, workspaceName) -> Self",
+        "stripped_doc": "Example:\n```\nspoon.Asana.createTask(\"Do that thing I forgot about\", \"My Company Workspace\")\n```",
+        "type": "Method"
+      }
+    ],
+    "Variable": [
+      {
+        "def": "Asana.apiKey (String)",
+        "desc": "A \"personal access token\" for Asana. You can create one here: https://app.asana.com/0/developer-console",
+        "doc": "A \"personal access token\" for Asana. You can create one here: https://app.asana.com/0/developer-console",
+        "name": "apiKey",
+        "signature": "Asana.apiKey (String)",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "desc": "Simple spoon that creates a new task in Asana with a given name in a given workspace.",
+    "doc": "Simple spoon that creates a new task in Asana with a given name in a given workspace.\n\nExample configuration (using SpoonInstall.spoon and Seal.spoon):\n```\n-- Load configuration constants used throughout the code\nconsts = require \"configConsts\" -- just a table\n\n-- Load Asana spoon and configure it with API key\nspoon.SpoonInstall:andUse(\"Asana\", { config = { apiKey = consts.asanaApiKey } })\n\n-- Load Seal and setup user actions to add task to Asana workspaces\nspoon.SpoonInstall:andUse(\n  \"Seal\",\n  {\n    fn = function(x)\n      x:loadPlugins({\"apps\", \"calc\", \"useractions\", \"rot13\"})\n      x.plugins.useractions.actions = {\n        [\"New Asana task in \" .. consts.asanaWorkWorkspaceName] = {\n          fn = function(y) spoon.Asana:createTask(y, consts.asanaWorkWorkspaceName) end,\n          keyword = \"awork\"\n        },\n        [\"New Asana task in \" .. consts.asanaPersonalWorkspaceName] = {\n          fn = function(y) spoon.Asana:createTask(y, consts.asanaPersonalWorkspaceName) end,\n          keyword = \"ahome\"\n        }\n      }\n      x:refreshAllCommands()\n    end,\n    start = true,\n    hotkeys = { toggle = { \"cmd\", \"space\" } }\n  }\n)\n```\n\nWith this setup, adding a new task to Asana is as easy pressing `Command + Space` to launch Seal and entering, e.g., \"awork Do that thing I forgot to do\".",
+    "items": [
+      {
+        "def": "Asana.apiKey (String)",
+        "desc": "A \"personal access token\" for Asana. You can create one here: https://app.asana.com/0/developer-console",
+        "doc": "A \"personal access token\" for Asana. You can create one here: https://app.asana.com/0/developer-console",
+        "name": "apiKey",
+        "signature": "Asana.apiKey (String)",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "Asana:createTask(taskName, workspaceName) -> Self",
+        "desc": "Creates a new task named `taskName` in the workspace `workspaceName`.",
+        "doc": "Creates a new task named `taskName` in the workspace `workspaceName`.\n\nExample:\n```\nspoon.Asana.createTask(\"Do that thing I forgot about\", \"My Company Workspace\")\n```\n\nParameters:\n * taskName (String)      - The title of the Asana task.\n * WorkspaceName (String) - The name of the workspace in which to create the task.\n\nReturns:\n * Self",
+        "name": "createTask",
+        "parameters": [
+          " * taskName (String)      - The title of the Asana task.",
+          " * WorkspaceName (String) - The name of the workspace in which to create the task."
+        ],
+        "returns": [
+          " * Self"
+        ],
+        "signature": "Asana:createTask(taskName, workspaceName) -> Self",
+        "stripped_doc": "Example:\n```\nspoon.Asana.createTask(\"Do that thing I forgot about\", \"My Company Workspace\")\n```",
+        "type": "Method"
+      }
+    ],
+    "name": "Asana",
+    "stripped_doc": "\nExample configuration (using SpoonInstall.spoon and Seal.spoon):\n```\n-- Load configuration constants used throughout the code\nconsts = require \"configConsts\" -- just a table\n\n-- Load Asana spoon and configure it with API key\nspoon.SpoonInstall:andUse(\"Asana\", { config = { apiKey = consts.asanaApiKey } })\n\n-- Load Seal and setup user actions to add task to Asana workspaces\nspoon.SpoonInstall:andUse(\n  \"Seal\",\n  {\n    fn = function(x)\n      x:loadPlugins({\"apps\", \"calc\", \"useractions\", \"rot13\"})\n      x.plugins.useractions.actions = {\n        [\"New Asana task in \" .. consts.asanaWorkWorkspaceName] = {\n          fn = function(y) spoon.Asana:createTask(y, consts.asanaWorkWorkspaceName) end,\n          keyword = \"awork\"\n        },\n        [\"New Asana task in \" .. consts.asanaPersonalWorkspaceName] = {\n          fn = function(y) spoon.Asana:createTask(y, consts.asanaPersonalWorkspaceName) end,\n          keyword = \"ahome\"\n        }\n      }\n      x:refreshAllCommands()\n    end,\n    start = true,\n    hotkeys = { toggle = { \"cmd\", \"space\" } }\n  }\n)\n```\n\nWith this setup, adding a new task to Asana is as easy pressing `Command + Space` to launch Seal and entering, e.g., \"awork Do that thing I forgot to do\".",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
     "Method": [],
     "Variable": [],
     "desc": "Use Bing daily picture as your wallpaper, automatically.",

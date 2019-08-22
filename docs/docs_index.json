@@ -35,6 +35,23 @@
     "type": "Method"
   },
   {
+    "desc": "Simple spoon that creates a new task in Asana with a given name in a given workspace.",
+    "name": "Asana",
+    "type": "Module"
+  },
+  {
+    "desc": "A \"personal access token\" for Asana. You can create one here: https://app.asana.com/0/developer-console",
+    "module": "Asana",
+    "name": "apiKey",
+    "type": "Variable"
+  },
+  {
+    "desc": "Creates a new task named `taskName` in the workspace `workspaceName`.",
+    "module": "Asana",
+    "name": "createTask",
+    "type": "Method"
+  },
+  {
     "desc": "Use Bing daily picture as your wallpaper, automatically.",
     "name": "BingDaily",
     "type": "Module"
