@@ -1349,6 +1349,53 @@
     "type": "Method"
   },
   {
+    "desc": "Connect, disconnect, or toggle connection to/from a personal hotspot. Optionally kills/opens a list of apps on connect/disconnect respectively.",
+    "name": "PersonalHotspot",
+    "type": "Module"
+  },
+  {
+    "desc": "A list of strings representing applications to kill/open, when `PersonalHotspot:connect()` and `PersonalHotspot:disconnect()` are called respectively.",
+    "module": "PersonalHotspot",
+    "name": "appsToKill",
+    "type": "Variable"
+  },
+  {
+    "desc": "The name of the personal hotspot you want to connect/disconnect from, e.g., \"John Appleseed’s iPhone\".",
+    "module": "PersonalHotspot",
+    "name": "hotspotName",
+    "type": "Variable"
+  },
+  {
+    "desc": "The number of seconds to wait for personal hotspot to appear in Wi-Fi menu before attempting to connect/disconnect. Default is 3 seconds.",
+    "module": "PersonalHotspot",
+    "name": "timeout",
+    "type": "Variable"
+  },
+  {
+    "desc": "Binds hotkey mappings for this spoon.",
+    "module": "PersonalHotspot",
+    "name": "bindHotkeys",
+    "type": "Method"
+  },
+  {
+    "desc": "Tries to connect to the personal hotspot named in `PersonalHotspot.hotspotName`. If `PersonalHotspot.hotspotName` is `nil`, the first hotspot in the Wi-Fi menu will be selected, and `PersonalHotspot.hotspotName` will be assigned to the name of that hotspot. Once connected to the hotspot, the applications specified in `PersonalHotspot.appsToKill` are killed.",
+    "module": "PersonalHotspot",
+    "name": "connect",
+    "type": "Method"
+  },
+  {
+    "desc": "If currently connected to the personal hotspot named in `PersonalHotspot.hotspotName`, this method will disconnect from that hotspot and open the applications specified in `PersonalHostspot.appsToKill`.",
+    "module": "PersonalHotspot",
+    "name": "disconnect",
+    "type": "Method"
+  },
+  {
+    "desc": "Toggles personal hotspot connection.",
+    "module": "PersonalHotspot",
+    "name": "toggle",
+    "type": "Method"
+  },
+  {
     "desc": "Show a popup window with the translation of the currently selected (or other) text",
     "name": "PopupTranslateSelection",
     "type": "Module"

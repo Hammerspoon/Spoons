@@ -1,0 +1,224 @@
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hammerspoon docs: PersonalHotspot</title>
+    <style type="text/css">
+      a { text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      th { background-color: #DDDDDD; vertical-align: top; padding: 3px; }
+      td { width: 100%; background-color: #EEEEEE; vertical-align: top; padding: 3px; }
+      table { width: 100% ; border: 1px solid #0; text-align: left; }
+      section > table table td { width: 0; }
+    </style>
+    <link rel="stylesheet" href="docs.css" type="text/css" media="screen" />
+  </head>
+  <body>
+    <header>
+      <h1><a href="./index.html">docs</a> &raquo; PersonalHotspot</h1>
+      <p>Connect, disconnect, or toggle connection to/from a personal hotspot. Optionally kills/opens a list of apps on connect/disconnect respectively.</p>
+<p>Example configuration (using SpoonInstall.spoon):</p>
+
+<pre><code>spoon.SpoonInstall:andUse(
+  "PersonalHotspot",
+  {
+    config = {
+      hotspotName = "John Appleseed’s iPhone",
+      appsToKill = {
+        "Arq",
+        "Arq Agent",
+        "Dropbox"
+      }
+    },
+    hotkeys = {
+      toggle = {{"cmd", "option", "ctrl"}, "h"}
+    }
+  }
+)</code></pre>
+<p>If <code>PersonalHotspot.hotspotName</code> isn't set, the first personal hotspot in the Wi-Fi menu will be selected, and <code>PersonalHotspot.hotspotName</code> will be set to the name of that hotspot.</p>
+
+      </header>
+      <h3>API Overview</h3>
+      <ul>
+        <li>Variables - Configurable values</li>
+          <ul>
+            <li><a href="#appsToKill">appsToKill</a></li>
+            <li><a href="#hotspotName">hotspotName</a></li>
+            <li><a href="#timeout">timeout</a></li>
+          </ul>
+        <li>Methods - API calls which can only be made on an object returned by a constructor</li>
+          <ul>
+            <li><a href="#bindHotkeys">bindHotkeys</a></li>
+            <li><a href="#connect">connect</a></li>
+            <li><a href="#disconnect">disconnect</a></li>
+            <li><a href="#toggle">toggle</a></li>
+          </ul>
+      </ul>
+      <h3>API Documentation</h3>
+        <h4 class="documentation-section">Variables</h4>
+          <section id="appsToKill">
+            <a name="//apple_ref/cpp/Variable/appsToKill" class="dashAnchor"></a>
+            <h5><a href="#appsToKill">appsToKill</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>PersonalHotspot.appsToKill (List)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>A list of strings representing applications to kill/open, when <code>PersonalHotspot:connect()</code> and <code>PersonalHotspot:disconnect()</code> are called respectively.</p>
+<p>Each string should be either:</p>
+<ul>
+<li>a bundle ID string as per <code>hs.application:bundleID()</code>, or</li>
+<li>an application name string as per <code>hs.application:name()</code>.</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="hotspotName">
+            <a name="//apple_ref/cpp/Variable/hotspotName" class="dashAnchor"></a>
+            <h5><a href="#hotspotName">hotspotName</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>PersonalHotspot.hotspotName (String)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>The name of the personal hotspot you want to connect/disconnect from, e.g., "John Appleseed’s iPhone".</p>
+<p>You can see the names of available hotspots by clicking on the Wi-Fi icon in the macOS menu bar and looking for menu items under the "Personal Hotspot(s)" heading.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="timeout">
+            <a name="//apple_ref/cpp/Variable/timeout" class="dashAnchor"></a>
+            <h5><a href="#timeout">timeout</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>PersonalHotspot.timeout (Number)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>The number of seconds to wait for personal hotspot to appear in Wi-Fi menu before attempting to connect/disconnect. Default is 3 seconds.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+        <h4 class="documentation-section">Methods</h4>
+          <section id="bindHotkeys">
+            <a name="//apple_ref/cpp/Method/bindHotkeys" class="dashAnchor"></a>
+            <h5><a href="#bindHotkeys">bindHotkeys</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>PersonalHotspot:bindHotkeys(mapping) -&gt; Self</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Binds hotkey mappings for this spoon.</p>
+<p>Parameters:</p>
+<ul>
+<li>mapping (Table) - A table with keys who's names correspond to methods of this spoon, and values that represent hotkey mappings. For example:<ul>
+<li><code>{ toggle = { {"cmd", "option", "ctrl" }, "h" }</code></li>
+</ul>
+</li>
+</ul>
+<p>Returns:</p>
+<ul>
+<li>Self</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="connect">
+            <a name="//apple_ref/cpp/Method/connect" class="dashAnchor"></a>
+            <h5><a href="#connect">connect</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>PersonalHotspot:connect() -&gt; Self</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Tries to connect to the personal hotspot named in <code>PersonalHotspot.hotspotName</code>. If <code>PersonalHotspot.hotspotName</code> is <code>nil</code>, the first hotspot in the Wi-Fi menu will be selected, and <code>PersonalHotspot.hotspotName</code> will be assigned to the name of that hotspot. Once connected to the hotspot, the applications specified in <code>PersonalHotspot.appsToKill</code> are killed.</p>
+<p>If there are no hotspots with the name in <code>PersonalHotspot.hotspotName</code>, or if <code>PersonalHotspot.hotspotName</code> is <code>nil</code> and there are no hotspots in the Wi-Fi menu, the Wi-Fi menu will be closed after <code>PersonalHotspot.timeout</code> seconds.</p>
+<p>Returns:</p>
+<ul>
+<li>Self</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="disconnect">
+            <a name="//apple_ref/cpp/Method/disconnect" class="dashAnchor"></a>
+            <h5><a href="#disconnect">disconnect</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>PersonalHotspot:disconnect() -&gt; Self</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>If currently connected to the personal hotspot named in <code>PersonalHotspot.hotspotName</code>, this method will disconnect from that hotspot and open the applications specified in <code>PersonalHostspot.appsToKill</code>.</p>
+<p>Returns:</p>
+<ul>
+<li>Self</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="toggle">
+            <a name="//apple_ref/cpp/Method/toggle" class="dashAnchor"></a>
+            <h5><a href="#toggle">toggle</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>PersonalHotspot:toggle() -&gt; Self</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Toggles personal hotspot connection.</p>
+<p>If the current wireless network name is <code>PersonalHotspot.hotspotName</code> this method calls <code>PersonalHotspot:disconnect()</code>, otherwise this method will call <code>PersonalHotspot:connect()</code>.</p>
+<p>Returns:</p>
+<ul>
+<li>Self</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+  </body>
+</html>
