@@ -11,13 +11,11 @@
     ],
     "Variable" : [
       {
+        "name" : "password_style",
+        "def" : "PasswordGenerator.password_style",
         "doc" : "Style for the generated password.",
         "stripped_doc" : [
           "Style for the generated password."
-        ],
-        "def" : "PasswordGenerator.password_style",
-        "parameters" : [
-
         ],
         "notes" : [
 
@@ -27,17 +25,17 @@
         "returns" : [
 
         ],
-        "name" : "password_style",
-        "desc" : "Style for the generated password."
+        "desc" : "Style for the generated password.",
+        "parameters" : [
+
+        ]
       },
       {
+        "name" : "password_generator_function",
+        "def" : "PasswordGenerator.password_generator_function",
         "doc" : "Explicit function used to generate passwords, if nil style is used instead.",
         "stripped_doc" : [
           "Explicit function used to generate passwords, if nil style is used instead."
-        ],
-        "def" : "PasswordGenerator.password_generator_function",
-        "parameters" : [
-
         ],
         "notes" : [
 
@@ -47,17 +45,17 @@
         "returns" : [
 
         ],
-        "name" : "password_generator_function",
-        "desc" : "Explicit function used to generate passwords, if nil style is used instead."
+        "desc" : "Explicit function used to generate passwords, if nil style is used instead.",
+        "parameters" : [
+
+        ]
       },
       {
+        "name" : "password_length",
+        "def" : "PasswordGenerator.password_length",
         "doc" : "Length of generated passwords. Is ignored by style xkcd.",
         "stripped_doc" : [
           "Length of generated passwords. Is ignored by style xkcd."
-        ],
-        "def" : "PasswordGenerator.password_length",
-        "parameters" : [
-
         ],
         "notes" : [
 
@@ -67,17 +65,17 @@
         "returns" : [
 
         ],
-        "name" : "password_length",
-        "desc" : "Length of generated passwords. Is ignored by style xkcd."
+        "desc" : "Length of generated passwords. Is ignored by style xkcd.",
+        "parameters" : [
+
+        ]
       },
       {
+        "name" : "word_count",
+        "def" : "PasswordGenerator.word_count",
         "doc" : "Number of words in generated passwords. Used by xkcd.",
         "stripped_doc" : [
           "Number of words in generated passwords. Used by xkcd."
-        ],
-        "def" : "PasswordGenerator.word_count",
-        "parameters" : [
-
         ],
         "notes" : [
 
@@ -87,19 +85,19 @@
         "returns" : [
 
         ],
-        "name" : "word_count",
-        "desc" : "Number of words in generated passwords. Used by xkcd."
+        "desc" : "Number of words in generated passwords. Used by xkcd.",
+        "parameters" : [
+
+        ]
       },
       {
+        "name" : "word_leet",
+        "def" : "PasswordGenerator.word_leet",
         "doc" : "Which word number will have its word `733t` transformed.\nUseful to ensure the word will at least have a one numeric value.\nDefaults to 0",
         "stripped_doc" : [
           "Which word number will have its word `733t` transformed.",
           "Useful to ensure the word will at least have a one numeric value.",
           "Defaults to 0"
-        ],
-        "def" : "PasswordGenerator.word_leet",
-        "parameters" : [
-
         ],
         "notes" : [
 
@@ -109,19 +107,19 @@
         "returns" : [
 
         ],
-        "name" : "word_leet",
-        "desc" : "Which word number will have its word `733t` transformed."
+        "desc" : "Which word number will have its word `733t` transformed.",
+        "parameters" : [
+
+        ]
       },
       {
+        "name" : "word_separators",
+        "def" : "PasswordGenerator.word_separators",
         "doc" : "String of separators to use between words.\nIf multiple characters one will be chosen by random.\nUsed by xkcd. Default is \" _-,$\"",
         "stripped_doc" : [
           "String of separators to use between words.",
           "If multiple characters one will be chosen by random.",
           "Used by xkcd. Default is \" _-,$\""
-        ],
-        "def" : "PasswordGenerator.word_separators",
-        "parameters" : [
-
         ],
         "notes" : [
 
@@ -131,30 +129,51 @@
         "returns" : [
 
         ],
-        "name" : "word_separators",
-        "desc" : "String of separators to use between words."
+        "desc" : "String of separators to use between words.",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "name" : "word_uppercase",
+        "def" : "PasswordGenerator.word_uppercase",
+        "doc" : "Number of words to uppercase the first letter.\nUsed by xkcd. Default is 1.",
+        "stripped_doc" : [
+          "Number of words to uppercase the first letter.",
+          "Used by xkcd. Default is 1."
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "PasswordGenerator.word_uppercase",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "desc" : "Number of words to uppercase the first letter.",
+        "parameters" : [
+
+        ]
       }
     ],
     "stripped_doc" : [
 
     ],
-    "desc" : "Generate a password and copy to the clipboard.",
     "Deprecated" : [
 
     ],
+    "desc" : "Generate a password and copy to the clipboard.",
     "type" : "Module",
     "Constructor" : [
 
     ],
     "items" : [
       {
+        "name" : "password_generator_function",
+        "def" : "PasswordGenerator.password_generator_function",
         "doc" : "Explicit function used to generate passwords, if nil style is used instead.",
         "stripped_doc" : [
           "Explicit function used to generate passwords, if nil style is used instead."
-        ],
-        "def" : "PasswordGenerator.password_generator_function",
-        "parameters" : [
-
         ],
         "notes" : [
 
@@ -164,17 +183,17 @@
         "returns" : [
 
         ],
-        "name" : "password_generator_function",
-        "desc" : "Explicit function used to generate passwords, if nil style is used instead."
+        "desc" : "Explicit function used to generate passwords, if nil style is used instead.",
+        "parameters" : [
+
+        ]
       },
       {
+        "name" : "password_length",
+        "def" : "PasswordGenerator.password_length",
         "doc" : "Length of generated passwords. Is ignored by style xkcd.",
         "stripped_doc" : [
           "Length of generated passwords. Is ignored by style xkcd."
-        ],
-        "def" : "PasswordGenerator.password_length",
-        "parameters" : [
-
         ],
         "notes" : [
 
@@ -184,17 +203,17 @@
         "returns" : [
 
         ],
-        "name" : "password_length",
-        "desc" : "Length of generated passwords. Is ignored by style xkcd."
+        "desc" : "Length of generated passwords. Is ignored by style xkcd.",
+        "parameters" : [
+
+        ]
       },
       {
+        "name" : "password_style",
+        "def" : "PasswordGenerator.password_style",
         "doc" : "Style for the generated password.",
         "stripped_doc" : [
           "Style for the generated password."
-        ],
-        "def" : "PasswordGenerator.password_style",
-        "parameters" : [
-
         ],
         "notes" : [
 
@@ -204,17 +223,17 @@
         "returns" : [
 
         ],
-        "name" : "password_style",
-        "desc" : "Style for the generated password."
+        "desc" : "Style for the generated password.",
+        "parameters" : [
+
+        ]
       },
       {
+        "name" : "word_count",
+        "def" : "PasswordGenerator.word_count",
         "doc" : "Number of words in generated passwords. Used by xkcd.",
         "stripped_doc" : [
           "Number of words in generated passwords. Used by xkcd."
-        ],
-        "def" : "PasswordGenerator.word_count",
-        "parameters" : [
-
         ],
         "notes" : [
 
@@ -224,19 +243,19 @@
         "returns" : [
 
         ],
-        "name" : "word_count",
-        "desc" : "Number of words in generated passwords. Used by xkcd."
+        "desc" : "Number of words in generated passwords. Used by xkcd.",
+        "parameters" : [
+
+        ]
       },
       {
+        "name" : "word_leet",
+        "def" : "PasswordGenerator.word_leet",
         "doc" : "Which word number will have its word `733t` transformed.\nUseful to ensure the word will at least have a one numeric value.\nDefaults to 0",
         "stripped_doc" : [
           "Which word number will have its word `733t` transformed.",
           "Useful to ensure the word will at least have a one numeric value.",
           "Defaults to 0"
-        ],
-        "def" : "PasswordGenerator.word_leet",
-        "parameters" : [
-
         ],
         "notes" : [
 
@@ -246,19 +265,19 @@
         "returns" : [
 
         ],
-        "name" : "word_leet",
-        "desc" : "Which word number will have its word `733t` transformed."
+        "desc" : "Which word number will have its word `733t` transformed.",
+        "parameters" : [
+
+        ]
       },
       {
+        "name" : "word_separators",
+        "def" : "PasswordGenerator.word_separators",
         "doc" : "String of separators to use between words.\nIf multiple characters one will be chosen by random.\nUsed by xkcd. Default is \" _-,$\"",
         "stripped_doc" : [
           "String of separators to use between words.",
           "If multiple characters one will be chosen by random.",
           "Used by xkcd. Default is \" _-,$\""
-        ],
-        "def" : "PasswordGenerator.word_separators",
-        "parameters" : [
-
         ],
         "notes" : [
 
@@ -268,20 +287,39 @@
         "returns" : [
 
         ],
-        "name" : "word_separators",
-        "desc" : "String of separators to use between words."
+        "desc" : "String of separators to use between words.",
+        "parameters" : [
+
+        ]
       },
       {
+        "name" : "word_uppercase",
+        "def" : "PasswordGenerator.word_uppercase",
+        "doc" : "Number of words to uppercase the first letter.\nUsed by xkcd. Default is 1.",
+        "stripped_doc" : [
+          "Number of words to uppercase the first letter.",
+          "Used by xkcd. Default is 1."
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "PasswordGenerator.word_uppercase",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "desc" : "Number of words to uppercase the first letter.",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "name" : "bindHotkeys",
+        "def" : "PasswordGenerator:bindHotkeys(mapping)",
         "doc" : "Binds hotkeys for PasswordGenerator\n\nParameters:\n * mapping - A table containing hotkey objifier\/key details for the following items:\n  * copy - Generate password and copy to clipboard\n  * paste - Generate password and paste",
         "stripped_doc" : [
           "Binds hotkeys for PasswordGenerator",
           ""
-        ],
-        "def" : "PasswordGenerator:bindHotkeys(mapping)",
-        "parameters" : [
-          " * mapping - A table containing hotkey objifier\/key details for the following items:",
-          "  * copy - Generate password and copy to clipboard",
-          "  * paste - Generate password and paste"
         ],
         "notes" : [
 
@@ -291,18 +329,19 @@
         "returns" : [
 
         ],
-        "name" : "bindHotkeys",
-        "desc" : "Binds hotkeys for PasswordGenerator"
+        "desc" : "Binds hotkeys for PasswordGenerator",
+        "parameters" : [
+          " * mapping - A table containing hotkey objifier\/key details for the following items:",
+          "  * copy - Generate password and copy to clipboard",
+          "  * paste - Generate password and paste"
+        ]
       },
       {
+        "name" : "copyPassword",
+        "def" : "PasswordGenerator:copyPassword()",
         "doc" : "Generates a password and copies to clipboard\n\nParameters:\n * None\n\n Returns:\n  * The generated password",
         "stripped_doc" : [
           "Generates a password and copies to clipboard",
-          ""
-        ],
-        "def" : "PasswordGenerator:copyPassword()",
-        "parameters" : [
-          " * None",
           ""
         ],
         "notes" : [
@@ -313,18 +352,18 @@
         "returns" : [
           "  * The generated password"
         ],
-        "name" : "copyPassword",
-        "desc" : "Generates a password and copies to clipboard"
+        "desc" : "Generates a password and copies to clipboard",
+        "parameters" : [
+          " * None",
+          ""
+        ]
       },
       {
+        "name" : "pastePassword",
+        "def" : "PasswordGenerator:pastePassword()",
         "doc" : "Generates a password and types it\n\nParameters:\n * None\n\n Returns:\n  * The generated password",
         "stripped_doc" : [
           "Generates a password and types it",
-          ""
-        ],
-        "def" : "PasswordGenerator:pastePassword()",
-        "parameters" : [
-          " * None",
           ""
         ],
         "notes" : [
@@ -335,86 +374,89 @@
         "returns" : [
           "  * The generated password"
         ],
-        "name" : "pastePassword",
-        "desc" : "Generates a password and types it"
-      }
-    ],
-    "Method" : [
-      {
-        "doc" : "Binds hotkeys for PasswordGenerator\n\nParameters:\n * mapping - A table containing hotkey objifier\/key details for the following items:\n  * copy - Generate password and copy to clipboard\n  * paste - Generate password and paste",
-        "stripped_doc" : [
-          "Binds hotkeys for PasswordGenerator",
-          ""
-        ],
-        "def" : "PasswordGenerator:bindHotkeys(mapping)",
-        "parameters" : [
-          " * mapping - A table containing hotkey objifier\/key details for the following items:",
-          "  * copy - Generate password and copy to clipboard",
-          "  * paste - Generate password and paste"
-        ],
-        "notes" : [
-
-        ],
-        "signature" : "PasswordGenerator:bindHotkeys(mapping)",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "name" : "bindHotkeys",
-        "desc" : "Binds hotkeys for PasswordGenerator"
-      },
-      {
-        "doc" : "Generates a password and copies to clipboard\n\nParameters:\n * None\n\n Returns:\n  * The generated password",
-        "stripped_doc" : [
-          "Generates a password and copies to clipboard",
-          ""
-        ],
-        "def" : "PasswordGenerator:copyPassword()",
+        "desc" : "Generates a password and types it",
         "parameters" : [
           " * None",
           ""
-        ],
-        "notes" : [
-
-        ],
-        "signature" : "PasswordGenerator:copyPassword()",
-        "type" : "Method",
-        "returns" : [
-          "  * The generated password"
-        ],
-        "name" : "copyPassword",
-        "desc" : "Generates a password and copies to clipboard"
-      },
-      {
-        "doc" : "Generates a password and types it\n\nParameters:\n * None\n\n Returns:\n  * The generated password",
-        "stripped_doc" : [
-          "Generates a password and types it",
-          ""
-        ],
-        "def" : "PasswordGenerator:pastePassword()",
-        "parameters" : [
-          " * None",
-          ""
-        ],
-        "notes" : [
-
-        ],
-        "signature" : "PasswordGenerator:pastePassword()",
-        "type" : "Method",
-        "returns" : [
-          "  * The generated password"
-        ],
-        "name" : "pastePassword",
-        "desc" : "Generates a password and types it"
+        ]
       }
-    ],
-    "Command" : [
-
     ],
     "Field" : [
 
     ],
+    "Command" : [
+
+    ],
     "doc" : "Generate a password and copy to the clipboard.\n\nDownload: [https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/PasswordGenerator.spoon.zip](https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/PasswordGenerator.spoon.zip)",
+    "Method" : [
+      {
+        "name" : "bindHotkeys",
+        "def" : "PasswordGenerator:bindHotkeys(mapping)",
+        "doc" : "Binds hotkeys for PasswordGenerator\n\nParameters:\n * mapping - A table containing hotkey objifier\/key details for the following items:\n  * copy - Generate password and copy to clipboard\n  * paste - Generate password and paste",
+        "stripped_doc" : [
+          "Binds hotkeys for PasswordGenerator",
+          ""
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "PasswordGenerator:bindHotkeys(mapping)",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "desc" : "Binds hotkeys for PasswordGenerator",
+        "parameters" : [
+          " * mapping - A table containing hotkey objifier\/key details for the following items:",
+          "  * copy - Generate password and copy to clipboard",
+          "  * paste - Generate password and paste"
+        ]
+      },
+      {
+        "name" : "copyPassword",
+        "def" : "PasswordGenerator:copyPassword()",
+        "doc" : "Generates a password and copies to clipboard\n\nParameters:\n * None\n\n Returns:\n  * The generated password",
+        "stripped_doc" : [
+          "Generates a password and copies to clipboard",
+          ""
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "PasswordGenerator:copyPassword()",
+        "type" : "Method",
+        "returns" : [
+          "  * The generated password"
+        ],
+        "desc" : "Generates a password and copies to clipboard",
+        "parameters" : [
+          " * None",
+          ""
+        ]
+      },
+      {
+        "name" : "pastePassword",
+        "def" : "PasswordGenerator:pastePassword()",
+        "doc" : "Generates a password and types it\n\nParameters:\n * None\n\n Returns:\n  * The generated password",
+        "stripped_doc" : [
+          "Generates a password and types it",
+          ""
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "PasswordGenerator:pastePassword()",
+        "type" : "Method",
+        "returns" : [
+          "  * The generated password"
+        ],
+        "desc" : "Generates a password and types it",
+        "parameters" : [
+          " * None",
+          ""
+        ]
+      }
+    ],
     "name" : "PasswordGenerator"
   }
 ]
