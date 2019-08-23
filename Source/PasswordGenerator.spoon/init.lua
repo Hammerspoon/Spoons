@@ -75,6 +75,9 @@ function xkcd_generator(obj)
   pwd = ""
   for i=1,wordcount do
     word = xkcdwords[ math.random(#xkcdwords) ]
+    if i<= obj.word_uppercase then
+      word = (word:gsub("^%l", string.upper))
+    end
     if i==leetpos then
       word = leet(word)
     end
@@ -130,6 +133,12 @@ obj.word_leet = getSetting('word_leet', 0)
 --- If multiple characters one will be chosen by random.
 --- Used by xkcd. Default is " _-,$"
 obj.word_separators = getSetting('word_separators', " _-,$")
+
+--- PasswordGenerator.word_uppercase
+--- Variable
+--- Number of words to uppercase the first letter.
+--- Used by xkcd. Default is 1.
+obj.word_uppercase = getSetting('word_uppercase', 1)
 
 --- PasswordGenerator:bindHotkeys(mapping)
 --- Method
