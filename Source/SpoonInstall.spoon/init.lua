@@ -25,6 +25,7 @@ obj.logger = hs.logger.new('SpoonInstall')
 --- of each entry is an identifier for the repository, and its value
 --- is a table with the following entries:
 ---  * desc - Human-readable description for the repository
+---  * branch - Active git branch for the Spoon files
 ---  * url - Base URL for the repository. For now the repository is assumed to be hosted in GitHub, and the URL should be the main base URL of the repository. Repository metadata needs to be stored under `docs/docs.json`, and the Spoon zip files need to be stored under `Spoons/`.
 ---
 --- Default value:
@@ -33,6 +34,7 @@ obj.logger = hs.logger.new('SpoonInstall')
 ---    default = {
 ---       url = "https://github.com/Hammerspoon/Spoons",
 ---       desc = "Main Hammerspoon Spoon repository",
+---       branch = "master",
 ---    }
 --- }
 --- ```
@@ -40,6 +42,7 @@ obj.repos = {
    default = {
       url = "https://github.com/Hammerspoon/Spoons",
       desc = "Main Hammerspoon Spoon repository",
+      branch = "master",
    }
 }
 
@@ -96,8 +99,9 @@ end
 -- Internal function to return the URL of the docs.json file based on the URL of a GitHub repo
 function obj:_build_repo_json_url(repo)
    if self.repos[repo] and self.repos[repo].url then
-      self.repos[repo].json_url = string.gsub(self.repos[repo].url, "/$", "") .. "/raw/master/docs/docs.json"
-      self.repos[repo].download_base_url = string.gsub(self.repos[repo].url, "/$", "") .. "/raw/master/Spoons/"
+      local branch = self.repos[repo].branch or "master"
+      self.repos[repo].json_url = string.gsub(self.repos[repo].url, "/$", "") .. "/raw/"..branch.."/docs/docs.json"
+      self.repos[repo].download_base_url = string.gsub(self.repos[repo].url, "/$", "") .. "/raw/"..branch.."/Spoons/"
       return true
    else
       self.logger.ef("Invalid or unknown repository '%s'", repo)
