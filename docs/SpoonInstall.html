@@ -82,6 +82,7 @@ of each entry is an identifier for the repository, and its value
 is a table with the following entries:</p>
 <ul>
 <li>desc - Human-readable description for the repository</li>
+<li>branch - Active git branch for the Spoon files</li>
 <li>url - Base URL for the repository. For now the repository is assumed to be hosted in GitHub, and the URL should be the main base URL of the repository. Repository metadata needs to be stored under <code>docs/docs.json</code>, and the Spoon zip files need to be stored under <code>Spoons/</code>.</li>
 </ul>
 <p>Default value:</p>
@@ -90,6 +91,7 @@ is a table with the following entries:</p>
    default = {
       url = "https://github.com/Hammerspoon/Spoons",
       desc = "Main Hammerspoon Spoon repository",
+      branch = "master",
    }
 }</code></pre>
 </td>
