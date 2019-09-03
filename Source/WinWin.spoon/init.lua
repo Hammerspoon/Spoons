@@ -133,7 +133,7 @@ function obj:moveAndResize(option)
             cwin:setFrame({x=cres.x+cres.w/2, y=cres.y+cres.h/2, w=cres.w/2, h=cres.h/2})
         elseif option == "fullscreen" then
             windowStash(cwin)
-            cwin:setFrame({x=cres.x, y=cres.y, w=cres.w, h=cres.h})
+            cwin:setFullScreen(true)
         elseif option == "maximize" then
             windowStash(cwin)
             cwin:maximize()
