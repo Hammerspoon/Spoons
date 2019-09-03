@@ -134,6 +134,18 @@ function obj:moveAndResize(option)
         elseif option == "fullscreen" then
             windowStash(cwin)
             cwin:setFrame({x=cres.x, y=cres.y, w=cres.w, h=cres.h})
+        elseif option == "maximize" then
+            windowStash(cwin)
+            cwin:maximize()
+        elseif option == "minimize" then
+            if cwin:isFullScreen() then
+                cwin:setFullScreen(false)
+                -- required to let the window manager register the new state,
+                -- otherwise the follow-up minimize() call doesn't work
+                hs.timer.usleep(999999)
+            end
+            windowStash(cwin)
+            cwin:minimize()
         elseif option == "center" then
             windowStash(cwin)
             cwin:centerOnScreen()
