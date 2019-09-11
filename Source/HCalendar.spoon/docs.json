@@ -1,238 +1,112 @@
 [
   {
-    "Constant" : [
-
-    ],
-    "submodules" : [
-
-    ],
-    "Function" : [
-
-    ],
-    "Variable" : [
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
       {
-        "doc" : "Control whether or not progress through the month is shown.",
-        "stripped_doc" : [
-          "Control whether or not progress through the month is shown."
-        ],
-        "def" : "HCalendar.showProgress (Boolean)",
-        "desc" : "Control whether or not progress through the month is shown.",
-        "notes" : [
-
-        ],
-        "signature" : "HCalendar.showProgress (Boolean)",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "name" : "showProgress",
-        "parameters" : [
-
-        ]
+        "def": "HCalendar:createCanvas()",
+        "desc": "Create the calendar canvas",
+        "doc": "Create the calendar canvas",
+        "name": "createCanvas",
+        "signature": "HCalendar:createCanvas()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "HCalendar:init()",
+        "desc": "Initializes the spoon",
+        "doc": "Initializes the spoon",
+        "name": "init",
+        "signature": "HCalendar:init()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "HCalendar:start()",
+        "desc": "Start HCalendar timer and show the canvas",
+        "doc": "Start HCalendar timer and show the canvas",
+        "name": "start",
+        "signature": "HCalendar:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "HCalendar:stop()",
+        "desc": "Stop HCalendar timer and hide the canvas",
+        "doc": "Stop HCalendar timer and hide the canvas",
+        "name": "stop",
+        "signature": "HCalendar:stop()",
+        "stripped_doc": "",
+        "type": "Method"
       }
     ],
-    "stripped_doc" : [
-
-    ],
-    "desc" : "A horizonal calendar inset into the desktop",
-    "Deprecated" : [
-
-    ],
-    "type" : "Module",
-    "Constructor" : [
-
-    ],
-    "items" : [
+    "Variable": [
       {
-        "doc" : "Control whether or not progress through the month is shown.",
-        "stripped_doc" : [
-          "Control whether or not progress through the month is shown."
-        ],
-        "def" : "HCalendar.showProgress (Boolean)",
-        "desc" : "Control whether or not progress through the month is shown.",
-        "notes" : [
-
-        ],
-        "signature" : "HCalendar.showProgress (Boolean)",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "name" : "showProgress",
-        "parameters" : [
-
-        ]
-      },
-      {
-        "doc" : "Create the calendar canvas",
-        "stripped_doc" : [
-          "Create the calendar canvas"
-        ],
-        "def" : "HCalendar:createCanvas()",
-        "desc" : "Create the calendar canvas",
-        "notes" : [
-
-        ],
-        "signature" : "HCalendar:createCanvas()",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "name" : "createCanvas",
-        "parameters" : [
-
-        ]
-      },
-      {
-        "doc" : "Initializes the spoon",
-        "stripped_doc" : [
-          "Initializes the spoon"
-        ],
-        "def" : "HCalendar:init()",
-        "desc" : "Initializes the spoon",
-        "notes" : [
-
-        ],
-        "signature" : "HCalendar:init()",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "name" : "init",
-        "parameters" : [
-
-        ]
-      },
-      {
-        "doc" : "Start HCalendar timer and show the canvas",
-        "stripped_doc" : [
-          "Start HCalendar timer and show the canvas"
-        ],
-        "def" : "HCalendar:start()",
-        "desc" : "Start HCalendar timer and show the canvas",
-        "notes" : [
-
-        ],
-        "signature" : "HCalendar:start()",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "name" : "start",
-        "parameters" : [
-
-        ]
-      },
-      {
-        "doc" : "Stop HCalendar timer and hide the canvas",
-        "stripped_doc" : [
-          "Stop HCalendar timer and hide the canvas"
-        ],
-        "def" : "HCalendar:stop()",
-        "desc" : "Stop HCalendar timer and hide the canvas",
-        "notes" : [
-
-        ],
-        "signature" : "HCalendar:stop()",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "name" : "stop",
-        "parameters" : [
-
-        ]
+        "def": "HCalendar.showProgress (Boolean)",
+        "desc": "Control whether or not progress through the month is shown.",
+        "doc": "Control whether or not progress through the month is shown.",
+        "name": "showProgress",
+        "signature": "HCalendar.showProgress (Boolean)",
+        "stripped_doc": "",
+        "type": "Variable"
       }
     ],
-    "doc" : "A horizonal calendar inset into the desktop\n\nDownload: [https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/HCalendar.spoon.zip](https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/HCalendar.spoon.zip)",
-    "Command" : [
-
-    ],
-    "Field" : [
-
-    ],
-    "Method" : [
+    "desc": "A horizonal calendar inset into the desktop",
+    "doc": "A horizonal calendar inset into the desktop\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/HCalendar.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/HCalendar.spoon.zip)",
+    "items": [
       {
-        "doc" : "Create the calendar canvas",
-        "stripped_doc" : [
-          "Create the calendar canvas"
-        ],
-        "def" : "HCalendar:createCanvas()",
-        "desc" : "Create the calendar canvas",
-        "notes" : [
-
-        ],
-        "signature" : "HCalendar:createCanvas()",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "name" : "createCanvas",
-        "parameters" : [
-
-        ]
+        "def": "HCalendar:createCanvas()",
+        "desc": "Create the calendar canvas",
+        "doc": "Create the calendar canvas",
+        "name": "createCanvas",
+        "signature": "HCalendar:createCanvas()",
+        "stripped_doc": "",
+        "type": "Method"
       },
       {
-        "doc" : "Initializes the spoon",
-        "stripped_doc" : [
-          "Initializes the spoon"
-        ],
-        "def" : "HCalendar:init()",
-        "desc" : "Initializes the spoon",
-        "notes" : [
-
-        ],
-        "signature" : "HCalendar:init()",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "name" : "init",
-        "parameters" : [
-
-        ]
+        "def": "HCalendar:init()",
+        "desc": "Initializes the spoon",
+        "doc": "Initializes the spoon",
+        "name": "init",
+        "signature": "HCalendar:init()",
+        "stripped_doc": "",
+        "type": "Method"
       },
       {
-        "doc" : "Start HCalendar timer and show the canvas",
-        "stripped_doc" : [
-          "Start HCalendar timer and show the canvas"
-        ],
-        "def" : "HCalendar:start()",
-        "desc" : "Start HCalendar timer and show the canvas",
-        "notes" : [
-
-        ],
-        "signature" : "HCalendar:start()",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "name" : "start",
-        "parameters" : [
-
-        ]
+        "def": "HCalendar.showProgress (Boolean)",
+        "desc": "Control whether or not progress through the month is shown.",
+        "doc": "Control whether or not progress through the month is shown.",
+        "name": "showProgress",
+        "signature": "HCalendar.showProgress (Boolean)",
+        "stripped_doc": "",
+        "type": "Variable"
       },
       {
-        "doc" : "Stop HCalendar timer and hide the canvas",
-        "stripped_doc" : [
-          "Stop HCalendar timer and hide the canvas"
-        ],
-        "def" : "HCalendar:stop()",
-        "desc" : "Stop HCalendar timer and hide the canvas",
-        "notes" : [
-
-        ],
-        "signature" : "HCalendar:stop()",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "name" : "stop",
-        "parameters" : [
-
-        ]
+        "def": "HCalendar:start()",
+        "desc": "Start HCalendar timer and show the canvas",
+        "doc": "Start HCalendar timer and show the canvas",
+        "name": "start",
+        "signature": "HCalendar:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "HCalendar:stop()",
+        "desc": "Stop HCalendar timer and hide the canvas",
+        "doc": "Stop HCalendar timer and hide the canvas",
+        "name": "stop",
+        "signature": "HCalendar:stop()",
+        "stripped_doc": "",
+        "type": "Method"
       }
     ],
-    "name" : "HCalendar"
+    "name": "HCalendar",
+    "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/HCalendar.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/HCalendar.spoon.zip)",
+    "submodules": [],
+    "type": "Module"
   }
 ]
