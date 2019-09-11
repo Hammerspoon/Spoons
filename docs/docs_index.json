@@ -642,6 +642,36 @@
     "type": "Module"
   },
   {
+    "desc": "Control whether or not progress through the month is shown.",
+    "module": "HCalendar",
+    "name": "showProgress",
+    "type": "Variable"
+  },
+  {
+    "desc": "Create the calendar canvas",
+    "module": "HCalendar",
+    "name": "createCanvas",
+    "type": "Method"
+  },
+  {
+    "desc": "Initializes the spoon",
+    "module": "HCalendar",
+    "name": "init",
+    "type": "Method"
+  },
+  {
+    "desc": "Start HCalendar timer and show the canvas",
+    "module": "HCalendar",
+    "name": "start",
+    "type": "Method"
+  },
+  {
+    "desc": "Stop HCalendar timer and hide the canvas",
+    "module": "HCalendar",
+    "name": "stop",
+    "type": "Method"
+  },
+  {
     "desc": "Play/pause music players when headphones are connected/disconnected",
     "name": "HeadphoneAutoPause",
     "type": "Module"
