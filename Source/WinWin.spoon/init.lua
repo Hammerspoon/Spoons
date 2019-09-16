@@ -87,7 +87,7 @@ end
 --- Move and resize the focused window.
 ---
 --- Parameters:
----  * option - A string specifying the option, valid strings are: `halfleft`, `halfright`, `halfup`, `halfdown`, `cornerNW`, `cornerSW`, `cornerNE`, `cornerSE`, `center`, `fullscreen`, `expand`, `shrink`.
+---  * option - A string specifying the option, valid strings are: `halfleft`, `halfright`, `halfup`, `halfdown`, `cornerNW`, `cornerSW`, `cornerNE`, `cornerSE`, `center`, `fullscreen`, `maximize`, `minimize`, `expand`, `shrink`.
 local function windowStash(window)
     local winid = window:id()
     local winf = window:frame()
@@ -107,54 +107,35 @@ function obj:moveAndResize(option)
         local stepw = cres.w/obj.gridparts
         local steph = cres.h/obj.gridparts
         local wf = cwin:frame()
-        if option == "halfleft" then
-            windowStash(cwin)
-            cwin:setFrame({x=cres.x, y=cres.y, w=cres.w/2, h=cres.h})
-        elseif option == "halfright" then
-            windowStash(cwin)
-            cwin:setFrame({x=cres.x+cres.w/2, y=cres.y, w=cres.w/2, h=cres.h})
-        elseif option == "halfup" then
-            windowStash(cwin)
-            cwin:setFrame({x=cres.x, y=cres.y, w=cres.w, h=cres.h/2})
-        elseif option == "halfdown" then
-            windowStash(cwin)
-            cwin:setFrame({x=cres.x, y=cres.y+cres.h/2, w=cres.w, h=cres.h/2})
-        elseif option == "cornerNW" then
-            windowStash(cwin)
-            cwin:setFrame({x=cres.x, y=cres.y, w=cres.w/2, h=cres.h/2})
-        elseif option == "cornerNE" then
-            windowStash(cwin)
-            cwin:setFrame({x=cres.x+cres.w/2, y=cres.y, w=cres.w/2, h=cres.h/2})
-        elseif option == "cornerSW" then
-            windowStash(cwin)
-            cwin:setFrame({x=cres.x, y=cres.y+cres.h/2, w=cres.w/2, h=cres.h/2})
-        elseif option == "cornerSE" then
-            windowStash(cwin)
-            cwin:setFrame({x=cres.x+cres.w/2, y=cres.y+cres.h/2, w=cres.w/2, h=cres.h/2})
-        elseif option == "fullscreen" then
-            windowStash(cwin)
-            cwin:setFullScreen(true)
-        elseif option == "maximize" then
-            windowStash(cwin)
-            cwin:maximize()
-        elseif option == "minimize" then
-            if cwin:isFullScreen() then
+        options = {
+            halfleft = function() cwin:setFrame({x=cres.x, y=cres.y, w=cres.w/2, h=cres.h}) end,
+            halfright = function() cwin:setFrame({x=cres.x+cres.w/2, y=cres.y, w=cres.w/2, h=cres.h}) end,
+            halfup = function() cwin:setFrame({x=cres.x, y=cres.y, w=cres.w, h=cres.h/2}) end,
+            halfdown = function() cwin:setFrame({x=cres.x, y=cres.y+cres.h/2, w=cres.w, h=cres.h/2}) end,
+            cornerNW = function() cwin:setFrame({x=cres.x, y=cres.y, w=cres.w/2, h=cres.h/2}) end,
+            cornerNE = function() cwin:setFrame({x=cres.x+cres.w/2, y=cres.y, w=cres.w/2, h=cres.h/2}) end,
+            cornerSW = function() cwin:setFrame({x=cres.x, y=cres.y+cres.h/2, w=cres.w/2, h=cres.h/2}) end,
+            cornerSE = function() cwin:setFrame({x=cres.x+cres.w/2, y=cres.y+cres.h/2, w=cres.w/2, h=cres.h/2}) end,
+            fullscreen = function() cwin:setFullScreen(true) end,
+            maximize = function() cwin:maximize() end,
+            minimize = function() cwin:minimize() end,
+            center = function() cwin:centerOnScreen() end,
+            expand = function() cwin:setFrame({x=wf.x-stepw, y=wf.y-steph, w=wf.w+(stepw*2), h=wf.h+(steph*2)}) end,
+            shrink = function() cwin:setFrame({x=wf.x+stepw, y=wf.y+steph, w=wf.w-(stepw*2), h=wf.h-(steph*2)}) end,
+        }
+        if not (options[option] ~= nil) then
+            hs.alert.show("Unknown option: " .. option)
+        else
+            -- if the window is fullscreen, and that's not what the user wants,
+            -- toggle fullscreen off before proceeding
+            if option ~= "fullscreen" and cwin:isFullScreen() then
                 cwin:setFullScreen(false)
-                -- required to let the window manager register the new state,
+                -- a sleep is required to let the window manager register the new state,
                 -- otherwise the follow-up minimize() call doesn't work
                 hs.timer.usleep(999999)
             end
             windowStash(cwin)
-            cwin:minimize()
-        elseif option == "center" then
-            windowStash(cwin)
-            cwin:centerOnScreen()
-        elseif option == "expand" then
-            cwin:setFrame({x=wf.x-stepw, y=wf.y-steph, w=wf.w+(stepw*2), h=wf.h+(steph*2)})
-        elseif option == "shrink" then
-            cwin:setFrame({x=wf.x+stepw, y=wf.y+steph, w=wf.w-(stepw*2), h=wf.h-(steph*2)})
-        else
-            hs.alert.show("Unknown option: " .. option)
+            options[option]()
         end
     else
         hs.alert.show("No focused window!")
