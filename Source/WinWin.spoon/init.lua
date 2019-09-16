@@ -123,7 +123,7 @@ function obj:moveAndResize(option)
             expand = function() cwin:setFrame({x=wf.x-stepw, y=wf.y-steph, w=wf.w+(stepw*2), h=wf.h+(steph*2)}) end,
             shrink = function() cwin:setFrame({x=wf.x+stepw, y=wf.y+steph, w=wf.w-(stepw*2), h=wf.h-(steph*2)}) end,
         }
-        if not (options[option] ~= nil) then
+        if options[option] == nil then
             hs.alert.show("Unknown option: " .. option)
         else
             -- if the window is fullscreen, and that's not what the user wants,
