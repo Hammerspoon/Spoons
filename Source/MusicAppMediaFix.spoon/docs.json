@@ -1,0 +1,81 @@
+[
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
+        "def": "MusicAppMediaFix:start()",
+        "desc": "Starts the hs.eventtap that powers this Spoon",
+        "doc": "Starts the hs.eventtap that powers this Spoon\n\nParameters:\n * None\n\nReturns:\n * The MusicAppMediaFix object",
+        "name": "start",
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * The MusicAppMediaFix object"
+        ],
+        "signature": "MusicAppMediaFix:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "MusicAppMediaFix:stop()",
+        "desc": "Stops the hs.eventtap that powers this Spoon",
+        "doc": "Stops the hs.eventtap that powers this Spoon\n\nParameters:\n * None\n\nReturns:\n * The MusicAppMediaFix object",
+        "name": "stop",
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * The MusicAppMediaFix object"
+        ],
+        "signature": "MusicAppMediaFix:stop()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [],
+    "desc": "Override macOS behaviour and send all media keys (play/prev/next) to Music.app",
+    "doc": "Override macOS behaviour and send all media keys (play/prev/next) to Music.app",
+    "items": [
+      {
+        "def": "MusicAppMediaFix:start()",
+        "desc": "Starts the hs.eventtap that powers this Spoon",
+        "doc": "Starts the hs.eventtap that powers this Spoon\n\nParameters:\n * None\n\nReturns:\n * The MusicAppMediaFix object",
+        "name": "start",
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * The MusicAppMediaFix object"
+        ],
+        "signature": "MusicAppMediaFix:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "MusicAppMediaFix:stop()",
+        "desc": "Stops the hs.eventtap that powers this Spoon",
+        "doc": "Stops the hs.eventtap that powers this Spoon\n\nParameters:\n * None\n\nReturns:\n * The MusicAppMediaFix object",
+        "name": "stop",
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * The MusicAppMediaFix object"
+        ],
+        "signature": "MusicAppMediaFix:stop()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "name": "MusicAppMediaFix",
+    "stripped_doc": "",
+    "submodules": [],
+    "type": "Module"
+  }
+]
