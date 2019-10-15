@@ -31,7 +31,13 @@ end
 function obj.mediaKeyCallback(event)
     local data = event:systemKey()
 
-    if data["down"] == false or data["repeat"] == true then
+    -- ignore everything but media keys
+    if data["key"] ~= "PLAY" and data["key"] ~= "FAST" and data["key"] ~= "REWIND" then
+        return false, nil
+    end
+
+    -- handle action
+    if data["down"] == false then
         if data["key"] == "PLAY" then
             hs.applescript('tell application "Music" to playpause')
         elseif data["key"] == "FAST" then
@@ -41,6 +47,7 @@ function obj.mediaKeyCallback(event)
         end
     end
 
+    -- consume event
     return true, nil
 end
 
