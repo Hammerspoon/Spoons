@@ -37,7 +37,7 @@ function obj.mediaKeyCallback(event)
     end
 
     -- handle action
-    if data["down"] == false then
+    if data["down"] == false or data["repeat"] == true then
         if data["key"] == "PLAY" then
             hs.applescript('tell application "Music" to playpause')
         elseif data["key"] == "FAST" then
