@@ -62,35 +62,45 @@ obj.fetch_leanpub_covers = true
 --- keep the "Book generation complete" messages.
 obj.persistent_notification = { complete = true }
 
---- Leanpub:getBookStatus(slug)
+--- Leanpub:getBookStatus(slug, callback)
 --- Method
---- Get the status of a book given its slug.
+--- Asynchronously get the status of a book given its slug.
 ---
 --- Parameters:
 ---  * slug - URL "slug" of the book to check. The slug of a book is
 ---    the part of the URL for your book after https://leanpub.com/.
+---  * callback - function to which the book status will be passed
+---    when the data is received. This function will be passed a
+---    single argument, a table containing the fields returned by the
+---    Leanpub API. If the book is not being built at the moment, an
+---    empty table is passed. If an error occurs, the value passed
+---    will be `nil`. Samples of the return values can be found at
+---    https://leanpub.com/help/api#getting-the-job-status
 ---
 --- Returns:
----  * Table containing the fields returned by the Leanpub API. If the
----    book is not being built at the moment, an empty table is
----    returned. If an error occurs, returns `nil`. Samples of the
----    return values can be found at
----    https://leanpub.com/help/api#getting-the-job-status
-function obj:getBookStatus(slug)
+---  * No return value
+function obj:getBookStatus(slug, callback)
   local url = string.format("https://leanpub.com/%s/job_status?api_key=%s",
                             slug, self.api_key)
   self.logger.df("Fetching status for book '%s'", slug)
-  status,body,headers = hs.http.get(url, {})
+  hs.http.asyncGet(url, {},
+                   function(s, b, h)
+                     self:_getBookStatusCallback(slug,s,b,h,callback)
+                   end)
+end
+
+function obj:_getBookStatusCallback(slug,status,body,headers,callback)
   if status == 200 then
-    self.logger.df("  Status: %s", body)
-    return hs.json.decode(body)
+    self.logger.df("  Status of book '%s': %s", slug, body)
+    callback(hs.json.decode(body))
   else
     -- status==0 means no network (which might be common if you use a
-    -- laptop), so we don't produce an error in that case
+    -- laptop), so we don't produce an error in that case. Otherwise
+    -- we print an error and call the callback with nil
     if status ~= 0 then
       self.logger.ef("  Error: %s %s %s", status, body, hs.inspect(headers))
+      callback(nil)
     end
-    return nil
   end
 end
 
@@ -122,7 +132,16 @@ obj.last_status = {}
 ---    error occurred
 
 function obj:displayBookStatus(book)
-  local status = self:getBookStatus(book.slug)
+  -- Fetches and stores the cover if needed
+  self:fetchBookCover(book)
+  -- Gets and displays the book status if needed
+  self:getBookStatus(book.slug,
+                     function(status)
+                       self:_displayBookStatusCallback(book, status)
+                     end)
+end
+
+function obj:_displayBookStatusCallback(book, status)
   if status then
     local step = status.message
     if step and step ~= self.last_status[book.slug] then
@@ -132,12 +151,6 @@ function obj:displayBookStatus(book)
           subTitle = string.format("Step %d of %d",status.num,status.total),
           informativeText = step
       })
-      -- If no icon is given, fetch it from Leanpub. Explicitly check
-      -- against nil to allow disabling the icon by specifying its
-      -- value as `false`
-      if book.icon == nil and self.fetch_leanpub_covers then
-        book.icon = self:fetchBookCover(book.slug)
-      end
       -- If we have an icon, put it in the notification
       if book.icon then
         n:setIdImage(book.icon)
@@ -151,38 +164,52 @@ function obj:displayBookStatus(book)
     end
     self.last_status[book.slug] = step
   end
-  return status
 end
 
---- Leanpub:fetchBookCover(slug)
+--- Leanpub:fetchBookCover(book)
 --- Method
 --- Fetch the cover of a book.
 ---
 --- Parameters:
----  * book - slug for the book
+---  * book - table containing the book information. The icon gets
+---    stored in its `icon` field when it can be fetched.
 ---
 --- Returns:
----  * The image object if it can be fetched, nil otherwise
-function obj:fetchBookCover(slug)
-  local url = string.format("https://leanpub.com/%s.json?api_key=%s",
-                            slug, self.api_key)
-  self.logger.df("Fetching info for book '%s'", slug)
-  status,body,headers = hs.http.get(url, {})
+---  * No return value
+---
+--- Side effects:
+---  * Stores the icon in the book data structure
+function obj:fetchBookCover(book)
+  -- If no icon is given, fetch it from Leanpub. Explicitly check
+  -- against nil to allow disabling the icon by specifying its
+  -- value as `false`
+  if book.icon == nil and self.fetch_leanpub_covers then
+    local url = string.format("https://leanpub.com/%s.json?api_key=%s",
+                              book.slug, self.api_key)
+    self.logger.df("Fetching info for book '%s'", book.slug)
+    hs.http.asyncGet(url, {},
+                     function(s,b,h)
+                       self:_fetchBookCoverCallback(book,s,b,h)
+                     end)
+  end
+end
+
+function obj:_fetchBookCoverCallback(book, status, body, headers)
   if status == 200 then
     local info = hs.json.decode(body)
-    if info.title_page_url then
-      self.logger.df("Fetching cover for book '%s'", slug)
-      local image = hs.image.imageFromURL(info.title_page_url)
-      return image
+    book.icon = hs.image.imageFromURL(info.title_page_url or "")
+    if book.icon == nil then
+      self.logger.df("No cover available from Leanpub for book '%s'", book.slug)
+      book.icon = false
+    else
+      self.logger.df("Storing cover for book '%s'", book.slug)
     end
   end
-  return nil
 end
 
 --- Leanpub:displayAllBookStatus()
 --- Method
---- Check and display (if needed) the status of all the books in
---- `watch_books`
+--- Check and display (if needed) the status of all the books in `watch_books`
 function obj:displayAllBookStatus()
   for i,book in ipairs(self.watch_books) do
     self:displayBookStatus(book)
