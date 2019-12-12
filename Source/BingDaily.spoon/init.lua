@@ -17,8 +17,8 @@ obj.license = "MIT - https://opensource.org/licenses/MIT"
 local function curl_callback(exitCode, stdOut, stdErr)
     if exitCode == 0 then
         obj.task = nil
-        obj.last_pic = hs.http.urlParts(obj.full_url).lastPathComponent
-        local localpath = os.getenv("HOME") .. "/.Trash/" .. hs.http.urlParts(obj.full_url).lastPathComponent
+        obj.last_pic = obj.file_name
+        local localpath = os.getenv("HOME") .. "/.Trash/" .. obj.file_name
         hs.screen.mainScreen():desktopImageURL("file://" .. localpath)
     else
         print(stdOut, stdErr)
@@ -33,14 +33,21 @@ local function bingRequest()
             if pcall(function() hs.json.decode(body) end) then
                 local decode_data = hs.json.decode(body)
                 local pic_url = decode_data.images[1].url
-                local pic_name = hs.http.urlParts(pic_url).lastPathComponent
+                local pic_name = "pic-temp-spoon.jpg"
+                for k, v in pairs(hs.http.urlParts(pic_url).queryItems) do
+                    if v.id then
+                        pic_name = v.id
+                        break
+                    end
+                end
                 if obj.last_pic ~= pic_name then
+                    obj.file_name = pic_name
                     obj.full_url = "https://www.bing.com" .. pic_url
                     if obj.task then
                         obj.task:terminate()
                         obj.task = nil
                     end
-                    local localpath = os.getenv("HOME") .. "/.Trash/" .. hs.http.urlParts(obj.full_url).lastPathComponent
+                    local localpath = os.getenv("HOME") .. "/.Trash/" .. obj.file_name
                     obj.task = hs.task.new("/usr/bin/curl", curl_callback, {"-A", user_agent_str, obj.full_url, "-o", localpath})
                     obj.task:start()
                 end
