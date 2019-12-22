@@ -1,206 +1,142 @@
 [
   {
-    "Constant" : [
-
-    ],
-    "submodules" : [
-
-    ],
-    "Function" : [
-
-    ],
-    "Variable" : [
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
       {
-        "doc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
-        "stripped_doc" : [
-          "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
+        "def": "Keychain:addItem(options)",
+        "desc": "Add generic password to keychain.",
+        "doc": "Add generic password to keychain.\n\nParameters:\n options is a table with values for what keys to try locate with.\n * password - the password\n * account - account name (required)\n * creator - creator, must be 4 characters\n * type - type, must be 4 characters\n * kind - kind of item\n * comment - comment \n * label - label (defaults to service name)\n * service - service name (required)",
+        "name": "addItem",
+        "parameters": [
+          " options is a table with values for what keys to try locate with.",
+          " * password - the password",
+          " * account - account name (required)",
+          " * creator - creator, must be 4 characters",
+          " * type - type, must be 4 characters",
+          " * kind - kind of item",
+          " * comment - comment ",
+          " * label - label (defaults to service name)",
+          " * service - service name (required)"
         ],
-        "def" : "Keychain.logger",
-        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
-        "notes" : [
-
-        ],
-        "signature" : "Keychain.logger",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "name" : "logger",
-        "parameters" : [
-
-        ]
-      }
-    ],
-    "stripped_doc" : [
-
-    ],
-    "Deprecated" : [
-
-    ],
-    "type" : "Module",
-    "desc" : "Load items from Keychain. Provides no hotkeys and maintains no state",
-    "Constructor" : [
-
-    ],
-    "doc" : "Load items from Keychain. Provides no hotkeys and maintains no state\n\nTyler Thrailkill <tyler.b.thrailkill@gmail.com>\n\nhttps:\/\/github.com\/snowe2010",
-    "Method" : [
-      {
-        "doc" : "Retrieve an item from the Login Keychain\n\nParameters:\n * name - The name of the item in the Login Keychain you want to retrieve",
-        "stripped_doc" : [
-          "Retrieve an item from the Login Keychain",
-          ""
-        ],
-        "def" : "Keychain:login_keychain(name)",
-        "desc" : "Retrieve an item from the Login Keychain",
-        "notes" : [
-
-        ],
-        "signature" : "Keychain:login_keychain(name)",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "name" : "login_keychain",
-        "parameters" : [
-          " * name - The name of the item in the Login Keychain you want to retrieve"
-        ]
+        "signature": "Keychain:addItem(options)",
+        "stripped_doc": "",
+        "type": "Method"
       },
       {
-        "doc" : "Retrieve an item from the Login Keychain\n\nParameters:\n * name - The name of the item in the Login Keychain you want to retrieve",
-        "stripped_doc" : [
-          "Retrieve an item from the Login Keychain",
-          ""
-        ],
-        "def" : "Keychain:login_keychain(name)",
-        "desc" : "Retrieve an item from the Login Keychain",
-        "notes" : [
-
-        ],
-        "signature" : "Keychain:login_keychain(name)",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "name" : "login_keychain",
-        "parameters" : [
-          " * name - The name of the item in the Login Keychain you want to retrieve"
-        ]
-      },
-      {
-        "doc" : "Add generic password to keychain.\nParameters:\n * account - account name\n * service - name of service\n * password - the password to store",
-        "stripped_doc" : [
-          "Add generic password to keychain."
-        ],
-        "def" : "Keychain:addItem(options)",
-        "desc" : "Add generic password to keychain.",
-        "notes" : [
-
-        ],
-        "signature" : "Keychain:addItem(options)",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "name" : "addItem",
-        "parameters" : [
+        "def": "Keychain:getItem(options)",
+        "desc": "Retrieve an item from the Login Keychain. Return nil if not found and",
+        "doc": "Retrieve an item from the Login Keychain. Return nil if not found and\notherwise a table with found data.\nNote: if multiple possibles matches just the first one is found.\n\nParameters:\n options is a table with values for what keys to try locate with.\n * account - account name\n * creator - creator, must be 4 characters\n * type - type, must be 4 characters\n * kind - kind of item\n * comment - comment \n * label - label (defaults to service name)\n * service - service name",
+        "name": "getItem",
+        "parameters": [
+          " options is a table with values for what keys to try locate with.",
           " * account - account name",
-          " * service - name of service",
-          " * password - the password to store"
-        ]
-      }
-    ],
-    "Field" : [
-
-    ],
-    "items" : [
-      {
-        "doc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
-        "stripped_doc" : [
-          "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
+          " * creator - creator, must be 4 characters",
+          " * type - type, must be 4 characters",
+          " * kind - kind of item",
+          " * comment - comment ",
+          " * label - label (defaults to service name)",
+          " * service - service name"
         ],
-        "def" : "Keychain.logger",
-        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
-        "notes" : [
-
-        ],
-        "signature" : "Keychain.logger",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "name" : "logger",
-        "parameters" : [
-
-        ]
+        "signature": "Keychain:getItem(options)",
+        "stripped_doc": "otherwise a table with found data.\nNote: if multiple possibles matches just the first one is found.",
+        "type": "Method"
       },
       {
-        "doc" : "Add generic password to keychain.\nParameters:\n * account - account name\n * service - name of service\n * password - the password to store",
-        "stripped_doc" : [
-          "Add generic password to keychain."
+        "def": "Keychain:login_keychain(name)",
+        "desc": "Retrieve an item from the Login Keychain, returns nil if not found.",
+        "doc": "Retrieve an item from the Login Keychain, returns nil if not found.\nDeprecated, use getItem() instead.\nParameters:\n * name - The name of the item in the Login Keychain you want to retrieve",
+        "name": "login_keychain",
+        "parameters": [
+          " * name - The name of the item in the Login Keychain you want to retrieve"
         ],
-        "def" : "Keychain:addItem(options)",
-        "desc" : "Add generic password to keychain.",
-        "notes" : [
-
+        "signature": "Keychain:login_keychain(name)",
+        "stripped_doc": "Deprecated, use getItem() instead.",
+        "type": "Method"
+      }
+    ],
+    "Variable": [
+      {
+        "def": "Keychain.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "name": "logger",
+        "signature": "Keychain.logger",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "desc": "Get and Add items from Keychain. Provides no hotkeys and maintains no state",
+    "doc": "Get and Add items from Keychain. Provides no hotkeys and maintains no state\n\nExample usage:\n   spoon.Keychain.addItem{service=\"mynas.local\", account=\"myname\", password=\"secret\"}\n   item = spoon.Keychain.getItem{service=\"mynas.local\", account=\"myname\"}\n   print(item.password)\n\nTyler Thrailkill <tyler.b.thrailkill@gmail.com>\n\nhttps://github.com/snowe2010",
+    "items": [
+      {
+        "def": "Keychain:addItem(options)",
+        "desc": "Add generic password to keychain.",
+        "doc": "Add generic password to keychain.\n\nParameters:\n options is a table with values for what keys to try locate with.\n * password - the password\n * account - account name (required)\n * creator - creator, must be 4 characters\n * type - type, must be 4 characters\n * kind - kind of item\n * comment - comment \n * label - label (defaults to service name)\n * service - service name (required)",
+        "name": "addItem",
+        "parameters": [
+          " options is a table with values for what keys to try locate with.",
+          " * password - the password",
+          " * account - account name (required)",
+          " * creator - creator, must be 4 characters",
+          " * type - type, must be 4 characters",
+          " * kind - kind of item",
+          " * comment - comment ",
+          " * label - label (defaults to service name)",
+          " * service - service name (required)"
         ],
-        "signature" : "Keychain:addItem(options)",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "name" : "addItem",
-        "parameters" : [
+        "signature": "Keychain:addItem(options)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Keychain:getItem(options)",
+        "desc": "Retrieve an item from the Login Keychain. Return nil if not found and",
+        "doc": "Retrieve an item from the Login Keychain. Return nil if not found and\notherwise a table with found data.\nNote: if multiple possibles matches just the first one is found.\n\nParameters:\n options is a table with values for what keys to try locate with.\n * account - account name\n * creator - creator, must be 4 characters\n * type - type, must be 4 characters\n * kind - kind of item\n * comment - comment \n * label - label (defaults to service name)\n * service - service name",
+        "name": "getItem",
+        "parameters": [
+          " options is a table with values for what keys to try locate with.",
           " * account - account name",
-          " * service - name of service",
-          " * password - the password to store"
-        ]
+          " * creator - creator, must be 4 characters",
+          " * type - type, must be 4 characters",
+          " * kind - kind of item",
+          " * comment - comment ",
+          " * label - label (defaults to service name)",
+          " * service - service name"
+        ],
+        "signature": "Keychain:getItem(options)",
+        "stripped_doc": "otherwise a table with found data.\nNote: if multiple possibles matches just the first one is found.",
+        "type": "Method"
       },
       {
-        "doc" : "Retrieve an item from the Login Keychain\n\nParameters:\n * name - The name of the item in the Login Keychain you want to retrieve",
-        "stripped_doc" : [
-          "Retrieve an item from the Login Keychain",
-          ""
-        ],
-        "def" : "Keychain:login_keychain(name)",
-        "desc" : "Retrieve an item from the Login Keychain",
-        "notes" : [
-
-        ],
-        "signature" : "Keychain:login_keychain(name)",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "name" : "login_keychain",
-        "parameters" : [
-          " * name - The name of the item in the Login Keychain you want to retrieve"
-        ]
+        "def": "Keychain.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "name": "logger",
+        "signature": "Keychain.logger",
+        "stripped_doc": "",
+        "type": "Variable"
       },
       {
-        "doc" : "Retrieve an item from the Login Keychain\n\nParameters:\n * name - The name of the item in the Login Keychain you want to retrieve",
-        "stripped_doc" : [
-          "Retrieve an item from the Login Keychain",
-          ""
-        ],
-        "def" : "Keychain:login_keychain(name)",
-        "desc" : "Retrieve an item from the Login Keychain",
-        "notes" : [
-
-        ],
-        "signature" : "Keychain:login_keychain(name)",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "name" : "login_keychain",
-        "parameters" : [
+        "def": "Keychain:login_keychain(name)",
+        "desc": "Retrieve an item from the Login Keychain, returns nil if not found.",
+        "doc": "Retrieve an item from the Login Keychain, returns nil if not found.\nDeprecated, use getItem() instead.\nParameters:\n * name - The name of the item in the Login Keychain you want to retrieve",
+        "name": "login_keychain",
+        "parameters": [
           " * name - The name of the item in the Login Keychain you want to retrieve"
-        ]
+        ],
+        "signature": "Keychain:login_keychain(name)",
+        "stripped_doc": "Deprecated, use getItem() instead.",
+        "type": "Method"
       }
     ],
-    "Command" : [
-
-    ],
-    "name" : "Keychain"
+    "name": "Keychain",
+    "stripped_doc": "\nExample usage:\n   spoon.Keychain.addItem{service=\"mynas.local\", account=\"myname\", password=\"secret\"}\n   item = spoon.Keychain.getItem{service=\"mynas.local\", account=\"myname\"}\n   print(item.password)\n\nTyler Thrailkill <tyler.b.thrailkill@gmail.com>\n\nhttps://github.com/snowe2010",
+    "submodules": [],
+    "type": "Module"
   }
 ]
