@@ -44,8 +44,8 @@ local shortcutToName = {
   password = "password"
 }
 
---- Maps the weird short codes to more lua/human friendly name.
---- if k is not found then the key is ignored.
+-- Maps the weird short codes to more lua/human friendly name.
+-- if k is not found then the key is ignored.
 local function filterKeys(k,v, result)
   local var = shortcutToName[k]
 
