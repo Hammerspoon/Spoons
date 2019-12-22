@@ -3212,15 +3212,54 @@
     "Function": [],
     "Method": [
       {
+        "def": "Keychain:addItem(options)",
+        "desc": "Add generic password to keychain.",
+        "doc": "Add generic password to keychain.\n\nParameters:\n options is a table with values for what keys to try locate with.\n * password - the password\n * account - account name (required)\n * creator - creator, must be 4 characters\n * type - type, must be 4 characters\n * kind - kind of item\n * comment - comment \n * label - label (defaults to service name)\n * service - service name (required)",
+        "name": "addItem",
+        "parameters": [
+          " options is a table with values for what keys to try locate with.",
+          " * password - the password",
+          " * account - account name (required)",
+          " * creator - creator, must be 4 characters",
+          " * type - type, must be 4 characters",
+          " * kind - kind of item",
+          " * comment - comment ",
+          " * label - label (defaults to service name)",
+          " * service - service name (required)"
+        ],
+        "signature": "Keychain:addItem(options)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Keychain:getItem(options)",
+        "desc": "Retrieve an item from the Login Keychain. Return nil if not found and",
+        "doc": "Retrieve an item from the Login Keychain. Return nil if not found and\notherwise a table with found data.\nNote: if multiple possibles matches just the first one is found.\n\nParameters:\n options is a table with values for what keys to try locate with.\n * account - account name\n * creator - creator, must be 4 characters\n * type - type, must be 4 characters\n * kind - kind of item\n * comment - comment \n * label - label (defaults to service name)\n * service - service name",
+        "name": "getItem",
+        "parameters": [
+          " options is a table with values for what keys to try locate with.",
+          " * account - account name",
+          " * creator - creator, must be 4 characters",
+          " * type - type, must be 4 characters",
+          " * kind - kind of item",
+          " * comment - comment ",
+          " * label - label (defaults to service name)",
+          " * service - service name"
+        ],
+        "signature": "Keychain:getItem(options)",
+        "stripped_doc": "otherwise a table with found data.\nNote: if multiple possibles matches just the first one is found.",
+        "type": "Method"
+      },
+      {
         "def": "Keychain:login_keychain(name)",
-        "desc": "Retrieve an item from the Login Keychain",
-        "doc": "Retrieve an item from the Login Keychain\n\nParameters:\n * name - The name of the item in the Login Keychain you want to retrieve",
+        "desc": "Retrieve an item from the Login Keychain, returns nil if not found.",
+        "doc": "Retrieve an item from the Login Keychain, returns nil if not found.\nDeprecated, use getItem() instead.\nParameters:\n * name - The name of the item in the Login Keychain you want to retrieve",
         "name": "login_keychain",
         "parameters": [
           " * name - The name of the item in the Login Keychain you want to retrieve"
         ],
         "signature": "Keychain:login_keychain(name)",
-        "stripped_doc": "",
+        "stripped_doc": "Deprecated, use getItem() instead.",
         "type": "Method"
       }
     ],
@@ -3235,9 +3274,48 @@
         "type": "Variable"
       }
     ],
-    "desc": "Load items from Keychain. Provides no hotkeys and maintains no state",
-    "doc": "Load items from Keychain. Provides no hotkeys and maintains no state\n\nTyler Thrailkill <tyler.b.thrailkill@gmail.com>\n\nhttps://github.com/snowe2010",
+    "desc": "Get and Add items from Keychain. Provides no hotkeys and maintains no state",
+    "doc": "Get and Add items from Keychain. Provides no hotkeys and maintains no state\n\nExample usage:\n   spoon.Keychain.addItem{service=\"mynas.local\", account=\"myname\", password=\"secret\"}\n   item = spoon.Keychain.getItem{service=\"mynas.local\", account=\"myname\"}\n   print(item.password)\n\nTyler Thrailkill <tyler.b.thrailkill@gmail.com>\n\nhttps://github.com/snowe2010",
     "items": [
+      {
+        "def": "Keychain:addItem(options)",
+        "desc": "Add generic password to keychain.",
+        "doc": "Add generic password to keychain.\n\nParameters:\n options is a table with values for what keys to try locate with.\n * password - the password\n * account - account name (required)\n * creator - creator, must be 4 characters\n * type - type, must be 4 characters\n * kind - kind of item\n * comment - comment \n * label - label (defaults to service name)\n * service - service name (required)",
+        "name": "addItem",
+        "parameters": [
+          " options is a table with values for what keys to try locate with.",
+          " * password - the password",
+          " * account - account name (required)",
+          " * creator - creator, must be 4 characters",
+          " * type - type, must be 4 characters",
+          " * kind - kind of item",
+          " * comment - comment ",
+          " * label - label (defaults to service name)",
+          " * service - service name (required)"
+        ],
+        "signature": "Keychain:addItem(options)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Keychain:getItem(options)",
+        "desc": "Retrieve an item from the Login Keychain. Return nil if not found and",
+        "doc": "Retrieve an item from the Login Keychain. Return nil if not found and\notherwise a table with found data.\nNote: if multiple possibles matches just the first one is found.\n\nParameters:\n options is a table with values for what keys to try locate with.\n * account - account name\n * creator - creator, must be 4 characters\n * type - type, must be 4 characters\n * kind - kind of item\n * comment - comment \n * label - label (defaults to service name)\n * service - service name",
+        "name": "getItem",
+        "parameters": [
+          " options is a table with values for what keys to try locate with.",
+          " * account - account name",
+          " * creator - creator, must be 4 characters",
+          " * type - type, must be 4 characters",
+          " * kind - kind of item",
+          " * comment - comment ",
+          " * label - label (defaults to service name)",
+          " * service - service name"
+        ],
+        "signature": "Keychain:getItem(options)",
+        "stripped_doc": "otherwise a table with found data.\nNote: if multiple possibles matches just the first one is found.",
+        "type": "Method"
+      },
       {
         "def": "Keychain.logger",
         "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
@@ -3249,19 +3327,19 @@
       },
       {
         "def": "Keychain:login_keychain(name)",
-        "desc": "Retrieve an item from the Login Keychain",
-        "doc": "Retrieve an item from the Login Keychain\n\nParameters:\n * name - The name of the item in the Login Keychain you want to retrieve",
+        "desc": "Retrieve an item from the Login Keychain, returns nil if not found.",
+        "doc": "Retrieve an item from the Login Keychain, returns nil if not found.\nDeprecated, use getItem() instead.\nParameters:\n * name - The name of the item in the Login Keychain you want to retrieve",
         "name": "login_keychain",
         "parameters": [
           " * name - The name of the item in the Login Keychain you want to retrieve"
         ],
         "signature": "Keychain:login_keychain(name)",
-        "stripped_doc": "",
+        "stripped_doc": "Deprecated, use getItem() instead.",
         "type": "Method"
       }
     ],
     "name": "Keychain",
-    "stripped_doc": "\nTyler Thrailkill <tyler.b.thrailkill@gmail.com>\n\nhttps://github.com/snowe2010",
+    "stripped_doc": "\nExample usage:\n   spoon.Keychain.addItem{service=\"mynas.local\", account=\"myname\", password=\"secret\"}\n   item = spoon.Keychain.getItem{service=\"mynas.local\", account=\"myname\"}\n   print(item.password)\n\nTyler Thrailkill <tyler.b.thrailkill@gmail.com>\n\nhttps://github.com/snowe2010",
     "submodules": [],
     "type": "Module"
   },
