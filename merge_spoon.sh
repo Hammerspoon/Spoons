@@ -21,7 +21,7 @@ set -eu
 rm Source/${SPOON}.spoon/docs_index.json
 git add Source/${SPOON}.spoon/docs.json
 git commit -am "Generate docs for ${SPOON}" || true
-rm Spoons/${SPOON}.spoon.zip
+rm -f Spoons/${SPOON}.spoon.zip
 make
 git add Spoons/${SPOON}.spoon.zip
 git commit -am "Add binary package for ${SPOON}. Closes #${PR}"
