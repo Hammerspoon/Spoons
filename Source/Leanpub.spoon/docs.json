@@ -1,213 +1,31 @@
 [
   {
-    "Constant" : [
-
-    ],
-    "submodules" : [
-
-    ],
-    "Function" : [
-
-    ],
-    "Variable" : [
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
       {
-        "doc" : "Logger object used within the Spoon. Can be accessed to set the\ndefault log level for the messages coming from the Spoon.",
-        "stripped_doc" : [
-          "Logger object used within the Spoon. Can be accessed to set the",
-          "default log level for the messages coming from the Spoon."
-        ],
-        "name" : "logger",
-        "parameters" : [
-
-        ],
-        "notes" : [
-
-        ],
-        "signature" : "Leanpub.logger",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "def" : "Leanpub.logger",
-        "desc" : "Logger object used within the Spoon. Can be accessed to set the"
+        "def": "Leanpub:displayAllBookStatus()",
+        "desc": "Check and display (if needed) the status of all the books in `watch_books`",
+        "doc": "Check and display (if needed) the status of all the books in `watch_books`",
+        "name": "displayAllBookStatus",
+        "signature": "Leanpub:displayAllBookStatus()",
+        "stripped_doc": "",
+        "type": "Method"
       },
       {
-        "doc" : "List of books to watch (by default an empty list). Each element of\nthe list must be a table containing the following keys:\n * slug - the web page \"slug\" of the book to watch. The slug of a\n   book can be set under the \"Book Web Page \/ Web Page URL\" menu\n   section in Leanpub.\n * icon - optional icon to show in the notifications for the book,\n   as an hs.image object. If not specified, and if\n   `fetch_leanpub_covers` is `true`, then the icon is generated\n   automatically from the book cover.",
-        "stripped_doc" : [
-          "List of books to watch (by default an empty list). Each element of",
-          "the list must be a table containing the following keys:",
-          " * slug - the web page \"slug\" of the book to watch. The slug of a",
-          "   book can be set under the \"Book Web Page \/ Web Page URL\" menu",
-          "   section in Leanpub.",
-          " * icon - optional icon to show in the notifications for the book,",
-          "   as an hs.image object. If not specified, and if",
-          "   `fetch_leanpub_covers` is `true`, then the icon is generated",
-          "   automatically from the book cover."
-        ],
-        "name" : "watch_books",
-        "parameters" : [
-
-        ],
-        "notes" : [
-
-        ],
-        "signature" : "Leanpub.watch_books",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "def" : "Leanpub.watch_books",
-        "desc" : "List of books to watch (by default an empty list). Each element of"
-      },
-      {
-        "doc" : "String containing the key to use for Leanpub API requests. Get it\nfrom your Leanpub account under the \"Author \/ Your API Key\" menu\nsection. No default.",
-        "stripped_doc" : [
-          "String containing the key to use for Leanpub API requests. Get it",
-          "from your Leanpub account under the \"Author \/ Your API Key\" menu",
-          "section. No default."
-        ],
-        "name" : "api_key",
-        "parameters" : [
-
-        ],
-        "notes" : [
-
-        ],
-        "signature" : "Leanpub.api_key",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "def" : "Leanpub.api_key",
-        "desc" : "String containing the key to use for Leanpub API requests. Get it"
-      },
-      {
-        "doc" : "Integer containing the interval (in seconds) at which the book\nstatus is checked. Default 5.",
-        "stripped_doc" : [
-          "Integer containing the interval (in seconds) at which the book",
-          "status is checked. Default 5."
-        ],
-        "name" : "check_interval",
-        "parameters" : [
-
-        ],
-        "notes" : [
-
-        ],
-        "signature" : "Leanpub.check_interval",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "def" : "Leanpub.check_interval",
-        "desc" : "Integer containing the interval (in seconds) at which the book"
-      },
-      {
-        "doc" : "Boolean indicating whether we should try to fetch book covers from\nLeanpub (default true)",
-        "stripped_doc" : [
-          "Boolean indicating whether we should try to fetch book covers from",
-          "Leanpub (default true)"
-        ],
-        "name" : "fetch_leanpub_covers",
-        "parameters" : [
-
-        ],
-        "notes" : [
-
-        ],
-        "signature" : "Leanpub.fetch_leanpub_covers",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "def" : "Leanpub.fetch_leanpub_covers",
-        "desc" : "Boolean indicating whether we should try to fetch book covers from"
-      },
-      {
-        "doc" : "Table specifying the Leanpub status for which notifications should\nnot disappear automatically. The indices correspond to the values\nof the `status` field returned by the Leanpub API. Possible values\nare `working` and `complete`. Default `{ complete = true }` to\nkeep the \"Book generation complete\" messages.",
-        "stripped_doc" : [
-          "Table specifying the Leanpub status for which notifications should",
-          "not disappear automatically. The indices correspond to the values",
-          "of the `status` field returned by the Leanpub API. Possible values",
-          "are `working` and `complete`. Default `{ complete = true }` to",
-          "keep the \"Book generation complete\" messages."
-        ],
-        "name" : "persistent_notification",
-        "parameters" : [
-
-        ],
-        "notes" : [
-
-        ],
-        "signature" : "Leanpub.persistent_notification",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "def" : "Leanpub.persistent_notification",
-        "desc" : "Table specifying the Leanpub status for which notifications should"
-      }
-    ],
-    "stripped_doc" : [
-
-    ],
-    "desc" : "Spoon to track and notify about Leanpub builds.",
-    "Deprecated" : [
-
-    ],
-    "type" : "Module",
-    "Constructor" : [
-
-    ],
-    "Field" : [
-
-    ],
-    "Method" : [
-      {
-        "doc" : "Asynchronously get the status of a book given its slug.\n\nParameters:\n * slug - URL \"slug\" of the book to check. The slug of a book is\n   the part of the URL for your book after https:\/\/leanpub.com\/.\n * callback - function to which the book status will be passed\n   when the data is received. This function will be passed a\n   single argument, a table containing the fields returned by the\n   Leanpub API. If the book is not being built at the moment, an\n   empty table is passed. If an error occurs, the value passed\n   will be `nil`. Samples of the return values can be found at\n   https:\/\/leanpub.com\/help\/api#getting-the-job-status\n\nReturns:\n * No return value",
-        "stripped_doc" : [
-          "Asynchronously get the status of a book given its slug.",
-          ""
-        ],
-        "name" : "getBookStatus",
-        "parameters" : [
-          " * slug - URL \"slug\" of the book to check. The slug of a book is",
-          "   the part of the URL for your book after https:\/\/leanpub.com\/.",
-          " * callback - function to which the book status will be passed",
-          "   when the data is received. This function will be passed a",
-          "   single argument, a table containing the fields returned by the",
-          "   Leanpub API. If the book is not being built at the moment, an",
-          "   empty table is passed. If an error occurs, the value passed",
-          "   will be `nil`. Samples of the return values can be found at",
-          "   https:\/\/leanpub.com\/help\/api#getting-the-job-status",
-          ""
-        ],
-        "notes" : [
-
-        ],
-        "signature" : "Leanpub:getBookStatus(slug, callback)",
-        "type" : "Method",
-        "returns" : [
-          " * No return value"
-        ],
-        "def" : "Leanpub:getBookStatus(slug, callback)",
-        "desc" : "Asynchronously get the status of a book given its slug."
-      },
-      {
-        "doc" : "Display a notification with the current build status of a book.\nOnly produce a notification if the current status is different\nthan the last known one (from the last time `displayBookStatus`\nwas run for the same book).\n\nParameters:\n * book - table containing the information of the book to\n   check. The table must contain the following fields:\n   * slug - URL \"slug\" of the book to check. The slug is the part\n     of the book URL after https:\/\/leanpub.com\/.\n   * icon - optional icon to show in the notifications for the\n     book, as an `hs.image` object. If this field is not specified\n     but `fetch_leanpub_covers` is true (the default value), this\n     method attempts to fetch the book cover from Leanpub. If the\n     cover can be retrieved, it gets stored in the icon field so\n     it doesn't get fetched every time. You can disable cover\n     fetching for individual books by setting this field\n     explicitly to `false`\n\nReturns:\n * A Lua table containing the status (may be empty), nil if an\n   error occurred",
-        "stripped_doc" : [
-          "Display a notification with the current build status of a book.",
-          "Only produce a notification if the current status is different",
-          "than the last known one (from the last time `displayBookStatus`",
-          "was run for the same book).",
-          ""
-        ],
-        "name" : "displayBookStatus",
-        "parameters" : [
+        "def": "Leanpub:displayBookStatus(book)",
+        "desc": "Display a notification with the current build status of a book.",
+        "doc": "Display a notification with the current build status of a book.\nOnly produce a notification if the current status is different\nthan the last known one (from the last time `displayBookStatus`\nwas run for the same book).\n\nParameters:\n * book - table containing the information of the book to\n   check. The table must contain the following fields:\n   * slug - URL \"slug\" of the book to check. The slug is the part\n     of the book URL after https://leanpub.com/.\n   * icon - optional icon to show in the notifications for the\n     book, as an `hs.image` object. If this field is not specified\n     but `fetch_leanpub_covers` is true (the default value), this\n     method attempts to fetch the book cover from Leanpub. If the\n     cover can be retrieved, it gets stored in the icon field so\n     it doesn't get fetched every time. You can disable cover\n     fetching for individual books by setting this field\n     explicitly to `false`\n\nReturns:\n * A Lua table containing the status (may be empty), nil if an\n   error occurred",
+        "name": "displayBookStatus",
+        "parameters": [
           " * book - table containing the information of the book to",
           "   check. The table must contain the following fields:",
           "   * slug - URL \"slug\" of the book to check. The slug is the part",
-          "     of the book URL after https:\/\/leanpub.com\/.",
+          "     of the book URL after https://leanpub.com/.",
           "   * icon - optional icon to show in the notifications for the",
           "     book, as an `hs.image` object. If this field is not specified",
           "     but `fetch_leanpub_covers` is true (the default value), this",
@@ -215,286 +33,170 @@
           "     cover can be retrieved, it gets stored in the icon field so",
           "     it doesn't get fetched every time. You can disable cover",
           "     fetching for individual books by setting this field",
-          "     explicitly to `false`",
-          ""
+          "     explicitly to `false`"
         ],
-        "notes" : [
-
-        ],
-        "signature" : "Leanpub:displayBookStatus(book)",
-        "type" : "Method",
-        "returns" : [
+        "returns": [
           " * A Lua table containing the status (may be empty), nil if an",
           "   error occurred"
         ],
-        "def" : "Leanpub:displayBookStatus(book)",
-        "desc" : "Display a notification with the current build status of a book."
+        "signature": "Leanpub:displayBookStatus(book)",
+        "stripped_doc": "Only produce a notification if the current status is different\nthan the last known one (from the last time `displayBookStatus`\nwas run for the same book).",
+        "type": "Method"
       },
       {
-        "doc" : "Fetch the cover of a book.\n\nParameters:\n * book - table containing the book information. The icon gets\n   stored in its `icon` field when it can be fetched.\n\nReturns:\n * No return value\n\nSide effects:\n * Stores the icon in the book data structure",
-        "stripped_doc" : [
-          "Fetch the cover of a book.",
-          ""
-        ],
-        "name" : "fetchBookCover",
-        "parameters" : [
+        "def": "Leanpub:fetchBookCover(book)",
+        "desc": "Fetch the cover of a book.",
+        "doc": "Fetch the cover of a book.\n\nParameters:\n * book - table containing the book information. The icon gets\n   stored in its `icon` field when it can be fetched.\n\nReturns:\n * No return value\n\nSide effects:\n * Stores the icon in the book data structure",
+        "name": "fetchBookCover",
+        "parameters": [
           " * book - table containing the book information. The icon gets",
-          "   stored in its `icon` field when it can be fetched.",
-          ""
+          "   stored in its `icon` field when it can be fetched."
         ],
-        "notes" : [
-
+        "returns": [
+          " * No return value"
         ],
-        "signature" : "Leanpub:fetchBookCover(book)",
-        "type" : "Method",
-        "returns" : [
-          " * No return value",
-          "",
-          "Side effects:",
-          " * Stores the icon in the book data structure"
-        ],
-        "def" : "Leanpub:fetchBookCover(book)",
-        "desc" : "Fetch the cover of a book."
+        "signature": "Leanpub:fetchBookCover(book)",
+        "stripped_doc": "Side effects:\n * Stores the icon in the book data structure",
+        "type": "Method"
       },
       {
-        "doc" : "Check and display (if needed) the status of all the books in `watch_books`",
-        "stripped_doc" : [
-          "Check and display (if needed) the status of all the books in `watch_books`"
+        "def": "Leanpub:getBookStatus(slug, callback)",
+        "desc": "Asynchronously get the status of a book given its slug.",
+        "doc": "Asynchronously get the status of a book given its slug.\n\nParameters:\n * slug - URL \"slug\" of the book to check. The slug of a book is\n   the part of the URL for your book after https://leanpub.com/.\n * callback - function to which the book status will be passed\n   when the data is received. This function will be passed a\n   single argument, a table containing the fields returned by the\n   Leanpub API. If the book is not being built at the moment, an\n   empty table is passed. If an error occurs, the value passed\n   will be `nil`. Samples of the return values can be found at\n   https://leanpub.com/help/api#getting-the-job-status\n\nReturns:\n * No return value",
+        "name": "getBookStatus",
+        "parameters": [
+          " * slug - URL \"slug\" of the book to check. The slug of a book is",
+          "   the part of the URL for your book after https://leanpub.com/.",
+          " * callback - function to which the book status will be passed",
+          "   when the data is received. This function will be passed a",
+          "   single argument, a table containing the fields returned by the",
+          "   Leanpub API. If the book is not being built at the moment, an",
+          "   empty table is passed. If an error occurs, the value passed",
+          "   will be `nil`. Samples of the return values can be found at",
+          "   https://leanpub.com/help/api#getting-the-job-status"
         ],
-        "name" : "displayAllBookStatus",
-        "parameters" : [
-
+        "returns": [
+          " * No return value"
         ],
-        "notes" : [
-
-        ],
-        "signature" : "Leanpub:displayAllBookStatus()",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "def" : "Leanpub:displayAllBookStatus()",
-        "desc" : "Check and display (if needed) the status of all the books in `watch_books`"
+        "signature": "Leanpub:getBookStatus(slug, callback)",
+        "stripped_doc": "",
+        "type": "Method"
       },
       {
-        "doc" : "Start periodic check for book status, checking every\ncheck_interval seconds.",
-        "stripped_doc" : [
-          "Start periodic check for book status, checking every",
-          "check_interval seconds."
-        ],
-        "name" : "start",
-        "parameters" : [
-
-        ],
-        "notes" : [
-
-        ],
-        "signature" : "Leanpub:start()",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "def" : "Leanpub:start()",
-        "desc" : "Start periodic check for book status, checking every"
+        "def": "Leanpub:start()",
+        "desc": "Start periodic check for book status, checking every",
+        "doc": "Start periodic check for book status, checking every\ncheck_interval seconds.",
+        "name": "start",
+        "signature": "Leanpub:start()",
+        "stripped_doc": "check_interval seconds.",
+        "type": "Method"
       },
       {
-        "doc" : "Stops periodic check for book status, if enabled.\ncheck_interval seconds.",
-        "stripped_doc" : [
-          "Stops periodic check for book status, if enabled.",
-          "check_interval seconds."
-        ],
-        "name" : "stop",
-        "parameters" : [
-
-        ],
-        "notes" : [
-
-        ],
-        "signature" : "Leanpub:stop()",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "def" : "Leanpub:stop()",
-        "desc" : "Stops periodic check for book status, if enabled."
+        "def": "Leanpub:stop()",
+        "desc": "Stops periodic check for book status, if enabled.",
+        "doc": "Stops periodic check for book status, if enabled.\ncheck_interval seconds.",
+        "name": "stop",
+        "signature": "Leanpub:stop()",
+        "stripped_doc": "check_interval seconds.",
+        "type": "Method"
       }
     ],
-    "Command" : [
-
+    "Variable": [
+      {
+        "def": "Leanpub.api_key",
+        "desc": "String containing the key to use for Leanpub API requests. Get it",
+        "doc": "String containing the key to use for Leanpub API requests. Get it\nfrom your Leanpub account under the \"Author / Your API Key\" menu\nsection. No default.",
+        "name": "api_key",
+        "signature": "Leanpub.api_key",
+        "stripped_doc": "from your Leanpub account under the \"Author / Your API Key\" menu\nsection. No default.",
+        "type": "Variable"
+      },
+      {
+        "def": "Leanpub.check_interval",
+        "desc": "Integer containing the interval (in seconds) at which the book",
+        "doc": "Integer containing the interval (in seconds) at which the book\nstatus is checked. Default 5.",
+        "name": "check_interval",
+        "signature": "Leanpub.check_interval",
+        "stripped_doc": "status is checked. Default 5.",
+        "type": "Variable"
+      },
+      {
+        "def": "Leanpub.fetch_leanpub_covers",
+        "desc": "Boolean indicating whether we should try to fetch book covers from",
+        "doc": "Boolean indicating whether we should try to fetch book covers from\nLeanpub (default true)",
+        "name": "fetch_leanpub_covers",
+        "signature": "Leanpub.fetch_leanpub_covers",
+        "stripped_doc": "Leanpub (default true)",
+        "type": "Variable"
+      },
+      {
+        "def": "Leanpub.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the\ndefault log level for the messages coming from the Spoon.",
+        "name": "logger",
+        "signature": "Leanpub.logger",
+        "stripped_doc": "default log level for the messages coming from the Spoon.",
+        "type": "Variable"
+      },
+      {
+        "def": "Leanpub.persistent_notification",
+        "desc": "Table specifying the Leanpub status for which notifications should",
+        "doc": "Table specifying the Leanpub status for which notifications should\nnot disappear automatically. The indices correspond to the values\nof the `status` field returned by the Leanpub API. Possible values\nare `working` and `complete`. Default `{ complete = true }` to\nkeep the \"Book generation complete\" messages.",
+        "name": "persistent_notification",
+        "signature": "Leanpub.persistent_notification",
+        "stripped_doc": "not disappear automatically. The indices correspond to the values\nof the `status` field returned by the Leanpub API. Possible values\nare `working` and `complete`. Default `{ complete = true }` to\nkeep the \"Book generation complete\" messages.",
+        "type": "Variable"
+      },
+      {
+        "def": "Leanpub.watch_books",
+        "desc": "List of books to watch (by default an empty list). Each element of",
+        "doc": "List of books to watch (by default an empty list). Each element of\nthe list must be a table containing the following keys:\n * slug - the web page \"slug\" of the book to watch. The slug of a\n   book can be set under the \"Book Web Page / Web Page URL\" menu\n   section in Leanpub.\n * icon - optional icon to show in the notifications for the book,\n   as an hs.image object. If not specified, and if\n   `fetch_leanpub_covers` is `true`, then the icon is generated\n   automatically from the book cover.",
+        "name": "watch_books",
+        "signature": "Leanpub.watch_books",
+        "stripped_doc": "the list must be a table containing the following keys:\n * slug - the web page \"slug\" of the book to watch. The slug of a\n   book can be set under the \"Book Web Page / Web Page URL\" menu\n   section in Leanpub.\n * icon - optional icon to show in the notifications for the book,\n   as an hs.image object. If not specified, and if\n   `fetch_leanpub_covers` is `true`, then the icon is generated\n   automatically from the book cover.",
+        "type": "Variable"
+      }
     ],
-    "items" : [
+    "desc": "Spoon to track and notify about Leanpub builds.",
+    "doc": "Spoon to track and notify about Leanpub builds.\n\nDownload:\nhttps://github.com/Hammerspoon/Spoons/raw/master/Spoons/Leanpub.spoon.zip",
+    "items": [
       {
-        "doc" : "String containing the key to use for Leanpub API requests. Get it\nfrom your Leanpub account under the \"Author \/ Your API Key\" menu\nsection. No default.",
-        "stripped_doc" : [
-          "String containing the key to use for Leanpub API requests. Get it",
-          "from your Leanpub account under the \"Author \/ Your API Key\" menu",
-          "section. No default."
-        ],
-        "name" : "api_key",
-        "parameters" : [
-
-        ],
-        "notes" : [
-
-        ],
-        "signature" : "Leanpub.api_key",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "def" : "Leanpub.api_key",
-        "desc" : "String containing the key to use for Leanpub API requests. Get it"
+        "def": "Leanpub.api_key",
+        "desc": "String containing the key to use for Leanpub API requests. Get it",
+        "doc": "String containing the key to use for Leanpub API requests. Get it\nfrom your Leanpub account under the \"Author / Your API Key\" menu\nsection. No default.",
+        "name": "api_key",
+        "signature": "Leanpub.api_key",
+        "stripped_doc": "from your Leanpub account under the \"Author / Your API Key\" menu\nsection. No default.",
+        "type": "Variable"
       },
       {
-        "doc" : "Integer containing the interval (in seconds) at which the book\nstatus is checked. Default 5.",
-        "stripped_doc" : [
-          "Integer containing the interval (in seconds) at which the book",
-          "status is checked. Default 5."
-        ],
-        "name" : "check_interval",
-        "parameters" : [
-
-        ],
-        "notes" : [
-
-        ],
-        "signature" : "Leanpub.check_interval",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "def" : "Leanpub.check_interval",
-        "desc" : "Integer containing the interval (in seconds) at which the book"
+        "def": "Leanpub.check_interval",
+        "desc": "Integer containing the interval (in seconds) at which the book",
+        "doc": "Integer containing the interval (in seconds) at which the book\nstatus is checked. Default 5.",
+        "name": "check_interval",
+        "signature": "Leanpub.check_interval",
+        "stripped_doc": "status is checked. Default 5.",
+        "type": "Variable"
       },
       {
-        "doc" : "Boolean indicating whether we should try to fetch book covers from\nLeanpub (default true)",
-        "stripped_doc" : [
-          "Boolean indicating whether we should try to fetch book covers from",
-          "Leanpub (default true)"
-        ],
-        "name" : "fetch_leanpub_covers",
-        "parameters" : [
-
-        ],
-        "notes" : [
-
-        ],
-        "signature" : "Leanpub.fetch_leanpub_covers",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "def" : "Leanpub.fetch_leanpub_covers",
-        "desc" : "Boolean indicating whether we should try to fetch book covers from"
+        "def": "Leanpub:displayAllBookStatus()",
+        "desc": "Check and display (if needed) the status of all the books in `watch_books`",
+        "doc": "Check and display (if needed) the status of all the books in `watch_books`",
+        "name": "displayAllBookStatus",
+        "signature": "Leanpub:displayAllBookStatus()",
+        "stripped_doc": "",
+        "type": "Method"
       },
       {
-        "doc" : "Logger object used within the Spoon. Can be accessed to set the\ndefault log level for the messages coming from the Spoon.",
-        "stripped_doc" : [
-          "Logger object used within the Spoon. Can be accessed to set the",
-          "default log level for the messages coming from the Spoon."
-        ],
-        "name" : "logger",
-        "parameters" : [
-
-        ],
-        "notes" : [
-
-        ],
-        "signature" : "Leanpub.logger",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "def" : "Leanpub.logger",
-        "desc" : "Logger object used within the Spoon. Can be accessed to set the"
-      },
-      {
-        "doc" : "Table specifying the Leanpub status for which notifications should\nnot disappear automatically. The indices correspond to the values\nof the `status` field returned by the Leanpub API. Possible values\nare `working` and `complete`. Default `{ complete = true }` to\nkeep the \"Book generation complete\" messages.",
-        "stripped_doc" : [
-          "Table specifying the Leanpub status for which notifications should",
-          "not disappear automatically. The indices correspond to the values",
-          "of the `status` field returned by the Leanpub API. Possible values",
-          "are `working` and `complete`. Default `{ complete = true }` to",
-          "keep the \"Book generation complete\" messages."
-        ],
-        "name" : "persistent_notification",
-        "parameters" : [
-
-        ],
-        "notes" : [
-
-        ],
-        "signature" : "Leanpub.persistent_notification",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "def" : "Leanpub.persistent_notification",
-        "desc" : "Table specifying the Leanpub status for which notifications should"
-      },
-      {
-        "doc" : "List of books to watch (by default an empty list). Each element of\nthe list must be a table containing the following keys:\n * slug - the web page \"slug\" of the book to watch. The slug of a\n   book can be set under the \"Book Web Page \/ Web Page URL\" menu\n   section in Leanpub.\n * icon - optional icon to show in the notifications for the book,\n   as an hs.image object. If not specified, and if\n   `fetch_leanpub_covers` is `true`, then the icon is generated\n   automatically from the book cover.",
-        "stripped_doc" : [
-          "List of books to watch (by default an empty list). Each element of",
-          "the list must be a table containing the following keys:",
-          " * slug - the web page \"slug\" of the book to watch. The slug of a",
-          "   book can be set under the \"Book Web Page \/ Web Page URL\" menu",
-          "   section in Leanpub.",
-          " * icon - optional icon to show in the notifications for the book,",
-          "   as an hs.image object. If not specified, and if",
-          "   `fetch_leanpub_covers` is `true`, then the icon is generated",
-          "   automatically from the book cover."
-        ],
-        "name" : "watch_books",
-        "parameters" : [
-
-        ],
-        "notes" : [
-
-        ],
-        "signature" : "Leanpub.watch_books",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "def" : "Leanpub.watch_books",
-        "desc" : "List of books to watch (by default an empty list). Each element of"
-      },
-      {
-        "doc" : "Check and display (if needed) the status of all the books in `watch_books`",
-        "stripped_doc" : [
-          "Check and display (if needed) the status of all the books in `watch_books`"
-        ],
-        "name" : "displayAllBookStatus",
-        "parameters" : [
-
-        ],
-        "notes" : [
-
-        ],
-        "signature" : "Leanpub:displayAllBookStatus()",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "def" : "Leanpub:displayAllBookStatus()",
-        "desc" : "Check and display (if needed) the status of all the books in `watch_books`"
-      },
-      {
-        "doc" : "Display a notification with the current build status of a book.\nOnly produce a notification if the current status is different\nthan the last known one (from the last time `displayBookStatus`\nwas run for the same book).\n\nParameters:\n * book - table containing the information of the book to\n   check. The table must contain the following fields:\n   * slug - URL \"slug\" of the book to check. The slug is the part\n     of the book URL after https:\/\/leanpub.com\/.\n   * icon - optional icon to show in the notifications for the\n     book, as an `hs.image` object. If this field is not specified\n     but `fetch_leanpub_covers` is true (the default value), this\n     method attempts to fetch the book cover from Leanpub. If the\n     cover can be retrieved, it gets stored in the icon field so\n     it doesn't get fetched every time. You can disable cover\n     fetching for individual books by setting this field\n     explicitly to `false`\n\nReturns:\n * A Lua table containing the status (may be empty), nil if an\n   error occurred",
-        "stripped_doc" : [
-          "Display a notification with the current build status of a book.",
-          "Only produce a notification if the current status is different",
-          "than the last known one (from the last time `displayBookStatus`",
-          "was run for the same book).",
-          ""
-        ],
-        "name" : "displayBookStatus",
-        "parameters" : [
+        "def": "Leanpub:displayBookStatus(book)",
+        "desc": "Display a notification with the current build status of a book.",
+        "doc": "Display a notification with the current build status of a book.\nOnly produce a notification if the current status is different\nthan the last known one (from the last time `displayBookStatus`\nwas run for the same book).\n\nParameters:\n * book - table containing the information of the book to\n   check. The table must contain the following fields:\n   * slug - URL \"slug\" of the book to check. The slug is the part\n     of the book URL after https://leanpub.com/.\n   * icon - optional icon to show in the notifications for the\n     book, as an `hs.image` object. If this field is not specified\n     but `fetch_leanpub_covers` is true (the default value), this\n     method attempts to fetch the book cover from Leanpub. If the\n     cover can be retrieved, it gets stored in the icon field so\n     it doesn't get fetched every time. You can disable cover\n     fetching for individual books by setting this field\n     explicitly to `false`\n\nReturns:\n * A Lua table containing the status (may be empty), nil if an\n   error occurred",
+        "name": "displayBookStatus",
+        "parameters": [
           " * book - table containing the information of the book to",
           "   check. The table must contain the following fields:",
           "   * slug - URL \"slug\" of the book to check. The slug is the part",
-          "     of the book URL after https:\/\/leanpub.com\/.",
+          "     of the book URL after https://leanpub.com/.",
           "   * icon - optional icon to show in the notifications for the",
           "     book, as an `hs.image` object. If this field is not specified",
           "     but `fetch_leanpub_covers` is true (the default value), this",
@@ -502,121 +204,113 @@
           "     cover can be retrieved, it gets stored in the icon field so",
           "     it doesn't get fetched every time. You can disable cover",
           "     fetching for individual books by setting this field",
-          "     explicitly to `false`",
-          ""
+          "     explicitly to `false`"
         ],
-        "notes" : [
-
-        ],
-        "signature" : "Leanpub:displayBookStatus(book)",
-        "type" : "Method",
-        "returns" : [
+        "returns": [
           " * A Lua table containing the status (may be empty), nil if an",
           "   error occurred"
         ],
-        "def" : "Leanpub:displayBookStatus(book)",
-        "desc" : "Display a notification with the current build status of a book."
+        "signature": "Leanpub:displayBookStatus(book)",
+        "stripped_doc": "Only produce a notification if the current status is different\nthan the last known one (from the last time `displayBookStatus`\nwas run for the same book).",
+        "type": "Method"
       },
       {
-        "doc" : "Fetch the cover of a book.\n\nParameters:\n * book - table containing the book information. The icon gets\n   stored in its `icon` field when it can be fetched.\n\nReturns:\n * No return value\n\nSide effects:\n * Stores the icon in the book data structure",
-        "stripped_doc" : [
-          "Fetch the cover of a book.",
-          ""
-        ],
-        "name" : "fetchBookCover",
-        "parameters" : [
+        "def": "Leanpub.fetch_leanpub_covers",
+        "desc": "Boolean indicating whether we should try to fetch book covers from",
+        "doc": "Boolean indicating whether we should try to fetch book covers from\nLeanpub (default true)",
+        "name": "fetch_leanpub_covers",
+        "signature": "Leanpub.fetch_leanpub_covers",
+        "stripped_doc": "Leanpub (default true)",
+        "type": "Variable"
+      },
+      {
+        "def": "Leanpub:fetchBookCover(book)",
+        "desc": "Fetch the cover of a book.",
+        "doc": "Fetch the cover of a book.\n\nParameters:\n * book - table containing the book information. The icon gets\n   stored in its `icon` field when it can be fetched.\n\nReturns:\n * No return value\n\nSide effects:\n * Stores the icon in the book data structure",
+        "name": "fetchBookCover",
+        "parameters": [
           " * book - table containing the book information. The icon gets",
-          "   stored in its `icon` field when it can be fetched.",
-          ""
+          "   stored in its `icon` field when it can be fetched."
         ],
-        "notes" : [
-
+        "returns": [
+          " * No return value"
         ],
-        "signature" : "Leanpub:fetchBookCover(book)",
-        "type" : "Method",
-        "returns" : [
-          " * No return value",
-          "",
-          "Side effects:",
-          " * Stores the icon in the book data structure"
-        ],
-        "def" : "Leanpub:fetchBookCover(book)",
-        "desc" : "Fetch the cover of a book."
+        "signature": "Leanpub:fetchBookCover(book)",
+        "stripped_doc": "Side effects:\n * Stores the icon in the book data structure",
+        "type": "Method"
       },
       {
-        "doc" : "Asynchronously get the status of a book given its slug.\n\nParameters:\n * slug - URL \"slug\" of the book to check. The slug of a book is\n   the part of the URL for your book after https:\/\/leanpub.com\/.\n * callback - function to which the book status will be passed\n   when the data is received. This function will be passed a\n   single argument, a table containing the fields returned by the\n   Leanpub API. If the book is not being built at the moment, an\n   empty table is passed. If an error occurs, the value passed\n   will be `nil`. Samples of the return values can be found at\n   https:\/\/leanpub.com\/help\/api#getting-the-job-status\n\nReturns:\n * No return value",
-        "stripped_doc" : [
-          "Asynchronously get the status of a book given its slug.",
-          ""
-        ],
-        "name" : "getBookStatus",
-        "parameters" : [
+        "def": "Leanpub:getBookStatus(slug, callback)",
+        "desc": "Asynchronously get the status of a book given its slug.",
+        "doc": "Asynchronously get the status of a book given its slug.\n\nParameters:\n * slug - URL \"slug\" of the book to check. The slug of a book is\n   the part of the URL for your book after https://leanpub.com/.\n * callback - function to which the book status will be passed\n   when the data is received. This function will be passed a\n   single argument, a table containing the fields returned by the\n   Leanpub API. If the book is not being built at the moment, an\n   empty table is passed. If an error occurs, the value passed\n   will be `nil`. Samples of the return values can be found at\n   https://leanpub.com/help/api#getting-the-job-status\n\nReturns:\n * No return value",
+        "name": "getBookStatus",
+        "parameters": [
           " * slug - URL \"slug\" of the book to check. The slug of a book is",
-          "   the part of the URL for your book after https:\/\/leanpub.com\/.",
+          "   the part of the URL for your book after https://leanpub.com/.",
           " * callback - function to which the book status will be passed",
           "   when the data is received. This function will be passed a",
           "   single argument, a table containing the fields returned by the",
           "   Leanpub API. If the book is not being built at the moment, an",
           "   empty table is passed. If an error occurs, the value passed",
           "   will be `nil`. Samples of the return values can be found at",
-          "   https:\/\/leanpub.com\/help\/api#getting-the-job-status",
-          ""
+          "   https://leanpub.com/help/api#getting-the-job-status"
         ],
-        "notes" : [
-
-        ],
-        "signature" : "Leanpub:getBookStatus(slug, callback)",
-        "type" : "Method",
-        "returns" : [
+        "returns": [
           " * No return value"
         ],
-        "def" : "Leanpub:getBookStatus(slug, callback)",
-        "desc" : "Asynchronously get the status of a book given its slug."
+        "signature": "Leanpub:getBookStatus(slug, callback)",
+        "stripped_doc": "",
+        "type": "Method"
       },
       {
-        "doc" : "Start periodic check for book status, checking every\ncheck_interval seconds.",
-        "stripped_doc" : [
-          "Start periodic check for book status, checking every",
-          "check_interval seconds."
-        ],
-        "name" : "start",
-        "parameters" : [
-
-        ],
-        "notes" : [
-
-        ],
-        "signature" : "Leanpub:start()",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "def" : "Leanpub:start()",
-        "desc" : "Start periodic check for book status, checking every"
+        "def": "Leanpub.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the\ndefault log level for the messages coming from the Spoon.",
+        "name": "logger",
+        "signature": "Leanpub.logger",
+        "stripped_doc": "default log level for the messages coming from the Spoon.",
+        "type": "Variable"
       },
       {
-        "doc" : "Stops periodic check for book status, if enabled.\ncheck_interval seconds.",
-        "stripped_doc" : [
-          "Stops periodic check for book status, if enabled.",
-          "check_interval seconds."
-        ],
-        "name" : "stop",
-        "parameters" : [
-
-        ],
-        "notes" : [
-
-        ],
-        "signature" : "Leanpub:stop()",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "def" : "Leanpub:stop()",
-        "desc" : "Stops periodic check for book status, if enabled."
+        "def": "Leanpub.persistent_notification",
+        "desc": "Table specifying the Leanpub status for which notifications should",
+        "doc": "Table specifying the Leanpub status for which notifications should\nnot disappear automatically. The indices correspond to the values\nof the `status` field returned by the Leanpub API. Possible values\nare `working` and `complete`. Default `{ complete = true }` to\nkeep the \"Book generation complete\" messages.",
+        "name": "persistent_notification",
+        "signature": "Leanpub.persistent_notification",
+        "stripped_doc": "not disappear automatically. The indices correspond to the values\nof the `status` field returned by the Leanpub API. Possible values\nare `working` and `complete`. Default `{ complete = true }` to\nkeep the \"Book generation complete\" messages.",
+        "type": "Variable"
+      },
+      {
+        "def": "Leanpub:start()",
+        "desc": "Start periodic check for book status, checking every",
+        "doc": "Start periodic check for book status, checking every\ncheck_interval seconds.",
+        "name": "start",
+        "signature": "Leanpub:start()",
+        "stripped_doc": "check_interval seconds.",
+        "type": "Method"
+      },
+      {
+        "def": "Leanpub:stop()",
+        "desc": "Stops periodic check for book status, if enabled.",
+        "doc": "Stops periodic check for book status, if enabled.\ncheck_interval seconds.",
+        "name": "stop",
+        "signature": "Leanpub:stop()",
+        "stripped_doc": "check_interval seconds.",
+        "type": "Method"
+      },
+      {
+        "def": "Leanpub.watch_books",
+        "desc": "List of books to watch (by default an empty list). Each element of",
+        "doc": "List of books to watch (by default an empty list). Each element of\nthe list must be a table containing the following keys:\n * slug - the web page \"slug\" of the book to watch. The slug of a\n   book can be set under the \"Book Web Page / Web Page URL\" menu\n   section in Leanpub.\n * icon - optional icon to show in the notifications for the book,\n   as an hs.image object. If not specified, and if\n   `fetch_leanpub_covers` is `true`, then the icon is generated\n   automatically from the book cover.",
+        "name": "watch_books",
+        "signature": "Leanpub.watch_books",
+        "stripped_doc": "the list must be a table containing the following keys:\n * slug - the web page \"slug\" of the book to watch. The slug of a\n   book can be set under the \"Book Web Page / Web Page URL\" menu\n   section in Leanpub.\n * icon - optional icon to show in the notifications for the book,\n   as an hs.image object. If not specified, and if\n   `fetch_leanpub_covers` is `true`, then the icon is generated\n   automatically from the book cover.",
+        "type": "Variable"
       }
     ],
-    "doc" : "Spoon to track and notify about Leanpub builds.\n\nDownload:\nhttps:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/Leanpub.spoon.zip",
-    "name" : "Leanpub"
+    "name": "Leanpub",
+    "stripped_doc": "\nDownload:\nhttps://github.com/Hammerspoon/Spoons/raw/master/Spoons/Leanpub.spoon.zip",
+    "submodules": [],
+    "type": "Module"
   }
 ]
