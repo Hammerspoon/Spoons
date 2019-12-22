@@ -1303,6 +1303,23 @@
     "type": "Module"
   },
   {
+    "desc": "Override macOS behaviour and send all media keys (play/prev/next) to Music.app",
+    "name": "MusicAppMediaFix",
+    "type": "Module"
+  },
+  {
+    "desc": "Starts the hs.eventtap that powers this Spoon",
+    "module": "MusicAppMediaFix",
+    "name": "start",
+    "type": "Method"
+  },
+  {
+    "desc": "Stops the hs.eventtap that powers this Spoon",
+    "module": "MusicAppMediaFix",
+    "name": "stop",
+    "type": "Method"
+  },
+  {
     "desc": "Generate a password and copy to the clipboard.",
     "name": "PasswordGenerator",
     "type": "Module"
