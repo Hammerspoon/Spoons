@@ -1296,15 +1296,45 @@
     "type": "Module"
   },
   {
-    "desc": "Function used to generate passwords",
+    "desc": "Explicit function used to generate passwords, if nil style is used instead.",
     "module": "PasswordGenerator",
     "name": "password_generator_function",
     "type": "Variable"
   },
   {
-    "desc": "Length of generated passwords",
+    "desc": "Length of generated passwords. Is ignored by style xkcd.",
     "module": "PasswordGenerator",
     "name": "password_length",
+    "type": "Variable"
+  },
+  {
+    "desc": "Style for the generated password.",
+    "module": "PasswordGenerator",
+    "name": "password_style",
+    "type": "Variable"
+  },
+  {
+    "desc": "Number of words in generated passwords. Used by xkcd.",
+    "module": "PasswordGenerator",
+    "name": "word_count",
+    "type": "Variable"
+  },
+  {
+    "desc": "Which word number will have its word `733t` transformed.",
+    "module": "PasswordGenerator",
+    "name": "word_leet",
+    "type": "Variable"
+  },
+  {
+    "desc": "String of separators to use between words.",
+    "module": "PasswordGenerator",
+    "name": "word_separators",
+    "type": "Variable"
+  },
+  {
+    "desc": "Number of words to uppercase the first letter.",
+    "module": "PasswordGenerator",
+    "name": "word_uppercase",
     "type": "Variable"
   },
   {
