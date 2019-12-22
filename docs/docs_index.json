@@ -981,7 +981,7 @@
     "type": "Variable"
   },
   {
-    "desc": "Check and display (if needed) the status of all the books in",
+    "desc": "Check and display (if needed) the status of all the books in `watch_books`",
     "module": "Leanpub",
     "name": "displayAllBookStatus",
     "type": "Method"
@@ -999,7 +999,7 @@
     "type": "Method"
   },
   {
-    "desc": "Get the status of a book given its slug.",
+    "desc": "Asynchronously get the status of a book given its slug.",
     "module": "Leanpub",
     "name": "getBookStatus",
     "type": "Method"

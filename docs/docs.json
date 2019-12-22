@@ -3408,11 +3408,11 @@
     "Method": [
       {
         "def": "Leanpub:displayAllBookStatus()",
-        "desc": "Check and display (if needed) the status of all the books in",
-        "doc": "Check and display (if needed) the status of all the books in\n`watch_books`",
+        "desc": "Check and display (if needed) the status of all the books in `watch_books`",
+        "doc": "Check and display (if needed) the status of all the books in `watch_books`",
         "name": "displayAllBookStatus",
         "signature": "Leanpub:displayAllBookStatus()",
-        "stripped_doc": "`watch_books`",
+        "stripped_doc": "",
         "type": "Method"
       },
       {
@@ -3443,37 +3443,41 @@
         "type": "Method"
       },
       {
-        "def": "Leanpub:fetchBookCover(slug)",
+        "def": "Leanpub:fetchBookCover(book)",
         "desc": "Fetch the cover of a book.",
-        "doc": "Fetch the cover of a book.\n\nParameters:\n * book - slug for the book\n\nReturns:\n * The image object if it can be fetched, nil otherwise",
+        "doc": "Fetch the cover of a book.\n\nParameters:\n * book - table containing the book information. The icon gets\n   stored in its `icon` field when it can be fetched.\n\nReturns:\n * No return value\n\nSide effects:\n * Stores the icon in the book data structure",
         "name": "fetchBookCover",
         "parameters": [
-          " * book - slug for the book"
+          " * book - table containing the book information. The icon gets",
+          "   stored in its `icon` field when it can be fetched."
         ],
         "returns": [
-          " * The image object if it can be fetched, nil otherwise"
+          " * No return value"
         ],
-        "signature": "Leanpub:fetchBookCover(slug)",
-        "stripped_doc": "",
+        "signature": "Leanpub:fetchBookCover(book)",
+        "stripped_doc": "Side effects:\n * Stores the icon in the book data structure",
         "type": "Method"
       },
       {
-        "def": "Leanpub:getBookStatus(slug)",
-        "desc": "Get the status of a book given its slug.",
-        "doc": "Get the status of a book given its slug.\n\nParameters:\n * slug - URL \"slug\" of the book to check. The slug of a book is\n   the part of the URL for your book after https://leanpub.com/.\n\nReturns:\n * Table containing the fields returned by the Leanpub API. If the\n   book is not being built at the moment, an empty table is\n   returned. If an error occurs, returns `nil`. Samples of the\n   return values can be found at\n   https://leanpub.com/help/api#getting-the-job-status",
+        "def": "Leanpub:getBookStatus(slug, callback)",
+        "desc": "Asynchronously get the status of a book given its slug.",
+        "doc": "Asynchronously get the status of a book given its slug.\n\nParameters:\n * slug - URL \"slug\" of the book to check. The slug of a book is\n   the part of the URL for your book after https://leanpub.com/.\n * callback - function to which the book status will be passed\n   when the data is received. This function will be passed a\n   single argument, a table containing the fields returned by the\n   Leanpub API. If the book is not being built at the moment, an\n   empty table is passed. If an error occurs, the value passed\n   will be `nil`. Samples of the return values can be found at\n   https://leanpub.com/help/api#getting-the-job-status\n\nReturns:\n * No return value",
         "name": "getBookStatus",
         "parameters": [
           " * slug - URL \"slug\" of the book to check. The slug of a book is",
-          "   the part of the URL for your book after https://leanpub.com/."
-        ],
-        "returns": [
-          " * Table containing the fields returned by the Leanpub API. If the",
-          "   book is not being built at the moment, an empty table is",
-          "   returned. If an error occurs, returns `nil`. Samples of the",
-          "   return values can be found at",
+          "   the part of the URL for your book after https://leanpub.com/.",
+          " * callback - function to which the book status will be passed",
+          "   when the data is received. This function will be passed a",
+          "   single argument, a table containing the fields returned by the",
+          "   Leanpub API. If the book is not being built at the moment, an",
+          "   empty table is passed. If an error occurs, the value passed",
+          "   will be `nil`. Samples of the return values can be found at",
           "   https://leanpub.com/help/api#getting-the-job-status"
         ],
-        "signature": "Leanpub:getBookStatus(slug)",
+        "returns": [
+          " * No return value"
+        ],
+        "signature": "Leanpub:getBookStatus(slug, callback)",
         "stripped_doc": "",
         "type": "Method"
       },
@@ -3575,11 +3579,11 @@
       },
       {
         "def": "Leanpub:displayAllBookStatus()",
-        "desc": "Check and display (if needed) the status of all the books in",
-        "doc": "Check and display (if needed) the status of all the books in\n`watch_books`",
+        "desc": "Check and display (if needed) the status of all the books in `watch_books`",
+        "doc": "Check and display (if needed) the status of all the books in `watch_books`",
         "name": "displayAllBookStatus",
         "signature": "Leanpub:displayAllBookStatus()",
-        "stripped_doc": "`watch_books`",
+        "stripped_doc": "",
         "type": "Method"
       },
       {
@@ -3619,37 +3623,41 @@
         "type": "Variable"
       },
       {
-        "def": "Leanpub:fetchBookCover(slug)",
+        "def": "Leanpub:fetchBookCover(book)",
         "desc": "Fetch the cover of a book.",
-        "doc": "Fetch the cover of a book.\n\nParameters:\n * book - slug for the book\n\nReturns:\n * The image object if it can be fetched, nil otherwise",
+        "doc": "Fetch the cover of a book.\n\nParameters:\n * book - table containing the book information. The icon gets\n   stored in its `icon` field when it can be fetched.\n\nReturns:\n * No return value\n\nSide effects:\n * Stores the icon in the book data structure",
         "name": "fetchBookCover",
         "parameters": [
-          " * book - slug for the book"
+          " * book - table containing the book information. The icon gets",
+          "   stored in its `icon` field when it can be fetched."
         ],
         "returns": [
-          " * The image object if it can be fetched, nil otherwise"
+          " * No return value"
         ],
-        "signature": "Leanpub:fetchBookCover(slug)",
-        "stripped_doc": "",
+        "signature": "Leanpub:fetchBookCover(book)",
+        "stripped_doc": "Side effects:\n * Stores the icon in the book data structure",
         "type": "Method"
       },
       {
-        "def": "Leanpub:getBookStatus(slug)",
-        "desc": "Get the status of a book given its slug.",
-        "doc": "Get the status of a book given its slug.\n\nParameters:\n * slug - URL \"slug\" of the book to check. The slug of a book is\n   the part of the URL for your book after https://leanpub.com/.\n\nReturns:\n * Table containing the fields returned by the Leanpub API. If the\n   book is not being built at the moment, an empty table is\n   returned. If an error occurs, returns `nil`. Samples of the\n   return values can be found at\n   https://leanpub.com/help/api#getting-the-job-status",
+        "def": "Leanpub:getBookStatus(slug, callback)",
+        "desc": "Asynchronously get the status of a book given its slug.",
+        "doc": "Asynchronously get the status of a book given its slug.\n\nParameters:\n * slug - URL \"slug\" of the book to check. The slug of a book is\n   the part of the URL for your book after https://leanpub.com/.\n * callback - function to which the book status will be passed\n   when the data is received. This function will be passed a\n   single argument, a table containing the fields returned by the\n   Leanpub API. If the book is not being built at the moment, an\n   empty table is passed. If an error occurs, the value passed\n   will be `nil`. Samples of the return values can be found at\n   https://leanpub.com/help/api#getting-the-job-status\n\nReturns:\n * No return value",
         "name": "getBookStatus",
         "parameters": [
           " * slug - URL \"slug\" of the book to check. The slug of a book is",
-          "   the part of the URL for your book after https://leanpub.com/."
-        ],
-        "returns": [
-          " * Table containing the fields returned by the Leanpub API. If the",
-          "   book is not being built at the moment, an empty table is",
-          "   returned. If an error occurs, returns `nil`. Samples of the",
-          "   return values can be found at",
+          "   the part of the URL for your book after https://leanpub.com/.",
+          " * callback - function to which the book status will be passed",
+          "   when the data is received. This function will be passed a",
+          "   single argument, a table containing the fields returned by the",
+          "   Leanpub API. If the book is not being built at the moment, an",
+          "   empty table is passed. If an error occurs, the value passed",
+          "   will be `nil`. Samples of the return values can be found at",
           "   https://leanpub.com/help/api#getting-the-job-status"
         ],
-        "signature": "Leanpub:getBookStatus(slug)",
+        "returns": [
+          " * No return value"
+        ],
+        "signature": "Leanpub:getBookStatus(slug, callback)",
         "stripped_doc": "",
         "type": "Method"
       },
