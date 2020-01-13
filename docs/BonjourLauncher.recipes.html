@@ -1,0 +1,271 @@
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hammerspoon docs: BonjourLauncher.recipes</title>
+    <style type="text/css">
+      a { text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      th { background-color: #DDDDDD; vertical-align: top; padding: 3px; }
+      td { width: 100%; background-color: #EEEEEE; vertical-align: top; padding: 3px; }
+      table { width: 100% ; border: 1px solid #0; text-align: left; }
+      section > table table td { width: 0; }
+    </style>
+    <link rel="stylesheet" href="docs.css" type="text/css" media="screen" />
+  </head>
+  <body>
+    <header>
+      <h1><a href="./index.html">docs</a> &raquo; BonjourLauncher.recipes</h1>
+      <p>Sample recipes for various service types that you can use with the BonjourLauncher spoon.</p>
+<p>This submodule includes sample templates for a variety of advertised services which may be of interest when used with the BonjourLauncher spoon. Each template can be displayed in the Hammerspoon console for reference by typing <code>help.spoon.BonjourLauncher.recipes.*name*</code> into the console input field, or added as is to the active templates of the BonjourLauncher by doing the following either in the Hammerspoon console or in your configuration <code>init.ua</code> file:</p>
+
+<pre><code>hs.loadSpoon("BonjourLauncher")
+spoon.BonjourLauncher:addRecipes(*name*)
+
+</code></pre>
+<p>where <em>name</em> is one of the variables described within this submodule.</p>
+
+      </header>
+      <h3>API Overview</h3>
+      <ul>
+        <li>Variables - Configurable values</li>
+          <ul>
+            <li><a href="#AFP">AFP</a></li>
+            <li><a href="#SMB">SMB</a></li>
+            <li><a href="#SSH">SSH</a></li>
+            <li><a href="#VNC">VNC</a></li>
+            <li><a href="#VNC_RealVNC_Alternate">VNC_RealVNC_Alternate</a></li>
+          </ul>
+      </ul>
+      <h3>API Documentation</h3>
+        <h4 class="documentation-section">Variables</h4>
+          <section id="AFP">
+            <a name="//apple_ref/cpp/Variable/AFP" class="dashAnchor"></a>
+            <h5><a href="#AFP">AFP</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>BonjourLauncher.recipes.AFP</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Display computers and servers advertising AppleShare file server services advertised with the <code>_afpovertcp._tcp.</code> service type. This was the default with earlier versions of MacOS and is still used by Apple AirPort and Time Machine file servers.</p>
+<p>AppleShare connections are initiated by the URL <code>afp://%hostname%:%port%</code>, which usually opens up a dialog in the Finder which may prompt you for login credentials.</p>
+<p>The template can be added to your BonjourLauncer with <code>spoon.BonjourLauncher:addRecipes("AFP")</code> after the spoon has loaded, and is defined as follows:</p>
+
+<pre><code>{
+    image   = hs.canvas.new{ h = 128, w = 128 }:appendElements(
+                  { type="image", image = hs.image.imageFromName("NSNetwork"), imageAlpha = 0.5 },
+                  { type="image", image = hs.image.imageFromName("NSTouchBarColorPickerFont") }
+              ):imageFromCanvas(),
+    label   = "AFP",
+    type    = "_afpovertcp._tcp.",
+    text    = "%name%",
+    subText = "afp://%hostname%:%port%",
+    url     = "afp://%hostname%:%port%",
+}</code></pre>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="SMB">
+            <a name="//apple_ref/cpp/Variable/SMB" class="dashAnchor"></a>
+            <h5><a href="#SMB">SMB</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>BonjourLauncher.recipes.SMB</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Display computers and servers advertising Windows or Samba file server services advertised with the <code>_smb._tcp.</code> service type. Most Apple Macintosh computers and Laptops will also advertise file sharing with this service type.</p>
+<p>SMB connections are initiated by the URL <code>smb://%hostname%:%port%</code>, which usually opens up a dialog in the Finder which may prompt you for login credentials.</p>
+<p>The template can be added to your BonjourLauncer with <code>spoon.BonjourLauncher:addRecipes("SMB")</code> after the spoon has loaded, and is defined as follows:</p>
+
+<pre><code>{
+    image   = hs.image.imageFromName("NSNetwork"),
+    label   = "SMB",
+    type    = "_smb._tcp.",
+    text    = "%name%",
+    subText = "smb://%hostname%:%port%",
+    url     = "smb://%hostname%:%port%",
+}
+
+</code></pre>
+<p>Notes:</p>
+<ul>
+<li>On Linux servers, Samba advertises this by default if Avahi is installed.</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="SSH">
+            <a name="//apple_ref/cpp/Variable/SSH" class="dashAnchor"></a>
+            <h5><a href="#SSH">SSH</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>BonjourLauncher.recipes.SSH</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Display computers and servers advertising Secure Shell services advertised with the <code>_ssh._tcp.</code> service type. This is advertised by MacOS machines with Remote Login enabled in the Sharing panel of System Preferences.</p>
+<p>SSH connections are initiated by the URL <code>ssh://%hostname%:%port%</code>, which usually opens up a Terminal window with the SSH session, and assumes that the username matches your username on your Mac. At present there is no way to prompt for a different username at the time of connection -- you will need to modify your <code>~/.ssh/config</code> file if a different username is required for a specific host. See <code>man ssh_config</code> in a terminal window.</p>
+<p>The template can be added to your BonjourLauncer with <code>spoon.BonjourLauncher:addRecipes("SSH")</code> after the spoon has loaded, and is defined as follows:</p>
+
+<pre><code>{
+    image   = hs.image.imageFromAppBundle("com.apple.Terminal"),
+    label   = "SSH",
+    type    = "_ssh._tcp.",
+    text    = "%name%",
+    subText = "%hostname%:%port% (%address4%/%address6%)",
+    url     = "ssh://%hostname%:%port%",
+}
+
+</code></pre>
+<p>Notes:</p>
+<ul>
+<li><p>On Linux servers, you can advertise this by installing Avahi and saving the following in <code>/etc/avahi/services/ssh.service</code>:</p>
+
+<pre><code> &lt;?xml version="1.0" standalone='no'?&gt;
+ &lt;!DOCTYPE service-group SYSTEM "avahi-service.dtd"&gt;
+ &lt;service-group&gt;
+   &lt;name replace-wildcards="yes"&gt;%h&lt;/name&gt;
+   &lt;service&gt;
+     &lt;type&gt;_ssh._tcp&lt;/type&gt;
+     &lt;port&gt;22&lt;/port&gt;
+   &lt;/service&gt;
+ &lt;/service-group&gt;</code></pre>
+</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="VNC">
+            <a name="//apple_ref/cpp/Variable/VNC" class="dashAnchor"></a>
+            <h5><a href="#VNC">VNC</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>BonjourLauncher.recipes.VNC</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Display computers and servers advertising screen sharing or VNC services advertised with the <code>_rfb._tcp.</code> service type. This is advertised by MacOS machines with Screen Sharing enabled in the Sharing panel of System Preferences.</p>
+<p>Screen Sharing connections are initiated by the URL <code>vnc://%hostname%:%port%</code>, which usually opens up Screen Sharing which will prompt you for login credentials.</p>
+<p>The template can be added to your BonjourLauncer with <code>spoon.BonjourLauncher:addRecipes("VNC")</code> after the spoon has loaded, and is defined as follows:</p>
+
+<pre><code>{
+    image   = hs.image.imageFromAppBundle("com.apple.ScreenSharing"),
+    label   = "VNC",
+    type    = "_rfb._tcp.",
+    text    = "%name%",
+    subText = "vnc://%hostname%:%port%",
+    url     = "vnc://%hostname%:%port%",
+}
+
+</code></pre>
+<p>Notes:</p>
+<ul>
+<li><p>The built in MacOS Screen Sharing application works with MacOS Screen Sharing clients as well as more traditional VNC implementations that do not implement encryption. This does <em>not</em> include the RealVNC implementation that is commonly included with Raspberry Pi's Raspbian installations.</p>
+</li>
+<li><p>See also <a href="#VNC_RealVNC_Alternate">BonjourLauncher.recipes.VNC_RealVNC_Alternate</a> for an example that can use an alternate launcher for RealVNC clients. Note that you sould use only one of these recipes, as they share the same label.</p>
+</li>
+<li><p>On Linux servers, some X Windows installations provide built in VNC support while others require you to configure your own with third party software (e.g. RealVNC or TigerVNC to name just a couple). Determining how to set this up is beyond the scope of these instructions, but if you find that whatever solution you have available does <em>not</em> provide ZeroConf or Bonjour advertisements, you can do so yourself by installing Avahi and saving the following in <code>/etc/avahi/services/vnc.service</code> (change 5900 to match the port number your windowing environment uses for VNC, commonly a number between 5900 and 5910 inclusive, but theoretically any available port on the machine):</p>
+
+<pre><code> &lt;?xml version="1.0" standalone='no'?&gt;
+ &lt;!DOCTYPE service-group SYSTEM "avahi-service.dtd"&gt;
+ &lt;service-group&gt;
+   &lt;name replace-wildcards="yes"&gt;%h&lt;/name&gt;
+   &lt;service&gt;
+     &lt;type&gt;_rfb._tcp&lt;/type&gt;
+     &lt;port&gt;5900&lt;/port&gt;
+   &lt;/service&gt;
+ &lt;/service-group&gt;</code></pre>
+</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="VNC_RealVNC_Alternate">
+            <a name="//apple_ref/cpp/Variable/VNC_RealVNC_Alternate" class="dashAnchor"></a>
+            <h5><a href="#VNC_RealVNC_Alternate">VNC_RealVNC_Alternate</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>BonjourLauncher.recipes.VNC_RealVNC_Alternate</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Display computers and servers advertising screen sharing or VNC services advertised with the <code>_rfb._tcp.</code> service type. This is advertised by MacOS machines with Screen Sharing enabled in the Sharing panel of System Preferences.</p>
+<p>This version of a template for <code>_rfb._tcp.</code> differs from <a href="#VNC">BonjourLauncher.recipes.VNC</a> in that it uses a function which examines the text records for the service to determine which launcher to use for the chosen server: because RealVNC uses an encryption scheme that is not recognized by the macOS Screen Sharing application, if a text record indicating that RealVNC is in use is detected, an alternate launcher is used.</p>
+<p>The template can be added to your BonjourLauncer with <code>spoon.BonjourLauncher:addRecipes("VNC_RealVNC_Alternate")</code> after the spoon has loaded, and is defined as follows:</p>
+
+<pre><code>{
+    image   = hs.image.imageFromAppBundle("com.apple.ScreenSharing"),
+    label   = "VNC",
+    type    = "_rfb._tcp.",
+    text    = "%name%",
+    subText = "vnc://%hostname%:%port%",
+    url     = "vnc://%hostname%:%port%", -- used in fn when RealVNC not set ; see below
+    cmd     = "open -a \"VNC Viewer\" --args %hostname%:%port%", -- used in fn when RealVNC set; see below
+    fn      = function(svc, choice)
+        local tr = svc:txtRecord()
+        if tr and tr.RealVNC then
+            hs.execute(choice.cmd)
+        else
+            hs.urlevent.openURL(choice.url)
+        end
+    end,
+}
+
+</code></pre>
+<p>Note that <code>fn</code> is defined, so it will be invoked in favor of <code>url</code> or <code>cmd</code> by the BonjourLauncer spoon when a VNC service is selected; however, the second argument to the function invoked will include all key-value pairs with string values from the template, so the function can utilizes the <code>url</code> and <code>cmd</code> keys based on its own logic to determine which applies.</p>
+<p>Notes:</p>
+<ul>
+<li><p>This variant was developed to address the fact that the macOS Screen Sharing application does not recognize the encryption used by the RealVNC implemntataion found in the Raspbian distribution installed on most Raspberry Pi computers. By adding text record to the Avahi advertisement from the Raspberry Pi, we can determine whether or not to utilize the built in screen sharing app or launch the RealVNC client to view the specified service.</p>
+</li>
+<li><p>See also <a href="#VNC">BonjourLauncher.recipes.VNC</a> for a simpler implementation if you are only connecting to other Mac computers or if none of your servers require RealVNC's specific viewer application.</p>
+</li>
+<li><p>To create the advertisement on the Raspbian installation which includes the text record entry we need to make this template work, install Avahi on your Raspbian machine and save the following as <code>/etc/avahi/services/vnc.service</code>:</p>
+
+<pre><code> &lt;?xml version="1.0" standalone='no'?&gt;
+ &lt;!DOCTYPE service-group SYSTEM "avahi-service.dtd"&gt;
+ &lt;service-group&gt;
+   &lt;name replace-wildcards="yes"&gt;%h&lt;/name&gt;
+   &lt;service&gt;
+     &lt;type&gt;_rfb._tcp&lt;/type&gt;
+     &lt;port&gt;5900&lt;/port&gt;
+     &lt;txt-record&gt;RealVNC=True&lt;/txt-record&gt;
+   &lt;/service&gt;
+ &lt;/service-group&gt;</code></pre>
+</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+  </body>
+</html>
