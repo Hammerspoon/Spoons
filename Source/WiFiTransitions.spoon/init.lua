@@ -9,7 +9,7 @@ obj.__index = obj
 
 -- Metadata
 obj.name = "WiFiTransitions"
-obj.version = "0.1"
+obj.version = "0.2"
 obj.author = "Diego Zamboni <diego@zzamboni.org>"
 obj.homepage = "https://github.com/Hammerspoon/Spoons"
 obj.license = "MIT - https://opensource.org/licenses/MIT"
@@ -21,8 +21,8 @@ obj.logger = hs.logger.new('WiFiTransitions')
 
 --- WiFiTransitions.actions
 --- Variable
---- Table containing a list of actions to execute for SSID transitions. Each action is itself a table with the following keys:
----  * to - if given, pattern to match against the new SSID. Defaults to match any network. Transitions through the disabled state are ignored (i.e. normally a `nil` SSID is reported when switching SSIDs)
+--- Table containing a list of actions to execute for SSID transitions. Transitions to a "no network" state (`nil` SSID) are ignored unless you set `WiFiTransitions.actOnNilTransitions`. Each action is itself a table with the following keys:
+---  * to - if given, pattern to match against the new SSID. Defaults to match any network.
 ---  * from - if given, pattern to match against the previous SSID. Defaults to match any network.
 ---  * fn - function to execute if there is a match. Can also be a list of functions, which will be executed in sequence. Each function will receive the following arguments:
 ---    * event - always "SSIDChange"
@@ -31,6 +31,11 @@ obj.logger = hs.logger.new('WiFiTransitions')
 ---    * new_ssid - new SSID name
 ---  * cmd - shell command to execute if there is a match. Can also be a list of commands, which will be executed in sequence using `hs.execute`. If `fn` is given, `cmd` is ignored.
 obj.actions = {}
+
+--- WiFiTransitions.actOnNilTransitions
+--- Variable
+--- Whether to evaluate `WiFiTransitions.actions` if the "to" network is no network (`nil`). Defaults to `false` to maintain backward compatibility; if unset, note that `from` transitions may not execute as expected.
+obj.actOnNilTransitions = false
 
 -- Internal variable - previous SSID
 obj.previous_ssid = nil
@@ -62,7 +67,7 @@ end
 ---  * interface - interface where the transition occurred. Defaults to `nil`
 function obj:processTransition(new_ssid, prev_ssid, interface)
    self.logger.df("Processing transition new_ssid=%s, prev_ssid=%s, interface=%s", new_ssid, prev_ssid, interface)
-   if new_ssid ~= nil then
+   if self.actOnNilTransitions or new_ssid ~= nil then
       for _,a in ipairs(self.actions) do
          self.logger.df("  Evaluating spec %s", hs.inspect(a))
          if self.ssid_match(prev_ssid, a.from) and self.ssid_match(new_ssid, a.to) and (new_ssid ~= prev_ssid) then
