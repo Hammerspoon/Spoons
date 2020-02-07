@@ -134,14 +134,18 @@ end
 --   (example below)
 obj._window_moves = {
    left_half = {"left_half", left_half = "left_40", left_40 = "left_60"},
+   half_left = {"left_half"},
    -- if `action` `left_half` is requested without a match in this table, move to `left_half`
    -- if `action` `left_half` is requested from `window_state_name` `left_half`, move to `left_40`
    -- if `action` `left_half` is requested from `window_state_name` `left_40`, move to `left_60`
    -- rationale: if a user requests a move to `left_half` and they're already there they're expressing a user need
    --   and it's our job to work out what that need is. Let's give them some other `left_half`ish options.
    right_half = {"right_half", right_half = "right_40", right_40 = "right_60"},
+   half_right = {"right_half"},
    top_half = {"top_half", top_half = "top_40", top_40 = "top_60"},
+   half_top = {"top_half"},
    bottom_half = {"bottom_half", bottom_half = "bottom_40", bottom_40 = "bottom_60"},
+   half_bottom = {"bottom_half"},
    third_left = {"left_third", left_third = "right_third", middle_third_h = "left_third", right_third = "middle_third_h",
                                right_half = "middle_third_h"},
    third_right = {"right_third", left_third = "middle_third_h", middle_third_h = "right_third", right_third = "left_third",
@@ -275,9 +279,13 @@ end
 --- Returns:
 ---  * the WindowHalfsAndThirds object
 obj.leftHalf       = hs.fnutils.partial(obj.resizeCurrentWindow, "left_half")
+obj.halfLeft       = hs.fnutils.partial(obj.resizeCurrentWindow, "half_left")
 obj.rightHalf      = hs.fnutils.partial(obj.resizeCurrentWindow, "right_half")
+obj.halfRight      = hs.fnutils.partial(obj.resizeCurrentWindow, "half_right")
 obj.topHalf        = hs.fnutils.partial(obj.resizeCurrentWindow, "top_half")
+obj.halfTop        = hs.fnutils.partial(obj.resizeCurrentWindow, "half_top")
 obj.bottomHalf     = hs.fnutils.partial(obj.resizeCurrentWindow, "bottom_half")
+obj.halfBottom     = hs.fnutils.partial(obj.resizeCurrentWindow, "half_bottom")
 obj.thirdLeft      = hs.fnutils.partial(obj.resizeCurrentWindow, "third_left")
 obj.thirdRight     = hs.fnutils.partial(obj.resizeCurrentWindow, "third_right")
 obj.leftThird      = hs.fnutils.partial(obj.resizeCurrentWindow, "left_third")
@@ -426,9 +434,13 @@ end
 function obj:bindHotkeys(mapping)
    local action_to_method_map = {
       left_half = self.leftHalf,
+      half_left = self.halfLeft,
       right_half = self.rightHalf,
+      half_right = self.halfRight,
       top_half = self.topHalf,
+      half_top = self.halfTop,
       bottom_half = self.bottomHalf,
+      half_bottom = self.halfBottom,
       third_left = self.thirdLeft,
       third_right = self.thirdRight,
       third_up = self.thirdUp,
