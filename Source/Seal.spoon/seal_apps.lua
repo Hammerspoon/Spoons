@@ -220,7 +220,6 @@ end
 
 function obj.completionCallback(rowInfo)
    if rowInfo["type"] == "launchOrFocus" then
-      obj.seal.chooser:cancel()
       if string.find(rowInfo["path"], "%.applescript$") or string.find(rowInfo["path"], "%.scpt$") then
          hs.task.new("/usr/bin/osascript", nil, { rowInfo["path"] }):start()
       else
