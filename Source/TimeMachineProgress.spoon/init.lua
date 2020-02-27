@@ -108,6 +108,7 @@ function obj:refresh()
       self.menuBarItem:setIcon(self.backupIcon, false)
     end
     title = nil
+    if (data['Progress']) then data = data['Progress'] end
     if (data['Percent'] == '-1' or data['Percent'] == '0') then
       title = "(prep)"
     else
