@@ -24,6 +24,7 @@
         <li>Variables - Configurable values</li>
           <ul>
             <li><a href="#actions">actions</a></li>
+            <li><a href="#actOnNilTransitions">actOnNilTransitions</a></li>
             <li><a href="#logger">logger</a></li>
           </ul>
         <li>Methods - API calls which can only be made on an object returned by a constructor</li>
@@ -48,9 +49,9 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Table containing a list of actions to execute for SSID transitions. Each action is itself a table with the following keys:</p>
+                <td><p>Table containing a list of actions to execute for SSID transitions. Transitions to a "no network" state (<code>nil</code> SSID) are ignored unless you set <code>WiFiTransitions.actOnNilTransitions</code>. Each action is itself a table with the following keys:</p>
 <ul>
-<li>to - if given, pattern to match against the new SSID. Defaults to match any network. Transitions through the disabled state are ignored (i.e. normally a <code>nil</code> SSID is reported when switching SSIDs)</li>
+<li>to - if given, pattern to match against the new SSID. Defaults to match any network.</li>
 <li>from - if given, pattern to match against the previous SSID. Defaults to match any network.</li>
 <li>fn - function to execute if there is a match. Can also be a list of functions, which will be executed in sequence. Each function will receive the following arguments:<ul>
 <li>event - always "SSIDChange"</li>
@@ -61,6 +62,25 @@
 </li>
 <li>cmd - shell command to execute if there is a match. Can also be a list of commands, which will be executed in sequence using <code>hs.execute</code>. If <code>fn</code> is given, <code>cmd</code> is ignored.</li>
 </ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="actOnNilTransitions">
+            <a name="//apple_ref/cpp/Variable/actOnNilTransitions" class="dashAnchor"></a>
+            <h5><a href="#actOnNilTransitions">actOnNilTransitions</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>WiFiTransitions.actOnNilTransitions</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Whether to evaluate <code>WiFiTransitions.actions</code> if the "to" network is no network (<code>nil</code>). Defaults to <code>false</code> to maintain backward compatibility; if unset, note that <code>from</code> transitions may not execute as expected.</p>
 </td>
               </tr>
             </table>

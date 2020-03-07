@@ -2782,9 +2782,15 @@
     "type": "Module"
   },
   {
-    "desc": "Table containing a list of actions to execute for SSID transitions. Each action is itself a table with the following keys:",
+    "desc": "Table containing a list of actions to execute for SSID transitions. Transitions to a \"no network\" state (`nil` SSID) are ignored unless you set `WiFiTransitions.actOnNilTransitions`. Each action is itself a table with the following keys:",
     "module": "WiFiTransitions",
     "name": "actions",
+    "type": "Variable"
+  },
+  {
+    "desc": "Whether to evaluate `WiFiTransitions.actions` if the \"to\" network is no network (`nil`). Defaults to `false` to maintain backward compatibility; if unset, note that `from` transitions may not execute as expected.",
+    "module": "WiFiTransitions",
+    "name": "actOnNilTransitions",
     "type": "Variable"
   },
   {
