@@ -6206,6 +6206,104 @@
     "Function": [],
     "Method": [
       {
+        "def": "PushToTalk:init()",
+        "desc": "Starts menu and key watcher",
+        "doc": "Starts menu and key watcher",
+        "name": "init",
+        "signature": "PushToTalk:init()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PushToTalk:stop()",
+        "desc": "Stops PushToTalk",
+        "doc": "Stops PushToTalk",
+        "name": "stop",
+        "signature": "PushToTalk:stop()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PushToTalk:toggleStates()",
+        "desc": "Cycle states in order",
+        "doc": "Cycle states in order\n\nParameters:\n * states - A array of states to toggle. For example: `{'push-to-talk', 'release-to-talk'}`",
+        "name": "toggleStates",
+        "parameters": [
+          " * states - A array of states to toggle. For example: `{'push-to-talk', 'release-to-talk'}`"
+        ],
+        "signature": "PushToTalk:toggleStates()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [
+      {
+        "def": "PushToTalk.app_switcher",
+        "desc": "Takes mapping from application name to mic state.",
+        "doc": "Takes mapping from application name to mic state.\nFor example this `{ ['zoom.us'] = 'push-to-talk' }` will switch mic to `push-to-talk` state when Zoom app starts.",
+        "name": "app_switcher",
+        "signature": "PushToTalk.app_switcher",
+        "stripped_doc": "For example this `{ ['zoom.us'] = 'push-to-talk' }` will switch mic to `push-to-talk` state when Zoom app starts.",
+        "type": "Variable"
+      }
+    ],
+    "desc": "Implements push-to-talk and push-to-mute functionality with `fn` key.",
+    "doc": "Implements push-to-talk and push-to-mute functionality with `fn` key.\nI implemented this after reading Gitlab remote handbook https://about.gitlab.com/handbook/communication/ about Shush utility.\n\nMy workflow:\n\nWhen Zoom starts, PushToTalk automatically changes mic state from `default`\nto `push-to-talk`, so I need to press `fn` key to unmute myself and speak.\nIf I need to actively chat in group meeting or it's one-on-one meeting,\nI'm switching to `push-to-mute` state, so mic will be unmute by default and `fn` key mutes it.\n\nPushToTalk has menubar with colorful icons so you can easily see current mic state.\n\nSample config: `spoon.SpoonInstall:andUse(\"PushToTalk\", {start = true, config = { app_switcher = { ['zoom.us'] = 'push-to-talk' }}})`\nand separate keybinding to toggle states with lambda function `function() spoon.PushToTalk.toggleStates({'push-to-talk', 'release-to-talk'}) end`\n\nCheck out my config: https://github.com/skrypka/hammerspoon_config/blob/master/init.lua",
+    "items": [
+      {
+        "def": "PushToTalk.app_switcher",
+        "desc": "Takes mapping from application name to mic state.",
+        "doc": "Takes mapping from application name to mic state.\nFor example this `{ ['zoom.us'] = 'push-to-talk' }` will switch mic to `push-to-talk` state when Zoom app starts.",
+        "name": "app_switcher",
+        "signature": "PushToTalk.app_switcher",
+        "stripped_doc": "For example this `{ ['zoom.us'] = 'push-to-talk' }` will switch mic to `push-to-talk` state when Zoom app starts.",
+        "type": "Variable"
+      },
+      {
+        "def": "PushToTalk:init()",
+        "desc": "Starts menu and key watcher",
+        "doc": "Starts menu and key watcher",
+        "name": "init",
+        "signature": "PushToTalk:init()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PushToTalk:stop()",
+        "desc": "Stops PushToTalk",
+        "doc": "Stops PushToTalk",
+        "name": "stop",
+        "signature": "PushToTalk:stop()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PushToTalk:toggleStates()",
+        "desc": "Cycle states in order",
+        "doc": "Cycle states in order\n\nParameters:\n * states - A array of states to toggle. For example: `{'push-to-talk', 'release-to-talk'}`",
+        "name": "toggleStates",
+        "parameters": [
+          " * states - A array of states to toggle. For example: `{'push-to-talk', 'release-to-talk'}`"
+        ],
+        "signature": "PushToTalk:toggleStates()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "name": "PushToTalk",
+    "stripped_doc": "I implemented this after reading Gitlab remote handbook https://about.gitlab.com/handbook/communication/ about Shush utility.\n\nMy workflow:\n\nWhen Zoom starts, PushToTalk automatically changes mic state from `default`\nto `push-to-talk`, so I need to press `fn` key to unmute myself and speak.\nIf I need to actively chat in group meeting or it's one-on-one meeting,\nI'm switching to `push-to-mute` state, so mic will be unmute by default and `fn` key mutes it.\n\nPushToTalk has menubar with colorful icons so you can easily see current mic state.\n\nSample config: `spoon.SpoonInstall:andUse(\"PushToTalk\", {start = true, config = { app_switcher = { ['zoom.us'] = 'push-to-talk' }}})`\nand separate keybinding to toggle states with lambda function `function() spoon.PushToTalk.toggleStates({'push-to-talk', 'release-to-talk'}) end`\n\nCheck out my config: https://github.com/skrypka/hammerspoon_config/blob/master/init.lua",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
         "def": "RecursiveBinder.recursiveBind(keymap)",
         "desc": "Bind sequential keys by a nested keymap.",
         "doc": "Bind sequential keys by a nested keymap.\n\nParameters:\n * keymap - A table that specifies the mapping.\n\nReturns:\n * A function to start. Bind it to a initial key binding.\n\nNote:\nSpec of keymap:\nEvery key is of format {{modifers}, key, (optional) description}\nThe first two element is what you usually pass into a hs.hotkey.bind() function.\n\nEach value of key can be in two form:\n1. A function. Then pressing the key invokes the function\n2. A table. Then pressing the key bring to another layer of keybindings.\n   And the table have the same format of top table: keys to keys, value to table or function",

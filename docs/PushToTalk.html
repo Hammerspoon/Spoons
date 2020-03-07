@@ -1,0 +1,129 @@
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hammerspoon docs: PushToTalk</title>
+    <style type="text/css">
+      a { text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      th { background-color: #DDDDDD; vertical-align: top; padding: 3px; }
+      td { width: 100%; background-color: #EEEEEE; vertical-align: top; padding: 3px; }
+      table { width: 100% ; border: 1px solid #0; text-align: left; }
+      section > table table td { width: 0; }
+    </style>
+    <link rel="stylesheet" href="docs.css" type="text/css" media="screen" />
+  </head>
+  <body>
+    <header>
+      <h1><a href="./index.html">docs</a> &raquo; PushToTalk</h1>
+      <p>Implements push-to-talk and push-to-mute functionality with <code>fn</code> key.
+I implemented this after reading Gitlab remote handbook <a href="https://about.gitlab.com/handbook/communication/">https://about.gitlab.com/handbook/communication/</a> about Shush utility.</p>
+<p>My workflow:</p>
+<p>When Zoom starts, PushToTalk automatically changes mic state from <code>default</code>
+to <code>push-to-talk</code>, so I need to press <code>fn</code> key to unmute myself and speak.
+If I need to actively chat in group meeting or it's one-on-one meeting,
+I'm switching to <code>push-to-mute</code> state, so mic will be unmute by default and <code>fn</code> key mutes it.</p>
+<p>PushToTalk has menubar with colorful icons so you can easily see current mic state.</p>
+<p>Sample config: <code>spoon.SpoonInstall:andUse("PushToTalk", {start = true, config = { app_switcher = { ['zoom.us'] = 'push-to-talk' }}})</code>
+and separate keybinding to toggle states with lambda function <code>function() spoon.PushToTalk.toggleStates({'push-to-talk', 'release-to-talk'}) end</code></p>
+<p>Check out my config: <a href="https://github.com/skrypka/hammerspoon_config/blob/master/init.lua">https://github.com/skrypka/hammerspoon_config/blob/master/init.lua</a></p>
+
+      </header>
+      <h3>API Overview</h3>
+      <ul>
+        <li>Variables - Configurable values</li>
+          <ul>
+            <li><a href="#app_switcher">app_switcher</a></li>
+          </ul>
+        <li>Methods - API calls which can only be made on an object returned by a constructor</li>
+          <ul>
+            <li><a href="#init">init</a></li>
+            <li><a href="#stop">stop</a></li>
+            <li><a href="#toggleStates">toggleStates</a></li>
+          </ul>
+      </ul>
+      <h3>API Documentation</h3>
+        <h4 class="documentation-section">Variables</h4>
+          <section id="app_switcher">
+            <a name="//apple_ref/cpp/Variable/app_switcher" class="dashAnchor"></a>
+            <h5><a href="#app_switcher">app_switcher</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>PushToTalk.app_switcher</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Takes mapping from application name to mic state.
+For example this <code>{ ['zoom.us'] = 'push-to-talk' }</code> will switch mic to <code>push-to-talk</code> state when Zoom app starts.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+        <h4 class="documentation-section">Methods</h4>
+          <section id="init">
+            <a name="//apple_ref/cpp/Method/init" class="dashAnchor"></a>
+            <h5><a href="#init">init</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>PushToTalk:init()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Starts menu and key watcher</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="stop">
+            <a name="//apple_ref/cpp/Method/stop" class="dashAnchor"></a>
+            <h5><a href="#stop">stop</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>PushToTalk:stop()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Stops PushToTalk</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="toggleStates">
+            <a name="//apple_ref/cpp/Method/toggleStates" class="dashAnchor"></a>
+            <h5><a href="#toggleStates">toggleStates</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>PushToTalk:toggleStates()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Cycle states in order</p>
+<p>Parameters:</p>
+<ul>
+<li>states - A array of states to toggle. For example: <code>{'push-to-talk', 'release-to-talk'}</code></li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+  </body>
+</html>

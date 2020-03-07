@@ -1662,6 +1662,35 @@
     "type": "Method"
   },
   {
+    "desc": "Implements push-to-talk and push-to-mute functionality with `fn` key.",
+    "name": "PushToTalk",
+    "type": "Module"
+  },
+  {
+    "desc": "Takes mapping from application name to mic state.",
+    "module": "PushToTalk",
+    "name": "app_switcher",
+    "type": "Variable"
+  },
+  {
+    "desc": "Starts menu and key watcher",
+    "module": "PushToTalk",
+    "name": "init",
+    "type": "Method"
+  },
+  {
+    "desc": "Stops PushToTalk",
+    "module": "PushToTalk",
+    "name": "stop",
+    "type": "Method"
+  },
+  {
+    "desc": "Cycle states in order",
+    "module": "PushToTalk",
+    "name": "toggleStates",
+    "type": "Method"
+  },
+  {
     "desc": "A spoon that let you bind sequential bindings.",
     "name": "RecursiveBinder",
     "type": "Module"
