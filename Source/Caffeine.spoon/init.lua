@@ -102,4 +102,18 @@ function obj.clicked()
     obj.setDisplay(hs.caffeinate.toggle("displayIdle"))
 end
 
+--- Caffeine:setState(on)
+--- Method
+--- Sets whether or not caffeination should be enabled
+---
+--- Parameters:
+---  * on - A boolean, true if screens should be kept awake, false to let macOS send them to sleep
+---
+--- Returns:
+---  * None
+function obj:setState(on)
+    hs.caffeinate.set("displayIdle", on)
+    obj.setDisplay(on)
+end
+
 return obj
