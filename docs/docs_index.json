@@ -251,6 +251,12 @@
     "type": "Method"
   },
   {
+    "desc": "Sets whether or not caffeination should be enabled",
+    "module": "Caffeine",
+    "name": "setState",
+    "type": "Method"
+  },
+  {
     "desc": "Starts Caffeine",
     "module": "Caffeine",
     "name": "start",
