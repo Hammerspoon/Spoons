@@ -2586,7 +2586,7 @@
     "type": "Method"
   },
   {
-    "desc": "Archive current message in Outlook to the folder specified in",
+    "desc": "Archive current message in Outlook using one of two methods:",
     "module": "UniversalArchive",
     "name": "outlookArchive",
     "type": "Method"

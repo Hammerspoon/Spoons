@@ -241,12 +241,17 @@ Do not change this unless you know what you are doing</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Archive current message in Outlook to the folder specified in
-<code>UniversalArchive.outlook_archive_folder</code>. The folder has to
-appear in the Message -&gt; Move submenu for this to work. Since this
-submenu only lists the last few destination folders, you have to
-move a message by hand the first time (or periodically if you
-don't archive very often).</p>
+                <td><p>Archive current message in Outlook using one of two methods:</p>
+<ol>
+<li>If the "Message -&gt; Archive" menu item exists, it is used (this
+has been added in recent versions of Outlook)</li>
+<li>Otherwise, the message gets manually moved to the folder
+specified in <code>UniversalArchive.outlook_archive_folder</code>. The folder
+has to appear in the Message -&gt; Move submenu for this to
+work. Since this submenu only lists the last few destination
+folders, you have to move a message by hand the first time (or
+periodically if you don't archive very often).</li>
+</ol>
 <p>Parameters:</p>
 <ul>
 <li>none</li>

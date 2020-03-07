@@ -9787,14 +9787,14 @@
       },
       {
         "def": "UniversalArchive:outlookArchive()",
-        "desc": "Archive current message in Outlook to the folder specified in",
-        "doc": "Archive current message in Outlook to the folder specified in\n`UniversalArchive.outlook_archive_folder`. The folder has to\nappear in the Message -> Move submenu for this to work. Since this\nsubmenu only lists the last few destination folders, you have to\nmove a message by hand the first time (or periodically if you\ndon't archive very often).\n\nParameters:\n * none",
+        "desc": "Archive current message in Outlook using one of two methods:",
+        "doc": "Archive current message in Outlook using one of two methods:\n1. If the \"Message -> Archive\" menu item exists, it is used (this\n   has been added in recent versions of Outlook)\n2. Otherwise, the message gets manually moved to the folder\n   specified in `UniversalArchive.outlook_archive_folder`. The folder\n   has to appear in the Message -> Move submenu for this to\n   work. Since this submenu only lists the last few destination\n   folders, you have to move a message by hand the first time (or\n   periodically if you don't archive very often).\n\nParameters:\n * none",
         "name": "outlookArchive",
         "parameters": [
           " * none"
         ],
         "signature": "UniversalArchive:outlookArchive()",
-        "stripped_doc": "`UniversalArchive.outlook_archive_folder`. The folder has to\nappear in the Message -> Move submenu for this to work. Since this\nsubmenu only lists the last few destination folders, you have to\nmove a message by hand the first time (or periodically if you\ndon't archive very often).",
+        "stripped_doc": "1. If the \"Message -> Archive\" menu item exists, it is used (this\n   has been added in recent versions of Outlook)\n2. Otherwise, the message gets manually moved to the folder\n   specified in `UniversalArchive.outlook_archive_folder`. The folder\n   has to appear in the Message -> Move submenu for this to\n   work. Since this submenu only lists the last few destination\n   folders, you have to move a message by hand the first time (or\n   periodically if you don't archive very often).",
         "type": "Method"
       },
       {
@@ -9969,14 +9969,14 @@
       },
       {
         "def": "UniversalArchive:outlookArchive()",
-        "desc": "Archive current message in Outlook to the folder specified in",
-        "doc": "Archive current message in Outlook to the folder specified in\n`UniversalArchive.outlook_archive_folder`. The folder has to\nappear in the Message -> Move submenu for this to work. Since this\nsubmenu only lists the last few destination folders, you have to\nmove a message by hand the first time (or periodically if you\ndon't archive very often).\n\nParameters:\n * none",
+        "desc": "Archive current message in Outlook using one of two methods:",
+        "doc": "Archive current message in Outlook using one of two methods:\n1. If the \"Message -> Archive\" menu item exists, it is used (this\n   has been added in recent versions of Outlook)\n2. Otherwise, the message gets manually moved to the folder\n   specified in `UniversalArchive.outlook_archive_folder`. The folder\n   has to appear in the Message -> Move submenu for this to\n   work. Since this submenu only lists the last few destination\n   folders, you have to move a message by hand the first time (or\n   periodically if you don't archive very often).\n\nParameters:\n * none",
         "name": "outlookArchive",
         "parameters": [
           " * none"
         ],
         "signature": "UniversalArchive:outlookArchive()",
-        "stripped_doc": "`UniversalArchive.outlook_archive_folder`. The folder has to\nappear in the Message -> Move submenu for this to work. Since this\nsubmenu only lists the last few destination folders, you have to\nmove a message by hand the first time (or periodically if you\ndon't archive very often).",
+        "stripped_doc": "1. If the \"Message -> Archive\" menu item exists, it is used (this\n   has been added in recent versions of Outlook)\n2. Otherwise, the message gets manually moved to the folder\n   specified in `UniversalArchive.outlook_archive_folder`. The folder\n   has to appear in the Message -> Move submenu for this to\n   work. Since this submenu only lists the last few destination\n   folders, you have to move a message by hand the first time (or\n   periodically if you don't archive very often).",
         "type": "Method"
       },
       {
