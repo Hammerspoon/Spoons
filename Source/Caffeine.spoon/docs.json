@@ -24,6 +24,21 @@
         "type": "Method"
       },
       {
+        "def": "Caffeine:setState(on)",
+        "desc": "Sets whether or not caffeination should be enabled",
+        "doc": "Sets whether or not caffeination should be enabled\n\nParameters:\n * on - A boolean, true if screens should be kept awake, false to let macOS send them to sleep\n\nReturns:\n * None",
+        "name": "setState",
+        "parameters": [
+          " * on - A boolean, true if screens should be kept awake, false to let macOS send them to sleep"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "Caffeine:setState(on)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
         "def": "Caffeine:start()",
         "desc": "Starts Caffeine",
         "doc": "Starts Caffeine\n\nParameters:\n * None\n\nReturns:\n * The Caffeine object",
@@ -71,6 +86,21 @@
           " * The Caffeine object"
         ],
         "signature": "Caffeine:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Caffeine:setState(on)",
+        "desc": "Sets whether or not caffeination should be enabled",
+        "doc": "Sets whether or not caffeination should be enabled\n\nParameters:\n * on - A boolean, true if screens should be kept awake, false to let macOS send them to sleep\n\nReturns:\n * None",
+        "name": "setState",
+        "parameters": [
+          " * on - A boolean, true if screens should be kept awake, false to let macOS send them to sleep"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "Caffeine:setState(on)",
         "stripped_doc": "",
         "type": "Method"
       },
