@@ -33,6 +33,12 @@ obj.queryChangedTimer = nil
 
 obj.spoonPath = hs.spoons.scriptPath()
 
+--- Seal.queryChangedTimerDuration
+--- Variable
+--- Time between the last keystroke and the start of the recalculation of the choices to display, in seconds.
+--- Defaults to 0.02s (20ms).
+obj.queryChangedTimerDuration = 0.02
+
 --- Seal.plugin_search_paths
 --- Variable
 --- List of directories where Seal will look for plugins. Defaults to `~/.hammerspoon/seal_plugins/` and the Seal Spoon directory.
@@ -334,7 +340,8 @@ function obj.queryChangedCallback(query)
     if obj.queryChangedTimer then
         obj.queryChangedTimer:stop()
     end
-    obj.queryChangedTimer = hs.timer.doAfter(0.2, function() obj.chooser:refreshChoicesCallback() end)
+    obj.queryChangedTimer = hs.timer.doAfter(obj.queryChangedTimerDuration,
+                                             function() obj.chooser:refreshChoicesCallback() end)
 end
 
 return obj
