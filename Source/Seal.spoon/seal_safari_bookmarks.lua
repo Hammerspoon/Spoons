@@ -61,7 +61,7 @@ function obj.choicesBookmarks(query)
     end
     for name,bookmark in pairs(obj.bookmarkCache) do
         url = bookmark["url"]
-        if string.match(name:lower(), query:lower()) or string.match(url:lower(), query:lower()) then
+        if url and (string.match(name:lower(), query:lower()) or string.match(url:lower(), query:lower())) then
             local choice = {}
             local instances = {}
             choice["text"] = name
