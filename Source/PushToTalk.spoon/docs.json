@@ -47,6 +47,15 @@
         "signature": "PushToTalk.app_switcher",
         "stripped_doc": "For example this `{ ['zoom.us'] = 'push-to-talk' }` will switch mic to `push-to-talk` state when Zoom app starts.",
         "type": "Variable"
+      },
+      {
+        "def": "PushToTalk.detect_on_start",
+        "desc": "Check running applications when starting PushToTalk.",
+        "doc": "Check running applications when starting PushToTalk.\nDefaults to false for backwards compatibility. With this disabled, PushToTalk will only change state when applications are launched or quit while PushToTalk is already active. Enable this to look through list of running applications when PushToTalk is started. If multiple apps defined in app_switcher are running, it will set state to the first one it encounters.",
+        "name": "detect_on_start",
+        "signature": "PushToTalk.detect_on_start",
+        "stripped_doc": "Defaults to false for backwards compatibility. With this disabled, PushToTalk will only change state when applications are launched or quit while PushToTalk is already active. Enable this to look through list of running applications when PushToTalk is started. If multiple apps defined in app_switcher are running, it will set state to the first one it encounters.",
+        "type": "Variable"
       }
     ],
     "desc": "Implements push-to-talk and push-to-mute functionality with `fn` key.",

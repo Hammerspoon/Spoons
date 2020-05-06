@@ -31,11 +31,18 @@ obj.defaultState = 'unmute'
 
 obj.state = obj.defaultState
 obj.pushed = false
+
 --- PushToTalk.app_switcher
 --- Variable
 --- Takes mapping from application name to mic state.
 --- For example this `{ ['zoom.us'] = 'push-to-talk' }` will switch mic to `push-to-talk` state when Zoom app starts.
 obj.app_switcher = {}
+
+--- PushToTalk.detect_on_start
+--- Variable
+--- Check running applications when starting PushToTalk.
+--- Defaults to false for backwards compatibility. With this disabled, PushToTalk will only change state when applications are launched or quit while PushToTalk is already active. Enable this to look through list of running applications when PushToTalk is started. If multiple apps defined in app_switcher are running, it will set state to the first one it encounters.
+obj.detect_on_start = false
 
 local function showState()
     local device = hs.audiodevice.defaultInputDevice()
@@ -97,6 +104,20 @@ local function eventTapWatcher(event)
     showState()
 end
 
+local function initialState()
+    local apps = hs.application.runningApplications()
+
+    for i, app in pairs(apps) do
+        for name, state in pairs(obj.app_switcher) do
+            if app:name() == name then
+                return state
+            end
+        end
+    end
+
+    return obj.defaultState
+end
+
 --- PushToTalk:init()
 --- Method
 --- Initial setup. It's empty currently
@@ -116,6 +137,7 @@ function obj:start()
 
     obj.menubar = hs.menubar.new()
     obj.menubar:setMenu(obj.menutable)
+    if obj.detect_on_start then obj.state = initialState() end
     obj.setState(obj.state)
 end
 
