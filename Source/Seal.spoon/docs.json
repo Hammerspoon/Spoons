@@ -177,6 +177,15 @@
         "signature": "Seal.plugin_search_paths",
         "stripped_doc": "",
         "type": "Variable"
+      },
+      {
+        "def": "Seal.queryChangedTimerDuration",
+        "desc": "Time between the last keystroke and the start of the recalculation of the choices to display, in seconds.",
+        "doc": "Time between the last keystroke and the start of the recalculation of the choices to display, in seconds.\nDefaults to 0.02s (20ms).",
+        "name": "queryChangedTimerDuration",
+        "signature": "Seal.queryChangedTimerDuration",
+        "stripped_doc": "Defaults to 0.02s (20ms).",
+        "type": "Variable"
       }
     ],
     "desc": "Pluggable launch bar",
@@ -247,6 +256,15 @@
         "name": "plugin_search_paths",
         "signature": "Seal.plugin_search_paths",
         "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "Seal.queryChangedTimerDuration",
+        "desc": "Time between the last keystroke and the start of the recalculation of the choices to display, in seconds.",
+        "doc": "Time between the last keystroke and the start of the recalculation of the choices to display, in seconds.\nDefaults to 0.02s (20ms).",
+        "name": "queryChangedTimerDuration",
+        "signature": "Seal.queryChangedTimerDuration",
+        "stripped_doc": "Defaults to 0.02s (20ms).",
         "type": "Variable"
       },
       {
