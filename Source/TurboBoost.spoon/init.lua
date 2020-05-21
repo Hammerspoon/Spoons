@@ -44,17 +44,20 @@ obj.wakeupWatcher = nil
 
 --- TurboBoost.disable_on_start
 --- Variable
---- Boolean to indicate whether Turbo Boost should be disabled when the Spoon starts. Defaults to false.
+--- Boolean to indicate whether Turbo Boost should be disabled when
+--- the Spoon starts. Default value: `false`.
 obj.disable_on_start = false
 
 --- TurboBoost.reenable_on_stop
 --- Variable
---- Boolean to indicate whether Turbo Boost should be reenabled when the Spoon stops. Defaults to true.
+--- Boolean to indicate whether Turbo Boost should be reenabled when
+--- the Spoon stops. Default value: `true`.
 obj.reenable_on_stop = true
 
 --- TurboBoost.kext_path
 --- Variable
 --- Where the DisableTurboBoost.kext file is located.
+--- Default value: `"/Applications/Turbo Boost Switcher.app/Contents/Resources/DisableTurboBoost.64bits.kext"`
 obj.kext_path = "/Applications/Turbo Boost Switcher.app/Contents/Resources/DisableTurboBoost.64bits.kext"
 
 --- TurboBoost.load_kext_cmd
@@ -64,7 +67,7 @@ obj.kext_path = "/Applications/Turbo Boost Switcher.app/Contents/Resources/Disab
 --- either query the user for the credentials, or be configured
 --- (e.g. with sudo) to run without prompting. The string "%s" in this
 --- variable gets replaced with the value of
---- TurboBoost.kext_path
+--- TurboBoost.kext_path. Default value: `"/usr/bin/sudo /usr/bin/kextutil '%s'"`
 obj.load_kext_cmd = "/usr/bin/sudo /usr/bin/kextutil '%s'"
 
 --- TurboBoost.unload_kext_cmd
@@ -74,31 +77,33 @@ obj.load_kext_cmd = "/usr/bin/sudo /usr/bin/kextutil '%s'"
 --- either query the user for the credentials, or be configured
 --- (e.g. with sudo) to run without prompting. The string "%s" in this
 --- variable gets replaced with the value of
---- TurboBoost.kext_path
+--- TurboBoost.kext_path. Default value: `"/usr/bin/sudo /sbin/kextunload '%s'"`
 obj.unload_kext_cmd = "/usr/bin/sudo /sbin/kextunload '%s'"
 
 --- TurboBoost.check_kext_cmd
 --- Variable
 --- Command to execute to check whether the DisableTurboBoost kernel
---- extension is loaded.
+--- extension is loaded. Default value: `"/usr/sbin/kextstat | grep com.rugarciap.DisableTurboBoost"`
 obj.check_kext_cmd = "/usr/sbin/kextstat | grep com.rugarciap.DisableTurboBoost"
 
 --- TurboBoost.notify
 --- Variable
 --- Boolean indicating whether notifications should be generated when
---- Turbo Boost is enabled/disabled.
+--- Turbo Boost is enabled/disabled. Default value: `true`
 obj.notify = true
 
 --- TurboBoost.enabled_icon_path
 --- Variable
---- Where to find the icon to use for the "Enabled" icon. Defaults to
---- using the one from the Turbo Boost application.
+--- Where to find the icon to use for the "Enabled" icon. Default value
+--- uses the icon from the Turbo Boost application:
+--- `"/Applications/Turbo Boost Switcher.app/Contents/Resources/icon.tiff"`
 obj.enabled_icon_path = "/Applications/Turbo Boost Switcher.app/Contents/Resources/icon.tiff"
 
 --- TurboBoost.disabled_icon_path
 --- Variable
---- Where to find the icon to use for the "Disabled" icon. Defaults to
---- using the one from the Turbo Boost application.
+--- Where to find the icon to use for the "Disabled" icon. Default value
+--- uses the icon from the Turbo Boost application:
+--- `"/Applications/Turbo Boost Switcher.app/Contents/Resources/icon_off.tiff"`
 obj.disabled_icon_path = "/Applications/Turbo Boost Switcher.app/Contents/Resources/icon_off.tiff"
 
 --- TurboBoost:setState(state)
