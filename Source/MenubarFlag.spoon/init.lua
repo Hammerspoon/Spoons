@@ -101,6 +101,7 @@ local ind = nil
 
 -- Initialize the empty indicator table
 function initIndicators()
+   prevlayout = nil
    if ind ~= nil then
       delIndicators()
    end
