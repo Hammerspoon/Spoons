@@ -33,6 +33,7 @@ and separate keybinding to toggle states with lambda function <code>function() s
         <li>Variables - Configurable values</li>
           <ul>
             <li><a href="#app_switcher">app_switcher</a></li>
+            <li><a href="#detect_on_start">detect_on_start</a></li>
           </ul>
         <li>Methods - API calls which can only be made on an object returned by a constructor</li>
           <ul>
@@ -59,6 +60,26 @@ and separate keybinding to toggle states with lambda function <code>function() s
                 <th>Description</th>
                 <td><p>Takes mapping from application name to mic state.
 For example this <code>{ ['zoom.us'] = 'push-to-talk' }</code> will switch mic to <code>push-to-talk</code> state when Zoom app starts.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="detect_on_start">
+            <a name="//apple_ref/cpp/Variable/detect_on_start" class="dashAnchor"></a>
+            <h5><a href="#detect_on_start">detect_on_start</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>PushToTalk.detect_on_start</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Check running applications when starting PushToTalk.
+Defaults to false for backwards compatibility. With this disabled, PushToTalk will only change state when applications are launched or quit while PushToTalk is already active. Enable this to look through list of running applications when PushToTalk is started. If multiple apps defined in app_switcher are running, it will set state to the first one it encounters.</p>
 </td>
               </tr>
             </table>
