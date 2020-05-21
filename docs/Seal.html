@@ -39,6 +39,7 @@
         <li>Variables - Configurable values</li>
           <ul>
             <li><a href="#plugin_search_paths">plugin_search_paths</a></li>
+            <li><a href="#queryChangedTimerDuration">queryChangedTimerDuration</a></li>
           </ul>
         <li>Methods - API calls which can only be made on an object returned by a constructor</li>
           <ul>
@@ -70,6 +71,26 @@
               <tr>
                 <th>Description</th>
                 <td><p>List of directories where Seal will look for plugins. Defaults to <code>~/.hammerspoon/seal_plugins/</code> and the Seal Spoon directory.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="queryChangedTimerDuration">
+            <a name="//apple_ref/cpp/Variable/queryChangedTimerDuration" class="dashAnchor"></a>
+            <h5><a href="#queryChangedTimerDuration">queryChangedTimerDuration</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Seal.queryChangedTimerDuration</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Time between the last keystroke and the start of the recalculation of the choices to display, in seconds.
+Defaults to 0.02s (20ms).</p>
 </td>
               </tr>
             </table>

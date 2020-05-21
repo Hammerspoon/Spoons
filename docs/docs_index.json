@@ -1819,6 +1819,12 @@
     "type": "Variable"
   },
   {
+    "desc": "Time between the last keystroke and the start of the recalculation of the choices to display, in seconds.",
+    "module": "Seal",
+    "name": "queryChangedTimerDuration",
+    "type": "Variable"
+  },
+  {
     "desc": "Binds hotkeys for Seal",
     "module": "Seal",
     "name": "bindHotkeys",
