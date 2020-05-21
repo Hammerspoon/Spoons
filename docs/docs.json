@@ -9846,6 +9846,380 @@
     "Function": [],
     "Method": [
       {
+        "def": "TurboBoost:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for TurboBoost",
+        "doc": "Binds hotkeys for TurboBoost\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n  * hello - Say Hello",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * mapping - A table containing hotkey objifier/key details for the following items:",
+          "  * hello - Say Hello"
+        ],
+        "signature": "TurboBoost:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "TurboBoost:setState(state)",
+        "desc": "Sets whether Turbo Boost should be disabled (kernel extension",
+        "doc": "Sets whether Turbo Boost should be disabled (kernel extension\nloaded) or enabled (normal state, kernel extension not loaded).\n\nParameters:\n * state - A boolean, false if Turbo Boost should be disabled\n   (load kernel extension), true if it should be enabled (unload\n   kernel extension if loaded).\n * notify - Optional boolean indicating whether a notification\n   should be produced. If not given, the value of\n   TurboBoost.notify is used.\n\nReturns:\n * Boolean indicating new state",
+        "name": "setState",
+        "parameters": [
+          " * state - A boolean, false if Turbo Boost should be disabled",
+          "   (load kernel extension), true if it should be enabled (unload",
+          "   kernel extension if loaded).",
+          " * notify - Optional boolean indicating whether a notification",
+          "   should be produced. If not given, the value of",
+          "   TurboBoost.notify is used."
+        ],
+        "returns": [
+          " * Boolean indicating new state"
+        ],
+        "signature": "TurboBoost:setState(state)",
+        "stripped_doc": "loaded) or enabled (normal state, kernel extension not loaded).",
+        "type": "Method"
+      },
+      {
+        "def": "TurboBoost:start()",
+        "desc": "Starts TurboBoost",
+        "doc": "Starts TurboBoost\n\nParameters:\n * None\n\nReturns:\n * The TurboBoost object",
+        "name": "start",
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * The TurboBoost object"
+        ],
+        "signature": "TurboBoost:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "TurboBoost:status()",
+        "desc": "Check whether Turbo Boost is enabled",
+        "doc": "Check whether Turbo Boost is enabled\n\nReturns:\n * true if TurboBoost is enabled (kernel ext not loaded), false otherwise.",
+        "name": "status",
+        "returns": [
+          " * true if TurboBoost is enabled (kernel ext not loaded), false otherwise."
+        ],
+        "signature": "TurboBoost:status()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "TurboBoost:stop()",
+        "desc": "Stops TurboBoost",
+        "doc": "Stops TurboBoost\n\nParameters:\n * None\n\nReturns:\n * The TurboBoost object",
+        "name": "stop",
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * The TurboBoost object"
+        ],
+        "signature": "TurboBoost:stop()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "TurboBoost:toggle()",
+        "desc": "Toggle TurboBoost status",
+        "doc": "Toggle TurboBoost status\n\nReturns:\n * New TurboBoost status, after the toggle",
+        "name": "toggle",
+        "returns": [
+          " * New TurboBoost status, after the toggle"
+        ],
+        "signature": "TurboBoost:toggle()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [
+      {
+        "def": "TurboBoost.check_kext_cmd",
+        "desc": "Command to execute to check whether the DisableTurboBoost kernel",
+        "doc": "Command to execute to check whether the DisableTurboBoost kernel\nextension is loaded.",
+        "name": "check_kext_cmd",
+        "signature": "TurboBoost.check_kext_cmd",
+        "stripped_doc": "extension is loaded.",
+        "type": "Variable"
+      },
+      {
+        "def": "TurboBoost.disable_on_start",
+        "desc": "Boolean to indicate whether Turbo Boost should be disabled when the Spoon starts. Defaults to false.",
+        "doc": "Boolean to indicate whether Turbo Boost should be disabled when the Spoon starts. Defaults to false.",
+        "name": "disable_on_start",
+        "signature": "TurboBoost.disable_on_start",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "TurboBoost.disabled_icon_path",
+        "desc": "Where to find the icon to use for the \"Disabled\" icon. Defaults to",
+        "doc": "Where to find the icon to use for the \"Disabled\" icon. Defaults to\nusing the one from the Turbo Boost application.",
+        "name": "disabled_icon_path",
+        "signature": "TurboBoost.disabled_icon_path",
+        "stripped_doc": "using the one from the Turbo Boost application.",
+        "type": "Variable"
+      },
+      {
+        "def": "TurboBoost.enabled_icon_path",
+        "desc": "Where to find the icon to use for the \"Enabled\" icon. Defaults to",
+        "doc": "Where to find the icon to use for the \"Enabled\" icon. Defaults to\nusing the one from the Turbo Boost application.",
+        "name": "enabled_icon_path",
+        "signature": "TurboBoost.enabled_icon_path",
+        "stripped_doc": "using the one from the Turbo Boost application.",
+        "type": "Variable"
+      },
+      {
+        "def": "TurboBoost.kext_path",
+        "desc": "Where the DisableTurboBoost.kext file is located.",
+        "doc": "Where the DisableTurboBoost.kext file is located.",
+        "name": "kext_path",
+        "signature": "TurboBoost.kext_path",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "TurboBoost.load_kext_cmd",
+        "desc": "Command to execute to load the DisableTurboBoost kernel",
+        "doc": "Command to execute to load the DisableTurboBoost kernel\nextension. This command must execute with root privileges and\neither query the user for the credentials, or be configured\n(e.g. with sudo) to run without prompting. The string \"%s\" in this\nvariable gets replaced with the value of\nTurboBoost.kext_path",
+        "name": "load_kext_cmd",
+        "signature": "TurboBoost.load_kext_cmd",
+        "stripped_doc": "extension. This command must execute with root privileges and\neither query the user for the credentials, or be configured\n(e.g. with sudo) to run without prompting. The string \"%s\" in this\nvariable gets replaced with the value of\nTurboBoost.kext_path",
+        "type": "Variable"
+      },
+      {
+        "def": "TurboBoost.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "name": "logger",
+        "signature": "TurboBoost.logger",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "TurboBoost.notify",
+        "desc": "Boolean indicating whether notifications should be generated when",
+        "doc": "Boolean indicating whether notifications should be generated when\nTurbo Boost is enabled/disabled.",
+        "name": "notify",
+        "signature": "TurboBoost.notify",
+        "stripped_doc": "Turbo Boost is enabled/disabled.",
+        "type": "Variable"
+      },
+      {
+        "def": "TurboBoost.reenable_on_stop",
+        "desc": "Boolean to indicate whether Turbo Boost should be reenabled when the Spoon stops. Defaults to true.",
+        "doc": "Boolean to indicate whether Turbo Boost should be reenabled when the Spoon stops. Defaults to true.",
+        "name": "reenable_on_stop",
+        "signature": "TurboBoost.reenable_on_stop",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "TurboBoost.unload_kext_cmd",
+        "desc": "Command to execute to unload the DisableTurboBoost kernel",
+        "doc": "Command to execute to unload the DisableTurboBoost kernel\nextension. This command must execute with root privileges and\neither query the user for the credentials, or be configured\n(e.g. with sudo) to run without prompting. The string \"%s\" in this\nvariable gets replaced with the value of\nTurboBoost.kext_path",
+        "name": "unload_kext_cmd",
+        "signature": "TurboBoost.unload_kext_cmd",
+        "stripped_doc": "extension. This command must execute with root privileges and\neither query the user for the credentials, or be configured\n(e.g. with sudo) to run without prompting. The string \"%s\" in this\nvariable gets replaced with the value of\nTurboBoost.kext_path",
+        "type": "Variable"
+      }
+    ],
+    "desc": "A spoon to load/unload the Turbo Boost Disable kernel extension",
+    "doc": "A spoon to load/unload the Turbo Boost Disable kernel extension\nfrom https://github.com/rugarciap/Turbo-Boost-Switcher.\n\nNote: this spoon by default uses sudo to load/unload the kernel\nextension, so for it to work from Hammerspoon, you need to\nconfigure sudo to be able to load/unload the extension without a\npassword, or configure the load_kext_cmd and unload_kext_cmd\nvariables to use some other mechanism that prompts you for the\ncredentials.\n\nFor example, the following configuration (stored in\n/etc/sudoers.d/turboboost) can be used to allow loading and\nunloading the module without a password:\n```\nCmnd_Alias    TURBO_OPS = /sbin/kextunload /Applications/Turbo Boost Switcher.app/Contents/Resources/DisableTurboBoost.64bits.kext, /usr/bin/kextutil /Applications/Turbo Boost Switcher.app/Contents/Resources/DisableTurboBoost.64bits.kext\n\n%admin ALL=(ALL) NOPASSWD: TURBO_OPS\n```\n\nIf you use this, please support the author of Turbo Boost Disabler\nby purchasing the Pro version of the app!\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/TurboBoost.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/TurboBoost.spoon.zip)",
+    "items": [
+      {
+        "def": "TurboBoost:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for TurboBoost",
+        "doc": "Binds hotkeys for TurboBoost\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n  * hello - Say Hello",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * mapping - A table containing hotkey objifier/key details for the following items:",
+          "  * hello - Say Hello"
+        ],
+        "signature": "TurboBoost:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "TurboBoost.check_kext_cmd",
+        "desc": "Command to execute to check whether the DisableTurboBoost kernel",
+        "doc": "Command to execute to check whether the DisableTurboBoost kernel\nextension is loaded.",
+        "name": "check_kext_cmd",
+        "signature": "TurboBoost.check_kext_cmd",
+        "stripped_doc": "extension is loaded.",
+        "type": "Variable"
+      },
+      {
+        "def": "TurboBoost.disable_on_start",
+        "desc": "Boolean to indicate whether Turbo Boost should be disabled when the Spoon starts. Defaults to false.",
+        "doc": "Boolean to indicate whether Turbo Boost should be disabled when the Spoon starts. Defaults to false.",
+        "name": "disable_on_start",
+        "signature": "TurboBoost.disable_on_start",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "TurboBoost.disabled_icon_path",
+        "desc": "Where to find the icon to use for the \"Disabled\" icon. Defaults to",
+        "doc": "Where to find the icon to use for the \"Disabled\" icon. Defaults to\nusing the one from the Turbo Boost application.",
+        "name": "disabled_icon_path",
+        "signature": "TurboBoost.disabled_icon_path",
+        "stripped_doc": "using the one from the Turbo Boost application.",
+        "type": "Variable"
+      },
+      {
+        "def": "TurboBoost.enabled_icon_path",
+        "desc": "Where to find the icon to use for the \"Enabled\" icon. Defaults to",
+        "doc": "Where to find the icon to use for the \"Enabled\" icon. Defaults to\nusing the one from the Turbo Boost application.",
+        "name": "enabled_icon_path",
+        "signature": "TurboBoost.enabled_icon_path",
+        "stripped_doc": "using the one from the Turbo Boost application.",
+        "type": "Variable"
+      },
+      {
+        "def": "TurboBoost.kext_path",
+        "desc": "Where the DisableTurboBoost.kext file is located.",
+        "doc": "Where the DisableTurboBoost.kext file is located.",
+        "name": "kext_path",
+        "signature": "TurboBoost.kext_path",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "TurboBoost.load_kext_cmd",
+        "desc": "Command to execute to load the DisableTurboBoost kernel",
+        "doc": "Command to execute to load the DisableTurboBoost kernel\nextension. This command must execute with root privileges and\neither query the user for the credentials, or be configured\n(e.g. with sudo) to run without prompting. The string \"%s\" in this\nvariable gets replaced with the value of\nTurboBoost.kext_path",
+        "name": "load_kext_cmd",
+        "signature": "TurboBoost.load_kext_cmd",
+        "stripped_doc": "extension. This command must execute with root privileges and\neither query the user for the credentials, or be configured\n(e.g. with sudo) to run without prompting. The string \"%s\" in this\nvariable gets replaced with the value of\nTurboBoost.kext_path",
+        "type": "Variable"
+      },
+      {
+        "def": "TurboBoost.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "name": "logger",
+        "signature": "TurboBoost.logger",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "TurboBoost.notify",
+        "desc": "Boolean indicating whether notifications should be generated when",
+        "doc": "Boolean indicating whether notifications should be generated when\nTurbo Boost is enabled/disabled.",
+        "name": "notify",
+        "signature": "TurboBoost.notify",
+        "stripped_doc": "Turbo Boost is enabled/disabled.",
+        "type": "Variable"
+      },
+      {
+        "def": "TurboBoost.reenable_on_stop",
+        "desc": "Boolean to indicate whether Turbo Boost should be reenabled when the Spoon stops. Defaults to true.",
+        "doc": "Boolean to indicate whether Turbo Boost should be reenabled when the Spoon stops. Defaults to true.",
+        "name": "reenable_on_stop",
+        "signature": "TurboBoost.reenable_on_stop",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "TurboBoost:setState(state)",
+        "desc": "Sets whether Turbo Boost should be disabled (kernel extension",
+        "doc": "Sets whether Turbo Boost should be disabled (kernel extension\nloaded) or enabled (normal state, kernel extension not loaded).\n\nParameters:\n * state - A boolean, false if Turbo Boost should be disabled\n   (load kernel extension), true if it should be enabled (unload\n   kernel extension if loaded).\n * notify - Optional boolean indicating whether a notification\n   should be produced. If not given, the value of\n   TurboBoost.notify is used.\n\nReturns:\n * Boolean indicating new state",
+        "name": "setState",
+        "parameters": [
+          " * state - A boolean, false if Turbo Boost should be disabled",
+          "   (load kernel extension), true if it should be enabled (unload",
+          "   kernel extension if loaded).",
+          " * notify - Optional boolean indicating whether a notification",
+          "   should be produced. If not given, the value of",
+          "   TurboBoost.notify is used."
+        ],
+        "returns": [
+          " * Boolean indicating new state"
+        ],
+        "signature": "TurboBoost:setState(state)",
+        "stripped_doc": "loaded) or enabled (normal state, kernel extension not loaded).",
+        "type": "Method"
+      },
+      {
+        "def": "TurboBoost:start()",
+        "desc": "Starts TurboBoost",
+        "doc": "Starts TurboBoost\n\nParameters:\n * None\n\nReturns:\n * The TurboBoost object",
+        "name": "start",
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * The TurboBoost object"
+        ],
+        "signature": "TurboBoost:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "TurboBoost:status()",
+        "desc": "Check whether Turbo Boost is enabled",
+        "doc": "Check whether Turbo Boost is enabled\n\nReturns:\n * true if TurboBoost is enabled (kernel ext not loaded), false otherwise.",
+        "name": "status",
+        "returns": [
+          " * true if TurboBoost is enabled (kernel ext not loaded), false otherwise."
+        ],
+        "signature": "TurboBoost:status()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "TurboBoost:stop()",
+        "desc": "Stops TurboBoost",
+        "doc": "Stops TurboBoost\n\nParameters:\n * None\n\nReturns:\n * The TurboBoost object",
+        "name": "stop",
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * The TurboBoost object"
+        ],
+        "signature": "TurboBoost:stop()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "TurboBoost:toggle()",
+        "desc": "Toggle TurboBoost status",
+        "doc": "Toggle TurboBoost status\n\nReturns:\n * New TurboBoost status, after the toggle",
+        "name": "toggle",
+        "returns": [
+          " * New TurboBoost status, after the toggle"
+        ],
+        "signature": "TurboBoost:toggle()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "TurboBoost.unload_kext_cmd",
+        "desc": "Command to execute to unload the DisableTurboBoost kernel",
+        "doc": "Command to execute to unload the DisableTurboBoost kernel\nextension. This command must execute with root privileges and\neither query the user for the credentials, or be configured\n(e.g. with sudo) to run without prompting. The string \"%s\" in this\nvariable gets replaced with the value of\nTurboBoost.kext_path",
+        "name": "unload_kext_cmd",
+        "signature": "TurboBoost.unload_kext_cmd",
+        "stripped_doc": "extension. This command must execute with root privileges and\neither query the user for the credentials, or be configured\n(e.g. with sudo) to run without prompting. The string \"%s\" in this\nvariable gets replaced with the value of\nTurboBoost.kext_path",
+        "type": "Variable"
+      }
+    ],
+    "name": "TurboBoost",
+    "stripped_doc": "from https://github.com/rugarciap/Turbo-Boost-Switcher.\n\nNote: this spoon by default uses sudo to load/unload the kernel\nextension, so for it to work from Hammerspoon, you need to\nconfigure sudo to be able to load/unload the extension without a\npassword, or configure the load_kext_cmd and unload_kext_cmd\nvariables to use some other mechanism that prompts you for the\ncredentials.\n\nFor example, the following configuration (stored in\n/etc/sudoers.d/turboboost) can be used to allow loading and\nunloading the module without a password:\n```\nCmnd_Alias    TURBO_OPS = /sbin/kextunload /Applications/Turbo Boost Switcher.app/Contents/Resources/DisableTurboBoost.64bits.kext, /usr/bin/kextutil /Applications/Turbo Boost Switcher.app/Contents/Resources/DisableTurboBoost.64bits.kext\n\n%admin ALL=(ALL) NOPASSWD: TURBO_OPS\n```\n\nIf you use this, please support the author of Turbo Boost Disabler\nby purchasing the Pro version of the app!\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/TurboBoost.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/TurboBoost.spoon.zip)",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
         "def": "UniversalArchive:bindHotkeys(mapping)",
         "desc": "Binds hotkeys for UniversalArchive",
         "doc": "Binds hotkeys for UniversalArchive\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for the following items:\n  * `archive` - hotkey for trigger the `universalArchive()` method, to archive the current item on the current application.\n  * `<app>_<dest>` - if an application handler supports multiple destinations, you can specify hotkeys for specific destinations using this format. For example, to assign a hotkey that files the current note in Evernote to the \"MyProject\" notebook using Ctrl-Alt-Cmd-M, you would specify `Evernote_MyProject = { { \"ctrl\", \"alt\", \"cmd\" }, \"m\" }` as one of the elements of `mapping`. Keep in mind that the application name must appear exactly as the system sees it (including upper/lowercase), and that if either the application or the destination name contain spaces or other non-alphanumeric characters, you need to use the Lua table notation. For example: `[\"Evernote_Some Long Notebook Name\"] = { keybinding }`. At the moment only the Evernote handler supports multiple destinations.",

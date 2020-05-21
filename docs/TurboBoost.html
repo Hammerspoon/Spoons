@@ -1,0 +1,430 @@
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hammerspoon docs: TurboBoost</title>
+    <style type="text/css">
+      a { text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      th { background-color: #DDDDDD; vertical-align: top; padding: 3px; }
+      td { width: 100%; background-color: #EEEEEE; vertical-align: top; padding: 3px; }
+      table { width: 100% ; border: 1px solid #0; text-align: left; }
+      section > table table td { width: 0; }
+    </style>
+    <link rel="stylesheet" href="docs.css" type="text/css" media="screen" />
+  </head>
+  <body>
+    <header>
+      <h1><a href="./index.html">docs</a> &raquo; TurboBoost</h1>
+      <p>A spoon to load/unload the Turbo Boost Disable kernel extension
+from <a href="https://github.com/rugarciap/Turbo-Boost-Switcher">https://github.com/rugarciap/Turbo-Boost-Switcher</a>.</p>
+<p>Note: this spoon by default uses sudo to load/unload the kernel
+extension, so for it to work from Hammerspoon, you need to
+configure sudo to be able to load/unload the extension without a
+password, or configure the load_kext_cmd and unload_kext_cmd
+variables to use some other mechanism that prompts you for the
+credentials.</p>
+<p>For example, the following configuration (stored in
+/etc/sudoers.d/turboboost) can be used to allow loading and
+unloading the module without a password:</p>
+
+<pre><code>Cmnd_Alias    TURBO_OPS = /sbin/kextunload /Applications/Turbo Boost Switcher.app/Contents/Resources/DisableTurboBoost.64bits.kext, /usr/bin/kextutil /Applications/Turbo Boost Switcher.app/Contents/Resources/DisableTurboBoost.64bits.kext
+
+%admin ALL=(ALL) NOPASSWD: TURBO_OPS</code></pre>
+<p>If you use this, please support the author of Turbo Boost Disabler
+by purchasing the Pro version of the app!</p>
+<p>Download: <a href="https://github.com/Hammerspoon/Spoons/raw/master/Spoons/TurboBoost.spoon.zip">https://github.com/Hammerspoon/Spoons/raw/master/Spoons/TurboBoost.spoon.zip</a></p>
+
+      </header>
+      <h3>API Overview</h3>
+      <ul>
+        <li>Variables - Configurable values</li>
+          <ul>
+            <li><a href="#check_kext_cmd">check_kext_cmd</a></li>
+            <li><a href="#disable_on_start">disable_on_start</a></li>
+            <li><a href="#disabled_icon_path">disabled_icon_path</a></li>
+            <li><a href="#enabled_icon_path">enabled_icon_path</a></li>
+            <li><a href="#kext_path">kext_path</a></li>
+            <li><a href="#load_kext_cmd">load_kext_cmd</a></li>
+            <li><a href="#logger">logger</a></li>
+            <li><a href="#notify">notify</a></li>
+            <li><a href="#reenable_on_stop">reenable_on_stop</a></li>
+            <li><a href="#unload_kext_cmd">unload_kext_cmd</a></li>
+          </ul>
+        <li>Methods - API calls which can only be made on an object returned by a constructor</li>
+          <ul>
+            <li><a href="#bindHotkeys">bindHotkeys</a></li>
+            <li><a href="#setState">setState</a></li>
+            <li><a href="#start">start</a></li>
+            <li><a href="#status">status</a></li>
+            <li><a href="#stop">stop</a></li>
+            <li><a href="#toggle">toggle</a></li>
+          </ul>
+      </ul>
+      <h3>API Documentation</h3>
+        <h4 class="documentation-section">Variables</h4>
+          <section id="check_kext_cmd">
+            <a name="//apple_ref/cpp/Variable/check_kext_cmd" class="dashAnchor"></a>
+            <h5><a href="#check_kext_cmd">check_kext_cmd</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>TurboBoost.check_kext_cmd</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Command to execute to check whether the DisableTurboBoost kernel
+extension is loaded.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="disable_on_start">
+            <a name="//apple_ref/cpp/Variable/disable_on_start" class="dashAnchor"></a>
+            <h5><a href="#disable_on_start">disable_on_start</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>TurboBoost.disable_on_start</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Boolean to indicate whether Turbo Boost should be disabled when the Spoon starts. Defaults to false.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="disabled_icon_path">
+            <a name="//apple_ref/cpp/Variable/disabled_icon_path" class="dashAnchor"></a>
+            <h5><a href="#disabled_icon_path">disabled_icon_path</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>TurboBoost.disabled_icon_path</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Where to find the icon to use for the "Disabled" icon. Defaults to
+using the one from the Turbo Boost application.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="enabled_icon_path">
+            <a name="//apple_ref/cpp/Variable/enabled_icon_path" class="dashAnchor"></a>
+            <h5><a href="#enabled_icon_path">enabled_icon_path</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>TurboBoost.enabled_icon_path</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Where to find the icon to use for the "Enabled" icon. Defaults to
+using the one from the Turbo Boost application.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="kext_path">
+            <a name="//apple_ref/cpp/Variable/kext_path" class="dashAnchor"></a>
+            <h5><a href="#kext_path">kext_path</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>TurboBoost.kext_path</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Where the DisableTurboBoost.kext file is located.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="load_kext_cmd">
+            <a name="//apple_ref/cpp/Variable/load_kext_cmd" class="dashAnchor"></a>
+            <h5><a href="#load_kext_cmd">load_kext_cmd</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>TurboBoost.load_kext_cmd</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Command to execute to load the DisableTurboBoost kernel
+extension. This command must execute with root privileges and
+either query the user for the credentials, or be configured
+(e.g. with sudo) to run without prompting. The string "%s" in this
+variable gets replaced with the value of
+TurboBoost.kext_path</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="logger">
+            <a name="//apple_ref/cpp/Variable/logger" class="dashAnchor"></a>
+            <h5><a href="#logger">logger</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>TurboBoost.logger</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="notify">
+            <a name="//apple_ref/cpp/Variable/notify" class="dashAnchor"></a>
+            <h5><a href="#notify">notify</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>TurboBoost.notify</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Boolean indicating whether notifications should be generated when
+Turbo Boost is enabled/disabled.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="reenable_on_stop">
+            <a name="//apple_ref/cpp/Variable/reenable_on_stop" class="dashAnchor"></a>
+            <h5><a href="#reenable_on_stop">reenable_on_stop</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>TurboBoost.reenable_on_stop</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Boolean to indicate whether Turbo Boost should be reenabled when the Spoon stops. Defaults to true.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="unload_kext_cmd">
+            <a name="//apple_ref/cpp/Variable/unload_kext_cmd" class="dashAnchor"></a>
+            <h5><a href="#unload_kext_cmd">unload_kext_cmd</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>TurboBoost.unload_kext_cmd</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Command to execute to unload the DisableTurboBoost kernel
+extension. This command must execute with root privileges and
+either query the user for the credentials, or be configured
+(e.g. with sudo) to run without prompting. The string "%s" in this
+variable gets replaced with the value of
+TurboBoost.kext_path</p>
+</td>
+              </tr>
+            </table>
+          </section>
+        <h4 class="documentation-section">Methods</h4>
+          <section id="bindHotkeys">
+            <a name="//apple_ref/cpp/Method/bindHotkeys" class="dashAnchor"></a>
+            <h5><a href="#bindHotkeys">bindHotkeys</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>TurboBoost:bindHotkeys(mapping)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Binds hotkeys for TurboBoost</p>
+<p>Parameters:</p>
+<ul>
+<li>mapping - A table containing hotkey objifier/key details for the following items:<ul>
+<li>hello - Say Hello</li>
+</ul>
+</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="setState">
+            <a name="//apple_ref/cpp/Method/setState" class="dashAnchor"></a>
+            <h5><a href="#setState">setState</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>TurboBoost:setState(state)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Sets whether Turbo Boost should be disabled (kernel extension
+loaded) or enabled (normal state, kernel extension not loaded).</p>
+<p>Parameters:</p>
+<ul>
+<li>state - A boolean, false if Turbo Boost should be disabled
+(load kernel extension), true if it should be enabled (unload
+kernel extension if loaded).</li>
+<li>notify - Optional boolean indicating whether a notification
+should be produced. If not given, the value of
+TurboBoost.notify is used.</li>
+</ul>
+<p>Returns:</p>
+<ul>
+<li>Boolean indicating new state</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="start">
+            <a name="//apple_ref/cpp/Method/start" class="dashAnchor"></a>
+            <h5><a href="#start">start</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>TurboBoost:start()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Starts TurboBoost</p>
+<p>Parameters:</p>
+<ul>
+<li>None</li>
+</ul>
+<p>Returns:</p>
+<ul>
+<li>The TurboBoost object</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="status">
+            <a name="//apple_ref/cpp/Method/status" class="dashAnchor"></a>
+            <h5><a href="#status">status</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>TurboBoost:status()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Check whether Turbo Boost is enabled</p>
+<p>Returns:</p>
+<ul>
+<li>true if TurboBoost is enabled (kernel ext not loaded), false otherwise.</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="stop">
+            <a name="//apple_ref/cpp/Method/stop" class="dashAnchor"></a>
+            <h5><a href="#stop">stop</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>TurboBoost:stop()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Stops TurboBoost</p>
+<p>Parameters:</p>
+<ul>
+<li>None</li>
+</ul>
+<p>Returns:</p>
+<ul>
+<li>The TurboBoost object</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="toggle">
+            <a name="//apple_ref/cpp/Method/toggle" class="dashAnchor"></a>
+            <h5><a href="#toggle">toggle</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>TurboBoost:toggle()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Toggle TurboBoost status</p>
+<p>Returns:</p>
+<ul>
+<li>New TurboBoost status, after the toggle</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+  </body>
+</html>
