@@ -9973,55 +9973,55 @@
       {
         "def": "TurboBoost.check_kext_cmd",
         "desc": "Command to execute to check whether the DisableTurboBoost kernel",
-        "doc": "Command to execute to check whether the DisableTurboBoost kernel\nextension is loaded.",
+        "doc": "Command to execute to check whether the DisableTurboBoost kernel\nextension is loaded. Default value: `\"/usr/sbin/kextstat | grep com.rugarciap.DisableTurboBoost\"`",
         "name": "check_kext_cmd",
         "signature": "TurboBoost.check_kext_cmd",
-        "stripped_doc": "extension is loaded.",
+        "stripped_doc": "extension is loaded. Default value: `\"/usr/sbin/kextstat | grep com.rugarciap.DisableTurboBoost\"`",
         "type": "Variable"
       },
       {
         "def": "TurboBoost.disable_on_start",
-        "desc": "Boolean to indicate whether Turbo Boost should be disabled when the Spoon starts. Defaults to false.",
-        "doc": "Boolean to indicate whether Turbo Boost should be disabled when the Spoon starts. Defaults to false.",
+        "desc": "Boolean to indicate whether Turbo Boost should be disabled when",
+        "doc": "Boolean to indicate whether Turbo Boost should be disabled when\nthe Spoon starts. Default value: `false`.",
         "name": "disable_on_start",
         "signature": "TurboBoost.disable_on_start",
-        "stripped_doc": "",
+        "stripped_doc": "the Spoon starts. Default value: `false`.",
         "type": "Variable"
       },
       {
         "def": "TurboBoost.disabled_icon_path",
-        "desc": "Where to find the icon to use for the \"Disabled\" icon. Defaults to",
-        "doc": "Where to find the icon to use for the \"Disabled\" icon. Defaults to\nusing the one from the Turbo Boost application.",
+        "desc": "Where to find the icon to use for the \"Disabled\" icon. Default value",
+        "doc": "Where to find the icon to use for the \"Disabled\" icon. Default value\nuses the icon from the Turbo Boost application:\n`\"/Applications/Turbo Boost Switcher.app/Contents/Resources/icon_off.tiff\"`",
         "name": "disabled_icon_path",
         "signature": "TurboBoost.disabled_icon_path",
-        "stripped_doc": "using the one from the Turbo Boost application.",
+        "stripped_doc": "uses the icon from the Turbo Boost application:\n`\"/Applications/Turbo Boost Switcher.app/Contents/Resources/icon_off.tiff\"`",
         "type": "Variable"
       },
       {
         "def": "TurboBoost.enabled_icon_path",
-        "desc": "Where to find the icon to use for the \"Enabled\" icon. Defaults to",
-        "doc": "Where to find the icon to use for the \"Enabled\" icon. Defaults to\nusing the one from the Turbo Boost application.",
+        "desc": "Where to find the icon to use for the \"Enabled\" icon. Default value",
+        "doc": "Where to find the icon to use for the \"Enabled\" icon. Default value\nuses the icon from the Turbo Boost application:\n`\"/Applications/Turbo Boost Switcher.app/Contents/Resources/icon.tiff\"`",
         "name": "enabled_icon_path",
         "signature": "TurboBoost.enabled_icon_path",
-        "stripped_doc": "using the one from the Turbo Boost application.",
+        "stripped_doc": "uses the icon from the Turbo Boost application:\n`\"/Applications/Turbo Boost Switcher.app/Contents/Resources/icon.tiff\"`",
         "type": "Variable"
       },
       {
         "def": "TurboBoost.kext_path",
         "desc": "Where the DisableTurboBoost.kext file is located.",
-        "doc": "Where the DisableTurboBoost.kext file is located.",
+        "doc": "Where the DisableTurboBoost.kext file is located.\nDefault value: `\"/Applications/Turbo Boost Switcher.app/Contents/Resources/DisableTurboBoost.64bits.kext\"`",
         "name": "kext_path",
         "signature": "TurboBoost.kext_path",
-        "stripped_doc": "",
+        "stripped_doc": "Default value: `\"/Applications/Turbo Boost Switcher.app/Contents/Resources/DisableTurboBoost.64bits.kext\"`",
         "type": "Variable"
       },
       {
         "def": "TurboBoost.load_kext_cmd",
         "desc": "Command to execute to load the DisableTurboBoost kernel",
-        "doc": "Command to execute to load the DisableTurboBoost kernel\nextension. This command must execute with root privileges and\neither query the user for the credentials, or be configured\n(e.g. with sudo) to run without prompting. The string \"%s\" in this\nvariable gets replaced with the value of\nTurboBoost.kext_path",
+        "doc": "Command to execute to load the DisableTurboBoost kernel\nextension. This command must execute with root privileges and\neither query the user for the credentials, or be configured\n(e.g. with sudo) to run without prompting. The string \"%s\" in this\nvariable gets replaced with the value of\nTurboBoost.kext_path. Default value: `\"/usr/bin/sudo /usr/bin/kextutil '%s'\"`",
         "name": "load_kext_cmd",
         "signature": "TurboBoost.load_kext_cmd",
-        "stripped_doc": "extension. This command must execute with root privileges and\neither query the user for the credentials, or be configured\n(e.g. with sudo) to run without prompting. The string \"%s\" in this\nvariable gets replaced with the value of\nTurboBoost.kext_path",
+        "stripped_doc": "extension. This command must execute with root privileges and\neither query the user for the credentials, or be configured\n(e.g. with sudo) to run without prompting. The string \"%s\" in this\nvariable gets replaced with the value of\nTurboBoost.kext_path. Default value: `\"/usr/bin/sudo /usr/bin/kextutil '%s'\"`",
         "type": "Variable"
       },
       {
@@ -10036,28 +10036,28 @@
       {
         "def": "TurboBoost.notify",
         "desc": "Boolean indicating whether notifications should be generated when",
-        "doc": "Boolean indicating whether notifications should be generated when\nTurbo Boost is enabled/disabled.",
+        "doc": "Boolean indicating whether notifications should be generated when\nTurbo Boost is enabled/disabled. Default value: `true`",
         "name": "notify",
         "signature": "TurboBoost.notify",
-        "stripped_doc": "Turbo Boost is enabled/disabled.",
+        "stripped_doc": "Turbo Boost is enabled/disabled. Default value: `true`",
         "type": "Variable"
       },
       {
         "def": "TurboBoost.reenable_on_stop",
-        "desc": "Boolean to indicate whether Turbo Boost should be reenabled when the Spoon stops. Defaults to true.",
-        "doc": "Boolean to indicate whether Turbo Boost should be reenabled when the Spoon stops. Defaults to true.",
+        "desc": "Boolean to indicate whether Turbo Boost should be reenabled when",
+        "doc": "Boolean to indicate whether Turbo Boost should be reenabled when\nthe Spoon stops. Default value: `true`.",
         "name": "reenable_on_stop",
         "signature": "TurboBoost.reenable_on_stop",
-        "stripped_doc": "",
+        "stripped_doc": "the Spoon stops. Default value: `true`.",
         "type": "Variable"
       },
       {
         "def": "TurboBoost.unload_kext_cmd",
         "desc": "Command to execute to unload the DisableTurboBoost kernel",
-        "doc": "Command to execute to unload the DisableTurboBoost kernel\nextension. This command must execute with root privileges and\neither query the user for the credentials, or be configured\n(e.g. with sudo) to run without prompting. The string \"%s\" in this\nvariable gets replaced with the value of\nTurboBoost.kext_path",
+        "doc": "Command to execute to unload the DisableTurboBoost kernel\nextension. This command must execute with root privileges and\neither query the user for the credentials, or be configured\n(e.g. with sudo) to run without prompting. The string \"%s\" in this\nvariable gets replaced with the value of\nTurboBoost.kext_path. Default value: `\"/usr/bin/sudo /sbin/kextunload '%s'\"`",
         "name": "unload_kext_cmd",
         "signature": "TurboBoost.unload_kext_cmd",
-        "stripped_doc": "extension. This command must execute with root privileges and\neither query the user for the credentials, or be configured\n(e.g. with sudo) to run without prompting. The string \"%s\" in this\nvariable gets replaced with the value of\nTurboBoost.kext_path",
+        "stripped_doc": "extension. This command must execute with root privileges and\neither query the user for the credentials, or be configured\n(e.g. with sudo) to run without prompting. The string \"%s\" in this\nvariable gets replaced with the value of\nTurboBoost.kext_path. Default value: `\"/usr/bin/sudo /sbin/kextunload '%s'\"`",
         "type": "Variable"
       }
     ],
@@ -10080,55 +10080,55 @@
       {
         "def": "TurboBoost.check_kext_cmd",
         "desc": "Command to execute to check whether the DisableTurboBoost kernel",
-        "doc": "Command to execute to check whether the DisableTurboBoost kernel\nextension is loaded.",
+        "doc": "Command to execute to check whether the DisableTurboBoost kernel\nextension is loaded. Default value: `\"/usr/sbin/kextstat | grep com.rugarciap.DisableTurboBoost\"`",
         "name": "check_kext_cmd",
         "signature": "TurboBoost.check_kext_cmd",
-        "stripped_doc": "extension is loaded.",
+        "stripped_doc": "extension is loaded. Default value: `\"/usr/sbin/kextstat | grep com.rugarciap.DisableTurboBoost\"`",
         "type": "Variable"
       },
       {
         "def": "TurboBoost.disable_on_start",
-        "desc": "Boolean to indicate whether Turbo Boost should be disabled when the Spoon starts. Defaults to false.",
-        "doc": "Boolean to indicate whether Turbo Boost should be disabled when the Spoon starts. Defaults to false.",
+        "desc": "Boolean to indicate whether Turbo Boost should be disabled when",
+        "doc": "Boolean to indicate whether Turbo Boost should be disabled when\nthe Spoon starts. Default value: `false`.",
         "name": "disable_on_start",
         "signature": "TurboBoost.disable_on_start",
-        "stripped_doc": "",
+        "stripped_doc": "the Spoon starts. Default value: `false`.",
         "type": "Variable"
       },
       {
         "def": "TurboBoost.disabled_icon_path",
-        "desc": "Where to find the icon to use for the \"Disabled\" icon. Defaults to",
-        "doc": "Where to find the icon to use for the \"Disabled\" icon. Defaults to\nusing the one from the Turbo Boost application.",
+        "desc": "Where to find the icon to use for the \"Disabled\" icon. Default value",
+        "doc": "Where to find the icon to use for the \"Disabled\" icon. Default value\nuses the icon from the Turbo Boost application:\n`\"/Applications/Turbo Boost Switcher.app/Contents/Resources/icon_off.tiff\"`",
         "name": "disabled_icon_path",
         "signature": "TurboBoost.disabled_icon_path",
-        "stripped_doc": "using the one from the Turbo Boost application.",
+        "stripped_doc": "uses the icon from the Turbo Boost application:\n`\"/Applications/Turbo Boost Switcher.app/Contents/Resources/icon_off.tiff\"`",
         "type": "Variable"
       },
       {
         "def": "TurboBoost.enabled_icon_path",
-        "desc": "Where to find the icon to use for the \"Enabled\" icon. Defaults to",
-        "doc": "Where to find the icon to use for the \"Enabled\" icon. Defaults to\nusing the one from the Turbo Boost application.",
+        "desc": "Where to find the icon to use for the \"Enabled\" icon. Default value",
+        "doc": "Where to find the icon to use for the \"Enabled\" icon. Default value\nuses the icon from the Turbo Boost application:\n`\"/Applications/Turbo Boost Switcher.app/Contents/Resources/icon.tiff\"`",
         "name": "enabled_icon_path",
         "signature": "TurboBoost.enabled_icon_path",
-        "stripped_doc": "using the one from the Turbo Boost application.",
+        "stripped_doc": "uses the icon from the Turbo Boost application:\n`\"/Applications/Turbo Boost Switcher.app/Contents/Resources/icon.tiff\"`",
         "type": "Variable"
       },
       {
         "def": "TurboBoost.kext_path",
         "desc": "Where the DisableTurboBoost.kext file is located.",
-        "doc": "Where the DisableTurboBoost.kext file is located.",
+        "doc": "Where the DisableTurboBoost.kext file is located.\nDefault value: `\"/Applications/Turbo Boost Switcher.app/Contents/Resources/DisableTurboBoost.64bits.kext\"`",
         "name": "kext_path",
         "signature": "TurboBoost.kext_path",
-        "stripped_doc": "",
+        "stripped_doc": "Default value: `\"/Applications/Turbo Boost Switcher.app/Contents/Resources/DisableTurboBoost.64bits.kext\"`",
         "type": "Variable"
       },
       {
         "def": "TurboBoost.load_kext_cmd",
         "desc": "Command to execute to load the DisableTurboBoost kernel",
-        "doc": "Command to execute to load the DisableTurboBoost kernel\nextension. This command must execute with root privileges and\neither query the user for the credentials, or be configured\n(e.g. with sudo) to run without prompting. The string \"%s\" in this\nvariable gets replaced with the value of\nTurboBoost.kext_path",
+        "doc": "Command to execute to load the DisableTurboBoost kernel\nextension. This command must execute with root privileges and\neither query the user for the credentials, or be configured\n(e.g. with sudo) to run without prompting. The string \"%s\" in this\nvariable gets replaced with the value of\nTurboBoost.kext_path. Default value: `\"/usr/bin/sudo /usr/bin/kextutil '%s'\"`",
         "name": "load_kext_cmd",
         "signature": "TurboBoost.load_kext_cmd",
-        "stripped_doc": "extension. This command must execute with root privileges and\neither query the user for the credentials, or be configured\n(e.g. with sudo) to run without prompting. The string \"%s\" in this\nvariable gets replaced with the value of\nTurboBoost.kext_path",
+        "stripped_doc": "extension. This command must execute with root privileges and\neither query the user for the credentials, or be configured\n(e.g. with sudo) to run without prompting. The string \"%s\" in this\nvariable gets replaced with the value of\nTurboBoost.kext_path. Default value: `\"/usr/bin/sudo /usr/bin/kextutil '%s'\"`",
         "type": "Variable"
       },
       {
@@ -10143,19 +10143,19 @@
       {
         "def": "TurboBoost.notify",
         "desc": "Boolean indicating whether notifications should be generated when",
-        "doc": "Boolean indicating whether notifications should be generated when\nTurbo Boost is enabled/disabled.",
+        "doc": "Boolean indicating whether notifications should be generated when\nTurbo Boost is enabled/disabled. Default value: `true`",
         "name": "notify",
         "signature": "TurboBoost.notify",
-        "stripped_doc": "Turbo Boost is enabled/disabled.",
+        "stripped_doc": "Turbo Boost is enabled/disabled. Default value: `true`",
         "type": "Variable"
       },
       {
         "def": "TurboBoost.reenable_on_stop",
-        "desc": "Boolean to indicate whether Turbo Boost should be reenabled when the Spoon stops. Defaults to true.",
-        "doc": "Boolean to indicate whether Turbo Boost should be reenabled when the Spoon stops. Defaults to true.",
+        "desc": "Boolean to indicate whether Turbo Boost should be reenabled when",
+        "doc": "Boolean to indicate whether Turbo Boost should be reenabled when\nthe Spoon stops. Default value: `true`.",
         "name": "reenable_on_stop",
         "signature": "TurboBoost.reenable_on_stop",
-        "stripped_doc": "",
+        "stripped_doc": "the Spoon stops. Default value: `true`.",
         "type": "Variable"
       },
       {
@@ -10235,10 +10235,10 @@
       {
         "def": "TurboBoost.unload_kext_cmd",
         "desc": "Command to execute to unload the DisableTurboBoost kernel",
-        "doc": "Command to execute to unload the DisableTurboBoost kernel\nextension. This command must execute with root privileges and\neither query the user for the credentials, or be configured\n(e.g. with sudo) to run without prompting. The string \"%s\" in this\nvariable gets replaced with the value of\nTurboBoost.kext_path",
+        "doc": "Command to execute to unload the DisableTurboBoost kernel\nextension. This command must execute with root privileges and\neither query the user for the credentials, or be configured\n(e.g. with sudo) to run without prompting. The string \"%s\" in this\nvariable gets replaced with the value of\nTurboBoost.kext_path. Default value: `\"/usr/bin/sudo /sbin/kextunload '%s'\"`",
         "name": "unload_kext_cmd",
         "signature": "TurboBoost.unload_kext_cmd",
-        "stripped_doc": "extension. This command must execute with root privileges and\neither query the user for the credentials, or be configured\n(e.g. with sudo) to run without prompting. The string \"%s\" in this\nvariable gets replaced with the value of\nTurboBoost.kext_path",
+        "stripped_doc": "extension. This command must execute with root privileges and\neither query the user for the credentials, or be configured\n(e.g. with sudo) to run without prompting. The string \"%s\" in this\nvariable gets replaced with the value of\nTurboBoost.kext_path. Default value: `\"/usr/bin/sudo /sbin/kextunload '%s'\"`",
         "type": "Variable"
       }
     ],

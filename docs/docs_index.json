@@ -2585,19 +2585,19 @@
     "type": "Variable"
   },
   {
-    "desc": "Boolean to indicate whether Turbo Boost should be disabled when the Spoon starts. Defaults to false.",
+    "desc": "Boolean to indicate whether Turbo Boost should be disabled when",
     "module": "TurboBoost",
     "name": "disable_on_start",
     "type": "Variable"
   },
   {
-    "desc": "Where to find the icon to use for the \"Disabled\" icon. Defaults to",
+    "desc": "Where to find the icon to use for the \"Disabled\" icon. Default value",
     "module": "TurboBoost",
     "name": "disabled_icon_path",
     "type": "Variable"
   },
   {
-    "desc": "Where to find the icon to use for the \"Enabled\" icon. Defaults to",
+    "desc": "Where to find the icon to use for the \"Enabled\" icon. Default value",
     "module": "TurboBoost",
     "name": "enabled_icon_path",
     "type": "Variable"
@@ -2627,7 +2627,7 @@
     "type": "Variable"
   },
   {
-    "desc": "Boolean to indicate whether Turbo Boost should be reenabled when the Spoon stops. Defaults to true.",
+    "desc": "Boolean to indicate whether Turbo Boost should be reenabled when",
     "module": "TurboBoost",
     "name": "reenable_on_stop",
     "type": "Variable"

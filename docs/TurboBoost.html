@@ -77,7 +77,7 @@ by purchasing the Pro version of the app!</p>
               <tr>
                 <th>Description</th>
                 <td><p>Command to execute to check whether the DisableTurboBoost kernel
-extension is loaded.</p>
+extension is loaded. Default value: <code>"/usr/sbin/kextstat | grep com.rugarciap.DisableTurboBoost"</code></p>
 </td>
               </tr>
             </table>
@@ -96,7 +96,8 @@ extension is loaded.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Boolean to indicate whether Turbo Boost should be disabled when the Spoon starts. Defaults to false.</p>
+                <td><p>Boolean to indicate whether Turbo Boost should be disabled when
+the Spoon starts. Default value: <code>false</code>.</p>
 </td>
               </tr>
             </table>
@@ -115,8 +116,9 @@ extension is loaded.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Where to find the icon to use for the "Disabled" icon. Defaults to
-using the one from the Turbo Boost application.</p>
+                <td><p>Where to find the icon to use for the "Disabled" icon. Default value
+uses the icon from the Turbo Boost application:
+<code>"/Applications/Turbo Boost Switcher.app/Contents/Resources/icon_off.tiff"</code></p>
 </td>
               </tr>
             </table>
@@ -135,8 +137,9 @@ using the one from the Turbo Boost application.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Where to find the icon to use for the "Enabled" icon. Defaults to
-using the one from the Turbo Boost application.</p>
+                <td><p>Where to find the icon to use for the "Enabled" icon. Default value
+uses the icon from the Turbo Boost application:
+<code>"/Applications/Turbo Boost Switcher.app/Contents/Resources/icon.tiff"</code></p>
 </td>
               </tr>
             </table>
@@ -155,7 +158,8 @@ using the one from the Turbo Boost application.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Where the DisableTurboBoost.kext file is located.</p>
+                <td><p>Where the DisableTurboBoost.kext file is located.
+Default value: <code>"/Applications/Turbo Boost Switcher.app/Contents/Resources/DisableTurboBoost.64bits.kext"</code></p>
 </td>
               </tr>
             </table>
@@ -179,7 +183,7 @@ extension. This command must execute with root privileges and
 either query the user for the credentials, or be configured
 (e.g. with sudo) to run without prompting. The string "%s" in this
 variable gets replaced with the value of
-TurboBoost.kext_path</p>
+TurboBoost.kext_path. Default value: <code>"/usr/bin/sudo /usr/bin/kextutil '%s'"</code></p>
 </td>
               </tr>
             </table>
@@ -218,7 +222,7 @@ TurboBoost.kext_path</p>
               <tr>
                 <th>Description</th>
                 <td><p>Boolean indicating whether notifications should be generated when
-Turbo Boost is enabled/disabled.</p>
+Turbo Boost is enabled/disabled. Default value: <code>true</code></p>
 </td>
               </tr>
             </table>
@@ -237,7 +241,8 @@ Turbo Boost is enabled/disabled.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Boolean to indicate whether Turbo Boost should be reenabled when the Spoon stops. Defaults to true.</p>
+                <td><p>Boolean to indicate whether Turbo Boost should be reenabled when
+the Spoon stops. Default value: <code>true</code>.</p>
 </td>
               </tr>
             </table>
@@ -261,7 +266,7 @@ extension. This command must execute with root privileges and
 either query the user for the credentials, or be configured
 (e.g. with sudo) to run without prompting. The string "%s" in this
 variable gets replaced with the value of
-TurboBoost.kext_path</p>
+TurboBoost.kext_path. Default value: <code>"/usr/bin/sudo /sbin/kextunload '%s'"</code></p>
 </td>
               </tr>
             </table>
