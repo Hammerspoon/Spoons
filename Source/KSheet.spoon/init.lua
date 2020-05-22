@@ -221,7 +221,7 @@ function obj:toggle()
   end
 end
 
---- BrewInfo:bindHotkeys(mapping)
+--- KSheet:bindHotkeys(mapping)
 --- Method
 --- Binds hotkeys for KSheet
 ---
