@@ -23,12 +23,43 @@
       <ul>
         <li>Methods - API calls which can only be made on an object returned by a constructor</li>
           <ul>
+            <li><a href="#bindHotkeys">bindHotkeys</a></li>
             <li><a href="#hide">hide</a></li>
+            <li><a href="#init">init</a></li>
             <li><a href="#show">show</a></li>
+            <li><a href="#toggle">toggle</a></li>
           </ul>
       </ul>
       <h3>API Documentation</h3>
         <h4 class="documentation-section">Methods</h4>
+          <section id="bindHotkeys">
+            <a name="//apple_ref/cpp/Method/bindHotkeys" class="dashAnchor"></a>
+            <h5><a href="#bindHotkeys">bindHotkeys</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>KSheet:bindHotkeys(mapping)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Binds hotkeys for KSheet</p>
+<p>Parameters:</p>
+<ul>
+<li>mapping - A table containing hotkey modifier/key details for the following items:<ul>
+<li>show - Show the keybinding view</li>
+<li>hide - Hide the keybinding view</li>
+<li>toggle - Show if hidden, hide if shown</li>
+</ul>
+</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
           <section id="hide">
             <a name="//apple_ref/cpp/Method/hide" class="dashAnchor"></a>
             <h5><a href="#hide">hide</a></h5>
@@ -43,7 +74,26 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Hide the cheatsheet webview</p>
+                <td><p>Hide the cheatsheet view.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="init">
+            <a name="//apple_ref/cpp/Method/init" class="dashAnchor"></a>
+            <h5><a href="#init">init</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>KSheet:init()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Initialize the spoon</p>
 </td>
               </tr>
             </table>
@@ -62,7 +112,26 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Show current application's keybindings in a webview</p>
+                <td><p>Show current application's keybindings in a view.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="toggle">
+            <a name="//apple_ref/cpp/Method/toggle" class="dashAnchor"></a>
+            <h5><a href="#toggle">toggle</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>KSheet:toggle()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Alternatively show/hide the cheatsheet view.</p>
 </td>
               </tr>
             </table>

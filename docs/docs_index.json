@@ -1058,15 +1058,33 @@
     "type": "Module"
   },
   {
-    "desc": "Hide the cheatsheet webview",
+    "desc": "Binds hotkeys for KSheet",
+    "module": "KSheet",
+    "name": "bindHotkeys",
+    "type": "Method"
+  },
+  {
+    "desc": "Hide the cheatsheet view.",
     "module": "KSheet",
     "name": "hide",
     "type": "Method"
   },
   {
-    "desc": "Show current application's keybindings in a webview",
+    "desc": "Initialize the spoon",
+    "module": "KSheet",
+    "name": "init",
+    "type": "Method"
+  },
+  {
+    "desc": "Show current application's keybindings in a view.",
     "module": "KSheet",
     "name": "show",
+    "type": "Method"
+  },
+  {
+    "desc": "Alternatively show/hide the cheatsheet view.",
+    "module": "KSheet",
+    "name": "toggle",
     "type": "Method"
   },
   {

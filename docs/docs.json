@@ -3915,20 +3915,53 @@
     "Function": [],
     "Method": [
       {
+        "def": "KSheet:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for KSheet",
+        "doc": "Binds hotkeys for KSheet\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for the following items:\n  * show - Show the keybinding view\n  * hide - Hide the keybinding view\n  * toggle - Show if hidden, hide if shown",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * mapping - A table containing hotkey modifier/key details for the following items:",
+          "  * show - Show the keybinding view",
+          "  * hide - Hide the keybinding view",
+          "  * toggle - Show if hidden, hide if shown"
+        ],
+        "signature": "KSheet:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
         "def": "KSheet:hide()",
-        "desc": "Hide the cheatsheet webview",
-        "doc": "Hide the cheatsheet webview\n",
+        "desc": "Hide the cheatsheet view.",
+        "doc": "Hide the cheatsheet view.",
         "name": "hide",
         "signature": "KSheet:hide()",
         "stripped_doc": "",
         "type": "Method"
       },
       {
+        "def": "KSheet:init()",
+        "desc": "Initialize the spoon",
+        "doc": "Initialize the spoon",
+        "name": "init",
+        "signature": "KSheet:init()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
         "def": "KSheet:show()",
-        "desc": "Show current application's keybindings in a webview",
-        "doc": "Show current application's keybindings in a webview\n",
+        "desc": "Show current application's keybindings in a view.",
+        "doc": "Show current application's keybindings in a view.",
         "name": "show",
         "signature": "KSheet:show()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "KSheet:toggle()",
+        "desc": "Alternatively show/hide the cheatsheet view.",
+        "doc": "Alternatively show/hide the cheatsheet view.",
+        "name": "toggle",
+        "signature": "KSheet:toggle()",
         "stripped_doc": "",
         "type": "Method"
       }
@@ -3938,20 +3971,53 @@
     "doc": "Keybindings cheatsheet for current application\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/KSheet.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/KSheet.spoon.zip)",
     "items": [
       {
+        "def": "KSheet:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for KSheet",
+        "doc": "Binds hotkeys for KSheet\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for the following items:\n  * show - Show the keybinding view\n  * hide - Hide the keybinding view\n  * toggle - Show if hidden, hide if shown",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * mapping - A table containing hotkey modifier/key details for the following items:",
+          "  * show - Show the keybinding view",
+          "  * hide - Hide the keybinding view",
+          "  * toggle - Show if hidden, hide if shown"
+        ],
+        "signature": "KSheet:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
         "def": "KSheet:hide()",
-        "desc": "Hide the cheatsheet webview",
-        "doc": "Hide the cheatsheet webview\n",
+        "desc": "Hide the cheatsheet view.",
+        "doc": "Hide the cheatsheet view.",
         "name": "hide",
         "signature": "KSheet:hide()",
         "stripped_doc": "",
         "type": "Method"
       },
       {
+        "def": "KSheet:init()",
+        "desc": "Initialize the spoon",
+        "doc": "Initialize the spoon",
+        "name": "init",
+        "signature": "KSheet:init()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
         "def": "KSheet:show()",
-        "desc": "Show current application's keybindings in a webview",
-        "doc": "Show current application's keybindings in a webview\n",
+        "desc": "Show current application's keybindings in a view.",
+        "doc": "Show current application's keybindings in a view.",
         "name": "show",
         "signature": "KSheet:show()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "KSheet:toggle()",
+        "desc": "Alternatively show/hide the cheatsheet view.",
+        "doc": "Alternatively show/hide the cheatsheet view.",
+        "name": "toggle",
+        "signature": "KSheet:toggle()",
         "stripped_doc": "",
         "type": "Method"
       }
