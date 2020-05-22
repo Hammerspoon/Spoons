@@ -24,6 +24,9 @@ obj.commandEnum = {
     ctrl = '⌃',
 }
 
+--- KSheet:init()
+--- Method
+--- Initialize the spoon
 function obj:init()
     self.sheetView = hs.webview.new({x=0, y=0, w=0, h=0})
     self.sheetView:windowTitle("CheatSheets")
@@ -184,9 +187,7 @@ end
 
 --- KSheet:show()
 --- Method
---- Show current application's keybindings in a webview
----
-
+--- Show current application's keybindings in a view.
 function obj:show()
     local capp = hs.application.frontmostApplication()
     local cscreen = hs.screen.mainScreen()
@@ -204,13 +205,14 @@ end
 
 --- KSheet:hide()
 --- Method
---- Hide the cheatsheet webview
----
-
+--- Hide the cheatsheet view.
 function obj:hide()
     self.sheetView:hide()
 end
 
+--- KSheet:toggle()
+--- Method
+--- Alternatively show/hide the cheatsheet view.
 function obj:toggle()
   if self.sheetView and self.sheetView:hswindow() and self.sheetView:hswindow():isVisible() then
     self:hide()
@@ -219,6 +221,15 @@ function obj:toggle()
   end
 end
 
+--- BrewInfo:bindHotkeys(mapping)
+--- Method
+--- Binds hotkeys for KSheet
+---
+--- Parameters:
+---  * mapping - A table containing hotkey modifier/key details for the following items:
+---   * show - Show the keybinding view
+---   * hide - Hide the keybinding view
+---   * toggle - Show if hidden, hide if shown
 function obj:bindHotkeys(mapping)
   local actions = {
     toggle = hs.fnutils.partial(self.toggle, self),
