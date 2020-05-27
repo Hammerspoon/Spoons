@@ -19,7 +19,11 @@ local function curl_callback(exitCode, stdOut, stdErr)
         obj.task = nil
         obj.last_pic = obj.file_name
         local localpath = os.getenv("HOME") .. "/.Trash/" .. obj.file_name
-        hs.screen.mainScreen():desktopImageURL("file://" .. localpath)
+
+        -- set wallpaper for all screens
+        for _,screen in ipairs(allScreen) do
+            screen:desktopImageURL("file://" .. localpath)
+        end
     else
         print(stdOut, stdErr)
     end
