@@ -21,6 +21,7 @@ local function curl_callback(exitCode, stdOut, stdErr)
         local localpath = os.getenv("HOME") .. "/.Trash/" .. obj.file_name
 
         -- set wallpaper for all screens
+        allScreen = hs.screen.allScreens()
         for _,screen in ipairs(allScreen) do
             screen:desktopImageURL("file://" .. localpath)
         end
