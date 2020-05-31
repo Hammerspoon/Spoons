@@ -35,6 +35,23 @@
     "type": "Method"
   },
   {
+    "desc": "Listens for keyboard brightness keypresses and alters brightness on all supported displays.",
+    "name": "AllBrightness",
+    "type": "Module"
+  },
+  {
+    "desc": "Starts listening for keyboard brightness keys",
+    "module": "AllBrightness",
+    "name": "start",
+    "type": "Function"
+  },
+  {
+    "desc": "Stops listening for keyboard brightness keys",
+    "module": "AllBrightness",
+    "name": "stop",
+    "type": "Function"
+  },
+  {
     "desc": "Simple spoon that creates a new task in Asana with a given name in a given workspace.",
     "name": "Asana",
     "type": "Module"
