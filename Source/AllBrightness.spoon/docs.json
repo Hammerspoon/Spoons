@@ -1,0 +1,81 @@
+[
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [
+      {
+        "def": "AllBrightness:start()",
+        "desc": "Starts listening for keyboard brightness keys",
+        "doc": "Starts listening for keyboard brightness keys\n\nParameters:\n * None\n\nReturns:\n * None",
+        "name": "start",
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "AllBrightness:start()",
+        "stripped_doc": "",
+        "type": "Function"
+      },
+      {
+        "def": "AllBrightness:stop()",
+        "desc": "Stops listening for keyboard brightness keys",
+        "doc": "Stops listening for keyboard brightness keys\n\nParameters:\n * None\n\nReturns:\n * None",
+        "name": "stop",
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "AllBrightness:stop()",
+        "stripped_doc": "",
+        "type": "Function"
+      }
+    ],
+    "Method": [],
+    "Variable": [],
+    "desc": "Listens for keyboard brightness keypresses and alters brightness on all supported displays.",
+    "doc": "Listens for keyboard brightness keypresses and alters brightness on all supported displays.\nNote: This is primarily intended for Macs with no internal display, but should work for those with an internal display.\nNote: External displays will only respond to brightness change requests if they were either made by Apple, or are LG UltraFine displays (which were designed by Apple).\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/AllBrightness.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/AllBrightness.spoon.zip)",
+    "items": [
+      {
+        "def": "AllBrightness:start()",
+        "desc": "Starts listening for keyboard brightness keys",
+        "doc": "Starts listening for keyboard brightness keys\n\nParameters:\n * None\n\nReturns:\n * None",
+        "name": "start",
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "AllBrightness:start()",
+        "stripped_doc": "",
+        "type": "Function"
+      },
+      {
+        "def": "AllBrightness:stop()",
+        "desc": "Stops listening for keyboard brightness keys",
+        "doc": "Stops listening for keyboard brightness keys\n\nParameters:\n * None\n\nReturns:\n * None",
+        "name": "stop",
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "AllBrightness:stop()",
+        "stripped_doc": "",
+        "type": "Function"
+      }
+    ],
+    "name": "AllBrightness",
+    "stripped_doc": "Note: This is primarily intended for Macs with no internal display, but should work for those with an internal display.\nNote: External displays will only respond to brightness change requests if they were either made by Apple, or are LG UltraFine displays (which were designed by Apple).\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/AllBrightness.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/AllBrightness.spoon.zip)",
+    "submodules": [],
+    "type": "Module"
+  }
+]
