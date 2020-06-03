@@ -28,6 +28,22 @@ obj.default_handler = "com.apple.Safari"
 --- If true, handle Slack-redir URLs to apply the rule on the destination URL. Defaults to `true`
 obj.decode_slack_redir_urls = true
 
+--- URLDispatcher.url_redir_decoders
+--- Variable
+--- List containing optional additional redirection decoders (other
+--- than the known Slack decoder, which is enabled by
+--- `URLDispatcher.decode_slack_redir_urls` to apply to URLs before
+--- dispatching them. Each list element must be a list itself with four
+--- elements:
+---   * a name to identify the decoder
+---   * a regex to match against the URL
+---   * a replacement pattern to apply if a match is found.
+---   * (optional) whether to skip URL-decoding of the resulting string (by default the results are always decoded)
+--- The first two values are passed as arguments to
+--- [string.gsub](https://www.lua.org/manual/5.3/manual.html#pdf-string.gsub)
+--- applied on the original URL.  Default value: empty list
+obj.url_redir_decoders = { }
+
 --- URLDispatcher.url_patterns
 --- Variable
 --- URL dispatch rules.
@@ -65,6 +81,16 @@ function obj:dispatchURL(scheme, host, params, fullUrl)
       if newUrl then
          url = unescape(newUrl)
       end
+   end
+   for i,dec in ipairs(self.url_redir_decoders) do
+     if string.find(url, dec[2]) then
+       self.logger.df("Applying decoder '%s' to URL '%s'", url, dec[1])
+       url = string.gsub(url, dec[2], dec[3])
+       if not dec[4] then
+         url = unescape(url)
+       end
+       self.logger.df("  New URL after decoding: '%s'", url)
+     end
    end
    for i,pair in ipairs(self.url_patterns) do
       local p = pair[1]
