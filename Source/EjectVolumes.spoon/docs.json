@@ -1,0 +1,492 @@
+[
+  {
+    "Constant" : [
+
+    ],
+    "submodules" : [
+
+    ],
+    "Function" : [
+
+    ],
+    "Variable" : [
+      {
+        "doc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "stripped_doc" : [
+          "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
+        ],
+        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "name" : "logger",
+        "notes" : [
+
+        ],
+        "signature" : "EjectVolumes.logger",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "EjectVolumes.logger",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "doc" : "List containing volume paths that should never be ejected. Default value: empty list",
+        "stripped_doc" : [
+          "List containing volume paths that should never be ejected. Default value: empty list"
+        ],
+        "desc" : "List containing volume paths that should never be ejected. Default value: empty list",
+        "name" : "never_eject",
+        "notes" : [
+
+        ],
+        "signature" : "EjectVolumes.never_eject",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "EjectVolumes.never_eject",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "doc" : "Boolean, whether to produce a notification about the volumes that get ejected. Default value: `false`",
+        "stripped_doc" : [
+          "Boolean, whether to produce a notification about the volumes that get ejected. Default value: `false`"
+        ],
+        "desc" : "Boolean, whether to produce a notification about the volumes that get ejected. Default value: `false`",
+        "name" : "notify",
+        "notes" : [
+
+        ],
+        "signature" : "EjectVolumes.notify",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "EjectVolumes.notify",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "doc" : "Boolean, whether to eject volumes before the system goes to sleep. Default value: true",
+        "stripped_doc" : [
+          "Boolean, whether to eject volumes before the system goes to sleep. Default value: true"
+        ],
+        "desc" : "Boolean, whether to eject volumes before the system goes to sleep. Default value: true",
+        "name" : "eject_on_sleep",
+        "notes" : [
+
+        ],
+        "signature" : "EjectVolumes.eject_on_sleep",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "EjectVolumes.eject_on_sleep",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "doc" : "Boolen, whether to show a menubar button to eject all drives. Default value: true",
+        "stripped_doc" : [
+          "Boolen, whether to show a menubar button to eject all drives. Default value: true"
+        ],
+        "desc" : "Boolen, whether to show a menubar button to eject all drives. Default value: true",
+        "name" : "show_in_menubar",
+        "notes" : [
+
+        ],
+        "signature" : "EjectVolumes.show_in_menubar",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "EjectVolumes.show_in_menubar",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "doc" : "List of additional system events on which the volumes should be ejected. The\nvalues must be\n[http:\/\/www.hammerspoon.org\/docs\/hs.caffeinate.watcher.html](`hs.caffeinate.watcher`)\nconstant values. Default value: empty list",
+        "stripped_doc" : [
+          "List of additional system events on which the volumes should be ejected. The",
+          "values must be",
+          "[http:\/\/www.hammerspoon.org\/docs\/hs.caffeinate.watcher.html](`hs.caffeinate.watcher`)",
+          "constant values. Default value: empty list"
+        ],
+        "desc" : "List of additional system events on which the volumes should be ejected. The",
+        "name" : "other_eject_events",
+        "notes" : [
+
+        ],
+        "signature" : "EjectVolumes.other_eject_events",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "EjectVolumes.other_eject_events",
+        "parameters" : [
+
+        ]
+      }
+    ],
+    "stripped_doc" : [
+
+    ],
+    "type" : "Module",
+    "desc" : "Eject all non-internal disks. Can be triggered on sleep, using a menubar icon or a hotkey.",
+    "Deprecated" : [
+
+    ],
+    "Constructor" : [
+
+    ],
+    "doc" : "Eject all non-internal disks. Can be triggered on sleep, using a menubar icon or a hotkey.\n\nDownload: [https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/EjectVolumes.spoon.zip](https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/EjectVolumes.spoon.zip)",
+    "Method" : [
+      {
+        "doc" : "Determine if a volume should be ejected.\n\nParameters:\n * path - the mount path of the volume.\n * info - a table containing a data structure as returned by `hs.fs.volume.allVolumes()`.\nReturns:\n * A boolean indicating whether the volume should be ejected.",
+        "stripped_doc" : [
+          "Determine if a volume should be ejected.",
+          ""
+        ],
+        "desc" : "Determine if a volume should be ejected.",
+        "name" : "shouldEject",
+        "notes" : [
+
+        ],
+        "signature" : "EjectVolumes:shouldEject(path, info)",
+        "type" : "Method",
+        "returns" : [
+          " * A boolean indicating whether the volume should be ejected."
+        ],
+        "def" : "EjectVolumes:shouldEject(path, info)",
+        "parameters" : [
+          " * path - the mount path of the volume.",
+          " * info - a table containing a data structure as returned by `hs.fs.volume.allVolumes()`."
+        ]
+      },
+      {
+        "doc" : "Eject all volume",
+        "stripped_doc" : [
+          "Eject all volume"
+        ],
+        "desc" : "Eject all volume",
+        "name" : "ejectVolumes",
+        "notes" : [
+
+        ],
+        "signature" : "EjectVolumes:ejectVolumes()",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "def" : "EjectVolumes:ejectVolumes()",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "doc" : "Binds hotkeys for EjectVolumes\n\nParameters:\n * mapping - A table containing hotkey objifier\/key details for the following items:\n  * eject_volumes - eject all volumes.",
+        "stripped_doc" : [
+          "Binds hotkeys for EjectVolumes",
+          ""
+        ],
+        "desc" : "Binds hotkeys for EjectVolumes",
+        "name" : "bindHotkeys",
+        "notes" : [
+
+        ],
+        "signature" : "EjectVolumes:bindHotkeys(mapping)",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "def" : "EjectVolumes:bindHotkeys(mapping)",
+        "parameters" : [
+          " * mapping - A table containing hotkey objifier\/key details for the following items:",
+          "  * eject_volumes - eject all volumes."
+        ]
+      },
+      {
+        "doc" : "Start the watcher for system sleep, to trigger volume ejection.",
+        "stripped_doc" : [
+          "Start the watcher for system sleep, to trigger volume ejection."
+        ],
+        "desc" : "Start the watcher for system sleep, to trigger volume ejection.",
+        "name" : "start",
+        "notes" : [
+
+        ],
+        "signature" : "EjectVolumes:start()",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "def" : "EjectVolumes:start()",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "doc" : "Stop the watcher",
+        "stripped_doc" : [
+          "Stop the watcher"
+        ],
+        "desc" : "Stop the watcher",
+        "name" : "stop",
+        "notes" : [
+
+        ],
+        "signature" : "EjectVolumes:stop()",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "def" : "EjectVolumes:stop()",
+        "parameters" : [
+
+        ]
+      }
+    ],
+    "Command" : [
+
+    ],
+    "Field" : [
+
+    ],
+    "items" : [
+      {
+        "doc" : "Boolean, whether to eject volumes before the system goes to sleep. Default value: true",
+        "stripped_doc" : [
+          "Boolean, whether to eject volumes before the system goes to sleep. Default value: true"
+        ],
+        "desc" : "Boolean, whether to eject volumes before the system goes to sleep. Default value: true",
+        "name" : "eject_on_sleep",
+        "notes" : [
+
+        ],
+        "signature" : "EjectVolumes.eject_on_sleep",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "EjectVolumes.eject_on_sleep",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "doc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "stripped_doc" : [
+          "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
+        ],
+        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "name" : "logger",
+        "notes" : [
+
+        ],
+        "signature" : "EjectVolumes.logger",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "EjectVolumes.logger",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "doc" : "List containing volume paths that should never be ejected. Default value: empty list",
+        "stripped_doc" : [
+          "List containing volume paths that should never be ejected. Default value: empty list"
+        ],
+        "desc" : "List containing volume paths that should never be ejected. Default value: empty list",
+        "name" : "never_eject",
+        "notes" : [
+
+        ],
+        "signature" : "EjectVolumes.never_eject",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "EjectVolumes.never_eject",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "doc" : "Boolean, whether to produce a notification about the volumes that get ejected. Default value: `false`",
+        "stripped_doc" : [
+          "Boolean, whether to produce a notification about the volumes that get ejected. Default value: `false`"
+        ],
+        "desc" : "Boolean, whether to produce a notification about the volumes that get ejected. Default value: `false`",
+        "name" : "notify",
+        "notes" : [
+
+        ],
+        "signature" : "EjectVolumes.notify",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "EjectVolumes.notify",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "doc" : "List of additional system events on which the volumes should be ejected. The\nvalues must be\n[http:\/\/www.hammerspoon.org\/docs\/hs.caffeinate.watcher.html](`hs.caffeinate.watcher`)\nconstant values. Default value: empty list",
+        "stripped_doc" : [
+          "List of additional system events on which the volumes should be ejected. The",
+          "values must be",
+          "[http:\/\/www.hammerspoon.org\/docs\/hs.caffeinate.watcher.html](`hs.caffeinate.watcher`)",
+          "constant values. Default value: empty list"
+        ],
+        "desc" : "List of additional system events on which the volumes should be ejected. The",
+        "name" : "other_eject_events",
+        "notes" : [
+
+        ],
+        "signature" : "EjectVolumes.other_eject_events",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "EjectVolumes.other_eject_events",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "doc" : "Boolen, whether to show a menubar button to eject all drives. Default value: true",
+        "stripped_doc" : [
+          "Boolen, whether to show a menubar button to eject all drives. Default value: true"
+        ],
+        "desc" : "Boolen, whether to show a menubar button to eject all drives. Default value: true",
+        "name" : "show_in_menubar",
+        "notes" : [
+
+        ],
+        "signature" : "EjectVolumes.show_in_menubar",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "EjectVolumes.show_in_menubar",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "doc" : "Binds hotkeys for EjectVolumes\n\nParameters:\n * mapping - A table containing hotkey objifier\/key details for the following items:\n  * eject_volumes - eject all volumes.",
+        "stripped_doc" : [
+          "Binds hotkeys for EjectVolumes",
+          ""
+        ],
+        "desc" : "Binds hotkeys for EjectVolumes",
+        "name" : "bindHotkeys",
+        "notes" : [
+
+        ],
+        "signature" : "EjectVolumes:bindHotkeys(mapping)",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "def" : "EjectVolumes:bindHotkeys(mapping)",
+        "parameters" : [
+          " * mapping - A table containing hotkey objifier\/key details for the following items:",
+          "  * eject_volumes - eject all volumes."
+        ]
+      },
+      {
+        "doc" : "Eject all volume",
+        "stripped_doc" : [
+          "Eject all volume"
+        ],
+        "desc" : "Eject all volume",
+        "name" : "ejectVolumes",
+        "notes" : [
+
+        ],
+        "signature" : "EjectVolumes:ejectVolumes()",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "def" : "EjectVolumes:ejectVolumes()",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "doc" : "Determine if a volume should be ejected.\n\nParameters:\n * path - the mount path of the volume.\n * info - a table containing a data structure as returned by `hs.fs.volume.allVolumes()`.\nReturns:\n * A boolean indicating whether the volume should be ejected.",
+        "stripped_doc" : [
+          "Determine if a volume should be ejected.",
+          ""
+        ],
+        "desc" : "Determine if a volume should be ejected.",
+        "name" : "shouldEject",
+        "notes" : [
+
+        ],
+        "signature" : "EjectVolumes:shouldEject(path, info)",
+        "type" : "Method",
+        "returns" : [
+          " * A boolean indicating whether the volume should be ejected."
+        ],
+        "def" : "EjectVolumes:shouldEject(path, info)",
+        "parameters" : [
+          " * path - the mount path of the volume.",
+          " * info - a table containing a data structure as returned by `hs.fs.volume.allVolumes()`."
+        ]
+      },
+      {
+        "doc" : "Start the watcher for system sleep, to trigger volume ejection.",
+        "stripped_doc" : [
+          "Start the watcher for system sleep, to trigger volume ejection."
+        ],
+        "desc" : "Start the watcher for system sleep, to trigger volume ejection.",
+        "name" : "start",
+        "notes" : [
+
+        ],
+        "signature" : "EjectVolumes:start()",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "def" : "EjectVolumes:start()",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "doc" : "Stop the watcher",
+        "stripped_doc" : [
+          "Stop the watcher"
+        ],
+        "desc" : "Stop the watcher",
+        "name" : "stop",
+        "notes" : [
+
+        ],
+        "signature" : "EjectVolumes:stop()",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "def" : "EjectVolumes:stop()",
+        "parameters" : [
+
+        ]
+      }
+    ],
+    "name" : "EjectVolumes"
+  }
+]
