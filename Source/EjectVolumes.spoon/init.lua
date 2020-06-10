@@ -1,6 +1,6 @@
 --- === EjectVolumes ===
 ---
---- Eject all non-internal disks. Can be triggered on sleep, using a menubar icon or a hotkey.
+--- Eject all non-internal disks. Can be triggered on sleep, on lid close, using a menubar icon or a hotkey.
 ---
 --- Download: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/EjectVolumes.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/EjectVolumes.spoon.zip)
 
@@ -15,7 +15,9 @@ obj.homepage = "https://github.com/Hammerspoon/Spoons"
 obj.license = "MIT - https://opensource.org/licenses/MIT"
 
 -- Watcher for system sleep events
-obj.watcher = nil
+obj.caff_watcher = nil
+-- Watcher for screen change events
+obj.screen_watcher = nil
 -- Menubar icon
 obj.menubar = nil
 
@@ -38,6 +40,11 @@ obj.notify = false
 --- Variable
 --- Boolean, whether to eject volumes before the system goes to sleep. Default value: true
 obj.eject_on_sleep = true
+
+--- EjectVolumes.eject_on_lid_close
+--- Variable
+--- Boolean, whether to eject volumes when the laptop lid is closed. Default value: true
+obj.eject_on_lid_close = true
 
 --- EjectVolumes.show_in_menubar
 --- Variable
@@ -62,6 +69,7 @@ obj.other_eject_events = { }
 --- Returns:
 ---  * A boolean indicating whether the volume should be ejected.
 function obj:shouldEject(path, info)
+  self.logger.df("Checking whether volume %s should be ejected", path)
   return not (hs.fnutils.contains(self.never_eject, path) or info["NSURLVolumeIsInternalKey"])
 end
 
@@ -80,6 +88,7 @@ end
 --- Eject all volume
 function obj:ejectVolumes()
   local v = hs.fs.volume.allVolumes()
+  self.logger.df("Ejecting volumes")
   for path,info in pairs(v) do
     if self:shouldEject(path,info) then
       local result,msg = hs.fs.volume.eject(path)
@@ -111,15 +120,29 @@ end
 
 --- EjectVolumes:start()
 --- Method
---- Start the watcher for system sleep, to trigger volume ejection.
+--- Start the watchers for power events and screen changes, to trigger volume ejection.
 function obj:start()
   if self.eject_on_sleep then
-    self.watcher = hs.caffeinate.watcher.new(
+    self.caff_watcher = hs.caffeinate.watcher.new(
       function (e)
+        self.logger.df("Received hs.caffeinate.watcher event %d", e)
         if self.eject_on_sleep or hs.fnutils.contains(self.other_eject_events, e) then
+          self.logger.df("  About to go to sleep")
           self:ejectVolumes()
         end
       end):start()
+  end
+  if self.eject_on_lid_close then
+    self.screen_watcher = hs.screen.watcher.new(
+      function ()
+        self.logger.df("Received hs.screen.watcher event")
+        if (hs.fnutils.every(hs.screen.allScreens(),
+                             function (s) return s:name() ~= "Color LCD" end)) then
+          self.logger.df("  'Color LCD' display is gone")
+          self:ejectVolumes()
+        end
+      end
+    ):start()
   end
   if self.show_in_menubar then
     self.menubar = hs.menubar.new():
@@ -130,11 +153,15 @@ end
 
 --- EjectVolumes:stop()
 --- Method
---- Stop the watcher
+--- Stop the watchers
 function obj:stop()
-  if obj.watcher then
-    obj.watcher:stop()
-    obj.watcher = nil
+  if self.caff_watcher then
+    self.caff_watcher:stop()
+    self.caff_watcher = nil
+  end
+  if self.screen_watcher then
+    self.screen_watcher:stop()
+    self.screen_watcher = nil
   end
   if obj.show_in_menubar then
     self.menubar:delete()
