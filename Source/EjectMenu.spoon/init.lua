@@ -11,7 +11,7 @@ obj.__index = obj
 
 -- Metadata
 obj.name = 'EjectMenu'
-obj.version = '0.0.1'
+obj.version = '0.1'
 obj.author = 'Mark Juers <mpjuers@gmail.com>'
 obj.homepage = 'https://github.com/Hammerspoon/Spoons'
 obj.license = 'MIT - https://opensource.org/licenses/MIT'
