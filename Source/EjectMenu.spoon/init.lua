@@ -102,9 +102,15 @@ function obj:execMenuItem (mods, table)
             mods['shift'] == false and
             mods['fn'] == false
         ) then
-        hs.osascript.applescript('tell application "Finder" to open ("/Volumes/' .. table['title'] .. '/" as POSIX file)')
+        hs.osascript.applescript(
+            'tell application "Finder"' 
+            .. ' to open ("/Volumes/' .. table['title'] .. '/" as POSIX file)'
+        )
     else
-        hs.osascript.applescript('tell application "Finder" to eject disk "' .. table['title'] .. '"')
+        hs.osascript.applescript(
+            'tell application "Finder"' 
+            .. ' to eject disk "' .. table['title'] .. '"'
+        )
         hs.notify.show(table['title'] .. ' unmounted.', '', '')
     end
 end
