@@ -33,7 +33,15 @@ function obj:init()
     self.sheetView:windowStyle("utility")
     self.sheetView:allowGestures(true)
     self.sheetView:allowNewWindows(false)
-    self.sheetView:level(hs.drawing.windowLevels.modalPanel)
+    self.sheetView:level(hs.drawing.windowLevels.tornOffMenu)
+    local cscreen = hs.screen.mainScreen()
+    local cres = cscreen:fullFrame()
+    self.sheetView:frame({
+        x = cres.x+cres.w*0.15/2,
+        y = cres.y+cres.h*0.25/2,
+        w = cres.w*0.85,
+        h = cres.h*0.75
+    })
 end
 
 local function processMenuItems(menustru)
@@ -190,14 +198,6 @@ end
 --- Show current application's keybindings in a view.
 function obj:show()
     local capp = hs.application.frontmostApplication()
-    local cscreen = hs.screen.mainScreen()
-    local cres = cscreen:fullFrame()
-    self.sheetView:frame({
-        x = cres.x+cres.w*0.15/2,
-        y = cres.y+cres.h*0.25/2,
-        w = cres.w*0.85,
-        h = cres.h*0.75
-    })
     local webcontent = generateHtml(capp)
     self.sheetView:html(webcontent)
     self.sheetView:show()
