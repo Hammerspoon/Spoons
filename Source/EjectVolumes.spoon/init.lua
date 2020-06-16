@@ -187,7 +187,7 @@ function obj:initEjectMenu (mods)
       table.insert(
         ejectMenuTable,
         {
-          title = drive,
+          title = v['NSURLVolumeLocalizedNameKey'],
           path = drive,
           fn = function (mods, table) self:execMenuItem(mods, table) end
         }
