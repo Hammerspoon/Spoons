@@ -1,16 +1,16 @@
---- === EjectVolumes ===
+--- === EjectMenu ===
 ---
 --- A much-needed eject menu for your Mac menu bar. Allows ejecting
 --- individual or all non-internal disks. Ejection can also be
 --- triggered on sleep, on lid close, or using a hotkey.
 ---
---- Download: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/EjectVolumes.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/EjectVolumes.spoon.zip)
+--- Download: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/EjectMenu.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/EjectMenu.spoon.zip)
 
 local obj={}
 obj.__index = obj
 
 -- Metadata
-obj.name = "EjectVolumes"
+obj.name = "EjectMenu"
 obj.version = "0.1"
 obj.author = "Diego Zamboni <diego@zzamboni.org>, Mark Juers <mpjuers@gmail.com>"
 obj.homepage = "https://github.com/Hammerspoon/Spoons"
@@ -25,37 +25,37 @@ obj.flags_watcher = nil
 -- Menubar icon
 obj.menubar = nil
 
---- EjectVolumes.logger
+--- EjectMenu.logger
 --- Variable
 --- Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.
-obj.logger = hs.logger.new('EjectVolumes')
+obj.logger = hs.logger.new('EjectMenu')
 
---- EjectVolumes.never_eject
+--- EjectMenu.never_eject
 --- Variable
 --- List containing volume paths that should never be ejected. Default value: empty list
 obj.never_eject = { }
 
---- EjectVolumes.notify
+--- EjectMenu.notify
 --- Variable
 --- Boolean, whether to produce a notification about the volumes that get ejected. Default value: `false`
 obj.notify = false
 
---- EjectVolumes.eject_on_sleep
+--- EjectMenu.eject_on_sleep
 --- Variable
 --- Boolean, whether to eject volumes before the system goes to sleep. Default value: true
 obj.eject_on_sleep = true
 
---- EjectVolumes.eject_on_lid_close
+--- EjectMenu.eject_on_lid_close
 --- Variable
 --- Boolean, whether to eject volumes when the laptop lid is closed. Default value: true
 obj.eject_on_lid_close = true
 
---- EjectVolumes.show_in_menubar
+--- EjectMenu.show_in_menubar
 --- Variable
 --- Boolen, whether to show a menubar button to eject all drives. Default value: true
 obj.show_in_menubar = true
 
---- EjectVolumes.other_eject_events
+--- EjectMenu.other_eject_events
 --- Variable
 --- List of additional system events on which the volumes should be ejected. The
 --- values must be
@@ -63,7 +63,7 @@ obj.show_in_menubar = true
 --- constant values. Default value: empty list
 obj.other_eject_events = { }
 
---- EjectVolumes:shouldEject(path, info)
+--- EjectMenu:shouldEject(path, info)
 --- Method
 --- Determine if a volume should be ejected.
 ---
@@ -91,7 +91,7 @@ function obj.showNotification(title, subtitle, msg, persistent)
   }):send()
 end
 
---- EjectVolumes:ejectVolumes()
+--- EjectMenu:ejectVolumes()
 --- Method
 --- Eject all volumes
 ---
@@ -105,11 +105,11 @@ function obj:ejectVolumes(persistent_notifs)
       local result,msg = hs.fs.volume.eject(path)
       if result then
         if self.notify then
-          self.showNotification("EjectVolumes", "Volume " .. path .. " ejected.", "", persistent_notifs)
+          self.showNotification("EjectMenu", "Volume " .. path .. " ejected.", "", persistent_notifs)
         end
         self.logger.f("Volume %s was ejected.", path)
       else
-        self.showNotification("EjectVolumes", "Error ejecting " .. path, msg)
+        self.showNotification("EjectMenu", "Error ejecting " .. path, msg)
         self.logger.ef("Error ejecting volume %s: %s", path, msg)
       end
     end
@@ -117,7 +117,7 @@ function obj:ejectVolumes(persistent_notifs)
   return self
 end
 
--- EjectVolumes:execMenuItem(mods, table)
+-- EjectMenu:execMenuItem(mods, table)
 -- Method
 -- Defines and executes menu item based on which modifiers are held.
 --
@@ -140,13 +140,11 @@ function obj:execMenuItem (mods, table)
     hs.appfinder.appFromName("Finder"):activate()
   else
     hs.fs.volume.eject(table['path'])
-    if self.notify then
-      self.showNotification("EjectVolumes", "Volume " .. path .. " ejected.", "", false)
-    end
+    self.showNotification("EjectMenu", "Volume " .. path .. " ejected.", "", false)
   end
 end
 
--- EjectVolumes:initEjectMenu(mods)
+-- EjectMenu:initEjectMenu(mods)
 -- Method
 -- Initializes eject menu when clicked.
 --
@@ -171,16 +169,6 @@ function obj:initEjectMenu (mods)
     },
     {title = '-'}
   }
-  verb = "Eject "
-  if (
-    mods['cmd'] == true and
-      mods['ctrl'] == false and
-      mods['alt'] == false and
-      mods['shift'] == false and
-      mods['fn'] == false
-  ) then
-    verb = "Open "
-  end
   if pcall(function () next(ejectMenuDrives) end) then
     for drive, v in pairs(ejectMenuDrives) do
       self.logger.i(drive .. " is ejectable.")
@@ -199,9 +187,9 @@ function obj:initEjectMenu (mods)
   return ejectMenuTable
 end
 
---- EjectVolumes:bindHotkeys(mapping)
+--- EjectMenu:bindHotkeys(mapping)
 --- Method
---- Binds hotkeys for EjectVolumes
+--- Binds hotkeys for EjectMenu
 ---
 --- Parameters:
 ---  * mapping - A table containing hotkey objifier/key details for the following items:
@@ -211,7 +199,7 @@ function obj:bindHotkeys(mapping)
   hs.spoons.bindHotkeysToSpec(spec, mapping)
 end
 
--- EjectVolumes:changeEjectMenuIcon(mods)
+-- EjectMenu:changeEjectMenuIcon(mods)
 -- Method
 -- Changes eject menu icon depending on which modifiers are held.
 --
@@ -226,7 +214,7 @@ function obj:changeEjectMenuIcon (mods)
   end
 end
 
---- EjectVolumes:start()
+--- EjectMenu:start()
 --- Method
 --- Start the watchers for power events and screen changes, to trigger volume ejection.
 function obj:start()
@@ -263,7 +251,7 @@ function obj:start()
   return self
 end
 
---- EjectVolumes:stop()
+--- EjectMenu:stop()
 --- Method
 --- Stop the watchers
 function obj:stop()
