@@ -107,10 +107,10 @@ function obj:execMenuItem (mods, table)
         ) then
         hs.osascript.applescript(
             'tell application "Finder"' 
-            .. ' to open ("' .. table['title'] .. '" as POSIX file)'
+            .. ' to open ("/Volumes/' .. table['title'] .. '" as POSIX file)'
         )
     else
-        hs.fs.volume.eject(table['title'])
+        hs.fs.volume.eject('/Volumes/' .. table['title'])
         hs.notify.show(table['title'] .. ' unmounted.', '', '')
     end
 end
@@ -144,7 +144,7 @@ function obj:initEjectMenu (mods)
             table.insert(
                 ejectMenuTable,
                 {
-                    title = drive, 
+                    title = string.match(drive, '/Volumes/(.*)'),
                     fn = function (mods, table) self:execMenuItem(mods, table) end
                 }
             )
