@@ -76,9 +76,12 @@ end
 -- nil
 
 function obj:ejectAll ()
-    hs.osascript.applescript(
-        'tell application "Finder" to eject (every disk whose ejectable is true and local volume is true and free space is not equal to 0)'
-    )
+    local volumes = hs.fs.volume.allVolumes()
+    for path, v in pairs(volumes) do
+        if obj:shouldEject(path, v) then
+            hs.fs.volume.eject(path)
+        end
+    end
     hs.notify.show('All drives unmounted.', '', '')
 end
 
@@ -104,13 +107,10 @@ function obj:execMenuItem (mods, table)
         ) then
         hs.osascript.applescript(
             'tell application "Finder"' 
-            .. ' to open ("/Volumes/' .. table['title'] .. '/" as POSIX file)'
+            .. ' to open ("' .. table['title'] .. '" as POSIX file)'
         )
     else
-        hs.osascript.applescript(
-            'tell application "Finder"' 
-            .. ' to eject disk "' .. table['title'] .. '"'
-        )
+        hs.fs.volume.eject(table['title'])
         hs.notify.show(table['title'] .. ' unmounted.', '', '')
     end
 end
@@ -127,17 +127,19 @@ end
 -- ejectMenuTable: a table containing entries and functions for ejectable drives.
 
 function obj:initEjectMenu (mods)
-    local ejectMenuDrives = select(
-        2, hs.osascript.applescript(
-            'tell application "Finder" to get the name of (every disk whose ejectable is true)'
-        )
-    )
+    local volumes = hs.fs.volume.allVolumes()
+    local ejectMenuDrives = {}
+    for path, v in pairs(volumes) do
+        if self:shouldEject(path, v) then
+            ejectMenuDrives[path] = v
+        end
+    end
     local ejectMenuTable = {
         {title = "Eject All", fn = function () self:ejectAll() end},
         {title = '-'}
     }
     if pcall(function () next(ejectMenuDrives) end) then
-        for k, drive in pairs(ejectMenuDrives) do
+        for drive, v in pairs(ejectMenuDrives) do
             print(drive .. " is ejectable.")
             table.insert(
                 ejectMenuTable,
@@ -151,6 +153,19 @@ function obj:initEjectMenu (mods)
         print("No external drives.")
     end
     return ejectMenuTable
+end
+
+--- EjectVolumes:shouldEject(path, info)
+--- Method
+--- Determine if a volume should be ejected.
+---
+--- Parameters:
+---  * path - the mount path of the volume.
+---  * info - a table containing a data structure as returned by `hs.fs.volume.allVolumes()`.
+--- Returns:
+---  * A boolean indicating whether the volume should be ejected.
+function obj:shouldEject(path, info)
+    return not info["NSURLVolumeIsInternalKey"]
 end
 
 -- EjectMenu:start()
