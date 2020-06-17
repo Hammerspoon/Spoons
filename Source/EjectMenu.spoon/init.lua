@@ -79,7 +79,8 @@ function obj:ejectAll ()
     local volumes = hs.fs.volume.allVolumes()
     for path, v in pairs(volumes) do
         if obj:shouldEject(path, v) then
-            if not hs.fs.volume.eject(path) then
+            local ejectSuccess, _ = hs.fs.volume.eject(path)
+            if not ejectSuccess then
                 hs.notify.show(path .. ' not unmounted.', '', '')
             end
         end
