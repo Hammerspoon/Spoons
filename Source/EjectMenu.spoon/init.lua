@@ -52,7 +52,7 @@ obj.eject_on_lid_close = true
 
 --- EjectMenu.show_in_menubar
 --- Variable
---- Boolen, whether to show a menubar button to eject all drives. Default value: true
+--- Boolean, whether to show a menubar button to eject all drives. Default value: true
 obj.show_in_menubar = true
 
 --- EjectMenu.other_eject_events
