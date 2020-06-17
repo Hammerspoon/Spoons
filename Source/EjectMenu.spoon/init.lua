@@ -107,7 +107,7 @@ function obj:ejectVolumes(persistent_notifs)
         if self.notify then
           self.showNotification("EjectMenu", "Volume " .. path .. " ejected.", "", persistent_notifs)
         end
-        self.logger.f("Volume %s was ejected.", path)
+        self.logger.df("Volume %s was ejected.", path)
       else
         self.showNotification("EjectMenu", "Error ejecting " .. path, msg)
         self.logger.ef("Error ejecting volume %s: %s", path, msg)
@@ -139,8 +139,9 @@ function obj:execMenuItem (mods, table)
     )
     hs.appfinder.appFromName("Finder"):activate()
   else
+    self.logger.df("Will eject %s", table['path'])
     hs.fs.volume.eject(table['path'])
-    self.showNotification("EjectMenu", "Volume " .. path .. " ejected.", "", false)
+    self.showNotification("EjectMenu", "Volume " .. table['path'] .. " ejected.", "", false)
   end
 end
 
@@ -171,7 +172,7 @@ function obj:initEjectMenu (mods)
   }
   if pcall(function () next(ejectMenuDrives) end) then
     for drive, v in pairs(ejectMenuDrives) do
-      self.logger.i(drive .. " is ejectable.")
+      self.logger.d(drive .. " is ejectable.")
       table.insert(
         ejectMenuTable,
         {
@@ -182,7 +183,7 @@ function obj:initEjectMenu (mods)
       )
     end
   else
-    self.logger.i("No external drives.")
+    self.logger.d("No external drives.")
   end
   return ejectMenuTable
 end
