@@ -77,15 +77,21 @@ end
 
 function obj:ejectAll ()
     local volumes = hs.fs.volume.allVolumes()
+    local unmounted = {}
     for path, v in pairs(volumes) do
         if obj:shouldEject(path, v) then
             local ejectSuccess, _ = hs.fs.volume.eject(path)
             if not ejectSuccess then
+                unmounted[path] = false
                 hs.notify.show(path .. ' not unmounted.', '', '')
+            else
+                unmounted[path] = true
             end
         end
     end
-    hs.notify.show('All drives unmounted.', '', '')
+    if allTrue(unmounted) then
+        hs.notify.show('All drives unmounted.', '', '')
+    end
 end
 
 -- EjectMenu:execMenuItem(mods, table)
@@ -191,6 +197,15 @@ end
 -- nil
 function obj:stop ()
     flagsEvent:stop()
+end
+
+function allTrue(table)
+    for _, v in pairs(table) do
+        if v == false then
+            return false
+        end
+    end
+    return true
 end
 
 return obj
