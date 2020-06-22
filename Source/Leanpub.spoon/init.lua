@@ -10,7 +10,7 @@ obj.__index = obj
 
 -- Metadata
 obj.name     = "Leanpub"
-obj.version  = "0.2"
+obj.version  = "0.3"
 obj.author   = "Diego Zamboni <diego@zzamboni.org>"
 obj.homepage = "https://github.com/Hammerspoon/Spoons"
 obj.license  = "MIT - https://opensource.org/licenses/MIT"
@@ -32,7 +32,26 @@ obj.logger = hs.logger.new('Leanpub')
 ---    as an hs.image object. If not specified, and if
 ---    `fetch_leanpub_covers` is `true`, then the icon is generated
 ---    automatically from the book cover.
+---  * syncs_to_dropbox - optional boolean to indicate whether the
+---    book is configured in Leanpub to sync to Dropbox (you can find
+---    this option in your books "Writing mode" screen, as "Send
+---    output to Dropbox". If true, the "Book generation complete"
+---    notification will include a "Show" button to open the book's
+---    directory in Dropbox. If you have multiple books and all of
+---    them are synced to Dropbox, you can set the main
+---    `Leanpub.books_sync_to_dropbox` variable instead of setting it
+---    for each book. Default value: `false`
 obj.watch_books = {}
+
+--- Leanpub.books_sync_to_dropbox
+--- Variable
+--- Boolean that specifies whether all your books are being synced to
+--- Dropbox. If true, the "Book generation complete" notification will
+--- include a "Show" button to open the book's directory in
+--- Dropbox. Setting this is equivalent to setting the
+--- `syncs_to_dropbox` attribute for each book in
+--- `watch_books`. Default value: `false`.
+obj.books_sync_to_dropbox = false
 
 --- Leanpub.api_key
 --- Variable
@@ -50,7 +69,7 @@ obj.check_interval = 5
 --- Leanpub.fetch_leanpub_covers
 --- Variable
 --- Boolean indicating whether we should try to fetch book covers from
---- Leanpub (default true)
+--- Leanpub. Default value: `true`.
 obj.fetch_leanpub_covers = true
 
 --- Leanpub.persistent_notification
@@ -61,6 +80,44 @@ obj.fetch_leanpub_covers = true
 --- are `working` and `complete`. Default `{ complete = true }` to
 --- keep the "Book generation complete" messages.
 obj.persistent_notification = { complete = true }
+
+--- Leanpub.dropbox_path
+--- Variable
+--- String containing the base Dropbox path to which the books are
+--- synced, if the corresponding parameters are set. If unset, the
+--- path is determined automatically by reading the
+--- ~/.dropbox/info.json file and choosing the path corresponding to
+--- the profile specified in `Leanpub.dropbox_profile`. If for some
+--- reason your synced files are somewhere else, you can store in this
+--- variable the final path to use. Most users should be fine with the
+--- defaults.
+obj.dropbox_path = nil
+
+--- Leanpub.dropbox_type
+--- Variable
+--- String containing the name of the Dropbox account type to use for
+--- determining the base path of the Dropbox directory. Valid values
+--- are "personal" and "business". See
+--- https://help.dropbox.com/installs-integrations/desktop/locate-dropbox-folder
+--- for the details. Default value: "personal".
+obj.dropbox_type = "personal"
+
+-- Internal function to get the Dropbox base path to use and store it
+-- in obj.dropbox_path. In further calls the existing value is
+-- returned.
+function obj._dropboxPath()
+  -- If the path is already specified, leave it alone
+  if not obj.dropbox_path then
+    -- Read the Dropbox info file
+    local dropbox_data = hs.json.read(os.getenv("HOME").."/.dropbox/info.json")
+    if dropbox_data then
+      obj.dropbox_path = dropbox_data[obj.dropbox_type].path
+    else
+      obj.logger.e("Could not determine the Dropbox path, error reading ~/.dropbox/info.json")
+    end
+  end
+  return obj.dropbox_path
+end
 
 --- Leanpub:getBookStatus(slug, callback)
 --- Method
@@ -130,7 +187,6 @@ obj.last_status = {}
 --- Returns:
 ---  * A Lua table containing the status (may be empty), nil if an
 ---    error occurred
-
 function obj:displayBookStatus(book)
   -- Fetches and stores the cover if needed
   self:fetchBookCover(book)
@@ -141,16 +197,26 @@ function obj:displayBookStatus(book)
                      end)
 end
 
+-- This internal function gets called as a callback when the book
+-- status information is retrieved by Leanpub:displayBookStatus(), and
+-- actually does the job of displaying a notification if needed.
 function obj:_displayBookStatusCallback(book, status)
   if status then
     local step = status.message
     if step and step ~= self.last_status[book.slug] then
       -- Create base notification, with just the text
-      local n = hs.notify.new({
+      local n = hs.notify.new(
+        -- The notification callback function reveals the files in
+        -- Dropbox when the "Show" button is pressed in the final
+        -- notification.
+        function (n) self:_bookCompleteCallback(book, status) end,
+        -- The base information in the notification
+        {
           title = status.name,
           subTitle = string.format("Step %d of %d",status.num,status.total),
           informativeText = step
-      })
+        }
+      )
       -- If we have an icon, put it in the notification
       if book.icon then
         n:setIdImage(book.icon)
@@ -159,10 +225,47 @@ function obj:_displayBookStatusCallback(book, status)
       if self.persistent_notification[status.status] then
         n:withdrawAfter(0)
       end
+      -- If the message corresponds to the end of the build process
+      -- (i.e. its status is "complete), enable the action buttons to
+      -- reveal the synced files in Dropbox, if configured to do so.
+      if status.status == "complete" then
+        if self.books_sync_to_dropbox or book.syncs_to_dropbox then
+          n:hasActionButton(true)
+        end
+      end
       -- Finally! Generate the notification.
       n:send()
     end
     self.last_status[book.slug] = step
+  end
+end
+
+-- This internal function gets called when the user clicks the "Show"
+-- button or the notification itself in the final notification of the
+-- book process. If the general Leanpub.books_sync_to_dropbox or the
+-- book's individual syncs_to_dropbox attributes are true, the
+-- corresponding Dropbox folder is revealed in the finder. Leanpub
+-- stores the files in the following folders:
+--  ~/Dropbox/<book-slug>-output/preview - preview/subset files
+--  ~/Dropbox/<book-slug>-output/published - published files
+-- The corresponding folder is opened depending on the build type.
+function obj:_bookCompleteCallback(book, status)
+  self.logger.df("_bookCompleteCallback.\nbook = %s\nstatus = %s",
+                 hs.inspect(book), hs.inspect(status))
+  if status.status == "complete" then
+    if self.books_sync_to_dropbox or book.syncs_to_dropbox then
+      local subdir = ""
+      if string.find(status.job_type, "preview") then
+        subdir = "/preview"
+      elseif string.find(status.job_type, "publish") or string.find(status.job_type, "EmailPossibleReaders") then
+        subdir = "/published"
+      end
+      local path = self._dropboxPath().."/"..book.slug.."-output"..subdir
+      self.logger.df("  opening %s", path)
+      if not hs.open(path) then
+        self.logger.ef("Error opening %s", path)
+      end
+    end
   end
 end
 
