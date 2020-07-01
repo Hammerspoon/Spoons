@@ -228,7 +228,7 @@ function obj:start()
     self.caff_watcher = hs.caffeinate.watcher.new(
       function (e)
         self.logger.df("Received hs.caffeinate.watcher event %d", e)
-        if self.eject_on_sleep or hs.fnutils.contains(self.other_eject_events, e) then
+        if (e == hs.caffeinate.watcher.systemWillSleep) or hs.fnutils.contains(self.other_eject_events, e) then
           self.logger.df("  About to go to sleep")
           self:ejectVolumes(true)
         end
