@@ -105,6 +105,7 @@ end
 function obj:ejectVolumes(persistent_notifs)
   local v = hs.fs.volume.allVolumes()
   self.logger.df("Ejecting volumes")
+  local all_ejected = true
   for path,info in pairs(v) do
     if self:shouldEject(path,info) then
       local result,msg = hs.fs.volume.eject(path)
@@ -116,8 +117,12 @@ function obj:ejectVolumes(persistent_notifs)
       else
         self.showNotification("EjectMenu", "Error ejecting " .. path, msg)
         self.logger.ef("Error ejecting volume %s: %s", path, msg)
+        all_ejected = false
       end
     end
+  end
+  if all_ejected and self.notify then
+    self.showNotification("EjectMenu", "All volumes unmounted.", "", persistent_notifs)
   end
   return self
 end
