@@ -47,8 +47,13 @@ obj.eject_on_sleep = true
 
 --- EjectMenu.eject_on_lid_close
 --- Variable
---- Boolean, whether to eject volumes when the laptop lid is closed. Default value: true
-obj.eject_on_lid_close = true
+--- Boolean, whether to eject volumes when the laptop lid is closed
+--- with an external display connected. There is no "lid close" event,
+--- so we detect when the internal display gets disabled. This method
+--- is somewhat unreliable (e.g. it also triggers when the internal
+--- display goes to sleep due to inactivity), so its default value is
+--- `false`
+obj.eject_on_lid_close = false
 
 --- EjectMenu.show_in_menubar
 --- Variable
@@ -233,9 +238,11 @@ function obj:start()
     self.screen_watcher = hs.screen.watcher.new(
       function ()
         self.logger.df("Received hs.screen.watcher event")
-        if (hs.fnutils.every(hs.screen.allScreens(),
-                             function (s) return s:name() ~= "Color LCD" end)) then
-          self.logger.df("  'Color LCD' display is gone")
+        local screens = hs.screen.allScreens()
+        self.logger.df("  Screens: %s", hs.inspect(screens))
+        if #screens > 0 and hs.fnutils.every(screens,
+                                             function (s) return s:name() ~= "Color LCD" end) then
+          self.logger.df("  'Color LCD' display is gone but other screens remain - detecting this as 'lid close'")
           self:ejectVolumes(true)
         end
       end
