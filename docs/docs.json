@@ -2387,6 +2387,298 @@
     "Function": [],
     "Method": [
       {
+        "def": "EjectMenu:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for EjectMenu",
+        "doc": "Binds hotkeys for EjectMenu\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n  * ejectAll - eject all volumes.",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * mapping - A table containing hotkey objifier/key details for the following items:",
+          "  * ejectAll - eject all volumes."
+        ],
+        "signature": "EjectMenu:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "EjectMenu:ejectVolumes()",
+        "desc": "Eject all volumes",
+        "doc": "Eject all volumes\n\nParameters\n * persistent_notifs: a boolean indicating whether notifications (if shown) should be persistent.",
+        "name": "ejectVolumes",
+        "signature": "EjectMenu:ejectVolumes()",
+        "stripped_doc": "Parameters\n * persistent_notifs: a boolean indicating whether notifications (if shown) should be persistent.",
+        "type": "Method"
+      },
+      {
+        "def": "EjectMenu:shouldEject(path, info)",
+        "desc": "Determine if a volume should be ejected.",
+        "doc": "Determine if a volume should be ejected.\n\nParameters:\n * path - the mount path of the volume.\n * info - a table containing a data structure as returned by `hs.fs.volume.allVolumes()`.\nReturns:\n * A boolean indicating whether the volume should be ejected.",
+        "name": "shouldEject",
+        "parameters": [
+          " * path - the mount path of the volume.",
+          " * info - a table containing a data structure as returned by `hs.fs.volume.allVolumes()`.",
+          "Returns:",
+          " * A boolean indicating whether the volume should be ejected."
+        ],
+        "returns": [
+          " * A boolean indicating whether the volume should be ejected."
+        ],
+        "signature": "EjectMenu:shouldEject(path, info)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "EjectMenu:start()",
+        "desc": "Start the watchers for power events and screen changes, to trigger volume ejection.",
+        "doc": "Start the watchers for power events and screen changes, to trigger volume ejection.",
+        "name": "start",
+        "signature": "EjectMenu:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "EjectMenu:stop()",
+        "desc": "Stop the watchers",
+        "doc": "Stop the watchers",
+        "name": "stop",
+        "signature": "EjectMenu:stop()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "EjectMenu:volumesToEject()",
+        "desc": "Return table of volumes to be ejected when \"Eject All\" is invoked.",
+        "doc": "Return table of volumes to be ejected when \"Eject All\" is invoked.\n\nReturns:\n * A table in the same format as returned by\n   `hs.fs.volume.allVolumes()` but containing only those volumes\n   for which `EjectMenu:shouldEject()` returns `true`.\n * An integer indicating how many volumes are in the table.",
+        "name": "volumesToEject",
+        "returns": [
+          " * A table in the same format as returned by",
+          "   `hs.fs.volume.allVolumes()` but containing only those volumes",
+          "   for which `EjectMenu:shouldEject()` returns `true`.",
+          " * An integer indicating how many volumes are in the table."
+        ],
+        "signature": "EjectMenu:volumesToEject()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [
+      {
+        "def": "EjectMenu.eject_on_lid_close",
+        "desc": "Boolean, whether to eject volumes when the laptop lid is closed",
+        "doc": "Boolean, whether to eject volumes when the laptop lid is closed\nwith an external display connected. There is no \"lid close\" event,\nso we detect when the internal display gets disabled. This method\nis somewhat unreliable (e.g. it also triggers when the internal\ndisplay goes to sleep due to inactivity), so its default value is\n`false`",
+        "name": "eject_on_lid_close",
+        "signature": "EjectMenu.eject_on_lid_close",
+        "stripped_doc": "with an external display connected. There is no \"lid close\" event,\nso we detect when the internal display gets disabled. This method\nis somewhat unreliable (e.g. it also triggers when the internal\ndisplay goes to sleep due to inactivity), so its default value is\n`false`",
+        "type": "Variable"
+      },
+      {
+        "def": "EjectMenu.eject_on_sleep",
+        "desc": "Boolean, whether to eject volumes before the system goes to sleep. Default value: true",
+        "doc": "Boolean, whether to eject volumes before the system goes to sleep. Default value: true",
+        "name": "eject_on_sleep",
+        "signature": "EjectMenu.eject_on_sleep",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "EjectMenu.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "name": "logger",
+        "signature": "EjectMenu.logger",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "EjectMenu.never_eject",
+        "desc": "List containing volume paths that should never be ejected. Default value: empty list",
+        "doc": "List containing volume paths that should never be ejected. Default value: empty list",
+        "name": "never_eject",
+        "signature": "EjectMenu.never_eject",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "EjectMenu.notify",
+        "desc": "Boolean, whether to produce a notification about the volumes that get ejected. Default value: `false`",
+        "doc": "Boolean, whether to produce a notification about the volumes that get ejected. Default value: `false`",
+        "name": "notify",
+        "signature": "EjectMenu.notify",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "EjectMenu.other_eject_events",
+        "desc": "List of additional system events on which the volumes should be ejected. The",
+        "doc": "List of additional system events on which the volumes should be ejected. The\nvalues must be\n[http://www.hammerspoon.org/docs/hs.caffeinate.watcher.html](`hs.caffeinate.watcher`)\nconstant values. Default value: empty list",
+        "name": "other_eject_events",
+        "signature": "EjectMenu.other_eject_events",
+        "stripped_doc": "values must be\n[http://www.hammerspoon.org/docs/hs.caffeinate.watcher.html](`hs.caffeinate.watcher`)\nconstant values. Default value: empty list",
+        "type": "Variable"
+      },
+      {
+        "def": "EjectMenu.show_in_menubar",
+        "desc": "Boolean, whether to show a menubar button to eject all drives. Default value: true",
+        "doc": "Boolean, whether to show a menubar button to eject all drives. Default value: true",
+        "name": "show_in_menubar",
+        "signature": "EjectMenu.show_in_menubar",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "desc": "A much-needed eject menu for your Mac menu bar. Allows ejecting",
+    "doc": "A much-needed eject menu for your Mac menu bar. Allows ejecting\nindividual or all non-internal disks. Ejection can also be\ntriggered on sleep, on lid close, or using a hotkey.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/EjectMenu.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/EjectMenu.spoon.zip)",
+    "items": [
+      {
+        "def": "EjectMenu:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for EjectMenu",
+        "doc": "Binds hotkeys for EjectMenu\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n  * ejectAll - eject all volumes.",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * mapping - A table containing hotkey objifier/key details for the following items:",
+          "  * ejectAll - eject all volumes."
+        ],
+        "signature": "EjectMenu:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "EjectMenu.eject_on_lid_close",
+        "desc": "Boolean, whether to eject volumes when the laptop lid is closed",
+        "doc": "Boolean, whether to eject volumes when the laptop lid is closed\nwith an external display connected. There is no \"lid close\" event,\nso we detect when the internal display gets disabled. This method\nis somewhat unreliable (e.g. it also triggers when the internal\ndisplay goes to sleep due to inactivity), so its default value is\n`false`",
+        "name": "eject_on_lid_close",
+        "signature": "EjectMenu.eject_on_lid_close",
+        "stripped_doc": "with an external display connected. There is no \"lid close\" event,\nso we detect when the internal display gets disabled. This method\nis somewhat unreliable (e.g. it also triggers when the internal\ndisplay goes to sleep due to inactivity), so its default value is\n`false`",
+        "type": "Variable"
+      },
+      {
+        "def": "EjectMenu.eject_on_sleep",
+        "desc": "Boolean, whether to eject volumes before the system goes to sleep. Default value: true",
+        "doc": "Boolean, whether to eject volumes before the system goes to sleep. Default value: true",
+        "name": "eject_on_sleep",
+        "signature": "EjectMenu.eject_on_sleep",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "EjectMenu:ejectVolumes()",
+        "desc": "Eject all volumes",
+        "doc": "Eject all volumes\n\nParameters\n * persistent_notifs: a boolean indicating whether notifications (if shown) should be persistent.",
+        "name": "ejectVolumes",
+        "signature": "EjectMenu:ejectVolumes()",
+        "stripped_doc": "Parameters\n * persistent_notifs: a boolean indicating whether notifications (if shown) should be persistent.",
+        "type": "Method"
+      },
+      {
+        "def": "EjectMenu.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "name": "logger",
+        "signature": "EjectMenu.logger",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "EjectMenu.never_eject",
+        "desc": "List containing volume paths that should never be ejected. Default value: empty list",
+        "doc": "List containing volume paths that should never be ejected. Default value: empty list",
+        "name": "never_eject",
+        "signature": "EjectMenu.never_eject",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "EjectMenu.notify",
+        "desc": "Boolean, whether to produce a notification about the volumes that get ejected. Default value: `false`",
+        "doc": "Boolean, whether to produce a notification about the volumes that get ejected. Default value: `false`",
+        "name": "notify",
+        "signature": "EjectMenu.notify",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "EjectMenu.other_eject_events",
+        "desc": "List of additional system events on which the volumes should be ejected. The",
+        "doc": "List of additional system events on which the volumes should be ejected. The\nvalues must be\n[http://www.hammerspoon.org/docs/hs.caffeinate.watcher.html](`hs.caffeinate.watcher`)\nconstant values. Default value: empty list",
+        "name": "other_eject_events",
+        "signature": "EjectMenu.other_eject_events",
+        "stripped_doc": "values must be\n[http://www.hammerspoon.org/docs/hs.caffeinate.watcher.html](`hs.caffeinate.watcher`)\nconstant values. Default value: empty list",
+        "type": "Variable"
+      },
+      {
+        "def": "EjectMenu:shouldEject(path, info)",
+        "desc": "Determine if a volume should be ejected.",
+        "doc": "Determine if a volume should be ejected.\n\nParameters:\n * path - the mount path of the volume.\n * info - a table containing a data structure as returned by `hs.fs.volume.allVolumes()`.\nReturns:\n * A boolean indicating whether the volume should be ejected.",
+        "name": "shouldEject",
+        "parameters": [
+          " * path - the mount path of the volume.",
+          " * info - a table containing a data structure as returned by `hs.fs.volume.allVolumes()`.",
+          "Returns:",
+          " * A boolean indicating whether the volume should be ejected."
+        ],
+        "returns": [
+          " * A boolean indicating whether the volume should be ejected."
+        ],
+        "signature": "EjectMenu:shouldEject(path, info)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "EjectMenu.show_in_menubar",
+        "desc": "Boolean, whether to show a menubar button to eject all drives. Default value: true",
+        "doc": "Boolean, whether to show a menubar button to eject all drives. Default value: true",
+        "name": "show_in_menubar",
+        "signature": "EjectMenu.show_in_menubar",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "EjectMenu:start()",
+        "desc": "Start the watchers for power events and screen changes, to trigger volume ejection.",
+        "doc": "Start the watchers for power events and screen changes, to trigger volume ejection.",
+        "name": "start",
+        "signature": "EjectMenu:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "EjectMenu:stop()",
+        "desc": "Stop the watchers",
+        "doc": "Stop the watchers",
+        "name": "stop",
+        "signature": "EjectMenu:stop()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "EjectMenu:volumesToEject()",
+        "desc": "Return table of volumes to be ejected when \"Eject All\" is invoked.",
+        "doc": "Return table of volumes to be ejected when \"Eject All\" is invoked.\n\nReturns:\n * A table in the same format as returned by\n   `hs.fs.volume.allVolumes()` but containing only those volumes\n   for which `EjectMenu:shouldEject()` returns `true`.\n * An integer indicating how many volumes are in the table.",
+        "name": "volumesToEject",
+        "returns": [
+          " * A table in the same format as returned by",
+          "   `hs.fs.volume.allVolumes()` but containing only those volumes",
+          "   for which `EjectMenu:shouldEject()` returns `true`.",
+          " * An integer indicating how many volumes are in the table."
+        ],
+        "signature": "EjectMenu:volumesToEject()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "name": "EjectMenu",
+    "stripped_doc": "individual or all non-internal disks. Ejection can also be\ntriggered on sleep, on lid close, or using a hotkey.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/EjectMenu.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/EjectMenu.spoon.zip)",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
         "def": "Emojis:bindHotkeys(mapping)",
         "desc": "Binds hotkeys for Emojis",
         "doc": "Binds hotkeys for Emojis\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for the following items:\n  * toggle - This will toggle the emoji chooser\n\nReturns:\n * The Emojis object",
