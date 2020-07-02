@@ -182,7 +182,13 @@ end
 ---
 
 function obj:deactivateAll()
-    obj:deactivate(obj.active_list)
+    local i = 1
+    local tab = {}
+    for k, _ in pairs(obj.active_list) do
+      tab[i] = k
+      i = i + 1
+    end
+    obj:deactivate(tab)
 end
 
 return obj
