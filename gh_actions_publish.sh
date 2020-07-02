@@ -21,6 +21,7 @@ git config --global user.name "Spoons GitHub Bot"
 
 while IFS= read -r SPOON ; do
     ./hammerspoon/scripts/docs/bin/build_docs.py -e ./hammerspoon/scripts/docs/templates/ -o Source/${SPOON}.spoon/ -j -n Source/${SPOON}.spoon/
+    rm -rf ./hammerspoon/
     rm Source/${SPOON}.spoon/docs_index.json
     git add Source/${SPOON}.spoon/docs.json
     git commit -am "Generate docs for ${SPOON}" || true
