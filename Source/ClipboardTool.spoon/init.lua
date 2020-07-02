@@ -144,7 +144,11 @@ function obj:_processSelectedItem(value)
       if value.action and actions[value.action] then
          actions[value.action](value)
       elseif value.text then
-         pasteboard.setContents(value.text)
+         if value.subText == "text" then
+            pasteboard.setContents(value.text)
+         elseif value.subText == "image" then 
+            pasteboard.writeObjects(value.subText, hs.image.imageFromURL(value.text))
+         end
 --         self:pasteboardToClipboard(value.text)
          if (self.paste_on_select) then
             hs.eventtap.keyStroke({"cmd"}, "v")
@@ -198,8 +202,8 @@ end
 ---
 --- Returns:
 ---  * None
-function obj:pasteboardToClipboard(item)
-   table.insert(clipboard_history, 1, item)
+function obj:pasteboardToClipboard(item_type, item)
+   table.insert(clipboard_history, 1, {type=item_type, content=item})
    clipboard_history = self:dedupe_and_resize(clipboard_history)
    _persistHistory() -- updates the saved history
 end
@@ -216,7 +220,7 @@ function obj:pasteAllWithDelimiter(row, delimiter)
 --      pasteboard.setContents(entry)
 --      os.execute("sleep 0.2")
 --      hs.eventtap.keyStroke({"cmd"}, "v")
-       hs.eventtap.keyStrokes(entry)
+       hs.eventtap.keyStrokes(entry.content)
 --      os.execute("sleep 0.2")
       hs.eventtap.keyStrokes(delimiter)
 --      os.execute("sleep 0.2")
@@ -277,7 +281,7 @@ end
 function obj:_populateChooser()
    menuData = {}
    for k,v in pairs(clipboard_history) do
-      if (type(v) == "string") then
+      if (v.type ~= nil) then
          table.insert(menuData, {text=v, subText=""})
       end
    end
@@ -352,7 +356,10 @@ function obj:checkAndStorePasteboard()
          current_clipboard = pasteboard.getContents()
          self.logger.df("current_clipboard = %s", tostring(current_clipboard))
          if (current_clipboard == nil) and (pasteboard.readImage() ~= nil) then
-            self.logger.df("Images not yet supported - ignoring image contents in clipboard")
+            current_clipboard = pasteboard.readImage()
+            self:pasteboardToClipboard("image", current_clipboard:encodeAsURLString())
+            hs.alert.show("Copied image")
+            self.logger.df("Adding image (hashed) %s to clipboard history clipboard", hashfn(current_clipboard:encodeAsURLString()))
          elseif current_clipboard ~= nil then
            local size = #current_clipboard
            if obj.max_size and size > obj.max_entry_size then
@@ -365,7 +372,7 @@ function obj:checkAndStorePasteboard()
             end
             hs.alert.show("Copied " .. size .. " chars")
             self.logger.df("Adding %s to clipboard history", current_clipboard)
-            self:pasteboardToClipboard(current_clipboard)
+            self:pasteboardToClipboard("text", current_clipboard)
          else
             self.logger.df("Ignoring nil clipboard content")
          end
