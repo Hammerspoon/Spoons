@@ -1,0 +1,67 @@
+# Workflow to rebuild Spoons automatically
+
+name: PR
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on:
+  pull_request:
+    branches: [ master ]
+  push:
+    branches: [ master ]
+    paths:
+      - '**.lua'
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    # Check-out the Spoons PR
+    - uses: actions/checkout@v2
+
+    # Check-out the Hammerspoon repository we need for doc building
+    - uses: actions/checkout@v2
+      with:
+        repository: 'Hammerspoon/hammerspoon'
+        path: 'hammerspoon'
+
+    # Set up Python
+    - uses: actions/setup-python@v2
+      with:
+        python-version: '2.x'
+
+    # Install doc-building dependencies
+    - name: Install docs dependencies
+      run: |
+        cd $GITHUB_WORKSPACE/hammerspoon
+        python -m pip install -r requirements.txt
+
+    # Find files modified by this PR
+    - uses: lots0logs/gh-action-get-changed-files@2.1.4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+
+    # Show modified files, as a debug log
+    - name: Show changed files
+      run: cat $HOME/files.json
+
+    # Update docs and zips
+    - name: Update docs and zips
+      run: ./gh_actions_publish.sh
+
+    # Remove Hammerspoon checkout
+    - name: Remove Hammerspoon checkout
+      run: rm -rfv hammerspoon
+
+    # Push changes
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+      if: github.event_name == 'push'
+
