@@ -82,6 +82,29 @@ function obj:shouldEject(path, info)
   return not (hs.fnutils.contains(self.never_eject, path) or info["NSURLVolumeIsInternalKey"])
 end
 
+--- EjectMenu:volumesToEject()
+--- Method
+--- Return table of volumes to be ejected when "Eject All" is invoked.
+---
+--- Returns:
+---  * A table in the same format as returned by
+---    `hs.fs.volume.allVolumes()` but containing only those volumes
+---    for which `EjectMenu:shouldEject()` returns `true`.
+---  * An integer indicating how many volumes are in the table.
+function obj:volumesToEject()
+  local volumes = hs.fs.volume.allVolumes()
+  local ejectMenuDrives = {}
+  local count = 0
+  for path, v in pairs(volumes) do
+    if self:shouldEject(path, v) then
+      ejectMenuDrives[path] = v
+      count = count + 1
+    end
+  end
+  return ejectMenuDrives, count
+end
+
+-- Internal function to display a notification
 function obj.showNotification(title, subtitle, msg, persistent)
   local withdraw_time = 5
   if persistent then
@@ -103,28 +126,23 @@ end
 --- Parameters
 ---  * persistent_notifs: a boolean indicating whether notifications (if shown) should be persistent.
 function obj:ejectVolumes(persistent_notifs)
-  local v = hs.fs.volume.allVolumes()
+  local v, count = self:volumesToEject()
   self.logger.df("Ejecting volumes")
-  local should_eject = 0
-  local ejected = 0
+  local all_ejected = true
   for path,info in pairs(v) do
-    if self:shouldEject(path,info) then
-      should_eject = should_eject + 1
-      local result,msg = hs.fs.volume.eject(path)
-      if result then
-        ejected = ejected + 1
-        if self.notify then
-          self.showNotification("EjectMenu", "Volume " .. path .. " ejected.", "", persistent_notifs)
-        end
-        self.logger.df("Volume %s was ejected.", path)
-      else
-        self.showNotification("EjectMenu", "Error ejecting " .. path, msg)
-        self.logger.ef("Error ejecting volume %s: %s", path, msg)
-        all_ejected = false
+    local result,msg = hs.fs.volume.eject(path)
+    if result then
+      if self.notify then
+        self.showNotification("EjectMenu", "Volume " .. path .. " ejected.", "", persistent_notifs)
       end
+      self.logger.df("Volume %s was ejected.", path)
+    else
+      self.showNotification("EjectMenu", "Error ejecting " .. path, msg)
+      self.logger.ef("Error ejecting volume %s: %s", path, msg)
+      all_ejected = false
     end
   end
-  if should_eject > 0 and ejected == should_eject and self.notify then
+  if count > 0 and all_ejected then
     self.showNotification("EjectMenu", "All volumes unmounted.", "", persistent_notifs)
   end
   return self
@@ -169,21 +187,15 @@ end
 -- Returns
 -- ejectMenuTable: a table containing entries and functions for ejectable drives.
 function obj:initEjectMenu (mods)
-  local volumes = hs.fs.volume.allVolumes()
-  local ejectMenuDrives = {}
-  for path, v in pairs(volumes) do
-    if self:shouldEject(path, v) then
-      ejectMenuDrives[path] = v
-    end
-  end
+  local ejectMenuDrives, count = self:volumesToEject()
   local ejectMenuTable = {
     {title = "Eject All",
      fn = function () self:ejectVolumes(false) end,
-     disabled = (next(ejectMenuDrives) == nil)
+     disabled = (count == 0)
     },
     {title = '-'}
   }
-  if pcall(function () next(ejectMenuDrives) end) then
+  if count > 0 then
     for drive, v in pairs(ejectMenuDrives) do
       self.logger.d(drive .. " is ejectable.")
       table.insert(
