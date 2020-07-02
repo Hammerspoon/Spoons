@@ -25,7 +25,10 @@
         <li>Variables - Configurable values</li>
           <ul>
             <li><a href="#api_key">api_key</a></li>
+            <li><a href="#books_sync_to_dropbox">books_sync_to_dropbox</a></li>
             <li><a href="#check_interval">check_interval</a></li>
+            <li><a href="#dropbox_path">dropbox_path</a></li>
+            <li><a href="#dropbox_type">dropbox_type</a></li>
             <li><a href="#fetch_leanpub_covers">fetch_leanpub_covers</a></li>
             <li><a href="#logger">logger</a></li>
             <li><a href="#persistent_notification">persistent_notification</a></li>
@@ -64,6 +67,30 @@ section. No default.</p>
               </tr>
             </table>
           </section>
+          <section id="books_sync_to_dropbox">
+            <a name="//apple_ref/cpp/Variable/books_sync_to_dropbox" class="dashAnchor"></a>
+            <h5><a href="#books_sync_to_dropbox">books_sync_to_dropbox</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Leanpub.books_sync_to_dropbox</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Boolean that specifies whether all your books are being synced to
+Dropbox. If true, the "Book generation complete" notification will
+include a "Show" button to open the book's directory in
+Dropbox. Setting this is equivalent to setting the
+<code>syncs_to_dropbox</code> attribute for each book in
+<code>watch_books</code>. Default value: <code>false</code>.</p>
+</td>
+              </tr>
+            </table>
+          </section>
           <section id="check_interval">
             <a name="//apple_ref/cpp/Variable/check_interval" class="dashAnchor"></a>
             <h5><a href="#check_interval">check_interval</a></h5>
@@ -84,6 +111,55 @@ status is checked. Default 5.</p>
               </tr>
             </table>
           </section>
+          <section id="dropbox_path">
+            <a name="//apple_ref/cpp/Variable/dropbox_path" class="dashAnchor"></a>
+            <h5><a href="#dropbox_path">dropbox_path</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Leanpub.dropbox_path</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>String containing the base Dropbox path to which the books are
+synced, if the corresponding parameters are set. If unset, the
+path is determined automatically by reading the
+~/.dropbox/info.json file and choosing the path corresponding to
+the profile specified in <code>Leanpub.dropbox_profile</code>. If for some
+reason your synced files are somewhere else, you can store in this
+variable the final path to use. Most users should be fine with the
+defaults.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="dropbox_type">
+            <a name="//apple_ref/cpp/Variable/dropbox_type" class="dashAnchor"></a>
+            <h5><a href="#dropbox_type">dropbox_type</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Leanpub.dropbox_type</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>String containing the name of the Dropbox account type to use for
+determining the base path of the Dropbox directory. Valid values
+are "personal" and "business". See
+<a href="https://help.dropbox.com/installs-integrations/desktop/locate-dropbox-folder">https://help.dropbox.com/installs-integrations/desktop/locate-dropbox-folder</a>
+for the details. Default value: "personal".</p>
+</td>
+              </tr>
+            </table>
+          </section>
           <section id="fetch_leanpub_covers">
             <a name="//apple_ref/cpp/Variable/fetch_leanpub_covers" class="dashAnchor"></a>
             <h5><a href="#fetch_leanpub_covers">fetch_leanpub_covers</a></h5>
@@ -99,7 +175,7 @@ status is checked. Default 5.</p>
               <tr>
                 <th>Description</th>
                 <td><p>Boolean indicating whether we should try to fetch book covers from
-Leanpub (default true)</p>
+Leanpub. Default value: <code>true</code>.</p>
 </td>
               </tr>
             </table>
@@ -171,6 +247,15 @@ section in Leanpub.</li>
 as an hs.image object. If not specified, and if
 <code>fetch_leanpub_covers</code> is <code>true</code>, then the icon is generated
 automatically from the book cover.</li>
+<li>syncs_to_dropbox - optional boolean to indicate whether the
+book is configured in Leanpub to sync to Dropbox (you can find
+this option in your books "Writing mode" screen, as "Send
+output to Dropbox". If true, the "Book generation complete"
+notification will include a "Show" button to open the book's
+directory in Dropbox. If you have multiple books and all of
+them are synced to Dropbox, you can set the main
+<code>Leanpub.books_sync_to_dropbox</code> variable instead of setting it
+for each book. Default value: <code>false</code></li>
 </ul>
 </td>
               </tr>

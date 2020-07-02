@@ -1116,9 +1116,27 @@
     "type": "Variable"
   },
   {
+    "desc": "Boolean that specifies whether all your books are being synced to",
+    "module": "Leanpub",
+    "name": "books_sync_to_dropbox",
+    "type": "Variable"
+  },
+  {
     "desc": "Integer containing the interval (in seconds) at which the book",
     "module": "Leanpub",
     "name": "check_interval",
+    "type": "Variable"
+  },
+  {
+    "desc": "String containing the base Dropbox path to which the books are",
+    "module": "Leanpub",
+    "name": "dropbox_path",
+    "type": "Variable"
+  },
+  {
+    "desc": "String containing the name of the Dropbox account type to use for",
+    "module": "Leanpub",
+    "name": "dropbox_type",
     "type": "Variable"
   },
   {
