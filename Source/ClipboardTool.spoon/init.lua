@@ -91,7 +91,7 @@ obj.show_in_menubar = true
 
 --- ClipboardTool.menubar_title
 --- Variable
---- String to show in the menubar if `ClipboardTool.show_in_menubar` is `true`. Defaults to `"\u{1f4cb}"`, which is the [Unicode paperclip character](https://codepoints.net/U+1F4CB)
+--- String to show in the menubar if `ClipboardTool.show_in_menubar` is `true`. Defaults to `"\u{1f4cb}"`, which is the [Unicode clipboard character](https://codepoints.net/U+1F4CB)
 obj.menubar_title   = "\u{1f4cb}"
 
 ----------------------------------------------------------------------
