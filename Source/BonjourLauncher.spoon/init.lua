@@ -44,7 +44,7 @@ local obj    = {
 }
 -- version is outside of obj table definition to facilitate its auto detection by
 -- external documentation generation scripts
-obj.version   = "1.0"
+obj.version   = "1.0.1"
 
 local metadataKeys = {} ; for k, v in fnutils.sortByKeys(obj) do table.insert(metadataKeys, k) end
 
@@ -184,7 +184,7 @@ local validateCurrentlySelected = function()
 end
 
 local fillPlaceholders = function(svc, str)
-    local result
+    local result, ans
     if str then
         result = str
         for tag in str:gmatch("%%([%w_: ]+)%%") do
