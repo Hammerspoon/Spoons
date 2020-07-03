@@ -36,7 +36,7 @@ obj.decode_slack_redir_urls = true
 --- dispatching them. Each list element must be a list itself with four
 --- elements:
 ---   * a name to identify the decoder
----   * a regex to match against the URL
+---   * a [Lua pattern](https://www.lua.org/pil/20.2.html) to match against the URL
 ---   * a replacement pattern to apply if a match is found.
 ---   * (optional) whether to skip URL-decoding of the resulting string (by default the results are always decoded)
 --- The first two values are passed as arguments to
