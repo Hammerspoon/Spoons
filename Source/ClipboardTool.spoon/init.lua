@@ -144,10 +144,10 @@ function obj:_processSelectedItem(value)
       if value.action and actions[value.action] then
          actions[value.action](value)
       elseif value.text then
-         if value.subText == "text" then
+         if value.type == "text" then
             pasteboard.setContents(value.text)
-         elseif value.subText == "image" then 
-            pasteboard.writeObjects(value.subText, hs.image.imageFromURL(value.text))
+         elseif value.type == "image" then 
+            pasteboard.writeObjects(hs.image.imageFromURL(value.data))
          end
 --         self:pasteboardToClipboard(value.text)
          if (self.paste_on_select) then
@@ -183,7 +183,7 @@ function obj:dedupe_and_resize(list)
    local hashes={}
    for i,v in ipairs(list) do
       if #res < self.hist_size then
-         local hash=hashfn(v)
+         local hash=hashfn(v.content)
          if (not self.deduplicate) or (not hashes[hash]) then
             table.insert(res, v)
             hashes[hash]=true
@@ -281,8 +281,14 @@ end
 function obj:_populateChooser()
    menuData = {}
    for k,v in pairs(clipboard_history) do
-      if (v.type ~= nil) then
-         table.insert(menuData, {text=v, subText=""})
+      if (v.type == "text") then
+         table.insert(menuData, { text = v.content,
+                                  type = v.type})
+      elseif (v.type == "image") then
+         table.insert(menuData, { text = "《Image data》",
+                                  type = v.type,
+                                  data = v.content,
+                                  image = hs.image.imageFromURL(v.content)})
       end
    end
    if #menuData == 0 then
