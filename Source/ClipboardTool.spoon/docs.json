@@ -192,6 +192,15 @@
         "type": "Variable"
       },
       {
+        "def": "ClipboardTool.show_copied_alert",
+        "desc": "Show an alert when a new item is added to the history, i.e. has been copied. Defaults to `true` to adhere to original behaviour.",
+        "doc": "Show an alert when a new item is added to the history, i.e. has been copied. Defaults to `true` to adhere to original behaviour.",
+        "name": "show_copied_alert",
+        "signature": "ClipboardTool.show_copied_alert",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
         "def": "ClipboardTool.paste_on_select",
         "desc": "Whether to auto-type the item when selecting it from the menu. Can be toggled on the fly from the chooser. Defaults to `false`.",
         "doc": "Whether to auto-type the item when selecting it from the menu. Can be toggled on the fly from the chooser. Defaults to `false`.",
