@@ -3184,6 +3184,12 @@
     "type": "Module"
   },
   {
+    "desc": "Length of the animation to use for the window movements across the",
+    "module": "WindowScreenLeftAndRight",
+    "name": "animationDuration",
+    "type": "Variable"
+  },
+  {
     "desc": "Table containing a sample set of hotkeys that can be",
     "module": "WindowScreenLeftAndRight",
     "name": "defaultHotkeys",
