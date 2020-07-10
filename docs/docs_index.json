@@ -361,6 +361,12 @@
     "type": "Variable"
   },
   {
+    "desc": "If `true`, show an alert when a new item is added to the history, i.e. has been copied.",
+    "module": "ClipboardTool",
+    "name": "show_copied_alert",
+    "type": "Variable"
+  },
+  {
     "desc": "Whether to show a menubar item to open the clipboard history. Defaults to `true`",
     "module": "ClipboardTool",
     "name": "show_in_menubar",

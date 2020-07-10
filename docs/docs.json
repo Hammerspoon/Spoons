@@ -1468,6 +1468,15 @@
         "type": "Variable"
       },
       {
+        "def": "ClipboardTool.show_copied_alert",
+        "desc": "If `true`, show an alert when a new item is added to the history, i.e. has been copied.",
+        "doc": "If `true`, show an alert when a new item is added to the history, i.e. has been copied.",
+        "name": "show_copied_alert",
+        "signature": "ClipboardTool.show_copied_alert",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
         "def": "ClipboardTool.show_in_menubar",
         "desc": "Whether to show a menubar item to open the clipboard history. Defaults to `true`",
         "doc": "Whether to show a menubar item to open the clipboard history. Defaults to `true`",
@@ -1634,6 +1643,15 @@
         "signature": "ClipboardTool:shouldBeStored()",
         "stripped_doc": "",
         "type": "Method"
+      },
+      {
+        "def": "ClipboardTool.show_copied_alert",
+        "desc": "If `true`, show an alert when a new item is added to the history, i.e. has been copied.",
+        "doc": "If `true`, show an alert when a new item is added to the history, i.e. has been copied.",
+        "name": "show_copied_alert",
+        "signature": "ClipboardTool.show_copied_alert",
+        "stripped_doc": "",
+        "type": "Variable"
       },
       {
         "def": "ClipboardTool.show_in_menubar",
