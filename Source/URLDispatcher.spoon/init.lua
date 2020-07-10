@@ -39,6 +39,11 @@ obj.url_patterns = { }
 --- Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.
 obj.logger = hs.logger.new('URLDispatcher')
 
+--- URLDispatcher.set_system_handler
+--- Variable
+--- If true, URLDispatcher set itself as system handler for http requests. Defaults to `true`
+obj.set_system_handler = true
+
 -- Local functions to decode URLs
 function hex_to_char(x)
    return string.char(tonumber(x, 16))
@@ -98,7 +103,9 @@ function obj:start()
       self.logger.w("An hs.urlevent.httpCallback was already set. I'm overriding it with my own but you should check if this breaks any other functionality")
    end
    hs.urlevent.httpCallback = function(...) self:dispatchURL(...) end
-   hs.urlevent.setDefaultHandler('http')
+   if self.set_system_handler then
+      hs.urlevent.setDefaultHandler('http')
+   end
    --   hs.urlevent.setRestoreHandler('http', self.default_handler)
    return self
 end
