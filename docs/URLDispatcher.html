@@ -31,6 +31,7 @@ in the config. If no pattern matches, <code>default_handler</code> is used.</p>
             <li><a href="#logger">logger</a></li>
             <li><a href="#set_system_handler">set_system_handler</a></li>
             <li><a href="#url_patterns">url_patterns</a></li>
+            <li><a href="#url_redir_decoders">url_redir_decoders</a></li>
           </ul>
         <li>Methods - API calls which can only be made on an object returned by a constructor</li>
           <ul>
@@ -132,6 +133,38 @@ in the config. If no pattern matches, <code>default_handler</code> is used.</p>
                 <th>Description</th>
                 <td><p>URL dispatch rules.
 A table containing a list of dispatch rules. Each rule should be its own table in the format: <code>{ "url pattern", "application bundle ID", "function" }</code>, and they are evaluated in the order they are declared. Note that the patterns are <a href="https://www.lua.org/pil/20.2.html">Lua patterns</a> and not regular expressions. Defaults to an empty table, which has the effect of having all URLs dispatched to the <code>default_handler</code>. If "application bundle ID" is specified, that application will be used to open matching URLs. If no "application bundle ID" is specified, but "function" is provided (and is a Lua function) it will be called with the URL.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="url_redir_decoders">
+            <a name="//apple_ref/cpp/Variable/url_redir_decoders" class="dashAnchor"></a>
+            <h5><a href="#url_redir_decoders">url_redir_decoders</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>URLDispatcher.url_redir_decoders</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>List containing optional additional redirection decoders (other
+than the known Slack decoder, which is enabled by
+<code>URLDispatcher.decode_slack_redir_urls</code> to apply to URLs before
+dispatching them. Each list element must be a list itself with four
+elements:</p>
+<ul>
+<li>a name to identify the decoder</li>
+<li>a <a href="https://www.lua.org/pil/20.2.html">Lua pattern</a> to match against the URL</li>
+<li>a replacement pattern to apply if a match is found.</li>
+<li>(optional) whether to skip URL-decoding of the resulting string (by default the results are always decoded)
+The first two values are passed as arguments to
+<a href="https://www.lua.org/manual/5.3/manual.html#pdf-string.gsub">string.gsub</a>
+applied on the original URL.  Default value: empty list</li>
+</ul>
 </td>
               </tr>
             </table>

@@ -2939,6 +2939,12 @@
     "type": "Variable"
   },
   {
+    "desc": "List containing optional additional redirection decoders (other",
+    "module": "URLDispatcher",
+    "name": "url_redir_decoders",
+    "type": "Variable"
+  },
+  {
     "desc": "Dispatch a URL to an application according to the defined `url_patterns`.",
     "module": "URLDispatcher",
     "name": "dispatchURL",
