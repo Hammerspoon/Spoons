@@ -29,6 +29,7 @@ in the config. If no pattern matches, <code>default_handler</code> is used.</p>
             <li><a href="#decode_slack_redir_urls">decode_slack_redir_urls</a></li>
             <li><a href="#default_handler">default_handler</a></li>
             <li><a href="#logger">logger</a></li>
+            <li><a href="#set_system_handler">set_system_handler</a></li>
             <li><a href="#url_patterns">url_patterns</a></li>
           </ul>
         <li>Methods - API calls which can only be made on an object returned by a constructor</li>
@@ -92,6 +93,25 @@ in the config. If no pattern matches, <code>default_handler</code> is used.</p>
               <tr>
                 <th>Description</th>
                 <td><p>Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="set_system_handler">
+            <a name="//apple_ref/cpp/Variable/set_system_handler" class="dashAnchor"></a>
+            <h5><a href="#set_system_handler">set_system_handler</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>URLDispatcher.set_system_handler</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>If true, URLDispatcher set itself as system handler for http requests. Defaults to <code>true</code></p>
 </td>
               </tr>
             </table>

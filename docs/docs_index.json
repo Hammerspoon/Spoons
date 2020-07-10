@@ -2921,6 +2921,12 @@
     "type": "Variable"
   },
   {
+    "desc": "If true, URLDispatcher set itself as system handler for http requests. Defaults to `true`",
+    "module": "URLDispatcher",
+    "name": "set_system_handler",
+    "type": "Variable"
+  },
+  {
     "desc": "URL dispatch rules.",
     "module": "URLDispatcher",
     "name": "url_patterns",
