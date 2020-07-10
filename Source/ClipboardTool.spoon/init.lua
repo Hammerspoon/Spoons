@@ -40,6 +40,11 @@ obj.max_entry_size = 4990
 --- Whether to check the maximum size of an entry. Defaults to `false`.
 obj.max_size = getSetting('max_size', false)
 
+--- ClipboardTool.show_copied_alert
+--- Variable
+--- If `true`, show an alert when a new item is added to the history, i.e. has been copied.
+obj.show_copied_alert = true
+
 --- ClipboardTool.honor_ignoredidentifiers
 --- Variable
 --- If `true`, check the data identifiers set in the pasteboard and ignore entries which match those listed in `ClipboardTool.ignoredIdentifiers`. The list of identifiers comes from http://nspasteboard.org. Defaults to `true`
@@ -364,7 +369,9 @@ function obj:checkAndStorePasteboard()
          if (current_clipboard == nil) and (pasteboard.readImage() ~= nil) then
             current_clipboard = pasteboard.readImage()
             self:pasteboardToClipboard("image", current_clipboard:encodeAsURLString())
-            hs.alert.show("Copied image")
+            if self.show_copied_alert then
+                hs.alert.show("Copied image")
+            end
             self.logger.df("Adding image (hashed) %s to clipboard history clipboard", hashfn(current_clipboard:encodeAsURLString()))
          elseif current_clipboard ~= nil then
            local size = #current_clipboard
@@ -376,7 +383,9 @@ function obj:checkAndStorePasteboard()
                 size = #current_clipboard
                 end
             end
-            hs.alert.show("Copied " .. size .. " chars")
+            if self.show_copied_alert then
+                hs.alert.show("Copied " .. size .. " chars")
+            end
             self.logger.df("Adding %s to clipboard history", current_clipboard)
             self:pasteboardToClipboard("text", current_clipboard)
          else
