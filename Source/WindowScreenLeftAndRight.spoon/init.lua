@@ -37,14 +37,29 @@ obj.defaultHotkeys = {
    screen_right= { {"ctrl", "alt", "cmd"}, "Right" },
 }
 
--- Internal functions to store/restore the current value of setFrameCorrectness.
+--- WindowScreenLeftAndRight.animationDuration
+--- Variable
+--- Length of the animation to use for the window movements across the
+--- screens. `nil` means to use the existing value from
+--- `hs.window.animationDuration`. 0 means to disable the
+--- animations. Default: `nil`.
+obj.animationDuration = nil
+
+-- Internal functions to store/restore the current value of setFrameCorrectness and animationDuration
 local function _setFC()
-   obj._savedFC = hs.window.setFrameCorrectness
-   hs.window.setFrameCorrectness = obj.use_frame_correctness
+  obj._savedFC = hs.window.setFrameCorrectness
+  obj._savedDuration = hs.window.animationDuration
+  hs.window.setFrameCorrectness = obj.use_frame_correctness
+  if obj.animationDuration ~= nil then
+    hs.window.animationDuration = obj.animationDuration
+  end
 end
 
 local function _restoreFC()
-   hs.window.setFrameCorrectness = obj._savedFC
+  hs.window.setFrameCorrectness = obj._savedFC
+  if obj.animationDuration ~= nil then
+    hs.window.animationDuration = obj._savedDuration
+  end
 end
 
 -- Move current window to a different screen
