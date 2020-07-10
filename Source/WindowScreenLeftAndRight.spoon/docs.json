@@ -23,6 +23,15 @@
     ],
     "Variable": [
       {
+        "def": "WindowScreenLeftAndRight.animationDuration",
+        "desc": "Length of the animation to use for the window movements across the",
+        "doc": "Length of the animation to use for the window movements across the\nscreens. `nil` means to use the existing value from\n`hs.window.animationDuration`. 0 means to disable the\nanimations. Default: `nil`.",
+        "name": "animationDuration",
+        "signature": "WindowScreenLeftAndRight.animationDuration",
+        "stripped_doc": "screens. `nil` means to use the existing value from\n`hs.window.animationDuration`. 0 means to disable the\nanimations. Default: `nil`.",
+        "type": "Variable"
+      },
+      {
         "def": "WindowScreenLeftAndRight.defaultHotkeys",
         "desc": "Table containing a sample set of hotkeys that can be",
         "doc": "Table containing a sample set of hotkeys that can be\nassigned to the different operations. These are not bound\nby default - if you want to use them you have to call:\n`spoon.WindowScreenLeftAndRight:bindHotkeys(spoon.WindowScreenLeftAndRight.defaultHotkeys)`\nafter loading the spoon. Value:\n```\n {\n    screen_left = { {\"ctrl\", \"alt\", \"cmd\"}, \"Left\" },\n    screen_right= { {\"ctrl\", \"alt\", \"cmd\"}, \"Right\" },\n }\n```",
@@ -44,6 +53,15 @@
     "desc": "Move windows to other screens",
     "doc": "Move windows to other screens\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WindowScreenLeftAndRight.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WindowScreenLeftAndRight.spoon.zip)",
     "items": [
+      {
+        "def": "WindowScreenLeftAndRight.animationDuration",
+        "desc": "Length of the animation to use for the window movements across the",
+        "doc": "Length of the animation to use for the window movements across the\nscreens. `nil` means to use the existing value from\n`hs.window.animationDuration`. 0 means to disable the\nanimations. Default: `nil`.",
+        "name": "animationDuration",
+        "signature": "WindowScreenLeftAndRight.animationDuration",
+        "stripped_doc": "screens. `nil` means to use the existing value from\n`hs.window.animationDuration`. 0 means to disable the\nanimations. Default: `nil`.",
+        "type": "Variable"
+      },
       {
         "def": "WindowScreenLeftAndRight:bindHotkeys(mapping)",
         "desc": "Binds hotkeys for WindowScreenLeftAndRight",
