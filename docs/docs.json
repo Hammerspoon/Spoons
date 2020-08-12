@@ -4227,7 +4227,7 @@
       }
     ],
     "desc": "Get and Add items from Keychain. Provides no hotkeys and maintains no state",
-    "doc": "Get and Add items from Keychain. Provides no hotkeys and maintains no state\n\nExample usage:\n   spoon.Keychain.addItem{service=\"mynas.local\", account=\"myname\", password=\"secret\"}\n   item = spoon.Keychain.getItem{service=\"mynas.local\", account=\"myname\"}\n   print(item.password)\n\nTyler Thrailkill <tyler.b.thrailkill@gmail.com>\n\nhttps://github.com/snowe2010",
+    "doc": "Get and Add items from Keychain. Provides no hotkeys and maintains no state\n\nExample usage:\n```lua\n   spoon.Keychain.addItem{service=\"mynas.local\", account=\"myname\", password=\"secret\"}\n   item = spoon.Keychain.getItem{service=\"mynas.local\", account=\"myname\"}\n   print(item.password)\n```\n\nTyler Thrailkill <tyler.b.thrailkill@gmail.com>\n\nhttps://github.com/snowe2010",
     "items": [
       {
         "def": "Keychain:addItem(options)",
@@ -4291,7 +4291,7 @@
       }
     ],
     "name": "Keychain",
-    "stripped_doc": "\nExample usage:\n   spoon.Keychain.addItem{service=\"mynas.local\", account=\"myname\", password=\"secret\"}\n   item = spoon.Keychain.getItem{service=\"mynas.local\", account=\"myname\"}\n   print(item.password)\n\nTyler Thrailkill <tyler.b.thrailkill@gmail.com>\n\nhttps://github.com/snowe2010",
+    "stripped_doc": "\nExample usage:\n```lua\n   spoon.Keychain.addItem{service=\"mynas.local\", account=\"myname\", password=\"secret\"}\n   item = spoon.Keychain.getItem{service=\"mynas.local\", account=\"myname\"}\n   print(item.password)\n```\n\nTyler Thrailkill <tyler.b.thrailkill@gmail.com>\n\nhttps://github.com/snowe2010",
     "submodules": [],
     "type": "Module"
   },

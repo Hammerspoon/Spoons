@@ -16,10 +16,11 @@
     <header>
       <h1><a href="./index.html">docs</a> &raquo; Keychain</h1>
       <p>Get and Add items from Keychain. Provides no hotkeys and maintains no state</p>
-<p>Example usage:
-   spoon.Keychain.addItem{service="mynas.local", account="myname", password="secret"}
-   item = spoon.Keychain.getItem{service="mynas.local", account="myname"}
-   print(item.password)</p>
+<p>Example usage:</p>
+<div class="highlight"><pre><span></span><span class="n">spoon</span><span class="p">.</span><span class="n">Keychain</span><span class="p">.</span><span class="n">addItem</span><span class="p">{</span><span class="n">service</span><span class="o">=</span><span class="s2">&quot;mynas.local&quot;</span><span class="p">,</span> <span class="n">account</span><span class="o">=</span><span class="s2">&quot;myname&quot;</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s2">&quot;secret&quot;</span><span class="p">}</span>
+   <span class="n">item</span> <span class="o">=</span> <span class="n">spoon</span><span class="p">.</span><span class="n">Keychain</span><span class="p">.</span><span class="n">getItem</span><span class="p">{</span><span class="n">service</span><span class="o">=</span><span class="s2">&quot;mynas.local&quot;</span><span class="p">,</span> <span class="n">account</span><span class="o">=</span><span class="s2">&quot;myname&quot;</span><span class="p">}</span>
+   <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">.</span><span class="n">password</span><span class="p">)</span>
+</pre></div>
 <p>Tyler Thrailkill <a href="mailto:tyler.b.thrailkill@gmail.com">tyler.b.thrailkill@gmail.com</a></p>
 <p><a href="https://github.com/snowe2010">https://github.com/snowe2010</a></p>
 
