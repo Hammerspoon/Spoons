@@ -3,9 +3,11 @@
 --- Get and Add items from Keychain. Provides no hotkeys and maintains no state
 ---
 --- Example usage:
+--- ```lua
 ---    spoon.Keychain.addItem{service="mynas.local", account="myname", password="secret"}
 ---    item = spoon.Keychain.getItem{service="mynas.local", account="myname"}
 ---    print(item.password)
+--- ```
 ---
 --- Tyler Thrailkill <tyler.b.thrailkill@gmail.com>
 ---
