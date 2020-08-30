@@ -13,7 +13,7 @@ obj.__index = obj
 
 -- Metadata
 obj.name = "URLDispatcher"
-obj.version = "0.2"
+obj.version = "0.3"
 obj.author = "Diego Zamboni <diego@zzamboni.org>"
 obj.homepage = "https://github.com/Hammerspoon/Spoons"
 obj.license = "MIT - https://opensource.org/licenses/MIT"
@@ -35,10 +35,11 @@ obj.decode_slack_redir_urls = true
 --- `URLDispatcher.decode_slack_redir_urls` to apply to URLs before
 --- dispatching them. Each list element must be a list itself with four
 --- elements:
----   * a name to identify the decoder
----   * a [Lua pattern](https://www.lua.org/pil/20.2.html) to match against the URL
----   * a replacement pattern to apply if a match is found.
----   * (optional) whether to skip URL-decoding of the resulting string (by default the results are always decoded)
+---   * String: a name to identify the decoder;
+---   * String: a [Lua pattern](https://www.lua.org/pil/20.2.html) to match against the URL;
+---   * String: a replacement pattern to apply if a match is found;
+---   * (optional) Boolean: whether to skip URL-decoding of the resulting string (by default the results are always decoded);
+---   * (optional) String or Table: a pattern or list of patterns to match against the name of the application from which the URL was opened. If this parameter is present, the decoder will only be applied when the application matches. Default is to apply the decoder regardless of the application.
 --- The first two values are passed as arguments to
 --- [string.gsub](https://www.lua.org/manual/5.3/manual.html#pdf-string.gsub)
 --- applied on the original URL.  Default value: empty list
@@ -65,8 +66,13 @@ function hex_to_char(x)
    return string.char(tonumber(x, 16))
 end
 
-function unescape(url)
+function obj.unescape(url)
    return url:gsub("%%(%x%x)", hex_to_char)
+end
+
+function obj.matchapp(app, pat)
+  obj.logger.df("Matching %s with %s", app, pat)
+  return string.find(app, "^"..pat.."$")
 end
 
 --- URLDispatcher:dispatchURL(scheme, host, params, fullUrl)
@@ -80,21 +86,27 @@ end
 ---  * fullURL - A string containing the full, original URL
 function obj:dispatchURL(scheme, host, params, fullUrl)
    local url = fullUrl
-   self.logger.df("Dispatching URL '%s'", url)
+   local currentApp = hs.window.frontmostWindow():application():name()
+   self.logger.df("Dispatching URL '%s' from application %s", url, currentApp)
    if self.decode_slack_redir_urls then
       local newUrl = string.match(url, 'https://slack.redir.net/.*url=(.*)')
       if newUrl then
-         url = unescape(newUrl)
+         url = obj.unescape(newUrl)
       end
    end
    for i,dec in ipairs(self.url_redir_decoders) do
-     if string.find(url, dec[2]) then
-       self.logger.df("Applying decoder '%s' to URL '%s'", url, dec[1])
-       url = string.gsub(url, dec[2], dec[3])
-       if not dec[4] then
-         url = unescape(url)
+     if (dec[5] == nil) or
+       (type(dec[5]) == 'string' and obj.matchapp(currentApp, dec[5])) or
+       (type(dec[5]) == 'table' and hs.fnutils.some(dec[5], hs.fnutils.partial(obj.matchapp, currentApp)))
+     then
+       if string.find(url, dec[2]) then
+         self.logger.df("Applying decoder '%s' to URL '%s'", url, dec[1])
+         url = string.gsub(url, dec[2], dec[3])
+         if not dec[4] then
+           url = obj.unescape(url)
+         end
+         self.logger.df("  New URL after decoding: '%s'", url)
        end
-       self.logger.df("  New URL after decoding: '%s'", url)
      end
    end
    for i,pair in ipairs(self.url_patterns) do
