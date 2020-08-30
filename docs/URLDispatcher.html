@@ -157,10 +157,11 @@ than the known Slack decoder, which is enabled by
 dispatching them. Each list element must be a list itself with four
 elements:</p>
 <ul>
-<li>a name to identify the decoder</li>
-<li>a <a href="https://www.lua.org/pil/20.2.html">Lua pattern</a> to match against the URL</li>
-<li>a replacement pattern to apply if a match is found.</li>
-<li>(optional) whether to skip URL-decoding of the resulting string (by default the results are always decoded)
+<li>String: a name to identify the decoder;</li>
+<li>String: a <a href="https://www.lua.org/pil/20.2.html">Lua pattern</a> to match against the URL;</li>
+<li>String: a replacement pattern to apply if a match is found;</li>
+<li>(optional) Boolean: whether to skip URL-decoding of the resulting string (by default the results are always decoded);</li>
+<li>(optional) String or Table: a pattern or list of patterns to match against the name of the application from which the URL was opened. If this parameter is present, the decoder will only be applied when the application matches. Default is to apply the decoder regardless of the application.
 The first two values are passed as arguments to
 <a href="https://www.lua.org/manual/5.3/manual.html#pdf-string.gsub">string.gsub</a>
 applied on the original URL.  Default value: empty list</li>
