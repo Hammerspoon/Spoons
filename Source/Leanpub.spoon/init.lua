@@ -79,7 +79,7 @@ obj.fetch_leanpub_covers = true
 --- of the `status` field returned by the Leanpub API. Possible values
 --- are `working` and `complete`. Default `{ complete = true }` to
 --- keep the "Book generation complete" messages.
-obj.persistent_notification = { complete = true }
+obj.persistent_notification = { complete = true, failure = true }
 
 --- Leanpub.dropbox_path
 --- Variable
@@ -202,7 +202,7 @@ end
 -- actually does the job of displaying a notification if needed.
 function obj:_displayBookStatusCallback(book, status)
   if status then
-    local step = status.message
+    local step = status.message or status.msg
     if step and step ~= self.last_status[book.slug] then
       -- Create base notification, with just the text
       local n = hs.notify.new(
@@ -212,8 +212,8 @@ function obj:_displayBookStatusCallback(book, status)
         function (n) self:_bookCompleteCallback(book, status) end,
         -- The base information in the notification
         {
-          title = status.name,
-          subTitle = string.format("Step %d of %d",status.num,status.total),
+          title = status.name or book.slug,
+          subTitle = string.format("Step %d of %d",status.num or 0,status.total or 0),
           informativeText = step
         }
       )
@@ -222,7 +222,7 @@ function obj:_displayBookStatusCallback(book, status)
         n:setIdImage(book.icon)
       end
       -- If message should be persistent, set timeout to 0
-      if self.persistent_notification[status.status] then
+      if self.persistent_notification[status.status or status.response] then
         n:withdrawAfter(0)
       end
       -- If the message corresponds to the end of the build process
