@@ -1,0 +1,13 @@
+[
+  { "title": "Hammerspoon - Website", "url": "https://www.hammerspoon.org/" },
+  { "title": "Hammerspoon - Spoons", "url": "https://www.hammerspoon.org/Spoons/" },
+  { "title": "Hammerspoon - API Documentation", "url": "https://www.hammerspoon.org/docs/index.html" },
+  { "title": "-" },
+  { "title": "[Github Repo] Hammerspoon", "url": "https://www.hammerspoon.org/docs/index.html" },
+  { "title": "[Github Issues Open] Hammerspoon", "url": "https://github.com/Hammerspoon/hammerspoon/issues" },
+  { "title": "[Github Issue New] Hammerspoon", "url": "https://github.com/Hammerspoon/hammerspoon/issues/new" },
+  { "title": "-" },
+  { "title": "[Github Repo] Hammerspoon Spoons", "url": "https://github.com/Hammerspoon/Spoons" },
+  { "title": "[Github Issues Open] Hammerspoon Spoons", "url": "https://github.com/Hammerspoon/Spoons/issues" },
+  { "title": "[Github Issue New] Hammerspoon Spoons", "url": "https://github.com/Hammerspoon/Spoons/issues/new" }
+]
