@@ -240,7 +240,7 @@ function obj:setDisplay(state)
 end
 
 function obj.clicked()
-  obj:setDisplay(obj:toggle())
+  hs.timer.doAfter(0, function() obj:setDisplay(obj:toggle()) end)
 end
 
 -- This function is called when the machine wakes up and, if the
@@ -250,12 +250,14 @@ function obj.wokeUp(event)
   obj.logger.df("In obj.wokeUp, event = %d\n", event)
   if event == hs.caffeinate.watcher.systemDidWake then
     obj.logger.d("  Received systemDidWake event!\n")
-    if not obj:status() then
-      obj.logger.d("  Toggling TurboBoost on and back off\n")
-      obj:toggle()
-      hs.timer.usleep(20000)
-      obj:toggle()
-    end
+    hs.timer.doAfter(0,
+                     function()
+                       if not obj:status() then
+                         obj.logger.d("  Toggling TurboBoost on and back off\n")
+                         hs.timer.doAfter(0.5, function() obj:setState(true) end)
+                         hs.timer.doAfter(2.0, function() obj:setState(false) end)
+                       end
+                     end)
   end
 end
 
