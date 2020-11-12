@@ -54,11 +54,30 @@ obj.disable_on_start = false
 --- the Spoon stops. Default value: `true`.
 obj.reenable_on_stop = true
 
+--- TurboBoost.kext_paths
+--- Variable
+--- List with paths to check for the DisableTurboBoost.kext file. The first one
+--- to be found is used by default unless DisableTurboBoost.kext_path is set
+--- explicitly.
+---
+--- Default value: `{"/Applications/Turbo Boost Switcher.app/Contents/Resources/DisableTurboBoost.64bits.kext", "/Applications/tbswitcher_resources/DisableTurboBoost.64bits.kext"}`
+obj.kext_paths_to_try = {"/Applications/Turbo Boost Switcher.app/Contents/Resources/DisableTurboBoost.64bits.kext",
+                         "/Applications/tbswitcher_resources/DisableTurboBoost.64bits.kext"}
+
 --- TurboBoost.kext_path
 --- Variable
 --- Where the DisableTurboBoost.kext file is located.
---- Default value: `"/Applications/Turbo Boost Switcher.app/Contents/Resources/DisableTurboBoost.64bits.kext"`
-obj.kext_path = "/Applications/Turbo Boost Switcher.app/Contents/Resources/DisableTurboBoost.64bits.kext"
+---
+---Default value: whichever one of `TurboBoost.kext_paths` exists.
+obj.kext_path = nil
+
+-- Load-time initialization of kext_path, so that it can be overriden by an
+-- explicit assignment later.
+for i,path in ipairs(obj.kext_paths_to_try) do
+  if hs.fs.attributes(path) then
+    obj.kext_path = path
+  end
+end
 
 --- TurboBoost.load_kext_cmd
 --- Variable
