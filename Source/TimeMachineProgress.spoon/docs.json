@@ -9,8 +9,8 @@
     "Method": [
       {
         "def": "TimeMachineProgress:refresh()",
-        "desc": "Update the indicator",
-        "doc": "Update the indicator",
+        "desc": "Update the indicator and menu according to the current backup status.",
+        "doc": "Update the indicator and menu according to the current backup status.",
         "name": "refresh",
         "signature": "TimeMachineProgress:refresh()",
         "stripped_doc": "",
@@ -50,11 +50,11 @@
     "Variable": [
       {
         "def": "TimeMachineProgress.backupIcon",
-        "desc": "Image to use for the indicator. Defaults to the Time Machine application icon, obtained as `hs.image.imageFromAppBundle('com.apple.backup.launcher'):setSize({w=16,h=16})`.",
-        "doc": "Image to use for the indicator. Defaults to the Time Machine application icon, obtained as `hs.image.imageFromAppBundle('com.apple.backup.launcher'):setSize({w=16,h=16})`.",
+        "desc": "",
+        "doc": "\nImage to use for the menubar icon. Defaults to the default macOS Time\nMachine menubar icon stored in `/System/Library/CoreServices/Menu\nExtras/TimeMachine.menu/Contents/Resources/TMBackingUp.pdf`. If this fails,\nit defaults to the Time Machine application icon, obtained as\n`hs.image.imageFromAppBundle('com.apple.backup.launcher'):setSize({w=18,h=18})`.",
         "name": "backupIcon",
         "signature": "TimeMachineProgress.backupIcon",
-        "stripped_doc": "",
+        "stripped_doc": "Image to use for the menubar icon. Defaults to the default macOS Time\nMachine menubar icon stored in `/System/Library/CoreServices/Menu\nExtras/TimeMachine.menu/Contents/Resources/TMBackingUp.pdf`. If this fails,\nit defaults to the Time Machine application icon, obtained as\n`hs.image.imageFromAppBundle('com.apple.backup.launcher'):setSize({w=18,h=18})`.",
         "type": "Variable"
       },
       {
@@ -81,11 +81,11 @@
     "items": [
       {
         "def": "TimeMachineProgress.backupIcon",
-        "desc": "Image to use for the indicator. Defaults to the Time Machine application icon, obtained as `hs.image.imageFromAppBundle('com.apple.backup.launcher'):setSize({w=16,h=16})`.",
-        "doc": "Image to use for the indicator. Defaults to the Time Machine application icon, obtained as `hs.image.imageFromAppBundle('com.apple.backup.launcher'):setSize({w=16,h=16})`.",
+        "desc": "",
+        "doc": "\nImage to use for the menubar icon. Defaults to the default macOS Time\nMachine menubar icon stored in `/System/Library/CoreServices/Menu\nExtras/TimeMachine.menu/Contents/Resources/TMBackingUp.pdf`. If this fails,\nit defaults to the Time Machine application icon, obtained as\n`hs.image.imageFromAppBundle('com.apple.backup.launcher'):setSize({w=18,h=18})`.",
         "name": "backupIcon",
         "signature": "TimeMachineProgress.backupIcon",
-        "stripped_doc": "",
+        "stripped_doc": "Image to use for the menubar icon. Defaults to the default macOS Time\nMachine menubar icon stored in `/System/Library/CoreServices/Menu\nExtras/TimeMachine.menu/Contents/Resources/TMBackingUp.pdf`. If this fails,\nit defaults to the Time Machine application icon, obtained as\n`hs.image.imageFromAppBundle('com.apple.backup.launcher'):setSize({w=18,h=18})`.",
         "type": "Variable"
       },
       {
@@ -99,8 +99,8 @@
       },
       {
         "def": "TimeMachineProgress:refresh()",
-        "desc": "Update the indicator",
-        "doc": "Update the indicator",
+        "desc": "Update the indicator and menu according to the current backup status.",
+        "doc": "Update the indicator and menu according to the current backup status.",
         "name": "refresh",
         "signature": "TimeMachineProgress:refresh()",
         "stripped_doc": "",
