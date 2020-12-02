@@ -30,12 +30,19 @@ obj.refresh_interval = 5
 
 --- TimeMachineProgress.backupIcon
 --- Variable
---- Image to use for the indicator. Defaults to the Time Machine application icon, obtained as `hs.image.imageFromAppBundle('com.apple.backup.launcher'):setSize({w=16,h=16})`.
-obj.backupIcon = hs.image.imageFromAppBundle('com.apple.backup.launcher'):setSize({w=16,h=16})
+---
+--- Image to use for the menubar icon. Defaults to the default macOS Time
+--- Machine menubar icon stored in `/System/Library/CoreServices/Menu
+--- Extras/TimeMachine.menu/Contents/Resources/TMBackingUp.pdf`. If this fails,
+--- it defaults to the Time Machine application icon, obtained as
+--- `hs.image.imageFromAppBundle('com.apple.backup.launcher'):setSize({w=18,h=18})`.
+obj.backupIcon = hs.image.imageFromPath("/System/Library/CoreServices/Menu Extras/TimeMachine.menu/Contents/Resources/TMBackingUp.pdf") or
+                 hs.image.imageFromAppBundle('com.apple.backup.launcher'):setSize({w=18,h=18})
 
 -- Internal variables
 obj.menuBarItem = nil
 obj.timer = nil
+obj.menu = nil
 
 -- Status emulation - for debugging - developer use only!
 
@@ -50,7 +57,7 @@ obj._nobackup = [[{
 }
 ]]
 
-  obj._preparingbackup = [[{
+obj._preparingbackup = [[{
     BackupPhase = ThinningPreBackup;
     ClientID = "com.apple.backupd";
     DateOfStateChange = "2018-03-01 05:41:00 +0000";
@@ -61,7 +68,7 @@ obj._nobackup = [[{
     Stopping = 0;
 }]]
 
-  obj._runningbackup = [[{
+obj._runningbackup = [[{
     BackupPhase = Copying;
     ClientID = "com.apple.backupd";
     DateOfStateChange = "2018-02-28 09:48:14 +0000";
@@ -81,9 +88,15 @@ obj._nobackup = [[{
     "_raw_Percent" = "0.5228798743898445";
 }]]
 
+-- Internal function to return the current menu. The menu itself is updated by
+-- TimeMachineProgress:refresh()
+function obj._returnMenu()
+  return obj.menu
+end
+
 --- TimeMachineProgress:refresh()
 --- Method
---- Update the indicator
+--- Update the indicator and menu according to the current backup status.
 function obj:refresh()
   local out = nil
   if obj.emulatedoutput then
@@ -94,32 +107,94 @@ function obj:refresh()
   self.logger.df("tmutil status output: %s\n", out)
   -- Write output to a file and read it using hs.plist
   local outfile = hs.execute("/usr/bin/mktemp"):match( "^%s*(.-)%s*$" )
-  local f = assert(io.open(outfile, "w"))
-  f:write(out)
-  f:close()
+  local f = assert(io.open(outfile, "w")); f:write(out); f:close()
   data = hs.plist.read(outfile)
   os.remove(outfile)
-  self.logger.df("formatted data read by hs.plist: %s\n", hs.inspect(data))
 
-  if data['Running'] == '1' then
-    self.logger.df("Backup is running")
-    if (not self.menuBarItem) then
-      self.menuBarItem = hs.menubar.new()
-      self.menuBarItem:setIcon(self.backupIcon, false)
-    end
-    title = nil
-    if (data['Progress']) then data = data['Progress'] end
-    if (data['Percent'] == '-1' or data['Percent'] == '0') then
-      title = "(prep)"
-    else
-      title = string.format("%.2f%%", tonumber(data['Percent'])*100)
-    end
-    self.logger.df("Setting up menubar title to '%s'", title)
-    self.menuBarItem:setTitle(title)
-  else
+  self.logger.df("Formatted data read by hs.plist: %s\n", hs.inspect(data))
+
+  if data['Running'] ~= '1' then
+    -- If no backup is running, delete the menubar
     self.logger.df("Backup not running, removing menubar item")
     if self.menuBarItem then self.menuBarItem:delete() end
     self.menuBarItem = nil
+  else
+    -- When a backup is underway things get fun
+    self.logger.df("Backup is running")
+
+    -- Initialize menubar item if needed
+    if (not self.menuBarItem) then
+      self.menuBarItem = hs.menubar.new()
+      self.menuBarItem:setIcon(self.backupIcon, false)
+      self.menuBarItem:setMenu(self._returnMenu)
+    end
+
+    -- Identify special states: preparing backup and stopping backup.
+    local stopping = (data['Stopping'] == '1')
+    local preparing = (not stopping) and (data['Percent'] == '-1' or data['Percent'] == '0')
+
+    -- Depending on macOS version the 'Progress' data may be stored in a
+    -- subitem, we promote it to the top level
+    if (data['Progress']) then data = data['Progress'] end
+
+    -- Determine menubar title, tooltip, and top menu entry depending on status
+    local title
+    local tooltip
+    local topmenu
+    if stopping then
+      title = "(stop)"
+      tooltip = "Stopping Backup…"
+      topmenu = tooltip
+    elseif preparing then
+      title = "(prep)"
+      tooltip = "Preparing Backup…"
+      topmenu = tooltip
+    else
+      title = string.format("%.2f%%", tonumber(data['Percent'])*100)
+      -- The macOS Time Machine menu item uses 1000-byte multipliers (instead of
+      -- the more correct 1024) for its display, we use it as well so that it
+      -- matches.
+      GBfactor = 1000*1000*1000
+      currentGB = tonumber(data['bytes'])/GBfactor
+      totalGB = tonumber(data['totalBytes'])/GBfactor
+      tooltip = string.format("%.2fGB of %.2fGB", currentGB, totalGB)
+      topmenu = string.format("Backing up: %s", tooltip)
+    end
+
+    -- Set the menubar title and tooltip
+    self.logger.df("Setting up menubar title to '%s'", title)
+    self.menuBarItem:setTitle(title)
+    self.menuBarItem:setTooltip(tooltip)
+
+    -- Finally, we construct the menu based on the current status. It is stored
+    -- in obj.menu and returned upon click by obj._returnMenu so that it's not
+    -- updated while the user has the menu open.
+    local __separator__ = { title = "-" }
+    obj.menu = {
+      -- Top entry shows the current status, disabled
+      { title = topmenu, disabled = true },
+      __separator__,
+      -- "Skip This Backup" is disabled if the status is "Stopping" already
+      { title = "Skip This Backup",
+        disabled = stopping,
+        fn = function()
+          hs.task.new("/usr/bin/tmutil", nil, {"stopbackup"}):start()
+        end
+      },
+      -- The rest are fixed, same as in the built-in TM menubar
+      { title = "Enter Time Machine",
+        fn = function()
+          hs.application.launchOrFocus("Time Machine")
+        end
+      },
+      __separator__,
+      { title = "Open Time Machine Preferences…",
+        fn = function()
+          hs.task.new("/usr/bin/open", nil,
+                      {"/System/Library/PreferencePanes/TimeMachine.prefPane"}):start()
+        end
+      }
+    }
   end
   return self
 end
