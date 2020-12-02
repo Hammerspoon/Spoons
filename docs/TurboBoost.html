@@ -44,6 +44,7 @@ by purchasing the Pro version of the app!</p>
             <li><a href="#disabled_icon_path">disabled_icon_path</a></li>
             <li><a href="#enabled_icon_path">enabled_icon_path</a></li>
             <li><a href="#kext_path">kext_path</a></li>
+            <li><a href="#kext_paths">kext_paths</a></li>
             <li><a href="#load_kext_cmd">load_kext_cmd</a></li>
             <li><a href="#logger">logger</a></li>
             <li><a href="#notify">notify</a></li>
@@ -158,8 +159,30 @@ uses the icon from the Turbo Boost application:
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Where the DisableTurboBoost.kext file is located.
-Default value: <code>"/Applications/Turbo Boost Switcher.app/Contents/Resources/DisableTurboBoost.64bits.kext"</code></p>
+                <td><p>Where the DisableTurboBoost.kext file is located.</p>
+<p>Default value: whichever one of <code>TurboBoost.kext_paths</code> exists.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="kext_paths">
+            <a name="//apple_ref/cpp/Variable/kext_paths" class="dashAnchor"></a>
+            <h5><a href="#kext_paths">kext_paths</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>TurboBoost.kext_paths</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>List with paths to check for the DisableTurboBoost.kext file. The first one
+to be found is used by default unless DisableTurboBoost.kext_path is set
+explicitly.</p>
+<p>Default value: <code>{"/Applications/Turbo Boost Switcher.app/Contents/Resources/DisableTurboBoost.64bits.kext", "/Applications/tbswitcher_resources/DisableTurboBoost.64bits.kext"}</code></p>
 </td>
               </tr>
             </table>

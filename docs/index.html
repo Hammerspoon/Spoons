@@ -1,0 +1,572 @@
+<html>
+  <head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Hammerspoon Spoons Docs</title>
+      <style type="text/css">
+      a { text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      th, td { border: 1px solid #ccc; padding: 5px 10px; text-align: left; vertical-align: top; }
+    </style>
+    <link rel="stylesheet" href="docs.css" type="text/css" media="screen" />
+    <script src="jquery.js"></script>
+  </head>
+  <body>
+    <header>
+        <h1>Hammerspoon Spoons</h1>
+    </header>
+    <section>
+        <input type="text" id="search" />
+        <input type="checkbox" id="search_desc" />Search descriptions
+        <div class="searchresults">
+        </div>
+    </section>
+    <section>
+      <h3>Project links</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Resource</th>
+              <th>Link</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+                <td>Website</td>
+                <td><a href="https://www.hammerspoon.org/">https://www.hammerspoon.org/</a></td>
+            </tr>
+            <tr>
+                <td>GitHub page</td>
+                <td><a href="https://github.com/Hammerspoon/hammerspoon">https://github.com/Hammerspoon/hammerspoon</a></td>
+            </tr>
+            <tr>
+                <td>Getting Started Guide</td>
+                <td><a href="https://www.hammerspoon.org/go/">https://www.hammerspoon.org/go/</a></td>
+            </tr>
+            <tr>
+                <td>Spoon Plugin Documentation</td>
+                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/SPOONS.md">https://github.com/Hammerspoon/hammerspoon/blob/master/SPOONS.md</a></td>
+            </tr>
+            <tr>
+                <td>Official Spoon repository</td>
+                <td><a href="https://www.hammerspoon.org/Spoons">https://www.hammerspoon.org/Spoons</a></td>
+            </tr>
+            <tr>
+                <td>IRC channel</td>
+                <td><a href="irc://chat.freenode.net/#hammerspoon">irc://chat.freenode.net/#hammerspoon</a></td>
+            </tr>
+            <tr>
+                <td>Mailing list</td>
+                <td><a href="https://groups.google.com/forum/#!forum/hammerspoon/">https://groups.google.com/forum/#!forum/hammerspoon/</a></td>
+            </tr>
+            <tr>
+                <td>LuaSkin API docs</td>
+                <td><a href="https://www.hammerspoon.org/docs/LuaSkin/">https://www.hammerspoon.org/docs/LuaSkin/</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    <section>
+    <!-- tables suck., I know, but it's fast to code -->
+    <h3>API documentation</h3>
+    <table class="api-documentation-overview">
+            <tr>
+                <th><a href="AClock.html">AClock</a></th>
+                <td><p>Just another clock, floating above all.</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="AllBrightness.html">AllBrightness</a></th>
+                <td><p>Listens for keyboard brightness keypresses and alters brightness on all supported displays.</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="ArrangeDesktop.html">ArrangeDesktop</a></th>
+                <td><p>Utilities for arranging your desktop how you like it.</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="Asana.html">Asana</a></th>
+                <td><p>Simple spoon that creates a new task in Asana with a given name in a given workspace.</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="BingDaily.html">BingDaily</a></th>
+                <td><p>Use Bing daily picture as your wallpaper, automatically.</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="BonjourLauncher.html">BonjourLauncher</a></th>
+                <td><p>List advertised services on your network that match defined templates and provide a list for the user to access them.</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="BonjourLauncher.recipes.html">BonjourLauncher.recipes</a></th>
+                <td><p>Sample recipes for various service types that you can use with the BonjourLauncher spoon.</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="BrewInfo.html">BrewInfo</a></th>
+                <td><p>Display pop-up with Homebrew Formula info, or open their URL</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="Caffeine.html">Caffeine</a></th>
+                <td><p>Prevent the screen from going to sleep</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="Calendar.html">Calendar</a></th>
+                <td><p>A calendar inset into the desktop</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="CircleClock.html">CircleClock</a></th>
+                <td><p>A circleclock inset into the desktop</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="ClipboardTool.html">ClipboardTool</a></th>
+                <td><p>Keep a history of the clipboard for text entries and manage the entries with a context menu</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="ClipShow.html">ClipShow</a></th>
+                <td><p>Show the content of system clipboard</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="ColorPicker.html">ColorPicker</a></th>
+                <td><p>Show a color sample/picker</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="Commander.html">Commander</a></th>
+                <td><p>This spoon lets execute commands from other spoon by a chooser.</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="CountDown.html">CountDown</a></th>
+                <td><p>Tiny countdown with visual indicator</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="DeepLTranslate.html">DeepLTranslate</a></th>
+                <td><p>Show a popup window with the translation of the currently selected text</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="EjectMenu.html">EjectMenu</a></th>
+                <td><p>A much-needed eject menu for your Mac menu bar. Allows ejecting</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="Emojis.html">Emojis</a></th>
+                <td><p>Let users choose emojis by name/keyword</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="EvernoteOpenAndTag.html">EvernoteOpenAndTag</a></th>
+                <td><p>Add some missing hotkeys for opening a note in Evernote, and for common tag sets</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="FadeLogo.html">FadeLogo</a></th>
+                <td><p>Show a fading-and-zooming image in the center of the screen</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="FnMate.html">FnMate</a></th>
+                <td><p>Use Fn + <code>h/l/j/k</code> as arrow keys, <code>y/u/i/o</code> as mouse wheel, <code>,/.</code> as left/right click.</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="HCalendar.html">HCalendar</a></th>
+                <td><p>A horizonal calendar inset into the desktop</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="HeadphoneAutoPause.html">HeadphoneAutoPause</a></th>
+                <td><p>Play/pause music players when headphones are connected/disconnected</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="HighSierraiTunesMediaFix.html">HighSierraiTunesMediaFix</a></th>
+                <td><p>Override High Sierra behaviour and send all media keys (play/prev/next) to iTunes</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="HoldToQuit.html">HoldToQuit</a></th>
+                <td><p>Instead of pressing ⌘Q, hold ⌘Q to close applications.</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="HSaria2.html">HSaria2</a></th>
+                <td><p>Communicate with <a href="https://github.com/aria2/aria2">aria2</a>, an interactive panel included.</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="HSearch.html">HSearch</a></th>
+                <td><p>Hammerspoon Search</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="HSKeybindings.html">HSKeybindings</a></th>
+                <td><p>Display Keybindings registered with bindHotkeys() and Spoons</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="Keychain.html">Keychain</a></th>
+                <td><p>Get and Add items from Keychain. Provides no hotkeys and maintains no state</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="KSheet.html">KSheet</a></th>
+                <td><p>Keybindings cheatsheet for current application</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="Leanpub.html">Leanpub</a></th>
+                <td><p>Spoon to track and notify about Leanpub builds.</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="LookupSelection.html">LookupSelection</a></th>
+                <td><p>Show a popup window with the currently selected word in lexicon, notes, online help</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="MenubarFlag.html">MenubarFlag</a></th>
+                <td><p>Color the menubar according to the current keyboard layout</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="MicMute.html">MicMute</a></th>
+                <td><p>Microphone Mute Toggle and status indicator</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="MiroWindowsManager.html">MiroWindowsManager</a></th>
+                <td><p>With this script you will be able to move the window in halves and in corners using your keyboard and mainly using arrows. You would also be able to resize them by thirds, quarters, or halves.</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="ModalMgr.html">ModalMgr</a></th>
+                <td><p>Modal keybindings environment management. Just an wrapper of <code>hs.hotkey.modal</code>.</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="MountedVolumes.html">MountedVolumes</a></th>
+                <td><p>Displays a list of mounted volumes and a pie chart for each indicating free space on the desktop</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="MouseCircle.html">MouseCircle</a></th>
+                <td><p>Draws a circle around the mouse pointer when a hotkey is pressed</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="MoveSpaces.html">MoveSpaces</a></th>
+                <td><p>Move window to the space to the right or left</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="MusicAppMediaFix.html">MusicAppMediaFix</a></th>
+                <td><p>Override macOS behaviour and send all media keys (play/prev/next) to Music.app</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="PasswordGenerator.html">PasswordGenerator</a></th>
+                <td><p>Generate a password and copy to the clipboard.</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="Pastebin.html">Pastebin</a></th>
+                <td><p>Send clipboard contents to Pastebin</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="PersonalHotspot.html">PersonalHotspot</a></th>
+                <td><p>Connect, disconnect, or toggle connection to/from a personal hotspot. Optionally kills/opens a list of apps on connect/disconnect respectively.</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="PopupTranslateSelection.html">PopupTranslateSelection</a></th>
+                <td><p>Show a popup window with the translation of the currently selected (or other) text</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="PushToTalk.html">PushToTalk</a></th>
+                <td><p>Implements push-to-talk and push-to-mute functionality with <code>fn</code> key.</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="RecursiveBinder.html">RecursiveBinder</a></th>
+                <td><p>A spoon that let you bind sequential bindings.</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="ReloadConfiguration.html">ReloadConfiguration</a></th>
+                <td><p>Adds a hotkey to reload the hammerspoon configuration, and a pathwatcher to automatically reload on changes.</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="RoundedCorners.html">RoundedCorners</a></th>
+                <td><p>Give your screens rounded corners</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="Seal.html">Seal</a></th>
+                <td><p>Pluggable launch bar</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="Seal.plugins.html">Seal.plugins</a></th>
+                <td><p>Various APIs for Seal plugins</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="Seal.plugins.apps.html">Seal.plugins.apps</a></th>
+                <td><p>A plugin to add launchable apps/scripts, making Seal act as a launch bar</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="Seal.plugins.pasteboard.html">Seal.plugins.pasteboard</a></th>
+                <td><p>Visual pasteboard (ie clipboard) history</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="Seal.plugins.safari_bookmarks.html">Seal.plugins.safari_bookmarks</a></th>
+                <td></td>
+            </tr>
+            <tr>
+                <th><a href="Seal.plugins.screencapture.html">Seal.plugins.screencapture</a></th>
+                <td><p>A plugin to capture the screen in various ways</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="Seal.plugins.urlformats.html">Seal.plugins.urlformats</a></th>
+                <td><p>A plugin to quickly open URLs containing a search/query term</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="Seal.plugins.useractions.html">Seal.plugins.useractions</a></th>
+                <td><p>Allow accessing user-defined bookmarks and arbitrary actions from Seal.</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="SendToOmniFocus.html">SendToOmniFocus</a></th>
+                <td><p>Handles "send current item to OmniFocus" for multiple applications</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="Shade.html">Shade</a></th>
+                <td><p>Creates a semitransparent overlay to reduce screen brightness.</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="SleepCorners.html">SleepCorners</a></th>
+                <td><p>Trigger or prevent screen saver/sleep by moving your mouse pointer to specified hot corners on your screen.</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="SpeedMenu.html">SpeedMenu</a></th>
+                <td><p>Menubar netspeed meter</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="SpoonInstall.html">SpoonInstall</a></th>
+                <td><p>Install and manage Spoons and Spoon repositories</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="TextClipboardHistory.html">TextClipboardHistory</a></th>
+                <td><p>Keep a history of the clipboard, only for text entries</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="TimeFlow.html">TimeFlow</a></th>
+                <td><p>A widget showing time flown in one year.</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="TimeMachineProgress.html">TimeMachineProgress</a></th>
+                <td><p>Show Time Machine backup progress in a menubar indicator.</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="ToggleScreenRotation.html">ToggleScreenRotation</a></th>
+                <td><p>Toggle rotation on external screens</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="ToggleSkypeMute.html">ToggleSkypeMute</a></th>
+                <td><p>Provide keybindings for muting/unmuting Skype or Skype for Business</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="Token.html">Token</a></th>
+                <td><p>generate google authenticator token value keystrokes</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="Tunnelblick.html">Tunnelblick</a></th>
+                <td><p>connect to a Tunnelblick OpenVPN connection using a shortcut</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="TurboBoost.html">TurboBoost</a></th>
+                <td><p>A spoon to load/unload the Turbo Boost Disable kernel extension</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="UniversalArchive.html">UniversalArchive</a></th>
+                <td><p>Handle "archive current item" for multiple applications using the same hotkey</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="UnsplashRandom.html">UnsplashRandom</a></th>
+                <td><p>Automatically sets a random Unsplash image as your wallpaper daily.</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="UnsplashZ.html">UnsplashZ</a></th>
+                <td><p>Use unsplash images as wallpaper</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="URLDispatcher.html">URLDispatcher</a></th>
+                <td><p>Route URLs to different applications with pattern matching</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="USBDeviceActions.html">USBDeviceActions</a></th>
+                <td><p>Open/close apps or run an arbitrary function when a USB device is connected/disconnected.</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="VolumeScroll.html">VolumeScroll</a></th>
+                <td><p>Use mouse scroll wheel and modifiers to adjust volume.</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="WifiNotifier.html">WifiNotifier</a></th>
+                <td><p>Receive notifications every time your wifi network changes.</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="WiFiTransitions.html">WiFiTransitions</a></th>
+                <td><p>Allow arbitrary actions when transitioning between SSIDs</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="WindowGrid.html">WindowGrid</a></th>
+                <td><p>Configure and assign hotkey for <code>hs.grid</code></p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="WindowHalfsAndThirds.html">WindowHalfsAndThirds</a></th>
+                <td><p>Simple window movement and resizing, focusing on half- and third-of-screen sizes</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="WindowScreenLeftAndRight.html">WindowScreenLeftAndRight</a></th>
+                <td><p>Move windows to other screens</p>
+</td>
+            </tr>
+            <tr>
+                <th><a href="WinWin.html">WinWin</a></th>
+                <td><p>Windows manipulation</p>
+</td>
+            </tr>
+    </table>
+    </section>
+  </body>
+<script type="text/javascript">
+  console.log("Loading search engine");
+  var sections = ["Module", "Command", "Constant", "Constructor", "Field", "Function", "Method", "Variable", "Deprecated"];
+  $(document).ready(function () {
+      'use strict';
+      var index, store;
+      $.getJSON('docs_index.json')
+          .done(function (response) {
+              console.log("docs_index.json fetched");
+              store = response;
+              // Retrigger search when the description checkbox changes state
+              $('input#search_desc').click(function () {
+                  var searchbox = $('input#search');
+                  searchbox.keyup();
+              });
+              // Handle search
+              $('input#search').on('keyup', function () {
+                  // Get query
+                  var query = $(this).val();
+                  var search_desc = $('input#search_desc').prop('checked');
+                  //console.log("Query updated: " + query);
+
+                  var results = {};
+                  results["Module"] = [];
+                  for (var i = 0; i < sections.length; i++) {
+                      var section = sections[i];
+                      results[section] = [];
+                  }
+
+                  // Clear out any previous results
+                  var resultdiv = $('div.searchresults');
+                  resultdiv.empty();
+
+                  // Search for the query
+                  for (var i = 0; i < store.length; i++) {
+                      var chunk = store[i];
+                      if (chunk["name"].includes(query) || (search_desc && chunk["desc"].includes(query))) {
+                        results[chunk["type"]].push(chunk);
+                      }
+                  }
+
+                  // Display the results
+
+                  // Check if we found any results at all
+                  var foundResults = false;
+                  for (var i = 0; i < sections.length; i++) {
+                      var section = sections[i];
+                      if (results[section].length > 0) {
+                          foundResults = true;
+                          break;
+                      }
+                  }
+                  if (foundResults == false) {
+                      resultdiv.append('No results found');
+                      return;
+                  }
+
+                  // We found some results. Display them
+                  resultdiv.append("<h2>Search results</h2>");
+                  for (var i = 0; i < sections.length; i++) {
+                      var section = sections[i];
+                      var items = results[section];
+                      if (results[section].length > 0) {
+                          resultdiv.append("<h3>" + section + "s</h3>\n");
+                          resultdiv.append('<ul class="results" id="' + section + '">');
+                          for (var j = 0; j < results[section].length; j++) {
+                              var chunk = results[section][j];
+                              if (section == chunk["type"]) {
+                                  if ("module" in chunk) {
+                                    var name = chunk["module"] + "." + chunk["name"];
+                                    var urlname = chunk["module"] + ".html#" + chunk["name"];
+                                  } else {
+                                    var name = chunk["name"];
+                                    var urlname = name + ".html";
+                                  }
+                                  resultdiv.append('  <li><a href="' + urlname + '">' + name + '</a></li>\n');
+                              }
+                          }
+                          resultdiv.append('</ul>');
+                      }
+                  }
+                  console.log("Done searching.");
+                  resultdiv.show();
+              });
+      });
+  });
+</script>
+
+</html>

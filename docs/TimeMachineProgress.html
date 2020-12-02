@@ -53,7 +53,11 @@ indicating current state/progress of the backup.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Image to use for the indicator. Defaults to the Time Machine application icon, obtained as <code>hs.image.imageFromAppBundle('com.apple.backup.launcher'):setSize({w=16,h=16})</code>.</p>
+                <td><p>Image to use for the menubar icon. Defaults to the default macOS Time
+Machine menubar icon stored in <code>/System/Library/CoreServices/Menu
+Extras/TimeMachine.menu/Contents/Resources/TMBackingUp.pdf</code>. If this fails,
+it defaults to the Time Machine application icon, obtained as
+<code>hs.image.imageFromAppBundle('com.apple.backup.launcher'):setSize({w=18,h=18})</code>.</p>
 </td>
               </tr>
             </table>
@@ -111,7 +115,7 @@ indicating current state/progress of the backup.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Update the indicator</p>
+                <td><p>Update the indicator and menu according to the current backup status.</p>
 </td>
               </tr>
             </table>

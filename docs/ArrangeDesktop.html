@@ -1,0 +1,146 @@
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hammerspoon docs: ArrangeDesktop</title>
+    <style type="text/css">
+      a { text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      th { background-color: #DDDDDD; vertical-align: top; padding: 3px; }
+      td { width: 100%; background-color: #EEEEEE; vertical-align: top; padding: 3px; }
+      table { width: 100% ; border: 1px solid #0; text-align: left; }
+      section > table table td { width: 0; }
+    </style>
+    <link rel="stylesheet" href="docs.css" type="text/css" media="screen" />
+  </head>
+  <body>
+    <header>
+      <h1><a href="./index.html">docs</a> &raquo; ArrangeDesktop</h1>
+      <p>Utilities for arranging your desktop how you like it.</p>
+<p>Positioning logic adapted from <a href="https://github.com/dploeger/hammerspoon-window-manager">https://github.com/dploeger/hammerspoon-window-manager</a></p>
+
+      </header>
+      <h3>API Overview</h3>
+      <ul>
+        <li>Variables - Configurable values</li>
+          <ul>
+            <li><a href="#arrangements">arrangements</a></li>
+            <li><a href="#logger">logger</a></li>
+          </ul>
+        <li>Methods - API calls which can only be made on an object returned by a constructor</li>
+          <ul>
+            <li><a href="#addMenuItems">addMenuItems</a></li>
+            <li><a href="#arrange">arrange</a></li>
+            <li><a href="#logCurrentArrangement">logCurrentArrangement</a></li>
+          </ul>
+      </ul>
+      <h3>API Documentation</h3>
+        <h4 class="documentation-section">Variables</h4>
+          <section id="arrangements">
+            <a name="//apple_ref/cpp/Variable/arrangements" class="dashAnchor"></a>
+            <h5><a href="#arrangements">arrangements</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>ArrangeDesktop.arrangements</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Contains the configured desktop arrangements</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="logger">
+            <a name="//apple_ref/cpp/Variable/logger" class="dashAnchor"></a>
+            <h5><a href="#logger">logger</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>ArrangeDesktop.logger</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+        <h4 class="documentation-section">Methods</h4>
+          <section id="addMenuItems">
+            <a name="//apple_ref/cpp/Method/addMenuItems" class="dashAnchor"></a>
+            <h5><a href="#addMenuItems">addMenuItems</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>ArrangeDesktop:addMenuItems</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Add menu items to a table for each configured desktop arrangment.</p>
+<p>Parameters:</p>
+<ul>
+<li>menuItems - table of menu items</li>
+<li>arrangements - table of desktop arrangements</li>
+</ul>
+<p>Returns:
+table of menu items</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="arrange">
+            <a name="//apple_ref/cpp/Method/arrange" class="dashAnchor"></a>
+            <h5><a href="#arrange">arrange</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>ArrangeDesktop:arrange</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Arrange the desktop based on a given configuration</p>
+<p>Parameters:</p>
+<ul>
+<li>arrangement - table of arrangement data</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="logCurrentArrangement">
+            <a name="//apple_ref/cpp/Method/logCurrentArrangement" class="dashAnchor"></a>
+            <h5><a href="#logCurrentArrangement">logCurrentArrangement</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>ArrangeDesktop:logCurrentArrangement()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Build up the configuration for the current desktop arrangement and log it to the Hammerspoon console.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+  </body>
+</html>
