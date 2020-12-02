@@ -232,6 +232,136 @@
     "Function": [],
     "Method": [
       {
+        "def": "ArrangeDesktop:addMenuItems",
+        "desc": "Add menu items to a table for each configured desktop arrangment.",
+        "doc": "Add menu items to a table for each configured desktop arrangment.\n\nParameters:\n* menuItems - table of menu items\n* arrangements - table of desktop arrangements\n\nReturns:\ntable of menu items",
+        "name": "addMenuItems",
+        "parameters": [
+          "* menuItems - table of menu items",
+          "* arrangements - table of desktop arrangements"
+        ],
+        "returns": [
+          "table of menu items"
+        ],
+        "signature": "ArrangeDesktop:addMenuItems",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "ArrangeDesktop:arrange",
+        "desc": "Arrange the desktop based on a given configuration",
+        "doc": "Arrange the desktop based on a given configuration\n\nParameters:\n* arrangement - table of arrangement data",
+        "name": "arrange",
+        "parameters": [
+          "* arrangement - table of arrangement data"
+        ],
+        "signature": "ArrangeDesktop:arrange",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "ArrangeDesktop:logCurrentArrangement()",
+        "desc": "Build up the configuration for the current desktop arrangement and log it to the Hammerspoon console.",
+        "doc": "Build up the configuration for the current desktop arrangement and log it to the Hammerspoon console.",
+        "name": "logCurrentArrangement",
+        "signature": "ArrangeDesktop:logCurrentArrangement()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [
+      {
+        "def": "ArrangeDesktop.arrangements",
+        "desc": "Contains the configured desktop arrangements",
+        "doc": "Contains the configured desktop arrangements",
+        "name": "arrangements",
+        "signature": "ArrangeDesktop.arrangements",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "ArrangeDesktop.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "name": "logger",
+        "signature": "ArrangeDesktop.logger",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "desc": "Utilities for arranging your desktop how you like it.",
+    "doc": "Utilities for arranging your desktop how you like it.\n\nPositioning logic adapted from https://github.com/dploeger/hammerspoon-window-manager",
+    "items": [
+      {
+        "def": "ArrangeDesktop:addMenuItems",
+        "desc": "Add menu items to a table for each configured desktop arrangment.",
+        "doc": "Add menu items to a table for each configured desktop arrangment.\n\nParameters:\n* menuItems - table of menu items\n* arrangements - table of desktop arrangements\n\nReturns:\ntable of menu items",
+        "name": "addMenuItems",
+        "parameters": [
+          "* menuItems - table of menu items",
+          "* arrangements - table of desktop arrangements"
+        ],
+        "returns": [
+          "table of menu items"
+        ],
+        "signature": "ArrangeDesktop:addMenuItems",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "ArrangeDesktop:arrange",
+        "desc": "Arrange the desktop based on a given configuration",
+        "doc": "Arrange the desktop based on a given configuration\n\nParameters:\n* arrangement - table of arrangement data",
+        "name": "arrange",
+        "parameters": [
+          "* arrangement - table of arrangement data"
+        ],
+        "signature": "ArrangeDesktop:arrange",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "ArrangeDesktop.arrangements",
+        "desc": "Contains the configured desktop arrangements",
+        "doc": "Contains the configured desktop arrangements",
+        "name": "arrangements",
+        "signature": "ArrangeDesktop.arrangements",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "ArrangeDesktop:logCurrentArrangement()",
+        "desc": "Build up the configuration for the current desktop arrangement and log it to the Hammerspoon console.",
+        "doc": "Build up the configuration for the current desktop arrangement and log it to the Hammerspoon console.",
+        "name": "logCurrentArrangement",
+        "signature": "ArrangeDesktop:logCurrentArrangement()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "ArrangeDesktop.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "name": "logger",
+        "signature": "ArrangeDesktop.logger",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "name": "ArrangeDesktop",
+    "stripped_doc": "\nPositioning logic adapted from https://github.com/dploeger/hammerspoon-window-manager",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
         "def": "Asana:createTask(taskName, workspaceName) -> Self",
         "desc": "Creates a new task named `taskName` in the workspace `workspaceName`.",
         "doc": "Creates a new task named `taskName` in the workspace `workspaceName`.\n\nExample:\n```\nspoon.Asana.createTask(\"Do that thing I forgot about\", \"My Company Workspace\")\n```\n\nParameters:\n * taskName (String)      - The title of the Asana task.\n * WorkspaceName (String) - The name of the workspace in which to create the task.\n\nReturns:\n * Self",
@@ -9786,8 +9916,8 @@
     "Method": [
       {
         "def": "TimeMachineProgress:refresh()",
-        "desc": "Update the indicator",
-        "doc": "Update the indicator",
+        "desc": "Update the indicator and menu according to the current backup status.",
+        "doc": "Update the indicator and menu according to the current backup status.",
         "name": "refresh",
         "signature": "TimeMachineProgress:refresh()",
         "stripped_doc": "",
@@ -9827,11 +9957,11 @@
     "Variable": [
       {
         "def": "TimeMachineProgress.backupIcon",
-        "desc": "Image to use for the indicator. Defaults to the Time Machine application icon, obtained as `hs.image.imageFromAppBundle('com.apple.backup.launcher'):setSize({w=16,h=16})`.",
-        "doc": "Image to use for the indicator. Defaults to the Time Machine application icon, obtained as `hs.image.imageFromAppBundle('com.apple.backup.launcher'):setSize({w=16,h=16})`.",
+        "desc": "",
+        "doc": "\nImage to use for the menubar icon. Defaults to the default macOS Time\nMachine menubar icon stored in `/System/Library/CoreServices/Menu\nExtras/TimeMachine.menu/Contents/Resources/TMBackingUp.pdf`. If this fails,\nit defaults to the Time Machine application icon, obtained as\n`hs.image.imageFromAppBundle('com.apple.backup.launcher'):setSize({w=18,h=18})`.",
         "name": "backupIcon",
         "signature": "TimeMachineProgress.backupIcon",
-        "stripped_doc": "",
+        "stripped_doc": "Image to use for the menubar icon. Defaults to the default macOS Time\nMachine menubar icon stored in `/System/Library/CoreServices/Menu\nExtras/TimeMachine.menu/Contents/Resources/TMBackingUp.pdf`. If this fails,\nit defaults to the Time Machine application icon, obtained as\n`hs.image.imageFromAppBundle('com.apple.backup.launcher'):setSize({w=18,h=18})`.",
         "type": "Variable"
       },
       {
@@ -9858,11 +9988,11 @@
     "items": [
       {
         "def": "TimeMachineProgress.backupIcon",
-        "desc": "Image to use for the indicator. Defaults to the Time Machine application icon, obtained as `hs.image.imageFromAppBundle('com.apple.backup.launcher'):setSize({w=16,h=16})`.",
-        "doc": "Image to use for the indicator. Defaults to the Time Machine application icon, obtained as `hs.image.imageFromAppBundle('com.apple.backup.launcher'):setSize({w=16,h=16})`.",
+        "desc": "",
+        "doc": "\nImage to use for the menubar icon. Defaults to the default macOS Time\nMachine menubar icon stored in `/System/Library/CoreServices/Menu\nExtras/TimeMachine.menu/Contents/Resources/TMBackingUp.pdf`. If this fails,\nit defaults to the Time Machine application icon, obtained as\n`hs.image.imageFromAppBundle('com.apple.backup.launcher'):setSize({w=18,h=18})`.",
         "name": "backupIcon",
         "signature": "TimeMachineProgress.backupIcon",
-        "stripped_doc": "",
+        "stripped_doc": "Image to use for the menubar icon. Defaults to the default macOS Time\nMachine menubar icon stored in `/System/Library/CoreServices/Menu\nExtras/TimeMachine.menu/Contents/Resources/TMBackingUp.pdf`. If this fails,\nit defaults to the Time Machine application icon, obtained as\n`hs.image.imageFromAppBundle('com.apple.backup.launcher'):setSize({w=18,h=18})`.",
         "type": "Variable"
       },
       {
@@ -9876,8 +10006,8 @@
       },
       {
         "def": "TimeMachineProgress:refresh()",
-        "desc": "Update the indicator",
-        "doc": "Update the indicator",
+        "desc": "Update the indicator and menu according to the current backup status.",
+        "doc": "Update the indicator and menu according to the current backup status.",
         "name": "refresh",
         "signature": "TimeMachineProgress:refresh()",
         "stripped_doc": "",
@@ -10518,10 +10648,19 @@
       {
         "def": "TurboBoost.kext_path",
         "desc": "Where the DisableTurboBoost.kext file is located.",
-        "doc": "Where the DisableTurboBoost.kext file is located.\nDefault value: `\"/Applications/Turbo Boost Switcher.app/Contents/Resources/DisableTurboBoost.64bits.kext\"`",
+        "doc": "Where the DisableTurboBoost.kext file is located.\n\nDefault value: whichever one of `TurboBoost.kext_paths` exists.",
         "name": "kext_path",
         "signature": "TurboBoost.kext_path",
-        "stripped_doc": "Default value: `\"/Applications/Turbo Boost Switcher.app/Contents/Resources/DisableTurboBoost.64bits.kext\"`",
+        "stripped_doc": "Default value: whichever one of `TurboBoost.kext_paths` exists.",
+        "type": "Variable"
+      },
+      {
+        "def": "TurboBoost.kext_paths",
+        "desc": "List with paths to check for the DisableTurboBoost.kext file. The first one",
+        "doc": "List with paths to check for the DisableTurboBoost.kext file. The first one\nto be found is used by default unless DisableTurboBoost.kext_path is set\nexplicitly.\n\nDefault value: `{\"/Applications/Turbo Boost Switcher.app/Contents/Resources/DisableTurboBoost.64bits.kext\", \"/Applications/tbswitcher_resources/DisableTurboBoost.64bits.kext\"}`",
+        "name": "kext_paths",
+        "signature": "TurboBoost.kext_paths",
+        "stripped_doc": "to be found is used by default unless DisableTurboBoost.kext_path is set\nexplicitly.\nDefault value: `{\"/Applications/Turbo Boost Switcher.app/Contents/Resources/DisableTurboBoost.64bits.kext\", \"/Applications/tbswitcher_resources/DisableTurboBoost.64bits.kext\"}`",
         "type": "Variable"
       },
       {
@@ -10625,10 +10764,19 @@
       {
         "def": "TurboBoost.kext_path",
         "desc": "Where the DisableTurboBoost.kext file is located.",
-        "doc": "Where the DisableTurboBoost.kext file is located.\nDefault value: `\"/Applications/Turbo Boost Switcher.app/Contents/Resources/DisableTurboBoost.64bits.kext\"`",
+        "doc": "Where the DisableTurboBoost.kext file is located.\n\nDefault value: whichever one of `TurboBoost.kext_paths` exists.",
         "name": "kext_path",
         "signature": "TurboBoost.kext_path",
-        "stripped_doc": "Default value: `\"/Applications/Turbo Boost Switcher.app/Contents/Resources/DisableTurboBoost.64bits.kext\"`",
+        "stripped_doc": "Default value: whichever one of `TurboBoost.kext_paths` exists.",
+        "type": "Variable"
+      },
+      {
+        "def": "TurboBoost.kext_paths",
+        "desc": "List with paths to check for the DisableTurboBoost.kext file. The first one",
+        "doc": "List with paths to check for the DisableTurboBoost.kext file. The first one\nto be found is used by default unless DisableTurboBoost.kext_path is set\nexplicitly.\n\nDefault value: `{\"/Applications/Turbo Boost Switcher.app/Contents/Resources/DisableTurboBoost.64bits.kext\", \"/Applications/tbswitcher_resources/DisableTurboBoost.64bits.kext\"}`",
+        "name": "kext_paths",
+        "signature": "TurboBoost.kext_paths",
+        "stripped_doc": "to be found is used by default unless DisableTurboBoost.kext_path is set\nexplicitly.\nDefault value: `{\"/Applications/Turbo Boost Switcher.app/Contents/Resources/DisableTurboBoost.64bits.kext\", \"/Applications/tbswitcher_resources/DisableTurboBoost.64bits.kext\"}`",
         "type": "Variable"
       },
       {

@@ -52,6 +52,41 @@
     "type": "Function"
   },
   {
+    "desc": "Utilities for arranging your desktop how you like it.",
+    "name": "ArrangeDesktop",
+    "type": "Module"
+  },
+  {
+    "desc": "Contains the configured desktop arrangements",
+    "module": "ArrangeDesktop",
+    "name": "arrangements",
+    "type": "Variable"
+  },
+  {
+    "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+    "module": "ArrangeDesktop",
+    "name": "logger",
+    "type": "Variable"
+  },
+  {
+    "desc": "Add menu items to a table for each configured desktop arrangment.",
+    "module": "ArrangeDesktop",
+    "name": "addMenuItems",
+    "type": "Method"
+  },
+  {
+    "desc": "Arrange the desktop based on a given configuration",
+    "module": "ArrangeDesktop",
+    "name": "arrange",
+    "type": "Method"
+  },
+  {
+    "desc": "Build up the configuration for the current desktop arrangement and log it to the Hammerspoon console.",
+    "module": "ArrangeDesktop",
+    "name": "logCurrentArrangement",
+    "type": "Method"
+  },
+  {
     "desc": "Simple spoon that creates a new task in Asana with a given name in a given workspace.",
     "name": "Asana",
     "type": "Module"
@@ -2552,7 +2587,7 @@
     "type": "Module"
   },
   {
-    "desc": "Image to use for the indicator. Defaults to the Time Machine application icon, obtained as `hs.image.imageFromAppBundle('com.apple.backup.launcher'):setSize({w=16,h=16})`.",
+    "desc": "",
     "module": "TimeMachineProgress",
     "name": "backupIcon",
     "type": "Variable"
@@ -2570,7 +2605,7 @@
     "type": "Variable"
   },
   {
-    "desc": "Update the indicator",
+    "desc": "Update the indicator and menu according to the current backup status.",
     "module": "TimeMachineProgress",
     "name": "refresh",
     "type": "Method"
@@ -2748,6 +2783,12 @@
     "desc": "Where the DisableTurboBoost.kext file is located.",
     "module": "TurboBoost",
     "name": "kext_path",
+    "type": "Variable"
+  },
+  {
+    "desc": "List with paths to check for the DisableTurboBoost.kext file. The first one",
+    "module": "TurboBoost",
+    "name": "kext_paths",
     "type": "Variable"
   },
   {
