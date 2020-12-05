@@ -48,7 +48,15 @@ obj.url_redir_decoders = { }
 --- URLDispatcher.url_patterns
 --- Variable
 --- URL dispatch rules.
---- A table containing a list of dispatch rules. Each rule should be its own table in the format: `{ "url pattern", "application bundle ID", "function" }`, and they are evaluated in the order they are declared. Note that the patterns are [Lua patterns](https://www.lua.org/pil/20.2.html) and not regular expressions. Defaults to an empty table, which has the effect of having all URLs dispatched to the `default_handler`. If "application bundle ID" is specified, that application will be used to open matching URLs. If no "application bundle ID" is specified, but "function" is provided (and is a Lua function) it will be called with the URL.
+--- A table containing a list of dispatch rules. Each rule should be its own
+--- table in the format: `{ "url pattern", "application bundle ID", "function"
+--- }`, and they are evaluated in the order they are declared. Note that the
+--- patterns are [Lua patterns](https://www.lua.org/pil/20.2.html) and not
+--- regular expressions. Defaults to an empty table, which has the effect of
+--- having all URLs dispatched to the `default_handler`. If "application bundle
+--- ID" is specified, that application will be used to open matching URLs. If no
+--- "application bundle ID" is specified, but "function" is provided (and is a
+--- Lua function) it will be called with the URL.
 obj.url_patterns = { }
 
 --- URLDispatcher.logger
@@ -83,7 +91,7 @@ end
 ---  * scheme - A string containing the URL scheme (i.e. "http")
 ---  * host - A string containing the host requested (e.g. "www.hammerspoon.org")
 ---  * params - A table containing the key/value pairs of all the URL parameters
----  * fullURL - A string containing the full, original URL
+---  * fullURL - A string containing the full, original URL. This is the only parameter used in this implementation.
 function obj:dispatchURL(scheme, host, params, fullUrl)
    local url = fullUrl
    local currentApp = hs.window.frontmostWindow():application():name()
@@ -92,37 +100,43 @@ function obj:dispatchURL(scheme, host, params, fullUrl)
       local newUrl = string.match(url, 'https://slack.redir.net/.*url=(.*)')
       if newUrl then
          url = obj.unescape(newUrl)
+         self.logger.df("  Decoded Slack redirect. New URL: '%s'", url)
       end
    end
    for i,dec in ipairs(self.url_redir_decoders) do
+     self.logger.df("  Testing decoder '%s'", dec[1])
      if (dec[5] == nil) or
        (type(dec[5]) == 'string' and obj.matchapp(currentApp, dec[5])) or
        (type(dec[5]) == 'table' and hs.fnutils.some(dec[5], hs.fnutils.partial(obj.matchapp, currentApp)))
      then
        if string.find(url, dec[2]) then
-         self.logger.df("Applying decoder '%s' to URL '%s'", url, dec[1])
+         self.logger.df("    Applying decoder '%s' to URL '%s'", dec[1], url)
          url = string.gsub(url, dec[2], dec[3])
+         self.logger.df("    Decoded URL: '%s'", url)
          if not dec[4] then
+           self.logger.df("    Unescaping decoded URL '%s'", url)
            url = obj.unescape(url)
+           self.logger.df("    Unescaped URL: '%s'", url)
          end
-         self.logger.df("  New URL after decoding: '%s'", url)
        end
      end
    end
+   self.logger.df("Final URL to open: '%s'", url)
    for i,pair in ipairs(self.url_patterns) do
       local p = pair[1]
       local app = pair[2]
       local func = pair[3]
+      self.logger.df("  Testing URL with pattern '%s'", p)
       if string.match(url, p) then
          id = app
          if id ~= nil then
-            self.logger.df("Match found, opening with '%s'", id)
+            self.logger.df("    Match found, opening with '%s'", id)
             hs.application.launchOrFocusByBundleID(id)
             hs.urlevent.openURLWithBundle(url, id)
             return
          end
          if func ~= nil then
-            self.logger.df("Match found, calling func '%s'", func)
+            self.logger.df("    Match found, calling func '%s'", func)
             func(url)
             return
          end
