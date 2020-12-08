@@ -132,7 +132,15 @@ in the config. If no pattern matches, <code>default_handler</code> is used.</p>
               <tr>
                 <th>Description</th>
                 <td><p>URL dispatch rules.
-A table containing a list of dispatch rules. Each rule should be its own table in the format: <code>{ "url pattern", "application bundle ID", "function" }</code>, and they are evaluated in the order they are declared. Note that the patterns are <a href="https://www.lua.org/pil/20.2.html">Lua patterns</a> and not regular expressions. Defaults to an empty table, which has the effect of having all URLs dispatched to the <code>default_handler</code>. If "application bundle ID" is specified, that application will be used to open matching URLs. If no "application bundle ID" is specified, but "function" is provided (and is a Lua function) it will be called with the URL.</p>
+A table containing a list of dispatch rules. Each rule should be its own
+table in the format: <code>{ "url pattern", "application bundle ID", "function"
+}</code>, and they are evaluated in the order they are declared. Note that the
+patterns are <a href="https://www.lua.org/pil/20.2.html">Lua patterns</a> and not
+regular expressions. Defaults to an empty table, which has the effect of
+having all URLs dispatched to the <code>default_handler</code>. If "application bundle
+ID" is specified, that application will be used to open matching URLs. If no
+"application bundle ID" is specified, but "function" is provided (and is a
+Lua function) it will be called with the URL.</p>
 </td>
               </tr>
             </table>
@@ -191,7 +199,7 @@ applied on the original URL.  Default value: empty list</li>
 <li>scheme - A string containing the URL scheme (i.e. "http")</li>
 <li>host - A string containing the host requested (e.g. "www.hammerspoon.org")</li>
 <li>params - A table containing the key/value pairs of all the URL parameters</li>
-<li>fullURL - A string containing the full, original URL</li>
+<li>fullURL - A string containing the full, original URL. This is the only parameter used in this implementation.</li>
 </ul>
 </td>
               </tr>
