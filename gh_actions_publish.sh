@@ -16,6 +16,10 @@ if [ "${SPOONS}" == "" ]; then
     exit 0
 fi
 
+/usr/bin/python --version
+which python
+python --version
+
 git config --global user.email "spoonPRbot@tenshu.net"
 git config --global user.name "Spoons GitHub Bot"
 
