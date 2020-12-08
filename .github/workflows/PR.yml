@@ -34,7 +34,7 @@ jobs:
     - name: Install docs dependencies
       run: |
         cd $GITHUB_WORKSPACE/hammerspoon
-        /usr/bin/python -m pip install -r requirements.txt
+        /usr/bin/python3 -m pip install -r requirements.txt
 
     # Find files modified by this PR
     - uses: lots0logs/gh-action-get-changed-files@2.1.4
