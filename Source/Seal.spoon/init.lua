@@ -1,6 +1,6 @@
 --- === Seal ===
 ---
---- Pluggable launch bar
+--- Pluggable launch bar. DO NOT MERGE. TELL @CMSJ THIS WAS MERGED IN ERROR.
 ---
 --- Download: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Seal.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Seal.spoon.zip)
 ---
