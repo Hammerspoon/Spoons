@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -eux
+
 if [ -d ../hammerspoon ]; then
     HAMMERSPOON_PATH="../hammerspoon"
 elif [ -d ./hammerspoon ]; then

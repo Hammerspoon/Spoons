@@ -30,16 +30,11 @@ jobs:
         repository: 'Hammerspoon/hammerspoon'
         path: 'hammerspoon'
 
-    # Set up Python
-    - uses: actions/setup-python@v2
-      with:
-        python-version: '2.x'
-
     # Install doc-building dependencies
     - name: Install docs dependencies
       run: |
         cd $GITHUB_WORKSPACE/hammerspoon
-        python -m pip install -r requirements.txt
+        /usr/bin/python -m pip install -r requirements.txt
 
     # Find files modified by this PR
     - uses: lots0logs/gh-action-get-changed-files@2.1.4
