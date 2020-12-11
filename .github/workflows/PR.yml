@@ -37,7 +37,9 @@ jobs:
         channel: '#hammerspoon'
         nickname: 'HSGHA'
         message: |
-          ${{ github.actor }} pushed to PR ${{ github.event.html_url }} - ${{ github.event.pull_request.title }}
+          Spoon PR: ${{ github.event.pull_request.title }}
+            * ${{ github.actor }}
+            * ${{ github.event.pull_request.html_url }}
 
     # Install doc-building dependencies
     - name: Install docs dependencies
