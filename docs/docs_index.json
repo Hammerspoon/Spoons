@@ -52,6 +52,23 @@
     "type": "Function"
   },
   {
+    "desc": "Simple spoon for launching apps with single letter hotkeys.",
+    "name": "AppLauncher",
+    "type": "Module"
+  },
+  {
+    "desc": "Modifier keys used when launching apps",
+    "module": "AppLauncher",
+    "name": "modifiers",
+    "type": "Variable"
+  },
+  {
+    "desc": "Binds hotkeys for AppLauncher",
+    "module": "AppLauncher",
+    "name": "bindHotkeys",
+    "type": "Method"
+  },
+  {
     "desc": "Utilities for arranging your desktop how you like it.",
     "name": "ArrangeDesktop",
     "type": "Module"

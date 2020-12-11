@@ -232,6 +232,68 @@
     "Function": [],
     "Method": [
       {
+        "def": "AppLauncher:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for AppLauncher",
+        "doc": "Binds hotkeys for AppLauncher\n\nParameters:\n * mapping - A table containing single characters with their associated app",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * mapping - A table containing single characters with their associated app"
+        ],
+        "signature": "AppLauncher:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [
+      {
+        "def": "AppLauncher.modifiers",
+        "desc": "Modifier keys used when launching apps",
+        "doc": "Modifier keys used when launching apps\n\nDefault value: `{\"ctrl\", \"alt\"}`",
+        "name": "modifiers",
+        "signature": "AppLauncher.modifiers",
+        "stripped_doc": "Default value: `{\"ctrl\", \"alt\"}`",
+        "type": "Variable"
+      }
+    ],
+    "desc": "Simple spoon for launching apps with single letter hotkeys.",
+    "doc": "Simple spoon for launching apps with single letter hotkeys.\n\nExample configuration using SpoonInstall.spoon:\n```\nspoon.SpoonInstall:andUse(\"AppLauncher\", {\n  hotkeys = {\n    c = \"Calendar\",\n    d = \"Discord\",\n    f = \"Firefox Developer Edition\",\n    n = \"Notes\",\n    p = \"1Password 7\",\n    r = \"Reeder\",\n    t = \"Kitty\",\n    z = \"Zoom.us\",\n  }\n})\n```\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/AppLauncher.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/AppLauncher.spoon.zip)",
+    "items": [
+      {
+        "def": "AppLauncher:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for AppLauncher",
+        "doc": "Binds hotkeys for AppLauncher\n\nParameters:\n * mapping - A table containing single characters with their associated app",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * mapping - A table containing single characters with their associated app"
+        ],
+        "signature": "AppLauncher:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "AppLauncher.modifiers",
+        "desc": "Modifier keys used when launching apps",
+        "doc": "Modifier keys used when launching apps\n\nDefault value: `{\"ctrl\", \"alt\"}`",
+        "name": "modifiers",
+        "signature": "AppLauncher.modifiers",
+        "stripped_doc": "Default value: `{\"ctrl\", \"alt\"}`",
+        "type": "Variable"
+      }
+    ],
+    "name": "AppLauncher",
+    "stripped_doc": "\nExample configuration using SpoonInstall.spoon:\n```\nspoon.SpoonInstall:andUse(\"AppLauncher\", {\n  hotkeys = {\n    c = \"Calendar\",\n    d = \"Discord\",\n    f = \"Firefox Developer Edition\",\n    n = \"Notes\",\n    p = \"1Password 7\",\n    r = \"Reeder\",\n    t = \"Kitty\",\n    z = \"Zoom.us\",\n  }\n})\n```\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/AppLauncher.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/AppLauncher.spoon.zip)",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
         "def": "ArrangeDesktop:addMenuItems",
         "desc": "Add menu items to a table for each configured desktop arrangment.",
         "doc": "Add menu items to a table for each configured desktop arrangment.\n\nParameters:\n* menuItems - table of menu items\n* arrangements - table of desktop arrangements\n\nReturns:\ntable of menu items",
