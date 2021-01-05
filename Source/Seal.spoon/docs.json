@@ -551,8 +551,8 @@
         "type": "Variable"
       }
     ],
-    "desc": "Visual pasteboard (ie clipboard) history",
-    "doc": "Visual pasteboard (ie clipboard) history",
+    "desc": "Visual, searchable pasteboard (ie clipboard) history",
+    "doc": "Visual, searchable pasteboard (ie clipboard) history",
     "items": [
       {
         "def": "Seal.plugins.pasteboard.historySize",
