@@ -1,6 +1,6 @@
 --- ==== Seal.plugins.pasteboard ====
 ---
---- Visual pasteboard (ie clipboard) history
+--- Visual, searchable pasteboard (ie clipboard) history
 local obj = {}
 obj.__index = obj
 obj.__name = "seal_pasteboard"
