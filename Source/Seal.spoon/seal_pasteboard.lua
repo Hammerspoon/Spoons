@@ -41,11 +41,17 @@ function obj.choicesPasteboardCommand(query)
     for i = #obj.itemBuffer, 1, -1 do
         local pasteboardItem = obj.itemBuffer[i]
         local choice = {}
+
+        if not string.find(string.lower(pasteboardItem["text"]), string.lower(query)) then
+            goto continue
+        end
+
         choice["name"] = pasteboardItem["text"]
         choice["text"] = pasteboardItem["text"]
         choice["kind"] = kind
         choice["plugin"] = obj.__name
         choice["type"] = "copy"
+        choice["subText"] = ""
         if pasteboardItem["uti"] then
             choice["subText"] = pasteboardItem["uti"]
             if hs.application.defaultAppForUTI then
@@ -56,7 +62,12 @@ function obj.choicesPasteboardCommand(query)
                 end
             end
         end
+        if pasteboardItem["dateTime"] then
+            choice["subText"] = choice["subText"] .. " :: " .. pasteboardItem["dateTime"]
+        end
         table.insert(choices, choice)
+
+        ::continue::
     end
     return choices
 end
@@ -70,9 +81,18 @@ end
 function obj.checkPasteboard()
     local pasteboard = hs.pasteboard.getContents()
     local shouldSave = false
-    -- FIXME: Filter out things with UTIs documented at http://nspasteboard.org/
+
+    if pasteboard == nil then
+        return
+    end
+
     if (#obj.itemBuffer == 0) or (pasteboard ~= obj.itemBuffer[#obj.itemBuffer]["text"]) then
         local currentTypes = hs.pasteboard.allContentTypes()[1]
+        if currentTypes == nil then
+            print("ERROR: NO PASTEBOARD CURRENT TYPES. Please file a bug so we can understand this:")
+            print(hs.inspect(pasteboard))
+            return
+        end
         for _,aType in pairs(currentTypes) do
             for _,uti in pairs({"de.petermaurer.TransientPasteboardType",
                           "com.typeit4me.clipping",
@@ -89,6 +109,7 @@ function obj.checkPasteboard()
         item = {}
         item["text"] = pasteboard
         item["uti"] = currentTypes[1]
+        item["dateTime"] = os.date()
         table.insert(obj.itemBuffer, item)
         shouldSave = true
     end
