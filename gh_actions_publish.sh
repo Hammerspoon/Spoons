@@ -31,6 +31,8 @@ while IFS= read -r SPOON ; do
     ./build_docs.sh
     rm -rf ./hammerspoon/
     git add docs
-    git commit -am "Update docs"
+    if [ git diff --exit-code || git diff --cached --exit-code ] ; then
+        git commit -am "Update docs"
+    fi
 done <<< "${SPOONS}"
 
