@@ -6,9 +6,10 @@
 --- inside a "sigil" mode with different modifiers.  For example, with no modifiers, the
 --- the sigil key can focus the window.  If the 'enter' action is bound to control-w, then
 --- 'control-w c' will focus the window with sigil 'c'.
---
---- h, j, k, and l are reserved for the window west, south, north, and east of the currently
---- focused window, and so are not assigned as sigils.
+---
+--- The keys 'h', 'j', 'k', and 'l' are reserved for the window west, south, north, and
+--- east of the currently focused window in standard Vi-like fashion, and so are not
+--- assigned as sigils.
 ---
 --- By default, two keys (other than the sigils) are bound in the mode: escape leaves the
 --- mode without doing anything, and '.' sends the sigil key to the focused window.  This
