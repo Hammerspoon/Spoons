@@ -155,7 +155,7 @@ of <code>brew update</code>.</p>
             <table>
               <tr>
                 <th>Signature</th>
-                <td><code>BrewInfo:openBrewURL(pkg, subcommand)</code></td>
+                <td><code>BrewInfo:openBrewURL(pkg, cask)</code></td>
               </tr>
               <tr>
                 <th>Type</th>
@@ -163,11 +163,11 @@ of <code>brew update</code>.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Opens the homepage for package <code>pkg</code>, as obtained from the <code>homepage</code> field in <code>brew &lt;subcommand&gt; cat &lt;pkg&gt;</code></p>
+                <td><p>Opens the homepage for package <code>pkg</code>, as obtained from the <code>homepage</code> field in <code>brew cat [--cask] &lt;pkg&gt;</code></p>
 <p>Parameters:</p>
 <ul>
 <li>pkg - name of the package to query</li>
-<li>subcommand - brew subcommand to use for the <code>cat</code> command. Defaults to an empty string, which results in "brew cat <pkg>" being run. For example, if <code>subcommand</code> is "cask", the <code>brew cask cat &lt;pkg&gt;</code> command will be used.</li>
+<li>cask - boolean indicating if pkg is a cask</li>
 </ul>
 <p>Returns:</p>
 <ul>
@@ -183,7 +183,7 @@ of <code>brew update</code>.</p>
             <table>
               <tr>
                 <th>Signature</th>
-                <td><code>BrewInfo:openBrewURLCurSel(subcommand)</code></td>
+                <td><code>BrewInfo:openBrewURLCurSel(cask)</code></td>
               </tr>
               <tr>
                 <th>Type</th>
@@ -191,10 +191,10 @@ of <code>brew update</code>.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Opens the homepage for the currently-selected package, as obtained from the <code>homepage</code> field in <code>brew &lt;subcommand&gt; cat &lt;pkg&gt;</code></p>
+                <td><p>Opens the homepage for the currently-selected package, as obtained from the <code>homepage</code> field in <code>brew cat [--cask] &lt;pkg&gt;</code></p>
 <p>Parameters:</p>
 <ul>
-<li>subcommand - brew subcommand to use for the <code>cat</code> command. Defaults to an empty string, which results in "brew cat <pkg>" being run. For example, if <code>subcommand</code> is "cask", the <code>brew cask cat &lt;pkg&gt;</code> command will be used.</li>
+<li>cask - boolean indicating if pkg is a cask</li>
 </ul>
 <p>Returns:</p>
 <ul>
@@ -222,7 +222,7 @@ of <code>brew update</code>.</p>
 <p>Parameters:</p>
 <ul>
 <li>pkg - name of the package to query</li>
-<li>subcommand - brew subcommand to use for the <code>info</code> command. Defaults to an empty string, which results in "brew info <pkg>" being run. For example, if <code>subcommand</code> is "cask", the <code>brew cask info &lt;pkg&gt;</code> command will be used.</li>
+<li>cask - boolean indicating if pkg is a cask</li>
 </ul>
 <p>Returns:</p>
 <ul>
@@ -238,7 +238,7 @@ of <code>brew update</code>.</p>
             <table>
               <tr>
                 <th>Signature</th>
-                <td><code>BrewInfo:showBrewInfoCurSel(subcommand)</code></td>
+                <td><code>BrewInfo:showBrewInfoCurSel(cask)</code></td>
               </tr>
               <tr>
                 <th>Type</th>
@@ -246,10 +246,10 @@ of <code>brew update</code>.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Display <code>brew &lt;subcommand&gt; info</code> using the selected text as the package name</p>
+                <td><p>Display <code>brew info [--cask]</code> using the selected text as the package name</p>
 <p>Parameters:</p>
 <ul>
-<li>subcommand - brew subcommand to use for the <code>info</code> command. Defaults to an empty string, which results in "brew info" being run. For example, if <code>subcommand</code> is "cask", the <code>brew cask info</code> command will be used.</li>
+<li>cask - boolean indicating if pkg is a cask</li>
 </ul>
 <p>Returns:</p>
 <ul>

@@ -17,7 +17,7 @@ local obj=mod
 
 -- Metadata
 mod.name = "BrewInfo"
-obj.version = "1.1"
+obj.version = "1.2"
 mod.author = "Diego Zamboni <diego@zzamboni.org>"
 mod.homepage = "https://github.com/Hammerspoon/Spoons"
 mod.license = "MIT - https://opensource.org/licenses/MIT"
@@ -87,15 +87,19 @@ end
 ---
 --- Parameters:
 ---  * pkg - name of the package to query
----  * subcommand - brew subcommand to use for the `info` command. Defaults to an empty string, which results in "brew info <pkg>" being run. For example, if `subcommand` is "cask", the `brew cask info <pkg>` command will be used.
+---  * cask - boolean indicating if pkg is a cask
 ---
 --- Returns:
 ---  * The Spoon object
-function mod:showBrewInfo(pkg, subcommand)
+function mod:showBrewInfo(pkg, cask)
    local info = "No package selected"
    local st = nil
    if pkg and pkg ~= "" then
-      local cmd=string.format("/usr/local/bin/brew %s info %s", subcommand or "", pkg)
+      local cmdTokens = { "/usr/local/bin/brew", "info", pkg }
+      if cask then
+         table.insert(cmdTokens, 3, "--cask")
+      end
+      local cmd=table.concat(cmdTokens, " ")
       info, st=hs.execute(cmd)
       if st == nil then
          info = "No information found about formula '" .. pkg .. "'!"
@@ -105,35 +109,47 @@ function mod:showBrewInfo(pkg, subcommand)
    return self
 end
 
---- BrewInfo:showBrewInfoCurSel(subcommand)
+--- BrewInfo:showBrewInfoCurSel(cask)
 --- Method
---- Display `brew <subcommand> info` using the selected text as the package name
+--- Display `brew info [--cask]` using the selected text as the package name
 ---
 --- Parameters:
----  * subcommand - brew subcommand to use for the `info` command. Defaults to an empty string, which results in "brew info" being run. For example, if `subcommand` is "cask", the `brew cask info` command will be used.
+---  * cask - boolean indicating if pkg is a cask
 ---
 --- Returns:
 ---  * The Spoon object
-function mod:showBrewInfoCurSel(subcommand)
-   return self:showBrewInfo(self:current_selection(), subcommand)
+function mod:showBrewInfoCurSel(cask)
+   return self:showBrewInfo(self:current_selection(), cask)
 end
 
---- BrewInfo:openBrewURL(pkg, subcommand)
+--- BrewInfo:openBrewURL(pkg, cask)
 --- Method
---- Opens the homepage for package `pkg`, as obtained from the `homepage` field in `brew <subcommand> cat <pkg>`
+--- Opens the homepage for package `pkg`, as obtained from the `homepage` field in `brew cat [--cask] <pkg>`
 ---
 --- Parameters:
 ---  * pkg - name of the package to query
----  * subcommand - brew subcommand to use for the `cat` command. Defaults to an empty string, which results in "brew cat <pkg>" being run. For example, if `subcommand` is "cask", the `brew cask cat <pkg>` command will be used.
+---  * cask - boolean indicating if pkg is a cask
 ---
 --- Returns:
 ---  * The Spoon object
-function mod:openBrewURL(pkg, subcommand)
+function mod:openBrewURL(pkg, cask)
    local msg = "No package selected"
    if pkg and pkg ~= "" then
-      local j, st, t, rc=hs.execute(string.format("/usr/local/bin/brew %s cat %s",(subcommand or ""), pkg ))
+      local cmdTokens = { "/usr/local/bin/brew", "info", "--formula", "--json=v2", pkg }
+      if cask then
+         cmdTokens[3] = "--cask"
+         --table.remove(cmdTokens, 3)
+         --table.insert(cmdTokens, 3, "--cask")
+      end
+      local cmd=table.concat(cmdTokens, " ")
+      local j, st, t, rc=hs.execute(cmd)
       if st ~= nil then
-         local url=string.match(j, "\n%s*homepage%s+['\"](.-)['\"]%s*\n")
+         local url=""
+         if cask then
+            url=hs.json.decode(j)["casks"][1]["homepage"]
+         else
+            url=hs.json.decode(j)["formulae"][1]["homepage"]
+         end
          if url and url ~= "" then
             hs.urlevent.openURLWithBundle(url, hs.urlevent.getDefaultHandler("http"))
             return self
@@ -145,17 +161,17 @@ function mod:openBrewURL(pkg, subcommand)
    return self
 end
 
---- BrewInfo:openBrewURLCurSel(subcommand)
+--- BrewInfo:openBrewURLCurSel(cask)
 --- Method
---- Opens the homepage for the currently-selected package, as obtained from the `homepage` field in `brew <subcommand> cat <pkg>`
+--- Opens the homepage for the currently-selected package, as obtained from the `homepage` field in `brew cat [--cask] <pkg>`
 ---
 --- Parameters:
----  * subcommand - brew subcommand to use for the `cat` command. Defaults to an empty string, which results in "brew cat <pkg>" being run. For example, if `subcommand` is "cask", the `brew cask cat <pkg>` command will be used.
+---  * cask - boolean indicating if pkg is a cask
 ---
 --- Returns:
 ---  * The Spoon object
-function mod:openBrewURLCurSel(subcommand)
-   return self:openBrewURL(self:current_selection(), subcommand)
+function mod:openBrewURLCurSel(cask)
+   return self:openBrewURL(self:current_selection(), cask)
 end
 
 --- BrewInfo:bindHotkeys(mapping)
@@ -170,20 +186,11 @@ end
 ---   * open_brew_cask_url - Open the homepage of the Cask whose name is currently selected
 function mod:bindHotkeys(mapping)
    local def = {
-      show_brew_info = function() self:showBrewInfoCurSel() end,
-      open_brew_url = function() self:openBrewURLCurSel() end,
+      show_brew_info = function() self:showBrewInfoCurSel(false) end,
+      open_brew_url = function() self:openBrewURLCurSel(false) end,
+      show_brew_cask_info = function() self:showBrewInfoCurSel(true) end,
+      open_brew_cask_url = function() self:openBrewURLCurSel(true) end,
    }
-   for action, key in pairs(mapping) do
-      local subcommand_show = action:match("show_brew_(.*)_info")
-      if subcommand_show and subcommand_show ~= "" then
-         def[action] = function() self:showBrewInfoCurSel(subcommand_show) end
-      end
-
-      local subcommand_open = action:match("open_brew_(.*)_url")
-      if subcommand_open and subcommand_open ~= "" then
-         def[action] = function() self:openBrewURLCurSel(subcommand_open) end
-      end
-   end
    hs.spoons.bindHotkeysToSpec(def, mapping)
 end
 

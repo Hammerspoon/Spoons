@@ -285,13 +285,13 @@
     "type": "Method"
   },
   {
-    "desc": "Opens the homepage for package `pkg`, as obtained from the `homepage` field in `brew <subcommand> cat <pkg>`",
+    "desc": "Opens the homepage for package `pkg`, as obtained from the `homepage` field in `brew cat [--cask] <pkg>`",
     "module": "BrewInfo",
     "name": "openBrewURL",
     "type": "Method"
   },
   {
-    "desc": "Opens the homepage for the currently-selected package, as obtained from the `homepage` field in `brew <subcommand> cat <pkg>`",
+    "desc": "Opens the homepage for the currently-selected package, as obtained from the `homepage` field in `brew cat [--cask] <pkg>`",
     "module": "BrewInfo",
     "name": "openBrewURLCurSel",
     "type": "Method"
@@ -303,7 +303,7 @@
     "type": "Method"
   },
   {
-    "desc": "Display `brew <subcommand> info` using the selected text as the package name",
+    "desc": "Display `brew info [--cask]` using the selected text as the package name",
     "module": "BrewInfo",
     "name": "showBrewInfoCurSel",
     "type": "Method"
@@ -2107,7 +2107,7 @@
     "type": "Method"
   },
   {
-    "desc": "Visual pasteboard (ie clipboard) history",
+    "desc": "Visual, searchable pasteboard (ie clipboard) history",
     "name": "Seal.plugins.pasteboard",
     "type": "Module"
   },
