@@ -83,7 +83,7 @@ end
 
 --- BrewInfo:showBrewInfo(pkg, subcommand)
 --- Method
---- Displays an alert with the output of `brew <subcommand> info <pkg>`
+--- Displays an alert with the output of `brew info [--cask] <pkg>`
 ---
 --- Parameters:
 ---  * pkg - name of the package to query
@@ -124,7 +124,7 @@ end
 
 --- BrewInfo:openBrewURL(pkg, cask)
 --- Method
---- Opens the homepage for package `pkg`, as obtained from the `homepage` field in `brew cat [--cask] <pkg>`
+--- Opens the homepage for package `pkg`, as obtained from the `homepage` field in `brew info [--cask|--formula] json=v2 <pkg>`
 ---
 --- Parameters:
 ---  * pkg - name of the package to query
@@ -163,7 +163,7 @@ end
 
 --- BrewInfo:openBrewURLCurSel(cask)
 --- Method
---- Opens the homepage for the currently-selected package, as obtained from the `homepage` field in `brew cat [--cask] <pkg>`
+--- Opens the homepage for the currently-selected package, as obtained from the `homepage` field in `brew info [--cask|--formula] --json=v2 <pkg>`
 ---
 --- Parameters:
 ---  * cask - boolean indicating if pkg is a cask

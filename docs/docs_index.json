@@ -285,19 +285,19 @@
     "type": "Method"
   },
   {
-    "desc": "Opens the homepage for package `pkg`, as obtained from the `homepage` field in `brew cat [--cask] <pkg>`",
+    "desc": "Opens the homepage for package `pkg`, as obtained from the `homepage` field in `brew info [--cask|--formula] json=v2 <pkg>`",
     "module": "BrewInfo",
     "name": "openBrewURL",
     "type": "Method"
   },
   {
-    "desc": "Opens the homepage for the currently-selected package, as obtained from the `homepage` field in `brew cat [--cask] <pkg>`",
+    "desc": "Opens the homepage for the currently-selected package, as obtained from the `homepage` field in `brew info [--cask|--formula] --json=v2 <pkg>`",
     "module": "BrewInfo",
     "name": "openBrewURLCurSel",
     "type": "Method"
   },
   {
-    "desc": "Displays an alert with the output of `brew <subcommand> info <pkg>`",
+    "desc": "Displays an alert with the output of `brew info [--cask] <pkg>`",
     "module": "BrewInfo",
     "name": "showBrewInfo",
     "type": "Method"

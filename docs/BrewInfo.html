@@ -163,7 +163,7 @@ of <code>brew update</code>.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Opens the homepage for package <code>pkg</code>, as obtained from the <code>homepage</code> field in <code>brew cat [--cask] &lt;pkg&gt;</code></p>
+                <td><p>Opens the homepage for package <code>pkg</code>, as obtained from the <code>homepage</code> field in <code>brew info [--cask|--formula] json=v2 &lt;pkg&gt;</code></p>
 <p>Parameters:</p>
 <ul>
 <li>pkg - name of the package to query</li>
@@ -191,7 +191,7 @@ of <code>brew update</code>.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Opens the homepage for the currently-selected package, as obtained from the <code>homepage</code> field in <code>brew cat [--cask] &lt;pkg&gt;</code></p>
+                <td><p>Opens the homepage for the currently-selected package, as obtained from the <code>homepage</code> field in <code>brew info [--cask|--formula] --json=v2 &lt;pkg&gt;</code></p>
 <p>Parameters:</p>
 <ul>
 <li>cask - boolean indicating if pkg is a cask</li>
@@ -218,7 +218,7 @@ of <code>brew update</code>.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Displays an alert with the output of <code>brew &lt;subcommand&gt; info &lt;pkg&gt;</code></p>
+                <td><p>Displays an alert with the output of <code>brew info [--cask] &lt;pkg&gt;</code></p>
 <p>Parameters:</p>
 <ul>
 <li>pkg - name of the package to query</li>

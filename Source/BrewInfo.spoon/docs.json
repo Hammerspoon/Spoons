@@ -211,7 +211,7 @@
       {
         "def" : "BrewInfo:openBrewURL(pkg, cask)",
         "stripped_doc" : [
-          "Opens the homepage for package `pkg`, as obtained from the `homepage` field in `brew cat [--cask] <pkg>`",
+          "Opens the homepage for package `pkg`, as obtained from the `homepage` field in `brew info [--cask|--formula] json=v2 <pkg>`",
           ""
         ],
         "parameters" : [
@@ -219,7 +219,7 @@
           " * cask - boolean indicating if pkg is a cask",
           ""
         ],
-        "doc" : "Opens the homepage for package `pkg`, as obtained from the `homepage` field in `brew cat [--cask] <pkg>`\n\nParameters:\n * pkg - name of the package to query\n * cask - boolean indicating if pkg is a cask\n\nReturns:\n * The Spoon object",
+        "doc" : "Opens the homepage for package `pkg`, as obtained from the `homepage` field in `brew info [--cask|--formula] json=v2 <pkg>`\n\nParameters:\n * pkg - name of the package to query\n * cask - boolean indicating if pkg is a cask\n\nReturns:\n * The Spoon object",
         "notes" : [
 
         ],
@@ -229,19 +229,19 @@
           " * The Spoon object"
         ],
         "name" : "openBrewURL",
-        "desc" : "Opens the homepage for package `pkg`, as obtained from the `homepage` field in `brew cat [--cask] <pkg>`"
+        "desc" : "Opens the homepage for package `pkg`, as obtained from the `homepage` field in `brew info [--cask|--formula] json=v2 <pkg>`"
       },
       {
         "def" : "BrewInfo:openBrewURLCurSel(cask)",
         "stripped_doc" : [
-          "Opens the homepage for the currently-selected package, as obtained from the `homepage` field in `brew cat [--cask] <pkg>`",
+          "Opens the homepage for the currently-selected package, as obtained from the `homepage` field in `brew info [--cask|--formula] --json=v2 <pkg>`",
           ""
         ],
         "parameters" : [
           " * cask - boolean indicating if pkg is a cask",
           ""
         ],
-        "doc" : "Opens the homepage for the currently-selected package, as obtained from the `homepage` field in `brew cat [--cask] <pkg>`\n\nParameters:\n * cask - boolean indicating if pkg is a cask\n\nReturns:\n * The Spoon object",
+        "doc" : "Opens the homepage for the currently-selected package, as obtained from the `homepage` field in `brew info [--cask|--formula] --json=v2 <pkg>`\n\nParameters:\n * cask - boolean indicating if pkg is a cask\n\nReturns:\n * The Spoon object",
         "notes" : [
 
         ],
@@ -251,12 +251,12 @@
           " * The Spoon object"
         ],
         "name" : "openBrewURLCurSel",
-        "desc" : "Opens the homepage for the currently-selected package, as obtained from the `homepage` field in `brew cat [--cask] <pkg>`"
+        "desc" : "Opens the homepage for the currently-selected package, as obtained from the `homepage` field in `brew info [--cask|--formula] --json=v2 <pkg>`"
       },
       {
         "def" : "BrewInfo:showBrewInfo(pkg, subcommand)",
         "stripped_doc" : [
-          "Displays an alert with the output of `brew <subcommand> info <pkg>`",
+          "Displays an alert with the output of `brew info [--cask] <pkg>`",
           ""
         ],
         "parameters" : [
@@ -264,7 +264,7 @@
           " * cask - boolean indicating if pkg is a cask",
           ""
         ],
-        "doc" : "Displays an alert with the output of `brew <subcommand> info <pkg>`\n\nParameters:\n * pkg - name of the package to query\n * cask - boolean indicating if pkg is a cask\n\nReturns:\n * The Spoon object",
+        "doc" : "Displays an alert with the output of `brew info [--cask] <pkg>`\n\nParameters:\n * pkg - name of the package to query\n * cask - boolean indicating if pkg is a cask\n\nReturns:\n * The Spoon object",
         "notes" : [
 
         ],
@@ -274,7 +274,7 @@
           " * The Spoon object"
         ],
         "name" : "showBrewInfo",
-        "desc" : "Displays an alert with the output of `brew <subcommand> info <pkg>`"
+        "desc" : "Displays an alert with the output of `brew info [--cask] <pkg>`"
       },
       {
         "def" : "BrewInfo:showBrewInfoCurSel(cask)",
@@ -309,7 +309,7 @@
       {
         "def" : "BrewInfo:showBrewInfo(pkg, subcommand)",
         "stripped_doc" : [
-          "Displays an alert with the output of `brew <subcommand> info <pkg>`",
+          "Displays an alert with the output of `brew info [--cask] <pkg>`",
           ""
         ],
         "parameters" : [
@@ -317,7 +317,7 @@
           " * cask - boolean indicating if pkg is a cask",
           ""
         ],
-        "doc" : "Displays an alert with the output of `brew <subcommand> info <pkg>`\n\nParameters:\n * pkg - name of the package to query\n * cask - boolean indicating if pkg is a cask\n\nReturns:\n * The Spoon object",
+        "doc" : "Displays an alert with the output of `brew info [--cask] <pkg>`\n\nParameters:\n * pkg - name of the package to query\n * cask - boolean indicating if pkg is a cask\n\nReturns:\n * The Spoon object",
         "notes" : [
 
         ],
@@ -327,7 +327,7 @@
           " * The Spoon object"
         ],
         "name" : "showBrewInfo",
-        "desc" : "Displays an alert with the output of `brew <subcommand> info <pkg>`"
+        "desc" : "Displays an alert with the output of `brew info [--cask] <pkg>`"
       },
       {
         "def" : "BrewInfo:showBrewInfoCurSel(cask)",
@@ -354,7 +354,7 @@
       {
         "def" : "BrewInfo:openBrewURL(pkg, cask)",
         "stripped_doc" : [
-          "Opens the homepage for package `pkg`, as obtained from the `homepage` field in `brew cat [--cask] <pkg>`",
+          "Opens the homepage for package `pkg`, as obtained from the `homepage` field in `brew info [--cask|--formula] json=v2 <pkg>`",
           ""
         ],
         "parameters" : [
@@ -362,7 +362,7 @@
           " * cask - boolean indicating if pkg is a cask",
           ""
         ],
-        "doc" : "Opens the homepage for package `pkg`, as obtained from the `homepage` field in `brew cat [--cask] <pkg>`\n\nParameters:\n * pkg - name of the package to query\n * cask - boolean indicating if pkg is a cask\n\nReturns:\n * The Spoon object",
+        "doc" : "Opens the homepage for package `pkg`, as obtained from the `homepage` field in `brew info [--cask|--formula] json=v2 <pkg>`\n\nParameters:\n * pkg - name of the package to query\n * cask - boolean indicating if pkg is a cask\n\nReturns:\n * The Spoon object",
         "notes" : [
 
         ],
@@ -372,19 +372,19 @@
           " * The Spoon object"
         ],
         "name" : "openBrewURL",
-        "desc" : "Opens the homepage for package `pkg`, as obtained from the `homepage` field in `brew cat [--cask] <pkg>`"
+        "desc" : "Opens the homepage for package `pkg`, as obtained from the `homepage` field in `brew info [--cask|--formula] json=v2 <pkg>`"
       },
       {
         "def" : "BrewInfo:openBrewURLCurSel(cask)",
         "stripped_doc" : [
-          "Opens the homepage for the currently-selected package, as obtained from the `homepage` field in `brew cat [--cask] <pkg>`",
+          "Opens the homepage for the currently-selected package, as obtained from the `homepage` field in `brew info [--cask|--formula] --json=v2 <pkg>`",
           ""
         ],
         "parameters" : [
           " * cask - boolean indicating if pkg is a cask",
           ""
         ],
-        "doc" : "Opens the homepage for the currently-selected package, as obtained from the `homepage` field in `brew cat [--cask] <pkg>`\n\nParameters:\n * cask - boolean indicating if pkg is a cask\n\nReturns:\n * The Spoon object",
+        "doc" : "Opens the homepage for the currently-selected package, as obtained from the `homepage` field in `brew info [--cask|--formula] --json=v2 <pkg>`\n\nParameters:\n * cask - boolean indicating if pkg is a cask\n\nReturns:\n * The Spoon object",
         "notes" : [
 
         ],
@@ -394,7 +394,7 @@
           " * The Spoon object"
         ],
         "name" : "openBrewURLCurSel",
-        "desc" : "Opens the homepage for the currently-selected package, as obtained from the `homepage` field in `brew cat [--cask] <pkg>`"
+        "desc" : "Opens the homepage for the currently-selected package, as obtained from the `homepage` field in `brew info [--cask|--formula] --json=v2 <pkg>`"
       },
       {
         "def" : "BrewInfo:bindHotkeys(mapping)",
