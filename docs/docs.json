@@ -6037,6 +6037,126 @@
     "Deprecated": [],
     "Field": [],
     "Function": [],
+    "Method": [
+      {
+        "def": "MouseFollowsFocus:configure(configuration)",
+        "desc": "Configures the spoon.  There is currently nothing to configure.",
+        "doc": "Configures the spoon.  There is currently nothing to configure.\n\nParameters:\n  * configuration - :",
+        "name": "configure",
+        "parameters": [
+          "  * configuration - :"
+        ],
+        "signature": "MouseFollowsFocus:configure(configuration)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "MouseFollowsFocus:start()",
+        "desc": "Starts updating the mouse position when window focus changes",
+        "doc": "Starts updating the mouse position when window focus changes\n\nParameters:",
+        "name": "start",
+        "parameters": [],
+        "signature": "MouseFollowsFocus:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "MouseFollowsFocus:stop()",
+        "desc": "Stops updating the mouse position when window focus changes",
+        "doc": "Stops updating the mouse position when window focus changes\n\nParameters:",
+        "name": "stop",
+        "parameters": [],
+        "signature": "MouseFollowsFocus:stop()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "MouseFollowsFocus:updateMouse(window)",
+        "desc": "Sets the mouse position to the center of the given window",
+        "doc": "Sets the mouse position to the center of the given window",
+        "name": "updateMouse",
+        "signature": "MouseFollowsFocus:updateMouse(window)",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [
+      {
+        "def": "MouseFollowsFocus.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "name": "logger",
+        "signature": "MouseFollowsFocus.logger",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "desc": "Set the mouse pointer to the center of the focused window whenever focus changes.",
+    "doc": "Set the mouse pointer to the center of the focused window whenever focus changes.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MouseFollowsFocus.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MouseFollowsFocus.spoon.zip)",
+    "items": [
+      {
+        "def": "MouseFollowsFocus:configure(configuration)",
+        "desc": "Configures the spoon.  There is currently nothing to configure.",
+        "doc": "Configures the spoon.  There is currently nothing to configure.\n\nParameters:\n  * configuration - :",
+        "name": "configure",
+        "parameters": [
+          "  * configuration - :"
+        ],
+        "signature": "MouseFollowsFocus:configure(configuration)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "MouseFollowsFocus.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "name": "logger",
+        "signature": "MouseFollowsFocus.logger",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "MouseFollowsFocus:start()",
+        "desc": "Starts updating the mouse position when window focus changes",
+        "doc": "Starts updating the mouse position when window focus changes\n\nParameters:",
+        "name": "start",
+        "parameters": [],
+        "signature": "MouseFollowsFocus:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "MouseFollowsFocus:stop()",
+        "desc": "Stops updating the mouse position when window focus changes",
+        "doc": "Stops updating the mouse position when window focus changes\n\nParameters:",
+        "name": "stop",
+        "parameters": [],
+        "signature": "MouseFollowsFocus:stop()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "MouseFollowsFocus:updateMouse(window)",
+        "desc": "Sets the mouse position to the center of the given window",
+        "doc": "Sets the mouse position to the center of the given window",
+        "name": "updateMouse",
+        "signature": "MouseFollowsFocus:updateMouse(window)",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "name": "MouseFollowsFocus",
+    "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MouseFollowsFocus.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MouseFollowsFocus.spoon.zip)",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
     "Method": [],
     "Variable": [],
     "desc": "Move window to the space to the right or left",
@@ -7992,8 +8112,8 @@
         "type": "Variable"
       }
     ],
-    "desc": "Visual pasteboard (ie clipboard) history",
-    "doc": "Visual pasteboard (ie clipboard) history",
+    "desc": "Visual, searchable pasteboard (ie clipboard) history",
+    "doc": "Visual, searchable pasteboard (ie clipboard) history",
     "items": [
       {
         "def": "Seal.plugins.pasteboard.historySize",
