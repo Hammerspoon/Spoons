@@ -3301,6 +3301,71 @@
     "type": "Method"
   },
   {
+    "desc": "Assign every window a sigil for quick access.",
+    "name": "WindowSigils",
+    "type": "Module"
+  },
+  {
+    "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+    "module": "WindowSigils",
+    "name": "logger",
+    "type": "Variable"
+  },
+  {
+    "desc": "Binds hotkeys for WindowSigils",
+    "module": "WindowSigils",
+    "name": "bindHotkeys",
+    "type": "Method"
+  },
+  {
+    "desc": "Bind an extra action to be triggered by a key in the sigil mode.",
+    "module": "WindowSigils",
+    "name": "bindModeKey",
+    "type": "Method"
+  },
+  {
+    "desc": "Bind an action to be triggered in the sigil mode when a window's sigil key is pressed.",
+    "module": "WindowSigils",
+    "name": "bindSigilAction",
+    "type": "Method"
+  },
+  {
+    "desc": "Configures the spoon.",
+    "module": "WindowSigils",
+    "name": "configure",
+    "type": "Method"
+  },
+  {
+    "desc": "A list of windows, in the order sigils are assigned.",
+    "module": "WindowSigils",
+    "name": "orderedWindows",
+    "type": "Method"
+  },
+  {
+    "desc": "Rerender all window sigils.",
+    "module": "WindowSigils",
+    "name": "refresh",
+    "type": "Method"
+  },
+  {
+    "desc": "Starts rendering the sigils and handling hotkeys",
+    "module": "WindowSigils",
+    "name": "start",
+    "type": "Method"
+  },
+  {
+    "desc": "Stops rendering the sigils and handling hotkeys",
+    "module": "WindowSigils",
+    "name": "stop",
+    "type": "Method"
+  },
+  {
+    "desc": "Find the window with the given index or sigil.",
+    "module": "WindowSigils",
+    "name": "window",
+    "type": "Method"
+  },
+  {
     "desc": "Windows manipulation",
     "name": "WinWin",
     "type": "Module"

@@ -1,0 +1,303 @@
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hammerspoon docs: WindowSigils</title>
+    <style type="text/css">
+      a { text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      th { background-color: #DDDDDD; vertical-align: top; padding: 3px; }
+      td { width: 100%; background-color: #EEEEEE; vertical-align: top; padding: 3px; }
+      table { width: 100% ; border: 1px solid #0; text-align: left; }
+      section > table table td { width: 0; }
+    </style>
+    <link rel="stylesheet" href="docs.css" type="text/css" media="screen" />
+  </head>
+  <body>
+    <header>
+      <h1><a href="./index.html">docs</a> &raquo; WindowSigils</h1>
+      <p>Assign every window a sigil for quick access.</p>
+<p>A letter or digit is rendered in the titlebar of every window, and actions can be bound
+inside a "sigil" mode with different modifiers.  For example, with no modifiers, the
+the sigil key can focus the window.  If the 'enter' action is bound to control-w, then
+'control-w c' will focus the window with sigil 'c'.</p>
+<p>The keys 'h', 'j', 'k', and 'l' are reserved for the window west, south, north, and
+east of the currently focused window in standard Vi-like fashion, and so are not
+assigned as sigils.</p>
+<p>By default, two keys (other than the sigils) are bound in the mode: escape leaves the
+mode without doing anything, and '.' sends the sigil key to the focused window.  This
+allows sending 'control-w' to the underlying window by typing 'control-w .'.</p>
+<p>Download: <a href="https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WindowSigils.spoon.zip">https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WindowSigils.spoon.zip</a></p>
+<p>Usage example:</p>
+
+<pre><code>sigils = hs.loadSpoon("WindowSigils")
+sigils:configure({
+  hotkeys = {
+    enter = {{"control"}, "W"}
+  },
+  mode_keys = {
+    [{{'shift'}, 'i'}] = ignore_notification,
+    [{{}, 'v'}]        = paste_as_keystrokes,
+    [{{}, ','}]        = rerun_last_command,
+  },
+  sigil_actions = {
+    [{}]       = focus_window,
+    [{'ctrl'}] = swap_window,
+    [{'alt'}]  = warp_window,
+  }
+})
+sigils:start()</code></pre>
+
+      </header>
+      <h3>API Overview</h3>
+      <ul>
+        <li>Variables - Configurable values</li>
+          <ul>
+            <li><a href="#logger">logger</a></li>
+          </ul>
+        <li>Methods - API calls which can only be made on an object returned by a constructor</li>
+          <ul>
+            <li><a href="#bindHotkeys">bindHotkeys</a></li>
+            <li><a href="#bindModeKey">bindModeKey</a></li>
+            <li><a href="#bindSigilAction">bindSigilAction</a></li>
+            <li><a href="#configure">configure</a></li>
+            <li><a href="#orderedWindows">orderedWindows</a></li>
+            <li><a href="#refresh">refresh</a></li>
+            <li><a href="#start">start</a></li>
+            <li><a href="#stop">stop</a></li>
+            <li><a href="#window">window</a></li>
+          </ul>
+      </ul>
+      <h3>API Documentation</h3>
+        <h4 class="documentation-section">Variables</h4>
+          <section id="logger">
+            <a name="//apple_ref/cpp/Variable/logger" class="dashAnchor"></a>
+            <h5><a href="#logger">logger</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>WindowSigils.logger</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+        <h4 class="documentation-section">Methods</h4>
+          <section id="bindHotkeys">
+            <a name="//apple_ref/cpp/Method/bindHotkeys" class="dashAnchor"></a>
+            <h5><a href="#bindHotkeys">bindHotkeys</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>WindowSigils:bindHotkeys(mapping)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Binds hotkeys for WindowSigils</p>
+<p>Parameters:</p>
+<ul>
+<li>mapping - A table containing hotkey objifier/key details for the following items:<ul>
+<li>enter - Enter the sigil mode</li>
+</ul>
+</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="bindModeKey">
+            <a name="//apple_ref/cpp/Method/bindModeKey" class="dashAnchor"></a>
+            <h5><a href="#bindModeKey">bindModeKey</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>WindowSigils:bindModeKey(mods, key, action)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Bind an extra action to be triggered by a key in the sigil mode.</p>
+<p>Parameters:</p>
+<ul>
+<li>mods - The key modifiers</li>
+<li>key - The key</li>
+<li>action - A function, called with no parameters.</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="bindSigilAction">
+            <a name="//apple_ref/cpp/Method/bindSigilAction" class="dashAnchor"></a>
+            <h5><a href="#bindSigilAction">bindSigilAction</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>WindowSigils:bindSigilAction(mods, action)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Bind an action to be triggered in the sigil mode when a window's sigil key is pressed.</p>
+<p>Parameters:</p>
+<ul>
+<li>mods - The modifiers which must be held to trigger this action.</li>
+<li>action - A function which takes a window object and performs this action.</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="configure">
+            <a name="//apple_ref/cpp/Method/configure" class="dashAnchor"></a>
+            <h5><a href="#configure">configure</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>WindowSigils:configure(configuration)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Configures the spoon.</p>
+<p>Parameters:</p>
+<ul>
+<li>configuration - :<ul>
+<li>hotkeys </li>
+<li>mode_keys - a table of key specs (e.g. {{'shift'}, 'n'}) to functions.  The keys are
+mapped inside the sigil mode and the key is no longer used as a window sigil.</li>
+<li>sigil_actions - a table of mod specs (e.g. {'alt'}) to functions.  When the sigil is
+used in the sigil mode with the specified modifier pressed, the function is invoked
+with a window object.</li>
+</ul>
+</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="orderedWindows">
+            <a name="//apple_ref/cpp/Method/orderedWindows" class="dashAnchor"></a>
+            <h5><a href="#orderedWindows">orderedWindows</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>WindowSigils:orderedWindows()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>A list of windows, in the order sigils are assigned.</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="refresh">
+            <a name="//apple_ref/cpp/Method/refresh" class="dashAnchor"></a>
+            <h5><a href="#refresh">refresh</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>WindowSigils:refresh()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Rerender all window sigils.</p>
+<p>Parameters:</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="start">
+            <a name="//apple_ref/cpp/Method/start" class="dashAnchor"></a>
+            <h5><a href="#start">start</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>WindowSigils:start()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Starts rendering the sigils and handling hotkeys</p>
+<p>Parameters:</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="stop">
+            <a name="//apple_ref/cpp/Method/stop" class="dashAnchor"></a>
+            <h5><a href="#stop">stop</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>WindowSigils:stop()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Stops rendering the sigils and handling hotkeys</p>
+<p>Parameters:</p>
+</td>
+              </tr>
+            </table>
+          </section>
+          <section id="window">
+            <a name="//apple_ref/cpp/Method/window" class="dashAnchor"></a>
+            <h5><a href="#window">window</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>WindowSigils:window(sigil)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Find the window with the given index or sigil.</p>
+<p>Parameters:</p>
+<ul>
+<li>sigil - If a number, the index of the window; if a string, the sigil of the window.
+Can also be 'North', 'East', 'South', or 'West' to find a window related to the
+currently focused window.</li>
+</ul>
+</td>
+              </tr>
+            </table>
+          </section>
+  </body>
+</html>
