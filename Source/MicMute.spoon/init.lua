@@ -2,7 +2,7 @@
 ---
 --- Microphone Mute Toggle and status indicator
 ---
---- Download: [https://github.com/dctucker/Spoons/raw/master/Spoons/MicMute.spoon.zip](https://github.com/dctucker/Spoons/raw/master/Spoons/MicMute.spoon.zip)
+--- Download: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MicMute.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MicMute.spoon.zip)
 
 local obj={}
 obj.__index = obj
