@@ -1,0 +1,262 @@
+[
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
+        "def": "WindowSigils:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for WindowSigils",
+        "doc": "Binds hotkeys for WindowSigils\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n  * enter - Enter the sigil mode",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * mapping - A table containing hotkey objifier/key details for the following items:",
+          "  * enter - Enter the sigil mode"
+        ],
+        "signature": "WindowSigils:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "WindowSigils:bindModeKey(mods, key, action)",
+        "desc": "Bind an extra action to be triggered by a key in the sigil mode.",
+        "doc": "Bind an extra action to be triggered by a key in the sigil mode.\n\nParameters:\n  * mods - The key modifiers\n  * key - The key\n  * action - A function, called with no parameters.",
+        "name": "bindModeKey",
+        "parameters": [
+          "  * mods - The key modifiers",
+          "  * key - The key",
+          "  * action - A function, called with no parameters."
+        ],
+        "signature": "WindowSigils:bindModeKey(mods, key, action)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "WindowSigils:bindSigilAction(mods, action)",
+        "desc": "Bind an action to be triggered in the sigil mode when a window's sigil key is pressed.",
+        "doc": "Bind an action to be triggered in the sigil mode when a window's sigil key is pressed.\n\nParameters:\n  * mods - The modifiers which must be held to trigger this action.\n  * action - A function which takes a window object and performs this action.",
+        "name": "bindSigilAction",
+        "parameters": [
+          "  * mods - The modifiers which must be held to trigger this action.",
+          "  * action - A function which takes a window object and performs this action."
+        ],
+        "signature": "WindowSigils:bindSigilAction(mods, action)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "WindowSigils:configure(configuration)",
+        "desc": "Configures the spoon.",
+        "doc": "Configures the spoon.\n\nParameters:\n  * configuration - :\n   * hotkeys \n   * mode_keys - a table of key specs (e.g. {{'shift'}, 'n'}) to functions.  The keys are\n     mapped inside the sigil mode and the key is no longer used as a window sigil.\n   * sigil_actions - a table of mod specs (e.g. {'alt'}) to functions.  When the sigil is\n     used in the sigil mode with the specified modifier pressed, the function is invoked\n     with a window object.",
+        "name": "configure",
+        "parameters": [
+          "  * configuration - :",
+          "   * hotkeys ",
+          "   * mode_keys - a table of key specs (e.g. {{'shift'}, 'n'}) to functions.  The keys are",
+          "     mapped inside the sigil mode and the key is no longer used as a window sigil.",
+          "   * sigil_actions - a table of mod specs (e.g. {'alt'}) to functions.  When the sigil is",
+          "     used in the sigil mode with the specified modifier pressed, the function is invoked",
+          "     with a window object."
+        ],
+        "signature": "WindowSigils:configure(configuration)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "WindowSigils:orderedWindows()",
+        "desc": "A list of windows, in the order sigils are assigned.",
+        "doc": "A list of windows, in the order sigils are assigned.",
+        "name": "orderedWindows",
+        "signature": "WindowSigils:orderedWindows()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "WindowSigils:refresh()",
+        "desc": "Rerender all window sigils.",
+        "doc": "Rerender all window sigils.\n\nParameters:",
+        "name": "refresh",
+        "parameters": [],
+        "signature": "WindowSigils:refresh()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "WindowSigils:start()",
+        "desc": "Starts rendering the sigils and handling hotkeys",
+        "doc": "Starts rendering the sigils and handling hotkeys\n\nParameters:",
+        "name": "start",
+        "parameters": [],
+        "signature": "WindowSigils:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "WindowSigils:stop()",
+        "desc": "Stops rendering the sigils and handling hotkeys",
+        "doc": "Stops rendering the sigils and handling hotkeys\n\nParameters:",
+        "name": "stop",
+        "parameters": [],
+        "signature": "WindowSigils:stop()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "WindowSigils:window(sigil)",
+        "desc": "Find the window with the given index or sigil.",
+        "doc": "Find the window with the given index or sigil.\n\nParameters:\n * sigil - If a number, the index of the window; if a string, the sigil of the window.\n   Can also be 'North', 'East', 'South', or 'West' to find a window related to the\n   currently focused window.",
+        "name": "window",
+        "parameters": [
+          " * sigil - If a number, the index of the window; if a string, the sigil of the window.",
+          "   Can also be 'North', 'East', 'South', or 'West' to find a window related to the",
+          "   currently focused window."
+        ],
+        "signature": "WindowSigils:window(sigil)",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [
+      {
+        "def": "WindowSigils.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "name": "logger",
+        "signature": "WindowSigils.logger",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "desc": "Assign every window a sigil for quick access.",
+    "doc": "Assign every window a sigil for quick access.\n\nA letter or digit is rendered in the titlebar of every window, and actions can be bound\ninside a \"sigil\" mode with different modifiers.  For example, with no modifiers, the\nthe sigil key can focus the window.  If the 'enter' action is bound to control-w, then\n'control-w c' will focus the window with sigil 'c'.\n\nThe keys 'h', 'j', 'k', and 'l' are reserved for the window west, south, north, and\neast of the currently focused window in standard Vi-like fashion, and so are not\nassigned as sigils.\n\nBy default, two keys (other than the sigils) are bound in the mode: escape leaves the\nmode without doing anything, and '.' sends the sigil key to the focused window.  This\nallows sending 'control-w' to the underlying window by typing 'control-w .'.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WindowSigils.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WindowSigils.spoon.zip)\n\nUsage example:\n```\nsigils = hs.loadSpoon(\"WindowSigils\")\nsigils:configure({\n  hotkeys = {\n    enter = {{\"control\"}, \"W\"}\n  },\n  mode_keys = {\n    [{{'shift'}, 'i'}] = ignore_notification,\n    [{{}, 'v'}]        = paste_as_keystrokes,\n    [{{}, ','}]        = rerun_last_command,\n  },\n  sigil_actions = {\n    [{}]       = focus_window,\n    [{'ctrl'}] = swap_window,\n    [{'alt'}]  = warp_window,\n  }\n})\nsigils:start()\n```",
+    "items": [
+      {
+        "def": "WindowSigils:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for WindowSigils",
+        "doc": "Binds hotkeys for WindowSigils\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n  * enter - Enter the sigil mode",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * mapping - A table containing hotkey objifier/key details for the following items:",
+          "  * enter - Enter the sigil mode"
+        ],
+        "signature": "WindowSigils:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "WindowSigils:bindModeKey(mods, key, action)",
+        "desc": "Bind an extra action to be triggered by a key in the sigil mode.",
+        "doc": "Bind an extra action to be triggered by a key in the sigil mode.\n\nParameters:\n  * mods - The key modifiers\n  * key - The key\n  * action - A function, called with no parameters.",
+        "name": "bindModeKey",
+        "parameters": [
+          "  * mods - The key modifiers",
+          "  * key - The key",
+          "  * action - A function, called with no parameters."
+        ],
+        "signature": "WindowSigils:bindModeKey(mods, key, action)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "WindowSigils:bindSigilAction(mods, action)",
+        "desc": "Bind an action to be triggered in the sigil mode when a window's sigil key is pressed.",
+        "doc": "Bind an action to be triggered in the sigil mode when a window's sigil key is pressed.\n\nParameters:\n  * mods - The modifiers which must be held to trigger this action.\n  * action - A function which takes a window object and performs this action.",
+        "name": "bindSigilAction",
+        "parameters": [
+          "  * mods - The modifiers which must be held to trigger this action.",
+          "  * action - A function which takes a window object and performs this action."
+        ],
+        "signature": "WindowSigils:bindSigilAction(mods, action)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "WindowSigils:configure(configuration)",
+        "desc": "Configures the spoon.",
+        "doc": "Configures the spoon.\n\nParameters:\n  * configuration - :\n   * hotkeys \n   * mode_keys - a table of key specs (e.g. {{'shift'}, 'n'}) to functions.  The keys are\n     mapped inside the sigil mode and the key is no longer used as a window sigil.\n   * sigil_actions - a table of mod specs (e.g. {'alt'}) to functions.  When the sigil is\n     used in the sigil mode with the specified modifier pressed, the function is invoked\n     with a window object.",
+        "name": "configure",
+        "parameters": [
+          "  * configuration - :",
+          "   * hotkeys ",
+          "   * mode_keys - a table of key specs (e.g. {{'shift'}, 'n'}) to functions.  The keys are",
+          "     mapped inside the sigil mode and the key is no longer used as a window sigil.",
+          "   * sigil_actions - a table of mod specs (e.g. {'alt'}) to functions.  When the sigil is",
+          "     used in the sigil mode with the specified modifier pressed, the function is invoked",
+          "     with a window object."
+        ],
+        "signature": "WindowSigils:configure(configuration)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "WindowSigils.logger",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "name": "logger",
+        "signature": "WindowSigils.logger",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "WindowSigils:orderedWindows()",
+        "desc": "A list of windows, in the order sigils are assigned.",
+        "doc": "A list of windows, in the order sigils are assigned.",
+        "name": "orderedWindows",
+        "signature": "WindowSigils:orderedWindows()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "WindowSigils:refresh()",
+        "desc": "Rerender all window sigils.",
+        "doc": "Rerender all window sigils.\n\nParameters:",
+        "name": "refresh",
+        "parameters": [],
+        "signature": "WindowSigils:refresh()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "WindowSigils:start()",
+        "desc": "Starts rendering the sigils and handling hotkeys",
+        "doc": "Starts rendering the sigils and handling hotkeys\n\nParameters:",
+        "name": "start",
+        "parameters": [],
+        "signature": "WindowSigils:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "WindowSigils:stop()",
+        "desc": "Stops rendering the sigils and handling hotkeys",
+        "doc": "Stops rendering the sigils and handling hotkeys\n\nParameters:",
+        "name": "stop",
+        "parameters": [],
+        "signature": "WindowSigils:stop()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "WindowSigils:window(sigil)",
+        "desc": "Find the window with the given index or sigil.",
+        "doc": "Find the window with the given index or sigil.\n\nParameters:\n * sigil - If a number, the index of the window; if a string, the sigil of the window.\n   Can also be 'North', 'East', 'South', or 'West' to find a window related to the\n   currently focused window.",
+        "name": "window",
+        "parameters": [
+          " * sigil - If a number, the index of the window; if a string, the sigil of the window.",
+          "   Can also be 'North', 'East', 'South', or 'West' to find a window related to the",
+          "   currently focused window."
+        ],
+        "signature": "WindowSigils:window(sigil)",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "name": "WindowSigils",
+    "stripped_doc": "\nA letter or digit is rendered in the titlebar of every window, and actions can be bound\ninside a \"sigil\" mode with different modifiers.  For example, with no modifiers, the\nthe sigil key can focus the window.  If the 'enter' action is bound to control-w, then\n'control-w c' will focus the window with sigil 'c'.\n\nThe keys 'h', 'j', 'k', and 'l' are reserved for the window west, south, north, and\neast of the currently focused window in standard Vi-like fashion, and so are not\nassigned as sigils.\n\nBy default, two keys (other than the sigils) are bound in the mode: escape leaves the\nmode without doing anything, and '.' sends the sigil key to the focused window.  This\nallows sending 'control-w' to the underlying window by typing 'control-w .'.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WindowSigils.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WindowSigils.spoon.zip)\n\nUsage example:\n```\nsigils = hs.loadSpoon(\"WindowSigils\")\nsigils:configure({\n  hotkeys = {\n    enter = {{\"control\"}, \"W\"}\n  },\n  mode_keys = {\n    [{{'shift'}, 'i'}] = ignore_notification,\n    [{{}, 'v'}]        = paste_as_keystrokes,\n    [{{}, ','}]        = rerun_last_command,\n  },\n  sigil_actions = {\n    [{}]       = focus_window,\n    [{'ctrl'}] = swap_window,\n    [{'alt'}]  = warp_window,\n  }\n})\nsigils:start()\n```",
+    "submodules": [],
+    "type": "Module"
+  }
+]
