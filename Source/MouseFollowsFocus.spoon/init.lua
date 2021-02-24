@@ -58,10 +58,13 @@ end
 
 --- MouseFollowsFocus:updateMouse(window)
 --- Method
---- Sets the mouse position to the center of the given window
+--- Moves the mouse to the center of the given window unless it's already inside the window
 function obj:updateMouse(window)
-  local pos = window:frame().center
-  hs.mouse.setAbsolutePosition(pos)
+  local current_pos = hs.geometry(hs.mouse.getAbsolutePosition())
+  local frame = window:frame()
+  if not current_pos:inside(frame) then
+    hs.mouse.setAbsolutePosition(frame.center)
+  end
 end
 
 return obj
