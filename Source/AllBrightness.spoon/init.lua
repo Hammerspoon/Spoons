@@ -3,6 +3,7 @@
 --- Listens for keyboard brightness keypresses and alters brightness on all supported displays.
 --- Note: This is primarily intended for Macs with no internal display, but should work for those with an internal display.
 --- Note: External displays will only respond to brightness change requests if they were either made by Apple, or are LG UltraFine displays (which were designed by Apple).
+--- Note: If your keyboard brightness keys aren't triggering this Spoon, use Karabiner Elements to set them to `display_brightness_decrement` and `display_brightness_increment`.
 ---
 --- Download: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/AllBrightness.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/AllBrightness.spoon.zip)
 
@@ -24,6 +25,7 @@ function obj:init()
     self.eventtap = hs.eventtap.new({hs.eventtap.event.types.NSSystemDefined},
         function(mainEvent)
             local event = mainEvent:systemKey()
+            --print(event['key'])
             if (not event or next(event) == nil) then
                 -- This isn't an event we care about, quit now and let it propagate
                 return false
@@ -53,7 +55,7 @@ function obj:init()
             end
 
             for _,screen in pairs(hs.screen.allScreens()) do
-                --print("  set on: "..screen:name())
+                --print("  set "..newBrightness.. " on: "..screen:name())
                 screen:setBrightness(newBrightness)
             end
 
@@ -61,30 +63,14 @@ function obj:init()
         end)
 end
 
---- AllBrightness:start()
---- Function
---- Starts listening for keyboard brightness keys
----
---- Parameters:
----  * None
----
---- Returns:
----  * None
 function obj:start()
+    --print("Starting AllBrightness")
     self.brightness = hs.screen.allScreens()[1]:getBrightness()
     self.eventtap:start()
 end
 
---- AllBrightness:stop()
---- Function
---- Stops listening for keyboard brightness keys
----
---- Parameters:
----  * None
----
---- Returns:
----  * None
 function obj:stop()
+    --print("Stopping AllBrightness")
     self.eventtap:stop()
 end
 
