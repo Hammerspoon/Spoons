@@ -40,18 +40,6 @@
     "type": "Module"
   },
   {
-    "desc": "Starts listening for keyboard brightness keys",
-    "module": "AllBrightness",
-    "name": "start",
-    "type": "Function"
-  },
-  {
-    "desc": "Stops listening for keyboard brightness keys",
-    "module": "AllBrightness",
-    "name": "stop",
-    "type": "Function"
-  },
-  {
     "desc": "Simple spoon for launching apps with single letter hotkeys.",
     "name": "AppLauncher",
     "type": "Module"
