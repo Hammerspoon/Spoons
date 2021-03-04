@@ -25,7 +25,7 @@ end
 obj.spoonPath = script_path()
 
 function obj:init()
-    self.eventtap = hs.eventtap.new({hs.eventtap.event.types.NSSystemDefined}, self.mediaKeyCallback)
+    self.eventtap = hs.eventtap.new({hs.eventtap.event.types.systemDefined}, self.mediaKeyCallback)
 end
 
 function obj.mediaKeyCallback(event)
