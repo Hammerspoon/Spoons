@@ -22,7 +22,7 @@ obj.brightness = nil
 obj.steps = 17
 
 function obj:init()
-    self.eventtap = hs.eventtap.new({hs.eventtap.event.types.NSSystemDefined},
+    self.eventtap = hs.eventtap.new({hs.eventtap.event.types.systemDefined},
         function(mainEvent)
             local event = mainEvent:systemKey()
             --print(event['key'])
