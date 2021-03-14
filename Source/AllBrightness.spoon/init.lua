@@ -25,6 +25,7 @@ function obj:init()
     self.eventtap = hs.eventtap.new({hs.eventtap.event.types.systemDefined},
         function(mainEvent)
             local event = mainEvent:systemKey()
+            local consumed = false
             --print(event['key'])
             if (not event or next(event) == nil) then
                 -- This isn't an event we care about, quit now and let it propagate
@@ -57,9 +58,12 @@ function obj:init()
             for _,screen in pairs(hs.screen.allScreens()) do
                 --print("  set "..newBrightness.. " on: "..screen:name())
                 screen:setBrightness(newBrightness)
+                consumed = true
             end
 
             obj.brightness = hs.screen.allScreens()[1]:getBrightness()
+
+            return consumed
         end)
 end
 
