@@ -1639,7 +1639,7 @@
     "type": "Method"
   },
   {
-    "desc": "Sets the mouse position to the center of the given window",
+    "desc": "Moves the mouse to the center of the given window unless it's already inside the window",
     "module": "MouseFollowsFocus",
     "name": "updateMouse",
     "type": "Method"
