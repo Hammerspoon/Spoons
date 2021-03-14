@@ -184,8 +184,8 @@
       },
       {
         "def": "ClipboardTool.menubar_title",
-        "desc": "String to show in the menubar if `ClipboardTool.show_in_menubar` is `true`. Defaults to `\"\\u{1f4ce}\"`, which is the [Unicode paperclip character](https://codepoints.net/U+1F4CE)",
-        "doc": "String to show in the menubar if `ClipboardTool.show_in_menubar` is `true`. Defaults to `\"\\u{1f4ce}\"`, which is the [Unicode paperclip character](https://codepoints.net/U+1F4CE)",
+        "desc": "String to show in the menubar if `ClipboardTool.show_in_menubar` is `true`. Defaults to `\"\\u{1f4cb}\"`, which is the [Unicode clipboard character](https://codepoints.net/U+1F4CB)",
+        "doc": "String to show in the menubar if `ClipboardTool.show_in_menubar` is `true`. Defaults to `\"\\u{1f4cb}\"`, which is the [Unicode clipboard character](https://codepoints.net/U+1F4CB)",
         "name": "menubar_title",
         "signature": "ClipboardTool.menubar_title",
         "stripped_doc": "",
@@ -337,8 +337,8 @@
       },
       {
         "def": "ClipboardTool.menubar_title",
-        "desc": "String to show in the menubar if `ClipboardTool.show_in_menubar` is `true`. Defaults to `\"\\u{1f4ce}\"`, which is the [Unicode paperclip character](https://codepoints.net/U+1F4CE)",
-        "doc": "String to show in the menubar if `ClipboardTool.show_in_menubar` is `true`. Defaults to `\"\\u{1f4ce}\"`, which is the [Unicode paperclip character](https://codepoints.net/U+1F4CE)",
+        "desc": "String to show in the menubar if `ClipboardTool.show_in_menubar` is `true`. Defaults to `\"\\u{1f4cb}\"`, which is the [Unicode clipboard character](https://codepoints.net/U+1F4CB)",
+        "doc": "String to show in the menubar if `ClipboardTool.show_in_menubar` is `true`. Defaults to `\"\\u{1f4cb}\"`, which is the [Unicode clipboard character](https://codepoints.net/U+1F4CB)",
         "name": "menubar_title",
         "signature": "ClipboardTool.menubar_title",
         "stripped_doc": "",
