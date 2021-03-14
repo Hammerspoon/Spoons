@@ -41,8 +41,8 @@
       },
       {
         "def": "MouseFollowsFocus:updateMouse(window)",
-        "desc": "Sets the mouse position to the center of the given window",
-        "doc": "Sets the mouse position to the center of the given window",
+        "desc": "Moves the mouse to the center of the given window unless it's already inside the window",
+        "doc": "Moves the mouse to the center of the given window unless it's already inside the window",
         "name": "updateMouse",
         "signature": "MouseFollowsFocus:updateMouse(window)",
         "stripped_doc": "",
@@ -106,8 +106,8 @@
       },
       {
         "def": "MouseFollowsFocus:updateMouse(window)",
-        "desc": "Sets the mouse position to the center of the given window",
-        "doc": "Sets the mouse position to the center of the given window",
+        "desc": "Moves the mouse to the center of the given window unless it's already inside the window",
+        "doc": "Moves the mouse to the center of the given window unless it's already inside the window",
         "name": "updateMouse",
         "signature": "MouseFollowsFocus:updateMouse(window)",
         "stripped_doc": "",
