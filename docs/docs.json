@@ -998,44 +998,44 @@
         "type": "Method"
       },
       {
-        "def": "BrewInfo:openBrewURL(pkg, subcommand)",
-        "desc": "Opens the homepage for package `pkg`, as obtained from the `homepage` field in `brew <subcommand> cat <pkg>`",
-        "doc": "Opens the homepage for package `pkg`, as obtained from the `homepage` field in `brew <subcommand> cat <pkg>`\n\nParameters:\n * pkg - name of the package to query\n * subcommand - brew subcommand to use for the `cat` command. Defaults to an empty string, which results in \"brew cat <pkg>\" being run. For example, if `subcommand` is \"cask\", the `brew cask cat <pkg>` command will be used.\n\nReturns:\n * The Spoon object",
+        "def": "BrewInfo:openBrewURL(pkg, cask)",
+        "desc": "Opens the homepage for package `pkg`, as obtained from the `homepage` field in `brew info [--cask|--formula] json=v2 <pkg>`",
+        "doc": "Opens the homepage for package `pkg`, as obtained from the `homepage` field in `brew info [--cask|--formula] json=v2 <pkg>`\n\nParameters:\n * pkg - name of the package to query\n * cask - boolean indicating if pkg is a cask\n\nReturns:\n * The Spoon object",
         "name": "openBrewURL",
         "parameters": [
           " * pkg - name of the package to query",
-          " * subcommand - brew subcommand to use for the `cat` command. Defaults to an empty string, which results in \"brew cat <pkg>\" being run. For example, if `subcommand` is \"cask\", the `brew cask cat <pkg>` command will be used."
+          " * cask - boolean indicating if pkg is a cask"
         ],
         "returns": [
           " * The Spoon object"
         ],
-        "signature": "BrewInfo:openBrewURL(pkg, subcommand)",
+        "signature": "BrewInfo:openBrewURL(pkg, cask)",
         "stripped_doc": "",
         "type": "Method"
       },
       {
-        "def": "BrewInfo:openBrewURLCurSel(subcommand)",
-        "desc": "Opens the homepage for the currently-selected package, as obtained from the `homepage` field in `brew <subcommand> cat <pkg>`",
-        "doc": "Opens the homepage for the currently-selected package, as obtained from the `homepage` field in `brew <subcommand> cat <pkg>`\n\nParameters:\n * subcommand - brew subcommand to use for the `cat` command. Defaults to an empty string, which results in \"brew cat <pkg>\" being run. For example, if `subcommand` is \"cask\", the `brew cask cat <pkg>` command will be used.\n\nReturns:\n * The Spoon object",
+        "def": "BrewInfo:openBrewURLCurSel(cask)",
+        "desc": "Opens the homepage for the currently-selected package, as obtained from the `homepage` field in `brew info [--cask|--formula] --json=v2 <pkg>`",
+        "doc": "Opens the homepage for the currently-selected package, as obtained from the `homepage` field in `brew info [--cask|--formula] --json=v2 <pkg>`\n\nParameters:\n * cask - boolean indicating if pkg is a cask\n\nReturns:\n * The Spoon object",
         "name": "openBrewURLCurSel",
         "parameters": [
-          " * subcommand - brew subcommand to use for the `cat` command. Defaults to an empty string, which results in \"brew cat <pkg>\" being run. For example, if `subcommand` is \"cask\", the `brew cask cat <pkg>` command will be used."
+          " * cask - boolean indicating if pkg is a cask"
         ],
         "returns": [
           " * The Spoon object"
         ],
-        "signature": "BrewInfo:openBrewURLCurSel(subcommand)",
+        "signature": "BrewInfo:openBrewURLCurSel(cask)",
         "stripped_doc": "",
         "type": "Method"
       },
       {
         "def": "BrewInfo:showBrewInfo(pkg, subcommand)",
-        "desc": "Displays an alert with the output of `brew <subcommand> info <pkg>`",
-        "doc": "Displays an alert with the output of `brew <subcommand> info <pkg>`\n\nParameters:\n * pkg - name of the package to query\n * subcommand - brew subcommand to use for the `info` command. Defaults to an empty string, which results in \"brew info <pkg>\" being run. For example, if `subcommand` is \"cask\", the `brew cask info <pkg>` command will be used.\n\nReturns:\n * The Spoon object",
+        "desc": "Displays an alert with the output of `brew info [--cask] <pkg>`",
+        "doc": "Displays an alert with the output of `brew info [--cask] <pkg>`\n\nParameters:\n * pkg - name of the package to query\n * cask - boolean indicating if pkg is a cask\n\nReturns:\n * The Spoon object",
         "name": "showBrewInfo",
         "parameters": [
           " * pkg - name of the package to query",
-          " * subcommand - brew subcommand to use for the `info` command. Defaults to an empty string, which results in \"brew info <pkg>\" being run. For example, if `subcommand` is \"cask\", the `brew cask info <pkg>` command will be used."
+          " * cask - boolean indicating if pkg is a cask"
         ],
         "returns": [
           " * The Spoon object"
@@ -1045,17 +1045,17 @@
         "type": "Method"
       },
       {
-        "def": "BrewInfo:showBrewInfoCurSel(subcommand)",
-        "desc": "Display `brew <subcommand> info` using the selected text as the package name",
-        "doc": "Display `brew <subcommand> info` using the selected text as the package name\n\nParameters:\n * subcommand - brew subcommand to use for the `info` command. Defaults to an empty string, which results in \"brew info\" being run. For example, if `subcommand` is \"cask\", the `brew cask info` command will be used.\n\nReturns:\n * The Spoon object",
+        "def": "BrewInfo:showBrewInfoCurSel(cask)",
+        "desc": "Display `brew info [--cask]` using the selected text as the package name",
+        "doc": "Display `brew info [--cask]` using the selected text as the package name\n\nParameters:\n * cask - boolean indicating if pkg is a cask\n\nReturns:\n * The Spoon object",
         "name": "showBrewInfoCurSel",
         "parameters": [
-          " * subcommand - brew subcommand to use for the `info` command. Defaults to an empty string, which results in \"brew info\" being run. For example, if `subcommand` is \"cask\", the `brew cask info` command will be used."
+          " * cask - boolean indicating if pkg is a cask"
         ],
         "returns": [
           " * The Spoon object"
         ],
-        "signature": "BrewInfo:showBrewInfoCurSel(subcommand)",
+        "signature": "BrewInfo:showBrewInfoCurSel(cask)",
         "stripped_doc": "",
         "type": "Method"
       }
@@ -1136,33 +1136,33 @@
         "type": "Variable"
       },
       {
-        "def": "BrewInfo:openBrewURL(pkg, subcommand)",
-        "desc": "Opens the homepage for package `pkg`, as obtained from the `homepage` field in `brew <subcommand> cat <pkg>`",
-        "doc": "Opens the homepage for package `pkg`, as obtained from the `homepage` field in `brew <subcommand> cat <pkg>`\n\nParameters:\n * pkg - name of the package to query\n * subcommand - brew subcommand to use for the `cat` command. Defaults to an empty string, which results in \"brew cat <pkg>\" being run. For example, if `subcommand` is \"cask\", the `brew cask cat <pkg>` command will be used.\n\nReturns:\n * The Spoon object",
+        "def": "BrewInfo:openBrewURL(pkg, cask)",
+        "desc": "Opens the homepage for package `pkg`, as obtained from the `homepage` field in `brew info [--cask|--formula] json=v2 <pkg>`",
+        "doc": "Opens the homepage for package `pkg`, as obtained from the `homepage` field in `brew info [--cask|--formula] json=v2 <pkg>`\n\nParameters:\n * pkg - name of the package to query\n * cask - boolean indicating if pkg is a cask\n\nReturns:\n * The Spoon object",
         "name": "openBrewURL",
         "parameters": [
           " * pkg - name of the package to query",
-          " * subcommand - brew subcommand to use for the `cat` command. Defaults to an empty string, which results in \"brew cat <pkg>\" being run. For example, if `subcommand` is \"cask\", the `brew cask cat <pkg>` command will be used."
+          " * cask - boolean indicating if pkg is a cask"
         ],
         "returns": [
           " * The Spoon object"
         ],
-        "signature": "BrewInfo:openBrewURL(pkg, subcommand)",
+        "signature": "BrewInfo:openBrewURL(pkg, cask)",
         "stripped_doc": "",
         "type": "Method"
       },
       {
-        "def": "BrewInfo:openBrewURLCurSel(subcommand)",
-        "desc": "Opens the homepage for the currently-selected package, as obtained from the `homepage` field in `brew <subcommand> cat <pkg>`",
-        "doc": "Opens the homepage for the currently-selected package, as obtained from the `homepage` field in `brew <subcommand> cat <pkg>`\n\nParameters:\n * subcommand - brew subcommand to use for the `cat` command. Defaults to an empty string, which results in \"brew cat <pkg>\" being run. For example, if `subcommand` is \"cask\", the `brew cask cat <pkg>` command will be used.\n\nReturns:\n * The Spoon object",
+        "def": "BrewInfo:openBrewURLCurSel(cask)",
+        "desc": "Opens the homepage for the currently-selected package, as obtained from the `homepage` field in `brew info [--cask|--formula] --json=v2 <pkg>`",
+        "doc": "Opens the homepage for the currently-selected package, as obtained from the `homepage` field in `brew info [--cask|--formula] --json=v2 <pkg>`\n\nParameters:\n * cask - boolean indicating if pkg is a cask\n\nReturns:\n * The Spoon object",
         "name": "openBrewURLCurSel",
         "parameters": [
-          " * subcommand - brew subcommand to use for the `cat` command. Defaults to an empty string, which results in \"brew cat <pkg>\" being run. For example, if `subcommand` is \"cask\", the `brew cask cat <pkg>` command will be used."
+          " * cask - boolean indicating if pkg is a cask"
         ],
         "returns": [
           " * The Spoon object"
         ],
-        "signature": "BrewInfo:openBrewURLCurSel(subcommand)",
+        "signature": "BrewInfo:openBrewURLCurSel(cask)",
         "stripped_doc": "",
         "type": "Method"
       },
@@ -1186,12 +1186,12 @@
       },
       {
         "def": "BrewInfo:showBrewInfo(pkg, subcommand)",
-        "desc": "Displays an alert with the output of `brew <subcommand> info <pkg>`",
-        "doc": "Displays an alert with the output of `brew <subcommand> info <pkg>`\n\nParameters:\n * pkg - name of the package to query\n * subcommand - brew subcommand to use for the `info` command. Defaults to an empty string, which results in \"brew info <pkg>\" being run. For example, if `subcommand` is \"cask\", the `brew cask info <pkg>` command will be used.\n\nReturns:\n * The Spoon object",
+        "desc": "Displays an alert with the output of `brew info [--cask] <pkg>`",
+        "doc": "Displays an alert with the output of `brew info [--cask] <pkg>`\n\nParameters:\n * pkg - name of the package to query\n * cask - boolean indicating if pkg is a cask\n\nReturns:\n * The Spoon object",
         "name": "showBrewInfo",
         "parameters": [
           " * pkg - name of the package to query",
-          " * subcommand - brew subcommand to use for the `info` command. Defaults to an empty string, which results in \"brew info <pkg>\" being run. For example, if `subcommand` is \"cask\", the `brew cask info <pkg>` command will be used."
+          " * cask - boolean indicating if pkg is a cask"
         ],
         "returns": [
           " * The Spoon object"
@@ -1201,17 +1201,17 @@
         "type": "Method"
       },
       {
-        "def": "BrewInfo:showBrewInfoCurSel(subcommand)",
-        "desc": "Display `brew <subcommand> info` using the selected text as the package name",
-        "doc": "Display `brew <subcommand> info` using the selected text as the package name\n\nParameters:\n * subcommand - brew subcommand to use for the `info` command. Defaults to an empty string, which results in \"brew info\" being run. For example, if `subcommand` is \"cask\", the `brew cask info` command will be used.\n\nReturns:\n * The Spoon object",
+        "def": "BrewInfo:showBrewInfoCurSel(cask)",
+        "desc": "Display `brew info [--cask]` using the selected text as the package name",
+        "doc": "Display `brew info [--cask]` using the selected text as the package name\n\nParameters:\n * cask - boolean indicating if pkg is a cask\n\nReturns:\n * The Spoon object",
         "name": "showBrewInfoCurSel",
         "parameters": [
-          " * subcommand - brew subcommand to use for the `info` command. Defaults to an empty string, which results in \"brew info\" being run. For example, if `subcommand` is \"cask\", the `brew cask info` command will be used."
+          " * cask - boolean indicating if pkg is a cask"
         ],
         "returns": [
           " * The Spoon object"
         ],
-        "signature": "BrewInfo:showBrewInfoCurSel(subcommand)",
+        "signature": "BrewInfo:showBrewInfoCurSel(cask)",
         "stripped_doc": "",
         "type": "Method"
       }
