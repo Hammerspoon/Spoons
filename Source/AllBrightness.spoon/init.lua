@@ -32,6 +32,10 @@ function obj:init()
                 return false
             end
 
+            if (event['key'] ~= "BRIGHTNESS_UP" and event['key'] ~= "BRIGHTNESS_DOWN") then
+                return false
+            end
+
             obj.brightness = hs.screen.allScreens()[1]:getBrightness()
             local newBrightness = obj.brightness
 
