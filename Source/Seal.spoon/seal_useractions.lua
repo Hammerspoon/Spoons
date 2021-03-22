@@ -150,6 +150,9 @@ function obj.buildChoice(action, v)
       choice.type = kind
       choice.plugin = obj.__name
       choice.image = icon
+      if v.subText then
+         choice.subText = v.subText
+      end
    end
    return choice
 end
