@@ -16,7 +16,7 @@ obj.license = "MIT"
 obj.homepage = "https://github.com/Hammerspoon/Spoons"
 
 -- Default Settings
-obj.duration = 1 -- timer duration in minutes
+obj.duration = 25 -- timer duration in minutes
 
 -- set this to true to always show the menu bar item
 -- (making the keyboard shortcut superfluous):
