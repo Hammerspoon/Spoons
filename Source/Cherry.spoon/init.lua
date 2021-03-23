@@ -122,6 +122,9 @@ end
 --- Method
 --- Stops the timer and removes the menubar item if Cherry.alwaysShow is false
 ---
+--- Parameters:
+---  * None
+---
 --- Returns:
 ---  * None
 function obj:stop()
