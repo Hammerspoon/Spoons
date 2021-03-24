@@ -15,7 +15,7 @@ obj.author = "Daniel Marques <danielbmarques@gmail.com> and Omar El-Domeiri <oma
 obj.license = "MIT"
 obj.homepage = "https://github.com/Hammerspoon/Spoons"
 
--- Default Settings
+-- Settings
 
 -- timer duration in minutes
 obj.duration = 25
@@ -23,15 +23,17 @@ obj.duration = 25
 -- set this to true to always show the menubar item
 obj.alwaysShow = false
 
--- duration in seconds for alert to stay on screen (set to 0 to turn off alert)
+-- duration in seconds for alert to stay on screen
+-- set to 0 to turn off alert completely
 obj.alertDuration = 5
 
 -- Font size for alert
 obj.alertTextSize = 80
 
--- set to nil to turn off notification on time's up!
+-- set to nil to turn off notification when time's up or provide a hs.notify notification
 obj.notification = nil
--- obj.notification = hs.notify.new({ title = "Done! 🍒" })
+-- obj.notification = hs.notify.new({ title = "Done! 🍒", withdrawAfter = 0})
+
 
 obj.defaultMapping = {
   start = {{"cmd", "ctrl", "alt"}, "C"}
@@ -59,7 +61,6 @@ end
 
 
 function obj:init()
-  self.timer = hs.timer.new(1, function() self:tick() end)
   self.menu = hs.menubar.new(self.alwaysShow)
   self:reset()
 end
@@ -67,10 +68,14 @@ end
 
 function obj:reset()
   local items = {
-      { title = "Start", fn = function() self:start() end}
+    { title = "Start", fn = function() self:start() end }
   }
   self.menu:setMenu(items)
   self.menu:setTitle("🍒")
+  self.isActive = false
+  if not self.alwaysShow then
+      self.menu:removeFromMenuBar()
+  end
 end
 
 
@@ -82,21 +87,31 @@ function obj:updateTimerString()
 end
 
 
+--- Cherry:popup()
+--- Method
+--- Popup an alert or notification when time is up.
+---
+--- Parameters:
+---  * None
+---
+--- Returns:
+---  * None
+function obj:popup()
+  if 0 < self.alertDuration then
+    hs.alert.show("Done! 🍒", { textSize = self.alertTextSize }, self.alertDuration)
+  end
+  if self.notification then
+    self.notification:send()
+  end
+end
+
+
 function obj:tick()
   self.timeLeft = self.timeLeft - 1
   self:updateTimerString()
   if self.timeLeft <= 0 then
-    self.timer:stop()
     self:reset()
-    if not self.alwaysShow then
-      self.menu:removeFromMenuBar()
-    end
-    if 0 < self.alertDuration then
-       hs.alert.show("Done! 🍒", {textSize = self.alertTextSize}, self.alertDuration)
-    end
-    if self.notification then
-      self.notification:send()
-    end
+    self:popup()
   end
 end
 
@@ -106,7 +121,7 @@ end
 --- Starts the timer and displays the countdown in a menubar item
 ---
 --- Parameters:
----  * isResume - boolean when true resets the countdown
+---  * isResume - boolean when true resumes countdown at current value of self.timeLeft
 ---
 --- Returns:
 ---  * None
@@ -118,40 +133,23 @@ function obj:start(isResume)
      self.timeLeft = self.duration * 60
      self:updateTimerString()
   end
-  self.timer:start()
+  self.isActive = true
+  self.timer = hs.timer.doWhile(function() return self.isActive end, function() self:tick() end, 1)
   local items = {
-    { title = "Stop",  fn = function() self:stop() end},
-    { title = "Pause", fn = function() self:pause() end}
+    { title = "Stop",  fn = function() self:reset() end },
+    { title = "Pause", fn = function() self:pause() end }
   }
   self.menu:setMenu(items)
 end
 
 
 function obj:pause()
-    self.timer:stop()
-    local items = {
-      { title = "Stop", fn = function() self:stop() end},
-      { title = "Resume", fn = function() self:start(true) end}
-    }
-    self.menu:setMenu(items)
-end
-
-
---- Cherry:stop()
---- Method
---- Stops the timer and removes menubar item if Cherry.alwaysShow is false
----
---- Parameters:
----  * None
----
---- Returns:
----  * None
-function obj:stop()
-  self.timer:stop()
-  self:reset()
-  if not self.alwaysShow then
-    self.menu:removeFromMenuBar()
-  end
+  self.isActive = false
+  local items = {
+    { title = "Stop", fn = function() self:reset() end },
+    { title = "Resume", fn = function() self:start(true) end }
+  }
+  self.menu:setMenu(items)
 end
 
 
