@@ -11,7 +11,7 @@ obj.__index = obj
 -- Metadata
 obj.name = "Cherry"
 obj.version = "0.1"
-obj.author = "Daniel Marques <danielbmarques@gmail.com>"
+obj.author = "Daniel Marques <danielbmarques@gmail.com> and Omar El-Domeiri <omar@doesnotexist.com>"
 obj.license = "MIT"
 obj.homepage = "https://github.com/Hammerspoon/Spoons"
 
