@@ -72,7 +72,7 @@ function obj:reset()
   }
   self.menu:setMenu(items)
   self.menu:setTitle("🍒")
-  self.isActive = false
+  self.timerRunning = false
   if not self.alwaysShow then
       self.menu:removeFromMenuBar()
   end
@@ -121,20 +121,20 @@ end
 --- Starts the timer and displays the countdown in a menubar item
 ---
 --- Parameters:
----  * isResume - boolean when true resumes countdown at current value of self.timeLeft
+---  * resume - boolean when true resumes countdown at current value of self.timeLeft
 ---
 --- Returns:
 ---  * None
-function obj:start(isResume)
+function obj:start(resume)
   if not self.menu:isInMenuBar() then
     self.menu:returnToMenuBar()
   end
-  if not isResume then
+  if not resume then
      self.timeLeft = self.duration * 60
      self:updateTimerString()
   end
-  self.isActive = true
-  self.timer = hs.timer.doWhile(function() return self.isActive end, function() self:tick() end, 1)
+  self.timerRunning = true
+  self.timer = hs.timer.doWhile(function() return self.timerRunning end, function() self:tick() end, 1)
   local items = {
     { title = "Stop",  fn = function() self:reset() end },
     { title = "Pause", fn = function() self:pause() end }
@@ -144,7 +144,7 @@ end
 
 
 function obj:pause()
-  self.isActive = false
+  self.timerRunning = false
   local items = {
     { title = "Stop", fn = function() self:reset() end },
     { title = "Resume", fn = function() self:start(true) end }
