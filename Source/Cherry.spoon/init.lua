@@ -26,6 +26,9 @@ obj.alwaysShow = false
 -- duration in seconds for alert to stay on screen (set to 0 to turn off alert)
 obj.alertDuration = 5
 
+-- Font size for alert
+obj.alertTextSize = 80
+
 -- set to nil to turn off notification on time's up!
 obj.notification = nil
 -- obj.notification = hs.notify.new({ title = "Done! 🍒" })
@@ -88,11 +91,11 @@ function obj:tick()
     if not self.alwaysShow then
       self.menu:removeFromMenuBar()
     end
-    if 0 < obj.alertDuration then
-       hs.alert.show("Done! 🍒", {textSize = 120}, obj.alertDuration)
+    if 0 < self.alertDuration then
+       hs.alert.show("Done! 🍒", {textSize = self.alertTextSize}, self.alertDuration)
     end
-    if obj.notification then
-      obj.notification:send()
+    if self.notification then
+      self.notification:send()
     end
   end
 end
