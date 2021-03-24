@@ -116,6 +116,7 @@ function obj:start(isResume)
   end
   if not isResume then
      self.timeLeft = self.duration * 60
+     self:updateTimerString()
   end
   self.timer:start()
   local items = {
