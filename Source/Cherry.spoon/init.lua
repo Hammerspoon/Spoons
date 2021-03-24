@@ -16,13 +16,21 @@ obj.license = "MIT"
 obj.homepage = "https://github.com/Hammerspoon/Spoons"
 
 -- Default Settings
-obj.duration = 25 -- timer duration in minutes
 
--- set this to true to always show the menu bar item
--- (making the keyboard shortcut superfluous):
+-- timer duration in minutes
+obj.duration = 25
+
+-- set this to true to always show the menubar item
 obj.alwaysShow = false
 
-obj.DefaultMapping = {
+-- duration in seconds for alert to stay on screen (set to 0 to turn off alert)
+obj.alertDuration = 5
+
+-- set to nil to turn off notification on time's up!
+obj.notification = nil
+-- obj.notification = hs.notify.new({ title = "Done! 🍒" })
+
+obj.defaultMapping = {
   start = {{"cmd", "ctrl", "alt"}, "C"}
 }
 
@@ -42,7 +50,7 @@ function obj:bindHotkeys(mapping)
   if mapping and mapping["start"] then
     hs.hotkey.bind(mapping["start"][1], mapping["start"][2], function() self:start() end)
   else
-    hs.hotkey.bind(self.DefaultMapping["start"][1], self.DefaultMapping["start"][2], function() self:start() end)
+    hs.hotkey.bind(self.defaultMapping["start"][1], self.defaultMapping["start"][2], function() self:start() end)
   end
 end
 
@@ -59,7 +67,6 @@ function obj:reset()
       { title = "Start", fn = function() self:start() end}
   }
   self.menu:setMenu(items)
-  self.timeLeft = obj.duration * 60
   self.menu:setTitle("🍒")
 end
 
@@ -81,9 +88,15 @@ function obj:tick()
     if not self.alwaysShow then
       self.menu:removeFromMenuBar()
     end
-    hs.alert.show("Done! 🍒")
+    if 0 < obj.alertDuration then
+       hs.alert.show("Done! 🍒", {textSize = 120}, obj.alertDuration)
+    end
+    if obj.notification then
+      obj.notification:send()
+    end
   end
 end
+
 
 --- Cherry:start()
 --- Method
@@ -109,6 +122,7 @@ function obj:start(isResume)
   self.menu:setMenu(items)
 end
 
+
 function obj:pause()
     self.timer:stop()
     local items = {
@@ -118,9 +132,10 @@ function obj:pause()
     self.menu:setMenu(items)
 end
 
+
 --- Cherry:stop()
 --- Method
---- Stops the timer and removes the menubar item if Cherry.alwaysShow is false
+--- Stops the timer and removes menubar item if Cherry.alwaysShow is false
 ---
 --- Parameters:
 ---  * None
