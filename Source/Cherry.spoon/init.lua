@@ -21,7 +21,7 @@ obj.homepage = "https://github.com/Hammerspoon/Spoons"
 obj.duration = 25
 
 -- set this to true to always show the menubar item
-obj.alwaysShow = false
+obj.alwaysShow = true
 
 -- duration in seconds for alert to stay on screen
 -- set to 0 to turn off alert completely
@@ -34,6 +34,9 @@ obj.alertTextSize = 80
 obj.notification = nil
 -- obj.notification = hs.notify.new({ title = "Done! 🍒", withdrawAfter = 0})
 
+-- set to nil to turn off notification sound when time's up or provide a hs.sound
+obj.sound = nil
+-- obj.sound = hs.sound.getByFile("System/Library/PrivateFrameworks/ScreenReader.framework/Versions/A/Resources/Sounds")
 
 obj.defaultMapping = {
   start = {{"cmd", "ctrl", "alt"}, "C"}
@@ -102,6 +105,9 @@ function obj:popup()
   end
   if self.notification then
     self.notification:send()
+  end
+  if self.sound then
+    self.sound:play()
   end
 end
 
