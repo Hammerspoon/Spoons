@@ -64,7 +64,9 @@ obj.sigils = {
 --- Binds hotkeys for WindowSigils
 ---
 --- Parameters:
----  * mapping - A table containing hotkey objifier/key details for the following items:
+---  * mapping - A table containing hotkey objifier/key details for the following items
+---
+---  Note: mapping should contain key 'enter'
 ---   * enter - Enter the sigil mode
 function obj:bindHotkeys(mapping)
   if mapping['enter'] then
@@ -85,7 +87,10 @@ end
 --- Configures the spoon.
 ---
 --- Parameters:
----   * configuration - :
+---   * configuration - A table that specifies the configuration
+---
+--- Note:
+---    Spec of configuration table
 ---    * hotkeys -
 ---    * mode_keys - a table of key specs (e.g. {{'shift'}, 'n'}) to functions.  The keys are
 ---      mapped inside the sigil mode and the key is no longer used as a window sigil.
@@ -165,6 +170,7 @@ end
 --- Starts rendering the sigils and handling hotkeys
 ---
 --- Parameters:
+---   * None
 function obj:start()
   self.window_filter = hs.window.filter.new({override={
     visible = true,
@@ -201,6 +207,7 @@ end
 --- Stops rendering the sigils and handling hotkeys
 ---
 --- Parameters:
+---   * None
 function obj:stop()
   self.window_filter = nil
 end
@@ -209,6 +216,9 @@ end
 --- WindowSigils:orderedWindows()
 --- Method
 --- A list of windows, in the order sigils are assigned.
+---
+--- Parameters:
+---   * None
 function obj:orderedWindows()
   local windows = self.window_filter:getWindows()
   table.sort(windows, function(a, b)
@@ -254,6 +264,7 @@ end
 --- Rerender all window sigils.
 ---
 --- Parameters:
+---   * None
 function obj:refresh()
   for _, screen_data in ipairs(self.screens) do
     local bounds = screen_data.screen:frame()
