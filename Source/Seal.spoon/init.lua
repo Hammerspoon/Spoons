@@ -286,7 +286,7 @@ function obj.choicesCallback()
     query = obj.chooser:query()
     cmd = nil
     query_words = {}
-    if query == "" then
+    if tostring(query):find("^%s*$") ~= nil then
         return choices
     end
     for word in string.gmatch(query, "%S+") do
