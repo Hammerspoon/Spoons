@@ -46,6 +46,7 @@
 <ul>
 <li>fn - A function which will be called when the entry is selected. The function receives no arguments.</li>
 <li>url - A URL which will be opened when the entry is selected. Can also be non-HTTP URLs, such as <code>mailto:</code> or other app-specific URLs.</li>
+<li> * description - (optional) A string or <code>hs.styledtext</code> object that will be shown underneath the main text of the choice.</li>
 <li>icon - (optional) An <code>hs.image</code> object that will be shown next to the entry in the chooser. If not provided, <code>Seal.plugins.useractions.default_icon</code> is used. For <code>url</code> bookmarks, it can be set to <code>"favicon"</code> to fetch and use the website's favicon.</li>
 <li>keyword - (optional) A command by which this action will be invoked, effectively turning it into a Seal command. Any arguments passed to the command will be handled as follows:<ul>
 <li>For <code>fn</code> actions, passed as an argument to the function</li>
@@ -62,7 +63,8 @@ spoon.Seal.plugins.useractions.actions =
       ["Hammerspoon docs webpage"] = {
          url = "http://hammerspoon.org/docs/",
          icon = hs.image.imageFromName(hs.image.systemImageNames.ApplicationIcon),
-         hotkey = { hyper, "h" }
+         description = "Open Hammerspoon documentation",
+         hotkey = { hyper, "h" },
       },
       ["Leave corpnet"] = {
          fn = function()
