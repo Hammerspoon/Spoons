@@ -61,7 +61,7 @@ function obj:show()
         end
     end
 
-    mousepoint = hs.mouse.getAbsolutePosition()
+    mousepoint = hs.mouse.absolutePosition()
 
     local color = nil
     if (self.color) then
