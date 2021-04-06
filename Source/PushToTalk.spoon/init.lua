@@ -121,12 +121,18 @@ end
 --- PushToTalk:init()
 --- Method
 --- Initial setup. It's empty currently
+---
+--- Parameters:
+---  * None
 function obj:init()
 end
 
 --- PushToTalk:init()
 --- Method
 --- Starts menu and key watcher
+---
+--- Parameters:
+---  * None
 function obj:start()
     self:stop()
     obj.appWatcher = hs.application.watcher.new(appWatcher)
@@ -144,6 +150,9 @@ end
 --- PushToTalk:stop()
 --- Method
 --- Stops PushToTalk
+---
+--- Parameters:
+---  * None
 function obj:stop()
     if obj.appWatcher then obj.appWatcher:stop() end
     if obj.eventTapWatcher then obj.eventTapWatcher:stop() end

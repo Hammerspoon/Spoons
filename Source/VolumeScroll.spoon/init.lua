@@ -21,6 +21,7 @@ obj.license = "MIT - https://opensource.org/licenses/MIT"
 --- Initialize spoon
 ---
 --- Parameters:
+---  * None
 ---
 --- Returns:
 ---  * void
@@ -71,6 +72,7 @@ end
 --- Stop the scroll watcher
 ---
 --- Parameters:
+---  * None
 ---
 --- Returns:
 ---  * void

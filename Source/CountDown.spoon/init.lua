@@ -86,6 +86,8 @@ end
 --- Method
 --- Pause or resume the existing countdown.
 ---
+--- Parameters:
+---  * None
 
 function obj:pauseOrResume()
     if obj.timer then

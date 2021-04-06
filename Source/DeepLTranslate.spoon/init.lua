@@ -197,6 +197,9 @@ end
 --- Method
 --- Get the current selected text in the frontmost window and display a translation popup with the translation between the specified languages
 ---
+--- Parameters:
+---  * None
+---
 --- Returns:
 ---  * The DeepLTranslate object
 function obj:translateSelectionPopup()

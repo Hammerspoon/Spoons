@@ -85,7 +85,7 @@ end
 --- Configures the spoon.
 ---
 --- Parameters:
----   * configuration - :
+---  * configuration - :
 ---    * hotkeys -
 ---    * mode_keys - a table of key specs (e.g. {{'shift'}, 'n'}) to functions.  The keys are
 ---      mapped inside the sigil mode and the key is no longer used as a window sigil.
@@ -114,9 +114,9 @@ end
 --- Bind an extra action to be triggered by a key in the sigil mode.
 ---
 --- Parameters:
----   * mods - The key modifiers
----   * key - The key
----   * action - A function, called with no parameters.
+---  * mods - The key modifiers
+---  * key - The key
+---  * action - A function, called with no parameters.
 function obj:bindModeKey(mods, key, action)
   local sigil_to_remove = hs.fnutils.indexOf(self.sigils, key)
   if sigil_to_remove then
@@ -140,8 +140,8 @@ local directions = {
 --- Bind an action to be triggered in the sigil mode when a window's sigil key is pressed.
 ---
 --- Parameters:
----   * mods - The modifiers which must be held to trigger this action.
----   * action - A function which takes a window object and performs this action.
+---  * mods - The modifiers which must be held to trigger this action.
+---  * action - A function which takes a window object and performs this action.
 function obj:bindSigilAction(mods, action)
   local function make_action(sigil)
     return function()
@@ -165,6 +165,7 @@ end
 --- Starts rendering the sigils and handling hotkeys
 ---
 --- Parameters:
+---  * None
 function obj:start()
   self.window_filter = hs.window.filter.new({override={
     visible = true,
@@ -201,6 +202,7 @@ end
 --- Stops rendering the sigils and handling hotkeys
 ---
 --- Parameters:
+---  * None
 function obj:stop()
   self.window_filter = nil
 end
@@ -209,6 +211,9 @@ end
 --- WindowSigils:orderedWindows()
 --- Method
 --- A list of windows, in the order sigils are assigned.
+---
+--- Parameters:
+---  * None
 function obj:orderedWindows()
   local windows = self.window_filter:getWindows()
   table.sort(windows, function(a, b)
@@ -254,6 +259,7 @@ end
 --- Rerender all window sigils.
 ---
 --- Parameters:
+---  * None
 function obj:refresh()
   for _, screen_data in ipairs(self.screens) do
     local bounds = screen_data.screen:frame()

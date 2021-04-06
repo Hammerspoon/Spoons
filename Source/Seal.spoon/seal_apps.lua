@@ -71,7 +71,7 @@ end
 --- Method
 --- Starts the Spotlight app searcher
 ---
---- Paramters:
+--- Parameters:
 ---  * None
 ---
 --- Returns:
@@ -91,7 +91,7 @@ end
 --- Method
 --- Stops the Spotlight app searcher
 ---
---- Paramters:
+--- Parameters:
 ---  * None
 ---
 --- Returns:
@@ -106,7 +106,7 @@ end
 --- Method
 --- Restarts the Spotlight app searcher
 ---
---- Paramters:
+--- Parameters:
 ---  * None
 ---
 --- Returns:

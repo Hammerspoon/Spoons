@@ -83,14 +83,14 @@ end
 --- Note: if multiple possibles matches just the first one is found.
 ---
 --- Parameters:
----  options is a table with values for what keys to try locate with.
----  * account - account name
----  * creator - creator, must be 4 characters
----  * type - type, must be 4 characters
----  * kind - kind of item
----  * comment - comment 
----  * label - label (defaults to service name)
----  * service - service name
+---  * options is a table with values for what keys to try locate with.
+---   * account - account name
+---   * creator - creator, must be 4 characters
+---   * type - type, must be 4 characters
+---   * kind - kind of item
+---   * comment - comment 
+---   * label - label (defaults to service name)
+---   * service - service name
 function obj:getItem(options)
   local cmd="/usr/bin/security 2>&1 find-generic-password -g"
 
@@ -137,15 +137,15 @@ end
 --- Add generic password to keychain.
 ---
 --- Parameters:
----  options is a table with values for what keys to try locate with.
----  * password - the password
----  * account - account name (required)
----  * creator - creator, must be 4 characters
----  * type - type, must be 4 characters
----  * kind - kind of item
----  * comment - comment 
----  * label - label (defaults to service name)
----  * service - service name (required)
+---  * options is a table with values for what keys to try locate with.
+---   * password - the password
+---   * account - account name (required)
+---   * creator - creator, must be 4 characters
+---   * type - type, must be 4 characters
+---   * kind - kind of item
+---   * comment - comment 
+---   * label - label (defaults to service name)
+---   * service - service name (required)
 function obj:addPassword(options)
   
   local cmd="/usr/bin/security add-generic-password"

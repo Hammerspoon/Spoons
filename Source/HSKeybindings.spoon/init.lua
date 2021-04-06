@@ -208,6 +208,9 @@ end
 --- Method
 --- Show current application's keybindings in a webview
 ---
+--- Parameters:
+---  * None
+---
 
 function obj:show()
     local cscreen = hs.screen.mainScreen()
@@ -226,6 +229,9 @@ end
 --- HSKeybindings:hide()
 --- Method
 --- Hide the cheatsheet webview
+---
+--- Parameters:
+---  * None
 ---
 
 function obj:hide()

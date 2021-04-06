@@ -136,7 +136,7 @@ end
 --- Method
 --- Send current item in current application to OmniFocus by triggering the appropriate handler.
 ---
---- Paramters:
+--- Parameters:
 ---  * None
 ---
 --- Returns:

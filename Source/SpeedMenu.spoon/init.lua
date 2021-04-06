@@ -66,6 +66,9 @@ end
 --- Method
 --- Redetect the active interface, darkmode …And redraw everything.
 ---
+--- Parameters:
+---  * None
+---
 
 function obj:rescan()
     obj.interface = hs.network.primaryInterfaces()

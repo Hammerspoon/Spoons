@@ -125,7 +125,7 @@ obj.enabled_icon_path = "/Applications/Turbo Boost Switcher.app/Contents/Resourc
 --- `"/Applications/Turbo Boost Switcher.app/Contents/Resources/icon_off.tiff"`
 obj.disabled_icon_path = "/Applications/Turbo Boost Switcher.app/Contents/Resources/icon_off.tiff"
 
---- TurboBoost:setState(state)
+--- TurboBoost:setState(state, notify)
 --- Method
 --- Sets whether Turbo Boost should be disabled (kernel extension
 --- loaded) or enabled (normal state, kernel extension not loaded).
@@ -173,6 +173,9 @@ end
 --- Method
 --- Check whether Turbo Boost is enabled
 ---
+--- Parameters:
+---  * None
+---
 --- Returns:
 ---  * true if TurboBoost is enabled (kernel ext not loaded), false otherwise.
 function obj:status()
@@ -184,6 +187,9 @@ end
 --- TurboBoost:toggle()
 --- Method
 --- Toggle TurboBoost status
+---
+--- Parameters:
+---  * None
 ---
 --- Returns:
 ---  * New TurboBoost status, after the toggle

@@ -105,6 +105,9 @@ end
 --- Method
 --- Start the WiFi watcher
 ---
+--- Parameters:
+---  * None
+---
 --- Returns:
 ---  * The WiFiTransitions spoon object
 function obj:start()

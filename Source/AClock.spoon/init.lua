@@ -127,6 +127,9 @@ end
 --- AClock:toggleShow()
 --- Method
 --- Show AClock for 4 seconds. If already showing, hide it.
+---
+--- Parameters:
+---  * None
 function obj:toggleShow()
   if self:isShowing() then
     self:hide()
@@ -146,6 +149,9 @@ end
 --- AClock:toggleShowPersistent()
 --- Method
 --- Show AClock. If already showing, hide it.
+---
+--- Parameters:
+---  * None
 function obj:toggleShowPersistent()
   if self:isShowing() then
     self:hide()

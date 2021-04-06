@@ -97,6 +97,9 @@ end
 --- TimeMachineProgress:refresh()
 --- Method
 --- Update the indicator and menu according to the current backup status.
+---
+--- Parameters:
+---  * None
 function obj:refresh()
   local out = nil
   if obj.emulatedoutput then

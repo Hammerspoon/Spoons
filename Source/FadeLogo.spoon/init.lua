@@ -78,6 +78,9 @@ obj.canvas = nil
 --- FadeLogo:delete()
 --- Method
 --- Hide and delete the canvas
+---
+--- Parameters:
+---  * None
 function obj:delete()
    if self.canvas then
       self.canvas = self.canvas:delete()
@@ -87,6 +90,9 @@ end
 --- FadeLogo:show()
 --- Method
 --- Display the image, fading it in over `fade_in_time` seconds
+---
+--- Parameters:
+---  * None
 function obj:show()
    if self.canvas then self:delete() end
    local frame = hs.screen.mainScreen():frame()
@@ -109,6 +115,9 @@ end
 --- FadeLogo:hide()
 --- Method
 --- Hide the image without zoom, fading it out over `fade_out_time` seconds
+---
+--- Parameters:
+---  * None
 function obj:hide()
    self.canvas:hide(self.fade_out_time)
 end
@@ -116,6 +125,9 @@ end
 --- FadeLogo:zoom_and_fade()
 --- Method
 --- Zoom-and-fade the image over `fade_out_time` seconds
+---
+--- Parameters:
+---  * None
 function obj:zoom_and_fade()
    local canvas=self.canvas
    local size=hs.geometry.new(canvas[1].frame)
@@ -139,6 +151,9 @@ end
 --- FadeLogo:start()
 --- Method
 --- Show the image, wait `run_time` seconds, and then zoom-and-fade it out.
+---
+--- Parameters:
+---  * None
 function obj:start(howlong)
    if not howlong then howlong = self.run_time end
    self:show()

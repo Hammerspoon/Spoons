@@ -140,6 +140,9 @@ timeout = 3
 ---
 --- If there are no hotspots with the name in `PersonalHotspot.hotspotName`, or if `PersonalHotspot.hotspotName` is `nil` and there are no hotspots in the Wi-Fi menu, the Wi-Fi menu will be closed after `PersonalHotspot.timeout` seconds.
 ---
+--- Parameters:
+---  * None
+---
 --- Returns:
 ---  * Self
 function connect(self)
@@ -167,6 +170,9 @@ end
 --- Method
 --- If currently connected to the personal hotspot named in `PersonalHotspot.hotspotName`, this method will disconnect from that hotspot and open the applications specified in `PersonalHostspot.appsToKill`.
 ---
+--- Parameters:
+---  * None
+---
 --- Returns:
 ---  * Self
 function disconnect(self)
@@ -187,6 +193,9 @@ end
 --- Toggles personal hotspot connection.
 ---
 --- If the current wireless network name is `PersonalHotspot.hotspotName` this method calls `PersonalHotspot:disconnect()`, otherwise this method will call `PersonalHotspot:connect()`.
+---
+--- Parameters:
+---  * None
 ---
 --- Returns:
 ---  * Self

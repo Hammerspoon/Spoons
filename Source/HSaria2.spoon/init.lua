@@ -552,6 +552,9 @@ end
 --- Method
 --- Toggle the display of aria2 panel. The panel allows users to interact with aria2, add new tasks, pause them, or remove, purge … etc.
 ---
+--- Parameters:
+---  * None
+---
 
 function obj:togglePanel()
     if obj.panel == nil then

@@ -104,6 +104,9 @@ devices = {}
 --- Method
 --- Creates an `hs.usb.watcher` with a callback that will execute the specified actions for the USB devices in `USBDeviceActions.devices` when they are connected/disconnected, but doesn't start the watcher.
 ---
+--- Parameters:
+---  * None
+---
 --- Returns:
 ---  * Self
 function init(self)
@@ -116,6 +119,9 @@ end
 --- Method
 --- Starts the `hs.usb.watcher` created by `USBDeviceActions:init()`.
 ---
+--- Parameters:
+---  * None
+---
 --- Returns:
 ---  * Self
 function start(self)
@@ -126,6 +132,9 @@ end
 --- USBDeviceActions:stop() -> Self
 --- Method
 --- Stops the `hs.usb.watcher` created by `USBDeviceActions:init()`.
+---
+--- Parameters:
+---  * None
 ---
 --- Returns:
 ---  * Self

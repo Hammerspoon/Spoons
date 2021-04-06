@@ -53,6 +53,9 @@ end
 --- Token:token_keystroke()
 --- Method
 --- read a token secret key from keychain, generate a code and make keystrokes for it
+---
+--- Parameters:
+---  * None
 function obj:token_keystroke()
     local token = self.get_token()
     -- generate keystrokes for the result
@@ -62,6 +65,9 @@ end
 --- Token:get_token()
 --- Method
 --- Retrieves the token using an HOTP/TOTP Secret Key stored in the keychain
+---
+--- Parameters:
+---  * None
 function obj:get_token()
     local secret_key = item_from_keychain(obj.secret_key)
     local hash = gauth.GenCode(secret_key, math.floor(os.time() / 30))

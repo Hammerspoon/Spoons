@@ -39,6 +39,9 @@ obj.timer = nil
 --- HoldToQuit.killCurrentApp
 --- Method
 --- Kill the frontmost application
+---
+--- Parameters:
+---  * None
 function obj:killCurrentApp()
     local app = hs.application.frontmostApplication()
     app:kill()
@@ -47,6 +50,9 @@ end
 --- HoldToQuit:init()
 --- Method
 --- Initialize spoon
+---
+--- Parameters:
+---  * None
 function obj:init()
     self.timer = hs.timer.delayed.new(self.duration, self.killCurrentApp)
 end
@@ -54,6 +60,9 @@ end
 --- HoldToQuit:onKeyDown()
 --- Method
 --- Start timer on keyDown
+---
+--- Parameters:
+---  * None
 function obj:onKeyDown()
     self.timer:start()
 end
@@ -61,6 +70,9 @@ end
 --- HoldToQuit:onKeyUp()
 --- Method
 --- Stop Timer & show alert message
+---
+--- Parameters:
+---  * None
 function obj:onKeyUp()
     if self.timer:running() then
         self.timer:stop()
@@ -72,6 +84,9 @@ end
 --- HoldToQuit:start()
 --- Method
 --- Start HoldToQuit with default hotkey
+---
+--- Parameters:
+---  * None
 function obj:start()
     if (self.hotkeyQbj) then
         self.hotkeyQbj:enable()
@@ -85,6 +100,9 @@ end
 --- HoldToQuit:stop()
 --- Method
 --- Disable HoldToQuit hotkey
+---
+--- Parameters:
+---  * None
 function obj:stop()
     if (self.hotkeyQbj) then
         self.hotkeyQbj:disable()

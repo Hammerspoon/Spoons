@@ -153,6 +153,9 @@ end
 --- provided. Not all handlers support specifying a destination. New
 --- handlers can be registered using the `registerApplication()`
 --- method.
+---
+--- Parameters:
+---  * None
 function obj:universalArchive(where)
    local app = hs.application.frontmostApplication()
    if app ~= nil then

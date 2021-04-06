@@ -100,6 +100,8 @@ end
 --- Method
 --- Process the content of system clipboard and show/hide the canvas
 ---
+--- Parameters:
+---  * None
 
 function obj:processClipboard()
     local clip_type = hs.pasteboard.typesAvailable()
@@ -297,6 +299,8 @@ end
 --- Method
 --- Save clipboard session so we can restore it later
 ---
+--- Parameters:
+---  * None
 
 function obj:saveToSession()
     obj.lastsession = hs.pasteboard.readAllData()
@@ -337,6 +341,8 @@ end
 --- Method
 --- Restore the lastsession of system clipboard
 ---
+--- Parameters:
+---  * None
 
 function obj:restoreLastSession()
     if obj.lastsession then
@@ -350,6 +356,8 @@ end
 --- Method
 --- Save content of current canvas to a file, the default location is `~/Desktop/`.
 ---
+--- Parameters:
+---  * None
 
 function obj:saveToFile()
     if obj.canvas:isShowing() then

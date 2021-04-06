@@ -19,8 +19,11 @@ obj.license = "MIT - https://opensource.org/licenses/MIT"
 --- Method
 --- Initialize the WifiNotifier spoon
 ---
+--- Parameters:
+---  * None
+---
 --- Returns:
---- * The WifiNotifier object
+---  * The WifiNotifier object
 function obj:init()
     self.wifiNotifier = hs.wifi.watcher.new(function() self:ssidChangedCallback() end)
     self.lastSSID = hs.wifi.currentNetwork()
@@ -32,8 +35,11 @@ end
 --- Method
 --- Starts the wifiNotifier
 ---
+--- Parameters:
+---  * None
+---
 --- Returns:
---- * The WifiNotifier object
+---  * The WifiNotifier object
 function obj:start()
     self.wifiNotifier:start()
     return self
@@ -43,8 +49,11 @@ end
 --- Method
 --- Fires whenever the wifiWatcher detects an SSID change.
 ---
+--- Parameters:
+---  * None
+---
 --- Returns:
---- * The WifiNotifier object
+---  * The WifiNotifier object
 function obj:ssidChangedCallback()
     self.newSSID = hs.wifi.currentNetwork()
 

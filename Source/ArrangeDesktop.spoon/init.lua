@@ -44,12 +44,12 @@ function obj:_positionApp(app, appTitle, screen, frame)
     end
 end
 
---- ArrangeDesktop:arrange
+--- ArrangeDesktop:arrange(arrangement)
 --- Method
 --- Arrange the desktop based on a given configuration
 ---
 --- Parameters:
---- * arrangement - table of arrangement data
+---  * arrangement - table of arrangement data
 function obj:arrange(arrangement)
     for monitorUUID, monitorDetails in pairs(obj.arrangements[arrangement]) do
         if hs.screen.find(monitorUUID) ~= nil then
@@ -63,13 +63,13 @@ function obj:arrange(arrangement)
     end
 end
 
---- ArrangeDesktop:addMenuItems
+--- ArrangeDesktop:addMenuItems(menuItems, arrangements)
 --- Method
 --- Add menu items to a table for each configured desktop arrangment.
 ---
 --- Parameters:
---- * menuItems - table of menu items
---- * arrangements - table of desktop arrangements
+---  * menuItems - table of menu items
+---  * arrangements - table of desktop arrangements
 ---
 --- Returns:
 --- table of menu items
@@ -92,6 +92,9 @@ end
 --- ArrangeDesktop:logCurrentArrangement()
 --- Method
 --- Build up the configuration for the current desktop arrangement and log it to the Hammerspoon console.
+---
+--- Parameters:
+---  * None
 function obj:logCurrentArrangement()
     local frameTemplate = '{ w = wVal, h = hVal, x = xVal, y = yVal }'
     local cmdTemplate = '    positionApp(\'appName\', monitorUUID, frame)'

@@ -174,6 +174,8 @@ end
 --- Method
 --- Undo the last window manipulation. Only those "moveAndResize" manipulations can be undone.
 ---
+--- Parameters:
+---  * None
 function obj:undo()
     local cwin = hs.window.focusedWindow()
     local cwinid = cwin:id()
@@ -189,6 +191,8 @@ end
 --- Method
 --- Center the cursor on the focused window.
 ---
+--- Parameters:
+---  * None
 function obj:centerCursor()
     local cwin = hs.window.focusedWindow()
     local wf = cwin:frame()

@@ -313,6 +313,9 @@ end
 --- Leanpub:displayAllBookStatus()
 --- Method
 --- Check and display (if needed) the status of all the books in `watch_books`
+---
+--- Parameters:
+---  * None
 function obj:displayAllBookStatus()
   for i,book in ipairs(self.watch_books) do
     self:displayBookStatus(book)
@@ -325,6 +328,9 @@ obj.timer = nil
 --- Method
 --- Start periodic check for book status, checking every
 --- check_interval seconds.
+---
+--- Parameters:
+---  * None
 function obj:start()
   self.timer = hs.timer.new(self.check_interval,
                             function()
@@ -336,6 +342,9 @@ end
 --- Method
 --- Stops periodic check for book status, if enabled.
 --- check_interval seconds.
+---
+--- Parameters:
+---  * None
 function obj:stop()
   if self.timer ~= nil then
     self.timer:stop()

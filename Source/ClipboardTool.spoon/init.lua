@@ -124,6 +124,9 @@ end
 --- ClipboardTool:togglePasteOnSelect()
 --- Method
 --- Toggle the value of `ClipboardTool.paste_on_select`
+---
+--- Parameters:
+---  * None
 function obj:togglePasteOnSelect()
    self.paste_on_select = setSetting("paste_on_select", not self.paste_on_select)
    hs.notify.show("ClipboardTool", "Paste-on-select is now " .. (self.paste_on_select and "enabled" or "disabled"), "")
@@ -166,6 +169,9 @@ end
 --- ClipboardTool:clearAll()
 --- Method
 --- Clears the clipboard and history
+---
+--- Parameters:
+---  * None
 function obj:clearAll()
    pasteboard.clearContents()
    clipboard_history = {}
@@ -176,6 +182,9 @@ end
 --- ClipboardTool:clearLastItem()
 --- Method
 --- Clears the last added to the history
+---
+--- Parameters:
+---  * None
 function obj:clearLastItem()
    table.remove(clipboard_history, 1)
    _persistHistory()
@@ -323,6 +332,9 @@ end
 --- ClipboardTool:shouldBeStored()
 --- Method
 --- Verify whether the pasteboard contents matches one of the values in `ClipboardTool.ignoredIdentifiers`
+---
+--- Parameters:
+---  * None
 function obj:shouldBeStored()
    -- Code from https://github.com/asmagill/hammerspoon-config/blob/master/utils/_menus/newClipper.lua
    local goAhead = true
@@ -360,6 +372,9 @@ end
 --- ClipboardTool:checkAndStorePasteboard()
 --- Method
 --- If the pasteboard has changed, we add the current item to our history and update the counter
+---
+--- Parameters:
+---  * None
 function obj:checkAndStorePasteboard()
    now = pasteboard.changeCount()
    if (now > last_change) then
@@ -401,6 +416,9 @@ end
 --- ClipboardTool:start()
 --- Method
 --- Start the clipboard history collector
+---
+--- Parameters:
+---  * None
 function obj:start()
    obj.logger.level = 0
    clipboard_history = self:dedupe_and_resize(getSetting("items", {})) -- If no history is saved on the system, create an empty history
@@ -421,6 +439,9 @@ end
 --- ClipboardTool:showClipboard()
 --- Method
 --- Display the current clipboard list in a chooser
+---
+--- Parameters:
+---  * None
 function obj:showClipboard()
    if self.selectorobj ~= nil then
       self.selectorobj:refreshChoicesCallback()
@@ -434,6 +455,9 @@ end
 --- ClipboardTool:toggleClipboard()
 --- Method
 --- Show/hide the clipboard list, depending on its current state
+---
+--- Parameters:
+---  * None
 function obj:toggleClipboard()
    if self.selectorobj:isVisible() then
       self.selectorobj:hide()

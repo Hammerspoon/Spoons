@@ -91,6 +91,9 @@ end
 --- HCalendar:createCanvas()
 --- Method
 --- Create the calendar canvas
+---
+--- Parameters:
+---  * None
 function obj:createCanvas()
     if obj.canvas then
         return obj.canvas
@@ -216,6 +219,9 @@ end
 --- HCalendar:init()
 --- Method
 --- Initializes the spoon
+---
+--- Parameters:
+---  * None
 function obj:init()
     self.canvas = self:createCanvas()
     if self.timer == nil then
@@ -230,6 +236,9 @@ end
 --- HCalendar:start()
 --- Method
 --- Start HCalendar timer and show the canvas
+---
+--- Parameters:
+---  * None
 function obj:start()
     if self.timer == nil then
         self.timer = hs.timer.doEvery(1800, function() updateHcalCanvas() end)
@@ -247,6 +256,9 @@ end
 --- HCalendar:stop()
 --- Method
 --- Stop HCalendar timer and hide the canvas
+---
+--- Parameters:
+---  * None
 function obj:stop()
     if self.timer then
         self.timer:stop()

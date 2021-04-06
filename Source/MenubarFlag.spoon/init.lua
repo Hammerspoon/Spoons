@@ -193,6 +193,9 @@ end
 --- MenubarFlag:start()
 --- Method
 --- Start the keyboard layout watcher to draw the menubar indicators.
+---
+--- Parameters:
+---  * None
 function obj:start()
    initIndicators()
    self:getLayoutAndDrawIndicators()
@@ -210,6 +213,9 @@ end
 --- MenubarFlag:stop()
 --- Method
 --- Remove indicators and stop the keyboard layout watcher
+---
+--- Parameters:
+---  * None
 function obj:stop()
   delIndicators()
   if self.timer ~= nil then

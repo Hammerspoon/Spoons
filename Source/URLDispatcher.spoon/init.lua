@@ -87,11 +87,14 @@ end
 --- Method
 --- Dispatch a URL to an application according to the defined `url_patterns`.
 ---
---- Parameters (according to the [httpCallback](http://www.hammerspoon.org/docs/hs.urlevent.html#httpCallback) specification):
+--- Parameters:
 ---  * scheme - A string containing the URL scheme (i.e. "http")
 ---  * host - A string containing the host requested (e.g. "www.hammerspoon.org")
 ---  * params - A table containing the key/value pairs of all the URL parameters
 ---  * fullURL - A string containing the full, original URL. This is the only parameter used in this implementation.
+---
+--- Notes:
+---  * The parameters (follow to the [httpCallback](http://www.hammerspoon.org/docs/hs.urlevent.html#httpCallback) specification)
 function obj:dispatchURL(scheme, host, params, fullUrl)
    local url = fullUrl
    local currentApp = hs.window.frontmostWindow():application():name()
@@ -150,6 +153,9 @@ end
 --- URLDispatcher:start()
 --- Method
 --- Start dispatching URLs according to the rules
+---
+--- Parameters:
+---  * None
 function obj:start()
    if hs.urlevent.httpCallback then
       self.logger.w("An hs.urlevent.httpCallback was already set. I'm overriding it with my own but you should check if this breaks any other functionality")

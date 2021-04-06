@@ -24,7 +24,7 @@ obj.logger = hs.logger.new('MouseFollowsFocus')
 --- Configures the spoon.  There is currently nothing to configure.
 ---
 --- Parameters:
----   * configuration - :
+---  * configuration - :
 function obj:configure(configuration)
 end
 
@@ -33,6 +33,7 @@ end
 --- Starts updating the mouse position when window focus changes
 ---
 --- Parameters:
+---  * None
 function obj:start()
   self.window_filter = hs.window.filter.new({override={
     visible = true,
@@ -51,6 +52,7 @@ end
 --- Stops updating the mouse position when window focus changes
 ---
 --- Parameters:
+---  * None
 function obj:stop()
   self.window_filter:unsubscribeAll()
   self.window_filter = nil
@@ -59,6 +61,9 @@ end
 --- MouseFollowsFocus:updateMouse(window)
 --- Method
 --- Moves the mouse to the center of the given window unless it's already inside the window
+---
+--- Parameters:
+---  * None
 function obj:updateMouse(window)
   local current_pos = hs.geometry(hs.mouse.getAbsolutePosition())
   local frame = window:frame()

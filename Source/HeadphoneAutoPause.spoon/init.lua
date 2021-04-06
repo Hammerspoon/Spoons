@@ -92,6 +92,10 @@ local devs = {}
 --- HeadphoneAutoPause:audiodevwatch(dev_uid, event_name)
 --- Method
 --- Callback function to use as an audio device watcher, to pause/unpause the application on headphones plugged/unplugged
+---
+--- Parameters:
+---  * dev_uid - The audio device
+---  * event_name - The event name
 function obj:audiodevwatch(dev_uid, event_name)
    self.logger.df("Audiodevwatch args: %s, %s", dev_uid, event_name)
    dev = hs.audiodevice.findDeviceByUID(dev_uid)
@@ -128,6 +132,9 @@ end
 --- HeadphoneAutoPause:start()
 --- Method
 --- Start headphone detection on all audio devices that support it
+---
+--- Parameters:
+---  * None
 function obj:start()
    for i,dev in ipairs(hs.audiodevice.allOutputDevices()) do
       if dev:jackConnected() ~= nil then
@@ -145,6 +152,9 @@ end
 --- HeadphoneAutoPause:stop()
 --- Method
 --- Stop headphone detection
+---
+--- Parameters:
+---  * None
 function obj:stop()
    for id,dev in pairs(devs) do
       if dev and dev:watcherIsRunning() then

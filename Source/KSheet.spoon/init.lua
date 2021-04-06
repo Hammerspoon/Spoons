@@ -27,6 +27,9 @@ obj.commandEnum = {
 --- KSheet:init()
 --- Method
 --- Initialize the spoon
+---
+--- Parameters:
+---  * None
 function obj:init()
     self.sheetView = hs.webview.new({x=0, y=0, w=0, h=0})
     self.sheetView:windowTitle("CheatSheets")
@@ -196,6 +199,9 @@ end
 --- KSheet:show()
 --- Method
 --- Show current application's keybindings in a view.
+---
+--- Parameters:
+---  * None
 function obj:show()
     local capp = hs.application.frontmostApplication()
     local webcontent = generateHtml(capp)
@@ -206,6 +212,9 @@ end
 --- KSheet:hide()
 --- Method
 --- Hide the cheatsheet view.
+---
+--- Parameters:
+---  * None
 function obj:hide()
     self.sheetView:hide()
 end
@@ -213,6 +222,9 @@ end
 --- KSheet:toggle()
 --- Method
 --- Alternatively show/hide the cheatsheet view.
+---
+--- Parameters:
+---  * None
 function obj:toggle()
   if self.sheetView and self.sheetView:hswindow() and self.sheetView:hswindow():isVisible() then
     self:hide()

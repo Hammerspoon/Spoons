@@ -29,6 +29,8 @@ end
 --- Method
 --- Toggle mic mute on/off
 ---
+--- Parameters:
+---  * None
 function obj:toggleMicMute()
 	local mic = hs.audiodevice.defaultInputDevice()
 	local zoom = hs.application'Zoom'

@@ -67,8 +67,10 @@ obj.forceMethod = nil
 
 --- Commander.show()
 --- Function
---- This function shows the command chooser.
---- Bind this to a hotkey to use commander. 
+--- This function shows the command chooser. Bind this to a hotkey to use commander.
+---
+--- Parameters:
+---  * None
 function obj.show()
    hs.keycodes.setLayout(obj.forceLayout or '')
    hs.keycodes.setMethod(obj.forceMethod or '')
@@ -128,7 +130,7 @@ end
 --- Add a command to Commander.commandTable
 ---
 --- Parameters:
---- * comamndTable - It is a table with same form of Commander.commandTable
+---  * commandTable - It is a table with same form of Commander.commandTable
 ---                  key is name of command, value is the function.
 ---
 --- Note:
@@ -140,9 +142,10 @@ end
 
 --- Commander.resetCommandTable()
 --- Function
---- This function simply set Commander.commandTable to {},
---- Then the next time commander chooser is called
---- it will generate the table again.
+--- This function simply set Commander.commandTable to {}, then the next time commander chooser is called it will generate the table again.
+---
+--- Parameters:
+---  * None
 function obj.resetCommandTable()
    obj.commandTable = {}
 end

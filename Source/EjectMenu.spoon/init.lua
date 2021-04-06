@@ -75,6 +75,7 @@ obj.other_eject_events = { }
 --- Parameters:
 ---  * path - the mount path of the volume.
 ---  * info - a table containing a data structure as returned by `hs.fs.volume.allVolumes()`.
+---
 --- Returns:
 ---  * A boolean indicating whether the volume should be ejected.
 function obj:shouldEject(path, info)
@@ -85,6 +86,9 @@ end
 --- EjectMenu:volumesToEject()
 --- Method
 --- Return table of volumes to be ejected when "Eject All" is invoked.
+---
+--- Parameters:
+---  * None
 ---
 --- Returns:
 ---  * A table in the same format as returned by
@@ -123,7 +127,7 @@ end
 --- Method
 --- Eject all volumes
 ---
---- Parameters
+--- Parameters:
 ---  * persistent_notifs: a boolean indicating whether notifications (if shown) should be persistent.
 function obj:ejectVolumes(persistent_notifs)
   local v, count = self:volumesToEject()
@@ -243,6 +247,9 @@ end
 --- EjectMenu:start()
 --- Method
 --- Start the watchers for power events and screen changes, to trigger volume ejection.
+---
+--- Parameters:
+---  * None
 function obj:start()
   if self.eject_on_sleep then
     self.caff_watcher = hs.caffeinate.watcher.new(
@@ -282,6 +289,9 @@ end
 --- EjectMenu:stop()
 --- Method
 --- Stop the watchers
+---
+--- Parameters:
+---  * None
 function obj:stop()
   if self.caff_watcher then
     self.caff_watcher:stop()

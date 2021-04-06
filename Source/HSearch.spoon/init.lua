@@ -82,6 +82,9 @@ end
 --- Method
 --- Trigger new source according to `hs.chooser`'s query string and keyword. Only useful for debugging purposes.
 ---
+--- Parameters:
+---  * None
+---
 
 function obj:switchSource()
     local querystr = obj.chooser:query()
@@ -167,6 +170,9 @@ end
 --- Method
 --- Load new sources from `HSearch.search_path`, the search_path defaults to `~/.hammerspoon/private/hsearch_dir` and the HSearch Spoon directory. Only useful for debugging purposes.
 ---
+--- Parameters:
+---  * None
+---
 
 function obj:loadSources()
     obj.sources = {}
@@ -219,6 +225,9 @@ end
 --- HSearch:toggleShow()
 --- Method
 --- Toggle the display of HSearch
+---
+--- Parameters:
+---  * None
 ---
 
 function obj:toggleShow()

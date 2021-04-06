@@ -108,6 +108,9 @@ end
 --- TextClipboardHistory:togglePasteOnSelect()
 --- Method
 --- Toggle the value of `TextClipboardHistory.paste_on_select`
+---
+--- Parameters:
+---  * None
 function obj:togglePasteOnSelect()
    self.paste_on_select = setSetting("paste_on_select", not self.paste_on_select)
    hs.notify.show("TextClipboardHistory", "Paste-on-select is now " .. (self.paste_on_select and "enabled" or "disabled"), "")
@@ -140,6 +143,9 @@ end
 --- TextClipboardHistory:clearAll()
 --- Method
 --- Clears the clipboard and history
+---
+--- Parameters:
+---  * None
 function obj:clearAll()
    pasteboard.clearContents()
    clipboard_history = {}
@@ -150,6 +156,9 @@ end
 --- TextClipboardHistory:clearLastItem()
 --- Method
 --- Clears the last added to the history
+---
+--- Parameters:
+---  * None
 function obj:clearLastItem()
    table.remove(clipboard_history, 1)
    _persistHistory()
@@ -217,6 +226,9 @@ end
 --- TextClipboardHistory:shouldBeStored()
 --- Method
 --- Verify whether the pasteboard contents matches one of the values in `TextClipboardHistory.ignoredIdentifiers`
+---
+--- Parameters:
+---  * None
 function obj:shouldBeStored()
    -- Code from https://github.com/asmagill/hammerspoon-config/blob/master/utils/_menus/newClipper.lua
    local goAhead = true
@@ -240,6 +252,9 @@ end
 --- TextClipboardHistory:checkAndStorePasteboard()
 --- Method
 --- If the pasteboard has changed, we add the current item to our history and update the counter
+---
+--- Parameters:
+---  * None
 function obj:checkAndStorePasteboard()
    now = pasteboard.changeCount()
    if (now > last_change) then
@@ -264,6 +279,9 @@ end
 --- TextClipboardHistory:start()
 --- Method
 --- Start the clipboard history collector
+---
+--- Parameters:
+---  * None
 function obj:start()
    clipboard_history = self:dedupe_and_resize(getSetting("items", {})) -- If no history is saved on the system, create an empty history
    last_change = pasteboard.changeCount() -- keeps track of how many times the pasteboard owner has changed // Indicates a new copy has been made
@@ -283,6 +301,9 @@ end
 --- TextClipboardHistory:showClipboard()
 --- Method
 --- Display the current clipboard list in a chooser
+---
+--- Parameters:
+---  * None
 function obj:showClipboard()
    if self.selectorobj ~= nil then
       self.selectorobj:refreshChoicesCallback()
@@ -296,6 +317,9 @@ end
 --- TextClipboardHistory:toggleClipboard()
 --- Method
 --- Show/hide the clipboard list, depending on its current state
+---
+--- Parameters:
+---  * None
 function obj:toggleClipboard()
    if self.selectorobj:isVisible() then
       self.selectorobj:hide()

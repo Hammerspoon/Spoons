@@ -180,6 +180,8 @@ end
 --- Method
 --- Deactivate all active modal environments.
 ---
+--- Parameters:
+---  * None
 
 function obj:deactivateAll()
     local i = 1

@@ -46,6 +46,9 @@ end
 --- WindowGrid:start()
 --- Method
 --- Sets the grid configuration according to `WindowGrid.gridGeometries`.
+---
+--- Parameters:
+---  * None
 function obj:start()
    for i,v in ipairs(self.gridGeometries) do
       self.logger.df("setGrid(%s, %s)", v[1], v[2], v[3])

@@ -796,11 +796,11 @@ obj.bindHotkeys = function(self, mapping)
     return self
 end
 
---- BonjourLauncher:addRecipes(recipe, ...) -> self
+--- BonjourLauncher:addRecipes(recipe...) -> self
 --- Method
 --- Add predefined recipes to [BonjourLauncher.templates](#templates) for display by the BonjourLauncher chooser.
 ---
---- Paramters:
+--- Parameters:
 ---  * `recipe`, ... - One or more string values matching a variable name in `BonjourLauncher.recipes` which define basic templates for common services which you may wish to add to your BonjourLauncer chooser window.
 ---
 --- Returns:

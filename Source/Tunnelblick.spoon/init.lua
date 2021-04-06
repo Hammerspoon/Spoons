@@ -39,6 +39,9 @@ obj.connection_name = nil
 --- Tunnelblick:connect()
 --- Method
 --- Performs the connection operation using a username, password, and connection_name
+---
+--- Parameters:
+---  * None
 function obj:connect()
     assert(self.username, "username must be set!")
     assert(self.password_fn, "password_fn must be set!")
