@@ -1,0 +1,107 @@
+[
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
+        "def": "Cherry:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for Cherry",
+        "doc": "Binds hotkeys for Cherry\n\nParameters:\n * mapping - A table containing hotkey details for the following items:\n  * start - start the pomodoro timer (Default: cmd-ctrl-alt-C)",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * mapping - A table containing hotkey details for the following items:",
+          "  * start - start the pomodoro timer (Default: cmd-ctrl-alt-C)"
+        ],
+        "signature": "Cherry:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Cherry:popup()",
+        "desc": "Popup an alert or notification when time is up.",
+        "doc": "Popup an alert or notification when time is up.\n\nParameters:\n * None\n\nReturns:\n * None",
+        "name": "popup",
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "Cherry:popup()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Cherry:start()",
+        "desc": "Starts the timer and displays the countdown in a menubar item",
+        "doc": "Starts the timer and displays the countdown in a menubar item\n\nParameters:\n * resume - boolean when true resumes countdown at current value of self.timeLeft\n\nReturns:\n * None",
+        "name": "start",
+        "parameters": [
+          " * resume - boolean when true resumes countdown at current value of self.timeLeft"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "Cherry:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [],
+    "desc": "Cherry tomato (a tiny Pomodoro) -- a Pomodoro Timer for the menubar",
+    "doc": "Cherry tomato (a tiny Pomodoro) -- a Pomodoro Timer for the menubar\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Cherry.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Cherry.spoon.zip)\n",
+    "items": [
+      {
+        "def": "Cherry:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for Cherry",
+        "doc": "Binds hotkeys for Cherry\n\nParameters:\n * mapping - A table containing hotkey details for the following items:\n  * start - start the pomodoro timer (Default: cmd-ctrl-alt-C)",
+        "name": "bindHotkeys",
+        "parameters": [
+          " * mapping - A table containing hotkey details for the following items:",
+          "  * start - start the pomodoro timer (Default: cmd-ctrl-alt-C)"
+        ],
+        "signature": "Cherry:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Cherry:popup()",
+        "desc": "Popup an alert or notification when time is up.",
+        "doc": "Popup an alert or notification when time is up.\n\nParameters:\n * None\n\nReturns:\n * None",
+        "name": "popup",
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "Cherry:popup()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "Cherry:start()",
+        "desc": "Starts the timer and displays the countdown in a menubar item",
+        "doc": "Starts the timer and displays the countdown in a menubar item\n\nParameters:\n * resume - boolean when true resumes countdown at current value of self.timeLeft\n\nReturns:\n * None",
+        "name": "start",
+        "parameters": [
+          " * resume - boolean when true resumes countdown at current value of self.timeLeft"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "Cherry:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "name": "Cherry",
+    "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Cherry.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Cherry.spoon.zip)\n",
+    "submodules": [],
+    "type": "Module"
+  }
+]
