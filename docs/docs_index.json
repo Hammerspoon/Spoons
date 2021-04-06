@@ -331,6 +331,29 @@
     "type": "Module"
   },
   {
+    "desc": "Cherry tomato (a tiny Pomodoro) -- a Pomodoro Timer for the menubar",
+    "name": "Cherry",
+    "type": "Module"
+  },
+  {
+    "desc": "Binds hotkeys for Cherry",
+    "module": "Cherry",
+    "name": "bindHotkeys",
+    "type": "Method"
+  },
+  {
+    "desc": "Popup an alert or notification when time is up.",
+    "module": "Cherry",
+    "name": "popup",
+    "type": "Method"
+  },
+  {
+    "desc": "Starts the timer and displays the countdown in a menubar item",
+    "module": "Cherry",
+    "name": "start",
+    "type": "Method"
+  },
+  {
     "desc": "A circleclock inset into the desktop",
     "name": "CircleClock",
     "type": "Module"
