@@ -181,7 +181,7 @@ function obj.bareActions(query)
 end
 
 function obj.favIcon(url)
-   local query=string.format("http://www.google.com/s2/favicons?sz=64&domain_url=%s", hs.http.encodeForQuery(url))
+   local query=string.format("http://www.google.com/s2/favicons?domain_url=%s", hs.http.encodeForQuery(url))
    return hs.image.imageFromURL(query)
 end
 
@@ -275,7 +275,6 @@ function obj.completionCallback(row)
       if obj.actions[row.actionname].fn then
          obj.actions[row.actionname].fn(row.arg)
       elseif obj.actions[row.actionname].url then
-         row.arg = hs.http.encodeForQuery(row.arg)
          local url = string.gsub(obj.actions[row.actionname].url, '${query}', row.arg)
          obj.openURL(url)
       end
