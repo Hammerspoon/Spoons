@@ -327,7 +327,7 @@ TurboBoost.kext_path. Default value: <code>"/usr/bin/sudo /sbin/kextunload '%s'"
             <table>
               <tr>
                 <th>Signature</th>
-                <td><code>TurboBoost:setState(state)</code></td>
+                <td><code>TurboBoost:setState(state, notify)</code></td>
               </tr>
               <tr>
                 <th>Type</th>
@@ -396,6 +396,10 @@ TurboBoost.notify is used.</li>
               <tr>
                 <th>Description</th>
                 <td><p>Check whether Turbo Boost is enabled</p>
+<p>Parameters:</p>
+<ul>
+<li>None</li>
+</ul>
 <p>Returns:</p>
 <ul>
 <li>true if TurboBoost is enabled (kernel ext not loaded), false otherwise.</li>
@@ -446,6 +450,10 @@ TurboBoost.notify is used.</li>
               <tr>
                 <th>Description</th>
                 <td><p>Toggle TurboBoost status</p>
+<p>Parameters:</p>
+<ul>
+<li>None</li>
+</ul>
 <p>Returns:</p>
 <ul>
 <li>New TurboBoost status, after the toggle</li>

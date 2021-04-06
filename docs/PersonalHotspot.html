@@ -165,6 +165,10 @@
                 <th>Description</th>
                 <td><p>Tries to connect to the personal hotspot named in <code>PersonalHotspot.hotspotName</code>. If <code>PersonalHotspot.hotspotName</code> is <code>nil</code>, the first hotspot in the Wi-Fi menu will be selected, and <code>PersonalHotspot.hotspotName</code> will be assigned to the name of that hotspot. Once connected to the hotspot, the applications specified in <code>PersonalHotspot.appsToKill</code> are killed.</p>
 <p>If there are no hotspots with the name in <code>PersonalHotspot.hotspotName</code>, or if <code>PersonalHotspot.hotspotName</code> is <code>nil</code> and there are no hotspots in the Wi-Fi menu, the Wi-Fi menu will be closed after <code>PersonalHotspot.timeout</code> seconds.</p>
+<p>Parameters:</p>
+<ul>
+<li>None</li>
+</ul>
 <p>Returns:</p>
 <ul>
 <li>Self</li>
@@ -188,6 +192,10 @@
               <tr>
                 <th>Description</th>
                 <td><p>If currently connected to the personal hotspot named in <code>PersonalHotspot.hotspotName</code>, this method will disconnect from that hotspot and open the applications specified in <code>PersonalHostspot.appsToKill</code>.</p>
+<p>Parameters:</p>
+<ul>
+<li>None</li>
+</ul>
 <p>Returns:</p>
 <ul>
 <li>Self</li>
@@ -212,6 +220,10 @@
                 <th>Description</th>
                 <td><p>Toggles personal hotspot connection.</p>
 <p>If the current wireless network name is <code>PersonalHotspot.hotspotName</code> this method calls <code>PersonalHotspot:disconnect()</code>, otherwise this method will call <code>PersonalHotspot:connect()</code>.</p>
+<p>Parameters:</p>
+<ul>
+<li>None</li>
+</ul>
 <p>Returns:</p>
 <ul>
 <li>Self</li>

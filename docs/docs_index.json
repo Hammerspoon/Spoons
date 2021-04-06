@@ -584,13 +584,13 @@
     "type": "Function"
   },
   {
-    "desc": "This function simply set Commander.commandTable to {},",
+    "desc": "This function simply set Commander.commandTable to {}, then the next time commander chooser is called it will generate the table again.",
     "module": "Commander",
     "name": "resetCommandTable",
     "type": "Function"
   },
   {
-    "desc": "This function shows the command chooser.",
+    "desc": "This function shows the command chooser. Bind this to a hotkey to use commander.",
     "module": "Commander",
     "name": "show",
     "type": "Function"

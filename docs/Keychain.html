@@ -75,9 +75,9 @@
               <tr>
                 <th>Description</th>
                 <td><p>Add generic password to keychain.</p>
-<p>Parameters:
- options is a table with values for what keys to try locate with.</p>
+<p>Parameters:</p>
 <ul>
+<li>options is a table with values for what keys to try locate with.<ul>
 <li>password - the password</li>
 <li>account - account name (required)</li>
 <li>creator - creator, must be 4 characters</li>
@@ -86,6 +86,8 @@
 <li>comment - comment </li>
 <li>label - label (defaults to service name)</li>
 <li>service - service name (required)</li>
+</ul>
+</li>
 </ul>
 </td>
               </tr>
@@ -108,9 +110,9 @@
                 <td><p>Retrieve an item from the Login Keychain. Return nil if not found and
 otherwise a table with found data.
 Note: if multiple possibles matches just the first one is found.</p>
-<p>Parameters:
- options is a table with values for what keys to try locate with.</p>
+<p>Parameters:</p>
 <ul>
+<li>options is a table with values for what keys to try locate with.<ul>
 <li>account - account name</li>
 <li>creator - creator, must be 4 characters</li>
 <li>type - type, must be 4 characters</li>
@@ -118,6 +120,8 @@ Note: if multiple possibles matches just the first one is found.</p>
 <li>comment - comment </li>
 <li>label - label (defaults to service name)</li>
 <li>service - service name</li>
+</ul>
+</li>
 </ul>
 </td>
               </tr>

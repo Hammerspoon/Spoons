@@ -194,12 +194,16 @@ applied on the original URL.  Default value: empty list</li>
               <tr>
                 <th>Description</th>
                 <td><p>Dispatch a URL to an application according to the defined <code>url_patterns</code>.</p>
-<p>Parameters (according to the <a href="http://www.hammerspoon.org/docs/hs.urlevent.html#httpCallback">httpCallback</a> specification):</p>
+<p>Parameters:</p>
 <ul>
 <li>scheme - A string containing the URL scheme (i.e. "http")</li>
 <li>host - A string containing the host requested (e.g. "www.hammerspoon.org")</li>
 <li>params - A table containing the key/value pairs of all the URL parameters</li>
 <li>fullURL - A string containing the full, original URL. This is the only parameter used in this implementation.</li>
+</ul>
+<p>Notes:</p>
+<ul>
+<li>The parameters (follow to the <a href="http://www.hammerspoon.org/docs/hs.urlevent.html#httpCallback">httpCallback</a> specification)</li>
 </ul>
 </td>
               </tr>
@@ -220,6 +224,10 @@ applied on the original URL.  Default value: empty list</li>
               <tr>
                 <th>Description</th>
                 <td><p>Start dispatching URLs according to the rules</p>
+<p>Parameters:</p>
+<ul>
+<li>None</li>
+</ul>
 </td>
               </tr>
             </table>

@@ -55,8 +55,11 @@
       {
         "def": "AClock:toggleShow()",
         "desc": "Show AClock for 4 seconds. If already showing, hide it.",
-        "doc": "Show AClock for 4 seconds. If already showing, hide it.",
+        "doc": "Show AClock for 4 seconds. If already showing, hide it.\n\nParameters:\n * None",
         "name": "toggleShow",
+        "parameters": [
+          " * None"
+        ],
         "signature": "AClock:toggleShow()",
         "stripped_doc": "",
         "type": "Method"
@@ -64,8 +67,11 @@
       {
         "def": "AClock:toggleShowPersistent()",
         "desc": "Show AClock. If already showing, hide it.",
-        "doc": "Show AClock. If already showing, hide it.",
+        "doc": "Show AClock. If already showing, hide it.\n\nParameters:\n * None",
         "name": "toggleShowPersistent",
+        "parameters": [
+          " * None"
+        ],
         "signature": "AClock:toggleShowPersistent()",
         "stripped_doc": "",
         "type": "Method"
@@ -123,8 +129,11 @@
       {
         "def": "AClock:toggleShow()",
         "desc": "Show AClock for 4 seconds. If already showing, hide it.",
-        "doc": "Show AClock for 4 seconds. If already showing, hide it.",
+        "doc": "Show AClock for 4 seconds. If already showing, hide it.\n\nParameters:\n * None",
         "name": "toggleShow",
+        "parameters": [
+          " * None"
+        ],
         "signature": "AClock:toggleShow()",
         "stripped_doc": "",
         "type": "Method"
@@ -132,8 +141,11 @@
       {
         "def": "AClock:toggleShowPersistent()",
         "desc": "Show AClock. If already showing, hide it.",
-        "doc": "Show AClock. If already showing, hide it.",
+        "doc": "Show AClock. If already showing, hide it.\n\nParameters:\n * None",
         "name": "toggleShowPersistent",
+        "parameters": [
+          " * None"
+        ],
         "signature": "AClock:toggleShowPersistent()",
         "stripped_doc": "",
         "type": "Method"
@@ -232,38 +244,41 @@
     "Function": [],
     "Method": [
       {
-        "def": "ArrangeDesktop:addMenuItems",
+        "def": "ArrangeDesktop:addMenuItems(menuItems, arrangements)",
         "desc": "Add menu items to a table for each configured desktop arrangment.",
-        "doc": "Add menu items to a table for each configured desktop arrangment.\n\nParameters:\n* menuItems - table of menu items\n* arrangements - table of desktop arrangements\n\nReturns:\ntable of menu items",
+        "doc": "Add menu items to a table for each configured desktop arrangment.\n\nParameters:\n * menuItems - table of menu items\n * arrangements - table of desktop arrangements\n\nReturns:\ntable of menu items",
         "name": "addMenuItems",
         "parameters": [
-          "* menuItems - table of menu items",
-          "* arrangements - table of desktop arrangements"
+          " * menuItems - table of menu items",
+          " * arrangements - table of desktop arrangements"
         ],
         "returns": [
           "table of menu items"
         ],
-        "signature": "ArrangeDesktop:addMenuItems",
+        "signature": "ArrangeDesktop:addMenuItems(menuItems, arrangements)",
         "stripped_doc": "",
         "type": "Method"
       },
       {
-        "def": "ArrangeDesktop:arrange",
+        "def": "ArrangeDesktop:arrange(arrangement)",
         "desc": "Arrange the desktop based on a given configuration",
-        "doc": "Arrange the desktop based on a given configuration\n\nParameters:\n* arrangement - table of arrangement data",
+        "doc": "Arrange the desktop based on a given configuration\n\nParameters:\n * arrangement - table of arrangement data",
         "name": "arrange",
         "parameters": [
-          "* arrangement - table of arrangement data"
+          " * arrangement - table of arrangement data"
         ],
-        "signature": "ArrangeDesktop:arrange",
+        "signature": "ArrangeDesktop:arrange(arrangement)",
         "stripped_doc": "",
         "type": "Method"
       },
       {
         "def": "ArrangeDesktop:logCurrentArrangement()",
         "desc": "Build up the configuration for the current desktop arrangement and log it to the Hammerspoon console.",
-        "doc": "Build up the configuration for the current desktop arrangement and log it to the Hammerspoon console.",
+        "doc": "Build up the configuration for the current desktop arrangement and log it to the Hammerspoon console.\n\nParameters:\n * None",
         "name": "logCurrentArrangement",
+        "parameters": [
+          " * None"
+        ],
         "signature": "ArrangeDesktop:logCurrentArrangement()",
         "stripped_doc": "",
         "type": "Method"
@@ -293,30 +308,30 @@
     "doc": "Utilities for arranging your desktop how you like it.\n\nPositioning logic adapted from https://github.com/dploeger/hammerspoon-window-manager",
     "items": [
       {
-        "def": "ArrangeDesktop:addMenuItems",
+        "def": "ArrangeDesktop:addMenuItems(menuItems, arrangements)",
         "desc": "Add menu items to a table for each configured desktop arrangment.",
-        "doc": "Add menu items to a table for each configured desktop arrangment.\n\nParameters:\n* menuItems - table of menu items\n* arrangements - table of desktop arrangements\n\nReturns:\ntable of menu items",
+        "doc": "Add menu items to a table for each configured desktop arrangment.\n\nParameters:\n * menuItems - table of menu items\n * arrangements - table of desktop arrangements\n\nReturns:\ntable of menu items",
         "name": "addMenuItems",
         "parameters": [
-          "* menuItems - table of menu items",
-          "* arrangements - table of desktop arrangements"
+          " * menuItems - table of menu items",
+          " * arrangements - table of desktop arrangements"
         ],
         "returns": [
           "table of menu items"
         ],
-        "signature": "ArrangeDesktop:addMenuItems",
+        "signature": "ArrangeDesktop:addMenuItems(menuItems, arrangements)",
         "stripped_doc": "",
         "type": "Method"
       },
       {
-        "def": "ArrangeDesktop:arrange",
+        "def": "ArrangeDesktop:arrange(arrangement)",
         "desc": "Arrange the desktop based on a given configuration",
-        "doc": "Arrange the desktop based on a given configuration\n\nParameters:\n* arrangement - table of arrangement data",
+        "doc": "Arrange the desktop based on a given configuration\n\nParameters:\n * arrangement - table of arrangement data",
         "name": "arrange",
         "parameters": [
-          "* arrangement - table of arrangement data"
+          " * arrangement - table of arrangement data"
         ],
-        "signature": "ArrangeDesktop:arrange",
+        "signature": "ArrangeDesktop:arrange(arrangement)",
         "stripped_doc": "",
         "type": "Method"
       },
@@ -332,8 +347,11 @@
       {
         "def": "ArrangeDesktop:logCurrentArrangement()",
         "desc": "Build up the configuration for the current desktop arrangement and log it to the Hammerspoon console.",
-        "doc": "Build up the configuration for the current desktop arrangement and log it to the Hammerspoon console.",
+        "doc": "Build up the configuration for the current desktop arrangement and log it to the Hammerspoon console.\n\nParameters:\n * None",
         "name": "logCurrentArrangement",
+        "parameters": [
+          " * None"
+        ],
         "signature": "ArrangeDesktop:logCurrentArrangement()",
         "stripped_doc": "",
         "type": "Method"
@@ -449,18 +467,21 @@
     "Function": [],
     "Method": [
       {
-        "def": "BonjourLauncher:addRecipes(recipe, ...) -> self",
+        "def": "BonjourLauncher:addRecipes(recipe...) -> self",
         "desc": "Add predefined recipes to [BonjourLauncher.templates](#templates) for display by the BonjourLauncher chooser.",
-        "doc": "Add predefined recipes to [BonjourLauncher.templates](#templates) for display by the BonjourLauncher chooser.\n\nParamters:\n * `recipe`, ... - One or more string values matching a variable name in `BonjourLauncher.recipes` which define basic templates for common services which you may wish to add to your BonjourLauncer chooser window.\n\nReturns:\n * the BonjourLauncer object\n\nNotes:\n * This method is basically a wrapper which performs `table.insert(spoon.BonjourLauncher.templates, spoon.BonjourLauncher.recipes.*recipe*)` for each of the recipe names specified as a parameter to this method. You may invoke this method multiple times or combine multiple recipes into one invocation by specifying more thane one string, each separated by a comma.",
+        "doc": "Add predefined recipes to [BonjourLauncher.templates](#templates) for display by the BonjourLauncher chooser.\n\nParameters:\n * `recipe`, ... - One or more string values matching a variable name in `BonjourLauncher.recipes` which define basic templates for common services which you may wish to add to your BonjourLauncer chooser window.\n\nReturns:\n * the BonjourLauncer object\n\nNotes:\n * This method is basically a wrapper which performs `table.insert(spoon.BonjourLauncher.templates, spoon.BonjourLauncher.recipes.*recipe*)` for each of the recipe names specified as a parameter to this method. You may invoke this method multiple times or combine multiple recipes into one invocation by specifying more thane one string, each separated by a comma.",
         "name": "addRecipes",
         "notes": [
           " * This method is basically a wrapper which performs `table.insert(spoon.BonjourLauncher.templates, spoon.BonjourLauncher.recipes.*recipe*)` for each of the recipe names specified as a parameter to this method. You may invoke this method multiple times or combine multiple recipes into one invocation by specifying more thane one string, each separated by a comma."
         ],
+        "parameters": [
+          " * `recipe`, ... - One or more string values matching a variable name in `BonjourLauncher.recipes` which define basic templates for common services which you may wish to add to your BonjourLauncer chooser window."
+        ],
         "returns": [
           " * the BonjourLauncer object"
         ],
-        "signature": "BonjourLauncher:addRecipes(recipe, ...) -> self",
-        "stripped_doc": "Paramters:\n * `recipe`, ... - One or more string values matching a variable name in `BonjourLauncher.recipes` which define basic templates for common services which you may wish to add to your BonjourLauncer chooser window.",
+        "signature": "BonjourLauncher:addRecipes(recipe...) -> self",
+        "stripped_doc": "",
         "type": "Method"
       },
       {
@@ -644,18 +665,21 @@
     "doc": "List advertised services on your network that match defined templates and provide a list for the user to access them.\n\nSafari used to provide a list of web servers which advertised themselves via Bonjour in the Bookmarks menu or in a pop-up menu off of the toolbar. This feature was removed some time ago, for reasons best known to Apple.\n\nBecause I always found it useful to use these advertised web servers to check on the status of printer ink levels, etc. on my network, the `hs.bonjour` module and this spoon bring back an easy way to see what devices on your network are advertising a web server, and many other services which can use Bonjour (also sometimes referred to as ZeroConf or Avahi, especially on Linux servers) to advertise their presence.",
     "items": [
       {
-        "def": "BonjourLauncher:addRecipes(recipe, ...) -> self",
+        "def": "BonjourLauncher:addRecipes(recipe...) -> self",
         "desc": "Add predefined recipes to [BonjourLauncher.templates](#templates) for display by the BonjourLauncher chooser.",
-        "doc": "Add predefined recipes to [BonjourLauncher.templates](#templates) for display by the BonjourLauncher chooser.\n\nParamters:\n * `recipe`, ... - One or more string values matching a variable name in `BonjourLauncher.recipes` which define basic templates for common services which you may wish to add to your BonjourLauncer chooser window.\n\nReturns:\n * the BonjourLauncer object\n\nNotes:\n * This method is basically a wrapper which performs `table.insert(spoon.BonjourLauncher.templates, spoon.BonjourLauncher.recipes.*recipe*)` for each of the recipe names specified as a parameter to this method. You may invoke this method multiple times or combine multiple recipes into one invocation by specifying more thane one string, each separated by a comma.",
+        "doc": "Add predefined recipes to [BonjourLauncher.templates](#templates) for display by the BonjourLauncher chooser.\n\nParameters:\n * `recipe`, ... - One or more string values matching a variable name in `BonjourLauncher.recipes` which define basic templates for common services which you may wish to add to your BonjourLauncer chooser window.\n\nReturns:\n * the BonjourLauncer object\n\nNotes:\n * This method is basically a wrapper which performs `table.insert(spoon.BonjourLauncher.templates, spoon.BonjourLauncher.recipes.*recipe*)` for each of the recipe names specified as a parameter to this method. You may invoke this method multiple times or combine multiple recipes into one invocation by specifying more thane one string, each separated by a comma.",
         "name": "addRecipes",
         "notes": [
           " * This method is basically a wrapper which performs `table.insert(spoon.BonjourLauncher.templates, spoon.BonjourLauncher.recipes.*recipe*)` for each of the recipe names specified as a parameter to this method. You may invoke this method multiple times or combine multiple recipes into one invocation by specifying more thane one string, each separated by a comma."
         ],
+        "parameters": [
+          " * `recipe`, ... - One or more string values matching a variable name in `BonjourLauncher.recipes` which define basic templates for common services which you may wish to add to your BonjourLauncer chooser window."
+        ],
         "returns": [
           " * the BonjourLauncer object"
         ],
-        "signature": "BonjourLauncher:addRecipes(recipe, ...) -> self",
-        "stripped_doc": "Paramters:\n * `recipe`, ... - One or more string values matching a variable name in `BonjourLauncher.recipes` which define basic templates for common services which you may wish to add to your BonjourLauncer chooser window.",
+        "signature": "BonjourLauncher:addRecipes(recipe...) -> self",
+        "stripped_doc": "",
         "type": "Method"
       },
       {
@@ -1421,8 +1445,11 @@
       {
         "def": "ClipboardTool:checkAndStorePasteboard()",
         "desc": "If the pasteboard has changed, we add the current item to our history and update the counter",
-        "doc": "If the pasteboard has changed, we add the current item to our history and update the counter",
+        "doc": "If the pasteboard has changed, we add the current item to our history and update the counter\n\nParameters:\n * None",
         "name": "checkAndStorePasteboard",
+        "parameters": [
+          " * None"
+        ],
         "signature": "ClipboardTool:checkAndStorePasteboard()",
         "stripped_doc": "",
         "type": "Method"
@@ -1430,8 +1457,11 @@
       {
         "def": "ClipboardTool:clearAll()",
         "desc": "Clears the clipboard and history",
-        "doc": "Clears the clipboard and history",
+        "doc": "Clears the clipboard and history\n\nParameters:\n * None",
         "name": "clearAll",
+        "parameters": [
+          " * None"
+        ],
         "signature": "ClipboardTool:clearAll()",
         "stripped_doc": "",
         "type": "Method"
@@ -1439,8 +1469,11 @@
       {
         "def": "ClipboardTool:clearLastItem()",
         "desc": "Clears the last added to the history",
-        "doc": "Clears the last added to the history",
+        "doc": "Clears the last added to the history\n\nParameters:\n * None",
         "name": "clearLastItem",
+        "parameters": [
+          " * None"
+        ],
         "signature": "ClipboardTool:clearLastItem()",
         "stripped_doc": "",
         "type": "Method"
@@ -1463,8 +1496,11 @@
       {
         "def": "ClipboardTool:shouldBeStored()",
         "desc": "Verify whether the pasteboard contents matches one of the values in `ClipboardTool.ignoredIdentifiers`",
-        "doc": "Verify whether the pasteboard contents matches one of the values in `ClipboardTool.ignoredIdentifiers`",
+        "doc": "Verify whether the pasteboard contents matches one of the values in `ClipboardTool.ignoredIdentifiers`\n\nParameters:\n * None",
         "name": "shouldBeStored",
+        "parameters": [
+          " * None"
+        ],
         "signature": "ClipboardTool:shouldBeStored()",
         "stripped_doc": "",
         "type": "Method"
@@ -1472,8 +1508,11 @@
       {
         "def": "ClipboardTool:showClipboard()",
         "desc": "Display the current clipboard list in a chooser",
-        "doc": "Display the current clipboard list in a chooser",
+        "doc": "Display the current clipboard list in a chooser\n\nParameters:\n * None",
         "name": "showClipboard",
+        "parameters": [
+          " * None"
+        ],
         "signature": "ClipboardTool:showClipboard()",
         "stripped_doc": "",
         "type": "Method"
@@ -1481,8 +1520,11 @@
       {
         "def": "ClipboardTool:start()",
         "desc": "Start the clipboard history collector",
-        "doc": "Start the clipboard history collector",
+        "doc": "Start the clipboard history collector\n\nParameters:\n * None",
         "name": "start",
+        "parameters": [
+          " * None"
+        ],
         "signature": "ClipboardTool:start()",
         "stripped_doc": "",
         "type": "Method"
@@ -1490,8 +1532,11 @@
       {
         "def": "ClipboardTool:toggleClipboard()",
         "desc": "Show/hide the clipboard list, depending on its current state",
-        "doc": "Show/hide the clipboard list, depending on its current state",
+        "doc": "Show/hide the clipboard list, depending on its current state\n\nParameters:\n * None",
         "name": "toggleClipboard",
+        "parameters": [
+          " * None"
+        ],
         "signature": "ClipboardTool:toggleClipboard()",
         "stripped_doc": "",
         "type": "Method"
@@ -1499,8 +1544,11 @@
       {
         "def": "ClipboardTool:togglePasteOnSelect()",
         "desc": "Toggle the value of `ClipboardTool.paste_on_select`",
-        "doc": "Toggle the value of `ClipboardTool.paste_on_select`",
+        "doc": "Toggle the value of `ClipboardTool.paste_on_select`\n\nParameters:\n * None",
         "name": "togglePasteOnSelect",
+        "parameters": [
+          " * None"
+        ],
         "signature": "ClipboardTool:togglePasteOnSelect()",
         "stripped_doc": "",
         "type": "Method"
@@ -1636,8 +1684,11 @@
       {
         "def": "ClipboardTool:checkAndStorePasteboard()",
         "desc": "If the pasteboard has changed, we add the current item to our history and update the counter",
-        "doc": "If the pasteboard has changed, we add the current item to our history and update the counter",
+        "doc": "If the pasteboard has changed, we add the current item to our history and update the counter\n\nParameters:\n * None",
         "name": "checkAndStorePasteboard",
+        "parameters": [
+          " * None"
+        ],
         "signature": "ClipboardTool:checkAndStorePasteboard()",
         "stripped_doc": "",
         "type": "Method"
@@ -1645,8 +1696,11 @@
       {
         "def": "ClipboardTool:clearAll()",
         "desc": "Clears the clipboard and history",
-        "doc": "Clears the clipboard and history",
+        "doc": "Clears the clipboard and history\n\nParameters:\n * None",
         "name": "clearAll",
+        "parameters": [
+          " * None"
+        ],
         "signature": "ClipboardTool:clearAll()",
         "stripped_doc": "",
         "type": "Method"
@@ -1654,8 +1708,11 @@
       {
         "def": "ClipboardTool:clearLastItem()",
         "desc": "Clears the last added to the history",
-        "doc": "Clears the last added to the history",
+        "doc": "Clears the last added to the history\n\nParameters:\n * None",
         "name": "clearLastItem",
+        "parameters": [
+          " * None"
+        ],
         "signature": "ClipboardTool:clearLastItem()",
         "stripped_doc": "",
         "type": "Method"
@@ -1768,8 +1825,11 @@
       {
         "def": "ClipboardTool:shouldBeStored()",
         "desc": "Verify whether the pasteboard contents matches one of the values in `ClipboardTool.ignoredIdentifiers`",
-        "doc": "Verify whether the pasteboard contents matches one of the values in `ClipboardTool.ignoredIdentifiers`",
+        "doc": "Verify whether the pasteboard contents matches one of the values in `ClipboardTool.ignoredIdentifiers`\n\nParameters:\n * None",
         "name": "shouldBeStored",
+        "parameters": [
+          " * None"
+        ],
         "signature": "ClipboardTool:shouldBeStored()",
         "stripped_doc": "",
         "type": "Method"
@@ -1795,8 +1855,11 @@
       {
         "def": "ClipboardTool:showClipboard()",
         "desc": "Display the current clipboard list in a chooser",
-        "doc": "Display the current clipboard list in a chooser",
+        "doc": "Display the current clipboard list in a chooser\n\nParameters:\n * None",
         "name": "showClipboard",
+        "parameters": [
+          " * None"
+        ],
         "signature": "ClipboardTool:showClipboard()",
         "stripped_doc": "",
         "type": "Method"
@@ -1804,8 +1867,11 @@
       {
         "def": "ClipboardTool:start()",
         "desc": "Start the clipboard history collector",
-        "doc": "Start the clipboard history collector",
+        "doc": "Start the clipboard history collector\n\nParameters:\n * None",
         "name": "start",
+        "parameters": [
+          " * None"
+        ],
         "signature": "ClipboardTool:start()",
         "stripped_doc": "",
         "type": "Method"
@@ -1813,8 +1879,11 @@
       {
         "def": "ClipboardTool:toggleClipboard()",
         "desc": "Show/hide the clipboard list, depending on its current state",
-        "doc": "Show/hide the clipboard list, depending on its current state",
+        "doc": "Show/hide the clipboard list, depending on its current state\n\nParameters:\n * None",
         "name": "toggleClipboard",
+        "parameters": [
+          " * None"
+        ],
         "signature": "ClipboardTool:toggleClipboard()",
         "stripped_doc": "",
         "type": "Method"
@@ -1822,8 +1891,11 @@
       {
         "def": "ClipboardTool:togglePasteOnSelect()",
         "desc": "Toggle the value of `ClipboardTool.paste_on_select`",
-        "doc": "Toggle the value of `ClipboardTool.paste_on_select`",
+        "doc": "Toggle the value of `ClipboardTool.paste_on_select`\n\nParameters:\n * None",
         "name": "togglePasteOnSelect",
+        "parameters": [
+          " * None"
+        ],
         "signature": "ClipboardTool:togglePasteOnSelect()",
         "stripped_doc": "",
         "type": "Method"
@@ -1869,8 +1941,11 @@
       {
         "def": "ClipShow:restoreLastSession()",
         "desc": "Restore the lastsession of system clipboard",
-        "doc": "Restore the lastsession of system clipboard\n",
+        "doc": "Restore the lastsession of system clipboard\n\nParameters:\n * None",
         "name": "restoreLastSession",
+        "parameters": [
+          " * None"
+        ],
         "signature": "ClipShow:restoreLastSession()",
         "stripped_doc": "",
         "type": "Method"
@@ -1878,8 +1953,11 @@
       {
         "def": "ClipShow:saveToFile()",
         "desc": "Save content of current canvas to a file, the default location is `~/Desktop/`.",
-        "doc": "Save content of current canvas to a file, the default location is `~/Desktop/`.\n",
+        "doc": "Save content of current canvas to a file, the default location is `~/Desktop/`.\n\nParameters:\n * None",
         "name": "saveToFile",
+        "parameters": [
+          " * None"
+        ],
         "signature": "ClipShow:saveToFile()",
         "stripped_doc": "",
         "type": "Method"
@@ -1887,8 +1965,11 @@
       {
         "def": "ClipShow:saveToSession()",
         "desc": "Save clipboard session so we can restore it later",
-        "doc": "Save clipboard session so we can restore it later\n",
+        "doc": "Save clipboard session so we can restore it later\n\nParameters:\n * None",
         "name": "saveToSession",
+        "parameters": [
+          " * None"
+        ],
         "signature": "ClipShow:saveToSession()",
         "stripped_doc": "",
         "type": "Method"
@@ -1896,8 +1977,11 @@
       {
         "def": "ClipShow:toggleShow()",
         "desc": "Process the content of system clipboard and show/hide the canvas",
-        "doc": "Process the content of system clipboard and show/hide the canvas\n",
+        "doc": "Process the content of system clipboard and show/hide the canvas\n\nParameters:\n * None",
         "name": "toggleShow",
+        "parameters": [
+          " * None"
+        ],
         "signature": "ClipShow:toggleShow()",
         "stripped_doc": "",
         "type": "Method"
@@ -1934,8 +2018,11 @@
       {
         "def": "ClipShow:restoreLastSession()",
         "desc": "Restore the lastsession of system clipboard",
-        "doc": "Restore the lastsession of system clipboard\n",
+        "doc": "Restore the lastsession of system clipboard\n\nParameters:\n * None",
         "name": "restoreLastSession",
+        "parameters": [
+          " * None"
+        ],
         "signature": "ClipShow:restoreLastSession()",
         "stripped_doc": "",
         "type": "Method"
@@ -1943,8 +2030,11 @@
       {
         "def": "ClipShow:saveToFile()",
         "desc": "Save content of current canvas to a file, the default location is `~/Desktop/`.",
-        "doc": "Save content of current canvas to a file, the default location is `~/Desktop/`.\n",
+        "doc": "Save content of current canvas to a file, the default location is `~/Desktop/`.\n\nParameters:\n * None",
         "name": "saveToFile",
+        "parameters": [
+          " * None"
+        ],
         "signature": "ClipShow:saveToFile()",
         "stripped_doc": "",
         "type": "Method"
@@ -1952,8 +2042,11 @@
       {
         "def": "ClipShow:saveToSession()",
         "desc": "Save clipboard session so we can restore it later",
-        "doc": "Save clipboard session so we can restore it later\n",
+        "doc": "Save clipboard session so we can restore it later\n\nParameters:\n * None",
         "name": "saveToSession",
+        "parameters": [
+          " * None"
+        ],
         "signature": "ClipShow:saveToSession()",
         "stripped_doc": "",
         "type": "Method"
@@ -1961,8 +2054,11 @@
       {
         "def": "ClipShow:toggleShow()",
         "desc": "Process the content of system clipboard and show/hide the canvas",
-        "doc": "Process the content of system clipboard and show/hide the canvas\n",
+        "doc": "Process the content of system clipboard and show/hide the canvas\n\nParameters:\n * None",
         "name": "toggleShow",
+        "parameters": [
+          " * None"
+        ],
         "signature": "ClipShow:toggleShow()",
         "stripped_doc": "",
         "type": "Method"
@@ -2107,10 +2203,10 @@
       {
         "def": "Commander.addCommand(commandTable)",
         "desc": "Add a command to Commander.commandTable",
-        "doc": "Add a command to Commander.commandTable\n\nParameters:\n* comamndTable - It is a table with same form of Commander.commandTable\n                 key is name of command, value is the function.\n\nNote:\nCommander doesn't test the name against Commander.ignoredCommandList\nbecause it assumes you know what you are doing.",
+        "doc": "Add a command to Commander.commandTable\n\nParameters:\n * commandTable - It is a table with same form of Commander.commandTable\n                 key is name of command, value is the function.\n\nNote:\nCommander doesn't test the name against Commander.ignoredCommandList\nbecause it assumes you know what you are doing.",
         "name": "addCommand",
         "parameters": [
-          "* comamndTable - It is a table with same form of Commander.commandTable",
+          " * commandTable - It is a table with same form of Commander.commandTable",
           "                 key is name of command, value is the function."
         ],
         "signature": "Commander.addCommand(commandTable)",
@@ -2119,20 +2215,26 @@
       },
       {
         "def": "Commander.resetCommandTable()",
-        "desc": "This function simply set Commander.commandTable to {},",
-        "doc": "This function simply set Commander.commandTable to {},\nThen the next time commander chooser is called\nit will generate the table again.",
+        "desc": "This function simply set Commander.commandTable to {}, then the next time commander chooser is called it will generate the table again.",
+        "doc": "This function simply set Commander.commandTable to {}, then the next time commander chooser is called it will generate the table again.\n\nParameters:\n * None",
         "name": "resetCommandTable",
+        "parameters": [
+          " * None"
+        ],
         "signature": "Commander.resetCommandTable()",
-        "stripped_doc": "Then the next time commander chooser is called\nit will generate the table again.",
+        "stripped_doc": "",
         "type": "Function"
       },
       {
         "def": "Commander.show()",
-        "desc": "This function shows the command chooser.",
-        "doc": "This function shows the command chooser.\nBind this to a hotkey to use commander. ",
+        "desc": "This function shows the command chooser. Bind this to a hotkey to use commander.",
+        "doc": "This function shows the command chooser. Bind this to a hotkey to use commander.\n\nParameters:\n * None",
         "name": "show",
+        "parameters": [
+          " * None"
+        ],
         "signature": "Commander.show()",
-        "stripped_doc": "Bind this to a hotkey to use commander. ",
+        "stripped_doc": "",
         "type": "Function"
       }
     ],
@@ -2181,10 +2283,10 @@
       {
         "def": "Commander.addCommand(commandTable)",
         "desc": "Add a command to Commander.commandTable",
-        "doc": "Add a command to Commander.commandTable\n\nParameters:\n* comamndTable - It is a table with same form of Commander.commandTable\n                 key is name of command, value is the function.\n\nNote:\nCommander doesn't test the name against Commander.ignoredCommandList\nbecause it assumes you know what you are doing.",
+        "doc": "Add a command to Commander.commandTable\n\nParameters:\n * commandTable - It is a table with same form of Commander.commandTable\n                 key is name of command, value is the function.\n\nNote:\nCommander doesn't test the name against Commander.ignoredCommandList\nbecause it assumes you know what you are doing.",
         "name": "addCommand",
         "parameters": [
-          "* comamndTable - It is a table with same form of Commander.commandTable",
+          " * commandTable - It is a table with same form of Commander.commandTable",
           "                 key is name of command, value is the function."
         ],
         "signature": "Commander.addCommand(commandTable)",
@@ -2229,20 +2331,26 @@
       },
       {
         "def": "Commander.resetCommandTable()",
-        "desc": "This function simply set Commander.commandTable to {},",
-        "doc": "This function simply set Commander.commandTable to {},\nThen the next time commander chooser is called\nit will generate the table again.",
+        "desc": "This function simply set Commander.commandTable to {}, then the next time commander chooser is called it will generate the table again.",
+        "doc": "This function simply set Commander.commandTable to {}, then the next time commander chooser is called it will generate the table again.\n\nParameters:\n * None",
         "name": "resetCommandTable",
+        "parameters": [
+          " * None"
+        ],
         "signature": "Commander.resetCommandTable()",
-        "stripped_doc": "Then the next time commander chooser is called\nit will generate the table again.",
+        "stripped_doc": "",
         "type": "Function"
       },
       {
         "def": "Commander.show()",
-        "desc": "This function shows the command chooser.",
-        "doc": "This function shows the command chooser.\nBind this to a hotkey to use commander. ",
+        "desc": "This function shows the command chooser. Bind this to a hotkey to use commander.",
+        "doc": "This function shows the command chooser. Bind this to a hotkey to use commander.\n\nParameters:\n * None",
         "name": "show",
+        "parameters": [
+          " * None"
+        ],
         "signature": "Commander.show()",
-        "stripped_doc": "Bind this to a hotkey to use commander. ",
+        "stripped_doc": "",
         "type": "Function"
       }
     ],
@@ -2262,8 +2370,11 @@
       {
         "def": "CountDown:pauseOrResume()",
         "desc": "Pause or resume the existing countdown.",
-        "doc": "Pause or resume the existing countdown.\n",
+        "doc": "Pause or resume the existing countdown.\n\nParameters:\n * None",
         "name": "pauseOrResume",
+        "parameters": [
+          " * None"
+        ],
         "signature": "CountDown:pauseOrResume()",
         "stripped_doc": "",
         "type": "Method"
@@ -2300,8 +2411,11 @@
       {
         "def": "CountDown:pauseOrResume()",
         "desc": "Pause or resume the existing countdown.",
-        "doc": "Pause or resume the existing countdown.\n",
+        "doc": "Pause or resume the existing countdown.\n\nParameters:\n * None",
         "name": "pauseOrResume",
+        "parameters": [
+          " * None"
+        ],
         "signature": "CountDown:pauseOrResume()",
         "stripped_doc": "",
         "type": "Method"
@@ -2375,8 +2489,11 @@
       {
         "def": "DeepLTranslate:translateSelectionPopup()",
         "desc": "Get the current selected text in the frontmost window and display a translation popup with the translation between the specified languages",
-        "doc": "Get the current selected text in the frontmost window and display a translation popup with the translation between the specified languages\n\nReturns:\n * The DeepLTranslate object",
+        "doc": "Get the current selected text in the frontmost window and display a translation popup with the translation between the specified languages\n\nParameters:\n * None\n\nReturns:\n * The DeepLTranslate object",
         "name": "translateSelectionPopup",
+        "parameters": [
+          " * None"
+        ],
         "returns": [
           " * The DeepLTranslate object"
         ],
@@ -2511,8 +2628,11 @@
       {
         "def": "DeepLTranslate:translateSelectionPopup()",
         "desc": "Get the current selected text in the frontmost window and display a translation popup with the translation between the specified languages",
-        "doc": "Get the current selected text in the frontmost window and display a translation popup with the translation between the specified languages\n\nReturns:\n * The DeepLTranslate object",
+        "doc": "Get the current selected text in the frontmost window and display a translation popup with the translation between the specified languages\n\nParameters:\n * None\n\nReturns:\n * The DeepLTranslate object",
         "name": "translateSelectionPopup",
+        "parameters": [
+          " * None"
+        ],
         "returns": [
           " * The DeepLTranslate object"
         ],
@@ -2550,22 +2670,23 @@
       {
         "def": "EjectMenu:ejectVolumes()",
         "desc": "Eject all volumes",
-        "doc": "Eject all volumes\n\nParameters\n * persistent_notifs: a boolean indicating whether notifications (if shown) should be persistent.",
+        "doc": "Eject all volumes\n\nParameters:\n * persistent_notifs: a boolean indicating whether notifications (if shown) should be persistent.",
         "name": "ejectVolumes",
+        "parameters": [
+          " * persistent_notifs: a boolean indicating whether notifications (if shown) should be persistent."
+        ],
         "signature": "EjectMenu:ejectVolumes()",
-        "stripped_doc": "Parameters\n * persistent_notifs: a boolean indicating whether notifications (if shown) should be persistent.",
+        "stripped_doc": "",
         "type": "Method"
       },
       {
         "def": "EjectMenu:shouldEject(path, info)",
         "desc": "Determine if a volume should be ejected.",
-        "doc": "Determine if a volume should be ejected.\n\nParameters:\n * path - the mount path of the volume.\n * info - a table containing a data structure as returned by `hs.fs.volume.allVolumes()`.\nReturns:\n * A boolean indicating whether the volume should be ejected.",
+        "doc": "Determine if a volume should be ejected.\n\nParameters:\n * path - the mount path of the volume.\n * info - a table containing a data structure as returned by `hs.fs.volume.allVolumes()`.\n\nReturns:\n * A boolean indicating whether the volume should be ejected.",
         "name": "shouldEject",
         "parameters": [
           " * path - the mount path of the volume.",
-          " * info - a table containing a data structure as returned by `hs.fs.volume.allVolumes()`.",
-          "Returns:",
-          " * A boolean indicating whether the volume should be ejected."
+          " * info - a table containing a data structure as returned by `hs.fs.volume.allVolumes()`."
         ],
         "returns": [
           " * A boolean indicating whether the volume should be ejected."
@@ -2577,8 +2698,11 @@
       {
         "def": "EjectMenu:start()",
         "desc": "Start the watchers for power events and screen changes, to trigger volume ejection.",
-        "doc": "Start the watchers for power events and screen changes, to trigger volume ejection.",
+        "doc": "Start the watchers for power events and screen changes, to trigger volume ejection.\n\nParameters:\n * None",
         "name": "start",
+        "parameters": [
+          " * None"
+        ],
         "signature": "EjectMenu:start()",
         "stripped_doc": "",
         "type": "Method"
@@ -2586,8 +2710,11 @@
       {
         "def": "EjectMenu:stop()",
         "desc": "Stop the watchers",
-        "doc": "Stop the watchers",
+        "doc": "Stop the watchers\n\nParameters:\n * None",
         "name": "stop",
+        "parameters": [
+          " * None"
+        ],
         "signature": "EjectMenu:stop()",
         "stripped_doc": "",
         "type": "Method"
@@ -2595,8 +2722,11 @@
       {
         "def": "EjectMenu:volumesToEject()",
         "desc": "Return table of volumes to be ejected when \"Eject All\" is invoked.",
-        "doc": "Return table of volumes to be ejected when \"Eject All\" is invoked.\n\nReturns:\n * A table in the same format as returned by\n   `hs.fs.volume.allVolumes()` but containing only those volumes\n   for which `EjectMenu:shouldEject()` returns `true`.\n * An integer indicating how many volumes are in the table.",
+        "doc": "Return table of volumes to be ejected when \"Eject All\" is invoked.\n\nParameters:\n * None\n\nReturns:\n * A table in the same format as returned by\n   `hs.fs.volume.allVolumes()` but containing only those volumes\n   for which `EjectMenu:shouldEject()` returns `true`.\n * An integer indicating how many volumes are in the table.",
         "name": "volumesToEject",
+        "parameters": [
+          " * None"
+        ],
         "returns": [
           " * A table in the same format as returned by",
           "   `hs.fs.volume.allVolumes()` but containing only those volumes",
@@ -2710,10 +2840,13 @@
       {
         "def": "EjectMenu:ejectVolumes()",
         "desc": "Eject all volumes",
-        "doc": "Eject all volumes\n\nParameters\n * persistent_notifs: a boolean indicating whether notifications (if shown) should be persistent.",
+        "doc": "Eject all volumes\n\nParameters:\n * persistent_notifs: a boolean indicating whether notifications (if shown) should be persistent.",
         "name": "ejectVolumes",
+        "parameters": [
+          " * persistent_notifs: a boolean indicating whether notifications (if shown) should be persistent."
+        ],
         "signature": "EjectMenu:ejectVolumes()",
-        "stripped_doc": "Parameters\n * persistent_notifs: a boolean indicating whether notifications (if shown) should be persistent.",
+        "stripped_doc": "",
         "type": "Method"
       },
       {
@@ -2755,13 +2888,11 @@
       {
         "def": "EjectMenu:shouldEject(path, info)",
         "desc": "Determine if a volume should be ejected.",
-        "doc": "Determine if a volume should be ejected.\n\nParameters:\n * path - the mount path of the volume.\n * info - a table containing a data structure as returned by `hs.fs.volume.allVolumes()`.\nReturns:\n * A boolean indicating whether the volume should be ejected.",
+        "doc": "Determine if a volume should be ejected.\n\nParameters:\n * path - the mount path of the volume.\n * info - a table containing a data structure as returned by `hs.fs.volume.allVolumes()`.\n\nReturns:\n * A boolean indicating whether the volume should be ejected.",
         "name": "shouldEject",
         "parameters": [
           " * path - the mount path of the volume.",
-          " * info - a table containing a data structure as returned by `hs.fs.volume.allVolumes()`.",
-          "Returns:",
-          " * A boolean indicating whether the volume should be ejected."
+          " * info - a table containing a data structure as returned by `hs.fs.volume.allVolumes()`."
         ],
         "returns": [
           " * A boolean indicating whether the volume should be ejected."
@@ -2782,8 +2913,11 @@
       {
         "def": "EjectMenu:start()",
         "desc": "Start the watchers for power events and screen changes, to trigger volume ejection.",
-        "doc": "Start the watchers for power events and screen changes, to trigger volume ejection.",
+        "doc": "Start the watchers for power events and screen changes, to trigger volume ejection.\n\nParameters:\n * None",
         "name": "start",
+        "parameters": [
+          " * None"
+        ],
         "signature": "EjectMenu:start()",
         "stripped_doc": "",
         "type": "Method"
@@ -2791,8 +2925,11 @@
       {
         "def": "EjectMenu:stop()",
         "desc": "Stop the watchers",
-        "doc": "Stop the watchers",
+        "doc": "Stop the watchers\n\nParameters:\n * None",
         "name": "stop",
+        "parameters": [
+          " * None"
+        ],
         "signature": "EjectMenu:stop()",
         "stripped_doc": "",
         "type": "Method"
@@ -2800,8 +2937,11 @@
       {
         "def": "EjectMenu:volumesToEject()",
         "desc": "Return table of volumes to be ejected when \"Eject All\" is invoked.",
-        "doc": "Return table of volumes to be ejected when \"Eject All\" is invoked.\n\nReturns:\n * A table in the same format as returned by\n   `hs.fs.volume.allVolumes()` but containing only those volumes\n   for which `EjectMenu:shouldEject()` returns `true`.\n * An integer indicating how many volumes are in the table.",
+        "doc": "Return table of volumes to be ejected when \"Eject All\" is invoked.\n\nParameters:\n * None\n\nReturns:\n * A table in the same format as returned by\n   `hs.fs.volume.allVolumes()` but containing only those volumes\n   for which `EjectMenu:shouldEject()` returns `true`.\n * An integer indicating how many volumes are in the table.",
         "name": "volumesToEject",
+        "parameters": [
+          " * None"
+        ],
         "returns": [
           " * A table in the same format as returned by",
           "   `hs.fs.volume.allVolumes()` but containing only those volumes",
@@ -3110,8 +3250,11 @@
       {
         "def": "FadeLogo:delete()",
         "desc": "Hide and delete the canvas",
-        "doc": "Hide and delete the canvas",
+        "doc": "Hide and delete the canvas\n\nParameters:\n * None",
         "name": "delete",
+        "parameters": [
+          " * None"
+        ],
         "signature": "FadeLogo:delete()",
         "stripped_doc": "",
         "type": "Method"
@@ -3119,8 +3262,11 @@
       {
         "def": "FadeLogo:hide()",
         "desc": "Hide the image without zoom, fading it out over `fade_out_time` seconds",
-        "doc": "Hide the image without zoom, fading it out over `fade_out_time` seconds",
+        "doc": "Hide the image without zoom, fading it out over `fade_out_time` seconds\n\nParameters:\n * None",
         "name": "hide",
+        "parameters": [
+          " * None"
+        ],
         "signature": "FadeLogo:hide()",
         "stripped_doc": "",
         "type": "Method"
@@ -3128,8 +3274,11 @@
       {
         "def": "FadeLogo:show()",
         "desc": "Display the image, fading it in over `fade_in_time` seconds",
-        "doc": "Display the image, fading it in over `fade_in_time` seconds",
+        "doc": "Display the image, fading it in over `fade_in_time` seconds\n\nParameters:\n * None",
         "name": "show",
+        "parameters": [
+          " * None"
+        ],
         "signature": "FadeLogo:show()",
         "stripped_doc": "",
         "type": "Method"
@@ -3137,8 +3286,11 @@
       {
         "def": "FadeLogo:start()",
         "desc": "Show the image, wait `run_time` seconds, and then zoom-and-fade it out.",
-        "doc": "Show the image, wait `run_time` seconds, and then zoom-and-fade it out.",
+        "doc": "Show the image, wait `run_time` seconds, and then zoom-and-fade it out.\n\nParameters:\n * None",
         "name": "start",
+        "parameters": [
+          " * None"
+        ],
         "signature": "FadeLogo:start()",
         "stripped_doc": "",
         "type": "Method"
@@ -3146,8 +3298,11 @@
       {
         "def": "FadeLogo:zoom_and_fade()",
         "desc": "Zoom-and-fade the image over `fade_out_time` seconds",
-        "doc": "Zoom-and-fade the image over `fade_out_time` seconds",
+        "doc": "Zoom-and-fade the image over `fade_out_time` seconds\n\nParameters:\n * None",
         "name": "zoom_and_fade",
+        "parameters": [
+          " * None"
+        ],
         "signature": "FadeLogo:zoom_and_fade()",
         "stripped_doc": "",
         "type": "Method"
@@ -3251,8 +3406,11 @@
       {
         "def": "FadeLogo:delete()",
         "desc": "Hide and delete the canvas",
-        "doc": "Hide and delete the canvas",
+        "doc": "Hide and delete the canvas\n\nParameters:\n * None",
         "name": "delete",
+        "parameters": [
+          " * None"
+        ],
         "signature": "FadeLogo:delete()",
         "stripped_doc": "",
         "type": "Method"
@@ -3278,8 +3436,11 @@
       {
         "def": "FadeLogo:hide()",
         "desc": "Hide the image without zoom, fading it out over `fade_out_time` seconds",
-        "doc": "Hide the image without zoom, fading it out over `fade_out_time` seconds",
+        "doc": "Hide the image without zoom, fading it out over `fade_out_time` seconds\n\nParameters:\n * None",
         "name": "hide",
+        "parameters": [
+          " * None"
+        ],
         "signature": "FadeLogo:hide()",
         "stripped_doc": "",
         "type": "Method"
@@ -3332,8 +3493,11 @@
       {
         "def": "FadeLogo:show()",
         "desc": "Display the image, fading it in over `fade_in_time` seconds",
-        "doc": "Display the image, fading it in over `fade_in_time` seconds",
+        "doc": "Display the image, fading it in over `fade_in_time` seconds\n\nParameters:\n * None",
         "name": "show",
+        "parameters": [
+          " * None"
+        ],
         "signature": "FadeLogo:show()",
         "stripped_doc": "",
         "type": "Method"
@@ -3341,8 +3505,11 @@
       {
         "def": "FadeLogo:start()",
         "desc": "Show the image, wait `run_time` seconds, and then zoom-and-fade it out.",
-        "doc": "Show the image, wait `run_time` seconds, and then zoom-and-fade it out.",
+        "doc": "Show the image, wait `run_time` seconds, and then zoom-and-fade it out.\n\nParameters:\n * None",
         "name": "start",
+        "parameters": [
+          " * None"
+        ],
         "signature": "FadeLogo:start()",
         "stripped_doc": "",
         "type": "Method"
@@ -3359,8 +3526,11 @@
       {
         "def": "FadeLogo:zoom_and_fade()",
         "desc": "Zoom-and-fade the image over `fade_out_time` seconds",
-        "doc": "Zoom-and-fade the image over `fade_out_time` seconds",
+        "doc": "Zoom-and-fade the image over `fade_out_time` seconds\n\nParameters:\n * None",
         "name": "zoom_and_fade",
+        "parameters": [
+          " * None"
+        ],
         "signature": "FadeLogo:zoom_and_fade()",
         "stripped_doc": "",
         "type": "Method"
@@ -3417,8 +3587,11 @@
       {
         "def": "HCalendar:createCanvas()",
         "desc": "Create the calendar canvas",
-        "doc": "Create the calendar canvas",
+        "doc": "Create the calendar canvas\n\nParameters:\n * None",
         "name": "createCanvas",
+        "parameters": [
+          " * None"
+        ],
         "signature": "HCalendar:createCanvas()",
         "stripped_doc": "",
         "type": "Method"
@@ -3426,8 +3599,11 @@
       {
         "def": "HCalendar:init()",
         "desc": "Initializes the spoon",
-        "doc": "Initializes the spoon",
+        "doc": "Initializes the spoon\n\nParameters:\n * None",
         "name": "init",
+        "parameters": [
+          " * None"
+        ],
         "signature": "HCalendar:init()",
         "stripped_doc": "",
         "type": "Method"
@@ -3435,8 +3611,11 @@
       {
         "def": "HCalendar:start()",
         "desc": "Start HCalendar timer and show the canvas",
-        "doc": "Start HCalendar timer and show the canvas",
+        "doc": "Start HCalendar timer and show the canvas\n\nParameters:\n * None",
         "name": "start",
+        "parameters": [
+          " * None"
+        ],
         "signature": "HCalendar:start()",
         "stripped_doc": "",
         "type": "Method"
@@ -3444,8 +3623,11 @@
       {
         "def": "HCalendar:stop()",
         "desc": "Stop HCalendar timer and hide the canvas",
-        "doc": "Stop HCalendar timer and hide the canvas",
+        "doc": "Stop HCalendar timer and hide the canvas\n\nParameters:\n * None",
         "name": "stop",
+        "parameters": [
+          " * None"
+        ],
         "signature": "HCalendar:stop()",
         "stripped_doc": "",
         "type": "Method"
@@ -3468,8 +3650,11 @@
       {
         "def": "HCalendar:createCanvas()",
         "desc": "Create the calendar canvas",
-        "doc": "Create the calendar canvas",
+        "doc": "Create the calendar canvas\n\nParameters:\n * None",
         "name": "createCanvas",
+        "parameters": [
+          " * None"
+        ],
         "signature": "HCalendar:createCanvas()",
         "stripped_doc": "",
         "type": "Method"
@@ -3477,8 +3662,11 @@
       {
         "def": "HCalendar:init()",
         "desc": "Initializes the spoon",
-        "doc": "Initializes the spoon",
+        "doc": "Initializes the spoon\n\nParameters:\n * None",
         "name": "init",
+        "parameters": [
+          " * None"
+        ],
         "signature": "HCalendar:init()",
         "stripped_doc": "",
         "type": "Method"
@@ -3495,8 +3683,11 @@
       {
         "def": "HCalendar:start()",
         "desc": "Start HCalendar timer and show the canvas",
-        "doc": "Start HCalendar timer and show the canvas",
+        "doc": "Start HCalendar timer and show the canvas\n\nParameters:\n * None",
         "name": "start",
+        "parameters": [
+          " * None"
+        ],
         "signature": "HCalendar:start()",
         "stripped_doc": "",
         "type": "Method"
@@ -3504,8 +3695,11 @@
       {
         "def": "HCalendar:stop()",
         "desc": "Stop HCalendar timer and hide the canvas",
-        "doc": "Stop HCalendar timer and hide the canvas",
+        "doc": "Stop HCalendar timer and hide the canvas\n\nParameters:\n * None",
         "name": "stop",
+        "parameters": [
+          " * None"
+        ],
         "signature": "HCalendar:stop()",
         "stripped_doc": "",
         "type": "Method"
@@ -3527,8 +3721,12 @@
       {
         "def": "HeadphoneAutoPause:audiodevwatch(dev_uid, event_name)",
         "desc": "Callback function to use as an audio device watcher, to pause/unpause the application on headphones plugged/unplugged",
-        "doc": "Callback function to use as an audio device watcher, to pause/unpause the application on headphones plugged/unplugged",
+        "doc": "Callback function to use as an audio device watcher, to pause/unpause the application on headphones plugged/unplugged\n\nParameters:\n * dev_uid - The audio device\n * event_name - The event name",
         "name": "audiodevwatch",
+        "parameters": [
+          " * dev_uid - The audio device",
+          " * event_name - The event name"
+        ],
         "signature": "HeadphoneAutoPause:audiodevwatch(dev_uid, event_name)",
         "stripped_doc": "",
         "type": "Method"
@@ -3551,8 +3749,11 @@
       {
         "def": "HeadphoneAutoPause:start()",
         "desc": "Start headphone detection on all audio devices that support it",
-        "doc": "Start headphone detection on all audio devices that support it",
+        "doc": "Start headphone detection on all audio devices that support it\n\nParameters:\n * None",
         "name": "start",
+        "parameters": [
+          " * None"
+        ],
         "signature": "HeadphoneAutoPause:start()",
         "stripped_doc": "",
         "type": "Method"
@@ -3560,8 +3761,11 @@
       {
         "def": "HeadphoneAutoPause:stop()",
         "desc": "Stop headphone detection",
-        "doc": "Stop headphone detection",
+        "doc": "Stop headphone detection\n\nParameters:\n * None",
         "name": "stop",
+        "parameters": [
+          " * None"
+        ],
         "signature": "HeadphoneAutoPause:stop()",
         "stripped_doc": "",
         "type": "Method"
@@ -3611,8 +3815,12 @@
       {
         "def": "HeadphoneAutoPause:audiodevwatch(dev_uid, event_name)",
         "desc": "Callback function to use as an audio device watcher, to pause/unpause the application on headphones plugged/unplugged",
-        "doc": "Callback function to use as an audio device watcher, to pause/unpause the application on headphones plugged/unplugged",
+        "doc": "Callback function to use as an audio device watcher, to pause/unpause the application on headphones plugged/unplugged\n\nParameters:\n * dev_uid - The audio device\n * event_name - The event name",
         "name": "audiodevwatch",
+        "parameters": [
+          " * dev_uid - The audio device",
+          " * event_name - The event name"
+        ],
         "signature": "HeadphoneAutoPause:audiodevwatch(dev_uid, event_name)",
         "stripped_doc": "",
         "type": "Method"
@@ -3671,8 +3879,11 @@
       {
         "def": "HeadphoneAutoPause:start()",
         "desc": "Start headphone detection on all audio devices that support it",
-        "doc": "Start headphone detection on all audio devices that support it",
+        "doc": "Start headphone detection on all audio devices that support it\n\nParameters:\n * None",
         "name": "start",
+        "parameters": [
+          " * None"
+        ],
         "signature": "HeadphoneAutoPause:start()",
         "stripped_doc": "",
         "type": "Method"
@@ -3680,8 +3891,11 @@
       {
         "def": "HeadphoneAutoPause:stop()",
         "desc": "Stop headphone detection",
-        "doc": "Stop headphone detection",
+        "doc": "Stop headphone detection\n\nParameters:\n * None",
         "name": "stop",
+        "parameters": [
+          " * None"
+        ],
         "signature": "HeadphoneAutoPause:stop()",
         "stripped_doc": "",
         "type": "Method"
@@ -3795,8 +4009,11 @@
       {
         "def": "HoldToQuit:init()",
         "desc": "Initialize spoon",
-        "doc": "Initialize spoon",
+        "doc": "Initialize spoon\n\nParameters:\n * None",
         "name": "init",
+        "parameters": [
+          " * None"
+        ],
         "signature": "HoldToQuit:init()",
         "stripped_doc": "",
         "type": "Method"
@@ -3804,8 +4021,11 @@
       {
         "def": "HoldToQuit.killCurrentApp",
         "desc": "Kill the frontmost application",
-        "doc": "Kill the frontmost application",
+        "doc": "Kill the frontmost application\n\nParameters:\n * None",
         "name": "killCurrentApp",
+        "parameters": [
+          " * None"
+        ],
         "signature": "HoldToQuit.killCurrentApp",
         "stripped_doc": "",
         "type": "Method"
@@ -3813,8 +4033,11 @@
       {
         "def": "HoldToQuit:onKeyDown()",
         "desc": "Start timer on keyDown",
-        "doc": "Start timer on keyDown",
+        "doc": "Start timer on keyDown\n\nParameters:\n * None",
         "name": "onKeyDown",
+        "parameters": [
+          " * None"
+        ],
         "signature": "HoldToQuit:onKeyDown()",
         "stripped_doc": "",
         "type": "Method"
@@ -3822,8 +4045,11 @@
       {
         "def": "HoldToQuit:onKeyUp()",
         "desc": "Stop Timer & show alert message",
-        "doc": "Stop Timer & show alert message",
+        "doc": "Stop Timer & show alert message\n\nParameters:\n * None",
         "name": "onKeyUp",
+        "parameters": [
+          " * None"
+        ],
         "signature": "HoldToQuit:onKeyUp()",
         "stripped_doc": "",
         "type": "Method"
@@ -3831,8 +4057,11 @@
       {
         "def": "HoldToQuit:start()",
         "desc": "Start HoldToQuit with default hotkey",
-        "doc": "Start HoldToQuit with default hotkey",
+        "doc": "Start HoldToQuit with default hotkey\n\nParameters:\n * None",
         "name": "start",
+        "parameters": [
+          " * None"
+        ],
         "signature": "HoldToQuit:start()",
         "stripped_doc": "",
         "type": "Method"
@@ -3840,8 +4069,11 @@
       {
         "def": "HoldToQuit:stop()",
         "desc": "Disable HoldToQuit hotkey",
-        "doc": "Disable HoldToQuit hotkey",
+        "doc": "Disable HoldToQuit hotkey\n\nParameters:\n * None",
         "name": "stop",
+        "parameters": [
+          " * None"
+        ],
         "signature": "HoldToQuit:stop()",
         "stripped_doc": "",
         "type": "Method"
@@ -3931,8 +4163,11 @@
       {
         "def": "HoldToQuit:init()",
         "desc": "Initialize spoon",
-        "doc": "Initialize spoon",
+        "doc": "Initialize spoon\n\nParameters:\n * None",
         "name": "init",
+        "parameters": [
+          " * None"
+        ],
         "signature": "HoldToQuit:init()",
         "stripped_doc": "",
         "type": "Method"
@@ -3940,8 +4175,11 @@
       {
         "def": "HoldToQuit.killCurrentApp",
         "desc": "Kill the frontmost application",
-        "doc": "Kill the frontmost application",
+        "doc": "Kill the frontmost application\n\nParameters:\n * None",
         "name": "killCurrentApp",
+        "parameters": [
+          " * None"
+        ],
         "signature": "HoldToQuit.killCurrentApp",
         "stripped_doc": "",
         "type": "Method"
@@ -3949,8 +4187,11 @@
       {
         "def": "HoldToQuit:onKeyDown()",
         "desc": "Start timer on keyDown",
-        "doc": "Start timer on keyDown",
+        "doc": "Start timer on keyDown\n\nParameters:\n * None",
         "name": "onKeyDown",
+        "parameters": [
+          " * None"
+        ],
         "signature": "HoldToQuit:onKeyDown()",
         "stripped_doc": "",
         "type": "Method"
@@ -3958,8 +4199,11 @@
       {
         "def": "HoldToQuit:onKeyUp()",
         "desc": "Stop Timer & show alert message",
-        "doc": "Stop Timer & show alert message",
+        "doc": "Stop Timer & show alert message\n\nParameters:\n * None",
         "name": "onKeyUp",
+        "parameters": [
+          " * None"
+        ],
         "signature": "HoldToQuit:onKeyUp()",
         "stripped_doc": "",
         "type": "Method"
@@ -3967,8 +4211,11 @@
       {
         "def": "HoldToQuit:start()",
         "desc": "Start HoldToQuit with default hotkey",
-        "doc": "Start HoldToQuit with default hotkey",
+        "doc": "Start HoldToQuit with default hotkey\n\nParameters:\n * None",
         "name": "start",
+        "parameters": [
+          " * None"
+        ],
         "signature": "HoldToQuit:start()",
         "stripped_doc": "",
         "type": "Method"
@@ -3976,8 +4223,11 @@
       {
         "def": "HoldToQuit:stop()",
         "desc": "Disable HoldToQuit hotkey",
-        "doc": "Disable HoldToQuit hotkey",
+        "doc": "Disable HoldToQuit hotkey\n\nParameters:\n * None",
         "name": "stop",
+        "parameters": [
+          " * None"
+        ],
         "signature": "HoldToQuit:stop()",
         "stripped_doc": "",
         "type": "Method"
@@ -4051,8 +4301,11 @@
       {
         "def": "HSaria2:togglePanel()",
         "desc": "Toggle the display of aria2 panel. The panel allows users to interact with aria2, add new tasks, pause them, or remove, purge … etc.",
-        "doc": "Toggle the display of aria2 panel. The panel allows users to interact with aria2, add new tasks, pause them, or remove, purge … etc.\n",
+        "doc": "Toggle the display of aria2 panel. The panel allows users to interact with aria2, add new tasks, pause them, or remove, purge … etc.\n\nParameters:\n * None\n",
         "name": "togglePanel",
+        "parameters": [
+          " * None"
+        ],
         "signature": "HSaria2:togglePanel()",
         "stripped_doc": "",
         "type": "Method"
@@ -4145,8 +4398,11 @@
       {
         "def": "HSaria2:togglePanel()",
         "desc": "Toggle the display of aria2 panel. The panel allows users to interact with aria2, add new tasks, pause them, or remove, purge … etc.",
-        "doc": "Toggle the display of aria2 panel. The panel allows users to interact with aria2, add new tasks, pause them, or remove, purge … etc.\n",
+        "doc": "Toggle the display of aria2 panel. The panel allows users to interact with aria2, add new tasks, pause them, or remove, purge … etc.\n\nParameters:\n * None\n",
         "name": "togglePanel",
+        "parameters": [
+          " * None"
+        ],
         "signature": "HSaria2:togglePanel()",
         "stripped_doc": "",
         "type": "Method"
@@ -4168,8 +4424,11 @@
       {
         "def": "HSearch:loadSources()",
         "desc": "Load new sources from `HSearch.search_path`, the search_path defaults to `~/.hammerspoon/private/hsearch_dir` and the HSearch Spoon directory. Only useful for debugging purposes.",
-        "doc": "Load new sources from `HSearch.search_path`, the search_path defaults to `~/.hammerspoon/private/hsearch_dir` and the HSearch Spoon directory. Only useful for debugging purposes.\n",
+        "doc": "Load new sources from `HSearch.search_path`, the search_path defaults to `~/.hammerspoon/private/hsearch_dir` and the HSearch Spoon directory. Only useful for debugging purposes.\n\nParameters:\n * None\n",
         "name": "loadSources",
+        "parameters": [
+          " * None"
+        ],
         "signature": "HSearch:loadSources()",
         "stripped_doc": "",
         "type": "Method"
@@ -4177,8 +4436,11 @@
       {
         "def": "HSearch:switchSource()",
         "desc": "Trigger new source according to `hs.chooser`'s query string and keyword. Only useful for debugging purposes.",
-        "doc": "Trigger new source according to `hs.chooser`'s query string and keyword. Only useful for debugging purposes.\n",
+        "doc": "Trigger new source according to `hs.chooser`'s query string and keyword. Only useful for debugging purposes.\n\nParameters:\n * None\n",
         "name": "switchSource",
+        "parameters": [
+          " * None"
+        ],
         "signature": "HSearch:switchSource()",
         "stripped_doc": "",
         "type": "Method"
@@ -4186,8 +4448,11 @@
       {
         "def": "HSearch:toggleShow()",
         "desc": "Toggle the display of HSearch",
-        "doc": "Toggle the display of HSearch\n",
+        "doc": "Toggle the display of HSearch\n\nParameters:\n * None\n",
         "name": "toggleShow",
+        "parameters": [
+          " * None"
+        ],
         "signature": "HSearch:toggleShow()",
         "stripped_doc": "",
         "type": "Method"
@@ -4200,8 +4465,11 @@
       {
         "def": "HSearch:loadSources()",
         "desc": "Load new sources from `HSearch.search_path`, the search_path defaults to `~/.hammerspoon/private/hsearch_dir` and the HSearch Spoon directory. Only useful for debugging purposes.",
-        "doc": "Load new sources from `HSearch.search_path`, the search_path defaults to `~/.hammerspoon/private/hsearch_dir` and the HSearch Spoon directory. Only useful for debugging purposes.\n",
+        "doc": "Load new sources from `HSearch.search_path`, the search_path defaults to `~/.hammerspoon/private/hsearch_dir` and the HSearch Spoon directory. Only useful for debugging purposes.\n\nParameters:\n * None\n",
         "name": "loadSources",
+        "parameters": [
+          " * None"
+        ],
         "signature": "HSearch:loadSources()",
         "stripped_doc": "",
         "type": "Method"
@@ -4209,8 +4477,11 @@
       {
         "def": "HSearch:switchSource()",
         "desc": "Trigger new source according to `hs.chooser`'s query string and keyword. Only useful for debugging purposes.",
-        "doc": "Trigger new source according to `hs.chooser`'s query string and keyword. Only useful for debugging purposes.\n",
+        "doc": "Trigger new source according to `hs.chooser`'s query string and keyword. Only useful for debugging purposes.\n\nParameters:\n * None\n",
         "name": "switchSource",
+        "parameters": [
+          " * None"
+        ],
         "signature": "HSearch:switchSource()",
         "stripped_doc": "",
         "type": "Method"
@@ -4218,8 +4489,11 @@
       {
         "def": "HSearch:toggleShow()",
         "desc": "Toggle the display of HSearch",
-        "doc": "Toggle the display of HSearch\n",
+        "doc": "Toggle the display of HSearch\n\nParameters:\n * None\n",
         "name": "toggleShow",
+        "parameters": [
+          " * None"
+        ],
         "signature": "HSearch:toggleShow()",
         "stripped_doc": "",
         "type": "Method"
@@ -4241,8 +4515,11 @@
       {
         "def": "HSKeybindings:hide()",
         "desc": "Hide the cheatsheet webview",
-        "doc": "Hide the cheatsheet webview\n",
+        "doc": "Hide the cheatsheet webview\n\nParameters:\n * None\n",
         "name": "hide",
+        "parameters": [
+          " * None"
+        ],
         "signature": "HSKeybindings:hide()",
         "stripped_doc": "",
         "type": "Method"
@@ -4250,8 +4527,11 @@
       {
         "def": "HSKeybindings:show()",
         "desc": "Show current application's keybindings in a webview",
-        "doc": "Show current application's keybindings in a webview\n",
+        "doc": "Show current application's keybindings in a webview\n\nParameters:\n * None\n",
         "name": "show",
+        "parameters": [
+          " * None"
+        ],
         "signature": "HSKeybindings:show()",
         "stripped_doc": "",
         "type": "Method"
@@ -4264,8 +4544,11 @@
       {
         "def": "HSKeybindings:hide()",
         "desc": "Hide the cheatsheet webview",
-        "doc": "Hide the cheatsheet webview\n",
+        "doc": "Hide the cheatsheet webview\n\nParameters:\n * None\n",
         "name": "hide",
+        "parameters": [
+          " * None"
+        ],
         "signature": "HSKeybindings:hide()",
         "stripped_doc": "",
         "type": "Method"
@@ -4273,8 +4556,11 @@
       {
         "def": "HSKeybindings:show()",
         "desc": "Show current application's keybindings in a webview",
-        "doc": "Show current application's keybindings in a webview\n",
+        "doc": "Show current application's keybindings in a webview\n\nParameters:\n * None\n",
         "name": "show",
+        "parameters": [
+          " * None"
+        ],
         "signature": "HSKeybindings:show()",
         "stripped_doc": "",
         "type": "Method"
@@ -4296,18 +4582,18 @@
       {
         "def": "Keychain:addItem(options)",
         "desc": "Add generic password to keychain.",
-        "doc": "Add generic password to keychain.\n\nParameters:\n options is a table with values for what keys to try locate with.\n * password - the password\n * account - account name (required)\n * creator - creator, must be 4 characters\n * type - type, must be 4 characters\n * kind - kind of item\n * comment - comment \n * label - label (defaults to service name)\n * service - service name (required)",
+        "doc": "Add generic password to keychain.\n\nParameters:\n * options is a table with values for what keys to try locate with.\n  * password - the password\n  * account - account name (required)\n  * creator - creator, must be 4 characters\n  * type - type, must be 4 characters\n  * kind - kind of item\n  * comment - comment \n  * label - label (defaults to service name)\n  * service - service name (required)",
         "name": "addItem",
         "parameters": [
-          " options is a table with values for what keys to try locate with.",
-          " * password - the password",
-          " * account - account name (required)",
-          " * creator - creator, must be 4 characters",
-          " * type - type, must be 4 characters",
-          " * kind - kind of item",
-          " * comment - comment ",
-          " * label - label (defaults to service name)",
-          " * service - service name (required)"
+          " * options is a table with values for what keys to try locate with.",
+          "  * password - the password",
+          "  * account - account name (required)",
+          "  * creator - creator, must be 4 characters",
+          "  * type - type, must be 4 characters",
+          "  * kind - kind of item",
+          "  * comment - comment ",
+          "  * label - label (defaults to service name)",
+          "  * service - service name (required)"
         ],
         "signature": "Keychain:addItem(options)",
         "stripped_doc": "",
@@ -4316,17 +4602,17 @@
       {
         "def": "Keychain:getItem(options)",
         "desc": "Retrieve an item from the Login Keychain. Return nil if not found and",
-        "doc": "Retrieve an item from the Login Keychain. Return nil if not found and\notherwise a table with found data.\nNote: if multiple possibles matches just the first one is found.\n\nParameters:\n options is a table with values for what keys to try locate with.\n * account - account name\n * creator - creator, must be 4 characters\n * type - type, must be 4 characters\n * kind - kind of item\n * comment - comment \n * label - label (defaults to service name)\n * service - service name",
+        "doc": "Retrieve an item from the Login Keychain. Return nil if not found and\notherwise a table with found data.\nNote: if multiple possibles matches just the first one is found.\n\nParameters:\n * options is a table with values for what keys to try locate with.\n  * account - account name\n  * creator - creator, must be 4 characters\n  * type - type, must be 4 characters\n  * kind - kind of item\n  * comment - comment \n  * label - label (defaults to service name)\n  * service - service name",
         "name": "getItem",
         "parameters": [
-          " options is a table with values for what keys to try locate with.",
-          " * account - account name",
-          " * creator - creator, must be 4 characters",
-          " * type - type, must be 4 characters",
-          " * kind - kind of item",
-          " * comment - comment ",
-          " * label - label (defaults to service name)",
-          " * service - service name"
+          " * options is a table with values for what keys to try locate with.",
+          "  * account - account name",
+          "  * creator - creator, must be 4 characters",
+          "  * type - type, must be 4 characters",
+          "  * kind - kind of item",
+          "  * comment - comment ",
+          "  * label - label (defaults to service name)",
+          "  * service - service name"
         ],
         "signature": "Keychain:getItem(options)",
         "stripped_doc": "otherwise a table with found data.\nNote: if multiple possibles matches just the first one is found.",
@@ -4362,18 +4648,18 @@
       {
         "def": "Keychain:addItem(options)",
         "desc": "Add generic password to keychain.",
-        "doc": "Add generic password to keychain.\n\nParameters:\n options is a table with values for what keys to try locate with.\n * password - the password\n * account - account name (required)\n * creator - creator, must be 4 characters\n * type - type, must be 4 characters\n * kind - kind of item\n * comment - comment \n * label - label (defaults to service name)\n * service - service name (required)",
+        "doc": "Add generic password to keychain.\n\nParameters:\n * options is a table with values for what keys to try locate with.\n  * password - the password\n  * account - account name (required)\n  * creator - creator, must be 4 characters\n  * type - type, must be 4 characters\n  * kind - kind of item\n  * comment - comment \n  * label - label (defaults to service name)\n  * service - service name (required)",
         "name": "addItem",
         "parameters": [
-          " options is a table with values for what keys to try locate with.",
-          " * password - the password",
-          " * account - account name (required)",
-          " * creator - creator, must be 4 characters",
-          " * type - type, must be 4 characters",
-          " * kind - kind of item",
-          " * comment - comment ",
-          " * label - label (defaults to service name)",
-          " * service - service name (required)"
+          " * options is a table with values for what keys to try locate with.",
+          "  * password - the password",
+          "  * account - account name (required)",
+          "  * creator - creator, must be 4 characters",
+          "  * type - type, must be 4 characters",
+          "  * kind - kind of item",
+          "  * comment - comment ",
+          "  * label - label (defaults to service name)",
+          "  * service - service name (required)"
         ],
         "signature": "Keychain:addItem(options)",
         "stripped_doc": "",
@@ -4382,17 +4668,17 @@
       {
         "def": "Keychain:getItem(options)",
         "desc": "Retrieve an item from the Login Keychain. Return nil if not found and",
-        "doc": "Retrieve an item from the Login Keychain. Return nil if not found and\notherwise a table with found data.\nNote: if multiple possibles matches just the first one is found.\n\nParameters:\n options is a table with values for what keys to try locate with.\n * account - account name\n * creator - creator, must be 4 characters\n * type - type, must be 4 characters\n * kind - kind of item\n * comment - comment \n * label - label (defaults to service name)\n * service - service name",
+        "doc": "Retrieve an item from the Login Keychain. Return nil if not found and\notherwise a table with found data.\nNote: if multiple possibles matches just the first one is found.\n\nParameters:\n * options is a table with values for what keys to try locate with.\n  * account - account name\n  * creator - creator, must be 4 characters\n  * type - type, must be 4 characters\n  * kind - kind of item\n  * comment - comment \n  * label - label (defaults to service name)\n  * service - service name",
         "name": "getItem",
         "parameters": [
-          " options is a table with values for what keys to try locate with.",
-          " * account - account name",
-          " * creator - creator, must be 4 characters",
-          " * type - type, must be 4 characters",
-          " * kind - kind of item",
-          " * comment - comment ",
-          " * label - label (defaults to service name)",
-          " * service - service name"
+          " * options is a table with values for what keys to try locate with.",
+          "  * account - account name",
+          "  * creator - creator, must be 4 characters",
+          "  * type - type, must be 4 characters",
+          "  * kind - kind of item",
+          "  * comment - comment ",
+          "  * label - label (defaults to service name)",
+          "  * service - service name"
         ],
         "signature": "Keychain:getItem(options)",
         "stripped_doc": "otherwise a table with found data.\nNote: if multiple possibles matches just the first one is found.",
@@ -4451,8 +4737,11 @@
       {
         "def": "KSheet:hide()",
         "desc": "Hide the cheatsheet view.",
-        "doc": "Hide the cheatsheet view.",
+        "doc": "Hide the cheatsheet view.\n\nParameters:\n * None",
         "name": "hide",
+        "parameters": [
+          " * None"
+        ],
         "signature": "KSheet:hide()",
         "stripped_doc": "",
         "type": "Method"
@@ -4460,8 +4749,11 @@
       {
         "def": "KSheet:init()",
         "desc": "Initialize the spoon",
-        "doc": "Initialize the spoon",
+        "doc": "Initialize the spoon\n\nParameters:\n * None",
         "name": "init",
+        "parameters": [
+          " * None"
+        ],
         "signature": "KSheet:init()",
         "stripped_doc": "",
         "type": "Method"
@@ -4469,8 +4761,11 @@
       {
         "def": "KSheet:show()",
         "desc": "Show current application's keybindings in a view.",
-        "doc": "Show current application's keybindings in a view.",
+        "doc": "Show current application's keybindings in a view.\n\nParameters:\n * None",
         "name": "show",
+        "parameters": [
+          " * None"
+        ],
         "signature": "KSheet:show()",
         "stripped_doc": "",
         "type": "Method"
@@ -4478,8 +4773,11 @@
       {
         "def": "KSheet:toggle()",
         "desc": "Alternatively show/hide the cheatsheet view.",
-        "doc": "Alternatively show/hide the cheatsheet view.",
+        "doc": "Alternatively show/hide the cheatsheet view.\n\nParameters:\n * None",
         "name": "toggle",
+        "parameters": [
+          " * None"
+        ],
         "signature": "KSheet:toggle()",
         "stripped_doc": "",
         "type": "Method"
@@ -4507,8 +4805,11 @@
       {
         "def": "KSheet:hide()",
         "desc": "Hide the cheatsheet view.",
-        "doc": "Hide the cheatsheet view.",
+        "doc": "Hide the cheatsheet view.\n\nParameters:\n * None",
         "name": "hide",
+        "parameters": [
+          " * None"
+        ],
         "signature": "KSheet:hide()",
         "stripped_doc": "",
         "type": "Method"
@@ -4516,8 +4817,11 @@
       {
         "def": "KSheet:init()",
         "desc": "Initialize the spoon",
-        "doc": "Initialize the spoon",
+        "doc": "Initialize the spoon\n\nParameters:\n * None",
         "name": "init",
+        "parameters": [
+          " * None"
+        ],
         "signature": "KSheet:init()",
         "stripped_doc": "",
         "type": "Method"
@@ -4525,8 +4829,11 @@
       {
         "def": "KSheet:show()",
         "desc": "Show current application's keybindings in a view.",
-        "doc": "Show current application's keybindings in a view.",
+        "doc": "Show current application's keybindings in a view.\n\nParameters:\n * None",
         "name": "show",
+        "parameters": [
+          " * None"
+        ],
         "signature": "KSheet:show()",
         "stripped_doc": "",
         "type": "Method"
@@ -4534,8 +4841,11 @@
       {
         "def": "KSheet:toggle()",
         "desc": "Alternatively show/hide the cheatsheet view.",
-        "doc": "Alternatively show/hide the cheatsheet view.",
+        "doc": "Alternatively show/hide the cheatsheet view.\n\nParameters:\n * None",
         "name": "toggle",
+        "parameters": [
+          " * None"
+        ],
         "signature": "KSheet:toggle()",
         "stripped_doc": "",
         "type": "Method"
@@ -4557,8 +4867,11 @@
       {
         "def": "Leanpub:displayAllBookStatus()",
         "desc": "Check and display (if needed) the status of all the books in `watch_books`",
-        "doc": "Check and display (if needed) the status of all the books in `watch_books`",
+        "doc": "Check and display (if needed) the status of all the books in `watch_books`\n\nParameters:\n * None",
         "name": "displayAllBookStatus",
+        "parameters": [
+          " * None"
+        ],
         "signature": "Leanpub:displayAllBookStatus()",
         "stripped_doc": "",
         "type": "Method"
@@ -4632,8 +4945,11 @@
       {
         "def": "Leanpub:start()",
         "desc": "Start periodic check for book status, checking every",
-        "doc": "Start periodic check for book status, checking every\ncheck_interval seconds.",
+        "doc": "Start periodic check for book status, checking every\ncheck_interval seconds.\n\nParameters:\n * None",
         "name": "start",
+        "parameters": [
+          " * None"
+        ],
         "signature": "Leanpub:start()",
         "stripped_doc": "check_interval seconds.",
         "type": "Method"
@@ -4641,8 +4957,11 @@
       {
         "def": "Leanpub:stop()",
         "desc": "Stops periodic check for book status, if enabled.",
-        "doc": "Stops periodic check for book status, if enabled.\ncheck_interval seconds.",
+        "doc": "Stops periodic check for book status, if enabled.\ncheck_interval seconds.\n\nParameters:\n * None",
         "name": "stop",
+        "parameters": [
+          " * None"
+        ],
         "signature": "Leanpub:stop()",
         "stripped_doc": "check_interval seconds.",
         "type": "Method"
@@ -4764,8 +5083,11 @@
       {
         "def": "Leanpub:displayAllBookStatus()",
         "desc": "Check and display (if needed) the status of all the books in `watch_books`",
-        "doc": "Check and display (if needed) the status of all the books in `watch_books`",
+        "doc": "Check and display (if needed) the status of all the books in `watch_books`\n\nParameters:\n * None",
         "name": "displayAllBookStatus",
+        "parameters": [
+          " * None"
+        ],
         "signature": "Leanpub:displayAllBookStatus()",
         "stripped_doc": "",
         "type": "Method"
@@ -4884,8 +5206,11 @@
       {
         "def": "Leanpub:start()",
         "desc": "Start periodic check for book status, checking every",
-        "doc": "Start periodic check for book status, checking every\ncheck_interval seconds.",
+        "doc": "Start periodic check for book status, checking every\ncheck_interval seconds.\n\nParameters:\n * None",
         "name": "start",
+        "parameters": [
+          " * None"
+        ],
         "signature": "Leanpub:start()",
         "stripped_doc": "check_interval seconds.",
         "type": "Method"
@@ -4893,8 +5218,11 @@
       {
         "def": "Leanpub:stop()",
         "desc": "Stops periodic check for book status, if enabled.",
-        "doc": "Stops periodic check for book status, if enabled.\ncheck_interval seconds.",
+        "doc": "Stops periodic check for book status, if enabled.\ncheck_interval seconds.\n\nParameters:\n * None",
         "name": "stop",
+        "parameters": [
+          " * None"
+        ],
         "signature": "Leanpub:stop()",
         "stripped_doc": "check_interval seconds.",
         "type": "Method"
@@ -4940,8 +5268,11 @@
       {
         "def": "LookupSelection:openLexicon()",
         "desc": "Get the current selected text in the frontmost window and display a translation popup with the translation between the specified languages",
-        "doc": "Get the current selected text in the frontmost window and display a translation popup with the translation between the specified languages\n\nReturns:\n * The LookupSelection object",
+        "doc": "Get the current selected text in the frontmost window and display a translation popup with the translation between the specified languages\n\nParameters:\n * None\n\nReturns:\n * The LookupSelection object",
         "name": "openLexicon",
+        "parameters": [
+          " * None"
+        ],
         "returns": [
           " * The LookupSelection object"
         ],
@@ -4991,8 +5322,11 @@
       {
         "def": "LookupSelection:openLexicon()",
         "desc": "Get the current selected text in the frontmost window and display a translation popup with the translation between the specified languages",
-        "doc": "Get the current selected text in the frontmost window and display a translation popup with the translation between the specified languages\n\nReturns:\n * The LookupSelection object",
+        "doc": "Get the current selected text in the frontmost window and display a translation popup with the translation between the specified languages\n\nParameters:\n * None\n\nReturns:\n * The LookupSelection object",
         "name": "openLexicon",
+        "parameters": [
+          " * None"
+        ],
         "returns": [
           " * The LookupSelection object"
         ],
@@ -5047,8 +5381,11 @@
       {
         "def": "MenubarFlag:start()",
         "desc": "Start the keyboard layout watcher to draw the menubar indicators.",
-        "doc": "Start the keyboard layout watcher to draw the menubar indicators.",
+        "doc": "Start the keyboard layout watcher to draw the menubar indicators.\n\nParameters:\n * None",
         "name": "start",
+        "parameters": [
+          " * None"
+        ],
         "signature": "MenubarFlag:start()",
         "stripped_doc": "",
         "type": "Method"
@@ -5056,8 +5393,11 @@
       {
         "def": "MenubarFlag:stop()",
         "desc": "Remove indicators and stop the keyboard layout watcher",
-        "doc": "Remove indicators and stop the keyboard layout watcher",
+        "doc": "Remove indicators and stop the keyboard layout watcher\n\nParameters:\n * None",
         "name": "stop",
+        "parameters": [
+          " * None"
+        ],
         "signature": "MenubarFlag:stop()",
         "stripped_doc": "",
         "type": "Method"
@@ -5200,8 +5540,11 @@
       {
         "def": "MenubarFlag:start()",
         "desc": "Start the keyboard layout watcher to draw the menubar indicators.",
-        "doc": "Start the keyboard layout watcher to draw the menubar indicators.",
+        "doc": "Start the keyboard layout watcher to draw the menubar indicators.\n\nParameters:\n * None",
         "name": "start",
+        "parameters": [
+          " * None"
+        ],
         "signature": "MenubarFlag:start()",
         "stripped_doc": "",
         "type": "Method"
@@ -5209,8 +5552,11 @@
       {
         "def": "MenubarFlag:stop()",
         "desc": "Remove indicators and stop the keyboard layout watcher",
-        "doc": "Remove indicators and stop the keyboard layout watcher",
+        "doc": "Remove indicators and stop the keyboard layout watcher\n\nParameters:\n * None",
         "name": "stop",
+        "parameters": [
+          " * None"
+        ],
         "signature": "MenubarFlag:stop()",
         "stripped_doc": "",
         "type": "Method"
@@ -5255,8 +5601,11 @@
       {
         "def": "MicMute:toggleMicMute()",
         "desc": "Toggle mic mute on/off",
-        "doc": "Toggle mic mute on/off\n",
+        "doc": "Toggle mic mute on/off\n\nParameters:\n * None",
         "name": "toggleMicMute",
+        "parameters": [
+          " * None"
+        ],
         "signature": "MicMute:toggleMicMute()",
         "stripped_doc": "",
         "type": "Method"
@@ -5283,8 +5632,11 @@
       {
         "def": "MicMute:toggleMicMute()",
         "desc": "Toggle mic mute on/off",
-        "doc": "Toggle mic mute on/off\n",
+        "doc": "Toggle mic mute on/off\n\nParameters:\n * None",
         "name": "toggleMicMute",
+        "parameters": [
+          " * None"
+        ],
         "signature": "MicMute:toggleMicMute()",
         "stripped_doc": "",
         "type": "Method"
@@ -5440,8 +5792,11 @@
       {
         "def": "ModalMgr:deactivateAll()",
         "desc": "Deactivate all active modal environments.",
-        "doc": "Deactivate all active modal environments.\n",
+        "doc": "Deactivate all active modal environments.\n\nParameters:\n * None",
         "name": "deactivateAll",
+        "parameters": [
+          " * None"
+        ],
         "signature": "ModalMgr:deactivateAll()",
         "stripped_doc": "",
         "type": "Method"
@@ -5505,8 +5860,11 @@
       {
         "def": "ModalMgr:deactivateAll()",
         "desc": "Deactivate all active modal environments.",
-        "doc": "Deactivate all active modal environments.\n",
+        "doc": "Deactivate all active modal environments.\n\nParameters:\n * None",
         "name": "deactivateAll",
+        "parameters": [
+          " * None"
+        ],
         "signature": "ModalMgr:deactivateAll()",
         "stripped_doc": "",
         "type": "Method"
@@ -5979,10 +6337,10 @@
       {
         "def": "MouseFollowsFocus:configure(configuration)",
         "desc": "Configures the spoon.  There is currently nothing to configure.",
-        "doc": "Configures the spoon.  There is currently nothing to configure.\n\nParameters:\n  * configuration - :",
+        "doc": "Configures the spoon.  There is currently nothing to configure.\n\nParameters:\n * configuration - :",
         "name": "configure",
         "parameters": [
-          "  * configuration - :"
+          " * configuration - :"
         ],
         "signature": "MouseFollowsFocus:configure(configuration)",
         "stripped_doc": "",
@@ -5991,9 +6349,11 @@
       {
         "def": "MouseFollowsFocus:start()",
         "desc": "Starts updating the mouse position when window focus changes",
-        "doc": "Starts updating the mouse position when window focus changes\n\nParameters:",
+        "doc": "Starts updating the mouse position when window focus changes\n\nParameters:\n * None",
         "name": "start",
-        "parameters": [],
+        "parameters": [
+          " * None"
+        ],
         "signature": "MouseFollowsFocus:start()",
         "stripped_doc": "",
         "type": "Method"
@@ -6001,9 +6361,11 @@
       {
         "def": "MouseFollowsFocus:stop()",
         "desc": "Stops updating the mouse position when window focus changes",
-        "doc": "Stops updating the mouse position when window focus changes\n\nParameters:",
+        "doc": "Stops updating the mouse position when window focus changes\n\nParameters:\n * None",
         "name": "stop",
-        "parameters": [],
+        "parameters": [
+          " * None"
+        ],
         "signature": "MouseFollowsFocus:stop()",
         "stripped_doc": "",
         "type": "Method"
@@ -6011,8 +6373,11 @@
       {
         "def": "MouseFollowsFocus:updateMouse(window)",
         "desc": "Moves the mouse to the center of the given window unless it's already inside the window",
-        "doc": "Moves the mouse to the center of the given window unless it's already inside the window",
+        "doc": "Moves the mouse to the center of the given window unless it's already inside the window\n\nParameters:\n * None",
         "name": "updateMouse",
+        "parameters": [
+          " * None"
+        ],
         "signature": "MouseFollowsFocus:updateMouse(window)",
         "stripped_doc": "",
         "type": "Method"
@@ -6035,10 +6400,10 @@
       {
         "def": "MouseFollowsFocus:configure(configuration)",
         "desc": "Configures the spoon.  There is currently nothing to configure.",
-        "doc": "Configures the spoon.  There is currently nothing to configure.\n\nParameters:\n  * configuration - :",
+        "doc": "Configures the spoon.  There is currently nothing to configure.\n\nParameters:\n * configuration - :",
         "name": "configure",
         "parameters": [
-          "  * configuration - :"
+          " * configuration - :"
         ],
         "signature": "MouseFollowsFocus:configure(configuration)",
         "stripped_doc": "",
@@ -6056,9 +6421,11 @@
       {
         "def": "MouseFollowsFocus:start()",
         "desc": "Starts updating the mouse position when window focus changes",
-        "doc": "Starts updating the mouse position when window focus changes\n\nParameters:",
+        "doc": "Starts updating the mouse position when window focus changes\n\nParameters:\n * None",
         "name": "start",
-        "parameters": [],
+        "parameters": [
+          " * None"
+        ],
         "signature": "MouseFollowsFocus:start()",
         "stripped_doc": "",
         "type": "Method"
@@ -6066,9 +6433,11 @@
       {
         "def": "MouseFollowsFocus:stop()",
         "desc": "Stops updating the mouse position when window focus changes",
-        "doc": "Stops updating the mouse position when window focus changes\n\nParameters:",
+        "doc": "Stops updating the mouse position when window focus changes\n\nParameters:\n * None",
         "name": "stop",
-        "parameters": [],
+        "parameters": [
+          " * None"
+        ],
         "signature": "MouseFollowsFocus:stop()",
         "stripped_doc": "",
         "type": "Method"
@@ -6076,8 +6445,11 @@
       {
         "def": "MouseFollowsFocus:updateMouse(window)",
         "desc": "Moves the mouse to the center of the given window unless it's already inside the window",
-        "doc": "Moves the mouse to the center of the given window unless it's already inside the window",
+        "doc": "Moves the mouse to the center of the given window unless it's already inside the window\n\nParameters:\n * None",
         "name": "updateMouse",
+        "parameters": [
+          " * None"
+        ],
         "signature": "MouseFollowsFocus:updateMouse(window)",
         "stripped_doc": "",
         "type": "Method"
@@ -6615,8 +6987,11 @@
       {
         "def": "PersonalHotspot:connect() -> Self",
         "desc": "Tries to connect to the personal hotspot named in `PersonalHotspot.hotspotName`. If `PersonalHotspot.hotspotName` is `nil`, the first hotspot in the Wi-Fi menu will be selected, and `PersonalHotspot.hotspotName` will be assigned to the name of that hotspot. Once connected to the hotspot, the applications specified in `PersonalHotspot.appsToKill` are killed.",
-        "doc": "Tries to connect to the personal hotspot named in `PersonalHotspot.hotspotName`. If `PersonalHotspot.hotspotName` is `nil`, the first hotspot in the Wi-Fi menu will be selected, and `PersonalHotspot.hotspotName` will be assigned to the name of that hotspot. Once connected to the hotspot, the applications specified in `PersonalHotspot.appsToKill` are killed.\n\nIf there are no hotspots with the name in `PersonalHotspot.hotspotName`, or if `PersonalHotspot.hotspotName` is `nil` and there are no hotspots in the Wi-Fi menu, the Wi-Fi menu will be closed after `PersonalHotspot.timeout` seconds.\n\nReturns:\n * Self",
+        "doc": "Tries to connect to the personal hotspot named in `PersonalHotspot.hotspotName`. If `PersonalHotspot.hotspotName` is `nil`, the first hotspot in the Wi-Fi menu will be selected, and `PersonalHotspot.hotspotName` will be assigned to the name of that hotspot. Once connected to the hotspot, the applications specified in `PersonalHotspot.appsToKill` are killed.\n\nIf there are no hotspots with the name in `PersonalHotspot.hotspotName`, or if `PersonalHotspot.hotspotName` is `nil` and there are no hotspots in the Wi-Fi menu, the Wi-Fi menu will be closed after `PersonalHotspot.timeout` seconds.\n\nParameters:\n * None\n\nReturns:\n * Self",
         "name": "connect",
+        "parameters": [
+          " * None"
+        ],
         "returns": [
           " * Self"
         ],
@@ -6627,8 +7002,11 @@
       {
         "def": "PersonalHotspot:disconnect() -> Self",
         "desc": "If currently connected to the personal hotspot named in `PersonalHotspot.hotspotName`, this method will disconnect from that hotspot and open the applications specified in `PersonalHostspot.appsToKill`.",
-        "doc": "If currently connected to the personal hotspot named in `PersonalHotspot.hotspotName`, this method will disconnect from that hotspot and open the applications specified in `PersonalHostspot.appsToKill`.\n\nReturns:\n * Self",
+        "doc": "If currently connected to the personal hotspot named in `PersonalHotspot.hotspotName`, this method will disconnect from that hotspot and open the applications specified in `PersonalHostspot.appsToKill`.\n\nParameters:\n * None\n\nReturns:\n * Self",
         "name": "disconnect",
+        "parameters": [
+          " * None"
+        ],
         "returns": [
           " * Self"
         ],
@@ -6639,8 +7017,11 @@
       {
         "def": "PersonalHotspot:toggle() -> Self",
         "desc": "Toggles personal hotspot connection.",
-        "doc": "Toggles personal hotspot connection.\n\nIf the current wireless network name is `PersonalHotspot.hotspotName` this method calls `PersonalHotspot:disconnect()`, otherwise this method will call `PersonalHotspot:connect()`.\n\nReturns:\n * Self",
+        "doc": "Toggles personal hotspot connection.\n\nIf the current wireless network name is `PersonalHotspot.hotspotName` this method calls `PersonalHotspot:disconnect()`, otherwise this method will call `PersonalHotspot:connect()`.\n\nParameters:\n * None\n\nReturns:\n * Self",
         "name": "toggle",
+        "parameters": [
+          " * None"
+        ],
         "returns": [
           " * Self"
         ],
@@ -6709,8 +7090,11 @@
       {
         "def": "PersonalHotspot:connect() -> Self",
         "desc": "Tries to connect to the personal hotspot named in `PersonalHotspot.hotspotName`. If `PersonalHotspot.hotspotName` is `nil`, the first hotspot in the Wi-Fi menu will be selected, and `PersonalHotspot.hotspotName` will be assigned to the name of that hotspot. Once connected to the hotspot, the applications specified in `PersonalHotspot.appsToKill` are killed.",
-        "doc": "Tries to connect to the personal hotspot named in `PersonalHotspot.hotspotName`. If `PersonalHotspot.hotspotName` is `nil`, the first hotspot in the Wi-Fi menu will be selected, and `PersonalHotspot.hotspotName` will be assigned to the name of that hotspot. Once connected to the hotspot, the applications specified in `PersonalHotspot.appsToKill` are killed.\n\nIf there are no hotspots with the name in `PersonalHotspot.hotspotName`, or if `PersonalHotspot.hotspotName` is `nil` and there are no hotspots in the Wi-Fi menu, the Wi-Fi menu will be closed after `PersonalHotspot.timeout` seconds.\n\nReturns:\n * Self",
+        "doc": "Tries to connect to the personal hotspot named in `PersonalHotspot.hotspotName`. If `PersonalHotspot.hotspotName` is `nil`, the first hotspot in the Wi-Fi menu will be selected, and `PersonalHotspot.hotspotName` will be assigned to the name of that hotspot. Once connected to the hotspot, the applications specified in `PersonalHotspot.appsToKill` are killed.\n\nIf there are no hotspots with the name in `PersonalHotspot.hotspotName`, or if `PersonalHotspot.hotspotName` is `nil` and there are no hotspots in the Wi-Fi menu, the Wi-Fi menu will be closed after `PersonalHotspot.timeout` seconds.\n\nParameters:\n * None\n\nReturns:\n * Self",
         "name": "connect",
+        "parameters": [
+          " * None"
+        ],
         "returns": [
           " * Self"
         ],
@@ -6721,8 +7105,11 @@
       {
         "def": "PersonalHotspot:disconnect() -> Self",
         "desc": "If currently connected to the personal hotspot named in `PersonalHotspot.hotspotName`, this method will disconnect from that hotspot and open the applications specified in `PersonalHostspot.appsToKill`.",
-        "doc": "If currently connected to the personal hotspot named in `PersonalHotspot.hotspotName`, this method will disconnect from that hotspot and open the applications specified in `PersonalHostspot.appsToKill`.\n\nReturns:\n * Self",
+        "doc": "If currently connected to the personal hotspot named in `PersonalHotspot.hotspotName`, this method will disconnect from that hotspot and open the applications specified in `PersonalHostspot.appsToKill`.\n\nParameters:\n * None\n\nReturns:\n * Self",
         "name": "disconnect",
+        "parameters": [
+          " * None"
+        ],
         "returns": [
           " * Self"
         ],
@@ -6751,8 +7138,11 @@
       {
         "def": "PersonalHotspot:toggle() -> Self",
         "desc": "Toggles personal hotspot connection.",
-        "doc": "Toggles personal hotspot connection.\n\nIf the current wireless network name is `PersonalHotspot.hotspotName` this method calls `PersonalHotspot:disconnect()`, otherwise this method will call `PersonalHotspot:connect()`.\n\nReturns:\n * Self",
+        "doc": "Toggles personal hotspot connection.\n\nIf the current wireless network name is `PersonalHotspot.hotspotName` this method calls `PersonalHotspot:disconnect()`, otherwise this method will call `PersonalHotspot:connect()`.\n\nParameters:\n * None\n\nReturns:\n * Self",
         "name": "toggle",
+        "parameters": [
+          " * None"
+        ],
         "returns": [
           " * Self"
         ],
@@ -6967,8 +7357,11 @@
       {
         "def": "PushToTalk:init()",
         "desc": "Starts menu and key watcher",
-        "doc": "Starts menu and key watcher",
+        "doc": "Starts menu and key watcher\n\nParameters:\n * None",
         "name": "init",
+        "parameters": [
+          " * None"
+        ],
         "signature": "PushToTalk:init()",
         "stripped_doc": "",
         "type": "Method"
@@ -6976,8 +7369,11 @@
       {
         "def": "PushToTalk:stop()",
         "desc": "Stops PushToTalk",
-        "doc": "Stops PushToTalk",
+        "doc": "Stops PushToTalk\n\nParameters:\n * None",
         "name": "stop",
+        "parameters": [
+          " * None"
+        ],
         "signature": "PushToTalk:stop()",
         "stripped_doc": "",
         "type": "Method"
@@ -7039,8 +7435,11 @@
       {
         "def": "PushToTalk:init()",
         "desc": "Starts menu and key watcher",
-        "doc": "Starts menu and key watcher",
+        "doc": "Starts menu and key watcher\n\nParameters:\n * None",
         "name": "init",
+        "parameters": [
+          " * None"
+        ],
         "signature": "PushToTalk:init()",
         "stripped_doc": "",
         "type": "Method"
@@ -7048,8 +7447,11 @@
       {
         "def": "PushToTalk:stop()",
         "desc": "Stops PushToTalk",
-        "doc": "Stops PushToTalk",
+        "doc": "Stops PushToTalk\n\nParameters:\n * None",
         "name": "stop",
+        "parameters": [
+          " * None"
+        ],
         "signature": "PushToTalk:stop()",
         "stripped_doc": "",
         "type": "Method"
@@ -7911,40 +8313,49 @@
       {
         "def": "Seal.plugins.apps:restart()",
         "desc": "Restarts the Spotlight app searcher",
-        "doc": "Restarts the Spotlight app searcher\n\nParamters:\n * None\n\nReturns:\n * None",
+        "doc": "Restarts the Spotlight app searcher\n\nParameters:\n * None\n\nReturns:\n * None",
         "name": "restart",
+        "parameters": [
+          " * None"
+        ],
         "returns": [
           " * None"
         ],
         "signature": "Seal.plugins.apps:restart()",
-        "stripped_doc": "Paramters:\n * None",
+        "stripped_doc": "",
         "type": "Method"
       },
       {
         "def": "Seal.plugins.apps:start()",
         "desc": "Starts the Spotlight app searcher",
-        "doc": "Starts the Spotlight app searcher\n\nParamters:\n * None\n\nReturns:\n * None\n\nNotes:\n * This is called automatically when the plugin is loaded",
+        "doc": "Starts the Spotlight app searcher\n\nParameters:\n * None\n\nReturns:\n * None\n\nNotes:\n * This is called automatically when the plugin is loaded",
         "name": "start",
         "notes": [
           " * This is called automatically when the plugin is loaded"
+        ],
+        "parameters": [
+          " * None"
         ],
         "returns": [
           " * None"
         ],
         "signature": "Seal.plugins.apps:start()",
-        "stripped_doc": "Paramters:\n * None",
+        "stripped_doc": "",
         "type": "Method"
       },
       {
         "def": "Seal.plugins.apps:stop()",
         "desc": "Stops the Spotlight app searcher",
-        "doc": "Stops the Spotlight app searcher\n\nParamters:\n * None\n\nReturns:\n * None",
+        "doc": "Stops the Spotlight app searcher\n\nParameters:\n * None\n\nReturns:\n * None",
         "name": "stop",
+        "parameters": [
+          " * None"
+        ],
         "returns": [
           " * None"
         ],
         "signature": "Seal.plugins.apps:stop()",
-        "stripped_doc": "Paramters:\n * None",
+        "stripped_doc": "",
         "type": "Method"
       }
     ],
@@ -7980,40 +8391,49 @@
       {
         "def": "Seal.plugins.apps:restart()",
         "desc": "Restarts the Spotlight app searcher",
-        "doc": "Restarts the Spotlight app searcher\n\nParamters:\n * None\n\nReturns:\n * None",
+        "doc": "Restarts the Spotlight app searcher\n\nParameters:\n * None\n\nReturns:\n * None",
         "name": "restart",
+        "parameters": [
+          " * None"
+        ],
         "returns": [
           " * None"
         ],
         "signature": "Seal.plugins.apps:restart()",
-        "stripped_doc": "Paramters:\n * None",
+        "stripped_doc": "",
         "type": "Method"
       },
       {
         "def": "Seal.plugins.apps:start()",
         "desc": "Starts the Spotlight app searcher",
-        "doc": "Starts the Spotlight app searcher\n\nParamters:\n * None\n\nReturns:\n * None\n\nNotes:\n * This is called automatically when the plugin is loaded",
+        "doc": "Starts the Spotlight app searcher\n\nParameters:\n * None\n\nReturns:\n * None\n\nNotes:\n * This is called automatically when the plugin is loaded",
         "name": "start",
         "notes": [
           " * This is called automatically when the plugin is loaded"
+        ],
+        "parameters": [
+          " * None"
         ],
         "returns": [
           " * None"
         ],
         "signature": "Seal.plugins.apps:start()",
-        "stripped_doc": "Paramters:\n * None",
+        "stripped_doc": "",
         "type": "Method"
       },
       {
         "def": "Seal.plugins.apps:stop()",
         "desc": "Stops the Spotlight app searcher",
-        "doc": "Stops the Spotlight app searcher\n\nParamters:\n * None\n\nReturns:\n * None",
+        "doc": "Stops the Spotlight app searcher\n\nParameters:\n * None\n\nReturns:\n * None",
         "name": "stop",
+        "parameters": [
+          " * None"
+        ],
         "returns": [
           " * None"
         ],
         "signature": "Seal.plugins.apps:stop()",
-        "stripped_doc": "Paramters:\n * None",
+        "stripped_doc": "",
         "type": "Method"
       }
     ],
@@ -8314,13 +8734,16 @@
       {
         "def": "SendToOmniFocus:sendCurrentItem",
         "desc": "Send current item in current application to OmniFocus by triggering the appropriate handler.",
-        "doc": "Send current item in current application to OmniFocus by triggering the appropriate handler.\n\nParamters:\n * None\n\nReturns:\n * The SendToOmniFocus object",
+        "doc": "Send current item in current application to OmniFocus by triggering the appropriate handler.\n\nParameters:\n * None\n\nReturns:\n * The SendToOmniFocus object",
         "name": "sendCurrentItem",
+        "parameters": [
+          " * None"
+        ],
         "returns": [
           " * The SendToOmniFocus object"
         ],
         "signature": "SendToOmniFocus:sendCurrentItem",
-        "stripped_doc": "Paramters:\n * None",
+        "stripped_doc": "",
         "type": "Method"
       }
     ],
@@ -8430,13 +8853,16 @@
       {
         "def": "SendToOmniFocus:sendCurrentItem",
         "desc": "Send current item in current application to OmniFocus by triggering the appropriate handler.",
-        "doc": "Send current item in current application to OmniFocus by triggering the appropriate handler.\n\nParamters:\n * None\n\nReturns:\n * The SendToOmniFocus object",
+        "doc": "Send current item in current application to OmniFocus by triggering the appropriate handler.\n\nParameters:\n * None\n\nReturns:\n * The SendToOmniFocus object",
         "name": "sendCurrentItem",
+        "parameters": [
+          " * None"
+        ],
         "returns": [
           " * The SendToOmniFocus object"
         ],
         "signature": "SendToOmniFocus:sendCurrentItem",
-        "stripped_doc": "Paramters:\n * None",
+        "stripped_doc": "",
         "type": "Method"
       }
     ],
@@ -9123,8 +9549,11 @@
       {
         "def": "SpeedMenu:rescan()",
         "desc": "Redetect the active interface, darkmode …And redraw everything.",
-        "doc": "Redetect the active interface, darkmode …And redraw everything.\n",
+        "doc": "Redetect the active interface, darkmode …And redraw everything.\n\nParameters:\n * None\n",
         "name": "rescan",
+        "parameters": [
+          " * None"
+        ],
         "signature": "SpeedMenu:rescan()",
         "stripped_doc": "",
         "type": "Method"
@@ -9137,8 +9566,11 @@
       {
         "def": "SpeedMenu:rescan()",
         "desc": "Redetect the active interface, darkmode …And redraw everything.",
-        "doc": "Redetect the active interface, darkmode …And redraw everything.\n",
+        "doc": "Redetect the active interface, darkmode …And redraw everything.\n\nParameters:\n * None\n",
         "name": "rescan",
+        "parameters": [
+          " * None"
+        ],
         "signature": "SpeedMenu:rescan()",
         "stripped_doc": "",
         "type": "Method"
@@ -9650,8 +10082,11 @@
       {
         "def": "TextClipboardHistory:checkAndStorePasteboard()",
         "desc": "If the pasteboard has changed, we add the current item to our history and update the counter",
-        "doc": "If the pasteboard has changed, we add the current item to our history and update the counter",
+        "doc": "If the pasteboard has changed, we add the current item to our history and update the counter\n\nParameters:\n * None",
         "name": "checkAndStorePasteboard",
+        "parameters": [
+          " * None"
+        ],
         "signature": "TextClipboardHistory:checkAndStorePasteboard()",
         "stripped_doc": "",
         "type": "Method"
@@ -9659,8 +10094,11 @@
       {
         "def": "TextClipboardHistory:clearAll()",
         "desc": "Clears the clipboard and history",
-        "doc": "Clears the clipboard and history",
+        "doc": "Clears the clipboard and history\n\nParameters:\n * None",
         "name": "clearAll",
+        "parameters": [
+          " * None"
+        ],
         "signature": "TextClipboardHistory:clearAll()",
         "stripped_doc": "",
         "type": "Method"
@@ -9668,8 +10106,11 @@
       {
         "def": "TextClipboardHistory:clearLastItem()",
         "desc": "Clears the last added to the history",
-        "doc": "Clears the last added to the history",
+        "doc": "Clears the last added to the history\n\nParameters:\n * None",
         "name": "clearLastItem",
+        "parameters": [
+          " * None"
+        ],
         "signature": "TextClipboardHistory:clearLastItem()",
         "stripped_doc": "",
         "type": "Method"
@@ -9692,8 +10133,11 @@
       {
         "def": "TextClipboardHistory:shouldBeStored()",
         "desc": "Verify whether the pasteboard contents matches one of the values in `TextClipboardHistory.ignoredIdentifiers`",
-        "doc": "Verify whether the pasteboard contents matches one of the values in `TextClipboardHistory.ignoredIdentifiers`",
+        "doc": "Verify whether the pasteboard contents matches one of the values in `TextClipboardHistory.ignoredIdentifiers`\n\nParameters:\n * None",
         "name": "shouldBeStored",
+        "parameters": [
+          " * None"
+        ],
         "signature": "TextClipboardHistory:shouldBeStored()",
         "stripped_doc": "",
         "type": "Method"
@@ -9701,8 +10145,11 @@
       {
         "def": "TextClipboardHistory:showClipboard()",
         "desc": "Display the current clipboard list in a chooser",
-        "doc": "Display the current clipboard list in a chooser",
+        "doc": "Display the current clipboard list in a chooser\n\nParameters:\n * None",
         "name": "showClipboard",
+        "parameters": [
+          " * None"
+        ],
         "signature": "TextClipboardHistory:showClipboard()",
         "stripped_doc": "",
         "type": "Method"
@@ -9710,8 +10157,11 @@
       {
         "def": "TextClipboardHistory:start()",
         "desc": "Start the clipboard history collector",
-        "doc": "Start the clipboard history collector",
+        "doc": "Start the clipboard history collector\n\nParameters:\n * None",
         "name": "start",
+        "parameters": [
+          " * None"
+        ],
         "signature": "TextClipboardHistory:start()",
         "stripped_doc": "",
         "type": "Method"
@@ -9719,8 +10169,11 @@
       {
         "def": "TextClipboardHistory:toggleClipboard()",
         "desc": "Show/hide the clipboard list, depending on its current state",
-        "doc": "Show/hide the clipboard list, depending on its current state",
+        "doc": "Show/hide the clipboard list, depending on its current state\n\nParameters:\n * None",
         "name": "toggleClipboard",
+        "parameters": [
+          " * None"
+        ],
         "signature": "TextClipboardHistory:toggleClipboard()",
         "stripped_doc": "",
         "type": "Method"
@@ -9728,8 +10181,11 @@
       {
         "def": "TextClipboardHistory:togglePasteOnSelect()",
         "desc": "Toggle the value of `TextClipboardHistory.paste_on_select`",
-        "doc": "Toggle the value of `TextClipboardHistory.paste_on_select`",
+        "doc": "Toggle the value of `TextClipboardHistory.paste_on_select`\n\nParameters:\n * None",
         "name": "togglePasteOnSelect",
+        "parameters": [
+          " * None"
+        ],
         "signature": "TextClipboardHistory:togglePasteOnSelect()",
         "stripped_doc": "",
         "type": "Method"
@@ -9838,8 +10294,11 @@
       {
         "def": "TextClipboardHistory:checkAndStorePasteboard()",
         "desc": "If the pasteboard has changed, we add the current item to our history and update the counter",
-        "doc": "If the pasteboard has changed, we add the current item to our history and update the counter",
+        "doc": "If the pasteboard has changed, we add the current item to our history and update the counter\n\nParameters:\n * None",
         "name": "checkAndStorePasteboard",
+        "parameters": [
+          " * None"
+        ],
         "signature": "TextClipboardHistory:checkAndStorePasteboard()",
         "stripped_doc": "",
         "type": "Method"
@@ -9847,8 +10306,11 @@
       {
         "def": "TextClipboardHistory:clearAll()",
         "desc": "Clears the clipboard and history",
-        "doc": "Clears the clipboard and history",
+        "doc": "Clears the clipboard and history\n\nParameters:\n * None",
         "name": "clearAll",
+        "parameters": [
+          " * None"
+        ],
         "signature": "TextClipboardHistory:clearAll()",
         "stripped_doc": "",
         "type": "Method"
@@ -9856,8 +10318,11 @@
       {
         "def": "TextClipboardHistory:clearLastItem()",
         "desc": "Clears the last added to the history",
-        "doc": "Clears the last added to the history",
+        "doc": "Clears the last added to the history\n\nParameters:\n * None",
         "name": "clearLastItem",
+        "parameters": [
+          " * None"
+        ],
         "signature": "TextClipboardHistory:clearLastItem()",
         "stripped_doc": "",
         "type": "Method"
@@ -9952,8 +10417,11 @@
       {
         "def": "TextClipboardHistory:shouldBeStored()",
         "desc": "Verify whether the pasteboard contents matches one of the values in `TextClipboardHistory.ignoredIdentifiers`",
-        "doc": "Verify whether the pasteboard contents matches one of the values in `TextClipboardHistory.ignoredIdentifiers`",
+        "doc": "Verify whether the pasteboard contents matches one of the values in `TextClipboardHistory.ignoredIdentifiers`\n\nParameters:\n * None",
         "name": "shouldBeStored",
+        "parameters": [
+          " * None"
+        ],
         "signature": "TextClipboardHistory:shouldBeStored()",
         "stripped_doc": "",
         "type": "Method"
@@ -9970,8 +10438,11 @@
       {
         "def": "TextClipboardHistory:showClipboard()",
         "desc": "Display the current clipboard list in a chooser",
-        "doc": "Display the current clipboard list in a chooser",
+        "doc": "Display the current clipboard list in a chooser\n\nParameters:\n * None",
         "name": "showClipboard",
+        "parameters": [
+          " * None"
+        ],
         "signature": "TextClipboardHistory:showClipboard()",
         "stripped_doc": "",
         "type": "Method"
@@ -9979,8 +10450,11 @@
       {
         "def": "TextClipboardHistory:start()",
         "desc": "Start the clipboard history collector",
-        "doc": "Start the clipboard history collector",
+        "doc": "Start the clipboard history collector\n\nParameters:\n * None",
         "name": "start",
+        "parameters": [
+          " * None"
+        ],
         "signature": "TextClipboardHistory:start()",
         "stripped_doc": "",
         "type": "Method"
@@ -9988,8 +10462,11 @@
       {
         "def": "TextClipboardHistory:toggleClipboard()",
         "desc": "Show/hide the clipboard list, depending on its current state",
-        "doc": "Show/hide the clipboard list, depending on its current state",
+        "doc": "Show/hide the clipboard list, depending on its current state\n\nParameters:\n * None",
         "name": "toggleClipboard",
+        "parameters": [
+          " * None"
+        ],
         "signature": "TextClipboardHistory:toggleClipboard()",
         "stripped_doc": "",
         "type": "Method"
@@ -9997,8 +10474,11 @@
       {
         "def": "TextClipboardHistory:togglePasteOnSelect()",
         "desc": "Toggle the value of `TextClipboardHistory.paste_on_select`",
-        "doc": "Toggle the value of `TextClipboardHistory.paste_on_select`",
+        "doc": "Toggle the value of `TextClipboardHistory.paste_on_select`\n\nParameters:\n * None",
         "name": "togglePasteOnSelect",
+        "parameters": [
+          " * None"
+        ],
         "signature": "TextClipboardHistory:togglePasteOnSelect()",
         "stripped_doc": "",
         "type": "Method"
@@ -10037,8 +10517,11 @@
       {
         "def": "TimeMachineProgress:refresh()",
         "desc": "Update the indicator and menu according to the current backup status.",
-        "doc": "Update the indicator and menu according to the current backup status.",
+        "doc": "Update the indicator and menu according to the current backup status.\n\nParameters:\n * None",
         "name": "refresh",
+        "parameters": [
+          " * None"
+        ],
         "signature": "TimeMachineProgress:refresh()",
         "stripped_doc": "",
         "type": "Method"
@@ -10127,8 +10610,11 @@
       {
         "def": "TimeMachineProgress:refresh()",
         "desc": "Update the indicator and menu according to the current backup status.",
-        "doc": "Update the indicator and menu according to the current backup status.",
+        "doc": "Update the indicator and menu according to the current backup status.\n\nParameters:\n * None",
         "name": "refresh",
+        "parameters": [
+          " * None"
+        ],
         "signature": "TimeMachineProgress:refresh()",
         "stripped_doc": "",
         "type": "Method"
@@ -10402,8 +10888,11 @@
       {
         "def": "Token:get_token()",
         "desc": "Retrieves the token using an HOTP/TOTP Secret Key stored in the keychain",
-        "doc": "Retrieves the token using an HOTP/TOTP Secret Key stored in the keychain",
+        "doc": "Retrieves the token using an HOTP/TOTP Secret Key stored in the keychain\n\nParameters:\n * None",
         "name": "get_token",
+        "parameters": [
+          " * None"
+        ],
         "signature": "Token:get_token()",
         "stripped_doc": "",
         "type": "Method"
@@ -10411,8 +10900,11 @@
       {
         "def": "Token:token_keystroke()",
         "desc": "read a token secret key from keychain, generate a code and make keystrokes for it",
-        "doc": "read a token secret key from keychain, generate a code and make keystrokes for it",
+        "doc": "read a token secret key from keychain, generate a code and make keystrokes for it\n\nParameters:\n * None",
         "name": "token_keystroke",
+        "parameters": [
+          " * None"
+        ],
         "signature": "Token:token_keystroke()",
         "stripped_doc": "",
         "type": "Method"
@@ -10457,8 +10949,11 @@
       {
         "def": "Token:get_token()",
         "desc": "Retrieves the token using an HOTP/TOTP Secret Key stored in the keychain",
-        "doc": "Retrieves the token using an HOTP/TOTP Secret Key stored in the keychain",
+        "doc": "Retrieves the token using an HOTP/TOTP Secret Key stored in the keychain\n\nParameters:\n * None",
         "name": "get_token",
+        "parameters": [
+          " * None"
+        ],
         "signature": "Token:get_token()",
         "stripped_doc": "",
         "type": "Method"
@@ -10484,8 +10979,11 @@
       {
         "def": "Token:token_keystroke()",
         "desc": "read a token secret key from keychain, generate a code and make keystrokes for it",
-        "doc": "read a token secret key from keychain, generate a code and make keystrokes for it",
+        "doc": "read a token secret key from keychain, generate a code and make keystrokes for it\n\nParameters:\n * None",
         "name": "token_keystroke",
+        "parameters": [
+          " * None"
+        ],
         "signature": "Token:token_keystroke()",
         "stripped_doc": "",
         "type": "Method"
@@ -10520,8 +11018,11 @@
       {
         "def": "Tunnelblick:connect()",
         "desc": "Performs the connection operation using a username, password, and connection_name",
-        "doc": "Performs the connection operation using a username, password, and connection_name",
+        "doc": "Performs the connection operation using a username, password, and connection_name\n\nParameters:\n * None",
         "name": "connect",
+        "parameters": [
+          " * None"
+        ],
         "signature": "Tunnelblick:connect()",
         "stripped_doc": "",
         "type": "Method"
@@ -10584,8 +11085,11 @@
       {
         "def": "Tunnelblick:connect()",
         "desc": "Performs the connection operation using a username, password, and connection_name",
-        "doc": "Performs the connection operation using a username, password, and connection_name",
+        "doc": "Performs the connection operation using a username, password, and connection_name\n\nParameters:\n * None",
         "name": "connect",
+        "parameters": [
+          " * None"
+        ],
         "signature": "Tunnelblick:connect()",
         "stripped_doc": "",
         "type": "Method"
@@ -10654,7 +11158,7 @@
         "type": "Method"
       },
       {
-        "def": "TurboBoost:setState(state)",
+        "def": "TurboBoost:setState(state, notify)",
         "desc": "Sets whether Turbo Boost should be disabled (kernel extension",
         "doc": "Sets whether Turbo Boost should be disabled (kernel extension\nloaded) or enabled (normal state, kernel extension not loaded).\n\nParameters:\n * state - A boolean, false if Turbo Boost should be disabled\n   (load kernel extension), true if it should be enabled (unload\n   kernel extension if loaded).\n * notify - Optional boolean indicating whether a notification\n   should be produced. If not given, the value of\n   TurboBoost.notify is used.\n\nReturns:\n * Boolean indicating new state",
         "name": "setState",
@@ -10669,7 +11173,7 @@
         "returns": [
           " * Boolean indicating new state"
         ],
-        "signature": "TurboBoost:setState(state)",
+        "signature": "TurboBoost:setState(state, notify)",
         "stripped_doc": "loaded) or enabled (normal state, kernel extension not loaded).",
         "type": "Method"
       },
@@ -10691,8 +11195,11 @@
       {
         "def": "TurboBoost:status()",
         "desc": "Check whether Turbo Boost is enabled",
-        "doc": "Check whether Turbo Boost is enabled\n\nReturns:\n * true if TurboBoost is enabled (kernel ext not loaded), false otherwise.",
+        "doc": "Check whether Turbo Boost is enabled\n\nParameters:\n * None\n\nReturns:\n * true if TurboBoost is enabled (kernel ext not loaded), false otherwise.",
         "name": "status",
+        "parameters": [
+          " * None"
+        ],
         "returns": [
           " * true if TurboBoost is enabled (kernel ext not loaded), false otherwise."
         ],
@@ -10718,8 +11225,11 @@
       {
         "def": "TurboBoost:toggle()",
         "desc": "Toggle TurboBoost status",
-        "doc": "Toggle TurboBoost status\n\nReturns:\n * New TurboBoost status, after the toggle",
+        "doc": "Toggle TurboBoost status\n\nParameters:\n * None\n\nReturns:\n * New TurboBoost status, after the toggle",
         "name": "toggle",
+        "parameters": [
+          " * None"
+        ],
         "returns": [
           " * New TurboBoost status, after the toggle"
         ],
@@ -10936,7 +11446,7 @@
         "type": "Variable"
       },
       {
-        "def": "TurboBoost:setState(state)",
+        "def": "TurboBoost:setState(state, notify)",
         "desc": "Sets whether Turbo Boost should be disabled (kernel extension",
         "doc": "Sets whether Turbo Boost should be disabled (kernel extension\nloaded) or enabled (normal state, kernel extension not loaded).\n\nParameters:\n * state - A boolean, false if Turbo Boost should be disabled\n   (load kernel extension), true if it should be enabled (unload\n   kernel extension if loaded).\n * notify - Optional boolean indicating whether a notification\n   should be produced. If not given, the value of\n   TurboBoost.notify is used.\n\nReturns:\n * Boolean indicating new state",
         "name": "setState",
@@ -10951,7 +11461,7 @@
         "returns": [
           " * Boolean indicating new state"
         ],
-        "signature": "TurboBoost:setState(state)",
+        "signature": "TurboBoost:setState(state, notify)",
         "stripped_doc": "loaded) or enabled (normal state, kernel extension not loaded).",
         "type": "Method"
       },
@@ -10973,8 +11483,11 @@
       {
         "def": "TurboBoost:status()",
         "desc": "Check whether Turbo Boost is enabled",
-        "doc": "Check whether Turbo Boost is enabled\n\nReturns:\n * true if TurboBoost is enabled (kernel ext not loaded), false otherwise.",
+        "doc": "Check whether Turbo Boost is enabled\n\nParameters:\n * None\n\nReturns:\n * true if TurboBoost is enabled (kernel ext not loaded), false otherwise.",
         "name": "status",
+        "parameters": [
+          " * None"
+        ],
         "returns": [
           " * true if TurboBoost is enabled (kernel ext not loaded), false otherwise."
         ],
@@ -11000,8 +11513,11 @@
       {
         "def": "TurboBoost:toggle()",
         "desc": "Toggle TurboBoost status",
-        "doc": "Toggle TurboBoost status\n\nReturns:\n * New TurboBoost status, after the toggle",
+        "doc": "Toggle TurboBoost status\n\nParameters:\n * None\n\nReturns:\n * New TurboBoost status, after the toggle",
         "name": "toggle",
+        "parameters": [
+          " * None"
+        ],
         "returns": [
           " * New TurboBoost status, after the toggle"
         ],
@@ -11112,8 +11628,11 @@
       {
         "def": "UniversalArchive:universalArchive(where)",
         "desc": "Main entry point for archiving an item. If a handler function is",
-        "doc": "Main entry point for archiving an item. If a handler function is\ndefined for the current application, it is called with the\n`UniversalArchive` object as its first argument, and the archive\ndestination (if provided) as the second. Handlers must have a\n\"default destination\" that gets used when no destination is\nprovided. Not all handlers support specifying a destination. New\nhandlers can be registered using the `registerApplication()`\nmethod.",
+        "doc": "Main entry point for archiving an item. If a handler function is\ndefined for the current application, it is called with the\n`UniversalArchive` object as its first argument, and the archive\ndestination (if provided) as the second. Handlers must have a\n\"default destination\" that gets used when no destination is\nprovided. Not all handlers support specifying a destination. New\nhandlers can be registered using the `registerApplication()`\nmethod.\n\nParameters:\n * None",
         "name": "universalArchive",
+        "parameters": [
+          " * None"
+        ],
         "signature": "UniversalArchive:universalArchive(where)",
         "stripped_doc": "defined for the current application, it is called with the\n`UniversalArchive` object as its first argument, and the archive\ndestination (if provided) as the second. Handlers must have a\n\"default destination\" that gets used when no destination is\nprovided. Not all handlers support specifying a destination. New\nhandlers can be registered using the `registerApplication()`\nmethod.",
         "type": "Method"
@@ -11294,8 +11813,11 @@
       {
         "def": "UniversalArchive:universalArchive(where)",
         "desc": "Main entry point for archiving an item. If a handler function is",
-        "doc": "Main entry point for archiving an item. If a handler function is\ndefined for the current application, it is called with the\n`UniversalArchive` object as its first argument, and the archive\ndestination (if provided) as the second. Handlers must have a\n\"default destination\" that gets used when no destination is\nprovided. Not all handlers support specifying a destination. New\nhandlers can be registered using the `registerApplication()`\nmethod.",
+        "doc": "Main entry point for archiving an item. If a handler function is\ndefined for the current application, it is called with the\n`UniversalArchive` object as its first argument, and the archive\ndestination (if provided) as the second. Handlers must have a\n\"default destination\" that gets used when no destination is\nprovided. Not all handlers support specifying a destination. New\nhandlers can be registered using the `registerApplication()`\nmethod.\n\nParameters:\n * None",
         "name": "universalArchive",
+        "parameters": [
+          " * None"
+        ],
         "signature": "UniversalArchive:universalArchive(where)",
         "stripped_doc": "defined for the current application, it is called with the\n`UniversalArchive` object as its first argument, and the archive\ndestination (if provided) as the second. Handlers must have a\n\"default destination\" that gets used when no destination is\nprovided. Not all handlers support specifying a destination. New\nhandlers can be registered using the `registerApplication()`\nmethod.",
         "type": "Method"
@@ -11351,17 +11873,29 @@
       {
         "def": "URLDispatcher:dispatchURL(scheme, host, params, fullUrl)",
         "desc": "Dispatch a URL to an application according to the defined `url_patterns`.",
-        "doc": "Dispatch a URL to an application according to the defined `url_patterns`.\n\nParameters (according to the [httpCallback](http://www.hammerspoon.org/docs/hs.urlevent.html#httpCallback) specification):\n * scheme - A string containing the URL scheme (i.e. \"http\")\n * host - A string containing the host requested (e.g. \"www.hammerspoon.org\")\n * params - A table containing the key/value pairs of all the URL parameters\n * fullURL - A string containing the full, original URL. This is the only parameter used in this implementation.",
+        "doc": "Dispatch a URL to an application according to the defined `url_patterns`.\n\nParameters:\n * scheme - A string containing the URL scheme (i.e. \"http\")\n * host - A string containing the host requested (e.g. \"www.hammerspoon.org\")\n * params - A table containing the key/value pairs of all the URL parameters\n * fullURL - A string containing the full, original URL. This is the only parameter used in this implementation.\n\nNotes:\n * The parameters (follow to the [httpCallback](http://www.hammerspoon.org/docs/hs.urlevent.html#httpCallback) specification)",
         "name": "dispatchURL",
+        "notes": [
+          " * The parameters (follow to the [httpCallback](http://www.hammerspoon.org/docs/hs.urlevent.html#httpCallback) specification)"
+        ],
+        "parameters": [
+          " * scheme - A string containing the URL scheme (i.e. \"http\")",
+          " * host - A string containing the host requested (e.g. \"www.hammerspoon.org\")",
+          " * params - A table containing the key/value pairs of all the URL parameters",
+          " * fullURL - A string containing the full, original URL. This is the only parameter used in this implementation."
+        ],
         "signature": "URLDispatcher:dispatchURL(scheme, host, params, fullUrl)",
-        "stripped_doc": "Parameters (according to the [httpCallback](http://www.hammerspoon.org/docs/hs.urlevent.html#httpCallback) specification):\n * scheme - A string containing the URL scheme (i.e. \"http\")\n * host - A string containing the host requested (e.g. \"www.hammerspoon.org\")\n * params - A table containing the key/value pairs of all the URL parameters\n * fullURL - A string containing the full, original URL. This is the only parameter used in this implementation.",
+        "stripped_doc": "",
         "type": "Method"
       },
       {
         "def": "URLDispatcher:start()",
         "desc": "Start dispatching URLs according to the rules",
-        "doc": "Start dispatching URLs according to the rules",
+        "doc": "Start dispatching URLs according to the rules\n\nParameters:\n * None",
         "name": "start",
+        "parameters": [
+          " * None"
+        ],
         "signature": "URLDispatcher:start()",
         "stripped_doc": "",
         "type": "Method"
@@ -11447,10 +11981,19 @@
       {
         "def": "URLDispatcher:dispatchURL(scheme, host, params, fullUrl)",
         "desc": "Dispatch a URL to an application according to the defined `url_patterns`.",
-        "doc": "Dispatch a URL to an application according to the defined `url_patterns`.\n\nParameters (according to the [httpCallback](http://www.hammerspoon.org/docs/hs.urlevent.html#httpCallback) specification):\n * scheme - A string containing the URL scheme (i.e. \"http\")\n * host - A string containing the host requested (e.g. \"www.hammerspoon.org\")\n * params - A table containing the key/value pairs of all the URL parameters\n * fullURL - A string containing the full, original URL. This is the only parameter used in this implementation.",
+        "doc": "Dispatch a URL to an application according to the defined `url_patterns`.\n\nParameters:\n * scheme - A string containing the URL scheme (i.e. \"http\")\n * host - A string containing the host requested (e.g. \"www.hammerspoon.org\")\n * params - A table containing the key/value pairs of all the URL parameters\n * fullURL - A string containing the full, original URL. This is the only parameter used in this implementation.\n\nNotes:\n * The parameters (follow to the [httpCallback](http://www.hammerspoon.org/docs/hs.urlevent.html#httpCallback) specification)",
         "name": "dispatchURL",
+        "notes": [
+          " * The parameters (follow to the [httpCallback](http://www.hammerspoon.org/docs/hs.urlevent.html#httpCallback) specification)"
+        ],
+        "parameters": [
+          " * scheme - A string containing the URL scheme (i.e. \"http\")",
+          " * host - A string containing the host requested (e.g. \"www.hammerspoon.org\")",
+          " * params - A table containing the key/value pairs of all the URL parameters",
+          " * fullURL - A string containing the full, original URL. This is the only parameter used in this implementation."
+        ],
         "signature": "URLDispatcher:dispatchURL(scheme, host, params, fullUrl)",
-        "stripped_doc": "Parameters (according to the [httpCallback](http://www.hammerspoon.org/docs/hs.urlevent.html#httpCallback) specification):\n * scheme - A string containing the URL scheme (i.e. \"http\")\n * host - A string containing the host requested (e.g. \"www.hammerspoon.org\")\n * params - A table containing the key/value pairs of all the URL parameters\n * fullURL - A string containing the full, original URL. This is the only parameter used in this implementation.",
+        "stripped_doc": "",
         "type": "Method"
       },
       {
@@ -11474,8 +12017,11 @@
       {
         "def": "URLDispatcher:start()",
         "desc": "Start dispatching URLs according to the rules",
-        "doc": "Start dispatching URLs according to the rules",
+        "doc": "Start dispatching URLs according to the rules\n\nParameters:\n * None",
         "name": "start",
+        "parameters": [
+          " * None"
+        ],
         "signature": "URLDispatcher:start()",
         "stripped_doc": "",
         "type": "Method"
@@ -11515,8 +12061,11 @@
       {
         "def": "USBDeviceActions:init() -> Self",
         "desc": "Creates an `hs.usb.watcher` with a callback that will execute the specified actions for the USB devices in `USBDeviceActions.devices` when they are connected/disconnected, but doesn't start the watcher.",
-        "doc": "Creates an `hs.usb.watcher` with a callback that will execute the specified actions for the USB devices in `USBDeviceActions.devices` when they are connected/disconnected, but doesn't start the watcher.\n\nReturns:\n * Self",
+        "doc": "Creates an `hs.usb.watcher` with a callback that will execute the specified actions for the USB devices in `USBDeviceActions.devices` when they are connected/disconnected, but doesn't start the watcher.\n\nParameters:\n * None\n\nReturns:\n * Self",
         "name": "init",
+        "parameters": [
+          " * None"
+        ],
         "returns": [
           " * Self"
         ],
@@ -11527,8 +12076,11 @@
       {
         "def": "USBDeviceActions:start() -> Self",
         "desc": "Starts the `hs.usb.watcher` created by `USBDeviceActions:init()`.",
-        "doc": "Starts the `hs.usb.watcher` created by `USBDeviceActions:init()`.\n\nReturns:\n * Self",
+        "doc": "Starts the `hs.usb.watcher` created by `USBDeviceActions:init()`.\n\nParameters:\n * None\n\nReturns:\n * Self",
         "name": "start",
+        "parameters": [
+          " * None"
+        ],
         "returns": [
           " * Self"
         ],
@@ -11539,8 +12091,11 @@
       {
         "def": "USBDeviceActions:stop() -> Self",
         "desc": "Stops the `hs.usb.watcher` created by `USBDeviceActions:init()`.",
-        "doc": "Stops the `hs.usb.watcher` created by `USBDeviceActions:init()`.\n\nReturns:\n * Self",
+        "doc": "Stops the `hs.usb.watcher` created by `USBDeviceActions:init()`.\n\nParameters:\n * None\n\nReturns:\n * Self",
         "name": "stop",
+        "parameters": [
+          " * None"
+        ],
         "returns": [
           " * Self"
         ],
@@ -11575,8 +12130,11 @@
       {
         "def": "USBDeviceActions:init() -> Self",
         "desc": "Creates an `hs.usb.watcher` with a callback that will execute the specified actions for the USB devices in `USBDeviceActions.devices` when they are connected/disconnected, but doesn't start the watcher.",
-        "doc": "Creates an `hs.usb.watcher` with a callback that will execute the specified actions for the USB devices in `USBDeviceActions.devices` when they are connected/disconnected, but doesn't start the watcher.\n\nReturns:\n * Self",
+        "doc": "Creates an `hs.usb.watcher` with a callback that will execute the specified actions for the USB devices in `USBDeviceActions.devices` when they are connected/disconnected, but doesn't start the watcher.\n\nParameters:\n * None\n\nReturns:\n * Self",
         "name": "init",
+        "parameters": [
+          " * None"
+        ],
         "returns": [
           " * Self"
         ],
@@ -11587,8 +12145,11 @@
       {
         "def": "USBDeviceActions:start() -> Self",
         "desc": "Starts the `hs.usb.watcher` created by `USBDeviceActions:init()`.",
-        "doc": "Starts the `hs.usb.watcher` created by `USBDeviceActions:init()`.\n\nReturns:\n * Self",
+        "doc": "Starts the `hs.usb.watcher` created by `USBDeviceActions:init()`.\n\nParameters:\n * None\n\nReturns:\n * Self",
         "name": "start",
+        "parameters": [
+          " * None"
+        ],
         "returns": [
           " * Self"
         ],
@@ -11599,8 +12160,11 @@
       {
         "def": "USBDeviceActions:stop() -> Self",
         "desc": "Stops the `hs.usb.watcher` created by `USBDeviceActions:init()`.",
-        "doc": "Stops the `hs.usb.watcher` created by `USBDeviceActions:init()`.\n\nReturns:\n * Self",
+        "doc": "Stops the `hs.usb.watcher` created by `USBDeviceActions:init()`.\n\nParameters:\n * None\n\nReturns:\n * Self",
         "name": "stop",
+        "parameters": [
+          " * None"
+        ],
         "returns": [
           " * Self"
         ],
@@ -11625,9 +12189,11 @@
       {
         "def": "VolumeScroll:init()",
         "desc": "Initialize spoon",
-        "doc": "Initialize spoon\n\nParameters:\n\nReturns:\n * void",
+        "doc": "Initialize spoon\n\nParameters:\n * None\n\nReturns:\n * void",
         "name": "init",
-        "parameters": [],
+        "parameters": [
+          " * None"
+        ],
         "returns": [
           " * void"
         ],
@@ -11668,9 +12234,11 @@
       {
         "def": "VolumeScroll:stop()",
         "desc": "Stop the scroll watcher",
-        "doc": "Stop the scroll watcher\n\nParameters:\n\nReturns:\n * void",
+        "doc": "Stop the scroll watcher\n\nParameters:\n * None\n\nReturns:\n * void",
         "name": "stop",
-        "parameters": [],
+        "parameters": [
+          " * None"
+        ],
         "returns": [
           " * void"
         ],
@@ -11701,9 +12269,11 @@
       {
         "def": "VolumeScroll:init()",
         "desc": "Initialize spoon",
-        "doc": "Initialize spoon\n\nParameters:\n\nReturns:\n * void",
+        "doc": "Initialize spoon\n\nParameters:\n * None\n\nReturns:\n * void",
         "name": "init",
-        "parameters": [],
+        "parameters": [
+          " * None"
+        ],
         "returns": [
           " * void"
         ],
@@ -11744,9 +12314,11 @@
       {
         "def": "VolumeScroll:stop()",
         "desc": "Stop the scroll watcher",
-        "doc": "Stop the scroll watcher\n\nParameters:\n\nReturns:\n * void",
+        "doc": "Stop the scroll watcher\n\nParameters:\n * None\n\nReturns:\n * void",
         "name": "stop",
-        "parameters": [],
+        "parameters": [
+          " * None"
+        ],
         "returns": [
           " * void"
         ],
@@ -11786,10 +12358,13 @@
       {
         "def": "WifiNotifier:init()",
         "desc": "Initialize the WifiNotifier spoon",
-        "doc": "Initialize the WifiNotifier spoon\n\nReturns:\n* The WifiNotifier object",
+        "doc": "Initialize the WifiNotifier spoon\n\nParameters:\n * None\n\nReturns:\n * The WifiNotifier object",
         "name": "init",
+        "parameters": [
+          " * None"
+        ],
         "returns": [
-          "* The WifiNotifier object"
+          " * The WifiNotifier object"
         ],
         "signature": "WifiNotifier:init()",
         "stripped_doc": "",
@@ -11798,10 +12373,13 @@
       {
         "def": "WifiNotifier:ssidChangedCallback()",
         "desc": "Fires whenever the wifiWatcher detects an SSID change.",
-        "doc": "Fires whenever the wifiWatcher detects an SSID change.\n\nReturns:\n* The WifiNotifier object",
+        "doc": "Fires whenever the wifiWatcher detects an SSID change.\n\nParameters:\n * None\n\nReturns:\n * The WifiNotifier object",
         "name": "ssidChangedCallback",
+        "parameters": [
+          " * None"
+        ],
         "returns": [
-          "* The WifiNotifier object"
+          " * The WifiNotifier object"
         ],
         "signature": "WifiNotifier:ssidChangedCallback()",
         "stripped_doc": "",
@@ -11810,10 +12388,13 @@
       {
         "def": "WifiNotifier:start()",
         "desc": "Starts the wifiNotifier",
-        "doc": "Starts the wifiNotifier\n\nReturns:\n* The WifiNotifier object",
+        "doc": "Starts the wifiNotifier\n\nParameters:\n * None\n\nReturns:\n * The WifiNotifier object",
         "name": "start",
+        "parameters": [
+          " * None"
+        ],
         "returns": [
-          "* The WifiNotifier object"
+          " * The WifiNotifier object"
         ],
         "signature": "WifiNotifier:start()",
         "stripped_doc": "",
@@ -11827,10 +12408,13 @@
       {
         "def": "WifiNotifier:init()",
         "desc": "Initialize the WifiNotifier spoon",
-        "doc": "Initialize the WifiNotifier spoon\n\nReturns:\n* The WifiNotifier object",
+        "doc": "Initialize the WifiNotifier spoon\n\nParameters:\n * None\n\nReturns:\n * The WifiNotifier object",
         "name": "init",
+        "parameters": [
+          " * None"
+        ],
         "returns": [
-          "* The WifiNotifier object"
+          " * The WifiNotifier object"
         ],
         "signature": "WifiNotifier:init()",
         "stripped_doc": "",
@@ -11839,10 +12423,13 @@
       {
         "def": "WifiNotifier:ssidChangedCallback()",
         "desc": "Fires whenever the wifiWatcher detects an SSID change.",
-        "doc": "Fires whenever the wifiWatcher detects an SSID change.\n\nReturns:\n* The WifiNotifier object",
+        "doc": "Fires whenever the wifiWatcher detects an SSID change.\n\nParameters:\n * None\n\nReturns:\n * The WifiNotifier object",
         "name": "ssidChangedCallback",
+        "parameters": [
+          " * None"
+        ],
         "returns": [
-          "* The WifiNotifier object"
+          " * The WifiNotifier object"
         ],
         "signature": "WifiNotifier:ssidChangedCallback()",
         "stripped_doc": "",
@@ -11851,10 +12438,13 @@
       {
         "def": "WifiNotifier:start()",
         "desc": "Starts the wifiNotifier",
-        "doc": "Starts the wifiNotifier\n\nReturns:\n* The WifiNotifier object",
+        "doc": "Starts the wifiNotifier\n\nParameters:\n * None\n\nReturns:\n * The WifiNotifier object",
         "name": "start",
+        "parameters": [
+          " * None"
+        ],
         "returns": [
-          "* The WifiNotifier object"
+          " * The WifiNotifier object"
         ],
         "signature": "WifiNotifier:start()",
         "stripped_doc": "",
@@ -11891,8 +12481,11 @@
       {
         "def": "WiFiTransitions:start()",
         "desc": "Start the WiFi watcher",
-        "doc": "Start the WiFi watcher\n\nReturns:\n * The WiFiTransitions spoon object",
+        "doc": "Start the WiFi watcher\n\nParameters:\n * None\n\nReturns:\n * The WiFiTransitions spoon object",
         "name": "start",
+        "parameters": [
+          " * None"
+        ],
         "returns": [
           " * The WiFiTransitions spoon object"
         ],
@@ -11977,8 +12570,11 @@
       {
         "def": "WiFiTransitions:start()",
         "desc": "Start the WiFi watcher",
-        "doc": "Start the WiFi watcher\n\nReturns:\n * The WiFiTransitions spoon object",
+        "doc": "Start the WiFi watcher\n\nParameters:\n * None\n\nReturns:\n * The WiFiTransitions spoon object",
         "name": "start",
+        "parameters": [
+          " * None"
+        ],
         "returns": [
           " * The WiFiTransitions spoon object"
         ],
@@ -12016,8 +12612,11 @@
       {
         "def": "WindowGrid:start()",
         "desc": "Sets the grid configuration according to `WindowGrid.gridGeometries`.",
-        "doc": "Sets the grid configuration according to `WindowGrid.gridGeometries`.",
+        "doc": "Sets the grid configuration according to `WindowGrid.gridGeometries`.\n\nParameters:\n * None",
         "name": "start",
+        "parameters": [
+          " * None"
+        ],
         "signature": "WindowGrid:start()",
         "stripped_doc": "",
         "type": "Method"
@@ -12080,8 +12679,11 @@
       {
         "def": "WindowGrid:start()",
         "desc": "Sets the grid configuration according to `WindowGrid.gridGeometries`.",
-        "doc": "Sets the grid configuration according to `WindowGrid.gridGeometries`.",
+        "doc": "Sets the grid configuration according to `WindowGrid.gridGeometries`.\n\nParameters:\n * None",
         "name": "start",
+        "parameters": [
+          " * None"
+        ],
         "signature": "WindowGrid:start()",
         "stripped_doc": "",
         "type": "Method"
@@ -12542,12 +13144,12 @@
       {
         "def": "WindowSigils:bindModeKey(mods, key, action)",
         "desc": "Bind an extra action to be triggered by a key in the sigil mode.",
-        "doc": "Bind an extra action to be triggered by a key in the sigil mode.\n\nParameters:\n  * mods - The key modifiers\n  * key - The key\n  * action - A function, called with no parameters.",
+        "doc": "Bind an extra action to be triggered by a key in the sigil mode.\n\nParameters:\n * mods - The key modifiers\n * key - The key\n * action - A function, called with no parameters.",
         "name": "bindModeKey",
         "parameters": [
-          "  * mods - The key modifiers",
-          "  * key - The key",
-          "  * action - A function, called with no parameters."
+          " * mods - The key modifiers",
+          " * key - The key",
+          " * action - A function, called with no parameters."
         ],
         "signature": "WindowSigils:bindModeKey(mods, key, action)",
         "stripped_doc": "",
@@ -12556,11 +13158,11 @@
       {
         "def": "WindowSigils:bindSigilAction(mods, action)",
         "desc": "Bind an action to be triggered in the sigil mode when a window's sigil key is pressed.",
-        "doc": "Bind an action to be triggered in the sigil mode when a window's sigil key is pressed.\n\nParameters:\n  * mods - The modifiers which must be held to trigger this action.\n  * action - A function which takes a window object and performs this action.",
+        "doc": "Bind an action to be triggered in the sigil mode when a window's sigil key is pressed.\n\nParameters:\n * mods - The modifiers which must be held to trigger this action.\n * action - A function which takes a window object and performs this action.",
         "name": "bindSigilAction",
         "parameters": [
-          "  * mods - The modifiers which must be held to trigger this action.",
-          "  * action - A function which takes a window object and performs this action."
+          " * mods - The modifiers which must be held to trigger this action.",
+          " * action - A function which takes a window object and performs this action."
         ],
         "signature": "WindowSigils:bindSigilAction(mods, action)",
         "stripped_doc": "",
@@ -12569,10 +13171,10 @@
       {
         "def": "WindowSigils:configure(configuration)",
         "desc": "Configures the spoon.",
-        "doc": "Configures the spoon.\n\nParameters:\n  * configuration - :\n   * hotkeys \n   * mode_keys - a table of key specs (e.g. {{'shift'}, 'n'}) to functions.  The keys are\n     mapped inside the sigil mode and the key is no longer used as a window sigil.\n   * sigil_actions - a table of mod specs (e.g. {'alt'}) to functions.  When the sigil is\n     used in the sigil mode with the specified modifier pressed, the function is invoked\n     with a window object.",
+        "doc": "Configures the spoon.\n\nParameters:\n * configuration - :\n   * hotkeys \n   * mode_keys - a table of key specs (e.g. {{'shift'}, 'n'}) to functions.  The keys are\n     mapped inside the sigil mode and the key is no longer used as a window sigil.\n   * sigil_actions - a table of mod specs (e.g. {'alt'}) to functions.  When the sigil is\n     used in the sigil mode with the specified modifier pressed, the function is invoked\n     with a window object.",
         "name": "configure",
         "parameters": [
-          "  * configuration - :",
+          " * configuration - :",
           "   * hotkeys ",
           "   * mode_keys - a table of key specs (e.g. {{'shift'}, 'n'}) to functions.  The keys are",
           "     mapped inside the sigil mode and the key is no longer used as a window sigil.",
@@ -12587,8 +13189,11 @@
       {
         "def": "WindowSigils:orderedWindows()",
         "desc": "A list of windows, in the order sigils are assigned.",
-        "doc": "A list of windows, in the order sigils are assigned.",
+        "doc": "A list of windows, in the order sigils are assigned.\n\nParameters:\n * None",
         "name": "orderedWindows",
+        "parameters": [
+          " * None"
+        ],
         "signature": "WindowSigils:orderedWindows()",
         "stripped_doc": "",
         "type": "Method"
@@ -12596,9 +13201,11 @@
       {
         "def": "WindowSigils:refresh()",
         "desc": "Rerender all window sigils.",
-        "doc": "Rerender all window sigils.\n\nParameters:",
+        "doc": "Rerender all window sigils.\n\nParameters:\n * None",
         "name": "refresh",
-        "parameters": [],
+        "parameters": [
+          " * None"
+        ],
         "signature": "WindowSigils:refresh()",
         "stripped_doc": "",
         "type": "Method"
@@ -12606,9 +13213,11 @@
       {
         "def": "WindowSigils:start()",
         "desc": "Starts rendering the sigils and handling hotkeys",
-        "doc": "Starts rendering the sigils and handling hotkeys\n\nParameters:",
+        "doc": "Starts rendering the sigils and handling hotkeys\n\nParameters:\n * None",
         "name": "start",
-        "parameters": [],
+        "parameters": [
+          " * None"
+        ],
         "signature": "WindowSigils:start()",
         "stripped_doc": "",
         "type": "Method"
@@ -12616,9 +13225,11 @@
       {
         "def": "WindowSigils:stop()",
         "desc": "Stops rendering the sigils and handling hotkeys",
-        "doc": "Stops rendering the sigils and handling hotkeys\n\nParameters:",
+        "doc": "Stops rendering the sigils and handling hotkeys\n\nParameters:\n * None",
         "name": "stop",
-        "parameters": [],
+        "parameters": [
+          " * None"
+        ],
         "signature": "WindowSigils:stop()",
         "stripped_doc": "",
         "type": "Method"
@@ -12668,12 +13279,12 @@
       {
         "def": "WindowSigils:bindModeKey(mods, key, action)",
         "desc": "Bind an extra action to be triggered by a key in the sigil mode.",
-        "doc": "Bind an extra action to be triggered by a key in the sigil mode.\n\nParameters:\n  * mods - The key modifiers\n  * key - The key\n  * action - A function, called with no parameters.",
+        "doc": "Bind an extra action to be triggered by a key in the sigil mode.\n\nParameters:\n * mods - The key modifiers\n * key - The key\n * action - A function, called with no parameters.",
         "name": "bindModeKey",
         "parameters": [
-          "  * mods - The key modifiers",
-          "  * key - The key",
-          "  * action - A function, called with no parameters."
+          " * mods - The key modifiers",
+          " * key - The key",
+          " * action - A function, called with no parameters."
         ],
         "signature": "WindowSigils:bindModeKey(mods, key, action)",
         "stripped_doc": "",
@@ -12682,11 +13293,11 @@
       {
         "def": "WindowSigils:bindSigilAction(mods, action)",
         "desc": "Bind an action to be triggered in the sigil mode when a window's sigil key is pressed.",
-        "doc": "Bind an action to be triggered in the sigil mode when a window's sigil key is pressed.\n\nParameters:\n  * mods - The modifiers which must be held to trigger this action.\n  * action - A function which takes a window object and performs this action.",
+        "doc": "Bind an action to be triggered in the sigil mode when a window's sigil key is pressed.\n\nParameters:\n * mods - The modifiers which must be held to trigger this action.\n * action - A function which takes a window object and performs this action.",
         "name": "bindSigilAction",
         "parameters": [
-          "  * mods - The modifiers which must be held to trigger this action.",
-          "  * action - A function which takes a window object and performs this action."
+          " * mods - The modifiers which must be held to trigger this action.",
+          " * action - A function which takes a window object and performs this action."
         ],
         "signature": "WindowSigils:bindSigilAction(mods, action)",
         "stripped_doc": "",
@@ -12695,10 +13306,10 @@
       {
         "def": "WindowSigils:configure(configuration)",
         "desc": "Configures the spoon.",
-        "doc": "Configures the spoon.\n\nParameters:\n  * configuration - :\n   * hotkeys \n   * mode_keys - a table of key specs (e.g. {{'shift'}, 'n'}) to functions.  The keys are\n     mapped inside the sigil mode and the key is no longer used as a window sigil.\n   * sigil_actions - a table of mod specs (e.g. {'alt'}) to functions.  When the sigil is\n     used in the sigil mode with the specified modifier pressed, the function is invoked\n     with a window object.",
+        "doc": "Configures the spoon.\n\nParameters:\n * configuration - :\n   * hotkeys \n   * mode_keys - a table of key specs (e.g. {{'shift'}, 'n'}) to functions.  The keys are\n     mapped inside the sigil mode and the key is no longer used as a window sigil.\n   * sigil_actions - a table of mod specs (e.g. {'alt'}) to functions.  When the sigil is\n     used in the sigil mode with the specified modifier pressed, the function is invoked\n     with a window object.",
         "name": "configure",
         "parameters": [
-          "  * configuration - :",
+          " * configuration - :",
           "   * hotkeys ",
           "   * mode_keys - a table of key specs (e.g. {{'shift'}, 'n'}) to functions.  The keys are",
           "     mapped inside the sigil mode and the key is no longer used as a window sigil.",
@@ -12722,8 +13333,11 @@
       {
         "def": "WindowSigils:orderedWindows()",
         "desc": "A list of windows, in the order sigils are assigned.",
-        "doc": "A list of windows, in the order sigils are assigned.",
+        "doc": "A list of windows, in the order sigils are assigned.\n\nParameters:\n * None",
         "name": "orderedWindows",
+        "parameters": [
+          " * None"
+        ],
         "signature": "WindowSigils:orderedWindows()",
         "stripped_doc": "",
         "type": "Method"
@@ -12731,9 +13345,11 @@
       {
         "def": "WindowSigils:refresh()",
         "desc": "Rerender all window sigils.",
-        "doc": "Rerender all window sigils.\n\nParameters:",
+        "doc": "Rerender all window sigils.\n\nParameters:\n * None",
         "name": "refresh",
-        "parameters": [],
+        "parameters": [
+          " * None"
+        ],
         "signature": "WindowSigils:refresh()",
         "stripped_doc": "",
         "type": "Method"
@@ -12741,9 +13357,11 @@
       {
         "def": "WindowSigils:start()",
         "desc": "Starts rendering the sigils and handling hotkeys",
-        "doc": "Starts rendering the sigils and handling hotkeys\n\nParameters:",
+        "doc": "Starts rendering the sigils and handling hotkeys\n\nParameters:\n * None",
         "name": "start",
-        "parameters": [],
+        "parameters": [
+          " * None"
+        ],
         "signature": "WindowSigils:start()",
         "stripped_doc": "",
         "type": "Method"
@@ -12751,9 +13369,11 @@
       {
         "def": "WindowSigils:stop()",
         "desc": "Stops rendering the sigils and handling hotkeys",
-        "doc": "Stops rendering the sigils and handling hotkeys\n\nParameters:",
+        "doc": "Stops rendering the sigils and handling hotkeys\n\nParameters:\n * None",
         "name": "stop",
-        "parameters": [],
+        "parameters": [
+          " * None"
+        ],
         "signature": "WindowSigils:stop()",
         "stripped_doc": "",
         "type": "Method"
@@ -12789,8 +13409,11 @@
       {
         "def": "WinWin:centerCursor()",
         "desc": "Center the cursor on the focused window.",
-        "doc": "Center the cursor on the focused window.\n",
+        "doc": "Center the cursor on the focused window.\n\nParameters:\n * None",
         "name": "centerCursor",
+        "parameters": [
+          " * None"
+        ],
         "signature": "WinWin:centerCursor()",
         "stripped_doc": "",
         "type": "Method"
@@ -12846,8 +13469,11 @@
       {
         "def": "WinWin:undo()",
         "desc": "Undo the last window manipulation. Only those \"moveAndResize\" manipulations can be undone.",
-        "doc": "Undo the last window manipulation. Only those \"moveAndResize\" manipulations can be undone.\n",
+        "doc": "Undo the last window manipulation. Only those \"moveAndResize\" manipulations can be undone.\n\nParameters:\n * None",
         "name": "undo",
+        "parameters": [
+          " * None"
+        ],
         "signature": "WinWin:undo()",
         "stripped_doc": "",
         "type": "Method"
@@ -12870,8 +13496,11 @@
       {
         "def": "WinWin:centerCursor()",
         "desc": "Center the cursor on the focused window.",
-        "doc": "Center the cursor on the focused window.\n",
+        "doc": "Center the cursor on the focused window.\n\nParameters:\n * None",
         "name": "centerCursor",
+        "parameters": [
+          " * None"
+        ],
         "signature": "WinWin:centerCursor()",
         "stripped_doc": "",
         "type": "Method"
@@ -12936,8 +13565,11 @@
       {
         "def": "WinWin:undo()",
         "desc": "Undo the last window manipulation. Only those \"moveAndResize\" manipulations can be undone.",
-        "doc": "Undo the last window manipulation. Only those \"moveAndResize\" manipulations can be undone.\n",
+        "doc": "Undo the last window manipulation. Only those \"moveAndResize\" manipulations can be undone.\n\nParameters:\n * None",
         "name": "undo",
+        "parameters": [
+          " * None"
+        ],
         "signature": "WinWin:undo()",
         "stripped_doc": "",
         "type": "Method"
