@@ -412,40 +412,49 @@
       {
         "def": "Seal.plugins.apps:restart()",
         "desc": "Restarts the Spotlight app searcher",
-        "doc": "Restarts the Spotlight app searcher\n\nParamters:\n * None\n\nReturns:\n * None",
+        "doc": "Restarts the Spotlight app searcher\n\nParameters:\n * None\n\nReturns:\n * None",
         "name": "restart",
+        "parameters": [
+          " * None"
+        ],
         "returns": [
           " * None"
         ],
         "signature": "Seal.plugins.apps:restart()",
-        "stripped_doc": "Paramters:\n * None",
+        "stripped_doc": "",
         "type": "Method"
       },
       {
         "def": "Seal.plugins.apps:start()",
         "desc": "Starts the Spotlight app searcher",
-        "doc": "Starts the Spotlight app searcher\n\nParamters:\n * None\n\nReturns:\n * None\n\nNotes:\n * This is called automatically when the plugin is loaded",
+        "doc": "Starts the Spotlight app searcher\n\nParameters:\n * None\n\nReturns:\n * None\n\nNotes:\n * This is called automatically when the plugin is loaded",
         "name": "start",
         "notes": [
           " * This is called automatically when the plugin is loaded"
+        ],
+        "parameters": [
+          " * None"
         ],
         "returns": [
           " * None"
         ],
         "signature": "Seal.plugins.apps:start()",
-        "stripped_doc": "Paramters:\n * None",
+        "stripped_doc": "",
         "type": "Method"
       },
       {
         "def": "Seal.plugins.apps:stop()",
         "desc": "Stops the Spotlight app searcher",
-        "doc": "Stops the Spotlight app searcher\n\nParamters:\n * None\n\nReturns:\n * None",
+        "doc": "Stops the Spotlight app searcher\n\nParameters:\n * None\n\nReturns:\n * None",
         "name": "stop",
+        "parameters": [
+          " * None"
+        ],
         "returns": [
           " * None"
         ],
         "signature": "Seal.plugins.apps:stop()",
-        "stripped_doc": "Paramters:\n * None",
+        "stripped_doc": "",
         "type": "Method"
       }
     ],
@@ -481,40 +490,49 @@
       {
         "def": "Seal.plugins.apps:restart()",
         "desc": "Restarts the Spotlight app searcher",
-        "doc": "Restarts the Spotlight app searcher\n\nParamters:\n * None\n\nReturns:\n * None",
+        "doc": "Restarts the Spotlight app searcher\n\nParameters:\n * None\n\nReturns:\n * None",
         "name": "restart",
+        "parameters": [
+          " * None"
+        ],
         "returns": [
           " * None"
         ],
         "signature": "Seal.plugins.apps:restart()",
-        "stripped_doc": "Paramters:\n * None",
+        "stripped_doc": "",
         "type": "Method"
       },
       {
         "def": "Seal.plugins.apps:start()",
         "desc": "Starts the Spotlight app searcher",
-        "doc": "Starts the Spotlight app searcher\n\nParamters:\n * None\n\nReturns:\n * None\n\nNotes:\n * This is called automatically when the plugin is loaded",
+        "doc": "Starts the Spotlight app searcher\n\nParameters:\n * None\n\nReturns:\n * None\n\nNotes:\n * This is called automatically when the plugin is loaded",
         "name": "start",
         "notes": [
           " * This is called automatically when the plugin is loaded"
+        ],
+        "parameters": [
+          " * None"
         ],
         "returns": [
           " * None"
         ],
         "signature": "Seal.plugins.apps:start()",
-        "stripped_doc": "Paramters:\n * None",
+        "stripped_doc": "",
         "type": "Method"
       },
       {
         "def": "Seal.plugins.apps:stop()",
         "desc": "Stops the Spotlight app searcher",
-        "doc": "Stops the Spotlight app searcher\n\nParamters:\n * None\n\nReturns:\n * None",
+        "doc": "Stops the Spotlight app searcher\n\nParameters:\n * None\n\nReturns:\n * None",
         "name": "stop",
+        "parameters": [
+          " * None"
+        ],
         "returns": [
           " * None"
         ],
         "signature": "Seal.plugins.apps:stop()",
-        "stripped_doc": "Paramters:\n * None",
+        "stripped_doc": "",
         "type": "Method"
       }
     ],
