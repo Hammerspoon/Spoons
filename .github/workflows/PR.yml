@@ -56,6 +56,25 @@ jobs:
     - name: Show changed files
       run: cat $HOME/files.json
 
+    # Lint docstrings
+    - name: Docstrings Linter
+      run: ./gh_actions_doclint.sh
+
+    # Publish Docstring Annotations
+    - name: Publish Docstring Annotations
+      uses: yuzutech/annotations-action@v0.3.0
+      with:
+        repo-token: "${{ secrets.GITHUB_TOKEN }}"
+        title: "Docstrings linter"
+        input: annotations.json
+
+    # Fail CI run if docstrings failed
+    - name: Check for docstring lint failures
+      run: ./gh_actions_doclint.sh -v
+
+    - name: Remove annotations file
+      run: rm annotations.json
+
     # Update docs and zips
     - name: Update docs and zips
       run: ./gh_actions_publish.sh

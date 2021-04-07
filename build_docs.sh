@@ -12,7 +12,7 @@ else
 fi
 
 mkdir -p .docs_tmp
-"${HAMMERSPOON_PATH}/scripts/docs/bin/build_docs.py" -e "${HAMMERSPOON_PATH}/scripts/docs/templates/" -o .docs_tmp -i "Hammerspoon Spoons" -j -t -n Source
+/usr/bin/python3 "${HAMMERSPOON_PATH}/scripts/docs/bin/build_docs.py" -e "${HAMMERSPOON_PATH}/scripts/docs/templates/" -o .docs_tmp -i "Hammerspoon Spoons" -j -t -n Source
 cp "${HAMMERSPOON_PATH}/scripts/docs/templates/docs.css" .docs_tmp/html/
 cp "${HAMMERSPOON_PATH}/scripts/docs/templates/jquery.js" .docs_tmp/html/
 mv .docs_tmp/html/* docs/
