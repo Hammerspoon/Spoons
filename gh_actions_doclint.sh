@@ -9,7 +9,7 @@ set -x
 
 if [ "$1" == "-v" ]; then
     COUNT=$(jq length annotations.json)
-    if [ "${COUNT}" == "0" ]; then
+    if [ "${COUNT}" != "0" ]; then
         exit 1
     fi
 
