@@ -383,11 +383,11 @@
         "name" : "auto"
       },
       {
-        "doc" : "Disables monitoring and reports as being in a meeting. \nUseful when meeting type is not supported (currently any platform that isn't zoom.)\n\nParameters:\n* mic_open: Boolean\n* video_on: Boolean\n* sharing: Boolean\n\nReturns:\n * The spoon.WatchForMeeting object",
+        "doc" : "Disables monitoring and reports as being in a meeting. \nUseful when meeting type is not supported (currently any platform that isn't zoom.)\n\nParameters:\n * mic_open - A boolean indicating if the mic is open\n * video_on - A boolean indicating if the video camera is on\n * sharing - A boolean indicating if screen sharing is on\n\nReturns:\n * The spoon.WatchForMeeting object",
         "parameters" : [
-          "* mic_open: Boolean",
-          "* video_on: Boolean",
-          "* sharing: Boolean"
+          " * mic_open - A boolean indicating if the mic is open",
+          " * video_on - A boolean indicating if the video camera is on",
+          " * sharing - A boolean indicating if screen sharing is on"
         ],
         "desc" : "Disables monitoring and reports as being in a meeting.",
         "stripped_doc" : [
@@ -712,11 +712,11 @@
         "name" : "auto"
       },
       {
-        "doc" : "Disables monitoring and reports as being in a meeting. \nUseful when meeting type is not supported (currently any platform that isn't zoom.)\n\nParameters:\n* mic_open: Boolean\n* video_on: Boolean\n* sharing: Boolean\n\nReturns:\n * The spoon.WatchForMeeting object",
+        "doc" : "Disables monitoring and reports as being in a meeting. \nUseful when meeting type is not supported (currently any platform that isn't zoom.)\n\nParameters:\n * mic_open - A boolean indicating if the mic is open\n * video_on - A boolean indicating if the video camera is on\n * sharing - A boolean indicating if screen sharing is on\n\nReturns:\n * The spoon.WatchForMeeting object",
         "parameters" : [
-          "* mic_open: Boolean",
-          "* video_on: Boolean",
-          "* sharing: Boolean"
+          " * mic_open - A boolean indicating if the mic is open",
+          " * video_on - A boolean indicating if the video camera is on",
+          " * sharing - A boolean indicating if screen sharing is on"
         ],
         "desc" : "Disables monitoring and reports as being in a meeting.",
         "stripped_doc" : [

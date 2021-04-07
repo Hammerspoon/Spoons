@@ -686,9 +686,9 @@ end
 --- Useful when meeting type is not supported (currently any platform that isn't zoom.)
 ---
 --- Parameters:
---- * mic_open: Boolean
---- * video_on: Boolean
---- * sharing: Boolean
+---  * mic_open - A boolean indicating if the mic is open
+---  * video_on - A boolean indicating if the video camera is on
+---  * sharing - A boolean indicating if screen sharing is on
 ---
 --- Returns:
 ---  * The spoon.WatchForMeeting object
