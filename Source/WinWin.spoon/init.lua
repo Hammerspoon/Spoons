@@ -27,6 +27,7 @@ obj.gridparts = 30
 --- Move the focused window in the `direction` by on step. The step scale equals to the width/height of one gridpart.
 ---
 --- Parameters:
+---  * nonsense
 ---  * direction - A string specifying the direction, valid strings are: `left`, `right`, `up`, `down`.
 function obj:stepMove(direction)
     local cwin = hs.window.focusedWindow()
@@ -56,7 +57,7 @@ end
 --- Method
 --- Resize the focused window in the `direction` by on step.
 ---
---- Parameters:
+--- Prameters:
 ---  * direction - A string specifying the direction, valid strings are: `left`, `right`, `up`, `down`.
 function obj:stepResize(direction)
     local cwin = hs.window.focusedWindow()
