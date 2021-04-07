@@ -12,6 +12,8 @@ if [ "$1" == "-v" ]; then
     if [ "${COUNT}" == "0" ]; then
         exit 1
     fi
+
+    exit 0
 fi
 
 set -eu

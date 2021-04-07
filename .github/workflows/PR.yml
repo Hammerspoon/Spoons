@@ -67,12 +67,13 @@ jobs:
         repo-token: "${{ secrets.GITHUB_TOKEN }}"
         title: "Docstrings linter"
         input: annotations.json
-    - name: Remove annotations file
-      run: rm annotations.json
 
     # Fail CI run if docstrings failed
     - name: Check for docstring lint failures
       run: ./gh_actions_doclint.sh -v
+
+    - name: Remove annotations file
+      run: rm annotations.json
 
     # Update docs and zips
     - name: Update docs and zips
