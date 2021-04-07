@@ -68,7 +68,7 @@ jobs:
         title: "Docstrings linter"
         input: annotations.json
     - name: Remove annotations file
-      cmd: rm annotations.json
+      run: rm annotations.json
 
     # Update docs and zips
     - name: Update docs and zips
