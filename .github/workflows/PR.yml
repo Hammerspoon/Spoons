@@ -70,6 +70,10 @@ jobs:
     - name: Remove annotations file
       run: rm annotations.json
 
+    # Fail CI run if docstrings failed
+    - name: Check for docstring lint failures
+      run: ./gh_actions_doclint.sh -v
+
     # Update docs and zips
     - name: Update docs and zips
       run: ./gh_actions_publish.sh
