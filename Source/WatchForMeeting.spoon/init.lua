@@ -585,10 +585,10 @@ end
 --- Starts a WatchForMeeting object
 ---
 --- Parameters:
---- * None
+---  * None
 ---
 --- Returns:
---- * The spoon.WatchForMeeting object
+---  * The spoon.WatchForMeeting object
 function WatchForMeeting:start()
    if(not _internal.running) then
       _internal.running = true
@@ -615,10 +615,10 @@ end
 --- Stops a WatchForMeeting object
 ---
 --- Parameters:
---- * None
+---  * None
 ---
 --- Returns:
---- * The spoon.WatchForMeeting object
+---  * The spoon.WatchForMeeting object
 function WatchForMeeting:stop()
    _internal.running = false
    stopConnection()
@@ -633,10 +633,10 @@ end
 --- Restarts a WatchForMeeting object
 ---
 --- Parameters:
---- * None
+---  * None
 ---
 --- Returns:
---- * The spoon.WatchForMeeting object
+---  * The spoon.WatchForMeeting object
 function WatchForMeeting:restart()
    self:stop()
    return self:start()
@@ -649,10 +649,10 @@ end
 --- Monitors Zoom and updates status accordingly
 ---
 --- Parameters:
---- * None
+---  * None
 ---
 --- Returns:
---- * The spoon.WatchForMeeting object
+---  * The spoon.WatchForMeeting object
 function WatchForMeeting:auto()
    _internal.mode = 0
 
@@ -680,16 +680,18 @@ function WatchForMeeting:auto()
 end
  
 
---- WatchForMeeting:fake()
+--- WatchForMeeting:fake(mic_open, video_on, sharing)
 --- Method
 --- Disables monitoring and reports as being in a meeting. 
 --- Useful when meeting type is not supported (currently any platform that isn't zoom.)
 ---
 --- Parameters:
---- * None
+--- * mic_open: Boolean
+--- * video_on: Boolean
+--- * sharing: Boolean
 ---
 --- Returns:
---- * The spoon.WatchForMeeting object
+---  * The spoon.WatchForMeeting object
 function WatchForMeeting:fake(_mic_open, _video_on, _sharing)
    _internal.mode = 1
  
