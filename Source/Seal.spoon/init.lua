@@ -49,6 +49,7 @@ obj.plugin_search_paths = { hs.configdir .. "/seal_plugins", obj.spoonPath }
 --- Refresh the list of commands provided by the given plugin.
 ---
 --- Parameters:
+---  * Nonsense test
 ---  * plugin_name - the name of the plugin. Should be the name as passed to `loadPlugins()` or `loadPluginFromFile`.
 ---
 --- Returns:
