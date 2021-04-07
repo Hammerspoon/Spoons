@@ -29,7 +29,6 @@ while IFS= read -r SPOON ; do
     git add Spoons/${SPOON}.spoon.zip
     git commit -am "Add binary package for ${SPOON}."
     ./build_docs.sh
-    rm -rf ./hammerspoon/
     git add docs
     git commit --allow-empty -am "Update docs"
 done <<< "${SPOONS}"
