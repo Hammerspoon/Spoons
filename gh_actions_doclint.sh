@@ -6,7 +6,6 @@ if [ "$GITHUB_ACTIONS" != "true" ]; then
 fi
 
 set -x
-set -eu
 
 if [ "$1" == "-v" ]; then
     COUNT=$(jq length annotations.json)
@@ -14,6 +13,8 @@ if [ "$1" == "-v" ]; then
         exit 1
     fi
 fi
+
+set -eu
 
 # Find the Spoons that have been modified
 SPOONS=$(cat "${HOME}/files.json" | jq -r -c '.[] | select(contains(".lua"))' | sed -e 's#^Source/\(.*\).spoon/.*#\1#' | sort | uniq)
