@@ -1,0 +1,120 @@
+[
+  {
+    "Constant" : [
+
+    ],
+    "submodules" : [
+
+    ],
+    "Function" : [
+
+    ],
+    "Variable" : [
+      {
+        "doc" : "Table of bundle ids of apps in which you want to map forcetouch to keyStroke",
+        "stripped_doc" : [
+          "Table of bundle ids of apps in which you want to map forcetouch to keyStroke"
+        ],
+        "def" : "ForceTouchMapper.apps",
+        "parameters" : [
+
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "ForceTouchMapper.apps",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "apps",
+        "desc" : "Table of bundle ids of apps in which you want to map forcetouch to keyStroke"
+      }
+    ],
+    "stripped_doc" : [
+
+    ],
+    "desc" : "Maps force touch click in specified apps to hot key",
+    "type" : "Module",
+    "Deprecated" : [
+
+    ],
+    "Constructor" : [
+
+    ],
+    "doc" : "Maps force touch click in specified apps to hot key\nExample use:\n`spoon.SpoonInstall:andUse(\"ForceTouchMapper\", {\n   config = {apps = {[\"com.microsoft.VSCode\"] = {keyStroke = {{\"cmd\"}, 'y'}}}}\n})`\nwhich will invoke `cmd+y` keystroke when you force click some definition in VS Code.\nI have this key binding in VS Code for peek definition\n` {\n   \"key\": \"cmd+y\",\n   \"command\": \"editor.action.peekDefinition\",\n   \"when\": \"editorHasDefinitionProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor\"\n` },\n\nDownload: [https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/ForceTouchMapper.spoon.zip](https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/ForceTouchMapper.spoon.zip)",
+    "items" : [
+      {
+        "doc" : "Table of bundle ids of apps in which you want to map forcetouch to keyStroke",
+        "stripped_doc" : [
+          "Table of bundle ids of apps in which you want to map forcetouch to keyStroke"
+        ],
+        "def" : "ForceTouchMapper.apps",
+        "parameters" : [
+
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "ForceTouchMapper.apps",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "apps",
+        "desc" : "Table of bundle ids of apps in which you want to map forcetouch to keyStroke"
+      },
+      {
+        "doc" : "Start ForceTouchMapper\n\nParameters:\n * None",
+        "stripped_doc" : [
+          "Start ForceTouchMapper",
+          ""
+        ],
+        "def" : "ForceTouchMapper:start()",
+        "parameters" : [
+          " * None"
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "ForceTouchMapper:start()",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "name" : "start",
+        "desc" : "Start ForceTouchMapper"
+      }
+    ],
+    "Command" : [
+
+    ],
+    "Field" : [
+
+    ],
+    "Method" : [
+      {
+        "doc" : "Start ForceTouchMapper\n\nParameters:\n * None",
+        "stripped_doc" : [
+          "Start ForceTouchMapper",
+          ""
+        ],
+        "def" : "ForceTouchMapper:start()",
+        "parameters" : [
+          " * None"
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "ForceTouchMapper:start()",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "name" : "start",
+        "desc" : "Start ForceTouchMapper"
+      }
+    ],
+    "name" : "ForceTouchMapper"
+  }
+]
