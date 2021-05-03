@@ -1,120 +1,72 @@
 [
   {
-    "Constant" : [
-
-    ],
-    "submodules" : [
-
-    ],
-    "Function" : [
-
-    ],
-    "Variable" : [
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
       {
-        "doc" : "Table of bundle ids of apps in which you want to map forcetouch to keyStroke",
-        "stripped_doc" : [
-          "Table of bundle ids of apps in which you want to map forcetouch to keyStroke"
+        "def": "ForceTouchMapper:start()",
+        "desc": "Start ForceTouchMapper",
+        "doc": "Start ForceTouchMapper\n\nParameters:\n * None",
+        "file": "Source/ForceTouchMapper.spoon//init.lua",
+        "lineno": "55",
+        "name": "start",
+        "parameters": [
+          " * None"
         ],
-        "def" : "ForceTouchMapper.apps",
-        "parameters" : [
-
-        ],
-        "notes" : [
-
-        ],
-        "signature" : "ForceTouchMapper.apps",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "name" : "apps",
-        "desc" : "Table of bundle ids of apps in which you want to map forcetouch to keyStroke"
+        "signature": "ForceTouchMapper:start()",
+        "stripped_doc": "",
+        "type": "Method"
       }
     ],
-    "stripped_doc" : [
-
-    ],
-    "desc" : "Maps force touch click in specified apps to hot key",
-    "type" : "Module",
-    "Deprecated" : [
-
-    ],
-    "Constructor" : [
-
-    ],
-    "doc" : "Maps force touch click in specified apps to hot key\nExample use:\n`spoon.SpoonInstall:andUse(\"ForceTouchMapper\", {\n   config = {apps = {[\"com.microsoft.VSCode\"] = {keyStroke = {{\"cmd\"}, 'y'}}}}\n})`\nwhich will invoke `cmd+y` keystroke when you force click some definition in VS Code.\nI have this key binding in VS Code for peek definition\n` {\n   \"key\": \"cmd+y\",\n   \"command\": \"editor.action.peekDefinition\",\n   \"when\": \"editorHasDefinitionProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor\"\n` },\n\nDownload: [https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/ForceTouchMapper.spoon.zip](https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/ForceTouchMapper.spoon.zip)",
-    "items" : [
+    "Variable": [
       {
-        "doc" : "Table of bundle ids of apps in which you want to map forcetouch to keyStroke",
-        "stripped_doc" : [
-          "Table of bundle ids of apps in which you want to map forcetouch to keyStroke"
-        ],
-        "def" : "ForceTouchMapper.apps",
-        "parameters" : [
-
-        ],
-        "notes" : [
-
-        ],
-        "signature" : "ForceTouchMapper.apps",
-        "type" : "Variable",
-        "returns" : [
-
-        ],
-        "name" : "apps",
-        "desc" : "Table of bundle ids of apps in which you want to map forcetouch to keyStroke"
+        "def": "ForceTouchMapper.apps",
+        "desc": "Table of bundle ids of apps in which you want to map forcetouch to keyStroke",
+        "doc": "Table of bundle ids of apps in which you want to map forcetouch to keyStroke",
+        "file": "Source/ForceTouchMapper.spoon//init.lua",
+        "lineno": "31",
+        "name": "apps",
+        "signature": "ForceTouchMapper.apps",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "desc": "Maps force touch clicks in specified apps to a hot key",
+    "doc": "Maps force touch clicks in specified apps to a hot key\n\nExample use:\n`spoon.SpoonInstall:andUse(\"ForceTouchMapper\", {\n   config = {apps = {[\"com.microsoft.VSCode\"] = {keyStroke = {{\"cmd\"}, 'y'}}}}\n})`\nwhich will invoke `cmd+y` keystroke when you force click some definition in VS Code.\n\nI have this key binding in VS Code for peek definition\n\n`{\n   \"key\": \"cmd+y\",\n   \"command\": \"editor.action.peekDefinition\",\n   \"when\": \"editorHasDefinitionProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor\"\n }`\n,\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/ForceTouchMapper.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/ForceTouchMapper.spoon.zip)",
+    "items": [
+      {
+        "def": "ForceTouchMapper.apps",
+        "desc": "Table of bundle ids of apps in which you want to map forcetouch to keyStroke",
+        "doc": "Table of bundle ids of apps in which you want to map forcetouch to keyStroke",
+        "file": "Source/ForceTouchMapper.spoon//init.lua",
+        "lineno": "31",
+        "name": "apps",
+        "signature": "ForceTouchMapper.apps",
+        "stripped_doc": "",
+        "type": "Variable"
       },
       {
-        "doc" : "Start ForceTouchMapper\n\nParameters:\n * None",
-        "stripped_doc" : [
-          "Start ForceTouchMapper",
-          ""
-        ],
-        "def" : "ForceTouchMapper:start()",
-        "parameters" : [
+        "def": "ForceTouchMapper:start()",
+        "desc": "Start ForceTouchMapper",
+        "doc": "Start ForceTouchMapper\n\nParameters:\n * None",
+        "file": "Source/ForceTouchMapper.spoon//init.lua",
+        "lineno": "55",
+        "name": "start",
+        "parameters": [
           " * None"
         ],
-        "notes" : [
-
-        ],
-        "signature" : "ForceTouchMapper:start()",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "name" : "start",
-        "desc" : "Start ForceTouchMapper"
+        "signature": "ForceTouchMapper:start()",
+        "stripped_doc": "",
+        "type": "Method"
       }
     ],
-    "Command" : [
-
-    ],
-    "Field" : [
-
-    ],
-    "Method" : [
-      {
-        "doc" : "Start ForceTouchMapper\n\nParameters:\n * None",
-        "stripped_doc" : [
-          "Start ForceTouchMapper",
-          ""
-        ],
-        "def" : "ForceTouchMapper:start()",
-        "parameters" : [
-          " * None"
-        ],
-        "notes" : [
-
-        ],
-        "signature" : "ForceTouchMapper:start()",
-        "type" : "Method",
-        "returns" : [
-
-        ],
-        "name" : "start",
-        "desc" : "Start ForceTouchMapper"
-      }
-    ],
-    "name" : "ForceTouchMapper"
+    "name": "ForceTouchMapper",
+    "stripped_doc": "\nExample use:\n`spoon.SpoonInstall:andUse(\"ForceTouchMapper\", {\n   config = {apps = {[\"com.microsoft.VSCode\"] = {keyStroke = {{\"cmd\"}, 'y'}}}}\n})`\nwhich will invoke `cmd+y` keystroke when you force click some definition in VS Code.\n\nI have this key binding in VS Code for peek definition\n\n`{\n   \"key\": \"cmd+y\",\n   \"command\": \"editor.action.peekDefinition\",\n   \"when\": \"editorHasDefinitionProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor\"\n }`\n,\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/ForceTouchMapper.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/ForceTouchMapper.spoon.zip)",
+    "submodules": [],
+    "type": "Module"
   }
 ]
