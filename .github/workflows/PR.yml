@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
 
     # Only run this if we're on the official repo. This prevents forks from getting super confusing with commits. If you want to host you own Spoon repository, consider re-enabling this, but for your repo.
-    if: github.repository == 'hammerspoon/Spoons'
+    if: github.repository == 'Hammerspoon/Spoons'
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
