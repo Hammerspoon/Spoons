@@ -936,6 +936,23 @@
     "type": "Module"
   },
   {
+    "desc": "Maps force touch clicks in specified apps to a hot key",
+    "name": "ForceTouchMapper",
+    "type": "Module"
+  },
+  {
+    "desc": "Table of bundle ids of apps in which you want to map forcetouch to keyStroke",
+    "module": "ForceTouchMapper",
+    "name": "apps",
+    "type": "Variable"
+  },
+  {
+    "desc": "Start ForceTouchMapper",
+    "module": "ForceTouchMapper",
+    "name": "start",
+    "type": "Method"
+  },
+  {
     "desc": "A horizonal calendar inset into the desktop",
     "name": "HCalendar",
     "type": "Module"
