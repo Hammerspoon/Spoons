@@ -10,7 +10,9 @@
       {
         "def": "Asana:createTask(taskName, workspaceName) -> Self",
         "desc": "Creates a new task named `taskName` in the workspace `workspaceName`.",
-        "doc": "Creates a new task named `taskName` in the workspace `workspaceName`.\n\nExample:\n```\nspoon.Asana.createTask(\"Do that thing I forgot about\", \"My Company Workspace\")\n```\n\nParameters:\n * taskName (String)      - The title of the Asana task.\n * WorkspaceName (String) - The name of the workspace in which to create the task.\n\nReturns:\n * Self",
+        "doc": "Creates a new task named `taskName` in the workspace `workspaceName`.\n\nParameters:\n * taskName (String)      - The title of the Asana task.\n * WorkspaceName (String) - The name of the workspace in which to create the task.\n\nReturns:\n * Self\n\nExamples:\n ```\n spoon.Asana.createTask(\"Do that thing I forgot about\", \"My Company Workspace\")\n ```",
+        "file": "Source/Asana.spoon//init.lua",
+        "lineno": "98",
         "name": "createTask",
         "parameters": [
           " * taskName (String)      - The title of the Asana task.",
@@ -20,7 +22,7 @@
           " * Self"
         ],
         "signature": "Asana:createTask(taskName, workspaceName) -> Self",
-        "stripped_doc": "Example:\n```\nspoon.Asana.createTask(\"Do that thing I forgot about\", \"My Company Workspace\")\n```",
+        "stripped_doc": "Examples:\n ```\n spoon.Asana.createTask(\"Do that thing I forgot about\", \"My Company Workspace\")\n ```",
         "type": "Method"
       }
     ],
@@ -29,6 +31,8 @@
         "def": "Asana.apiKey (String)",
         "desc": "A \"personal access token\" for Asana. You can create one here: https://app.asana.com/0/developer-console",
         "doc": "A \"personal access token\" for Asana. You can create one here: https://app.asana.com/0/developer-console",
+        "file": "Source/Asana.spoon//init.lua",
+        "lineno": "93",
         "name": "apiKey",
         "signature": "Asana.apiKey (String)",
         "stripped_doc": "",
@@ -42,6 +46,8 @@
         "def": "Asana.apiKey (String)",
         "desc": "A \"personal access token\" for Asana. You can create one here: https://app.asana.com/0/developer-console",
         "doc": "A \"personal access token\" for Asana. You can create one here: https://app.asana.com/0/developer-console",
+        "file": "Source/Asana.spoon//init.lua",
+        "lineno": "93",
         "name": "apiKey",
         "signature": "Asana.apiKey (String)",
         "stripped_doc": "",
@@ -50,7 +56,9 @@
       {
         "def": "Asana:createTask(taskName, workspaceName) -> Self",
         "desc": "Creates a new task named `taskName` in the workspace `workspaceName`.",
-        "doc": "Creates a new task named `taskName` in the workspace `workspaceName`.\n\nExample:\n```\nspoon.Asana.createTask(\"Do that thing I forgot about\", \"My Company Workspace\")\n```\n\nParameters:\n * taskName (String)      - The title of the Asana task.\n * WorkspaceName (String) - The name of the workspace in which to create the task.\n\nReturns:\n * Self",
+        "doc": "Creates a new task named `taskName` in the workspace `workspaceName`.\n\nParameters:\n * taskName (String)      - The title of the Asana task.\n * WorkspaceName (String) - The name of the workspace in which to create the task.\n\nReturns:\n * Self\n\nExamples:\n ```\n spoon.Asana.createTask(\"Do that thing I forgot about\", \"My Company Workspace\")\n ```",
+        "file": "Source/Asana.spoon//init.lua",
+        "lineno": "98",
         "name": "createTask",
         "parameters": [
           " * taskName (String)      - The title of the Asana task.",
@@ -60,7 +68,7 @@
           " * Self"
         ],
         "signature": "Asana:createTask(taskName, workspaceName) -> Self",
-        "stripped_doc": "Example:\n```\nspoon.Asana.createTask(\"Do that thing I forgot about\", \"My Company Workspace\")\n```",
+        "stripped_doc": "Examples:\n ```\n spoon.Asana.createTask(\"Do that thing I forgot about\", \"My Company Workspace\")\n ```",
         "type": "Method"
       }
     ],
