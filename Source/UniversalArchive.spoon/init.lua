@@ -120,18 +120,14 @@ end
 --- UniversalArchive:outlookArchive()
 --- Method
 --- Archive current message in Outlook using one of two methods:
---- 1. If the "Message -> Archive" menu item exists, it is used (this
----    has been added in recent versions of Outlook)
---- 2. Otherwise, the message gets manually moved to the folder
----    specified in `UniversalArchive.outlook_archive_folder`. The folder
----    has to appear in the Message -> Move submenu for this to
----    work. Since this submenu only lists the last few destination
----    folders, you have to move a message by hand the first time (or
----    periodically if you don't archive very often).
 ---
 --- Parameters:
 ---  * none
-function obj:outlookArchive()
+---
+--- Notes:
+---  * If the "Message -> Archive" menu item exists, it is used (this has been added in recent versions of Outlook)
+---  * Otherwise, the message gets manually moved to the folder specified in `UniversalArchive.outlook_archive_folder`. The folder has to appear in the Message -> Move submenu for this to work. Since this submenu only lists the last few destination folders, you have to move a message by hand the first time (or periodically if you don't archive very often).
+-function obj:outlookArchive()
    local outlook = hs.appfinder.appFromName("Microsoft Outlook")
    if outlook:selectMenuItem({"Message", "Archive"}) or outlook:selectMenuItem({"Message", "Move", self.outlook_archive_folder}) then
       if self.archive_notifications then
@@ -145,17 +141,14 @@ end
 
 --- UniversalArchive:universalArchive(where)
 --- Method
---- Main entry point for archiving an item. If a handler function is
---- defined for the current application, it is called with the
---- `UniversalArchive` object as its first argument, and the archive
---- destination (if provided) as the second. Handlers must have a
---- "default destination" that gets used when no destination is
---- provided. Not all handlers support specifying a destination. New
---- handlers can be registered using the `registerApplication()`
---- method.
+--- Main entry point for archiving an item.
 ---
 --- Parameters:
 ---  * None
+---
+--- Notes:
+---  * If a handler function is defined for the current application, it is called with the `UniversalArchive` object as its first argument, and the archive destination (if provided) as the second.
+---  * Handlers must have a "default destination" that gets used when no destination is provided. Not all handlers support specifying a destination. New handlers can be registered using the `registerApplication()` method.
 function obj:universalArchive(where)
    local app = hs.application.frontmostApplication()
    if app ~= nil then

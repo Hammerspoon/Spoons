@@ -166,9 +166,6 @@ obj.last_status = {}
 --- Leanpub:displayBookStatus(book)
 --- Method
 --- Display a notification with the current build status of a book.
---- Only produce a notification if the current status is different
---- than the last known one (from the last time `displayBookStatus`
---- was run for the same book).
 ---
 --- Parameters:
 ---  * book - table containing the information of the book to
@@ -187,6 +184,9 @@ obj.last_status = {}
 --- Returns:
 ---  * A Lua table containing the status (may be empty), nil if an
 ---    error occurred
+---
+--- Notes:
+--- * Only produce a notification if the current status is different than the last known one (from the last time `displayBookStatus` was run for the same book).
 function obj:displayBookStatus(book)
   -- Fetches and stores the cover if needed
   self:fetchBookCover(book)
@@ -326,8 +326,7 @@ obj.timer = nil
 
 --- Leanpub:start()
 --- Method
---- Start periodic check for book status, checking every
---- check_interval seconds.
+--- Start periodic check for book status, checking every check_interval seconds.
 ---
 --- Parameters:
 ---  * None
@@ -341,7 +340,6 @@ end
 --- Leanpub:stop()
 --- Method
 --- Stops periodic check for book status, if enabled.
---- check_interval seconds.
 ---
 --- Parameters:
 ---  * None
