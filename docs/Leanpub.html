@@ -339,10 +339,7 @@ for each book. Default value: <code>false</code></li>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Display a notification with the current build status of a book.
-Only produce a notification if the current status is different
-than the last known one (from the last time <code>displayBookStatus</code>
-was run for the same book).</p>
+                <td><p>Display a notification with the current build status of a book.</p>
 <p>Parameters:</p>
 <ul>
 <li>book - table containing the information of the book to
@@ -364,6 +361,10 @@ explicitly to <code>false</code></li>
 <ul>
 <li>A Lua table containing the status (may be empty), nil if an
 error occurred</li>
+</ul>
+<p>Notes:</p>
+<ul>
+<li>Only produce a notification if the current status is different than the last known one (from the last time <code>displayBookStatus</code> was run for the same book).</li>
 </ul>
 </td>
               </tr>
@@ -462,8 +463,7 @@ will be <code>nil</code>. Samples of the return values can be found at
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Start periodic check for book status, checking every
-check_interval seconds.</p>
+                <td><p>Start periodic check for book status, checking every check_interval seconds.</p>
 <p>Parameters:</p>
 <ul>
 <li>None</li>
@@ -490,8 +490,7 @@ check_interval seconds.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Stops periodic check for book status, if enabled.
-check_interval seconds.</p>
+                <td><p>Stops periodic check for book status, if enabled.</p>
 <p>Parameters:</p>
 <ul>
 <li>None</li>
@@ -500,7 +499,7 @@ check_interval seconds.</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/Leanpub.spoon/init.lua#L341">Source/Leanpub.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/Leanpub.spoon/init.lua#L340">Source/Leanpub.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>

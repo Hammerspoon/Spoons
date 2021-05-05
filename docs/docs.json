@@ -430,7 +430,7 @@
       {
         "def": "Asana:createTask(taskName, workspaceName) -> Self",
         "desc": "Creates a new task named `taskName` in the workspace `workspaceName`.",
-        "doc": "Creates a new task named `taskName` in the workspace `workspaceName`.\n\nExample:\n```\nspoon.Asana.createTask(\"Do that thing I forgot about\", \"My Company Workspace\")\n```\n\nParameters:\n * taskName (String)      - The title of the Asana task.\n * WorkspaceName (String) - The name of the workspace in which to create the task.\n\nReturns:\n * Self",
+        "doc": "Creates a new task named `taskName` in the workspace `workspaceName`.\n\nParameters:\n * taskName (String)      - The title of the Asana task.\n * WorkspaceName (String) - The name of the workspace in which to create the task.\n\nReturns:\n * Self\n\nExamples:\n ```\n spoon.Asana.createTask(\"Do that thing I forgot about\", \"My Company Workspace\")\n ```",
         "file": "Source/Asana.spoon/init.lua",
         "lineno": "98",
         "name": "createTask",
@@ -442,7 +442,7 @@
           " * Self"
         ],
         "signature": "Asana:createTask(taskName, workspaceName) -> Self",
-        "stripped_doc": "Example:\n```\nspoon.Asana.createTask(\"Do that thing I forgot about\", \"My Company Workspace\")\n```",
+        "stripped_doc": "Examples:\n ```\n spoon.Asana.createTask(\"Do that thing I forgot about\", \"My Company Workspace\")\n ```",
         "type": "Method"
       }
     ],
@@ -476,7 +476,7 @@
       {
         "def": "Asana:createTask(taskName, workspaceName) -> Self",
         "desc": "Creates a new task named `taskName` in the workspace `workspaceName`.",
-        "doc": "Creates a new task named `taskName` in the workspace `workspaceName`.\n\nExample:\n```\nspoon.Asana.createTask(\"Do that thing I forgot about\", \"My Company Workspace\")\n```\n\nParameters:\n * taskName (String)      - The title of the Asana task.\n * WorkspaceName (String) - The name of the workspace in which to create the task.\n\nReturns:\n * Self",
+        "doc": "Creates a new task named `taskName` in the workspace `workspaceName`.\n\nParameters:\n * taskName (String)      - The title of the Asana task.\n * WorkspaceName (String) - The name of the workspace in which to create the task.\n\nReturns:\n * Self\n\nExamples:\n ```\n spoon.Asana.createTask(\"Do that thing I forgot about\", \"My Company Workspace\")\n ```",
         "file": "Source/Asana.spoon/init.lua",
         "lineno": "98",
         "name": "createTask",
@@ -488,7 +488,7 @@
           " * Self"
         ],
         "signature": "Asana:createTask(taskName, workspaceName) -> Self",
-        "stripped_doc": "Example:\n```\nspoon.Asana.createTask(\"Do that thing I forgot about\", \"My Company Workspace\")\n```",
+        "stripped_doc": "Examples:\n ```\n spoon.Asana.createTask(\"Do that thing I forgot about\", \"My Company Workspace\")\n ```",
         "type": "Method"
       }
     ],
@@ -3583,7 +3583,7 @@
         "desc": "Binds hotkeys for EvernoteOpenAndTag",
         "doc": "Binds hotkeys for EvernoteOpenAndTag\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n  * `open_note` - open the current note in a new window\n  * `open_and_tag-<tag1>,<tag2>...` - open the current note and apply all the comma-separated tags given. The tags must already exist in Evernote for the tagging to succeed.\n  * `tag-<tag1>,<tag2>...` - open the current note and apply all the comma-separated tags given. The tags must already exist in Evernote for the tagging to succeed.",
         "file": "Source/EvernoteOpenAndTag.spoon/init.lua",
-        "lineno": "128",
+        "lineno": "130",
         "name": "bindHotkeys",
         "parameters": [
           " * mapping - A table containing hotkey objifier/key details for the following items:",
@@ -3617,7 +3617,7 @@
         "desc": "Apply the given tags to the selected Evernote notes",
         "doc": "Apply the given tags to the selected Evernote notes\n\nParameters:\n * tags - a table containing a list of tags to apply. The tags must already exist in Evernote.\n\nReturns:\n * None\n\nNotes:\n * If multiple notes are selected, the tags are applied to all of them",
         "file": "Source/EvernoteOpenAndTag.spoon/init.lua",
-        "lineno": "101",
+        "lineno": "103",
         "name": "inlineTagCurrentNote",
         "notes": [
           " * If multiple notes are selected, the tags are applied to all of them"
@@ -3637,7 +3637,7 @@
         "desc": "Open the current Evernote note in a new window and apply the given tags to it",
         "doc": "Open the current Evernote note in a new window and apply the given tags to it\n\nParameters:\n * tags - a table containing a list of tags to apply. The tags must already exist in Evernote.\n\nReturns:\n * None\n\nNotes:\n * Even if multiple notes are selected, only the first one is tagged, as it will become the \"current one\" after it's opened in a new window",
         "file": "Source/EvernoteOpenAndTag.spoon/init.lua",
-        "lineno": "82",
+        "lineno": "84",
         "name": "openAndTagCurrentNote",
         "notes": [
           " * Even if multiple notes are selected, only the first one is tagged, as it will become the \"current one\" after it's opened in a new window"
@@ -3655,10 +3655,13 @@
       {
         "def": "EvernoteOpenAndTag:openCurrentNoteInWindow()",
         "desc": "Open the currently-selected Evernote notes in new windows.",
-        "doc": "Open the currently-selected Evernote notes in new windows.\nUses Applescript from https://discussion.evernote.com/topic/85685-feature-request-open-note-in-separate-window-keyboard-shortcut/#comment-366797\n\nParameters:\n * None\n\nReturns:\n * None",
+        "doc": "Open the currently-selected Evernote notes in new windows.\n\nParameters:\n * None\n\nReturns:\n * None\n\nNotes:\n * Uses Applescript from https://discussion.evernote.com/topic/85685-feature-request-open-note-in-separate-window-keyboard-shortcut/#comment-366797",
         "file": "Source/EvernoteOpenAndTag.spoon/init.lua",
         "lineno": "36",
         "name": "openCurrentNoteInWindow",
+        "notes": [
+          " * Uses Applescript from https://discussion.evernote.com/topic/85685-feature-request-open-note-in-separate-window-keyboard-shortcut/#comment-366797"
+        ],
         "parameters": [
           " * None"
         ],
@@ -3666,7 +3669,7 @@
           " * None"
         ],
         "signature": "EvernoteOpenAndTag:openCurrentNoteInWindow()",
-        "stripped_doc": "Uses Applescript from https://discussion.evernote.com/topic/85685-feature-request-open-note-in-separate-window-keyboard-shortcut/#comment-366797",
+        "stripped_doc": "",
         "type": "Method"
       },
       {
@@ -3674,7 +3677,7 @@
         "desc": "Assigns tags to the currently-selected Evernote notes",
         "doc": "Assigns tags to the currently-selected Evernote notes\n\nParameters:\n * tags - a table containing a list of tags to apply. The tags must already exist in Evernote.\n\nReturns:\n * None",
         "file": "Source/EvernoteOpenAndTag.spoon/init.lua",
-        "lineno": "59",
+        "lineno": "61",
         "name": "tagCurrentNote",
         "parameters": [
           " * tags - a table containing a list of tags to apply. The tags must already exist in Evernote."
@@ -3708,7 +3711,7 @@
         "desc": "Binds hotkeys for EvernoteOpenAndTag",
         "doc": "Binds hotkeys for EvernoteOpenAndTag\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n  * `open_note` - open the current note in a new window\n  * `open_and_tag-<tag1>,<tag2>...` - open the current note and apply all the comma-separated tags given. The tags must already exist in Evernote for the tagging to succeed.\n  * `tag-<tag1>,<tag2>...` - open the current note and apply all the comma-separated tags given. The tags must already exist in Evernote for the tagging to succeed.",
         "file": "Source/EvernoteOpenAndTag.spoon/init.lua",
-        "lineno": "128",
+        "lineno": "130",
         "name": "bindHotkeys",
         "parameters": [
           " * mapping - A table containing hotkey objifier/key details for the following items:",
@@ -3742,7 +3745,7 @@
         "desc": "Apply the given tags to the selected Evernote notes",
         "doc": "Apply the given tags to the selected Evernote notes\n\nParameters:\n * tags - a table containing a list of tags to apply. The tags must already exist in Evernote.\n\nReturns:\n * None\n\nNotes:\n * If multiple notes are selected, the tags are applied to all of them",
         "file": "Source/EvernoteOpenAndTag.spoon/init.lua",
-        "lineno": "101",
+        "lineno": "103",
         "name": "inlineTagCurrentNote",
         "notes": [
           " * If multiple notes are selected, the tags are applied to all of them"
@@ -3773,7 +3776,7 @@
         "desc": "Open the current Evernote note in a new window and apply the given tags to it",
         "doc": "Open the current Evernote note in a new window and apply the given tags to it\n\nParameters:\n * tags - a table containing a list of tags to apply. The tags must already exist in Evernote.\n\nReturns:\n * None\n\nNotes:\n * Even if multiple notes are selected, only the first one is tagged, as it will become the \"current one\" after it's opened in a new window",
         "file": "Source/EvernoteOpenAndTag.spoon/init.lua",
-        "lineno": "82",
+        "lineno": "84",
         "name": "openAndTagCurrentNote",
         "notes": [
           " * Even if multiple notes are selected, only the first one is tagged, as it will become the \"current one\" after it's opened in a new window"
@@ -3791,10 +3794,13 @@
       {
         "def": "EvernoteOpenAndTag:openCurrentNoteInWindow()",
         "desc": "Open the currently-selected Evernote notes in new windows.",
-        "doc": "Open the currently-selected Evernote notes in new windows.\nUses Applescript from https://discussion.evernote.com/topic/85685-feature-request-open-note-in-separate-window-keyboard-shortcut/#comment-366797\n\nParameters:\n * None\n\nReturns:\n * None",
+        "doc": "Open the currently-selected Evernote notes in new windows.\n\nParameters:\n * None\n\nReturns:\n * None\n\nNotes:\n * Uses Applescript from https://discussion.evernote.com/topic/85685-feature-request-open-note-in-separate-window-keyboard-shortcut/#comment-366797",
         "file": "Source/EvernoteOpenAndTag.spoon/init.lua",
         "lineno": "36",
         "name": "openCurrentNoteInWindow",
+        "notes": [
+          " * Uses Applescript from https://discussion.evernote.com/topic/85685-feature-request-open-note-in-separate-window-keyboard-shortcut/#comment-366797"
+        ],
         "parameters": [
           " * None"
         ],
@@ -3802,7 +3808,7 @@
           " * None"
         ],
         "signature": "EvernoteOpenAndTag:openCurrentNoteInWindow()",
-        "stripped_doc": "Uses Applescript from https://discussion.evernote.com/topic/85685-feature-request-open-note-in-separate-window-keyboard-shortcut/#comment-366797",
+        "stripped_doc": "",
         "type": "Method"
       },
       {
@@ -3810,7 +3816,7 @@
         "desc": "Assigns tags to the currently-selected Evernote notes",
         "doc": "Assigns tags to the currently-selected Evernote notes\n\nParameters:\n * tags - a table containing a list of tags to apply. The tags must already exist in Evernote.\n\nReturns:\n * None",
         "file": "Source/EvernoteOpenAndTag.spoon/init.lua",
-        "lineno": "59",
+        "lineno": "61",
         "name": "tagCurrentNote",
         "parameters": [
           " * tags - a table containing a list of tags to apply. The tags must already exist in Evernote."
@@ -5442,7 +5448,25 @@
     "Command": [],
     "Constant": [],
     "Constructor": [],
-    "Deprecated": [],
+    "Deprecated": [
+      {
+        "def": "Keychain:login_keychain(name)",
+        "desc": "Retrieve an item from the Login Keychain, returns nil if not found.",
+        "doc": "Retrieve an item from the Login Keychain, returns nil if not found.\n\nParameters:\n * name - The name of the item in the Login Keychain you want to retrieve\n\nNotes:\n * Use getItem() instead.",
+        "file": "Source/Keychain.spoon/init.lua",
+        "lineno": "64",
+        "name": "login_keychain",
+        "notes": [
+          " * Use getItem() instead."
+        ],
+        "parameters": [
+          " * name - The name of the item in the Login Keychain you want to retrieve"
+        ],
+        "signature": "Keychain:login_keychain(name)",
+        "stripped_doc": "",
+        "type": "Deprecated"
+      }
+    ],
     "Field": [],
     "Function": [],
     "Method": [
@@ -5451,7 +5475,7 @@
         "desc": "Add generic password to keychain.",
         "doc": "Add generic password to keychain.\n\nParameters:\n * options is a table with values for what keys to try locate with.\n  * password - the password\n  * account - account name (required)\n  * creator - creator, must be 4 characters\n  * type - type, must be 4 characters\n  * kind - kind of item\n  * comment - comment \n  * label - label (defaults to service name)\n  * service - service name (required)",
         "file": "Source/Keychain.spoon/init.lua",
-        "lineno": "135",
+        "lineno": "139",
         "name": "addItem",
         "parameters": [
           " * options is a table with values for what keys to try locate with.",
@@ -5470,11 +5494,14 @@
       },
       {
         "def": "Keychain:getItem(options)",
-        "desc": "Retrieve an item from the Login Keychain. Return nil if not found and",
-        "doc": "Retrieve an item from the Login Keychain. Return nil if not found and\notherwise a table with found data.\nNote: if multiple possibles matches just the first one is found.\n\nParameters:\n * options is a table with values for what keys to try locate with.\n  * account - account name\n  * creator - creator, must be 4 characters\n  * type - type, must be 4 characters\n  * kind - kind of item\n  * comment - comment \n  * label - label (defaults to service name)\n  * service - service name",
+        "desc": "Retrieve an item from the Login Keychain. Return nil if not found and otherwise a table with found data.",
+        "doc": "Retrieve an item from the Login Keychain. Return nil if not found and otherwise a table with found data.\n\nParameters:\n * options is a table with values for what keys to try locate with.\n  * account - account name\n  * creator - creator, must be 4 characters\n  * type - type, must be 4 characters\n  * kind - kind of item\n  * comment - comment \n  * label - label (defaults to service name)\n  * service - service name\n\nNotes:\n * If multiple possibles matches just the first one is found.",
         "file": "Source/Keychain.spoon/init.lua",
-        "lineno": "79",
+        "lineno": "82",
         "name": "getItem",
+        "notes": [
+          " * If multiple possibles matches just the first one is found."
+        ],
         "parameters": [
           " * options is a table with values for what keys to try locate with.",
           "  * account - account name",
@@ -5486,21 +5513,7 @@
           "  * service - service name"
         ],
         "signature": "Keychain:getItem(options)",
-        "stripped_doc": "otherwise a table with found data.\nNote: if multiple possibles matches just the first one is found.",
-        "type": "Method"
-      },
-      {
-        "def": "Keychain:login_keychain(name)",
-        "desc": "Retrieve an item from the Login Keychain, returns nil if not found.",
-        "doc": "Retrieve an item from the Login Keychain, returns nil if not found.\nDeprecated, use getItem() instead.\nParameters:\n * name - The name of the item in the Login Keychain you want to retrieve",
-        "file": "Source/Keychain.spoon/init.lua",
-        "lineno": "64",
-        "name": "login_keychain",
-        "parameters": [
-          " * name - The name of the item in the Login Keychain you want to retrieve"
-        ],
-        "signature": "Keychain:login_keychain(name)",
-        "stripped_doc": "Deprecated, use getItem() instead.",
+        "stripped_doc": "",
         "type": "Method"
       }
     ],
@@ -5525,7 +5538,7 @@
         "desc": "Add generic password to keychain.",
         "doc": "Add generic password to keychain.\n\nParameters:\n * options is a table with values for what keys to try locate with.\n  * password - the password\n  * account - account name (required)\n  * creator - creator, must be 4 characters\n  * type - type, must be 4 characters\n  * kind - kind of item\n  * comment - comment \n  * label - label (defaults to service name)\n  * service - service name (required)",
         "file": "Source/Keychain.spoon/init.lua",
-        "lineno": "135",
+        "lineno": "139",
         "name": "addItem",
         "parameters": [
           " * options is a table with values for what keys to try locate with.",
@@ -5544,11 +5557,14 @@
       },
       {
         "def": "Keychain:getItem(options)",
-        "desc": "Retrieve an item from the Login Keychain. Return nil if not found and",
-        "doc": "Retrieve an item from the Login Keychain. Return nil if not found and\notherwise a table with found data.\nNote: if multiple possibles matches just the first one is found.\n\nParameters:\n * options is a table with values for what keys to try locate with.\n  * account - account name\n  * creator - creator, must be 4 characters\n  * type - type, must be 4 characters\n  * kind - kind of item\n  * comment - comment \n  * label - label (defaults to service name)\n  * service - service name",
+        "desc": "Retrieve an item from the Login Keychain. Return nil if not found and otherwise a table with found data.",
+        "doc": "Retrieve an item from the Login Keychain. Return nil if not found and otherwise a table with found data.\n\nParameters:\n * options is a table with values for what keys to try locate with.\n  * account - account name\n  * creator - creator, must be 4 characters\n  * type - type, must be 4 characters\n  * kind - kind of item\n  * comment - comment \n  * label - label (defaults to service name)\n  * service - service name\n\nNotes:\n * If multiple possibles matches just the first one is found.",
         "file": "Source/Keychain.spoon/init.lua",
-        "lineno": "79",
+        "lineno": "82",
         "name": "getItem",
+        "notes": [
+          " * If multiple possibles matches just the first one is found."
+        ],
         "parameters": [
           " * options is a table with values for what keys to try locate with.",
           "  * account - account name",
@@ -5560,7 +5576,7 @@
           "  * service - service name"
         ],
         "signature": "Keychain:getItem(options)",
-        "stripped_doc": "otherwise a table with found data.\nNote: if multiple possibles matches just the first one is found.",
+        "stripped_doc": "",
         "type": "Method"
       },
       {
@@ -5577,16 +5593,19 @@
       {
         "def": "Keychain:login_keychain(name)",
         "desc": "Retrieve an item from the Login Keychain, returns nil if not found.",
-        "doc": "Retrieve an item from the Login Keychain, returns nil if not found.\nDeprecated, use getItem() instead.\nParameters:\n * name - The name of the item in the Login Keychain you want to retrieve",
+        "doc": "Retrieve an item from the Login Keychain, returns nil if not found.\n\nParameters:\n * name - The name of the item in the Login Keychain you want to retrieve\n\nNotes:\n * Use getItem() instead.",
         "file": "Source/Keychain.spoon/init.lua",
         "lineno": "64",
         "name": "login_keychain",
+        "notes": [
+          " * Use getItem() instead."
+        ],
         "parameters": [
           " * name - The name of the item in the Login Keychain you want to retrieve"
         ],
         "signature": "Keychain:login_keychain(name)",
-        "stripped_doc": "Deprecated, use getItem() instead.",
-        "type": "Method"
+        "stripped_doc": "",
+        "type": "Deprecated"
       }
     ],
     "name": "Keychain",
@@ -5784,10 +5803,13 @@
       {
         "def": "Leanpub:displayBookStatus(book)",
         "desc": "Display a notification with the current build status of a book.",
-        "doc": "Display a notification with the current build status of a book.\nOnly produce a notification if the current status is different\nthan the last known one (from the last time `displayBookStatus`\nwas run for the same book).\n\nParameters:\n * book - table containing the information of the book to\n   check. The table must contain the following fields:\n   * slug - URL \"slug\" of the book to check. The slug is the part\n     of the book URL after https://leanpub.com/.\n   * icon - optional icon to show in the notifications for the\n     book, as an `hs.image` object. If this field is not specified\n     but `fetch_leanpub_covers` is true (the default value), this\n     method attempts to fetch the book cover from Leanpub. If the\n     cover can be retrieved, it gets stored in the icon field so\n     it doesn't get fetched every time. You can disable cover\n     fetching for individual books by setting this field\n     explicitly to `false`\n\nReturns:\n * A Lua table containing the status (may be empty), nil if an\n   error occurred",
+        "doc": "Display a notification with the current build status of a book.\n\nParameters:\n * book - table containing the information of the book to\n   check. The table must contain the following fields:\n   * slug - URL \"slug\" of the book to check. The slug is the part\n     of the book URL after https://leanpub.com/.\n   * icon - optional icon to show in the notifications for the\n     book, as an `hs.image` object. If this field is not specified\n     but `fetch_leanpub_covers` is true (the default value), this\n     method attempts to fetch the book cover from Leanpub. If the\n     cover can be retrieved, it gets stored in the icon field so\n     it doesn't get fetched every time. You can disable cover\n     fetching for individual books by setting this field\n     explicitly to `false`\n\nReturns:\n * A Lua table containing the status (may be empty), nil if an\n   error occurred\n\nNotes:\n* Only produce a notification if the current status is different than the last known one (from the last time `displayBookStatus` was run for the same book).",
         "file": "Source/Leanpub.spoon/init.lua",
         "lineno": "166",
         "name": "displayBookStatus",
+        "notes": [
+          "* Only produce a notification if the current status is different than the last known one (from the last time `displayBookStatus` was run for the same book)."
+        ],
         "parameters": [
           " * book - table containing the information of the book to",
           "   check. The table must contain the following fields:",
@@ -5807,7 +5829,7 @@
           "   error occurred"
         ],
         "signature": "Leanpub:displayBookStatus(book)",
-        "stripped_doc": "Only produce a notification if the current status is different\nthan the last known one (from the last time `displayBookStatus`\nwas run for the same book).",
+        "stripped_doc": "",
         "type": "Method"
       },
       {
@@ -5855,8 +5877,8 @@
       },
       {
         "def": "Leanpub:start()",
-        "desc": "Start periodic check for book status, checking every",
-        "doc": "Start periodic check for book status, checking every\ncheck_interval seconds.\n\nParameters:\n * None",
+        "desc": "Start periodic check for book status, checking every check_interval seconds.",
+        "doc": "Start periodic check for book status, checking every check_interval seconds.\n\nParameters:\n * None",
         "file": "Source/Leanpub.spoon/init.lua",
         "lineno": "327",
         "name": "start",
@@ -5864,21 +5886,21 @@
           " * None"
         ],
         "signature": "Leanpub:start()",
-        "stripped_doc": "check_interval seconds.",
+        "stripped_doc": "",
         "type": "Method"
       },
       {
         "def": "Leanpub:stop()",
         "desc": "Stops periodic check for book status, if enabled.",
-        "doc": "Stops periodic check for book status, if enabled.\ncheck_interval seconds.\n\nParameters:\n * None",
+        "doc": "Stops periodic check for book status, if enabled.\n\nParameters:\n * None",
         "file": "Source/Leanpub.spoon/init.lua",
-        "lineno": "341",
+        "lineno": "340",
         "name": "stop",
         "parameters": [
           " * None"
         ],
         "signature": "Leanpub:stop()",
-        "stripped_doc": "check_interval seconds.",
+        "stripped_doc": "",
         "type": "Method"
       }
     ],
@@ -6036,10 +6058,13 @@
       {
         "def": "Leanpub:displayBookStatus(book)",
         "desc": "Display a notification with the current build status of a book.",
-        "doc": "Display a notification with the current build status of a book.\nOnly produce a notification if the current status is different\nthan the last known one (from the last time `displayBookStatus`\nwas run for the same book).\n\nParameters:\n * book - table containing the information of the book to\n   check. The table must contain the following fields:\n   * slug - URL \"slug\" of the book to check. The slug is the part\n     of the book URL after https://leanpub.com/.\n   * icon - optional icon to show in the notifications for the\n     book, as an `hs.image` object. If this field is not specified\n     but `fetch_leanpub_covers` is true (the default value), this\n     method attempts to fetch the book cover from Leanpub. If the\n     cover can be retrieved, it gets stored in the icon field so\n     it doesn't get fetched every time. You can disable cover\n     fetching for individual books by setting this field\n     explicitly to `false`\n\nReturns:\n * A Lua table containing the status (may be empty), nil if an\n   error occurred",
+        "doc": "Display a notification with the current build status of a book.\n\nParameters:\n * book - table containing the information of the book to\n   check. The table must contain the following fields:\n   * slug - URL \"slug\" of the book to check. The slug is the part\n     of the book URL after https://leanpub.com/.\n   * icon - optional icon to show in the notifications for the\n     book, as an `hs.image` object. If this field is not specified\n     but `fetch_leanpub_covers` is true (the default value), this\n     method attempts to fetch the book cover from Leanpub. If the\n     cover can be retrieved, it gets stored in the icon field so\n     it doesn't get fetched every time. You can disable cover\n     fetching for individual books by setting this field\n     explicitly to `false`\n\nReturns:\n * A Lua table containing the status (may be empty), nil if an\n   error occurred\n\nNotes:\n* Only produce a notification if the current status is different than the last known one (from the last time `displayBookStatus` was run for the same book).",
         "file": "Source/Leanpub.spoon/init.lua",
         "lineno": "166",
         "name": "displayBookStatus",
+        "notes": [
+          "* Only produce a notification if the current status is different than the last known one (from the last time `displayBookStatus` was run for the same book)."
+        ],
         "parameters": [
           " * book - table containing the information of the book to",
           "   check. The table must contain the following fields:",
@@ -6059,7 +6084,7 @@
           "   error occurred"
         ],
         "signature": "Leanpub:displayBookStatus(book)",
-        "stripped_doc": "Only produce a notification if the current status is different\nthan the last known one (from the last time `displayBookStatus`\nwas run for the same book).",
+        "stripped_doc": "",
         "type": "Method"
       },
       {
@@ -6162,8 +6187,8 @@
       },
       {
         "def": "Leanpub:start()",
-        "desc": "Start periodic check for book status, checking every",
-        "doc": "Start periodic check for book status, checking every\ncheck_interval seconds.\n\nParameters:\n * None",
+        "desc": "Start periodic check for book status, checking every check_interval seconds.",
+        "doc": "Start periodic check for book status, checking every check_interval seconds.\n\nParameters:\n * None",
         "file": "Source/Leanpub.spoon/init.lua",
         "lineno": "327",
         "name": "start",
@@ -6171,21 +6196,21 @@
           " * None"
         ],
         "signature": "Leanpub:start()",
-        "stripped_doc": "check_interval seconds.",
+        "stripped_doc": "",
         "type": "Method"
       },
       {
         "def": "Leanpub:stop()",
         "desc": "Stops periodic check for book status, if enabled.",
-        "doc": "Stops periodic check for book status, if enabled.\ncheck_interval seconds.\n\nParameters:\n * None",
+        "doc": "Stops periodic check for book status, if enabled.\n\nParameters:\n * None",
         "file": "Source/Leanpub.spoon/init.lua",
-        "lineno": "341",
+        "lineno": "340",
         "name": "stop",
         "parameters": [
           " * None"
         ],
         "signature": "Leanpub:stop()",
-        "stripped_doc": "check_interval seconds.",
+        "stripped_doc": "",
         "type": "Method"
       },
       {
@@ -8200,7 +8225,7 @@
         "desc": "Binds hotkey mappings for this spoon.",
         "doc": "Binds hotkey mappings for this spoon.\n\nParameters:\n * mapping (Table) - A table with keys who's names correspond to methods of this spoon, and values that represent hotkey mappings. For example:\n   * `{ toggle = { {\"cmd\", \"option\", \"ctrl\" }, \"h\" }`\n\nReturns:\n * Self",
         "file": "Source/PersonalHotspot.spoon/init.lua",
-        "lineno": "212",
+        "lineno": "214",
         "name": "bindHotkeys",
         "parameters": [
           " * mapping (Table) - A table with keys who's names correspond to methods of this spoon, and values that represent hotkey mappings. For example:",
@@ -8216,10 +8241,13 @@
       {
         "def": "PersonalHotspot:connect() -> Self",
         "desc": "Tries to connect to the personal hotspot named in `PersonalHotspot.hotspotName`. If `PersonalHotspot.hotspotName` is `nil`, the first hotspot in the Wi-Fi menu will be selected, and `PersonalHotspot.hotspotName` will be assigned to the name of that hotspot. Once connected to the hotspot, the applications specified in `PersonalHotspot.appsToKill` are killed.",
-        "doc": "Tries to connect to the personal hotspot named in `PersonalHotspot.hotspotName`. If `PersonalHotspot.hotspotName` is `nil`, the first hotspot in the Wi-Fi menu will be selected, and `PersonalHotspot.hotspotName` will be assigned to the name of that hotspot. Once connected to the hotspot, the applications specified in `PersonalHotspot.appsToKill` are killed.\n\nIf there are no hotspots with the name in `PersonalHotspot.hotspotName`, or if `PersonalHotspot.hotspotName` is `nil` and there are no hotspots in the Wi-Fi menu, the Wi-Fi menu will be closed after `PersonalHotspot.timeout` seconds.\n\nParameters:\n * None\n\nReturns:\n * Self",
+        "doc": "Tries to connect to the personal hotspot named in `PersonalHotspot.hotspotName`. If `PersonalHotspot.hotspotName` is `nil`, the first hotspot in the Wi-Fi menu will be selected, and `PersonalHotspot.hotspotName` will be assigned to the name of that hotspot. Once connected to the hotspot, the applications specified in `PersonalHotspot.appsToKill` are killed.\n\nParameters:\n * None\n\nReturns:\n * Self\n\nNotes:\n * If there are no hotspots with the name in `PersonalHotspot.hotspotName`, or if `PersonalHotspot.hotspotName` is `nil` and there are no hotspots in the Wi-Fi menu, the Wi-Fi menu will be closed after `PersonalHotspot.timeout` seconds.",
         "file": "Source/PersonalHotspot.spoon/init.lua",
         "lineno": "137",
         "name": "connect",
+        "notes": [
+          " * If there are no hotspots with the name in `PersonalHotspot.hotspotName`, or if `PersonalHotspot.hotspotName` is `nil` and there are no hotspots in the Wi-Fi menu, the Wi-Fi menu will be closed after `PersonalHotspot.timeout` seconds."
+        ],
         "parameters": [
           " * None"
         ],
@@ -8227,7 +8255,7 @@
           " * Self"
         ],
         "signature": "PersonalHotspot:connect() -> Self",
-        "stripped_doc": "If there are no hotspots with the name in `PersonalHotspot.hotspotName`, or if `PersonalHotspot.hotspotName` is `nil` and there are no hotspots in the Wi-Fi menu, the Wi-Fi menu will be closed after `PersonalHotspot.timeout` seconds.",
+        "stripped_doc": "",
         "type": "Method"
       },
       {
@@ -8235,7 +8263,7 @@
         "desc": "If currently connected to the personal hotspot named in `PersonalHotspot.hotspotName`, this method will disconnect from that hotspot and open the applications specified in `PersonalHostspot.appsToKill`.",
         "doc": "If currently connected to the personal hotspot named in `PersonalHotspot.hotspotName`, this method will disconnect from that hotspot and open the applications specified in `PersonalHostspot.appsToKill`.\n\nParameters:\n * None\n\nReturns:\n * Self",
         "file": "Source/PersonalHotspot.spoon/init.lua",
-        "lineno": "169",
+        "lineno": "170",
         "name": "disconnect",
         "parameters": [
           " * None"
@@ -8250,10 +8278,13 @@
       {
         "def": "PersonalHotspot:toggle() -> Self",
         "desc": "Toggles personal hotspot connection.",
-        "doc": "Toggles personal hotspot connection.\n\nIf the current wireless network name is `PersonalHotspot.hotspotName` this method calls `PersonalHotspot:disconnect()`, otherwise this method will call `PersonalHotspot:connect()`.\n\nParameters:\n * None\n\nReturns:\n * Self",
+        "doc": "Toggles personal hotspot connection.\n\nParameters:\n * None\n\nReturns:\n * Self\n\nNotes:\n * If the current wireless network name is `PersonalHotspot.hotspotName` this method calls `PersonalHotspot:disconnect()`, otherwise this method will call `PersonalHotspot:connect()`.",
         "file": "Source/PersonalHotspot.spoon/init.lua",
-        "lineno": "191",
+        "lineno": "192",
         "name": "toggle",
+        "notes": [
+          " * If the current wireless network name is `PersonalHotspot.hotspotName` this method calls `PersonalHotspot:disconnect()`, otherwise this method will call `PersonalHotspot:connect()`."
+        ],
         "parameters": [
           " * None"
         ],
@@ -8261,7 +8292,7 @@
           " * Self"
         ],
         "signature": "PersonalHotspot:toggle() -> Self",
-        "stripped_doc": "If the current wireless network name is `PersonalHotspot.hotspotName` this method calls `PersonalHotspot:disconnect()`, otherwise this method will call `PersonalHotspot:connect()`.",
+        "stripped_doc": "",
         "type": "Method"
       }
     ],
@@ -8319,7 +8350,7 @@
         "desc": "Binds hotkey mappings for this spoon.",
         "doc": "Binds hotkey mappings for this spoon.\n\nParameters:\n * mapping (Table) - A table with keys who's names correspond to methods of this spoon, and values that represent hotkey mappings. For example:\n   * `{ toggle = { {\"cmd\", \"option\", \"ctrl\" }, \"h\" }`\n\nReturns:\n * Self",
         "file": "Source/PersonalHotspot.spoon/init.lua",
-        "lineno": "212",
+        "lineno": "214",
         "name": "bindHotkeys",
         "parameters": [
           " * mapping (Table) - A table with keys who's names correspond to methods of this spoon, and values that represent hotkey mappings. For example:",
@@ -8335,10 +8366,13 @@
       {
         "def": "PersonalHotspot:connect() -> Self",
         "desc": "Tries to connect to the personal hotspot named in `PersonalHotspot.hotspotName`. If `PersonalHotspot.hotspotName` is `nil`, the first hotspot in the Wi-Fi menu will be selected, and `PersonalHotspot.hotspotName` will be assigned to the name of that hotspot. Once connected to the hotspot, the applications specified in `PersonalHotspot.appsToKill` are killed.",
-        "doc": "Tries to connect to the personal hotspot named in `PersonalHotspot.hotspotName`. If `PersonalHotspot.hotspotName` is `nil`, the first hotspot in the Wi-Fi menu will be selected, and `PersonalHotspot.hotspotName` will be assigned to the name of that hotspot. Once connected to the hotspot, the applications specified in `PersonalHotspot.appsToKill` are killed.\n\nIf there are no hotspots with the name in `PersonalHotspot.hotspotName`, or if `PersonalHotspot.hotspotName` is `nil` and there are no hotspots in the Wi-Fi menu, the Wi-Fi menu will be closed after `PersonalHotspot.timeout` seconds.\n\nParameters:\n * None\n\nReturns:\n * Self",
+        "doc": "Tries to connect to the personal hotspot named in `PersonalHotspot.hotspotName`. If `PersonalHotspot.hotspotName` is `nil`, the first hotspot in the Wi-Fi menu will be selected, and `PersonalHotspot.hotspotName` will be assigned to the name of that hotspot. Once connected to the hotspot, the applications specified in `PersonalHotspot.appsToKill` are killed.\n\nParameters:\n * None\n\nReturns:\n * Self\n\nNotes:\n * If there are no hotspots with the name in `PersonalHotspot.hotspotName`, or if `PersonalHotspot.hotspotName` is `nil` and there are no hotspots in the Wi-Fi menu, the Wi-Fi menu will be closed after `PersonalHotspot.timeout` seconds.",
         "file": "Source/PersonalHotspot.spoon/init.lua",
         "lineno": "137",
         "name": "connect",
+        "notes": [
+          " * If there are no hotspots with the name in `PersonalHotspot.hotspotName`, or if `PersonalHotspot.hotspotName` is `nil` and there are no hotspots in the Wi-Fi menu, the Wi-Fi menu will be closed after `PersonalHotspot.timeout` seconds."
+        ],
         "parameters": [
           " * None"
         ],
@@ -8346,7 +8380,7 @@
           " * Self"
         ],
         "signature": "PersonalHotspot:connect() -> Self",
-        "stripped_doc": "If there are no hotspots with the name in `PersonalHotspot.hotspotName`, or if `PersonalHotspot.hotspotName` is `nil` and there are no hotspots in the Wi-Fi menu, the Wi-Fi menu will be closed after `PersonalHotspot.timeout` seconds.",
+        "stripped_doc": "",
         "type": "Method"
       },
       {
@@ -8354,7 +8388,7 @@
         "desc": "If currently connected to the personal hotspot named in `PersonalHotspot.hotspotName`, this method will disconnect from that hotspot and open the applications specified in `PersonalHostspot.appsToKill`.",
         "doc": "If currently connected to the personal hotspot named in `PersonalHotspot.hotspotName`, this method will disconnect from that hotspot and open the applications specified in `PersonalHostspot.appsToKill`.\n\nParameters:\n * None\n\nReturns:\n * Self",
         "file": "Source/PersonalHotspot.spoon/init.lua",
-        "lineno": "169",
+        "lineno": "170",
         "name": "disconnect",
         "parameters": [
           " * None"
@@ -8391,10 +8425,13 @@
       {
         "def": "PersonalHotspot:toggle() -> Self",
         "desc": "Toggles personal hotspot connection.",
-        "doc": "Toggles personal hotspot connection.\n\nIf the current wireless network name is `PersonalHotspot.hotspotName` this method calls `PersonalHotspot:disconnect()`, otherwise this method will call `PersonalHotspot:connect()`.\n\nParameters:\n * None\n\nReturns:\n * Self",
+        "doc": "Toggles personal hotspot connection.\n\nParameters:\n * None\n\nReturns:\n * Self\n\nNotes:\n * If the current wireless network name is `PersonalHotspot.hotspotName` this method calls `PersonalHotspot:disconnect()`, otherwise this method will call `PersonalHotspot:connect()`.",
         "file": "Source/PersonalHotspot.spoon/init.lua",
-        "lineno": "191",
+        "lineno": "192",
         "name": "toggle",
+        "notes": [
+          " * If the current wireless network name is `PersonalHotspot.hotspotName` this method calls `PersonalHotspot:disconnect()`, otherwise this method will call `PersonalHotspot:connect()`."
+        ],
         "parameters": [
           " * None"
         ],
@@ -8402,7 +8439,7 @@
           " * Self"
         ],
         "signature": "PersonalHotspot:toggle() -> Self",
-        "stripped_doc": "If the current wireless network name is `PersonalHotspot.hotspotName` this method calls `PersonalHotspot:disconnect()`, otherwise this method will call `PersonalHotspot:connect()`.",
+        "stripped_doc": "",
         "type": "Method"
       }
     ],
@@ -8790,7 +8827,7 @@
         "desc": "Bind sequential keys by a nested keymap.",
         "doc": "Bind sequential keys by a nested keymap.\n\nParameters:\n * keymap - A table that specifies the mapping.\n\nReturns:\n * A function to start. Bind it to a initial key binding.\n\nNote:\nSpec of keymap:\nEvery key is of format {{modifers}, key, (optional) description}\nThe first two element is what you usually pass into a hs.hotkey.bind() function.\n\nEach value of key can be in two form:\n1. A function. Then pressing the key invokes the function\n2. A table. Then pressing the key bring to another layer of keybindings.\n   And the table have the same format of top table: keys to keys, value to table or function",
         "file": "Source/RecursiveBinder.spoon/init.lua",
-        "lineno": "226",
+        "lineno": "225",
         "name": "recursiveBind",
         "parameters": [
           " * keymap - A table that specifies the mapping."
@@ -8804,8 +8841,8 @@
       },
       {
         "def": "RecursiveBinder.singleKey(key, name)",
-        "desc": "this function simply return a table with empty modifiers",
-        "doc": "this function simply return a table with empty modifiers\nalso it translates capital letters to normal letter with shift modifer\n\nParameters:\n * key - a letter\n * name - the description to pass to the keys binding function\n\nReturns:\n * a table of modifiers and keys and names, ready to be used in keymap\n   to pass to RecursiveBinder.recursiveBind()",
+        "desc": "this function simply return a table with empty modifiers also it translates capital letters to normal letter with shift modifer",
+        "doc": "this function simply return a table with empty modifiers also it translates capital letters to normal letter with shift modifer\n\nParameters:\n * key - a letter\n * name - the description to pass to the keys binding function\n\nReturns:\n * a table of modifiers and keys and names, ready to be used in keymap\n   to pass to RecursiveBinder.recursiveBind()",
         "file": "Source/RecursiveBinder.spoon/init.lua",
         "lineno": "133",
         "name": "singleKey",
@@ -8818,7 +8855,7 @@
           "   to pass to RecursiveBinder.recursiveBind()"
         ],
         "signature": "RecursiveBinder.singleKey(key, name)",
-        "stripped_doc": "also it translates capital letters to normal letter with shift modifer",
+        "stripped_doc": "",
         "type": "Method"
       }
     ],
@@ -8953,7 +8990,7 @@
         "desc": "Bind sequential keys by a nested keymap.",
         "doc": "Bind sequential keys by a nested keymap.\n\nParameters:\n * keymap - A table that specifies the mapping.\n\nReturns:\n * A function to start. Bind it to a initial key binding.\n\nNote:\nSpec of keymap:\nEvery key is of format {{modifers}, key, (optional) description}\nThe first two element is what you usually pass into a hs.hotkey.bind() function.\n\nEach value of key can be in two form:\n1. A function. Then pressing the key invokes the function\n2. A table. Then pressing the key bring to another layer of keybindings.\n   And the table have the same format of top table: keys to keys, value to table or function",
         "file": "Source/RecursiveBinder.spoon/init.lua",
-        "lineno": "226",
+        "lineno": "225",
         "name": "recursiveBind",
         "parameters": [
           " * keymap - A table that specifies the mapping."
@@ -8978,8 +9015,8 @@
       },
       {
         "def": "RecursiveBinder.singleKey(key, name)",
-        "desc": "this function simply return a table with empty modifiers",
-        "doc": "this function simply return a table with empty modifiers\nalso it translates capital letters to normal letter with shift modifer\n\nParameters:\n * key - a letter\n * name - the description to pass to the keys binding function\n\nReturns:\n * a table of modifiers and keys and names, ready to be used in keymap\n   to pass to RecursiveBinder.recursiveBind()",
+        "desc": "this function simply return a table with empty modifiers also it translates capital letters to normal letter with shift modifer",
+        "doc": "this function simply return a table with empty modifiers also it translates capital letters to normal letter with shift modifer\n\nParameters:\n * key - a letter\n * name - the description to pass to the keys binding function\n\nReturns:\n * a table of modifiers and keys and names, ready to be used in keymap\n   to pass to RecursiveBinder.recursiveBind()",
         "file": "Source/RecursiveBinder.spoon/init.lua",
         "lineno": "133",
         "name": "singleKey",
@@ -8992,7 +9029,7 @@
           "   to pass to RecursiveBinder.recursiveBind()"
         ],
         "signature": "RecursiveBinder.singleKey(key, name)",
-        "stripped_doc": "also it translates capital letters to normal letter with shift modifer",
+        "stripped_doc": "",
         "type": "Method"
       }
     ],
@@ -12960,7 +12997,7 @@
         "desc": "Binds hotkeys for TurboBoost",
         "doc": "Binds hotkeys for TurboBoost\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n  * hello - Say Hello",
         "file": "Source/TurboBoost.spoon/init.lua",
-        "lineno": "201",
+        "lineno": "200",
         "name": "bindHotkeys",
         "parameters": [
           " * mapping - A table containing hotkey objifier/key details for the following items:",
@@ -12972,8 +13009,8 @@
       },
       {
         "def": "TurboBoost:setState(state, notify)",
-        "desc": "Sets whether Turbo Boost should be disabled (kernel extension",
-        "doc": "Sets whether Turbo Boost should be disabled (kernel extension\nloaded) or enabled (normal state, kernel extension not loaded).\n\nParameters:\n * state - A boolean, false if Turbo Boost should be disabled\n   (load kernel extension), true if it should be enabled (unload\n   kernel extension if loaded).\n * notify - Optional boolean indicating whether a notification\n   should be produced. If not given, the value of\n   TurboBoost.notify is used.\n\nReturns:\n * Boolean indicating new state",
+        "desc": "Sets whether Turbo Boost should be disabled (kernel extension loaded) or enabled (normal state, kernel extension not loaded).",
+        "doc": "Sets whether Turbo Boost should be disabled (kernel extension loaded) or enabled (normal state, kernel extension not loaded).\n\nParameters:\n * state - A boolean, false if Turbo Boost should be disabled\n   (load kernel extension), true if it should be enabled (unload\n   kernel extension if loaded).\n * notify - Optional boolean indicating whether a notification\n   should be produced. If not given, the value of\n   TurboBoost.notify is used.\n\nReturns:\n * Boolean indicating new state",
         "file": "Source/TurboBoost.spoon/init.lua",
         "lineno": "128",
         "name": "setState",
@@ -12989,7 +13026,7 @@
           " * Boolean indicating new state"
         ],
         "signature": "TurboBoost:setState(state, notify)",
-        "stripped_doc": "loaded) or enabled (normal state, kernel extension not loaded).",
+        "stripped_doc": "",
         "type": "Method"
       },
       {
@@ -12997,7 +13034,7 @@
         "desc": "Starts TurboBoost",
         "doc": "Starts TurboBoost\n\nParameters:\n * None\n\nReturns:\n * The TurboBoost object",
         "file": "Source/TurboBoost.spoon/init.lua",
-        "lineno": "213",
+        "lineno": "212",
         "name": "start",
         "parameters": [
           " * None"
@@ -13014,7 +13051,7 @@
         "desc": "Check whether Turbo Boost is enabled",
         "doc": "Check whether Turbo Boost is enabled\n\nParameters:\n * None\n\nReturns:\n * true if TurboBoost is enabled (kernel ext not loaded), false otherwise.",
         "file": "Source/TurboBoost.spoon/init.lua",
-        "lineno": "172",
+        "lineno": "171",
         "name": "status",
         "parameters": [
           " * None"
@@ -13031,7 +13068,7 @@
         "desc": "Stops TurboBoost",
         "doc": "Stops TurboBoost\n\nParameters:\n * None\n\nReturns:\n * The TurboBoost object",
         "file": "Source/TurboBoost.spoon/init.lua",
-        "lineno": "234",
+        "lineno": "233",
         "name": "stop",
         "parameters": [
           " * None"
@@ -13048,7 +13085,7 @@
         "desc": "Toggle TurboBoost status",
         "doc": "Toggle TurboBoost status\n\nParameters:\n * None\n\nReturns:\n * New TurboBoost status, after the toggle",
         "file": "Source/TurboBoost.spoon/init.lua",
-        "lineno": "187",
+        "lineno": "186",
         "name": "toggle",
         "parameters": [
           " * None"
@@ -13192,7 +13229,7 @@
         "desc": "Binds hotkeys for TurboBoost",
         "doc": "Binds hotkeys for TurboBoost\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n  * hello - Say Hello",
         "file": "Source/TurboBoost.spoon/init.lua",
-        "lineno": "201",
+        "lineno": "200",
         "name": "bindHotkeys",
         "parameters": [
           " * mapping - A table containing hotkey objifier/key details for the following items:",
@@ -13314,8 +13351,8 @@
       },
       {
         "def": "TurboBoost:setState(state, notify)",
-        "desc": "Sets whether Turbo Boost should be disabled (kernel extension",
-        "doc": "Sets whether Turbo Boost should be disabled (kernel extension\nloaded) or enabled (normal state, kernel extension not loaded).\n\nParameters:\n * state - A boolean, false if Turbo Boost should be disabled\n   (load kernel extension), true if it should be enabled (unload\n   kernel extension if loaded).\n * notify - Optional boolean indicating whether a notification\n   should be produced. If not given, the value of\n   TurboBoost.notify is used.\n\nReturns:\n * Boolean indicating new state",
+        "desc": "Sets whether Turbo Boost should be disabled (kernel extension loaded) or enabled (normal state, kernel extension not loaded).",
+        "doc": "Sets whether Turbo Boost should be disabled (kernel extension loaded) or enabled (normal state, kernel extension not loaded).\n\nParameters:\n * state - A boolean, false if Turbo Boost should be disabled\n   (load kernel extension), true if it should be enabled (unload\n   kernel extension if loaded).\n * notify - Optional boolean indicating whether a notification\n   should be produced. If not given, the value of\n   TurboBoost.notify is used.\n\nReturns:\n * Boolean indicating new state",
         "file": "Source/TurboBoost.spoon/init.lua",
         "lineno": "128",
         "name": "setState",
@@ -13331,7 +13368,7 @@
           " * Boolean indicating new state"
         ],
         "signature": "TurboBoost:setState(state, notify)",
-        "stripped_doc": "loaded) or enabled (normal state, kernel extension not loaded).",
+        "stripped_doc": "",
         "type": "Method"
       },
       {
@@ -13339,7 +13376,7 @@
         "desc": "Starts TurboBoost",
         "doc": "Starts TurboBoost\n\nParameters:\n * None\n\nReturns:\n * The TurboBoost object",
         "file": "Source/TurboBoost.spoon/init.lua",
-        "lineno": "213",
+        "lineno": "212",
         "name": "start",
         "parameters": [
           " * None"
@@ -13356,7 +13393,7 @@
         "desc": "Check whether Turbo Boost is enabled",
         "doc": "Check whether Turbo Boost is enabled\n\nParameters:\n * None\n\nReturns:\n * true if TurboBoost is enabled (kernel ext not loaded), false otherwise.",
         "file": "Source/TurboBoost.spoon/init.lua",
-        "lineno": "172",
+        "lineno": "171",
         "name": "status",
         "parameters": [
           " * None"
@@ -13373,7 +13410,7 @@
         "desc": "Stops TurboBoost",
         "doc": "Stops TurboBoost\n\nParameters:\n * None\n\nReturns:\n * The TurboBoost object",
         "file": "Source/TurboBoost.spoon/init.lua",
-        "lineno": "234",
+        "lineno": "233",
         "name": "stop",
         "parameters": [
           " * None"
@@ -13390,7 +13427,7 @@
         "desc": "Toggle TurboBoost status",
         "doc": "Toggle TurboBoost status\n\nParameters:\n * None\n\nReturns:\n * New TurboBoost status, after the toggle",
         "file": "Source/TurboBoost.spoon/init.lua",
-        "lineno": "187",
+        "lineno": "186",
         "name": "toggle",
         "parameters": [
           " * None"
@@ -13432,7 +13469,7 @@
         "desc": "Binds hotkeys for UniversalArchive",
         "doc": "Binds hotkeys for UniversalArchive\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for the following items:\n  * `archive` - hotkey for trigger the `universalArchive()` method, to archive the current item on the current application.\n  * `<app>_<dest>` - if an application handler supports multiple destinations, you can specify hotkeys for specific destinations using this format. For example, to assign a hotkey that files the current note in Evernote to the \"MyProject\" notebook using Ctrl-Alt-Cmd-M, you would specify `Evernote_MyProject = { { \"ctrl\", \"alt\", \"cmd\" }, \"m\" }` as one of the elements of `mapping`. Keep in mind that the application name must appear exactly as the system sees it (including upper/lowercase), and that if either the application or the destination name contain spaces or other non-alphanumeric characters, you need to use the Lua table notation. For example: `[\"Evernote_Some Long Notebook Name\"] = { keybinding }`. At the moment only the Evernote handler supports multiple destinations.",
         "file": "Source/UniversalArchive.spoon/init.lua",
-        "lineno": "189",
+        "lineno": "182",
         "name": "bindHotkeys",
         "parameters": [
           " * mapping - A table containing hotkey modifier/key details for the following items:",
@@ -13474,15 +13511,19 @@
       {
         "def": "UniversalArchive:outlookArchive()",
         "desc": "Archive current message in Outlook using one of two methods:",
-        "doc": "Archive current message in Outlook using one of two methods:\n1. If the \"Message -> Archive\" menu item exists, it is used (this\n   has been added in recent versions of Outlook)\n2. Otherwise, the message gets manually moved to the folder\n   specified in `UniversalArchive.outlook_archive_folder`. The folder\n   has to appear in the Message -> Move submenu for this to\n   work. Since this submenu only lists the last few destination\n   folders, you have to move a message by hand the first time (or\n   periodically if you don't archive very often).\n\nParameters:\n * none",
+        "doc": "Archive current message in Outlook using one of two methods:\n\nParameters:\n * none\n\nNotes:\n * If the \"Message -> Archive\" menu item exists, it is used (this has been added in recent versions of Outlook)\n * Otherwise, the message gets manually moved to the folder specified in `UniversalArchive.outlook_archive_folder`. The folder has to appear in the Message -> Move submenu for this to work. Since this submenu only lists the last few destination folders, you have to move a message by hand the first time (or periodically if you don't archive very often).",
         "file": "Source/UniversalArchive.spoon/init.lua",
         "lineno": "120",
         "name": "outlookArchive",
+        "notes": [
+          " * If the \"Message -> Archive\" menu item exists, it is used (this has been added in recent versions of Outlook)",
+          " * Otherwise, the message gets manually moved to the folder specified in `UniversalArchive.outlook_archive_folder`. The folder has to appear in the Message -> Move submenu for this to work. Since this submenu only lists the last few destination folders, you have to move a message by hand the first time (or periodically if you don't archive very often)."
+        ],
         "parameters": [
           " * none"
         ],
         "signature": "UniversalArchive:outlookArchive()",
-        "stripped_doc": "1. If the \"Message -> Archive\" menu item exists, it is used (this\n   has been added in recent versions of Outlook)\n2. Otherwise, the message gets manually moved to the folder\n   specified in `UniversalArchive.outlook_archive_folder`. The folder\n   has to appear in the Message -> Move submenu for this to\n   work. Since this submenu only lists the last few destination\n   folders, you have to move a message by hand the first time (or\n   periodically if you don't archive very often).",
+        "stripped_doc": "",
         "type": "Method"
       },
       {
@@ -13490,7 +13531,7 @@
         "desc": "Register a handler function for an application.",
         "doc": "Register a handler function for an application.\n\nParameters:\n * appname - string containing the name of the application. If the application already has a handler, it will be replaced with the new one.\n * fn - handler function (to remove the handler for an application, use `nil`). The function receives the following arguments:\n   * self - the UniversalArchive object, so the handler can make use of all the object methods and variables.\n   * where - optional \"destination\" for the archive operation. Handlers must provide a default destination when `where == nil`. Destination doesn't make sense for all applications, so the implementation of this is optional and depending on the handler.",
         "file": "Source/UniversalArchive.spoon/init.lua",
-        "lineno": "172",
+        "lineno": "165",
         "name": "registerApplication",
         "parameters": [
           " * appname - string containing the name of the application. If the application already has a handler, it will be replaced with the new one.",
@@ -13518,16 +13559,20 @@
       },
       {
         "def": "UniversalArchive:universalArchive(where)",
-        "desc": "Main entry point for archiving an item. If a handler function is",
-        "doc": "Main entry point for archiving an item. If a handler function is\ndefined for the current application, it is called with the\n`UniversalArchive` object as its first argument, and the archive\ndestination (if provided) as the second. Handlers must have a\n\"default destination\" that gets used when no destination is\nprovided. Not all handlers support specifying a destination. New\nhandlers can be registered using the `registerApplication()`\nmethod.\n\nParameters:\n * None",
+        "desc": "Main entry point for archiving an item.",
+        "doc": "Main entry point for archiving an item.\n\nParameters:\n * None\n\nNotes:\n * If a handler function is defined for the current application, it is called with the `UniversalArchive` object as its first argument, and the archive destination (if provided) as the second.\n * Handlers must have a \"default destination\" that gets used when no destination is provided. Not all handlers support specifying a destination. New handlers can be registered using the `registerApplication()` method.",
         "file": "Source/UniversalArchive.spoon/init.lua",
-        "lineno": "146",
+        "lineno": "142",
         "name": "universalArchive",
+        "notes": [
+          " * If a handler function is defined for the current application, it is called with the `UniversalArchive` object as its first argument, and the archive destination (if provided) as the second.",
+          " * Handlers must have a \"default destination\" that gets used when no destination is provided. Not all handlers support specifying a destination. New handlers can be registered using the `registerApplication()` method."
+        ],
         "parameters": [
           " * None"
         ],
         "signature": "UniversalArchive:universalArchive(where)",
-        "stripped_doc": "defined for the current application, it is called with the\n`UniversalArchive` object as its first argument, and the archive\ndestination (if provided) as the second. Handlers must have a\n\"default destination\" that gets used when no destination is\nprovided. Not all handlers support specifying a destination. New\nhandlers can be registered using the `registerApplication()`\nmethod.",
+        "stripped_doc": "",
         "type": "Method"
       }
     ],
@@ -13607,7 +13652,7 @@
         "desc": "Binds hotkeys for UniversalArchive",
         "doc": "Binds hotkeys for UniversalArchive\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for the following items:\n  * `archive` - hotkey for trigger the `universalArchive()` method, to archive the current item on the current application.\n  * `<app>_<dest>` - if an application handler supports multiple destinations, you can specify hotkeys for specific destinations using this format. For example, to assign a hotkey that files the current note in Evernote to the \"MyProject\" notebook using Ctrl-Alt-Cmd-M, you would specify `Evernote_MyProject = { { \"ctrl\", \"alt\", \"cmd\" }, \"m\" }` as one of the elements of `mapping`. Keep in mind that the application name must appear exactly as the system sees it (including upper/lowercase), and that if either the application or the destination name contain spaces or other non-alphanumeric characters, you need to use the Lua table notation. For example: `[\"Evernote_Some Long Notebook Name\"] = { keybinding }`. At the moment only the Evernote handler supports multiple destinations.",
         "file": "Source/UniversalArchive.spoon/init.lua",
-        "lineno": "189",
+        "lineno": "182",
         "name": "bindHotkeys",
         "parameters": [
           " * mapping - A table containing hotkey modifier/key details for the following items:",
@@ -13693,15 +13738,19 @@
       {
         "def": "UniversalArchive:outlookArchive()",
         "desc": "Archive current message in Outlook using one of two methods:",
-        "doc": "Archive current message in Outlook using one of two methods:\n1. If the \"Message -> Archive\" menu item exists, it is used (this\n   has been added in recent versions of Outlook)\n2. Otherwise, the message gets manually moved to the folder\n   specified in `UniversalArchive.outlook_archive_folder`. The folder\n   has to appear in the Message -> Move submenu for this to\n   work. Since this submenu only lists the last few destination\n   folders, you have to move a message by hand the first time (or\n   periodically if you don't archive very often).\n\nParameters:\n * none",
+        "doc": "Archive current message in Outlook using one of two methods:\n\nParameters:\n * none\n\nNotes:\n * If the \"Message -> Archive\" menu item exists, it is used (this has been added in recent versions of Outlook)\n * Otherwise, the message gets manually moved to the folder specified in `UniversalArchive.outlook_archive_folder`. The folder has to appear in the Message -> Move submenu for this to work. Since this submenu only lists the last few destination folders, you have to move a message by hand the first time (or periodically if you don't archive very often).",
         "file": "Source/UniversalArchive.spoon/init.lua",
         "lineno": "120",
         "name": "outlookArchive",
+        "notes": [
+          " * If the \"Message -> Archive\" menu item exists, it is used (this has been added in recent versions of Outlook)",
+          " * Otherwise, the message gets manually moved to the folder specified in `UniversalArchive.outlook_archive_folder`. The folder has to appear in the Message -> Move submenu for this to work. Since this submenu only lists the last few destination folders, you have to move a message by hand the first time (or periodically if you don't archive very often)."
+        ],
         "parameters": [
           " * none"
         ],
         "signature": "UniversalArchive:outlookArchive()",
-        "stripped_doc": "1. If the \"Message -> Archive\" menu item exists, it is used (this\n   has been added in recent versions of Outlook)\n2. Otherwise, the message gets manually moved to the folder\n   specified in `UniversalArchive.outlook_archive_folder`. The folder\n   has to appear in the Message -> Move submenu for this to\n   work. Since this submenu only lists the last few destination\n   folders, you have to move a message by hand the first time (or\n   periodically if you don't archive very often).",
+        "stripped_doc": "",
         "type": "Method"
       },
       {
@@ -13709,7 +13758,7 @@
         "desc": "Register a handler function for an application.",
         "doc": "Register a handler function for an application.\n\nParameters:\n * appname - string containing the name of the application. If the application already has a handler, it will be replaced with the new one.\n * fn - handler function (to remove the handler for an application, use `nil`). The function receives the following arguments:\n   * self - the UniversalArchive object, so the handler can make use of all the object methods and variables.\n   * where - optional \"destination\" for the archive operation. Handlers must provide a default destination when `where == nil`. Destination doesn't make sense for all applications, so the implementation of this is optional and depending on the handler.",
         "file": "Source/UniversalArchive.spoon/init.lua",
-        "lineno": "172",
+        "lineno": "165",
         "name": "registerApplication",
         "parameters": [
           " * appname - string containing the name of the application. If the application already has a handler, it will be replaced with the new one.",
@@ -13737,16 +13786,20 @@
       },
       {
         "def": "UniversalArchive:universalArchive(where)",
-        "desc": "Main entry point for archiving an item. If a handler function is",
-        "doc": "Main entry point for archiving an item. If a handler function is\ndefined for the current application, it is called with the\n`UniversalArchive` object as its first argument, and the archive\ndestination (if provided) as the second. Handlers must have a\n\"default destination\" that gets used when no destination is\nprovided. Not all handlers support specifying a destination. New\nhandlers can be registered using the `registerApplication()`\nmethod.\n\nParameters:\n * None",
+        "desc": "Main entry point for archiving an item.",
+        "doc": "Main entry point for archiving an item.\n\nParameters:\n * None\n\nNotes:\n * If a handler function is defined for the current application, it is called with the `UniversalArchive` object as its first argument, and the archive destination (if provided) as the second.\n * Handlers must have a \"default destination\" that gets used when no destination is provided. Not all handlers support specifying a destination. New handlers can be registered using the `registerApplication()` method.",
         "file": "Source/UniversalArchive.spoon/init.lua",
-        "lineno": "146",
+        "lineno": "142",
         "name": "universalArchive",
+        "notes": [
+          " * If a handler function is defined for the current application, it is called with the `UniversalArchive` object as its first argument, and the archive destination (if provided) as the second.",
+          " * Handlers must have a \"default destination\" that gets used when no destination is provided. Not all handlers support specifying a destination. New handlers can be registered using the `registerApplication()` method."
+        ],
         "parameters": [
           " * None"
         ],
         "signature": "UniversalArchive:universalArchive(where)",
-        "stripped_doc": "defined for the current application, it is called with the\n`UniversalArchive` object as its first argument, and the archive\ndestination (if provided) as the second. Handlers must have a\n\"default destination\" that gets used when no destination is\nprovided. Not all handlers support specifying a destination. New\nhandlers can be registered using the `registerApplication()`\nmethod.",
+        "stripped_doc": "",
         "type": "Method"
       }
     ],
@@ -14474,17 +14527,20 @@
       {
         "def": "WiFiTransitions:processTransition(new_ssid, prev_ssid, interface)",
         "desc": "Process the rules and execute any actions corresponding to the specified transition.",
-        "doc": "Process the rules and execute any actions corresponding to the specified transition.\n\nThis method is called internally by the `hs.wifi.watcher` object\nwhen WiFi transitions happen. It does not get any system\ninformation nor does it set any Spoon state information, so it can\nalso be used to \"trigger\" transitions manually, either for testing\nor if the automated processing fails for any reason.\n\nParameters:\n * new_ssid - new SSID name\n * prev_ssid - previous SSID name. Defaults to `nil`\n * interface - interface where the transition occurred. Defaults to `nil`",
+        "doc": "Process the rules and execute any actions corresponding to the specified transition.\n\nParameters:\n * new_ssid - new SSID name\n * prev_ssid - previous SSID name. Defaults to `nil`\n * interface - interface where the transition occurred. Defaults to `nil`\n\nNotes:\n * This method is called internally by the `hs.wifi.watcher` object when WiFi transitions happen. It does not get any system information nor does it set any Spoon state information, so it can also be used to \"trigger\" transitions manually, either for testing or if the automated processing fails for any reason.",
         "file": "Source/WiFiTransitions.spoon/init.lua",
         "lineno": "54",
         "name": "processTransition",
+        "notes": [
+          " * This method is called internally by the `hs.wifi.watcher` object when WiFi transitions happen. It does not get any system information nor does it set any Spoon state information, so it can also be used to \"trigger\" transitions manually, either for testing or if the automated processing fails for any reason."
+        ],
         "parameters": [
           " * new_ssid - new SSID name",
           " * prev_ssid - previous SSID name. Defaults to `nil`",
           " * interface - interface where the transition occurred. Defaults to `nil`"
         ],
         "signature": "WiFiTransitions:processTransition(new_ssid, prev_ssid, interface)",
-        "stripped_doc": "This method is called internally by the `hs.wifi.watcher` object\nwhen WiFi transitions happen. It does not get any system\ninformation nor does it set any Spoon state information, so it can\nalso be used to \"trigger\" transitions manually, either for testing\nor if the automated processing fails for any reason.",
+        "stripped_doc": "",
         "type": "Method"
       },
       {
@@ -14492,7 +14548,7 @@
         "desc": "Start the WiFi watcher",
         "doc": "Start the WiFi watcher\n\nParameters:\n * None\n\nReturns:\n * The WiFiTransitions spoon object",
         "file": "Source/WiFiTransitions.spoon/init.lua",
-        "lineno": "104",
+        "lineno": "101",
         "name": "start",
         "parameters": [
           " * None"
@@ -14579,17 +14635,20 @@
       {
         "def": "WiFiTransitions:processTransition(new_ssid, prev_ssid, interface)",
         "desc": "Process the rules and execute any actions corresponding to the specified transition.",
-        "doc": "Process the rules and execute any actions corresponding to the specified transition.\n\nThis method is called internally by the `hs.wifi.watcher` object\nwhen WiFi transitions happen. It does not get any system\ninformation nor does it set any Spoon state information, so it can\nalso be used to \"trigger\" transitions manually, either for testing\nor if the automated processing fails for any reason.\n\nParameters:\n * new_ssid - new SSID name\n * prev_ssid - previous SSID name. Defaults to `nil`\n * interface - interface where the transition occurred. Defaults to `nil`",
+        "doc": "Process the rules and execute any actions corresponding to the specified transition.\n\nParameters:\n * new_ssid - new SSID name\n * prev_ssid - previous SSID name. Defaults to `nil`\n * interface - interface where the transition occurred. Defaults to `nil`\n\nNotes:\n * This method is called internally by the `hs.wifi.watcher` object when WiFi transitions happen. It does not get any system information nor does it set any Spoon state information, so it can also be used to \"trigger\" transitions manually, either for testing or if the automated processing fails for any reason.",
         "file": "Source/WiFiTransitions.spoon/init.lua",
         "lineno": "54",
         "name": "processTransition",
+        "notes": [
+          " * This method is called internally by the `hs.wifi.watcher` object when WiFi transitions happen. It does not get any system information nor does it set any Spoon state information, so it can also be used to \"trigger\" transitions manually, either for testing or if the automated processing fails for any reason."
+        ],
         "parameters": [
           " * new_ssid - new SSID name",
           " * prev_ssid - previous SSID name. Defaults to `nil`",
           " * interface - interface where the transition occurred. Defaults to `nil`"
         ],
         "signature": "WiFiTransitions:processTransition(new_ssid, prev_ssid, interface)",
-        "stripped_doc": "This method is called internally by the `hs.wifi.watcher` object\nwhen WiFi transitions happen. It does not get any system\ninformation nor does it set any Spoon state information, so it can\nalso be used to \"trigger\" transitions manually, either for testing\nor if the automated processing fails for any reason.",
+        "stripped_doc": "",
         "type": "Method"
       },
       {
@@ -14597,7 +14656,7 @@
         "desc": "Start the WiFi watcher",
         "doc": "Start the WiFi watcher\n\nParameters:\n * None\n\nReturns:\n * The WiFiTransitions spoon object",
         "file": "Source/WiFiTransitions.spoon/init.lua",
-        "lineno": "104",
+        "lineno": "101",
         "name": "start",
         "parameters": [
           " * None"
@@ -14750,7 +14809,7 @@
         "desc": "Binds hotkeys for WindowHalfsAndThirds",
         "doc": "Binds hotkeys for WindowHalfsAndThirds\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n  * left_half, right_half, top_half, bottom_half - resize to the corresponding half of the screen\n  * third_left, third_right - resize to one horizontal-third of the screen and move left/right\n  * third_up, third_down - resize to one vertical-third of the screen and move up/down\n  * max - maximize the window\n  * max_toggle - toggle maximization\n  * left_third, middle_third_h, right_third - resize and move the window to the corresponding horizontal third of the screen\n  * top_third, middle_third_v, bottom_third - resize and move the window to the corresponding vertical third of the screen\n  * top_left, top_right, bottom_left, bottom_right - resize and move the window to the corresponding quarter of the screen\n  * undo - restore window to position before last move\n  * center - move window to center of screen\n  * larger - grow window larger than its current size\n  * smaller - shrink window smaller than its current size\n\nReturns:\n * the WindowHalfsAndThirds object",
         "file": "Source/WindowHalfsAndThirds.spoon/init.lua",
-        "lineno": "413",
+        "lineno": "416",
         "name": "bindHotkeys",
         "parameters": [
           " * mapping - A table containing hotkey objifier/key details for the following items:",
@@ -14779,7 +14838,7 @@
         "desc": "Center window on screen",
         "doc": "Center window on screen\n\nParameters:\n * win - hs.window to use, defaults to hs.window.focusedWindow()\n\nReturns:\n * the WindowHalfsAndThirds object",
         "file": "Source/WindowHalfsAndThirds.spoon/init.lua",
-        "lineno": "347",
+        "lineno": "350",
         "name": "center",
         "parameters": [
           " * win - hs.window to use, defaults to hs.window.focusedWindow()"
@@ -14796,7 +14855,7 @@
         "desc": "Make win larger than its current size",
         "doc": "Make win larger than its current size\n\nParameters:\n * win - hs.window to use, defaults to hs.window.focusedWindow()\n\nReturns:\n * the WindowHalfsAndThirds object",
         "file": "Source/WindowHalfsAndThirds.spoon/init.lua",
-        "lineno": "365",
+        "lineno": "368",
         "name": "larger",
         "parameters": [
           " * win - hs.window to use, defaults to hs.window.focusedWindow()"
@@ -14811,10 +14870,16 @@
       {
         "def": "WindowHalfsAndThirds:leftHalf(win)",
         "desc": "Resize to the left half of the screen.",
-        "doc": "Resize to the left half of the screen.\nAlso various other action methods. See WindowHalfsAndThirds:bindHotkeys for details\n  .leftHalf .rightHalf .topHalf .bottomHalf .thirdLeft .thirdRight .leftThird .middleThirdH .rightThird\n  .thirdUp .thirdDown .topThird .middleThirdV .bottomThird .topLeft .topRight .bottomLeft .bottomRight\n  .maximize\n\nParameters:\n * win - hs.window to use, defaults to hs.window.focusedWindow()\n\nReturns:\n * the WindowHalfsAndThirds object",
+        "doc": "Resize to the left half of the screen.\n\nParameters:\n * win - hs.window to use, defaults to hs.window.focusedWindow()\n\nReturns:\n * the WindowHalfsAndThirds object\n\nNotes:\n * Variations of this method exist for other operations. See WindowHalfsAndThirds:bindHotkeys for details:\n   * .leftHalf .rightHalf .topHalf .bottomHalf .thirdLeft .thirdRight .leftThird .middleThirdH .rightThird\n   * .thirdUp .thirdDown .topThird .middleThirdV .bottomThird .topLeft .topRight .bottomLeft .bottomRight\n   * .maximize",
         "file": "Source/WindowHalfsAndThirds.spoon/init.lua",
         "lineno": "268",
         "name": "leftHalf",
+        "notes": [
+          " * Variations of this method exist for other operations. See WindowHalfsAndThirds:bindHotkeys for details:",
+          "   * .leftHalf .rightHalf .topHalf .bottomHalf .thirdLeft .thirdRight .leftThird .middleThirdH .rightThird",
+          "   * .thirdUp .thirdDown .topThird .middleThirdV .bottomThird .topLeft .topRight .bottomLeft .bottomRight",
+          "   * .maximize"
+        ],
         "parameters": [
           " * win - hs.window to use, defaults to hs.window.focusedWindow()"
         ],
@@ -14822,7 +14887,7 @@
           " * the WindowHalfsAndThirds object"
         ],
         "signature": "WindowHalfsAndThirds:leftHalf(win)",
-        "stripped_doc": "Also various other action methods. See WindowHalfsAndThirds:bindHotkeys for details\n  .leftHalf .rightHalf .topHalf .bottomHalf .thirdLeft .thirdRight .leftThird .middleThirdH .rightThird\n  .thirdUp .thirdDown .topThird .middleThirdV .bottomThird .topLeft .topRight .bottomLeft .bottomRight\n  .maximize",
+        "stripped_doc": "",
         "type": "Method"
       },
       {
@@ -14830,7 +14895,7 @@
         "desc": "Make win smaller than its current size",
         "doc": "Make win smaller than its current size\n\nParameters:\n * win - hs.window to use, defaults to hs.window.focusedWindow()\n\nReturns:\n * the WindowHalfsAndThirds object",
         "file": "Source/WindowHalfsAndThirds.spoon/init.lua",
-        "lineno": "389",
+        "lineno": "392",
         "name": "smaller",
         "parameters": [
           " * win - hs.window to use, defaults to hs.window.focusedWindow()"
@@ -14847,7 +14912,7 @@
         "desc": "Toggle win between its normal size, and being maximized",
         "doc": "Toggle win between its normal size, and being maximized\n\nParameters:\n * win - hs.window to use, defaults to hs.window.focusedWindow()\n\nReturns:\n * the WindowHalfsAndThirds object",
         "file": "Source/WindowHalfsAndThirds.spoon/init.lua",
-        "lineno": "310",
+        "lineno": "313",
         "name": "toggleMaximized",
         "parameters": [
           " * win - hs.window to use, defaults to hs.window.focusedWindow()"
@@ -14864,7 +14929,7 @@
         "desc": "Undo window size changes for win if there've been any in WindowHalfsAndThirds.clear_cache_after_seconds",
         "doc": "Undo window size changes for win if there've been any in WindowHalfsAndThirds.clear_cache_after_seconds\n\nParameters:\n * win - hs.window to use, defaults to hs.window.focusedWindow()\n\nReturns:\n * the WindowHalfsAndThirds object",
         "file": "Source/WindowHalfsAndThirds.spoon/init.lua",
-        "lineno": "333",
+        "lineno": "336",
         "name": "undo",
         "parameters": [
           " * win - hs.window to use, defaults to hs.window.focusedWindow()"
@@ -14931,7 +14996,7 @@
         "desc": "Binds hotkeys for WindowHalfsAndThirds",
         "doc": "Binds hotkeys for WindowHalfsAndThirds\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n  * left_half, right_half, top_half, bottom_half - resize to the corresponding half of the screen\n  * third_left, third_right - resize to one horizontal-third of the screen and move left/right\n  * third_up, third_down - resize to one vertical-third of the screen and move up/down\n  * max - maximize the window\n  * max_toggle - toggle maximization\n  * left_third, middle_third_h, right_third - resize and move the window to the corresponding horizontal third of the screen\n  * top_third, middle_third_v, bottom_third - resize and move the window to the corresponding vertical third of the screen\n  * top_left, top_right, bottom_left, bottom_right - resize and move the window to the corresponding quarter of the screen\n  * undo - restore window to position before last move\n  * center - move window to center of screen\n  * larger - grow window larger than its current size\n  * smaller - shrink window smaller than its current size\n\nReturns:\n * the WindowHalfsAndThirds object",
         "file": "Source/WindowHalfsAndThirds.spoon/init.lua",
-        "lineno": "413",
+        "lineno": "416",
         "name": "bindHotkeys",
         "parameters": [
           " * mapping - A table containing hotkey objifier/key details for the following items:",
@@ -14960,7 +15025,7 @@
         "desc": "Center window on screen",
         "doc": "Center window on screen\n\nParameters:\n * win - hs.window to use, defaults to hs.window.focusedWindow()\n\nReturns:\n * the WindowHalfsAndThirds object",
         "file": "Source/WindowHalfsAndThirds.spoon/init.lua",
-        "lineno": "347",
+        "lineno": "350",
         "name": "center",
         "parameters": [
           " * win - hs.window to use, defaults to hs.window.focusedWindow()"
@@ -14999,7 +15064,7 @@
         "desc": "Make win larger than its current size",
         "doc": "Make win larger than its current size\n\nParameters:\n * win - hs.window to use, defaults to hs.window.focusedWindow()\n\nReturns:\n * the WindowHalfsAndThirds object",
         "file": "Source/WindowHalfsAndThirds.spoon/init.lua",
-        "lineno": "365",
+        "lineno": "368",
         "name": "larger",
         "parameters": [
           " * win - hs.window to use, defaults to hs.window.focusedWindow()"
@@ -15014,10 +15079,16 @@
       {
         "def": "WindowHalfsAndThirds:leftHalf(win)",
         "desc": "Resize to the left half of the screen.",
-        "doc": "Resize to the left half of the screen.\nAlso various other action methods. See WindowHalfsAndThirds:bindHotkeys for details\n  .leftHalf .rightHalf .topHalf .bottomHalf .thirdLeft .thirdRight .leftThird .middleThirdH .rightThird\n  .thirdUp .thirdDown .topThird .middleThirdV .bottomThird .topLeft .topRight .bottomLeft .bottomRight\n  .maximize\n\nParameters:\n * win - hs.window to use, defaults to hs.window.focusedWindow()\n\nReturns:\n * the WindowHalfsAndThirds object",
+        "doc": "Resize to the left half of the screen.\n\nParameters:\n * win - hs.window to use, defaults to hs.window.focusedWindow()\n\nReturns:\n * the WindowHalfsAndThirds object\n\nNotes:\n * Variations of this method exist for other operations. See WindowHalfsAndThirds:bindHotkeys for details:\n   * .leftHalf .rightHalf .topHalf .bottomHalf .thirdLeft .thirdRight .leftThird .middleThirdH .rightThird\n   * .thirdUp .thirdDown .topThird .middleThirdV .bottomThird .topLeft .topRight .bottomLeft .bottomRight\n   * .maximize",
         "file": "Source/WindowHalfsAndThirds.spoon/init.lua",
         "lineno": "268",
         "name": "leftHalf",
+        "notes": [
+          " * Variations of this method exist for other operations. See WindowHalfsAndThirds:bindHotkeys for details:",
+          "   * .leftHalf .rightHalf .topHalf .bottomHalf .thirdLeft .thirdRight .leftThird .middleThirdH .rightThird",
+          "   * .thirdUp .thirdDown .topThird .middleThirdV .bottomThird .topLeft .topRight .bottomLeft .bottomRight",
+          "   * .maximize"
+        ],
         "parameters": [
           " * win - hs.window to use, defaults to hs.window.focusedWindow()"
         ],
@@ -15025,7 +15096,7 @@
           " * the WindowHalfsAndThirds object"
         ],
         "signature": "WindowHalfsAndThirds:leftHalf(win)",
-        "stripped_doc": "Also various other action methods. See WindowHalfsAndThirds:bindHotkeys for details\n  .leftHalf .rightHalf .topHalf .bottomHalf .thirdLeft .thirdRight .leftThird .middleThirdH .rightThird\n  .thirdUp .thirdDown .topThird .middleThirdV .bottomThird .topLeft .topRight .bottomLeft .bottomRight\n  .maximize",
+        "stripped_doc": "",
         "type": "Method"
       },
       {
@@ -15044,7 +15115,7 @@
         "desc": "Make win smaller than its current size",
         "doc": "Make win smaller than its current size\n\nParameters:\n * win - hs.window to use, defaults to hs.window.focusedWindow()\n\nReturns:\n * the WindowHalfsAndThirds object",
         "file": "Source/WindowHalfsAndThirds.spoon/init.lua",
-        "lineno": "389",
+        "lineno": "392",
         "name": "smaller",
         "parameters": [
           " * win - hs.window to use, defaults to hs.window.focusedWindow()"
@@ -15061,7 +15132,7 @@
         "desc": "Toggle win between its normal size, and being maximized",
         "doc": "Toggle win between its normal size, and being maximized\n\nParameters:\n * win - hs.window to use, defaults to hs.window.focusedWindow()\n\nReturns:\n * the WindowHalfsAndThirds object",
         "file": "Source/WindowHalfsAndThirds.spoon/init.lua",
-        "lineno": "310",
+        "lineno": "313",
         "name": "toggleMaximized",
         "parameters": [
           " * win - hs.window to use, defaults to hs.window.focusedWindow()"
@@ -15078,7 +15149,7 @@
         "desc": "Undo window size changes for win if there've been any in WindowHalfsAndThirds.clear_cache_after_seconds",
         "doc": "Undo window size changes for win if there've been any in WindowHalfsAndThirds.clear_cache_after_seconds\n\nParameters:\n * win - hs.window to use, defaults to hs.window.focusedWindow()\n\nReturns:\n * the WindowHalfsAndThirds object",
         "file": "Source/WindowHalfsAndThirds.spoon/init.lua",
-        "lineno": "333",
+        "lineno": "336",
         "name": "undo",
         "parameters": [
           " * win - hs.window to use, defaults to hs.window.focusedWindow()"

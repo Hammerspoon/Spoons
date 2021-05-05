@@ -1215,6 +1215,12 @@
     "type": "Module"
   },
   {
+    "desc": "Retrieve an item from the Login Keychain, returns nil if not found.",
+    "module": "Keychain",
+    "name": "login_keychain",
+    "type": "Deprecated"
+  },
+  {
     "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
     "module": "Keychain",
     "name": "logger",
@@ -1227,15 +1233,9 @@
     "type": "Method"
   },
   {
-    "desc": "Retrieve an item from the Login Keychain. Return nil if not found and",
+    "desc": "Retrieve an item from the Login Keychain. Return nil if not found and otherwise a table with found data.",
     "module": "Keychain",
     "name": "getItem",
-    "type": "Method"
-  },
-  {
-    "desc": "Retrieve an item from the Login Keychain, returns nil if not found.",
-    "module": "Keychain",
-    "name": "login_keychain",
     "type": "Method"
   },
   {
@@ -1357,7 +1357,7 @@
     "type": "Method"
   },
   {
-    "desc": "Start periodic check for book status, checking every",
+    "desc": "Start periodic check for book status, checking every check_interval seconds.",
     "module": "Leanpub",
     "name": "start",
     "type": "Method"
@@ -2001,7 +2001,7 @@
     "type": "Method"
   },
   {
-    "desc": "this function simply return a table with empty modifiers",
+    "desc": "this function simply return a table with empty modifiers also it translates capital letters to normal letter with shift modifer",
     "module": "RecursiveBinder",
     "name": "singleKey",
     "type": "Method"
@@ -2908,7 +2908,7 @@
     "type": "Method"
   },
   {
-    "desc": "Sets whether Turbo Boost should be disabled (kernel extension",
+    "desc": "Sets whether Turbo Boost should be disabled (kernel extension loaded) or enabled (normal state, kernel extension not loaded).",
     "module": "TurboBoost",
     "name": "setState",
     "type": "Method"
@@ -3009,7 +3009,7 @@
     "type": "Method"
   },
   {
-    "desc": "Main entry point for archiving an item. If a handler function is",
+    "desc": "Main entry point for archiving an item.",
     "module": "UniversalArchive",
     "name": "universalArchive",
     "type": "Method"
