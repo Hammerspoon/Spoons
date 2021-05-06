@@ -20,7 +20,7 @@ git config --global user.email "spoonPRbot@tenshu.net"
 git config --global user.name "Spoons GitHub Bot"
 
 while IFS= read -r SPOON ; do
-    ./hammerspoon/scripts/docs/bin/build_docs.py -e ./hammerspoon/scripts/docs/templates/ -o Source/${SPOON}.spoon/ -j -n Source/${SPOON}.spoon/
+    /usr/bin/python3 ./hammerspoon/scripts/docs/bin/build_docs.py -e ./hammerspoon/scripts/docs/templates/ -o Source/${SPOON}.spoon/ -j -n Source/${SPOON}.spoon/
     rm Source/${SPOON}.spoon/docs_index.json
     git add Source/${SPOON}.spoon/docs.json
     git commit -am "Generate docs for ${SPOON}" || true
@@ -29,7 +29,6 @@ while IFS= read -r SPOON ; do
     git add Spoons/${SPOON}.spoon.zip
     git commit -am "Add binary package for ${SPOON}."
     ./build_docs.sh
-    rm -rf ./hammerspoon/
     git add docs
     git commit --allow-empty -am "Update docs"
 done <<< "${SPOONS}"

@@ -77,6 +77,10 @@
 </ul>
 </td>
               </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/PersonalHotspot.spoon/init.lua#L116">Source/PersonalHotspot.spoon/init.lua</a></td>
+              </tr>
             </table>
           </section>
           <section id="hotspotName">
@@ -97,6 +101,10 @@
 <p>You can see the names of available hotspots by clicking on the Wi-Fi icon in the macOS menu bar and looking for menu items under the "Personal Hotspot(s)" heading.</p>
 </td>
               </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/PersonalHotspot.spoon/init.lua#L125">Source/PersonalHotspot.spoon/init.lua</a></td>
+              </tr>
             </table>
           </section>
           <section id="timeout">
@@ -115,6 +123,10 @@
                 <th>Description</th>
                 <td><p>The number of seconds to wait for personal hotspot to appear in Wi-Fi menu before attempting to connect/disconnect. Default is 3 seconds.</p>
 </td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/PersonalHotspot.spoon/init.lua#L132">Source/PersonalHotspot.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -147,6 +159,10 @@
 </ul>
 </td>
               </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/PersonalHotspot.spoon/init.lua#L214">Source/PersonalHotspot.spoon/init.lua</a></td>
+              </tr>
             </table>
           </section>
           <section id="connect">
@@ -164,7 +180,6 @@
               <tr>
                 <th>Description</th>
                 <td><p>Tries to connect to the personal hotspot named in <code>PersonalHotspot.hotspotName</code>. If <code>PersonalHotspot.hotspotName</code> is <code>nil</code>, the first hotspot in the Wi-Fi menu will be selected, and <code>PersonalHotspot.hotspotName</code> will be assigned to the name of that hotspot. Once connected to the hotspot, the applications specified in <code>PersonalHotspot.appsToKill</code> are killed.</p>
-<p>If there are no hotspots with the name in <code>PersonalHotspot.hotspotName</code>, or if <code>PersonalHotspot.hotspotName</code> is <code>nil</code> and there are no hotspots in the Wi-Fi menu, the Wi-Fi menu will be closed after <code>PersonalHotspot.timeout</code> seconds.</p>
 <p>Parameters:</p>
 <ul>
 <li>None</li>
@@ -173,7 +188,15 @@
 <ul>
 <li>Self</li>
 </ul>
+<p>Notes:</p>
+<ul>
+<li>If there are no hotspots with the name in <code>PersonalHotspot.hotspotName</code>, or if <code>PersonalHotspot.hotspotName</code> is <code>nil</code> and there are no hotspots in the Wi-Fi menu, the Wi-Fi menu will be closed after <code>PersonalHotspot.timeout</code> seconds.</li>
+</ul>
 </td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/PersonalHotspot.spoon/init.lua#L137">Source/PersonalHotspot.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -202,6 +225,10 @@
 </ul>
 </td>
               </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/PersonalHotspot.spoon/init.lua#L170">Source/PersonalHotspot.spoon/init.lua</a></td>
+              </tr>
             </table>
           </section>
           <section id="toggle">
@@ -219,7 +246,6 @@
               <tr>
                 <th>Description</th>
                 <td><p>Toggles personal hotspot connection.</p>
-<p>If the current wireless network name is <code>PersonalHotspot.hotspotName</code> this method calls <code>PersonalHotspot:disconnect()</code>, otherwise this method will call <code>PersonalHotspot:connect()</code>.</p>
 <p>Parameters:</p>
 <ul>
 <li>None</li>
@@ -228,7 +254,15 @@
 <ul>
 <li>Self</li>
 </ul>
+<p>Notes:</p>
+<ul>
+<li>If the current wireless network name is <code>PersonalHotspot.hotspotName</code> this method calls <code>PersonalHotspot:disconnect()</code>, otherwise this method will call <code>PersonalHotspot:connect()</code>.</li>
+</ul>
 </td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/PersonalHotspot.spoon/init.lua#L192">Source/PersonalHotspot.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>

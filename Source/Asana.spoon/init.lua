@@ -99,17 +99,17 @@ apiKey = ""
 --- Method
 --- Creates a new task named `taskName` in the workspace `workspaceName`.
 ---
---- Example:
---- ```
---- spoon.Asana.createTask("Do that thing I forgot about", "My Company Workspace")
---- ```
----
 --- Parameters:
 ---  * taskName (String)      - The title of the Asana task.
 ---  * WorkspaceName (String) - The name of the workspace in which to create the task.
 ---
 --- Returns:
 ---  * Self
+---
+--- Examples:
+---  ```
+---  spoon.Asana.createTask("Do that thing I forgot about", "My Company Workspace")
+---  ```
 function createTask(self, taskName, workspaceName)
   if workspaceIds == {} or userId == "" then fetchRequiredIds() end
 

@@ -58,6 +58,10 @@
                 <td><p>We don't want our undo frame cache filling all available memory. Let's clear it after it hasn't been used for a while.</p>
 </td>
               </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/WindowHalfsAndThirds.spoon/init.lua#L77">Source/WindowHalfsAndThirds.spoon/init.lua</a></td>
+              </tr>
             </table>
           </section>
           <section id="defaultHotkeys">
@@ -102,6 +106,10 @@ after loading the spoon. Value:</p>
  }</code></pre>
 </td>
               </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/WindowHalfsAndThirds.spoon/init.lua#L22">Source/WindowHalfsAndThirds.spoon/init.lua</a></td>
+              </tr>
             </table>
           </section>
           <section id="logger">
@@ -121,6 +129,10 @@ after loading the spoon. Value:</p>
                 <td><p>Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.</p>
 </td>
               </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/WindowHalfsAndThirds.spoon/init.lua#L17">Source/WindowHalfsAndThirds.spoon/init.lua</a></td>
+              </tr>
             </table>
           </section>
           <section id="use_frame_correctness">
@@ -139,6 +151,10 @@ after loading the spoon. Value:</p>
                 <th>Description</th>
                 <td><p>If <code>true</code>, set <a href="http://www.hammerspoon.org/docs/hs.window.html#setFrameCorrectness">setFrameCorrectness</a> for some resizing operations which fail when the window extends beyonds screen boundaries. This may cause some jerkiness in the resizing, so experiment and determine if you need it. Defaults to <code>false</code></p>
 </td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/WindowHalfsAndThirds.spoon/init.lua#L72">Source/WindowHalfsAndThirds.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -182,6 +198,10 @@ after loading the spoon. Value:</p>
 </ul>
 </td>
               </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/WindowHalfsAndThirds.spoon/init.lua#L416">Source/WindowHalfsAndThirds.spoon/init.lua</a></td>
+              </tr>
             </table>
           </section>
           <section id="center">
@@ -208,6 +228,10 @@ after loading the spoon. Value:</p>
 <li>the WindowHalfsAndThirds object</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/WindowHalfsAndThirds.spoon/init.lua#L350">Source/WindowHalfsAndThirds.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -236,6 +260,10 @@ after loading the spoon. Value:</p>
 </ul>
 </td>
               </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/WindowHalfsAndThirds.spoon/init.lua#L368">Source/WindowHalfsAndThirds.spoon/init.lua</a></td>
+              </tr>
             </table>
           </section>
           <section id="leftHalf">
@@ -252,11 +280,7 @@ after loading the spoon. Value:</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Resize to the left half of the screen.
-Also various other action methods. See WindowHalfsAndThirds:bindHotkeys for details
-  .leftHalf .rightHalf .topHalf .bottomHalf .thirdLeft .thirdRight .leftThird .middleThirdH .rightThird
-  .thirdUp .thirdDown .topThird .middleThirdV .bottomThird .topLeft .topRight .bottomLeft .bottomRight
-  .maximize</p>
+                <td><p>Resize to the left half of the screen.</p>
 <p>Parameters:</p>
 <ul>
 <li>win - hs.window to use, defaults to hs.window.focusedWindow()</li>
@@ -265,7 +289,20 @@ Also various other action methods. See WindowHalfsAndThirds:bindHotkeys for deta
 <ul>
 <li>the WindowHalfsAndThirds object</li>
 </ul>
+<p>Notes:</p>
+<ul>
+<li>Variations of this method exist for other operations. See WindowHalfsAndThirds:bindHotkeys for details:<ul>
+<li>.leftHalf .rightHalf .topHalf .bottomHalf .thirdLeft .thirdRight .leftThird .middleThirdH .rightThird</li>
+<li>.thirdUp .thirdDown .topThird .middleThirdV .bottomThird .topLeft .topRight .bottomLeft .bottomRight</li>
+<li>.maximize</li>
+</ul>
+</li>
+</ul>
 </td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/WindowHalfsAndThirds.spoon/init.lua#L268">Source/WindowHalfsAndThirds.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -294,6 +331,10 @@ Also various other action methods. See WindowHalfsAndThirds:bindHotkeys for deta
 </ul>
 </td>
               </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/WindowHalfsAndThirds.spoon/init.lua#L392">Source/WindowHalfsAndThirds.spoon/init.lua</a></td>
+              </tr>
             </table>
           </section>
           <section id="toggleMaximized">
@@ -321,6 +362,10 @@ Also various other action methods. See WindowHalfsAndThirds:bindHotkeys for deta
 </ul>
 </td>
               </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/WindowHalfsAndThirds.spoon/init.lua#L313">Source/WindowHalfsAndThirds.spoon/init.lua</a></td>
+              </tr>
             </table>
           </section>
           <section id="undo">
@@ -347,6 +392,10 @@ Also various other action methods. See WindowHalfsAndThirds:bindHotkeys for deta
 <li>the WindowHalfsAndThirds object</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/WindowHalfsAndThirds.spoon/init.lua#L336">Source/WindowHalfsAndThirds.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>

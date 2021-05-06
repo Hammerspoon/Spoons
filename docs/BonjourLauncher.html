@@ -67,6 +67,10 @@
 <p>This should be a boolean specifying whether the BonjourLauncher chooser window should appear in dark mode (true) or not (false). If set to <code>nil</code>, the chooser will track the current system settings for Dark mode.</p>
 </td>
               </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/BonjourLauncher.spoon/init.lua#L556">Source/BonjourLauncher.spoon/init.lua</a></td>
+              </tr>
             </table>
           </section>
           <section id="displayToolbar">
@@ -86,6 +90,10 @@
                 <td><p>Whether or not to display a toolbar at the top of the BonjourLauncher chooser window. Defaults to true.</p>
 <p>This boolean variable determines if the toolbar which allows changing the currently visible service type is displayed when the BonjourLauncher chooser window is presented. If you set this to <code>false</code> then you will only be able to change the currently visible services with the <a href="#show">BonjourLauncher:show(serviceType)</a> and <a href="#toggle">BonjourLauncher:toggle(serviceType)</a> methods.</p>
 </td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/BonjourLauncher.spoon/init.lua#L517">Source/BonjourLauncher.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -107,6 +115,10 @@
 <p>Set this variable to an integer to specify the number of rows of choices to display when the BonjourLauncher chooser window is visible. Set it to <code>nil</code> to revert to the default.</p>
 </td>
               </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/BonjourLauncher.spoon/init.lua#L524">Source/BonjourLauncher.spoon/init.lua</a></td>
+              </tr>
             </table>
           </section>
           <section id="subTextColor">
@@ -127,6 +139,10 @@
 <p>This should be a table representing a color as defined by the <code>hs.drawing.color</code> module documentation, or nil to revert to the <code>hs.chooser</code> module default.</p>
 <p>You can override this on a per template basis by including the <code>subTextColor</code> field in the service type definition. See <a href="#templates">BonjourLauncher.templates</a>.</p>
 </td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/BonjourLauncher.spoon/init.lua#L547">Source/BonjourLauncher.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -198,6 +214,10 @@
 </ul>
 </td>
               </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/BonjourLauncher.spoon/init.lua#L429">Source/BonjourLauncher.spoon/init.lua</a></td>
+              </tr>
             </table>
           </section>
           <section id="textColor">
@@ -219,6 +239,10 @@
 <p>You can override this on a per template basis by including the <code>textColor</code> field in the service type definition. See <a href="#templates">BonjourLauncher.templates</a>.</p>
 </td>
               </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/BonjourLauncher.spoon/init.lua#L538">Source/BonjourLauncher.spoon/init.lua</a></td>
+              </tr>
             </table>
           </section>
           <section id="width">
@@ -238,6 +262,10 @@
                 <td><p>The width of the BonjourLauncher chooser window as a percentage of the screen size. Defaults to 40.</p>
 <p>Set this variable to a numeric value between 1 and 100 to specify the percentage of screen the screen's width the BonjourLauncher window should occupy when visible. Set it to <code>nil</code> to revert to the default.</p>
 </td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/BonjourLauncher.spoon/init.lua#L531">Source/BonjourLauncher.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -270,6 +298,10 @@
 <li>This method is basically a wrapper which performs <code>table.insert(spoon.BonjourLauncher.templates, spoon.BonjourLauncher.recipes.*recipe*)</code> for each of the recipe names specified as a parameter to this method. You may invoke this method multiple times or combine multiple recipes into one invocation by specifying more thane one string, each separated by a comma.</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/BonjourLauncher.spoon/init.lua#L799">Source/BonjourLauncher.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -325,6 +357,10 @@
 </ul>
 </td>
               </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/BonjourLauncher.spoon/init.lua#L745">Source/BonjourLauncher.spoon/init.lua</a></td>
+              </tr>
             </table>
           </section>
           <section id="hide">
@@ -351,6 +387,10 @@
 <li>the BonjourLauncher spoon object</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/BonjourLauncher.spoon/init.lua#L679">Source/BonjourLauncher.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -386,6 +426,10 @@
 </ul>
 </td>
               </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/BonjourLauncher.spoon/init.lua#L633">Source/BonjourLauncher.spoon/init.lua</a></td>
+              </tr>
             </table>
           </section>
           <section id="start">
@@ -416,6 +460,10 @@
 <li>This method is included to conform to the expected Spoon format; it will automatically be invoked by <a href="#show">BonjourLauncher:show</a> if necessary.</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/BonjourLauncher.spoon/init.lua#L572">Source/BonjourLauncher.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -448,6 +496,10 @@
 </ul>
 </td>
               </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/BonjourLauncher.spoon/init.lua#L603">Source/BonjourLauncher.spoon/init.lua</a></td>
+              </tr>
             </table>
           </section>
           <section id="toggle">
@@ -478,6 +530,10 @@
 <li>If the chooser window is currently visible, this method will invoke <a href="#hide">BonjourLauncher:hide</a>; otherwise invokes <a href="#show">BonjourLauncher:show</a>.</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/BonjourLauncher.spoon/init.lua#L700">Source/BonjourLauncher.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>

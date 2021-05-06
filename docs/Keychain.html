@@ -27,6 +27,10 @@
       </header>
       <h3>API Overview</h3>
       <ul>
+        <li>Deprecateds - API features which will be removed in an future release</li>
+          <ul>
+            <li><a href="#login_keychain">login_keychain</a></li>
+          </ul>
         <li>Variables - Configurable values</li>
           <ul>
             <li><a href="#logger">logger</a></li>
@@ -35,10 +39,41 @@
           <ul>
             <li><a href="#addItem">addItem</a></li>
             <li><a href="#getItem">getItem</a></li>
-            <li><a href="#login_keychain">login_keychain</a></li>
           </ul>
       </ul>
       <h3>API Documentation</h3>
+        <h4 class="documentation-section">Deprecateds</h4>
+          <section id="login_keychain">
+            <a name="//apple_ref/cpp/Deprecated/login_keychain" class="dashAnchor"></a>
+            <h5><a href="#login_keychain">login_keychain</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Keychain:login_keychain(name)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Deprecated</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Retrieve an item from the Login Keychain, returns nil if not found.</p>
+<p>Parameters:</p>
+<ul>
+<li>name - The name of the item in the Login Keychain you want to retrieve</li>
+</ul>
+<p>Notes:</p>
+<ul>
+<li>Use getItem() instead.</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/Keychain.spoon/init.lua#L64">Source/Keychain.spoon/init.lua</a></td>
+              </tr>
+            </table>
+          </section>
         <h4 class="documentation-section">Variables</h4>
           <section id="logger">
             <a name="//apple_ref/cpp/Variable/logger" class="dashAnchor"></a>
@@ -56,6 +91,10 @@
                 <th>Description</th>
                 <td><p>Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.</p>
 </td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/Keychain.spoon/init.lua#L25">Source/Keychain.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -91,6 +130,10 @@
 </ul>
 </td>
               </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/Keychain.spoon/init.lua#L139">Source/Keychain.spoon/init.lua</a></td>
+              </tr>
             </table>
           </section>
           <section id="getItem">
@@ -107,9 +150,7 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Retrieve an item from the Login Keychain. Return nil if not found and
-otherwise a table with found data.
-Note: if multiple possibles matches just the first one is found.</p>
+                <td><p>Retrieve an item from the Login Keychain. Return nil if not found and otherwise a table with found data.</p>
 <p>Parameters:</p>
 <ul>
 <li>options is a table with values for what keys to try locate with.<ul>
@@ -123,31 +164,15 @@ Note: if multiple possibles matches just the first one is found.</p>
 </ul>
 </li>
 </ul>
-</td>
-              </tr>
-            </table>
-          </section>
-          <section id="login_keychain">
-            <a name="//apple_ref/cpp/Method/login_keychain" class="dashAnchor"></a>
-            <h5><a href="#login_keychain">login_keychain</a></h5>
-            <table>
-              <tr>
-                <th>Signature</th>
-                <td><code>Keychain:login_keychain(name)</code></td>
-              </tr>
-              <tr>
-                <th>Type</th>
-                <td>Method</td>
-              </tr>
-              <tr>
-                <th>Description</th>
-                <td><p>Retrieve an item from the Login Keychain, returns nil if not found.
-Deprecated, use getItem() instead.
-Parameters:</p>
+<p>Notes:</p>
 <ul>
-<li>name - The name of the item in the Login Keychain you want to retrieve</li>
+<li>If multiple possibles matches just the first one is found.</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/Keychain.spoon/init.lua#L82">Source/Keychain.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>

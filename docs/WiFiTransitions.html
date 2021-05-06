@@ -64,6 +64,10 @@
 </ul>
 </td>
               </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/WiFiTransitions.spoon/init.lua#L22">Source/WiFiTransitions.spoon/init.lua</a></td>
+              </tr>
             </table>
           </section>
           <section id="actOnNilTransitions">
@@ -82,6 +86,10 @@
                 <th>Description</th>
                 <td><p>Whether to evaluate <code>WiFiTransitions.actions</code> if the "to" network is no network (<code>nil</code>). Defaults to <code>false</code> to maintain backward compatibility; if unset, note that <code>from</code> transitions may not execute as expected.</p>
 </td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/WiFiTransitions.spoon/init.lua#L35">Source/WiFiTransitions.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -102,6 +110,10 @@
                 <td><p>Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.</p>
 </td>
               </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/WiFiTransitions.spoon/init.lua#L17">Source/WiFiTransitions.spoon/init.lua</a></td>
+              </tr>
             </table>
           </section>
         <h4 class="documentation-section">Methods</h4>
@@ -120,18 +132,21 @@
               <tr>
                 <th>Description</th>
                 <td><p>Process the rules and execute any actions corresponding to the specified transition.</p>
-<p>This method is called internally by the <code>hs.wifi.watcher</code> object
-when WiFi transitions happen. It does not get any system
-information nor does it set any Spoon state information, so it can
-also be used to "trigger" transitions manually, either for testing
-or if the automated processing fails for any reason.</p>
 <p>Parameters:</p>
 <ul>
 <li>new_ssid - new SSID name</li>
 <li>prev_ssid - previous SSID name. Defaults to <code>nil</code></li>
 <li>interface - interface where the transition occurred. Defaults to <code>nil</code></li>
 </ul>
+<p>Notes:</p>
+<ul>
+<li>This method is called internally by the <code>hs.wifi.watcher</code> object when WiFi transitions happen. It does not get any system information nor does it set any Spoon state information, so it can also be used to "trigger" transitions manually, either for testing or if the automated processing fails for any reason.</li>
+</ul>
 </td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/WiFiTransitions.spoon/init.lua#L54">Source/WiFiTransitions.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -159,6 +174,10 @@ or if the automated processing fails for any reason.</p>
 <li>The WiFiTransitions spoon object</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/WiFiTransitions.spoon/init.lua#L101">Source/WiFiTransitions.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>

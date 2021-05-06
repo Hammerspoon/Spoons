@@ -127,8 +127,7 @@ obj.disabled_icon_path = "/Applications/Turbo Boost Switcher.app/Contents/Resour
 
 --- TurboBoost:setState(state, notify)
 --- Method
---- Sets whether Turbo Boost should be disabled (kernel extension
---- loaded) or enabled (normal state, kernel extension not loaded).
+--- Sets whether Turbo Boost should be disabled (kernel extension loaded) or enabled (normal state, kernel extension not loaded).
 ---
 --- Parameters:
 ---  * state - A boolean, false if Turbo Boost should be disabled

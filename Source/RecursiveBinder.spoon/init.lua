@@ -132,8 +132,7 @@ end
 
 --- RecursiveBinder.singleKey(key, name)
 --- Method
---- this function simply return a table with empty modifiers
---- also it translates capital letters to normal letter with shift modifer
+--- this function simply return a table with empty modifiers also it translates capital letters to normal letter with shift modifer
 ---
 --- Parameters:
 ---  * key - a letter

@@ -1,0 +1,72 @@
+[
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
+        "def": "ForceTouchMapper:start()",
+        "desc": "Start ForceTouchMapper",
+        "doc": "Start ForceTouchMapper\n\nParameters:\n * None",
+        "file": "Source/ForceTouchMapper.spoon//init.lua",
+        "lineno": "55",
+        "name": "start",
+        "parameters": [
+          " * None"
+        ],
+        "signature": "ForceTouchMapper:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [
+      {
+        "def": "ForceTouchMapper.apps",
+        "desc": "Table of bundle ids of apps in which you want to map forcetouch to keyStroke",
+        "doc": "Table of bundle ids of apps in which you want to map forcetouch to keyStroke",
+        "file": "Source/ForceTouchMapper.spoon//init.lua",
+        "lineno": "31",
+        "name": "apps",
+        "signature": "ForceTouchMapper.apps",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "desc": "Maps force touch clicks in specified apps to a hot key",
+    "doc": "Maps force touch clicks in specified apps to a hot key\n\nExample use:\n`spoon.SpoonInstall:andUse(\"ForceTouchMapper\", {\n   config = {apps = {[\"com.microsoft.VSCode\"] = {keyStroke = {{\"cmd\"}, 'y'}}}}\n})`\nwhich will invoke `cmd+y` keystroke when you force click some definition in VS Code.\n\nI have this key binding in VS Code for peek definition\n\n`{\n   \"key\": \"cmd+y\",\n   \"command\": \"editor.action.peekDefinition\",\n   \"when\": \"editorHasDefinitionProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor\"\n }`\n,\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/ForceTouchMapper.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/ForceTouchMapper.spoon.zip)",
+    "items": [
+      {
+        "def": "ForceTouchMapper.apps",
+        "desc": "Table of bundle ids of apps in which you want to map forcetouch to keyStroke",
+        "doc": "Table of bundle ids of apps in which you want to map forcetouch to keyStroke",
+        "file": "Source/ForceTouchMapper.spoon//init.lua",
+        "lineno": "31",
+        "name": "apps",
+        "signature": "ForceTouchMapper.apps",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "ForceTouchMapper:start()",
+        "desc": "Start ForceTouchMapper",
+        "doc": "Start ForceTouchMapper\n\nParameters:\n * None",
+        "file": "Source/ForceTouchMapper.spoon//init.lua",
+        "lineno": "55",
+        "name": "start",
+        "parameters": [
+          " * None"
+        ],
+        "signature": "ForceTouchMapper:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "name": "ForceTouchMapper",
+    "stripped_doc": "\nExample use:\n`spoon.SpoonInstall:andUse(\"ForceTouchMapper\", {\n   config = {apps = {[\"com.microsoft.VSCode\"] = {keyStroke = {{\"cmd\"}, 'y'}}}}\n})`\nwhich will invoke `cmd+y` keystroke when you force click some definition in VS Code.\n\nI have this key binding in VS Code for peek definition\n\n`{\n   \"key\": \"cmd+y\",\n   \"command\": \"editor.action.peekDefinition\",\n   \"when\": \"editorHasDefinitionProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor\"\n }`\n,\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/ForceTouchMapper.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/ForceTouchMapper.spoon.zip)",
+    "submodules": [],
+    "type": "Module"
+  }
+]

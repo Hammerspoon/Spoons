@@ -138,13 +138,14 @@ timeout = 3
 --- Method
 --- Tries to connect to the personal hotspot named in `PersonalHotspot.hotspotName`. If `PersonalHotspot.hotspotName` is `nil`, the first hotspot in the Wi-Fi menu will be selected, and `PersonalHotspot.hotspotName` will be assigned to the name of that hotspot. Once connected to the hotspot, the applications specified in `PersonalHotspot.appsToKill` are killed.
 ---
---- If there are no hotspots with the name in `PersonalHotspot.hotspotName`, or if `PersonalHotspot.hotspotName` is `nil` and there are no hotspots in the Wi-Fi menu, the Wi-Fi menu will be closed after `PersonalHotspot.timeout` seconds.
----
 --- Parameters:
 ---  * None
 ---
 --- Returns:
 ---  * Self
+---
+--- Notes:
+---  * If there are no hotspots with the name in `PersonalHotspot.hotspotName`, or if `PersonalHotspot.hotspotName` is `nil` and there are no hotspots in the Wi-Fi menu, the Wi-Fi menu will be closed after `PersonalHotspot.timeout` seconds.
 function connect(self)
   local wifiMenuItemClicked = controlHotspot(hotspotName or "Personal Hotspot", timeout)
 
@@ -192,13 +193,14 @@ end
 --- Method
 --- Toggles personal hotspot connection.
 ---
---- If the current wireless network name is `PersonalHotspot.hotspotName` this method calls `PersonalHotspot:disconnect()`, otherwise this method will call `PersonalHotspot:connect()`.
----
 --- Parameters:
 ---  * None
 ---
 --- Returns:
 ---  * Self
+---
+--- Notes:
+---  * If the current wireless network name is `PersonalHotspot.hotspotName` this method calls `PersonalHotspot:disconnect()`, otherwise this method will call `PersonalHotspot:connect()`.
 function toggle(self)
   if hs.wifi.currentNetwork() == hotspotName then
     self:disconnect()

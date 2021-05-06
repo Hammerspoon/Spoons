@@ -36,13 +36,15 @@ end
 --- EvernoteOpenAndTag:openCurrentNoteInWindow()
 --- Method
 --- Open the currently-selected Evernote notes in new windows.
---- Uses Applescript from https://discussion.evernote.com/topic/85685-feature-request-open-note-in-separate-window-keyboard-shortcut/#comment-366797
 ---
 --- Parameters:
 ---  * None
 ---
 --- Returns:
 ---  * None
+---
+--- Notes:
+---  * Uses Applescript from https://discussion.evernote.com/topic/85685-feature-request-open-note-in-separate-window-keyboard-shortcut/#comment-366797
 function obj:openCurrentNoteInWindow()
    if self:evernoteIsFrontmost() then
       hs.osascript.applescript([[tell application "Evernote"

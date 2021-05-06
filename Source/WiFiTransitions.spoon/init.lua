@@ -55,16 +55,13 @@ end
 --- Method
 --- Process the rules and execute any actions corresponding to the specified transition.
 ---
---- This method is called internally by the `hs.wifi.watcher` object
---- when WiFi transitions happen. It does not get any system
---- information nor does it set any Spoon state information, so it can
---- also be used to "trigger" transitions manually, either for testing
---- or if the automated processing fails for any reason.
----
 --- Parameters:
 ---  * new_ssid - new SSID name
 ---  * prev_ssid - previous SSID name. Defaults to `nil`
 ---  * interface - interface where the transition occurred. Defaults to `nil`
+---
+--- Notes:
+---  * This method is called internally by the `hs.wifi.watcher` object when WiFi transitions happen. It does not get any system information nor does it set any Spoon state information, so it can also be used to "trigger" transitions manually, either for testing or if the automated processing fails for any reason.
 function obj:processTransition(new_ssid, prev_ssid, interface)
    self.logger.df("Processing transition new_ssid=%s, prev_ssid=%s, interface=%s", new_ssid, prev_ssid, interface)
    if self.actOnNilTransitions or new_ssid ~= nil then
