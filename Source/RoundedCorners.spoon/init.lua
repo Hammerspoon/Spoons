@@ -48,6 +48,7 @@ end
 ---
 --- Parameters:
 ---  * None
+---  * Incorrect parameter
 ---
 --- Returns:
 ---  * The RoundedCorners object
@@ -64,7 +65,7 @@ end
 --- Method
 --- Stops RoundedCorners
 ---
---- Parameters:
+--- Paramters:
 ---  * None
 ---
 --- Returns:
