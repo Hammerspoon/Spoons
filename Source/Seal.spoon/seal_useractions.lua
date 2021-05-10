@@ -270,7 +270,8 @@ function obj.completionCallback(row)
       if obj.actions[row.actionname].fn then
          obj.actions[row.actionname].fn(row.arg)
       elseif obj.actions[row.actionname].url then
-         local url = string.gsub(obj.actions[row.actionname].url, '${query}', row.arg)
+         row.arg = hs.http.encodeForQuery(row.arg)
+         local url = string.gsub(obj.actions[row.actionname].url, '${query}', row.arg:gsub("%%", "%%%%"))
          obj.openURL(url)
       end
    end
