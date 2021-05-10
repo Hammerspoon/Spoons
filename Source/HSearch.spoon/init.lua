@@ -44,6 +44,22 @@ function obj:restoreOutput()
     local function openWithFirefox(arg)
         hs.urlevent.openURLWithBundle(arg, "org.mozilla.firefox")
     end
+    local function focusTabInBrowser(browser, arg) 
+        hs.osascript.javascript([[
+            (function() {
+                var chrome = Application(']] .. browser .. [[');
+                chrome.activate();
+                for (win of chrome.windows()) {
+                  var tabIndex =
+                    win.tabs().findIndex(tab => tab.url() == "]] .. arg .. [[");
+                  if (tabIndex != -1) {
+                    win.activeTabIndex = (tabIndex + 1);
+                    win.index = 1;
+                  }
+                }
+            })();
+        ]])
+    end
     local function copyToClipboard(arg)
         hs.pasteboard.setContents(arg)
     end
@@ -58,6 +74,8 @@ function obj:restoreOutput()
     obj.output_pool["firefox"] = openWithFirefox
     obj.output_pool["clipboard"] = copyToClipboard
     obj.output_pool["keystrokes"] = sendKeyStrokes
+    obj.output_pool["chromefocus"] = hs.fnutils.partial(focusTabInBrowser, 'Google Chrome')
+    obj.output_pool["safarifocus"] = hs.fnutils.partial(focusTabInBrowser, 'Safari')
 end
 
 function obj:init()

@@ -26,7 +26,7 @@ local function browserTabsRequest()
         -- Notice `output` key and its `arg`. The built-in output contains `browser`, `safari`, `chrome`, `firefon`, `clipboard`, `keystrokes`. You can define new output type if you like.
         if stat then
             chooser_data = hs.fnutils.imap(data, function(item)
-                return {text=item[1], subText=item[2], image=hs.image.imageFromPath(obj.spoonPath .. "/resources/safari.png"), output="safari", arg=item[2]}
+                return {text=item[1], subText=item[2], image=hs.image.imageFromPath(obj.spoonPath .. "/resources/safari.png"), output="safarifocus", arg=item[2]}
             end)
         end
     end
@@ -36,7 +36,7 @@ local function browserTabsRequest()
         if stat then
             for idx,val in pairs(data) do
                 -- Usually we want to open chrome tabs in Google Chrome.
-                table.insert(chooser_data, {text=val[1], subText=val[2], image=hs.image.imageFromPath(obj.spoonPath .. "/resources/chrome.png"), output="chrome", arg=val[2]})
+                table.insert(chooser_data, {text=val[1], subText=val[2], image=hs.image.imageFromPath(obj.spoonPath .. "/resources/chrome.png"), output="chromefocus", arg=val[2]})
             end
         end
     end
