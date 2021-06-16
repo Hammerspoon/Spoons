@@ -270,7 +270,7 @@ function obj:refresh()
     end
 
     local new_elements = {}
-    local windows = sigils:orderedWindows()
+    local windows = self:orderedWindows()
     for i, window in ipairs(windows) do
       local wframe = window:frame()
       table.insert(new_elements, {
