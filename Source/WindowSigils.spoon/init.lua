@@ -220,7 +220,11 @@ function obj:orderedWindows()
     local af, bf = a:frame(), b:frame()
     if af.x < bf.x then return true end
     if af.x > bf.x then return false end
-    return af.y < bf.y
+    if af.y < bf.y then return true end
+    if af.y > bf.y then return false end
+    -- In order to keep the sort somewhat stable, use window ids
+    local aid, bid = a:id(), b:id()
+    return aid < bid
   end)
   return windows
 end
