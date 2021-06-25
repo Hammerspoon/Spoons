@@ -2,6 +2,10 @@
 ---
 --- Set the mouse pointer to the center of the focused window whenever focus changes.
 ---
+--- Additionally, if focused window moves when no mouse buttons are pressed, set the
+--- mouse pointer to the new center.  This is intended to work with other utilities
+--- which warp the focused window.
+---
 --- Download: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MouseFollowsFocus.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MouseFollowsFocus.spoon.zip)
 
 local obj={}
@@ -43,6 +47,13 @@ function obj:start()
   self.window_filter:subscribe({
     hs.window.filter.windowFocused
   }, function(window)
+    self:updateMouse(window)
+  end)
+  self.window_filter:subscribe({
+    hs.window.filter.windowMoved
+  }, function(window)
+    if window ~= hs.window.focusedWindow() then return end
+    if #hs.mouse.getButtons() ~= 0 then return end
     self:updateMouse(window)
   end)
 end
