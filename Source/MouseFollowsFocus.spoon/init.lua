@@ -76,10 +76,10 @@ end
 --- Parameters:
 ---  * None
 function obj:updateMouse(window)
-  local current_pos = hs.geometry(hs.mouse.getAbsolutePosition())
+  local current_pos = hs.geometry(hs.mouse.absolutePosition())
   local frame = window:frame()
   if not current_pos:inside(frame) then
-    hs.mouse.setAbsolutePosition(frame.center)
+    hs.mouse.absolutePosition(frame.center)
   end
 end
 
