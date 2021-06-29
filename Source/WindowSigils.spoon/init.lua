@@ -19,6 +19,37 @@
 ---
 --- Usage example:
 --- ```
+--- local function ignore_notification()
+---   -- ...
+--- end
+--- local function paste_as_keystrokes()
+---   hs.eventtap.keyStrokes(hs.pasteboard.readString())
+--- end
+--- local function rerun_last_command()
+---   hs.execute("kitty @ --to unix:/Users/jfelice/.run/kitty send-text --match=title:kak_repl_window '\x10\x0d'", true)
+--- end
+---
+--- local function focus_window(window)
+---   window:focus()
+---   if hs.window.focusedWindow() ~= window then
+---     -- Some cases with apps having windows on multiple monitors require
+---     -- us to try again (?)
+---     window:focus()
+---   end
+--- end
+---
+--- local function swap_window(window)
+---   local focused_frame = hs.window.focusedWindow():frame()
+---   local selected_frame = window:frame()
+---   hs.window.focusedWindow():setFrame(selected_frame, 0)
+---   window:setFrame(focused_frame, 0)
+--- end
+---
+--- local function stack_window(window)
+---   local frame = window:frame()
+---   hs.window.focusedWindow():setFrame(frame, 0)
+--- end
+---
 --- sigils = hs.loadSpoon("WindowSigils")
 --- sigils:configure({
 ---   hotkeys = {
@@ -31,8 +62,8 @@
 ---   },
 ---   sigil_actions = {
 ---     [{}]       = focus_window,
----     [{'ctrl'}] = swap_window,
----     [{'alt'}]  = warp_window,
+---     [{'ctrl'}] = stack_window,
+---     [{'alt'}]  = swap_window,
 ---   }
 --- })
 --- sigils:start()
@@ -207,7 +238,6 @@ function obj:stop()
   self.window_filter = nil
 end
 
-
 --- WindowSigils:orderedWindows()
 --- Method
 --- A list of windows, in the order sigils are assigned.
@@ -220,7 +250,11 @@ function obj:orderedWindows()
     local af, bf = a:frame(), b:frame()
     if af.x < bf.x then return true end
     if af.x > bf.x then return false end
-    return af.y < bf.y
+    if af.y < bf.y then return true end
+    if af.y > bf.y then return false end
+    -- In order to keep the sort somewhat stable, use window ids
+    local aid, bid = a:id(), b:id()
+    return aid < bid
   end)
   return windows
 end
@@ -254,6 +288,85 @@ function obj:window(sigil)
   return nil
 end
 
+
+local SIGIL_WIDTH = 20
+local SIGIL_HEIGHT = 19
+local SIGIL_MARGIN = 5
+
+function obj:_makeSigilBoxes()
+  local sigil_boxes = {}
+  local windows = self:orderedWindows()
+  for i, window in ipairs(windows) do
+    local wframe = window:frame()
+    local position = { x = wframe.x + 70, y = wframe.y + 1 }
+    table.insert(sigil_boxes, {
+      sigil = self.sigils[i],
+      position = position,
+    })
+  end
+  return sigil_boxes
+end
+
+function obj:_makeSigilElements(screen_data, sigil_boxes)
+  local bounds = screen_data.screen:frame()
+
+  local function make_frame(wframe)
+    local rect = hs.geometry.toUnitRect(wframe, bounds)
+    return { x = tostring(rect.x), y = tostring(rect.y), w = tostring(rect.w), h = tostring(rect.h) }
+  end
+
+  local function append_sigil_canvas_elements(elements, position, sigil)
+    table.insert(elements, {
+      action = "fill",
+      fillColor = { alpha = 0.3, green = 1.0, blue = 1.0 },
+      frame = make_frame{x = position.x, y = position.y, w = SIGIL_WIDTH, h = SIGIL_HEIGHT},
+      type = "rectangle",
+      withShadow = false,
+    })
+    table.insert(elements, {
+      type = "text",
+      text = sigil,
+      textFont = "Menlo Regular",
+      textSize = 18,
+      textLineBreak = 'truncateTail',
+      frame = make_frame{x = position.x + 3, y = position.y - 4, w = SIGIL_WIDTH - 3, h = SIGIL_HEIGHT + 7},
+    })
+  end
+
+  local new_elements = {}
+  for i, sigil_box in ipairs(sigil_boxes) do
+    append_sigil_canvas_elements(new_elements, sigil_box.position, sigil_box.sigil)
+  end
+  return new_elements
+end
+
+local function overlapping(box1, box2)
+  local corner1 = box1.position
+  local corner2 = box2.position
+  if corner2.y >= corner1.y + SIGIL_HEIGHT then return false end
+  if corner1.y >= corner2.y + SIGIL_HEIGHT then return false end
+  if corner2.x >= corner1.x + SIGIL_WIDTH + SIGIL_MARGIN then return false end
+  if corner1.x >= corner2.x + SIGIL_WIDTH + SIGIL_MARGIN then return false end
+  return true
+end
+
+local function move_overlapping_boxes(sigil_boxes)
+  table.sort(sigil_boxes, function (a, b)
+    if a.position.x < b.position.x then return true end
+    if a.position.x > b.position.x then return false end
+    if a.position.y < b.position.y then return true end
+    if a.position.y > b.position.y then return false end
+    return a.sigil < b.sigil
+  end)
+  for i, sigil_box in ipairs(sigil_boxes) do
+    local j = i+1
+    while j <= #sigil_boxes and overlapping(sigil_box, sigil_boxes[j]) do
+      sigil_boxes[j].position.x = sigil_box.position.x + SIGIL_WIDTH + SIGIL_MARGIN
+      j = j + 1
+    end
+  end
+end
+
 --- WindowSigils:refresh()
 --- Method
 --- Rerender all window sigils.
@@ -261,37 +374,11 @@ end
 --- Parameters:
 ---  * None
 function obj:refresh()
+  local sigil_boxes = self:_makeSigilBoxes()
+  move_overlapping_boxes(sigil_boxes)
   for _, screen_data in ipairs(self.screens) do
-    local bounds = screen_data.screen:frame()
-
-    local function make_frame(wframe)
-      local rect = hs.geometry.toUnitRect(wframe, bounds)
-      return { x = tostring(rect.x), y = tostring(rect.y), w = tostring(rect.w), h = tostring(rect.h) }
-    end
-
-    local new_elements = {}
-    local windows = sigils:orderedWindows()
-    for i, window in ipairs(windows) do
-      local wframe = window:frame()
-      table.insert(new_elements, {
-        action = "fill",
-        fillColor = { alpha = 0.3, green = 1.0, blue = 1.0 },
-        frame = make_frame{x = wframe.x + 70, y = wframe.y + 1, w = 20, h = 19},
-        type = "rectangle",
-        withShadow = true,
-      })
-      table.insert(new_elements, {
-        type = "text",
-        text = self.sigils[i],
-        textFont = "Menlo Regular",
-        textSize = 18,
-        textLineBreak = 'truncateTail',
-        frame = make_frame{x = wframe.x + 73, y = wframe.y - 3, w = 17, h = 19 + 7},
-      })
-    end
-    if #new_elements > 0 then
-      screen_data.canvas:replaceElements(new_elements)
-    end
+    local new_elements = self:_makeSigilElements(screen_data, sigil_boxes)
+    screen_data.canvas:replaceElements(new_elements)
   end
 end
 
