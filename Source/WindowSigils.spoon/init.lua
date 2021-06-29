@@ -19,6 +19,37 @@
 ---
 --- Usage example:
 --- ```
+--- local function ignore_notification()
+---   -- ...
+--- end
+--- local function paste_as_keystrokes()
+---   hs.eventtap.keyStrokes(hs.pasteboard.readString())
+--- end
+--- local function rerun_last_command()
+---   hs.execute("kitty @ --to unix:/Users/jfelice/.run/kitty send-text --match=title:kak_repl_window '\x10\x0d'", true)
+--- end
+---
+--- local function focus_window(window)
+---   window:focus()
+---   if hs.window.focusedWindow() ~= window then
+---     -- Some cases with apps having windows on multiple monitors require
+---     -- us to try again (?)
+---     window:focus()
+---   end
+--- end
+---
+--- local function swap_window(window)
+---   local focused_frame = hs.window.focusedWindow():frame()
+---   local selected_frame = window:frame()
+---   hs.window.focusedWindow():setFrame(selected_frame, 0)
+---   window:setFrame(focused_frame, 0)
+--- end
+---
+--- local function stack_window(window)
+---   local frame = window:frame()
+---   hs.window.focusedWindow():setFrame(frame, 0)
+--- end
+---
 --- sigils = hs.loadSpoon("WindowSigils")
 --- sigils:configure({
 ---   hotkeys = {
@@ -31,8 +62,8 @@
 ---   },
 ---   sigil_actions = {
 ---     [{}]       = focus_window,
----     [{'ctrl'}] = swap_window,
----     [{'alt'}]  = warp_window,
+---     [{'ctrl'}] = stack_window,
+---     [{'alt'}]  = swap_window,
 ---   }
 --- })
 --- sigils:start()
@@ -206,7 +237,6 @@ end
 function obj:stop()
   self.window_filter = nil
 end
-
 
 --- WindowSigils:orderedWindows()
 --- Method
