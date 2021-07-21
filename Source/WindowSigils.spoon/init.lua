@@ -198,6 +198,16 @@ end
 --- Parameters:
 ---  * None
 function obj:start()
+  self.screens = hs.fnutils.map(hs.screen.allScreens(), function(screen)
+    local bounds = screen:frame()
+    local canvas = hs.canvas.new(bounds)
+    canvas:show()
+    return {
+      screen = screen,
+      canvas = canvas
+    }
+  end)
+
   self.window_filter = hs.window.filter.new({override={
     visible = true,
   }}):setDefaultFilter({
@@ -215,16 +225,6 @@ function obj:start()
     self:refresh()
   end)
 
-  self.screens = hs.fnutils.map(hs.screen.allScreens(), function(screen)
-    local bounds = screen:frame()
-    local canvas = hs.canvas.new(bounds)
-    canvas:show()
-    return {
-      screen = screen,
-      canvas = canvas
-    }
-  end)
-
   self:refresh()
 end
 
@@ -238,6 +238,60 @@ function obj:stop()
   self.window_filter = nil
 end
 
+local MINIMUM_EMPTY_SIZE = 20
+
+function subtract_area(empty_rect, occlusion)
+  -- rectangles do not overlap
+  if empty_rect.x2 < occlusion.x then return { empty_rect } end
+  if empty_rect.y2 < occlusion.y then return { empty_rect } end
+  if empty_rect.x > occlusion.x2 then return { empty_rect } end
+  if empty_rect.y > occlusion.y2 then return { empty_rect } end
+
+  occlusion.x = hs.math.max(occlusion.x, empty_rect.x)
+  occlusion.y = hs.math.max(occlusion.y, empty_rect.y)
+  occlusion.x2 = hs.math.min(occlusion.x2, empty_rect.x2)
+  occlusion.y2 = hs.math.min(occlusion.y2, empty_rect.y2)
+
+  local remaining_empty_rects = {}
+
+  function add_if_non_empty(x, y, x2, y2)
+    if x2 - x + 1 >= MINIMUM_EMPTY_SIZE and y2 - y + 1 >= MINIMUM_EMPTY_SIZE then
+      table.insert(remaining_empty_rects, hs.geometry.rect(x, y, x2 - x + 1, y2 - y + 1))
+    end
+  end
+
+  -- eight possible remaining empty rectangles:
+  add_if_non_empty(empty_rect.x,     empty_rect.y,     occlusion.x - 1, occlusion.y - 1) -- upper left
+  add_if_non_empty(occlusion.x,      empty_rect.y,     occlusion.x2,    occlusion.y - 1) -- upper middle
+  add_if_non_empty(occlusion.x2 + 1, empty_rect.y,     empty_rect.x2,   occlusion.y - 1) -- upper right
+
+  add_if_non_empty(empty_rect.x,     occlusion.y,      occlusion.x - 1, occlusion.y2   ) -- left
+  add_if_non_empty(occlusion.x2 + 1, occlusion.y,      empty_rect.x2,   occlusion.y2   ) -- right
+
+  add_if_non_empty(empty_rect.x,     occlusion.y2 + 1, occlusion.x - 1, empty_rect.y2  ) -- lower left
+  add_if_non_empty(occlusion.x,      occlusion.y2 + 1, occlusion.x2,    empty_rect.y2  ) -- lower middle
+  add_if_non_empty(occlusion.x2 + 1, occlusion.y2 + 1, empty_rect.x2,   empty_rect.y2  ) -- lower right
+
+  return remaining_empty_rects
+end
+
+function obj:_addEmptySpaceWindows(windows)
+  local empty_frames = hs.fnutils.map(hs.screen.allScreens(), function(screen)
+    return screen:frame()
+  end)
+  for _, window in ipairs(windows) do
+    empty_frames = hs.fnutils.mapCat(empty_frames, function(empty_frame)
+      return subtract_area(empty_frame, window:frame())
+    end)
+  end
+  for _, empty_frame in ipairs(empty_frames) do
+    table.insert(windows, {
+      id = function() return -1 end,
+      frame = function() return empty_frame end,
+    })
+  end
+end
+
 --- WindowSigils:orderedWindows()
 --- Method
 --- A list of windows, in the order sigils are assigned.
@@ -246,6 +300,7 @@ end
 ---  * None
 function obj:orderedWindows()
   local windows = self.window_filter:getWindows()
+  self:_addEmptySpaceWindows(windows)
   table.sort(windows, function(a, b)
     local af, bf = a:frame(), b:frame()
     if af.x < bf.x then return true end
