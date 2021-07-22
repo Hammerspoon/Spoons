@@ -240,58 +240,136 @@ end
 
 local MINIMUM_EMPTY_SIZE = 20
 
-function subtract_area(empty_rect, occlusion)
-  -- rectangles do not overlap
-  if empty_rect.x2 < occlusion.x then return { empty_rect } end
-  if empty_rect.y2 < occlusion.y then return { empty_rect } end
-  if empty_rect.x > occlusion.x2 then return { empty_rect } end
-  if empty_rect.y > occlusion.y2 then return { empty_rect } end
-
-  occlusion.x = hs.math.max(occlusion.x, empty_rect.x)
-  occlusion.y = hs.math.max(occlusion.y, empty_rect.y)
-  occlusion.x2 = hs.math.min(occlusion.x2, empty_rect.x2)
-  occlusion.y2 = hs.math.min(occlusion.y2, empty_rect.y2)
-
-  local remaining_empty_rects = {}
-
-  function add_if_non_empty(x, y, x2, y2)
-    if x2 - x + 1 >= MINIMUM_EMPTY_SIZE and y2 - y + 1 >= MINIMUM_EMPTY_SIZE then
-      table.insert(remaining_empty_rects, hs.geometry.rect(x, y, x2 - x + 1, y2 - y + 1))
+function find_offset(table, value)
+  local lo = 1
+  local hi = #table
+  while lo <= hi do
+    local mid = hs.math.floor((lo + hi) / 2)
+    if table[mid] == value then
+      return mid
+    elseif table[mid] < value then
+      lo = mid + 1
+    else
+      hi = mid - 1
     end
   end
-
-  -- eight possible remaining empty rectangles:
-  add_if_non_empty(empty_rect.x,     empty_rect.y,     occlusion.x - 1, occlusion.y - 1) -- upper left
-  add_if_non_empty(occlusion.x,      empty_rect.y,     occlusion.x2,    occlusion.y - 1) -- upper middle
-  add_if_non_empty(occlusion.x2 + 1, empty_rect.y,     empty_rect.x2,   occlusion.y - 1) -- upper right
-
-  add_if_non_empty(empty_rect.x,     occlusion.y,      occlusion.x - 1, occlusion.y2   ) -- left
-  add_if_non_empty(occlusion.x2 + 1, occlusion.y,      empty_rect.x2,   occlusion.y2   ) -- right
-
-  add_if_non_empty(empty_rect.x,     occlusion.y2 + 1, occlusion.x - 1, empty_rect.y2  ) -- lower left
-  add_if_non_empty(occlusion.x,      occlusion.y2 + 1, occlusion.x2,    empty_rect.y2  ) -- lower middle
-  add_if_non_empty(occlusion.x2 + 1, occlusion.y2 + 1, empty_rect.x2,   empty_rect.y2  ) -- lower right
-
-  return remaining_empty_rects
+  return nil
 end
 
 function obj:_addEmptySpaceWindows(windows)
-  local empty_frames = hs.fnutils.map(hs.screen.allScreens(), function(screen)
-    return screen:frame()
-  end)
+  -- Make a grid with all window boundaries
+  local xs = {}
+  local ys = {}
+  local xs_seen = {}
+  local ys_seen = {}
+
+  function add_x(x)
+    if not xs_seen[x] then
+      xs_seen[x] = true
+      table.insert(xs, x)
+    end
+  end
+  function add_y(y)
+    if not ys_seen[y] then
+      ys_seen[y] = true
+      table.insert(ys, y)
+    end
+  end
+  function add_frame(frame)
+    add_x(frame.x1)
+    add_x(frame.x2 + 1)
+    add_y(frame.y1)
+    add_y(frame.y2 + 1)
+  end
+
+  for _, screen in ipairs(hs.screen.allScreens()) do
+    add_frame(screen:frame())
+  end
   for _, window in ipairs(windows) do
-    empty_frames = hs.fnutils.mapCat(empty_frames, function(empty_frame)
-      return subtract_area(empty_frame, window:frame())
-    end)
+    add_frame(window:frame())
   end
-  self.logger.d('empty_frames = ', hs.inspect(empty_frames))
-  for _, empty_frame in ipairs(empty_frames) do
-    table.insert(windows, {
-      id = function() return -1 end,
-      frame = function() return empty_frame end,
-      sefFrame = function(frame) return end,
-    })
+
+  table.sort(xs)
+  table.sort(ys)
+
+  -- mark non-empty portions
+  local occupied = {}
+  for i = 1, #ys do
+    occupied[i] = {}
+    for j = 1, #xs do
+      occupied[i][j] = false
+    end
   end
+
+  for _, window in ipairs(windows) do
+    local frame = window:frame()
+
+    local x_start = find_offset(xs, frame.x1)
+    local y_start = find_offset(ys, frame.y1)
+    local x_end = find_offset(xs, frame.x2 + 1)
+    local y_end = find_offset(ys, frame.y2 + 1)
+
+    if x_start ~= nil and y_start ~= nil and x_end ~= nil and y_end ~= nil then
+      for j=x_start, x_end - 1, 1 do
+        for i=y_start, y_end - 1, 1 do
+          occupied[i][j] = true
+        end
+      end
+    end
+  end
+
+  -- find largest empty rectangles, prefer extending down
+  for _, screen in ipairs(hs.screen.allScreens()) do
+    local screen_frame = screen:frame()
+    local i_start = find_offset(ys, screen_frame.y)
+    local j_start = find_offset(xs, screen_frame.x)
+    local i_end = find_offset(ys, screen_frame.y2 + 1) - 1
+    local j_end = find_offset(xs, screen_frame.x2 + 1) - 1
+
+    for top = i_start, i_end do
+      for left = j_start, j_end do
+        if not occupied[top][left] then
+
+          local bottom = top
+          while bottom + 1 <= i_end and not occupied[bottom + 1][left] do
+            bottom = bottom + 1
+          end
+
+          local right = nil
+          for i = top, bottom do
+            local row_right = left
+            while row_right + 1 <= j_end and not occupied[i][row_right + 1] do
+              row_right = row_right + 1
+            end
+            if right == nil or row_right < right then
+              right = row_right
+            end
+          end
+
+          for i = top, bottom do
+            for j = left, right do
+              occupied[i][j] = true
+            end
+          end
+
+          local frame = hs.geometry.rect({
+            x1 = xs[left],
+            y1 = ys[top],
+            x2 = xs[right+1] - 1,
+            y2 = ys[bottom+1] - 1
+          })
+          if frame.w >= MINIMUM_EMPTY_SIZE and frame.h >= MINIMUM_EMPTY_SIZE then
+            table.insert(windows, {
+              id = function() return -1 end,
+              frame = function() return frame end,
+              sefFrame = function(frame) return end,
+            })
+          end
+        end
+      end
+    end
+  end
+
 end
 
 --- WindowSigils:orderedWindows()
