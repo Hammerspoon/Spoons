@@ -249,32 +249,6 @@ function obj:_addEmptySpaceWindows(windows)
   -- Make a grid with all window boundaries
   local space_map = SpaceMap:new(hs.screen.allScreens(), windows)
 
-  -- mark non-empty portions
-  local occupied = {}
-  for i = 1, #space_map.ys do
-    occupied[i] = {}
-    for j = 1, #space_map.xs do
-      occupied[i][j] = false
-    end
-  end
-
-  for _, window in ipairs(windows) do
-    local frame = window:frame()
-
-    local x_start = space_map.xs:offset(frame.x1)
-    local y_start = space_map.ys:offset(frame.y1)
-    local x_end = space_map.xs:offset(frame.x2 + 1)
-    local y_end = space_map.ys:offset(frame.y2 + 1)
-
-    if x_start ~= nil and y_start ~= nil and x_end ~= nil and y_end ~= nil then
-      for j=x_start, x_end - 1, 1 do
-        for i=y_start, y_end - 1, 1 do
-          occupied[i][j] = true
-        end
-      end
-    end
-  end
-
   -- find largest empty rectangles, prefer extending down
   for _, screen in ipairs(hs.screen.allScreens()) do
     local screen_frame = screen:frame()
@@ -285,17 +259,17 @@ function obj:_addEmptySpaceWindows(windows)
 
     for top = i_start, i_end do
       for left = j_start, j_end do
-        if not occupied[top][left] then
+        if not space_map.occupied[top][left] then
 
           local bottom = top
-          while bottom + 1 <= i_end and not occupied[bottom + 1][left] do
+          while bottom + 1 <= i_end and not space_map.occupied[bottom + 1][left] do
             bottom = bottom + 1
           end
 
           local right = nil
           for i = top, bottom do
             local row_right = left
-            while row_right + 1 <= j_end and not occupied[i][row_right + 1] do
+            while row_right + 1 <= j_end and not space_map.occupied[i][row_right + 1] do
               row_right = row_right + 1
             end
             if right == nil or row_right < right then
@@ -305,7 +279,7 @@ function obj:_addEmptySpaceWindows(windows)
 
           for i = top, bottom do
             for j = left, right do
-              occupied[i][j] = true
+              space_map.occupied[i][j] = true
             end
           end
 
