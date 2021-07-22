@@ -66,4 +66,46 @@ function SpaceMap:_initialize(screens, windows)
   self:_build_occupied_map(windows)
 end
 
+function SpaceMap:empty_rects_on_screen(screen_frame)
+  local i_start = self.ys:offset(screen_frame.y)
+  local j_start = self.xs:offset(screen_frame.x)
+  local i_end = self.ys:offset(screen_frame.y2 + 1) - 1
+  local j_end = self.xs:offset(screen_frame.x2 + 1) - 1
+
+  local empty_rects = {}
+  for top = i_start, i_end do
+    for left = j_start, j_end do
+      if not self.occupied[top][left] then
+
+        local bottom = top
+        while bottom + 1 <= i_end and not self.occupied[bottom + 1][left] do
+          bottom = bottom + 1
+        end
+
+        local right = nil
+        for i = top, bottom do
+          local row_right = left
+          while row_right + 1 <= j_end and not self.occupied[i][row_right + 1] do
+            row_right = row_right + 1
+          end
+          if right == nil or row_right < right then
+            right = row_right
+          end
+        end
+
+        self._mark_cells_occupied(left, top, right, bottom)
+
+        local frame = hs.geometry.rect({
+          x1 = self.xs[left],
+          y1 = self.ys[top],
+          x2 = self.xs[right+1] - 1,
+          y2 = self.ys[bottom+1] - 1
+        })
+        table.insert(empty_rects, frame)
+      end
+    end
+  end
+  return empty_rects
+end
+
 return SpaceMap

@@ -251,48 +251,13 @@ function obj:_addEmptySpaceWindows(windows)
 
   -- find largest empty rectangles, prefer extending down
   for _, screen in ipairs(hs.screen.allScreens()) do
-    local screen_frame = screen:frame()
-    local i_start = space_map.ys:offset(screen_frame.y)
-    local j_start = space_map.xs:offset(screen_frame.x)
-    local i_end = space_map.ys:offset(screen_frame.y2 + 1) - 1
-    local j_end = space_map.xs:offset(screen_frame.x2 + 1) - 1
-
-    for top = i_start, i_end do
-      for left = j_start, j_end do
-        if not space_map.occupied[top][left] then
-
-          local bottom = top
-          while bottom + 1 <= i_end and not space_map.occupied[bottom + 1][left] do
-            bottom = bottom + 1
-          end
-
-          local right = nil
-          for i = top, bottom do
-            local row_right = left
-            while row_right + 1 <= j_end and not space_map.occupied[i][row_right + 1] do
-              row_right = row_right + 1
-            end
-            if right == nil or row_right < right then
-              right = row_right
-            end
-          end
-
-          space_map._mark_cells_occupied(left, top, right, bottom)
-
-          local frame = hs.geometry.rect({
-            x1 = space_map.xs[left],
-            y1 = space_map.ys[top],
-            x2 = space_map.xs[right+1] - 1,
-            y2 = space_map.ys[bottom+1] - 1
-          })
-          if frame.w >= MINIMUM_EMPTY_SIZE and frame.h >= MINIMUM_EMPTY_SIZE then
-            table.insert(windows, {
-              id = function() return -1 end,
-              frame = function() return frame end,
-              setFrame = function(frame) return end,
-            })
-          end
-        end
+    for _, frame in ipairs(space_map:empty_rects_on_screen(screen:frame())) do
+      if frame.w >= MINIMUM_EMPTY_SIZE and frame.h >= MINIMUM_EMPTY_SIZE then
+        table.insert(windows, {
+          id = function() return -1 end,
+          frame = function() return frame end,
+          setFrame = function(frame) return end,
+        })
       end
     end
   end
