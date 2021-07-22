@@ -82,7 +82,7 @@ obj.license = "MIT - https://opensource.org/licenses/MIT"
 --- WindowSigils.logger
 --- Variable
 --- Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.
-obj.logger = hs.logger.new('WindowSigils')
+obj.logger = hs.logger.new('WindowSigils', 'debug')
 
 obj.sigils = {
   "a", "b", "c", "d", "e", "f", "g", "i", "m", "n", "o", "p", "q", "r", "s", "t", "u",
@@ -284,10 +284,12 @@ function obj:_addEmptySpaceWindows(windows)
       return subtract_area(empty_frame, window:frame())
     end)
   end
+  self.logger.d('empty_frames = ', hs.inspect(empty_frames))
   for _, empty_frame in ipairs(empty_frames) do
     table.insert(windows, {
       id = function() return -1 end,
       frame = function() return empty_frame end,
+      sefFrame = function(frame) return end,
     })
   end
 end
