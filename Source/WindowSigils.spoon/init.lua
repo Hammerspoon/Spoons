@@ -251,7 +251,6 @@ function CoordinateSet:new()
     xref = {},
   }
   setmetatable(o, self)
-  self.__index = self
   return o
 end
 
@@ -264,6 +263,17 @@ end
 
 function CoordinateSet:sort()
   table.sort(self.coordinates)
+end
+
+function CoordinateSet:__index(i)
+  if type(i) == "number" then
+    return self.coordinates[i]
+  end
+  return CoordinateSet[i]
+end
+
+function CoordinateSet:__len()
+  return #self.coordinates
 end
 
 function CoordinateSet:offset(value)
@@ -369,10 +379,10 @@ function obj:_addEmptySpaceWindows(windows)
           end
 
           local frame = hs.geometry.rect({
-            x1 = xs.coordinates[left],
-            y1 = ys.coordinates[top],
-            x2 = xs.coordinates[right+1] - 1,
-            y2 = ys.coordinates[bottom+1] - 1
+            x1 = xs[left],
+            y1 = ys[top],
+            x2 = xs[right+1] - 1,
+            y2 = ys[bottom+1] - 1
           })
           if frame.w >= MINIMUM_EMPTY_SIZE and frame.h >= MINIMUM_EMPTY_SIZE then
             table.insert(windows, {
