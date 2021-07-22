@@ -1,11 +1,14 @@
 --- === WindowSigils ===
 ---
---- Assign every window a sigil for quick access.
+--- Assign every window and empty rectangle a sigil for quick access.
 ---
---- A letter or digit is rendered in the titlebar of every window, and actions can be bound
---- inside a "sigil" mode with different modifiers.  For example, with no modifiers, the
---- the sigil key can focus the window.  If the 'enter' action is bound to control-w, then
---- 'control-w c' will focus the window with sigil 'c'.
+--- A letter or digit is rendered in the titlebar of every window (or empty space), and
+--- actions can be bound inside the sigil mode and triggered with different modifiers.
+---
+--- For example, with no modifiers, a sigil key can focus the window.  If the 'enter'
+--- action is bound to control-w, then 'control-w c' will focus the window with sigil 'c'.
+--- The action is a function which accepts a window, or in the case of an empty space, a
+--- window-like object which reponds to 'id', 'frame', and 'setFrame'.
 ---
 --- The keys 'h', 'j', 'k', and 'l' are reserved for the window west, south, north, and
 --- east of the currently focused window in standard Vi-like fashion, and so are not
@@ -362,7 +365,7 @@ function obj:_addEmptySpaceWindows(windows)
             table.insert(windows, {
               id = function() return -1 end,
               frame = function() return frame end,
-              sefFrame = function(frame) return end,
+              setFrame = function(frame) return end,
             })
           end
         end
