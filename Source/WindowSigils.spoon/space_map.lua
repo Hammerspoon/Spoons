@@ -78,9 +78,8 @@ function SpaceMap:_find_empty_extent(top, left, screen_bottom, screen_right)
     bottom = bottom + 1
   end
   local right = self:_find_row_right_extent(top, left, screen_right)
-  for row = top, bottom do
-    local row_right = self:_find_row_right_extent(row, left, screen_right)
-    right = hs.math.min(right, row_right)
+  for row = top + 1, bottom do
+    right = hs.math.min(right, self:_find_row_right_extent(row, left, screen_right))
   end
   return bottom, right
 end
