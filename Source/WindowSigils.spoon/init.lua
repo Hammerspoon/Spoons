@@ -247,17 +247,7 @@ local MINIMUM_EMPTY_SIZE = 20
 
 function obj:_addEmptySpaceWindows(windows)
   -- Make a grid with all window boundaries
-  local space_map = SpaceMap:new()
-
-  for _, screen in ipairs(hs.screen.allScreens()) do
-    space_map:add_frame(screen:frame())
-  end
-  for _, window in ipairs(windows) do
-    space_map:add_frame(window:frame())
-  end
-
-  space_map.xs:sort()
-  space_map.ys:sort()
+  local space_map = SpaceMap:new(hs.screen.allScreens(), windows)
 
   -- mark non-empty portions
   local occupied = {}
