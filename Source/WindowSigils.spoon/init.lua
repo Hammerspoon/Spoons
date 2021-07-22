@@ -72,7 +72,7 @@
 --- sigils:start()
 --- ```
 
-local CoordinateSet = dofile(hs.spoons.resourcePath("coordinate_set.lua"))
+local SpaceMap = dofile(hs.spoons.resourcePath("space_map.lua"))
 
 local obj={}
 obj.__index = obj
@@ -247,14 +247,13 @@ local MINIMUM_EMPTY_SIZE = 20
 
 function obj:_addEmptySpaceWindows(windows)
   -- Make a grid with all window boundaries
-  local xs = CoordinateSet:new()
-  local ys = CoordinateSet:new()
+  local space_map = SpaceMap:new()
 
   function add_frame(frame)
-    xs:add(frame.x1)
-    xs:add(frame.x2 + 1)
-    ys:add(frame.y1)
-    ys:add(frame.y2 + 1)
+    space_map.xs:add(frame.x1)
+    space_map.xs:add(frame.x2 + 1)
+    space_map.ys:add(frame.y1)
+    space_map.ys:add(frame.y2 + 1)
   end
 
   for _, screen in ipairs(hs.screen.allScreens()) do
@@ -264,14 +263,14 @@ function obj:_addEmptySpaceWindows(windows)
     add_frame(window:frame())
   end
 
-  xs:sort()
-  ys:sort()
+  space_map.xs:sort()
+  space_map.ys:sort()
 
   -- mark non-empty portions
   local occupied = {}
-  for i = 1, #ys do
+  for i = 1, #space_map.ys do
     occupied[i] = {}
-    for j = 1, #xs do
+    for j = 1, #space_map.xs do
       occupied[i][j] = false
     end
   end
@@ -279,10 +278,10 @@ function obj:_addEmptySpaceWindows(windows)
   for _, window in ipairs(windows) do
     local frame = window:frame()
 
-    local x_start = xs:offset(frame.x1)
-    local y_start = ys:offset(frame.y1)
-    local x_end = xs:offset(frame.x2 + 1)
-    local y_end = ys:offset(frame.y2 + 1)
+    local x_start = space_map.xs:offset(frame.x1)
+    local y_start = space_map.ys:offset(frame.y1)
+    local x_end = space_map.xs:offset(frame.x2 + 1)
+    local y_end = space_map.ys:offset(frame.y2 + 1)
 
     if x_start ~= nil and y_start ~= nil and x_end ~= nil and y_end ~= nil then
       for j=x_start, x_end - 1, 1 do
@@ -296,10 +295,10 @@ function obj:_addEmptySpaceWindows(windows)
   -- find largest empty rectangles, prefer extending down
   for _, screen in ipairs(hs.screen.allScreens()) do
     local screen_frame = screen:frame()
-    local i_start = ys:offset(screen_frame.y)
-    local j_start = xs:offset(screen_frame.x)
-    local i_end = ys:offset(screen_frame.y2 + 1) - 1
-    local j_end = xs:offset(screen_frame.x2 + 1) - 1
+    local i_start = space_map.ys:offset(screen_frame.y)
+    local j_start = space_map.xs:offset(screen_frame.x)
+    local i_end = space_map.ys:offset(screen_frame.y2 + 1) - 1
+    local j_end = space_map.xs:offset(screen_frame.x2 + 1) - 1
 
     for top = i_start, i_end do
       for left = j_start, j_end do
@@ -328,10 +327,10 @@ function obj:_addEmptySpaceWindows(windows)
           end
 
           local frame = hs.geometry.rect({
-            x1 = xs[left],
-            y1 = ys[top],
-            x2 = xs[right+1] - 1,
-            y2 = ys[bottom+1] - 1
+            x1 = space_map.xs[left],
+            y1 = space_map.ys[top],
+            x2 = space_map.xs[right+1] - 1,
+            y2 = space_map.ys[bottom+1] - 1
           })
           if frame.w >= MINIMUM_EMPTY_SIZE and frame.h >= MINIMUM_EMPTY_SIZE then
             table.insert(windows, {
