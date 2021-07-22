@@ -243,46 +243,59 @@ end
 
 local MINIMUM_EMPTY_SIZE = 20
 
-function find_offset(table, value)
+local CoordinateSet = {}
+
+function CoordinateSet:new()
+  local o = {
+    coordinates = {},
+    xref = {},
+  }
+  setmetatable(o, self)
+  self.__index = self
+  return o
+end
+
+function CoordinateSet:add(coordinate)
+  if not self.xref[coordinate] then
+    self.xref[coordinate] = true
+    table.insert(self.coordinates, coordinate)
+  end
+end
+
+function CoordinateSet:sort()
+  table.sort(self.coordinates)
+end
+
+function CoordinateSet:offset(value)
+  if not self.xref[value] then
+    return nil
+  end
   local lo = 1
-  local hi = #table
+  local hi = #self.coordinates
+  local mid
   while lo <= hi do
-    local mid = hs.math.floor((lo + hi) / 2)
-    if table[mid] == value then
+    mid = hs.math.floor((lo + hi) / 2)
+    if self.coordinates[mid] == value then
       return mid
-    elseif table[mid] < value then
+    elseif self.coordinates[mid] < value then
       lo = mid + 1
     else
       hi = mid - 1
     end
   end
-  return nil
+  return mid
 end
 
 function obj:_addEmptySpaceWindows(windows)
   -- Make a grid with all window boundaries
-  local xs = {}
-  local ys = {}
-  local xs_seen = {}
-  local ys_seen = {}
+  local xs = CoordinateSet:new()
+  local ys = CoordinateSet:new()
 
-  function add_x(x)
-    if not xs_seen[x] then
-      xs_seen[x] = true
-      table.insert(xs, x)
-    end
-  end
-  function add_y(y)
-    if not ys_seen[y] then
-      ys_seen[y] = true
-      table.insert(ys, y)
-    end
-  end
   function add_frame(frame)
-    add_x(frame.x1)
-    add_x(frame.x2 + 1)
-    add_y(frame.y1)
-    add_y(frame.y2 + 1)
+    xs:add(frame.x1)
+    xs:add(frame.x2 + 1)
+    ys:add(frame.y1)
+    ys:add(frame.y2 + 1)
   end
 
   for _, screen in ipairs(hs.screen.allScreens()) do
@@ -292,8 +305,8 @@ function obj:_addEmptySpaceWindows(windows)
     add_frame(window:frame())
   end
 
-  table.sort(xs)
-  table.sort(ys)
+  xs:sort()
+  ys:sort()
 
   -- mark non-empty portions
   local occupied = {}
@@ -307,10 +320,10 @@ function obj:_addEmptySpaceWindows(windows)
   for _, window in ipairs(windows) do
     local frame = window:frame()
 
-    local x_start = find_offset(xs, frame.x1)
-    local y_start = find_offset(ys, frame.y1)
-    local x_end = find_offset(xs, frame.x2 + 1)
-    local y_end = find_offset(ys, frame.y2 + 1)
+    local x_start = xs:offset(frame.x1)
+    local y_start = ys:offset(frame.y1)
+    local x_end = xs:offset(frame.x2 + 1)
+    local y_end = ys:offset(frame.y2 + 1)
 
     if x_start ~= nil and y_start ~= nil and x_end ~= nil and y_end ~= nil then
       for j=x_start, x_end - 1, 1 do
@@ -324,10 +337,10 @@ function obj:_addEmptySpaceWindows(windows)
   -- find largest empty rectangles, prefer extending down
   for _, screen in ipairs(hs.screen.allScreens()) do
     local screen_frame = screen:frame()
-    local i_start = find_offset(ys, screen_frame.y)
-    local j_start = find_offset(xs, screen_frame.x)
-    local i_end = find_offset(ys, screen_frame.y2 + 1) - 1
-    local j_end = find_offset(xs, screen_frame.x2 + 1) - 1
+    local i_start = ys:offset(screen_frame.y)
+    local j_start = xs:offset(screen_frame.x)
+    local i_end = ys:offset(screen_frame.y2 + 1) - 1
+    local j_end = xs:offset(screen_frame.x2 + 1) - 1
 
     for top = i_start, i_end do
       for left = j_start, j_end do
@@ -356,10 +369,10 @@ function obj:_addEmptySpaceWindows(windows)
           end
 
           local frame = hs.geometry.rect({
-            x1 = xs[left],
-            y1 = ys[top],
-            x2 = xs[right+1] - 1,
-            y2 = ys[bottom+1] - 1
+            x1 = xs.coordinates[left],
+            y1 = ys.coordinates[top],
+            x2 = xs.coordinates[right+1] - 1,
+            y2 = ys.coordinates[bottom+1] - 1
           })
           if frame.w >= MINIMUM_EMPTY_SIZE and frame.h >= MINIMUM_EMPTY_SIZE then
             table.insert(windows, {
