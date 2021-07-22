@@ -35,14 +35,14 @@ function SpaceMap:_build_occupied_map(windows)
 
   for _, window in ipairs(windows) do
     local frame = window:frame()
-    local x_start = self.xs:offset(frame.x1)
-    local y_start = self.ys:offset(frame.y1)
-    local x_end = self.xs:offset(frame.x2 + 1)
-    local y_end = self.ys:offset(frame.y2 + 1)
+    local left = self.xs:offset(frame.x1)
+    local top = self.ys:offset(frame.y1)
+    local right = self.xs:offset(frame.x2 + 1)
+    local bottom = self.ys:offset(frame.y2 + 1)
 
-    if x_start ~= nil and y_start ~= nil and x_end ~= nil and y_end ~= nil then
-      for j=x_start, x_end - 1, 1 do
-        for i=y_start, y_end - 1, 1 do
+    if left ~= nil and top ~= nil and right ~= nil and bottom ~= nil then
+      for j=left, right - 1, 1 do
+        for i=top, bottom - 1, 1 do
           self.occupied[i][j] = true
         end
       end
