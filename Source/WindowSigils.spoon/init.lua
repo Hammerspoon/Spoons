@@ -85,7 +85,7 @@ obj.license = "MIT - https://opensource.org/licenses/MIT"
 --- WindowSigils.logger
 --- Variable
 --- Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.
-obj.logger = hs.logger.new('WindowSigils', 'debug')
+obj.logger = hs.logger.new('WindowSigils')
 
 obj.sigils = {
   "a", "b", "c", "d", "e", "f", "g", "i", "m", "n", "o", "p", "q", "r", "s", "t", "u",
