@@ -11,26 +11,26 @@ function SpaceMap:new(...)
     ys = CoordinateSet:new(),
   }
   setmetatable(obj, self)
-  obj:initialize(...)
+  obj:_initialize(...)
   return obj
 end
 
-function SpaceMap:add_frame(frame)
+function SpaceMap:_add_frame(frame)
   self.xs:add(frame.x1)
   self.xs:add(frame.x2 + 1)
   self.ys:add(frame.y1)
   self.ys:add(frame.y2 + 1)
 end
 
-function SpaceMap:add_framed_entities(framed_entities)
+function SpaceMap:_add_framed_entities(framed_entities)
   for _, framed_entity in ipairs(framed_entities) do
-    self:add_frame(framed_entity:frame())
+    self:_add_frame(framed_entity:frame())
   end
 end
 
-function SpaceMap:initialize(...)
+function SpaceMap:_initialize(...)
   for _, framed_entity_array in ipairs(table.pack(...)) do
-    self:add_framed_entities(framed_entity_array)
+    self:_add_framed_entities(framed_entity_array)
   end
   self.xs:sort()
   self.ys:sort()
