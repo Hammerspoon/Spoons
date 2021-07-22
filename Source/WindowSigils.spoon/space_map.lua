@@ -64,18 +64,22 @@ function SpaceMap:_initialize(screens, windows)
   self:_build_occupied_map(windows)
 end
 
+function SpaceMap:_find_row_right_extent(row, left, j_end)
+  local row_right = left
+  while row_right + 1 <= j_end and not self.occupied[row][row_right + 1] do
+    row_right = row_right + 1
+  end
+  return row_right
+end
+
 function SpaceMap:_find_empty_extent(top, left, i_end, j_end)
   local bottom = top
   while bottom + 1 <= i_end and not self.occupied[bottom + 1][left] do
     bottom = bottom + 1
   end
-
   local right = nil
   for i = top, bottom do
-    local row_right = left
-    while row_right + 1 <= j_end and not self.occupied[i][row_right + 1] do
-      row_right = row_right + 1
-    end
+    local row_right = self:_find_row_right_extent(i, left, j_end)
     if right == nil or row_right < right then
       right = row_right
     end
