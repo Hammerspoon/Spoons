@@ -255,6 +255,7 @@ function obj:_addEmptySpaceWindows(windows)
           id = function() return -1 end,
           frame = function() return frame end,
           setFrame = function(frame) return end,
+          isVisible = function() return true end,
         })
       end
     end
@@ -292,20 +293,21 @@ end
 ---    Can also be 'North', 'East', 'South', or 'West' to find a window related to the
 ---    currently focused window.
 function obj:window(sigil)
+  local windows = self:orderedWindows()
   if type(sigil) == 'number' then
-    return self:orderedWindows()[sigil]
+    return windows[sigil]
   elseif sigil == 'North' then
-    return hs.window.focusedWindow():windowsToNorth(nil, true, true)[1]
+    return hs.window.focusedWindow():windowsToNorth(windows, true, true)[1]
   elseif sigil == 'East' then
-    return hs.window.focusedWindow():windowsToEast(nil, true, true)[1]
+    return hs.window.focusedWindow():windowsToEast(windows, true, true)[1]
   elseif sigil == 'South' then
-    return hs.window.focusedWindow():windowsToSouth(nil, true, true)[1]
+    return hs.window.focusedWindow():windowsToSouth(windows, true, true)[1]
   elseif sigil == 'West' then
-    return hs.window.focusedWindow():windowsToWest(nil, true, true)[1]
+    return hs.window.focusedWindow():windowsToWest(windows, true, true)[1]
   else
     for i,k in ipairs(self.sigils) do
       if k == sigil then
-        return self:orderedWindows()[i]
+        return windows[i]
       end
     end
   end
