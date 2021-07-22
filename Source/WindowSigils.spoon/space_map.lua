@@ -77,12 +77,10 @@ function SpaceMap:_find_empty_extent(top, left, screen_bottom, screen_right)
   while bottom + 1 <= screen_bottom and not self.occupied[bottom + 1][left] do
     bottom = bottom + 1
   end
-  local right = nil
+  local right = self:_find_row_right_extent(top, left, screen_right)
   for row = top, bottom do
     local row_right = self:_find_row_right_extent(row, left, screen_right)
-    if right == nil or row_right < right then
-      right = row_right
-    end
+    right = hs.math.min(right, row_right)
   end
   return bottom, right
 end
