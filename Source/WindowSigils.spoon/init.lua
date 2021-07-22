@@ -277,11 +277,7 @@ function obj:_addEmptySpaceWindows(windows)
             end
           end
 
-          for i = top, bottom do
-            for j = left, right do
-              space_map.occupied[i][j] = true
-            end
-          end
+          space_map._mark_cells_occupied(left, top, right, bottom)
 
           local frame = hs.geometry.rect({
             x1 = space_map.xs[left],

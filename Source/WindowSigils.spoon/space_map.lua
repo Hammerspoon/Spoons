@@ -24,6 +24,24 @@ function SpaceMap:_add_framed_entities(framed_entities)
   end
 end
 
+function SpaceMap:_mark_cells_occupied(left, top, right, bottom)
+  if left ~= nil and top ~= nil and right ~= nil and bottom ~= nil then
+    for j=left, right - 1, 1 do
+      for i=top, bottom - 1, 1 do
+        self.occupied[i][j] = true
+      end
+    end
+  end
+end
+
+function SpaceMap:_mark_frame_cells_occupied(frame)
+  local left = self.xs:offset(frame.x1)
+  local top = self.ys:offset(frame.y1)
+  local right = self.xs:offset(frame.x2 + 1)
+  local bottom = self.ys:offset(frame.y2 + 1)
+  self:_mark_cells_occupied(left, top, right, bottom)
+end
+
 function SpaceMap:_build_occupied_map(windows)
   self.occupied = {}
   for i = 1, #self.ys do
@@ -34,19 +52,7 @@ function SpaceMap:_build_occupied_map(windows)
   end
 
   for _, window in ipairs(windows) do
-    local frame = window:frame()
-    local left = self.xs:offset(frame.x1)
-    local top = self.ys:offset(frame.y1)
-    local right = self.xs:offset(frame.x2 + 1)
-    local bottom = self.ys:offset(frame.y2 + 1)
-
-    if left ~= nil and top ~= nil and right ~= nil and bottom ~= nil then
-      for j=left, right - 1, 1 do
-        for i=top, bottom - 1, 1 do
-          self.occupied[i][j] = true
-        end
-      end
-    end
+    self:_mark_frame_cells_occupied(window:frame())
   end
 end
 
