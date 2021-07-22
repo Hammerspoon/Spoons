@@ -246,11 +246,9 @@ end
 local MINIMUM_EMPTY_SIZE = 20
 
 function obj:_addEmptySpaceWindows(windows)
-  -- Make a grid with all window boundaries
-  local space_map = SpaceMap:new(hs.screen.allScreens(), windows)
-
-  -- find largest empty rectangles, prefer extending down
-  for _, screen in ipairs(hs.screen.allScreens()) do
+  local screens = hs.screen.allScreens()
+  local space_map = SpaceMap:new(screens, windows)
+  for _, screen in ipairs(screens) do
     for _, frame in ipairs(space_map:empty_rects_on_screen(screen:frame())) do
       if frame.w >= MINIMUM_EMPTY_SIZE and frame.h >= MINIMUM_EMPTY_SIZE then
         table.insert(windows, {
@@ -261,7 +259,6 @@ function obj:_addEmptySpaceWindows(windows)
       end
     end
   end
-
 end
 
 --- WindowSigils:orderedWindows()
