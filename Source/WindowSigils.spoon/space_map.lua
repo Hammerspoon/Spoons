@@ -24,12 +24,10 @@ function SpaceMap:_add_framed_entities(framed_entities)
   end
 end
 
-function SpaceMap:_mark_cells_occupied(left, top, right, bottom)
-  if left ~= nil and top ~= nil and right ~= nil and bottom ~= nil then
-    for j=left, right - 1, 1 do
-      for i=top, bottom - 1, 1 do
-        self.occupied[i][j] = true
-      end
+function SpaceMap:_mark_cells_occupied(top, left, bottom, right)
+  for i=top, bottom do
+    for j=left, right do
+      self.occupied[i][j] = true
     end
   end
 end
@@ -39,7 +37,7 @@ function SpaceMap:_mark_frame_cells_occupied(frame)
   local top = self.ys:offset(frame.y1)
   local right = self.xs:offset(frame.x2 + 1)
   local bottom = self.ys:offset(frame.y2 + 1)
-  self:_mark_cells_occupied(left, top, right, bottom)
+  self:_mark_cells_occupied(top, left, bottom - 1, right - 1)
 end
 
 function SpaceMap:_build_occupied_map(windows)
@@ -66,40 +64,41 @@ function SpaceMap:_initialize(screens, windows)
   self:_build_occupied_map(windows)
 end
 
+function SpaceMap:_find_empty_extent(top, left, i_end, j_end)
+  local bottom = top
+  while bottom + 1 <= i_end and not self.occupied[bottom + 1][left] do
+    bottom = bottom + 1
+  end
+
+  local right = nil
+  for i = top, bottom do
+    local row_right = left
+    while row_right + 1 <= j_end and not self.occupied[i][row_right + 1] do
+      row_right = row_right + 1
+    end
+    if right == nil or row_right < right then
+      right = row_right
+    end
+  end
+  return bottom, right
+end
+
 function SpaceMap:empty_rects_on_screen(screen_frame)
-  local i_start = self.ys:offset(screen_frame.y)
-  local j_start = self.xs:offset(screen_frame.x)
-  local i_end = self.ys:offset(screen_frame.y2 + 1) - 1
-  local j_end = self.xs:offset(screen_frame.x2 + 1) - 1
-
+  local screen_top = self.ys:offset(screen_frame.y)
+  local screen_left = self.xs:offset(screen_frame.x)
+  local screen_bottom = self.ys:offset(screen_frame.y2 + 1) - 1
+  local screen_right = self.xs:offset(screen_frame.x2 + 1) - 1
   local empty_rects = {}
-  for top = i_start, i_end do
-    for left = j_start, j_end do
+  for top = screen_top, screen_bottom do
+    for left = screen_left, screen_right do
       if not self.occupied[top][left] then
-
-        local bottom = top
-        while bottom + 1 <= i_end and not self.occupied[bottom + 1][left] do
-          bottom = bottom + 1
-        end
-
-        local right = nil
-        for i = top, bottom do
-          local row_right = left
-          while row_right + 1 <= j_end and not self.occupied[i][row_right + 1] do
-            row_right = row_right + 1
-          end
-          if right == nil or row_right < right then
-            right = row_right
-          end
-        end
-
-        self._mark_cells_occupied(left, top, right, bottom)
-
+        bottom, right = self:_find_empty_extent(top, left, screen_bottom, screen_right)
+        self:_mark_cells_occupied(top, left, bottom, right)
         local frame = hs.geometry.rect({
           x1 = self.xs[left],
           y1 = self.ys[top],
-          x2 = self.xs[right+1] - 1,
-          y2 = self.ys[bottom+1] - 1
+          x2 = self.xs[right + 1] - 1,
+          y2 = self.ys[bottom + 1] - 1
         })
         table.insert(empty_rects, frame)
       end
