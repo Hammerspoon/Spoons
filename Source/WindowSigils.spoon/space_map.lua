@@ -13,4 +13,11 @@ function SpaceMap:new()
   return obj
 end
 
+function SpaceMap:add_frame(frame)
+  self.xs:add(frame.x1)
+  self.xs:add(frame.x2 + 1)
+  self.ys:add(frame.y1)
+  self.ys:add(frame.y2 + 1)
+end
+
 return SpaceMap

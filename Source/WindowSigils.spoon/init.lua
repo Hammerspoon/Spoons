@@ -249,18 +249,11 @@ function obj:_addEmptySpaceWindows(windows)
   -- Make a grid with all window boundaries
   local space_map = SpaceMap:new()
 
-  function add_frame(frame)
-    space_map.xs:add(frame.x1)
-    space_map.xs:add(frame.x2 + 1)
-    space_map.ys:add(frame.y1)
-    space_map.ys:add(frame.y2 + 1)
-  end
-
   for _, screen in ipairs(hs.screen.allScreens()) do
-    add_frame(screen:frame())
+    space_map:add_frame(screen:frame())
   end
   for _, window in ipairs(windows) do
-    add_frame(window:frame())
+    space_map:add_frame(window:frame())
   end
 
   space_map.xs:sort()
