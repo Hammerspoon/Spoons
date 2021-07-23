@@ -72,6 +72,7 @@
 --- sigils:start()
 --- ```
 
+local EmptyWindow = dofile(hs.spoons.resourcePath("empty_window.lua"))
 local SpaceMap = dofile(hs.spoons.resourcePath("space_map.lua"))
 
 local obj={}
@@ -251,12 +252,7 @@ function obj:_addEmptySpaceWindows(windows)
   for _, screen in ipairs(screens) do
     for _, frame in ipairs(space_map:empty_rects_on_screen(screen:frame())) do
       if frame.w >= MINIMUM_EMPTY_SIZE and frame.h >= MINIMUM_EMPTY_SIZE then
-        table.insert(windows, {
-          id = function() return -1 end,
-          frame = function() return frame end,
-          setFrame = function(frame) return end,
-          isVisible = function() return true end,
-        })
+        table.insert(windows, EmptyWindow:new(frame))
       end
     end
   end
