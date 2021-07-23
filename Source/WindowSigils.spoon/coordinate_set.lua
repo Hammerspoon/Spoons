@@ -24,6 +24,9 @@ end
 
 function CoordinateSet:sort()
   table.sort(self.coordinates)
+  for i, value in ipairs(self.coordinates) do
+      self.xref[value] = i
+  end
 end
 
 function CoordinateSet:__index(i)
@@ -38,23 +41,7 @@ function CoordinateSet:__len()
 end
 
 function CoordinateSet:offset(value)
-  if not self.xref[value] then
-    return nil
-  end
-  local lo = 1
-  local hi = #self.coordinates
-  local mid
-  while lo <= hi do
-    mid = hs.math.floor((lo + hi) / 2)
-    if self.coordinates[mid] == value then
-      return mid
-    elseif self.coordinates[mid] < value then
-      lo = mid + 1
-    else
-      hi = mid - 1
-    end
-  end
-  return mid
+  return self.xref[value]
 end
 
 return CoordinateSet
