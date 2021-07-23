@@ -24,4 +24,12 @@ end
 function EmptyWindow:setFrame(frame, speed)
 end
 
+function EmptyWindow:application()
+  return nil
+end
+
+function EmptyWindow:title()
+  return "<empty>"
+end
+
 return EmptyWindow

@@ -1,4 +1,3 @@
-
 local CoordinateSet = dofile(hs.spoons.resourcePath("coordinate_set.lua"))
 
 local SpaceMap = {}

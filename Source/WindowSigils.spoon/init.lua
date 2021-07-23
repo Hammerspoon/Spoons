@@ -404,4 +404,23 @@ function obj:refresh()
   end
 end
 
+function obj:dump()
+  local result = ""
+  for _, sigil in ipairs(self.sigils) do
+    local window = self:window(sigil)
+    if window ~= nil then
+      local app = window:application()
+      local bundleID = "<no app>"
+      if app ~= nil then
+        bundleID = app:bundleID()
+      end
+      local frame = window:frame()
+      result = string.format("%s %s) %5.0f,%5.0f,%5.0f,%5.0f  %-35s %s\n", result, sigil,
+                             frame.x1, frame.y1, frame.x2, frame.y2,
+                             bundleID, window:title())
+    end
+  end
+  return result
+end
+
 return obj
