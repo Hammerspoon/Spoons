@@ -258,6 +258,20 @@ function obj:_addEmptySpaceWindows(windows)
   end
 end
 
+function obj:_removeUnuseableWindows(windows)
+  return hs.fnutils.filter(windows, function(window)
+    local app = window:application()
+    local bundleID
+    if app ~= nil then
+      bundleID = app:bundleID()
+    end
+    -- On Big Sur :(
+    if bundleID == "com.apple.notificationcenterui" then return false end
+    if bundleID == "com.apple.UserNotificationCenter" then return false end
+    return true
+  end)
+end
+
 --- WindowSigils:orderedWindows()
 --- Method
 --- A list of windows, in the order sigils are assigned.
@@ -266,6 +280,7 @@ end
 ---  * None
 function obj:orderedWindows()
   local windows = self.window_filter:getWindows()
+  windows = self:_removeUnuseableWindows(windows)
   self:_addEmptySpaceWindows(windows)
   table.sort(windows, function(a, b)
     local af, bf = a:frame(), b:frame()
