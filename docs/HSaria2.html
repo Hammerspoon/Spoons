@@ -50,8 +50,7 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>How many items should be created on aria2 panel? Defaults to 5.</p>
-</td>
+                <td>How many items should be created on aria2 panel? Defaults to 5.</td>
               </tr>
               <tr>
                 <th>Source</th>
@@ -73,8 +72,7 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>How often should HSaria2 retrieve data from RPC server? Defaults to 1 (second).</p>
-</td>
+                <td>How often should HSaria2 retrieve data from RPC server? Defaults to 1 (second).</td>
               </tr>
               <tr>
                 <th>Source</th>
@@ -97,13 +95,19 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Try connect to <code>hostaddr</code> with <code>secret</code>. If succeed, they will become default values for following-up oprations.</p>
-<p>Parameters:</p>
-<ul>
+                <td>Try connect to `hostaddr` with `secret`. If succeed, they will become default values for following-up oprations.</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>hostaddr - A sring specifying aria2 RPC host, including host name and port address. e.g. "<a href="http://localhost:6800/jsonrpc">http://localhost:6800/jsonrpc</a>".</li>
 <li>secret - A string specifying host secret</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
               </tr>
               <tr>
                 <th>Source</th>
@@ -125,15 +129,21 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Create new regular/bt/metalink task, and send notification when done.</p>
-<p>Parameters:</p>
-<ul>
+                <td>Create new regular/bt/metalink task, and send notification when done.</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>tasktype - A string specifying task type. The value is one of these: <code>addUri</code>, <code>addTorrent</code>, <code>addMetalink</code>, <code>nil</code>. When tasktype is <code>nil</code>, aria2 will create a regular download task.</li>
 <li>urls - A string or a table specifying URL. Multi URLs (table) are only available when tasktype is <code>addUri</code> or <code>nil</code>.</li>
 <li>hostaddr - A optional sring specifying aria2 RPC host</li>
 <li>secret - A optional string specifying host secret</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
               </tr>
               <tr>
                 <th>Source</th>
@@ -155,15 +165,21 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Send a command to <code>hostaddr</code>, only limited commands are supported.</p>
-<p>Parameters:</p>
-<ul>
+                <td>Send a command to `hostaddr`, only limited commands are supported.</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>command - A string specifying sending command. The value is one of these: <code>remove</code>, <code>forceRemove</code>, <code>pause</code>, <code>pauseAll</code>, <code>forcePause</code>, <code>forcePauseAll</code>, <code>unpause</code>, <code>unpauseAll</code>, <code>purgeDownloadResult</code>, <code>removeDownloadResult</code>.</li>
 <li>gid - A string specifying GID (aria2 identifies each download by the ID called GID). This Parameter can be optional or not according to the value of <code>command</code>.</li>
 <li>hostaddr - A optional sring specifying aria2 RPC host</li>
 <li>secret - A optional string specifying host secret</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
               </tr>
               <tr>
                 <th>Source</th>
@@ -185,12 +201,18 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Toggle the display of aria2 panel. The panel allows users to interact with aria2, add new tasks, pause them, or remove, purge … etc.</p>
-<p>Parameters:</p>
-<ul>
+                <td>Toggle the display of aria2 panel. The panel allows users to interact with aria2, add new tasks, pause them, or remove, purge … etc.</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>None</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
               </tr>
               <tr>
                 <th>Source</th>

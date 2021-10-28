@@ -53,8 +53,7 @@ It also (optionally) shows a bar about current keys bindings.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>key to abort, default to {keyNone, 'escape'}</p>
-</td>
+                <td>key to abort, default to {keyNone, 'escape'}</td>
               </tr>
               <tr>
                 <th>Source</th>
@@ -76,8 +75,7 @@ It also (optionally) shows a bar about current keys bindings.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Number of entries each line of helper. Default to 5.</p>
-</td>
+                <td>Number of entries each line of helper. Default to 5.</td>
               </tr>
               <tr>
                 <th>Source</th>
@@ -99,8 +97,7 @@ It also (optionally) shows a bar about current keys bindings.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Length of each entry in char. Default to 20.</p>
-</td>
+                <td>Length of each entry in char. Default to 20.</td>
               </tr>
               <tr>
                 <th>Source</th>
@@ -122,12 +119,7 @@ It also (optionally) shows a bar about current keys bindings.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>format of helper, the helper is just a hs.alert
-default to {atScreenEdge=2,
-            strokeColor={ white = 0, alpha = 2 },
-            textFont='SF Mono'
-            textSize=20}</p>
-</td>
+                <td>format of helper, the helper is just a hs.alert</td>
               </tr>
               <tr>
                 <th>Source</th>
@@ -149,14 +141,7 @@ default to {atScreenEdge=2,
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>The mapping used to display modifiers on helper.
-Default to {
- command = '⌘',
- control = '⌃',
- option = '⌥',
- shift = '⇧',
-}</p>
-</td>
+                <td>The mapping used to display modifiers on helper.</td>
               </tr>
               <tr>
                 <th>Source</th>
@@ -178,8 +163,7 @@ Default to {
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>whether to show helper, can be true of false</p>
-</td>
+                <td>whether to show helper, can be true of false</td>
               </tr>
               <tr>
                 <th>Source</th>
@@ -202,25 +186,20 @@ Default to {
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Bind sequential keys by a nested keymap.</p>
-<p>Parameters:</p>
-<ul>
+                <td>Bind sequential keys by a nested keymap.</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>keymap - A table that specifies the mapping.</li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li>A function to start. Bind it to a initial key binding.</li>
 </ul>
-<p>Note:
-Spec of keymap:
-Every key is of format {{modifers}, key, (optional) description}
-The first two element is what you usually pass into a hs.hotkey.bind() function.</p>
-<p>Each value of key can be in two form:</p>
-<ol>
-<li>A function. Then pressing the key invokes the function</li>
-<li>A table. Then pressing the key bring to another layer of keybindings.
-And the table have the same format of top table: keys to keys, value to table or function</li>
-</ol>
 </td>
               </tr>
               <tr>
@@ -243,14 +222,19 @@ And the table have the same format of top table: keys to keys, value to table or
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>this function simply return a table with empty modifiers also it translates capital letters to normal letter with shift modifer</p>
-<p>Parameters:</p>
-<ul>
+                <td>this function simply return a table with empty modifiers also it translates capital letters to normal letter with shift modifer</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>key - a letter</li>
 <li>name - the description to pass to the keys binding function</li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li>a table of modifiers and keys and names, ready to be used in keymap
 to pass to RecursiveBinder.recursiveBind()</li>
 </ul>

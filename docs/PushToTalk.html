@@ -58,9 +58,7 @@ and separate keybinding to toggle states with lambda function <code>function() s
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Takes mapping from application name to mic state.
-For example this <code>{ ['zoom.us'] = 'push-to-talk' }</code> will switch mic to <code>push-to-talk</code> state when Zoom app starts.</p>
-</td>
+                <td>Takes mapping from application name to mic state.</td>
               </tr>
               <tr>
                 <th>Source</th>
@@ -82,9 +80,7 @@ For example this <code>{ ['zoom.us'] = 'push-to-talk' }</code> will switch mic t
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Check running applications when starting PushToTalk.
-Defaults to false for backwards compatibility. With this disabled, PushToTalk will only change state when applications are launched or quit while PushToTalk is already active. Enable this to look through list of running applications when PushToTalk is started. If multiple apps defined in app_switcher are running, it will set state to the first one it encounters.</p>
-</td>
+                <td>Check running applications when starting PushToTalk.</td>
               </tr>
               <tr>
                 <th>Source</th>
@@ -107,12 +103,18 @@ Defaults to false for backwards compatibility. With this disabled, PushToTalk wi
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Starts menu and key watcher</p>
-<p>Parameters:</p>
-<ul>
+                <td>Starts menu and key watcher</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>None</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
               </tr>
               <tr>
                 <th>Source</th>
@@ -134,12 +136,18 @@ Defaults to false for backwards compatibility. With this disabled, PushToTalk wi
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Stops PushToTalk</p>
-<p>Parameters:</p>
-<ul>
+                <td>Stops PushToTalk</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>None</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
               </tr>
               <tr>
                 <th>Source</th>
@@ -161,12 +169,18 @@ Defaults to false for backwards compatibility. With this disabled, PushToTalk wi
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Cycle states in order</p>
-<p>Parameters:</p>
-<ul>
+                <td>Cycle states in order</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>states - A array of states to toggle. For example: <code>{'push-to-talk', 'release-to-talk'}</code></li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
               </tr>
               <tr>
                 <th>Source</th>

@@ -60,10 +60,7 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>String containing the key to use for Leanpub API requests. Get it
-from your Leanpub account under the "Author / Your API Key" menu
-section. No default.</p>
-</td>
+                <td>String containing the key to use for Leanpub API requests. Get it</td>
               </tr>
               <tr>
                 <th>Source</th>
@@ -85,13 +82,7 @@ section. No default.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Boolean that specifies whether all your books are being synced to
-Dropbox. If true, the "Book generation complete" notification will
-include a "Show" button to open the book's directory in
-Dropbox. Setting this is equivalent to setting the
-<code>syncs_to_dropbox</code> attribute for each book in
-<code>watch_books</code>. Default value: <code>false</code>.</p>
-</td>
+                <td>Boolean that specifies whether all your books are being synced to</td>
               </tr>
               <tr>
                 <th>Source</th>
@@ -113,9 +104,7 @@ Dropbox. Setting this is equivalent to setting the
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Integer containing the interval (in seconds) at which the book
-status is checked. Default 5.</p>
-</td>
+                <td>Integer containing the interval (in seconds) at which the book</td>
               </tr>
               <tr>
                 <th>Source</th>
@@ -137,15 +126,7 @@ status is checked. Default 5.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>String containing the base Dropbox path to which the books are
-synced, if the corresponding parameters are set. If unset, the
-path is determined automatically by reading the
-~/.dropbox/info.json file and choosing the path corresponding to
-the profile specified in <code>Leanpub.dropbox_profile</code>. If for some
-reason your synced files are somewhere else, you can store in this
-variable the final path to use. Most users should be fine with the
-defaults.</p>
-</td>
+                <td>String containing the base Dropbox path to which the books are</td>
               </tr>
               <tr>
                 <th>Source</th>
@@ -167,12 +148,7 @@ defaults.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>String containing the name of the Dropbox account type to use for
-determining the base path of the Dropbox directory. Valid values
-are "personal" and "business". See
-<a href="https://help.dropbox.com/installs-integrations/desktop/locate-dropbox-folder">https://help.dropbox.com/installs-integrations/desktop/locate-dropbox-folder</a>
-for the details. Default value: "personal".</p>
-</td>
+                <td>String containing the name of the Dropbox account type to use for</td>
               </tr>
               <tr>
                 <th>Source</th>
@@ -194,9 +170,7 @@ for the details. Default value: "personal".</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Boolean indicating whether we should try to fetch book covers from
-Leanpub. Default value: <code>true</code>.</p>
-</td>
+                <td>Boolean indicating whether we should try to fetch book covers from</td>
               </tr>
               <tr>
                 <th>Source</th>
@@ -218,9 +192,7 @@ Leanpub. Default value: <code>true</code>.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Logger object used within the Spoon. Can be accessed to set the
-default log level for the messages coming from the Spoon.</p>
-</td>
+                <td>Logger object used within the Spoon. Can be accessed to set the</td>
               </tr>
               <tr>
                 <th>Source</th>
@@ -242,12 +214,7 @@ default log level for the messages coming from the Spoon.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Table specifying the Leanpub status for which notifications should
-not disappear automatically. The indices correspond to the values
-of the <code>status</code> field returned by the Leanpub API. Possible values
-are <code>working</code> and <code>complete</code>. Default <code>{ complete = true }</code> to
-keep the "Book generation complete" messages.</p>
-</td>
+                <td>Table specifying the Leanpub status for which notifications should</td>
               </tr>
               <tr>
                 <th>Source</th>
@@ -269,27 +236,7 @@ keep the "Book generation complete" messages.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>List of books to watch (by default an empty list). Each element of
-the list must be a table containing the following keys:</p>
-<ul>
-<li>slug - the web page "slug" of the book to watch. The slug of a
-book can be set under the "Book Web Page / Web Page URL" menu
-section in Leanpub.</li>
-<li>icon - optional icon to show in the notifications for the book,
-as an hs.image object. If not specified, and if
-<code>fetch_leanpub_covers</code> is <code>true</code>, then the icon is generated
-automatically from the book cover.</li>
-<li>syncs_to_dropbox - optional boolean to indicate whether the
-book is configured in Leanpub to sync to Dropbox (you can find
-this option in your books "Writing mode" screen, as "Send
-output to Dropbox". If true, the "Book generation complete"
-notification will include a "Show" button to open the book's
-directory in Dropbox. If you have multiple books and all of
-them are synced to Dropbox, you can set the main
-<code>Leanpub.books_sync_to_dropbox</code> variable instead of setting it
-for each book. Default value: <code>false</code></li>
-</ul>
-</td>
+                <td>List of books to watch (by default an empty list). Each element of</td>
               </tr>
               <tr>
                 <th>Source</th>
@@ -312,12 +259,18 @@ for each book. Default value: <code>false</code></li>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Check and display (if needed) the status of all the books in <code>watch_books</code></p>
-<p>Parameters:</p>
-<ul>
+                <td>Check and display (if needed) the status of all the books in `watch_books`</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>None</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
               </tr>
               <tr>
                 <th>Source</th>
@@ -339,31 +292,30 @@ for each book. Default value: <code>false</code></li>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Display a notification with the current build status of a book.</p>
-<p>Parameters:</p>
-<ul>
-<li>book - table containing the information of the book to
-check. The table must contain the following fields:<ul>
-<li>slug - URL "slug" of the book to check. The slug is the part
-of the book URL after <a href="https://leanpub.com/">https://leanpub.com/</a>.</li>
-<li>icon - optional icon to show in the notifications for the
-book, as an <code>hs.image</code> object. If this field is not specified
-but <code>fetch_leanpub_covers</code> is true (the default value), this
-method attempts to fetch the book cover from Leanpub. If the
-cover can be retrieved, it gets stored in the icon field so
-it doesn't get fetched every time. You can disable cover
-fetching for individual books by setting this field
-explicitly to <code>false</code></li>
+                <td>Display a notification with the current build status of a book.</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>book - table containing the information of the book to check. The table must contain the following fields:<ul>
+<li>slug - URL "slug" of the book to check. The slug is the part of the book URL after <a href="https://leanpub.com/">https://leanpub.com/</a>.</li>
+<li>icon - optional icon to show in the notifications for the book, as an <code>hs.image</code> object. If this field is not specified but <code>fetch_leanpub_covers</code> is true (the default value), this method attempts to fetch the book cover from Leanpub. If the cover can be retrieved, it gets stored in the icon field so it doesn't get fetched every time. You can disable cover fetching for individual books by setting this field explicitly to <code>false</code></li>
 </ul>
 </li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li>A Lua table containing the status (may be empty), nil if an
 error occurred</li>
 </ul>
-<p>Notes:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
 <li>Only produce a notification if the current status is different than the last known one (from the last time <code>displayBookStatus</code> was run for the same book).</li>
 </ul>
 </td>
@@ -388,19 +340,19 @@ error occurred</li>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Fetch the cover of a book.</p>
-<p>Parameters:</p>
-<ul>
-<li>book - table containing the book information. The icon gets
-stored in its <code>icon</code> field when it can be fetched.</li>
+                <td>Fetch the cover of a book.</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>book - table containing the book information. The icon gets stored in its <code>icon</code> field when it can be fetched.</li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li>No return value</li>
-</ul>
-<p>Side effects:</p>
-<ul>
-<li>Stores the icon in the book data structure</li>
 </ul>
 </td>
               </tr>
@@ -424,21 +376,19 @@ stored in its <code>icon</code> field when it can be fetched.</li>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Asynchronously get the status of a book given its slug.</p>
-<p>Parameters:</p>
-<ul>
-<li>slug - URL "slug" of the book to check. The slug of a book is
-the part of the URL for your book after <a href="https://leanpub.com/">https://leanpub.com/</a>.</li>
-<li>callback - function to which the book status will be passed
-when the data is received. This function will be passed a
-single argument, a table containing the fields returned by the
-Leanpub API. If the book is not being built at the moment, an
-empty table is passed. If an error occurs, the value passed
-will be <code>nil</code>. Samples of the return values can be found at
-<a href="https://leanpub.com/help/api#getting-the-job-status">https://leanpub.com/help/api#getting-the-job-status</a></li>
+                <td>Asynchronously get the status of a book given its slug.</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>slug - URL "slug" of the book to check. The slug of a book is the part of the URL for your book after <a href="https://leanpub.com/">https://leanpub.com/</a>.</li>
+<li>callback - function to which the book status will be passed when the data is received. This function will be passed a single argument, a table containing the fields returned by the Leanpub API. If the book is not being built at the moment, an empty table is passed. If an error occurs, the value passed will be <code>nil</code>. Samples of the return values can be found at <a href="https://leanpub.com/help/api#getting-the-job-status">https://leanpub.com/help/api#getting-the-job-status</a></li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li>No return value</li>
 </ul>
 </td>
@@ -463,12 +413,18 @@ will be <code>nil</code>. Samples of the return values can be found at
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Start periodic check for book status, checking every check_interval seconds.</p>
-<p>Parameters:</p>
-<ul>
+                <td>Start periodic check for book status, checking every check_interval seconds.</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>None</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
               </tr>
               <tr>
                 <th>Source</th>
@@ -490,12 +446,18 @@ will be <code>nil</code>. Samples of the return values can be found at
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Stops periodic check for book status, if enabled.</p>
-<p>Parameters:</p>
-<ul>
+                <td>Stops periodic check for book status, if enabled.</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>None</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
               </tr>
               <tr>
                 <th>Source</th>

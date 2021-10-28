@@ -52,9 +52,7 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Boolean value indicating if music should be automatically resumed when headphones are plugged in again. Only works if music was automatically paused when headphones were unplugged.</p>
-<p>Default value: <code>true</code></p>
-</td>
+                <td>Boolean value indicating if music should be automatically resumed when headphones are plugged in again. Only works if music was automatically paused when headphones were unplugged.</td>
               </tr>
               <tr>
                 <th>Source</th>
@@ -76,15 +74,7 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Table containing one key per application, with the value indicating whether HeadphoneAutoPause should try to pause/unpause that application in response to the headphone being plugged/unplugged. The key name must ideally correspond to the name of the corresponding <code>hs.*</code> module. Default value:</p>
-
-<pre><code>{
-   itunes = true,
-   spotify = true,
-   deezer = true,
-   vox = false -- Vox has built-in headphone detection support
-}</code></pre>
-</td>
+                <td>Table containing one key per application, with the value indicating whether HeadphoneAutoPause should try to pause/unpause that application in response to the headphone being plugged/unplugged. The key name must ideally correspond to the name of the corresponding `hs.*` module. Default value:</td>
               </tr>
               <tr>
                 <th>Source</th>
@@ -106,16 +96,7 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Table containing control functions for each application to control.
-The keys must correspond to the values in <code>HeadphoneAutoPause.control</code>, and the value is a table with the following elements:</p>
-<ul>
-<li><code>appname</code> - application name (case-sensitive, as the application appears to the system)</li>
-<li><code>isPlaying</code> - function that returns a true value if the application is playing</li>
-<li><code>play</code> - function that starts playback in the application</li>
-<li><code>pause</code> - function that pauses playback in the application</li>
-</ul>
-<p>The default value includes definitions for iTunes, Spotify, Deezer and Vox, using the corresponding functions from <code>hs.itunes</code>, <code>hs.spotify</code>, <code>hs.deezer</code> and <code>hs.vox</code>, respectively.</p>
-</td>
+                <td>Table containing control functions for each application to control.</td>
               </tr>
               <tr>
                 <th>Source</th>
@@ -137,8 +118,7 @@ The keys must correspond to the values in <code>HeadphoneAutoPause.control</code
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.</p>
-</td>
+                <td>Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.</td>
               </tr>
               <tr>
                 <th>Source</th>
@@ -161,13 +141,19 @@ The keys must correspond to the values in <code>HeadphoneAutoPause.control</code
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Callback function to use as an audio device watcher, to pause/unpause the application on headphones plugged/unplugged</p>
-<p>Parameters:</p>
-<ul>
+                <td>Callback function to use as an audio device watcher, to pause/unpause the application on headphones plugged/unplugged</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>dev_uid - The audio device</li>
 <li>event_name - The event name</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
               </tr>
               <tr>
                 <th>Source</th>
@@ -189,13 +175,18 @@ The keys must correspond to the values in <code>HeadphoneAutoPause.control</code
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Generate the most common set of application control definition.</p>
-<p>Parameters:</p>
-<ul>
+                <td>Generate the most common set of application control definition.</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>app - name of the application, with its correct letter casing (i.e. "iTunes"). The name as provided will be used to find the running application, and its lowercase version will be used to find the corresponding <code>hs.*</code> module.</li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li>A table in the correct format for <code>HeadphoneAutoPause.controlfns</code>, using the lower-case value of <code>app</code> as the module name (for example, if app = "iTunes", the module loaded will be <code>hs.itunes</code>, and assuming the functions <code>isPlaying()</code>, <code>play()</code> and <code>pause()</code> exist in that module.</li>
 </ul>
 </td>
@@ -220,12 +211,18 @@ The keys must correspond to the values in <code>HeadphoneAutoPause.control</code
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Start headphone detection on all audio devices that support it</p>
-<p>Parameters:</p>
-<ul>
+                <td>Start headphone detection on all audio devices that support it</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>None</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
               </tr>
               <tr>
                 <th>Source</th>
@@ -247,12 +244,18 @@ The keys must correspond to the values in <code>HeadphoneAutoPause.control</code
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Stop headphone detection</p>
-<p>Parameters:</p>
-<ul>
+                <td>Stop headphone detection</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>None</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
               </tr>
               <tr>
                 <th>Source</th>

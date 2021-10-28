@@ -52,8 +52,7 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.</p>
-</td>
+                <td>Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.</td>
               </tr>
               <tr>
                 <th>Source</th>
@@ -75,8 +74,7 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>If true, pressing ESC on the popup window will close it. Defaults to <code>true</code></p>
-</td>
+                <td>If true, pressing ESC on the popup window will close it. Defaults to `true`</td>
               </tr>
               <tr>
                 <th>Source</th>
@@ -98,8 +96,7 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p><code>hs.geometry</code> object representing the size to use for the translation popup window. Defaults to <code>hs.geometry.size(770, 610)</code>.</p>
-</td>
+                <td>`hs.geometry` object representing the size to use for the translation popup window. Defaults to `hs.geometry.size(770, 610)`.</td>
               </tr>
               <tr>
                 <th>Source</th>
@@ -121,8 +118,7 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Value representing the window style to be used for the translation popup window. This value needs to be a valid argument to <a href="http://www.hammerspoon.org/docs/hs.webview.html#windowStyle"><code>hs.webview.setStyle()</code></a> (i.e. a combination of values from <a href="http://www.hammerspoon.org/docs/hs.webview.html#windowMasks[]"><code>hs.webview.windowMasks</code></a>. Default value: <code>hs.webview.windowMasks.utility|hs.webview.windowMasks.HUD|hs.webview.windowMasks.titled|hs.webview.windowMasks.closable</code></p>
-</td>
+                <td>Value representing the window style to be used for the translation popup window. This value needs to be a valid argument to [`hs.webview.setStyle()`](http://www.hammerspoon.org/docs/hs.webview.html#windowStyle) (i.e. a combination of values from [`hs.webview.windowMasks`](http://www.hammerspoon.org/docs/hs.webview.html#windowMasks[]). Default value: `hs.webview.windowMasks.utility|hs.webview.windowMasks.HUD|hs.webview.windowMasks.titled|hs.webview.windowMasks.closable`</td>
               </tr>
               <tr>
                 <th>Source</th>
@@ -145,9 +141,11 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Binds hotkeys for PopupTranslateSelection</p>
-<p>Parameters:</p>
-<ul>
+                <td>Binds hotkeys for PopupTranslateSelection</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>mapping - A table containing hotkey modifier/key details for the following items:<ul>
 <li><code>translate</code> - translate the selected text without specifying source/destination languages (source defaults to auto-detect, destination defaults to your last choice or to English)</li>
 <li><code>translate_to_&lt;lang&gt;</code> - translate the selected text to the given destination language. Source language will be auto-detected.</li>
@@ -156,16 +154,11 @@
 </ul>
 </li>
 </ul>
-<p>Sample value for <code>mapping</code>:</p>
-
-<pre><code> {
-    translate_to_en = { { "ctrl", "alt", "cmd" }, "e" },
-    translate_to_de = { { "ctrl", "alt", "cmd" }, "d" },
-    translate_to_es = { { "ctrl", "alt", "cmd" }, "s" },
-    translate_de_en = { { "shift", "ctrl", "alt", "cmd" }, "e" },
-    translate_en_de = { { "shift", "ctrl", "alt", "cmd" }, "d" },
- }</code></pre>
 </td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
               </tr>
               <tr>
                 <th>Source</th>
@@ -187,15 +180,20 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Display a translation popup with the translation of the given text between the specified languages</p>
-<p>Parameters:</p>
-<ul>
+                <td>Display a translation popup with the translation of the given text between the specified languages</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>text - string containing the text to translate</li>
 <li>to - two-letter code for destination language. If <code>nil</code>, Google Translate will use your most recent selection, or default to English</li>
 <li>from - two-letter code for source language. If <code>nil</code>, Google Translate will try to auto-detect it</li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li>The PopupTranslateSelection object</li>
 </ul>
 </td>
@@ -220,14 +218,19 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Get the current selected text in the frontmost window and display a translation popup with the translation between the specified languages</p>
-<p>Parameters:</p>
-<ul>
+                <td>Get the current selected text in the frontmost window and display a translation popup with the translation between the specified languages</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>to - two-letter code for destination language. If <code>nil</code>, Google Translate will use your most recent selection, or default to English</li>
 <li>from - two-letter code for source language. If <code>nil</code>, Google Translate will try to auto-detect it</li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li>The PopupTranslateSelection object</li>
 </ul>
 </td>

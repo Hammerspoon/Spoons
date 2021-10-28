@@ -59,13 +59,7 @@ triggered on sleep, on lid close, or using a hotkey.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Boolean, whether to eject volumes when the laptop lid is closed
-with an external display connected. There is no "lid close" event,
-so we detect when the internal display gets disabled. This method
-is somewhat unreliable (e.g. it also triggers when the internal
-display goes to sleep due to inactivity), so its default value is
-<code>false</code></p>
-</td>
+                <td>Boolean, whether to eject volumes when the laptop lid is closed</td>
               </tr>
               <tr>
                 <th>Source</th>
@@ -87,8 +81,7 @@ display goes to sleep due to inactivity), so its default value is
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Boolean, whether to eject volumes before the system goes to sleep. Default value: true</p>
-</td>
+                <td>Boolean, whether to eject volumes before the system goes to sleep. Default value: true</td>
               </tr>
               <tr>
                 <th>Source</th>
@@ -110,8 +103,7 @@ display goes to sleep due to inactivity), so its default value is
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.</p>
-</td>
+                <td>Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.</td>
               </tr>
               <tr>
                 <th>Source</th>
@@ -133,8 +125,7 @@ display goes to sleep due to inactivity), so its default value is
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>List containing volume paths that should never be ejected. Default value: empty list</p>
-</td>
+                <td>List containing volume paths that should never be ejected. Default value: empty list</td>
               </tr>
               <tr>
                 <th>Source</th>
@@ -156,8 +147,7 @@ display goes to sleep due to inactivity), so its default value is
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Boolean, whether to produce a notification about the volumes that get ejected. Default value: <code>false</code></p>
-</td>
+                <td>Boolean, whether to produce a notification about the volumes that get ejected. Default value: `false`</td>
               </tr>
               <tr>
                 <th>Source</th>
@@ -179,11 +169,7 @@ display goes to sleep due to inactivity), so its default value is
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>List of additional system events on which the volumes should be ejected. The
-values must be
-<a href="`hs.caffeinate.watcher`">http://www.hammerspoon.org/docs/hs.caffeinate.watcher.html</a>
-constant values. Default value: empty list</p>
-</td>
+                <td>List of additional system events on which the volumes should be ejected. The</td>
               </tr>
               <tr>
                 <th>Source</th>
@@ -205,8 +191,7 @@ constant values. Default value: empty list</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Boolean, whether to show a menubar button to eject all drives. Default value: true</p>
-</td>
+                <td>Boolean, whether to show a menubar button to eject all drives. Default value: true</td>
               </tr>
               <tr>
                 <th>Source</th>
@@ -229,15 +214,21 @@ constant values. Default value: empty list</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Binds hotkeys for EjectMenu</p>
-<p>Parameters:</p>
-<ul>
+                <td>Binds hotkeys for EjectMenu</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>mapping - A table containing hotkey objifier/key details for the following items:<ul>
 <li>ejectAll - eject all volumes.</li>
 </ul>
 </li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
               </tr>
               <tr>
                 <th>Source</th>
@@ -259,12 +250,18 @@ constant values. Default value: empty list</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Eject all volumes</p>
-<p>Parameters:</p>
-<ul>
+                <td>Eject all volumes</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>persistent_notifs: a boolean indicating whether notifications (if shown) should be persistent.</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
               </tr>
               <tr>
                 <th>Source</th>
@@ -286,14 +283,19 @@ constant values. Default value: empty list</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Determine if a volume should be ejected.</p>
-<p>Parameters:</p>
-<ul>
+                <td>Determine if a volume should be ejected.</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>path - the mount path of the volume.</li>
 <li>info - a table containing a data structure as returned by <code>hs.fs.volume.allVolumes()</code>.</li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li>A boolean indicating whether the volume should be ejected.</li>
 </ul>
 </td>
@@ -318,12 +320,18 @@ constant values. Default value: empty list</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Start the watchers for power events and screen changes, to trigger volume ejection.</p>
-<p>Parameters:</p>
-<ul>
+                <td>Start the watchers for power events and screen changes, to trigger volume ejection.</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>None</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
               </tr>
               <tr>
                 <th>Source</th>
@@ -345,12 +353,18 @@ constant values. Default value: empty list</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Stop the watchers</p>
-<p>Parameters:</p>
-<ul>
+                <td>Stop the watchers</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>None</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
               </tr>
               <tr>
                 <th>Source</th>
@@ -372,13 +386,18 @@ constant values. Default value: empty list</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Return table of volumes to be ejected when "Eject All" is invoked.</p>
-<p>Parameters:</p>
-<ul>
+                <td>Return table of volumes to be ejected when "Eject All" is invoked.</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>None</li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li>A table in the same format as returned by
 <code>hs.fs.volume.allVolumes()</code> but containing only those volumes
 for which <code>EjectMenu:shouldEject()</code> returns <code>true</code>.</li>

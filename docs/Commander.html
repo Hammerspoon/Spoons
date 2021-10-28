@@ -60,11 +60,7 @@ except when spoon author provides a <code>commanderCommandList</code>.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>This is the table which stores all the commands
-Each key is the name of the command,
-and each value is the actual function.
-you can add your custom commands to it.</p>
-</td>
+                <td>This is the table which stores all the commands</td>
               </tr>
               <tr>
                 <th>Source</th>
@@ -86,9 +82,7 @@ you can add your custom commands to it.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>If you want to switch to a layout when enabled chooser,
-set this to name of that layout</p>
-</td>
+                <td>If you want to switch to a layout when enabled chooser,</td>
               </tr>
               <tr>
                 <th>Source</th>
@@ -110,9 +104,7 @@ set this to name of that layout</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>If you want to switch to a method when enabled chooser,
-set this to name of that method</p>
-</td>
+                <td>If you want to switch to a method when enabled chooser,</td>
               </tr>
               <tr>
                 <th>Source</th>
@@ -134,13 +126,7 @@ set this to name of that method</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>This list contains all the ignored function names,
-any function matches the name inside this list will not
-be added to Commander.commandTable.</p>
-<p>The list contains normal lua builtin functions
-and some hammerspoon functions that generally shouldn't
-be a command, such as init, bindHotkeys, etc.</p>
-</td>
+                <td>This list contains all the ignored function names,</td>
               </tr>
               <tr>
                 <th>Source</th>
@@ -163,17 +149,18 @@ be a command, such as init, bindHotkeys, etc.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Add a command to Commander.commandTable</p>
-<p>Parameters:</p>
-<ul>
-<li>commandTable - It is a table with same form of Commander.commandTable
-<pre><code>          key is name of command, value is the function.</code></pre>
-</li>
+                <td>Add a command to Commander.commandTable</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>commandTable - It is a table with same form of Commander.commandTable key is name of command, value is the function.</li>
 </ul>
-<p>Note:
-Commander doesn't test the name against Commander.ignoredCommandList
-because it assumes you know what you are doing.</p>
 </td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
               </tr>
               <tr>
                 <th>Source</th>
@@ -195,12 +182,18 @@ because it assumes you know what you are doing.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>This function simply set Commander.commandTable to {}, then the next time commander chooser is called it will generate the table again.</p>
-<p>Parameters:</p>
-<ul>
+                <td>This function simply set Commander.commandTable to {}, then the next time commander chooser is called it will generate the table again.</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>None</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
               </tr>
               <tr>
                 <th>Source</th>
@@ -222,12 +215,18 @@ because it assumes you know what you are doing.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>This function shows the command chooser. Bind this to a hotkey to use commander.</p>
-<p>Parameters:</p>
-<ul>
+                <td>This function shows the command chooser. Bind this to a hotkey to use commander.</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>None</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
               </tr>
               <tr>
                 <th>Source</th>

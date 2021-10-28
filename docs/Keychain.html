@@ -57,13 +57,11 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Retrieve an item from the Login Keychain, returns nil if not found.</p>
-<p>Parameters:</p>
-<ul>
-<li>name - The name of the item in the Login Keychain you want to retrieve</li>
-</ul>
-<p>Notes:</p>
-<ul>
+                <td>Retrieve an item from the Login Keychain, returns nil if not found.</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
 <li>Use getItem() instead.</li>
 </ul>
 </td>
@@ -89,8 +87,7 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.</p>
-</td>
+                <td>Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.</td>
               </tr>
               <tr>
                 <th>Source</th>
@@ -113,22 +110,28 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Add generic password to keychain.</p>
-<p>Parameters:</p>
-<ul>
+                <td>Add generic password to keychain.</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>options is a table with values for what keys to try locate with.<ul>
 <li>password - the password</li>
 <li>account - account name (required)</li>
 <li>creator - creator, must be 4 characters</li>
 <li>type - type, must be 4 characters</li>
 <li>kind - kind of item</li>
-<li>comment - comment </li>
+<li>comment - comment</li>
 <li>label - label (defaults to service name)</li>
 <li>service - service name (required)</li>
 </ul>
 </li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
               </tr>
               <tr>
                 <th>Source</th>
@@ -150,22 +153,31 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Retrieve an item from the Login Keychain. Return nil if not found and otherwise a table with found data.</p>
-<p>Parameters:</p>
-<ul>
+                <td>Retrieve an item from the Login Keychain. Return nil if not found and otherwise a table with found data.</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>options is a table with values for what keys to try locate with.<ul>
 <li>account - account name</li>
 <li>creator - creator, must be 4 characters</li>
 <li>type - type, must be 4 characters</li>
 <li>kind - kind of item</li>
-<li>comment - comment </li>
+<li>comment - comment</li>
 <li>label - label (defaults to service name)</li>
 <li>service - service name</li>
 </ul>
 </li>
 </ul>
-<p>Notes:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
 <li>If multiple possibles matches just the first one is found.</li>
 </ul>
 </td>

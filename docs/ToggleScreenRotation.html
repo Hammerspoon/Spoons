@@ -55,8 +55,7 @@ determining if the screen is rotated upon initialization.</li>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Two-element table containing the rotation angles for "normal" and "rotated". Defaults to <code>{ 0, 90 }</code> and should only be changed if you really know what you are doing.</p>
-</td>
+                <td>Two-element table containing the rotation angles for "normal" and "rotated". Defaults to `{ 0, 90 }` and should only be changed if you really know what you are doing.</td>
               </tr>
               <tr>
                 <th>Source</th>
@@ -78,9 +77,7 @@ determining if the screen is rotated upon initialization.</li>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Lua patterns for screens that shouldn't be rotated, even if they match one of the patterns.
-Defaults to <code>{ "Color LCD", "iMac" }</code>, which excludes the built-in display on laptops and iMacs.</p>
-</td>
+                <td>Lua patterns for screens that shouldn't be rotated, even if they match one of the patterns.</td>
               </tr>
               <tr>
                 <th>Source</th>
@@ -103,14 +100,18 @@ Defaults to <code>{ "Color LCD", "iMac" }</code>, which excludes the built-in di
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Binds hotkeys for ToggleScreenRotation.</p>
-<p>Parameters:</p>
-<ul>
-<li>mapping - A table containing hotkey modifier/key details to rotate screens. Instead of fixed "key names", each key must be the name of a screen to rotate, or a Lua pattern - in this case the first screen to match the pattern will be rotated. The value is a table containing the hotkey modifier/key details as usual. You can use the special key <code>first</code> (or the Lua pattern <code>[".*"]</code>) to match the first external screen, which should be sufficient unless you have more than one external screen. Example (bind Ctrl-Cmd-Alt-F15 to rotate the first external screen):
-<pre><code>  [".*"] = { {"ctrl", "cmd", "alt"}, "f15" }</code></pre>
-</li>
+                <td>Binds hotkeys for ToggleScreenRotation.</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>mapping - A table containing hotkey modifier/key details to rotate screens. Instead of fixed "key names", each key must be the name of a screen to rotate, or a Lua pattern - in this case the first screen to match the pattern will be rotated. The value is a table containing the hotkey modifier/key details as usual. You can use the special key <code>first</code> (or the Lua pattern <code>[".*"]</code>) to match the first external screen, which should be sufficient unless you have more than one external screen. Example (bind Ctrl-Cmd-Alt-F15 to rotate the first external screen): <code>[".*"] = { {"ctrl", "cmd", "alt"}, "f15" }</code></li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
               </tr>
               <tr>
                 <th>Source</th>
