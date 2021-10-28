@@ -77,11 +77,18 @@ by purchasing the Pro version of the app!</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td>Command to execute to check whether the DisableTurboBoost kernel</td>
+                <td>Command to execute to check whether the DisableTurboBoost kernel extension is loaded.</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>Default value: <code>"/usr/sbin/kextstat | grep com.rugarciap.DisableTurboBoost"</code></li>
+</ul>
+</td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/TurboBoost.spoon/init.lua#L102">Source/TurboBoost.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L100">Source/TurboBoost.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -103,7 +110,7 @@ by purchasing the Pro version of the app!</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/TurboBoost.spoon/init.lua#L45">Source/TurboBoost.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L45">Source/TurboBoost.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -121,11 +128,18 @@ by purchasing the Pro version of the app!</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td>Where to find the icon to use for the "Disabled" icon. Default value</td>
+                <td>Where to find the icon to use for the "Disabled" icon.</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>Default value uses the icon from the Turbo Boost application: <code>"/Applications/Turbo Boost Switcher.app/Contents/Resources/icon_off.tiff"</code></li>
+</ul>
+</td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/TurboBoost.spoon/init.lua#L121">Source/TurboBoost.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L121">Source/TurboBoost.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -143,11 +157,18 @@ by purchasing the Pro version of the app!</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td>Where to find the icon to use for the "Enabled" icon. Default value</td>
+                <td>Where to find the icon to use for the "Enabled" icon.</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>Default value uses the icon from the Turbo Boost application: <code>"/Applications/Turbo Boost Switcher.app/Contents/Resources/icon.tiff"</code></li>
+</ul>
+</td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/TurboBoost.spoon/init.lua#L114">Source/TurboBoost.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L113">Source/TurboBoost.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -169,7 +190,7 @@ by purchasing the Pro version of the app!</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/TurboBoost.spoon/init.lua#L67">Source/TurboBoost.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L67">Source/TurboBoost.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -191,7 +212,7 @@ by purchasing the Pro version of the app!</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/TurboBoost.spoon/init.lua#L57">Source/TurboBoost.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L57">Source/TurboBoost.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -209,11 +230,19 @@ by purchasing the Pro version of the app!</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td>Command to execute to load the DisableTurboBoost kernel</td>
+                <td>Command to execute to load the DisableTurboBoost kernel extension.</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>This command must execute with root privileges and either query the user for the credentials, or be configured (e.g. with sudo) to run without prompting.</li>
+<li>The string "%s" in this variable gets replaced with the value of TurboBoost.kext_path. Default value: <code>"/usr/bin/sudo /usr/bin/kextutil '%s'"</code></li>
+</ul>
+</td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/TurboBoost.spoon/init.lua#L82">Source/TurboBoost.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L82">Source/TurboBoost.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -235,7 +264,7 @@ by purchasing the Pro version of the app!</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/TurboBoost.spoon/init.lua#L37">Source/TurboBoost.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L37">Source/TurboBoost.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -253,11 +282,11 @@ by purchasing the Pro version of the app!</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td>Boolean indicating whether notifications should be generated when</td>
+                <td>Boolean indicating whether notifications should be generated when Turbo Boost is enabled/disabled. Default value: `true`</td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/TurboBoost.spoon/init.lua#L108">Source/TurboBoost.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L108">Source/TurboBoost.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -279,7 +308,7 @@ by purchasing the Pro version of the app!</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/TurboBoost.spoon/init.lua#L51">Source/TurboBoost.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L51">Source/TurboBoost.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -297,11 +326,19 @@ by purchasing the Pro version of the app!</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td>Command to execute to unload the DisableTurboBoost kernel</td>
+                <td>Command to execute to unload the DisableTurboBoost kernel extension.</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>This command must execute with root privileges and either query the user for the credentials, or be configured (e.g. with sudo) to run without prompting.</li>
+<li>The string "%s" in this variable gets replaced with the value of TurboBoost.kext_path. Default value: <code>"/usr/bin/sudo /sbin/kextunload '%s'"</code></li>
+</ul>
+</td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/TurboBoost.spoon/init.lua#L92">Source/TurboBoost.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L91">Source/TurboBoost.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -338,7 +375,7 @@ by purchasing the Pro version of the app!</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/TurboBoost.spoon/init.lua#L200">Source/TurboBoost.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L197">Source/TurboBoost.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -375,7 +412,7 @@ by purchasing the Pro version of the app!</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/TurboBoost.spoon/init.lua#L128">Source/TurboBoost.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L129">Source/TurboBoost.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -411,7 +448,7 @@ by purchasing the Pro version of the app!</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/TurboBoost.spoon/init.lua#L212">Source/TurboBoost.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L209">Source/TurboBoost.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -447,7 +484,7 @@ by purchasing the Pro version of the app!</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/TurboBoost.spoon/init.lua#L171">Source/TurboBoost.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L168">Source/TurboBoost.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -483,7 +520,7 @@ by purchasing the Pro version of the app!</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/TurboBoost.spoon/init.lua#L233">Source/TurboBoost.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L230">Source/TurboBoost.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -519,7 +556,7 @@ by purchasing the Pro version of the app!</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/TurboBoost.spoon/init.lua#L186">Source/TurboBoost.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L183">Source/TurboBoost.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>

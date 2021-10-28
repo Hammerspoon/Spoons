@@ -63,8 +63,15 @@ except when spoon author provides a <code>commanderCommandList</code>.</p>
                 <td>This is the table which stores all the commands</td>
               </tr>
               <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>Each key is the name of the command, and each value is the actual function. You can add your custom commands to it.</li>
+</ul>
+</td>
+              </tr>
+              <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/Commander.spoon/init.lua#L32">Source/Commander.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/Commander.spoon/init.lua#L33">Source/Commander.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -82,11 +89,11 @@ except when spoon author provides a <code>commanderCommandList</code>.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td>If you want to switch to a layout when enabled chooser,</td>
+                <td>If you want to switch to a layout when enabled chooser, set this to name of that layout</td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/Commander.spoon/init.lua#L56">Source/Commander.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/Commander.spoon/init.lua#L54">Source/Commander.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -104,11 +111,11 @@ except when spoon author provides a <code>commanderCommandList</code>.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td>If you want to switch to a method when enabled chooser,</td>
+                <td>If you want to switch to a method when enabled chooser, set this to name of that method</td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/Commander.spoon/init.lua#L62">Source/Commander.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/Commander.spoon/init.lua#L59">Source/Commander.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -126,11 +133,18 @@ except when spoon author provides a <code>commanderCommandList</code>.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td>This list contains all the ignored function names,</td>
+                <td>This list contains all the ignored function names, any function matches the name inside this list will not be added to Commander.commandTable.</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>The list contains normal lua builtin functions and some hammerspoon functions that generally shouldn't be a command, such as init, bindHotkeys, etc.</li>
+</ul>
+</td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/Commander.spoon/init.lua#L40">Source/Commander.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/Commander.spoon/init.lua#L41">Source/Commander.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -163,8 +177,15 @@ except when spoon author provides a <code>commanderCommandList</code>.</p>
                   <td></td>
               </tr>
               <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>Commander doesn't test the name against Commander.ignoredCommandList because it assumes you know what you are doing.</li>
+</ul>
+</td>
+              </tr>
+              <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/Commander.spoon/init.lua#L128">Source/Commander.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/Commander.spoon/init.lua#L124">Source/Commander.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -197,7 +218,7 @@ except when spoon author provides a <code>commanderCommandList</code>.</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/Commander.spoon/init.lua#L143">Source/Commander.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/Commander.spoon/init.lua#L137">Source/Commander.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -230,7 +251,7 @@ except when spoon author provides a <code>commanderCommandList</code>.</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/Commander.spoon/init.lua#L68">Source/Commander.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/Commander.spoon/init.lua#L64">Source/Commander.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>

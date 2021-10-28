@@ -57,7 +57,7 @@ It also (optionally) shows a bar about current keys bindings.</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/RecursiveBinder.spoon/init.lua#L20">Source/RecursiveBinder.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/RecursiveBinder.spoon/init.lua#L20">Source/RecursiveBinder.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -79,7 +79,7 @@ It also (optionally) shows a bar about current keys bindings.</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/RecursiveBinder.spoon/init.lua#L25">Source/RecursiveBinder.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/RecursiveBinder.spoon/init.lua#L25">Source/RecursiveBinder.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -101,7 +101,7 @@ It also (optionally) shows a bar about current keys bindings.</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/RecursiveBinder.spoon/init.lua#L30">Source/RecursiveBinder.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/RecursiveBinder.spoon/init.lua#L30">Source/RecursiveBinder.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -122,8 +122,19 @@ It also (optionally) shows a bar about current keys bindings.</p>
                 <td>format of helper, the helper is just a hs.alert</td>
               </tr>
               <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>default to {atScreenEdge=2,
+<pre><code>     strokeColor={ white = 0, alpha = 2 },
+     textFont='SF Mono'
+     textSize=20}</code></pre>
+</li>
+</ul>
+</td>
+              </tr>
+              <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/RecursiveBinder.spoon/init.lua#L35">Source/RecursiveBinder.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/RecursiveBinder.spoon/init.lua#L35">Source/RecursiveBinder.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -144,8 +155,20 @@ It also (optionally) shows a bar about current keys bindings.</p>
                 <td>The mapping used to display modifiers on helper.</td>
               </tr>
               <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>Default to {
+command = '⌘',
+control = '⌃',
+option = '⌥',
+shift = '⇧',
+}</li>
+</ul>
+</td>
+              </tr>
+              <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/RecursiveBinder.spoon/init.lua#L52">Source/RecursiveBinder.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/RecursiveBinder.spoon/init.lua#L54">Source/RecursiveBinder.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -167,7 +190,7 @@ It also (optionally) shows a bar about current keys bindings.</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/RecursiveBinder.spoon/init.lua#L47">Source/RecursiveBinder.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/RecursiveBinder.spoon/init.lua#L49">Source/RecursiveBinder.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -203,8 +226,25 @@ It also (optionally) shows a bar about current keys bindings.</p>
 </td>
               </tr>
               <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>Spec of keymap:<ul>
+<li>Every key is of format {{modifers}, key, (optional) description}</li>
+<li>The first two element is what you usually pass into a hs.hotkey.bind() function.</li>
+<li>Each value of key can be in two form:<ol>
+<li>A function. Then pressing the key invokes the function</li>
+<li>A table. Then pressing the key bring to another layer of keybindings.
+And the table have the same format of top table: keys to keys, value to table or function</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</td>
+              </tr>
+              <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/RecursiveBinder.spoon/init.lua#L225">Source/RecursiveBinder.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/RecursiveBinder.spoon/init.lua#L229">Source/RecursiveBinder.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -242,7 +282,7 @@ to pass to RecursiveBinder.recursiveBind()</li>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/RecursiveBinder.spoon/init.lua#L133">Source/RecursiveBinder.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/RecursiveBinder.spoon/init.lua#L137">Source/RecursiveBinder.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>

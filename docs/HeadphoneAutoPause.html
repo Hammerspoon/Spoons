@@ -55,8 +55,15 @@
                 <td>Boolean value indicating if music should be automatically resumed when headphones are plugged in again. Only works if music was automatically paused when headphones were unplugged.</td>
               </tr>
               <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>Default value: <code>true</code></li>
+</ul>
+</td>
+              </tr>
+              <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/HeadphoneAutoPause.spoon/init.lua#L40">Source/HeadphoneAutoPause.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/HeadphoneAutoPause.spoon/init.lua#L43">Source/HeadphoneAutoPause.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -74,11 +81,25 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td>Table containing one key per application, with the value indicating whether HeadphoneAutoPause should try to pause/unpause that application in response to the headphone being plugged/unplugged. The key name must ideally correspond to the name of the corresponding `hs.*` module. Default value:</td>
+                <td>Table containing one key per application, with the value indicating whether HeadphoneAutoPause should try to pause/unpause that application in response to the headphone being plugged/unplugged.</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>The key name must ideally correspond to the name of the corresponding <code>hs.*</code> module. Default value:
+<pre><code>{
+itunes = true,
+spotify = true,
+deezer = true,
+vox = false -- Vox has built-in headphone detection support
+}</code></pre>
+</li>
+</ul>
+</td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/HeadphoneAutoPause.spoon/init.lua#L22">Source/HeadphoneAutoPause.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/HeadphoneAutoPause.spoon/init.lua#L22">Source/HeadphoneAutoPause.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -99,8 +120,22 @@
                 <td>Table containing control functions for each application to control.</td>
               </tr>
               <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>The keys must correspond to the values in <code>HeadphoneAutoPause.control</code>, and the value is a table with the following elements:<ul>
+<li><code>appname</code> - application name (case-sensitive, as the application appears to the system)</li>
+<li><code>isPlaying</code> - function that returns a true value if the application is playing</li>
+<li><code>play</code> - function that starts playback in the application</li>
+<li><code>pause</code> - function that pauses playback in the application</li>
+</ul>
+</li>
+<li>The default value includes definitions for iTunes, Spotify, Deezer and Vox, using the corresponding functions from <code>hs.itunes</code>, <code>hs.spotify</code>, <code>hs.deezer</code> and <code>hs.vox</code>, respectively.</li>
+</ul>
+</td>
+              </tr>
+              <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/HeadphoneAutoPause.spoon/init.lua#L64">Source/HeadphoneAutoPause.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/HeadphoneAutoPause.spoon/init.lua#L68">Source/HeadphoneAutoPause.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -122,7 +157,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/HeadphoneAutoPause.spoon/init.lua#L17">Source/HeadphoneAutoPause.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/HeadphoneAutoPause.spoon/init.lua#L17">Source/HeadphoneAutoPause.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -157,7 +192,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/HeadphoneAutoPause.spoon/init.lua#L92">Source/HeadphoneAutoPause.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/HeadphoneAutoPause.spoon/init.lua#L97">Source/HeadphoneAutoPause.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -193,7 +228,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/HeadphoneAutoPause.spoon/init.lua#L47">Source/HeadphoneAutoPause.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/HeadphoneAutoPause.spoon/init.lua#L51">Source/HeadphoneAutoPause.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -226,7 +261,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/HeadphoneAutoPause.spoon/init.lua#L132">Source/HeadphoneAutoPause.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/HeadphoneAutoPause.spoon/init.lua#L137">Source/HeadphoneAutoPause.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -259,7 +294,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/HeadphoneAutoPause.spoon/init.lua#L152">Source/HeadphoneAutoPause.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/HeadphoneAutoPause.spoon/init.lua#L157">Source/HeadphoneAutoPause.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>

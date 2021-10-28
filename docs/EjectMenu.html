@@ -59,11 +59,19 @@ triggered on sleep, on lid close, or using a hotkey.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td>Boolean, whether to eject volumes when the laptop lid is closed</td>
+                <td>Boolean, whether to eject volumes when the laptop lid is closed with an external display connected.</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>There is no "lid close" event, so we detect when the internal display gets disabled.</li>
+<li>This method is somewhat unreliable (e.g. it also triggers when the internal display goes to sleep due to inactivity), so its default value is <code>false</code></li>
+</ul>
+</td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/EjectMenu.spoon/init.lua#L48">Source/EjectMenu.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/EjectMenu.spoon/init.lua#L48">Source/EjectMenu.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -85,7 +93,7 @@ triggered on sleep, on lid close, or using a hotkey.</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/EjectMenu.spoon/init.lua#L43">Source/EjectMenu.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/EjectMenu.spoon/init.lua#L43">Source/EjectMenu.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -107,7 +115,7 @@ triggered on sleep, on lid close, or using a hotkey.</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/EjectMenu.spoon/init.lua#L28">Source/EjectMenu.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/EjectMenu.spoon/init.lua#L28">Source/EjectMenu.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -129,7 +137,7 @@ triggered on sleep, on lid close, or using a hotkey.</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/EjectMenu.spoon/init.lua#L33">Source/EjectMenu.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/EjectMenu.spoon/init.lua#L33">Source/EjectMenu.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -151,7 +159,7 @@ triggered on sleep, on lid close, or using a hotkey.</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/EjectMenu.spoon/init.lua#L38">Source/EjectMenu.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/EjectMenu.spoon/init.lua#L38">Source/EjectMenu.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -169,11 +177,18 @@ triggered on sleep, on lid close, or using a hotkey.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td>List of additional system events on which the volumes should be ejected. The</td>
+                <td>List of additional system events on which the volumes should be ejected.</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>The values must be <a href="`hs.caffeinate.watcher`">http://www.hammerspoon.org/docs/hs.caffeinate.watcher.html</a> constant values. Default value: empty list</li>
+</ul>
+</td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/EjectMenu.spoon/init.lua#L63">Source/EjectMenu.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/EjectMenu.spoon/init.lua#L62">Source/EjectMenu.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -195,7 +210,7 @@ triggered on sleep, on lid close, or using a hotkey.</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/EjectMenu.spoon/init.lua#L58">Source/EjectMenu.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/EjectMenu.spoon/init.lua#L57">Source/EjectMenu.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -219,10 +234,8 @@ triggered on sleep, on lid close, or using a hotkey.</p>
               <tr>
                   <th>Parameters</th>
                   <td><ul>
-<li>mapping - A table containing hotkey objifier/key details for the following items:<ul>
+<li>mapping - A table containing hotkey objifier/key details for the following items:</li>
 <li>ejectAll - eject all volumes.</li>
-</ul>
-</li>
 </ul>
 </td>
               </tr>
@@ -232,7 +245,7 @@ triggered on sleep, on lid close, or using a hotkey.</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/EjectMenu.spoon/init.lua#L220">Source/EjectMenu.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/EjectMenu.spoon/init.lua#L215">Source/EjectMenu.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -265,7 +278,7 @@ triggered on sleep, on lid close, or using a hotkey.</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/EjectMenu.spoon/init.lua#L126">Source/EjectMenu.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/EjectMenu.spoon/init.lua#L123">Source/EjectMenu.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -302,7 +315,7 @@ triggered on sleep, on lid close, or using a hotkey.</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/EjectMenu.spoon/init.lua#L71">Source/EjectMenu.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/EjectMenu.spoon/init.lua#L70">Source/EjectMenu.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -335,7 +348,7 @@ triggered on sleep, on lid close, or using a hotkey.</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/EjectMenu.spoon/init.lua#L247">Source/EjectMenu.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/EjectMenu.spoon/init.lua#L241">Source/EjectMenu.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -368,7 +381,7 @@ triggered on sleep, on lid close, or using a hotkey.</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/EjectMenu.spoon/init.lua#L289">Source/EjectMenu.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/EjectMenu.spoon/init.lua#L283">Source/EjectMenu.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -398,16 +411,14 @@ triggered on sleep, on lid close, or using a hotkey.</p>
               <tr>
                   <th>Returns</th>
                   <td><ul>
-<li>A table in the same format as returned by
-<code>hs.fs.volume.allVolumes()</code> but containing only those volumes
-for which <code>EjectMenu:shouldEject()</code> returns <code>true</code>.</li>
+<li>A table in the same format as returned by <code>hs.fs.volume.allVolumes()</code> but containing only those volumes for which <code>EjectMenu:shouldEject()</code> returns <code>true</code>.</li>
 <li>An integer indicating how many volumes are in the table.</li>
 </ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/EjectMenu.spoon/init.lua#L86">Source/EjectMenu.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/EjectMenu.spoon/init.lua#L85">Source/EjectMenu.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>

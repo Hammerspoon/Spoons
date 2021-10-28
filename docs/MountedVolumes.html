@@ -62,7 +62,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/MountedVolumes.spoon/init.lua#L249">Source/MountedVolumes.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/MountedVolumes.spoon/init.lua#L254">Source/MountedVolumes.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -84,7 +84,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/MountedVolumes.spoon/init.lua#L242">Source/MountedVolumes.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/MountedVolumes.spoon/init.lua#L247">Source/MountedVolumes.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -105,8 +105,15 @@
                 <td>A table, as defined in `hs.drawing.color`, specifying the color to use for the in use portion of the volume's capacity pie chart. Defaults to `hs.drawing.color.x11.orangered`</td>
               </tr>
               <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>Changes will take effect when the next volume change occurs, when the next usage check occurs (see <code>MountedVolumes.checkInterval</code>), or when <code>MountedVolumes:show</code> is invoked, whichever occurs first.</li>
+</ul>
+</td>
+              </tr>
+              <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/MountedVolumes.spoon/init.lua#L205">Source/MountedVolumes.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/MountedVolumes.spoon/init.lua#L206">Source/MountedVolumes.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -128,7 +135,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/MountedVolumes.spoon/init.lua#L235">Source/MountedVolumes.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/MountedVolumes.spoon/init.lua#L240">Source/MountedVolumes.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -150,7 +157,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/MountedVolumes.spoon/init.lua#L256">Source/MountedVolumes.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/MountedVolumes.spoon/init.lua#L261">Source/MountedVolumes.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -171,8 +178,15 @@
                 <td>A boolean, default true, indicating whether the eject button displayed next to removable volumes is enabled.</td>
               </tr>
               <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>Changes will take effect when the next volume change occurs, when the next usage check occurs (see <code>MountedVolumes.checkInterval</code>), or when <code>MountedVolumes:show</code> is invoked, whichever occurs first.</li>
+</ul>
+</td>
+              </tr>
+              <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/MountedVolumes.spoon/init.lua#L198">Source/MountedVolumes.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/MountedVolumes.spoon/init.lua#L198">Source/MountedVolumes.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -193,8 +207,15 @@
                 <td>A table, as defined in `hs.drawing.color`, specifying the color to use for the free portion of the volume's capacity pie chart. Defaults to `hs.drawing.color.x11.mediumspringgreen`</td>
               </tr>
               <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>Changes will take effect when the next volume change occurs, when the next usage check occurs (see <code>MountedVolumes.checkInterval</code>), or when <code>MountedVolumes:show</code> is invoked, whichever occurs first.</li>
+</ul>
+</td>
+              </tr>
+              <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/MountedVolumes.spoon/init.lua#L212">Source/MountedVolumes.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/MountedVolumes.spoon/init.lua#L214">Source/MountedVolumes.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -215,8 +236,16 @@
                 <td>A boolean, default true, indicating whether the displayed list grows downwards or upwards as more volumes are mounted.</td>
               </tr>
               <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>Note that if this value is true, then <code>MountedVolumes.location</code> specifies the upper left corner of the display.  If this value is false, then <code>MountedVolumes.location</code> specifies the bottom left corner of the display.</li>
+<li>Changes will take effect when the next volume change occurs, when the next usage check occurs (see <code>MountedVolumes.checkInterval</code>), or when <code>MountedVolumes:show</code> is invoked, whichever occurs first.</li>
+</ul>
+</td>
+              </tr>
+              <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/MountedVolumes.spoon/init.lua#L227">Source/MountedVolumes.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/MountedVolumes.spoon/init.lua#L231">Source/MountedVolumes.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -237,8 +266,16 @@
                 <td>A table specifying the location on the screen of the starting corner of the display. Defaults to `{ x = 20, y = 22 }`.</td>
               </tr>
               <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>See also <code>MountedValues.growsDownwards</code>.</li>
+<li>Changes will take effect when the next volume change occurs, when the next usage check occurs (see <code>MountedVolumes.checkInterval</code>), or when <code>MountedVolumes:show</code> is invoked, whichever occurs first.</li>
+</ul>
+</td>
+              </tr>
+              <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/MountedVolumes.spoon/init.lua#L219">Source/MountedVolumes.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/MountedVolumes.spoon/init.lua#L222">Source/MountedVolumes.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -259,8 +296,20 @@
                 <td>A table specifying the style as defined in `hs.styledtext` to display the volume name and usage details with. Defaults to:</td>
               </tr>
               <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>{
+   font = { name = "Menlo", size = 10 },
+   color = { alpha = 1.0 },
+   paragraphStyle = { alignment = "center" },
+}</li>
+<li>Changes will take effect when the next volume change occurs, when the next usage check occurs (see <code>MountedVolumes.checkInterval</code>), or when <code>MountedVolumes:show</code> is invoked, whichever occurs first.</li>
+</ul>
+</td>
+              </tr>
+              <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/MountedVolumes.spoon/init.lua#L181">Source/MountedVolumes.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/MountedVolumes.spoon/init.lua#L181">Source/MountedVolumes.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -282,7 +331,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/MountedVolumes.spoon/init.lua#L174">Source/MountedVolumes.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/MountedVolumes.spoon/init.lua#L174">Source/MountedVolumes.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -336,7 +385,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/MountedVolumes.spoon/init.lua#L306">Source/MountedVolumes.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/MountedVolumes.spoon/init.lua#L311">Source/MountedVolumes.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -372,7 +421,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/MountedVolumes.spoon/init.lua#L285">Source/MountedVolumes.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/MountedVolumes.spoon/init.lua#L290">Source/MountedVolumes.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -415,7 +464,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/MountedVolumes.spoon/init.lua#L263">Source/MountedVolumes.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/MountedVolumes.spoon/init.lua#L268">Source/MountedVolumes.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>

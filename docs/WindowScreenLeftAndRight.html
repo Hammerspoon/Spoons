@@ -48,11 +48,19 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td>Length of the animation to use for the window movements across the</td>
+                <td>Length of the animation to use for the window movements across the screens.</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li><code>nil</code> means to use the existing value from <code>hs.window.animationDuration</code>. 0 means to disable the animations.</li>
+<li>Default: <code>nil</code>.</li>
+</ul>
+</td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/WindowScreenLeftAndRight.spoon/init.lua#L40">Source/WindowScreenLeftAndRight.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/WindowScreenLeftAndRight.spoon/init.lua#L40">Source/WindowScreenLeftAndRight.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -70,11 +78,24 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td>Table containing a sample set of hotkeys that can be</td>
+                <td>Table containing a sample set of hotkeys that can be assigned to the different operations.</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>These are not bound by default - if you want to use them you have to call: <code>spoon.WindowScreenLeftAndRight:bindHotkeys(spoon.WindowScreenLeftAndRight.defaultHotkeys)</code> after loading the spoon.</li>
+<li>Value:
+<pre><code>{
+ screen_left = { {"ctrl", "alt", "cmd"}, "Left" },
+ screen_right= { {"ctrl", "alt", "cmd"}, "Right" },
+}</code></pre>
+</li>
+</ul>
+</td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/WindowScreenLeftAndRight.spoon/init.lua#L22">Source/WindowScreenLeftAndRight.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/WindowScreenLeftAndRight.spoon/init.lua#L22">Source/WindowScreenLeftAndRight.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -96,7 +117,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/WindowScreenLeftAndRight.spoon/init.lua#L17">Source/WindowScreenLeftAndRight.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/WindowScreenLeftAndRight.spoon/init.lua#L17">Source/WindowScreenLeftAndRight.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -133,7 +154,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/WindowScreenLeftAndRight.spoon/init.lua#L87">Source/WindowScreenLeftAndRight.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/WindowScreenLeftAndRight.spoon/init.lua#L88">Source/WindowScreenLeftAndRight.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>

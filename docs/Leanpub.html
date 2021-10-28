@@ -60,11 +60,18 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td>String containing the key to use for Leanpub API requests. Get it</td>
+                <td>String containing the key to use for Leanpub API requests.</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>Get it from your Leanpub account under the "Author / Your API Key" menu section. No default.</li>
+</ul>
+</td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/Leanpub.spoon/init.lua#L56">Source/Leanpub.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/Leanpub.spoon/init.lua#L43">Source/Leanpub.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -82,11 +89,19 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td>Boolean that specifies whether all your books are being synced to</td>
+                <td>Boolean that specifies whether all your books are being synced to Dropbox.</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>If true, the "Book generation complete" notification will include a "Show" button to open the book's directory in Dropbox.</li>
+<li>Setting this is equivalent to setting the <code>syncs_to_dropbox</code> attribute for each book in <code>watch_books</code>. Default value: <code>false</code>.</li>
+</ul>
+</td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/Leanpub.spoon/init.lua#L46">Source/Leanpub.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/Leanpub.spoon/init.lua#L34">Source/Leanpub.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -104,11 +119,11 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td>Integer containing the interval (in seconds) at which the book</td>
+                <td>Integer containing the interval (in seconds) at which the book status is checked. Default 5.</td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/Leanpub.spoon/init.lua#L63">Source/Leanpub.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/Leanpub.spoon/init.lua#L51">Source/Leanpub.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -126,11 +141,19 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td>String containing the base Dropbox path to which the books are</td>
+                <td>String containing the base Dropbox path to which the books are synced, if the corresponding parameters are set.</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>If unset, the path is determined automatically by reading the ~/.dropbox/info.json file and choosing the path corresponding to the profile specified in <code>Leanpub.dropbox_profile</code>.</li>
+<li>If for some reason your synced files are somewhere else, you can store in this variable the final path to use. Most users should be fine with the defaults.</li>
+</ul>
+</td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/Leanpub.spoon/init.lua#L84">Source/Leanpub.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/Leanpub.spoon/init.lua#L72">Source/Leanpub.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -148,11 +171,19 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td>String containing the name of the Dropbox account type to use for</td>
+                <td>String containing the name of the Dropbox account type to use for determining the base path of the Dropbox directory.</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>Valid values are "personal" and "business". See <a href="https://help.dropbox.com/installs-integrations/desktop/locate-dropbox-folder">https://help.dropbox.com/installs-integrations/desktop/locate-dropbox-folder</a> for the details.</li>
+<li>Default value: "personal".</li>
+</ul>
+</td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/Leanpub.spoon/init.lua#L96">Source/Leanpub.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/Leanpub.spoon/init.lua#L81">Source/Leanpub.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -170,11 +201,18 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td>Boolean indicating whether we should try to fetch book covers from</td>
+                <td>Boolean indicating whether we should try to fetch book covers from Leanpub.</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>Default value: <code>true</code>.</li>
+</ul>
+</td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/Leanpub.spoon/init.lua#L69">Source/Leanpub.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/Leanpub.spoon/init.lua#L56">Source/Leanpub.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -192,11 +230,11 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td>Logger object used within the Spoon. Can be accessed to set the</td>
+                <td>Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.</td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/Leanpub.spoon/init.lua#L18">Source/Leanpub.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/Leanpub.spoon/init.lua#L18">Source/Leanpub.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -214,11 +252,18 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td>Table specifying the Leanpub status for which notifications should</td>
+                <td>Table specifying the Leanpub status for which notifications should not disappear automatically.</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>The indices correspond to the values of the <code>status</code> field returned by the Leanpub API. Possible values are <code>working</code> and <code>complete</code>. Default <code>{ complete = true }</code> to keep the "Book generation complete" messages.</li>
+</ul>
+</td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/Leanpub.spoon/init.lua#L75">Source/Leanpub.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/Leanpub.spoon/init.lua#L64">Source/Leanpub.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -236,11 +281,23 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td>List of books to watch (by default an empty list). Each element of</td>
+                <td>List of books to watch (by default an empty list).</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>Each element of the list must be a table containing the following keys:<ul>
+<li>slug - the web page "slug" of the book to watch. The slug of a book can be set under the "Book Web Page / Web Page URL" menu section in Leanpub.</li>
+<li>icon - optional icon to show in the notifications for the book, as an hs.image object. If not specified, and if <code>fetch_leanpub_covers</code> is <code>true</code>, then the icon is generated automatically from the book cover.</li>
+<li>syncs_to_dropbox - optional boolean to indicate whether the book is configured in Leanpub to sync to Dropbox (you can find this option in your books "Writing mode" screen, as "Send output to Dropbox". If true, the "Book generation complete" notification will include a "Show" button to open the book's directory in Dropbox. If you have multiple books and all of them are synced to Dropbox, you can set the main <code>Leanpub.books_sync_to_dropbox</code> variable instead of setting it for each book. Default value: <code>false</code></li>
+</ul>
+</li>
+</ul>
+</td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/Leanpub.spoon/init.lua#L24">Source/Leanpub.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/Leanpub.spoon/init.lua#L23">Source/Leanpub.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -274,7 +331,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/Leanpub.spoon/init.lua#L313">Source/Leanpub.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/Leanpub.spoon/init.lua#L281">Source/Leanpub.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -308,8 +365,7 @@
               <tr>
                   <th>Returns</th>
                   <td><ul>
-<li>A Lua table containing the status (may be empty), nil if an
-error occurred</li>
+<li>A Lua table containing the status (may be empty), nil if an error occurred</li>
 </ul>
 </td>
               </tr>
@@ -322,7 +378,7 @@ error occurred</li>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/Leanpub.spoon/init.lua#L166">Source/Leanpub.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/Leanpub.spoon/init.lua#L144">Source/Leanpub.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -358,7 +414,7 @@ error occurred</li>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/Leanpub.spoon/init.lua#L272">Source/Leanpub.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/Leanpub.spoon/init.lua#L240">Source/Leanpub.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -395,7 +451,7 @@ error occurred</li>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/Leanpub.spoon/init.lua#L122">Source/Leanpub.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/Leanpub.spoon/init.lua#L107">Source/Leanpub.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -428,7 +484,7 @@ error occurred</li>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/Leanpub.spoon/init.lua#L327">Source/Leanpub.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/Leanpub.spoon/init.lua#L295">Source/Leanpub.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -461,7 +517,7 @@ error occurred</li>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/Leanpub.spoon/init.lua#L340">Source/Leanpub.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/Leanpub.spoon/init.lua#L308">Source/Leanpub.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>

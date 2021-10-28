@@ -61,8 +61,15 @@ and separate keybinding to toggle states with lambda function <code>function() s
                 <td>Takes mapping from application name to mic state.</td>
               </tr>
               <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>For example this <code>{ ['zoom.us'] = 'push-to-talk' }</code> will switch mic to <code>push-to-talk</code> state when Zoom app starts.</li>
+</ul>
+</td>
+              </tr>
+              <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/PushToTalk.spoon/init.lua#L35">Source/PushToTalk.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PushToTalk.spoon/init.lua#L35">Source/PushToTalk.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -83,8 +90,15 @@ and separate keybinding to toggle states with lambda function <code>function() s
                 <td>Check running applications when starting PushToTalk.</td>
               </tr>
               <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>Defaults to false for backwards compatibility. With this disabled, PushToTalk will only change state when applications are launched or quit while PushToTalk is already active. Enable this to look through list of running applications when PushToTalk is started. If multiple apps defined in app_switcher are running, it will set state to the first one it encounters.</li>
+</ul>
+</td>
+              </tr>
+              <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/PushToTalk.spoon/init.lua#L41">Source/PushToTalk.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PushToTalk.spoon/init.lua#L43">Source/PushToTalk.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -118,7 +132,7 @@ and separate keybinding to toggle states with lambda function <code>function() s
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/PushToTalk.spoon/init.lua#L130">Source/PushToTalk.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PushToTalk.spoon/init.lua#L134">Source/PushToTalk.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -151,7 +165,7 @@ and separate keybinding to toggle states with lambda function <code>function() s
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/PushToTalk.spoon/init.lua#L150">Source/PushToTalk.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PushToTalk.spoon/init.lua#L154">Source/PushToTalk.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -184,7 +198,7 @@ and separate keybinding to toggle states with lambda function <code>function() s
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/PushToTalk.spoon/init.lua#L162">Source/PushToTalk.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PushToTalk.spoon/init.lua#L166">Source/PushToTalk.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>

@@ -69,7 +69,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/SleepCorners.spoon/init.lua#L99">Source/SleepCorners.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/SleepCorners.spoon/init.lua#L99">Source/SleepCorners.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -90,8 +90,23 @@
                 <td>A table, default `{ fn = true }`, specifying keyboard modifiers which if held when the mouse pointer enters the sleep now hot corner will trigger sleep immediately rather then delay for [SleepCorners.sleepDelay](#sleepDelay) seconds.</td>
               </tr>
               <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>This variable may be set to nil or an empty table, disabling the immediate sleep option, or a table containing one or more of the following keys:<ul>
+<li><code>fn</code>    - Set to true to require that the <code>Fn</code> key be pressed. May not be available on all keyboards, especially non-Apple ones.</li>
+<li><code>cmd</code>   - Set to true to require that the Command (⌘) key be pressed</li>
+<li><code>alt</code>   - Set to true to require that the Alt (or Option) (⌥) key be pressed</li>
+<li><code>shift</code> - Set to true to require that the Shift (⇧) key be pressed</li>
+<li><code>ctrl</code>  - Set to true to require that the Control (^) key be pressed</li>
+</ul>
+</li>
+<li>If this table contains multiple keys, then all of the specified modifiers must be pressed for immediate sleep to take affect.</li>
+</ul>
+</td>
+              </tr>
+              <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/SleepCorners.spoon/init.lua#L120">Source/SleepCorners.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/SleepCorners.spoon/init.lua#L120">Source/SleepCorners.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -112,8 +127,16 @@
                 <td>Specifies whether the sleep now corner, when the modifiers defined for [SleepCorners.immediateSleepModifiers](#immediateSleepModifiers) are also held, should trigger the display sleep or lock the users session. Defaults to true.</td>
               </tr>
               <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>When this variable is set to true, triggering the sleep now corner for immediate sleep will lock the users session. When this variable is false, the display will be put to sleep instead.</li>
+<li>Note that depending upon the user's settings in the Security &amp; Privacy System Preferences, triggering the display sleep may also lock the user session immediately.</li>
+</ul>
+</td>
+              </tr>
+              <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/SleepCorners.spoon/init.lua#L144">Source/SleepCorners.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/SleepCorners.spoon/init.lua#L143">Source/SleepCorners.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -135,7 +158,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/SleepCorners.spoon/init.lua#L86">Source/SleepCorners.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/SleepCorners.spoon/init.lua#L86">Source/SleepCorners.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -156,8 +179,23 @@
                 <td>A table, default `{ fn = true }`, specifying keyboard modifiers which if held when the mouse pointer enters the never sleep hot corner will disable display sleep and leave it disabled even if the mouse pointer leaves the hot corner. While the never sleep lock is in effect the never sleep visual feedback will remain visible in the appropriate corner of the screen. The never sleep lock may is unlocked when you move the mouse pointer back into the never sleep corner with the modifiers held down a second time or move the mouse pointer into the sleep now corner.</td>
               </tr>
               <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>This variable may be set to nil or an empty table, disabling the never sleep lock option, or a table containing one or more of the following keys:<ul>
+<li><code>fn</code>    - Set to true to require that the <code>Fn</code> key be pressed. May not be available on all keyboards, especially non-Apple ones.</li>
+<li><code>cmd</code>   - Set to true to require that the Command (⌘) key be pressed</li>
+<li><code>alt</code>   - Set to true to require that the Alt (or Option) (⌥) key be pressed</li>
+<li><code>shift</code> - Set to true to require that the Shift (⇧) key be pressed</li>
+<li><code>ctrl</code>  - Set to true to require that the Control (^) key be pressed</li>
+</ul>
+</li>
+<li>If this table contains multiple keys, then all of the specified modifiers must be pressed for the never sleep lock to be triggered.</li>
+</ul>
+</td>
+              </tr>
+              <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/SleepCorners.spoon/init.lua#L153">Source/SleepCorners.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/SleepCorners.spoon/init.lua#L152">Source/SleepCorners.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -179,7 +217,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/SleepCorners.spoon/init.lua#L111">Source/SleepCorners.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/SleepCorners.spoon/init.lua#L111">Source/SleepCorners.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -201,7 +239,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/SleepCorners.spoon/init.lua#L55">Source/SleepCorners.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/SleepCorners.spoon/init.lua#L55">Source/SleepCorners.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -223,7 +261,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/SleepCorners.spoon/init.lua#L73">Source/SleepCorners.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/SleepCorners.spoon/init.lua#L73">Source/SleepCorners.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -244,8 +282,16 @@
                 <td>Specifies whether the sleep now corner should trigger the display sleep or lock the users session. Defaults to false.</td>
               </tr>
               <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>When this variable is set to true, triggering the sleep now corner will lock the users session. When this variable is false, the display will be put to sleep instead.</li>
+<li>Note that depending upon the user's settings in the Security &amp; Privacy System Preferences, triggering the display sleep may also lock the user session immediately.</li>
+</ul>
+</td>
+              </tr>
+              <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/SleepCorners.spoon/init.lua#L135">Source/SleepCorners.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/SleepCorners.spoon/init.lua#L134">Source/SleepCorners.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -267,7 +313,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/SleepCorners.spoon/init.lua#L62">Source/SleepCorners.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/SleepCorners.spoon/init.lua#L62">Source/SleepCorners.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -289,7 +335,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/SleepCorners.spoon/init.lua#L104">Source/SleepCorners.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/SleepCorners.spoon/init.lua#L104">Source/SleepCorners.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -344,7 +390,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/SleepCorners.spoon/init.lua#L634">Source/SleepCorners.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/SleepCorners.spoon/init.lua#L632">Source/SleepCorners.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -388,7 +434,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/SleepCorners.spoon/init.lua#L460">Source/SleepCorners.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/SleepCorners.spoon/init.lua#L458">Source/SleepCorners.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -431,7 +477,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/SleepCorners.spoon/init.lua#L582">Source/SleepCorners.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/SleepCorners.spoon/init.lua#L580">Source/SleepCorners.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -474,7 +520,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/SleepCorners.spoon/init.lua#L480">Source/SleepCorners.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/SleepCorners.spoon/init.lua#L478">Source/SleepCorners.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -518,7 +564,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/SleepCorners.spoon/init.lua#L510">Source/SleepCorners.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/SleepCorners.spoon/init.lua#L508">Source/SleepCorners.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -563,7 +609,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/SleepCorners.spoon/init.lua#L546">Source/SleepCorners.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/SleepCorners.spoon/init.lua#L544">Source/SleepCorners.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>

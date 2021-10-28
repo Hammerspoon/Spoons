@@ -55,8 +55,28 @@ spoon.BonjourLauncher:addRecipes(*name*)
                 <td>Display computers and servers advertising AppleShare file server services advertised with the `_afpovertcp._tcp.` service type. This was the default with earlier versions of MacOS and is still used by Apple AirPort and Time Machine file servers.</td>
               </tr>
               <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>AppleShare connections are initiated by the URL <code>afp://%hostname%:%port%</code>, which usually opens up a dialog in the Finder which may prompt you for login credentials.</li>
+<li>The template can be added to your BonjourLauncer with <code>spoon.BonjourLauncher:addRecipes("AFP")</code> after the spoon has loaded, and is defined as follows:
+ {
+<pre><code> image   = hs.canvas.new{ h = 128, w = 128 }:appendElements(
+               { type="image", image = hs.image.imageFromName("NSNetwork"), imageAlpha = 0.5 },
+               { type="image", image = hs.image.imageFromName("NSTouchBarColorPickerFont") }
+           ):imageFromCanvas(),
+ label   = "AFP",
+ type    = "_afpovertcp._tcp.",
+ text    = "%name%",
+ subText = "afp://%hostname%:%port%",
+ url     = "afp://%hostname%:%port%",
+</code></pre>
+ }</li>
+</ul>
+</td>
+              </tr>
+              <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/BonjourLauncher.spoon/recipes.lua#L87">Source/BonjourLauncher.spoon/recipes.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/BonjourLauncher.spoon/recipes.lua#L79">Source/BonjourLauncher.spoon/recipes.lua</a></td>
               </tr>
             </table>
           </section>
@@ -79,13 +99,24 @@ spoon.BonjourLauncher:addRecipes(*name*)
               <tr>
                   <th>Notes</th>
                   <td><ul>
+<li>SMB connections are initiated by the URL <code>smb://%hostname%:%port%</code>, which usually opens up a dialog in the Finder which may prompt you for login credentials.</li>
+<li>The template can be added to your BonjourLauncer with <code>spoon.BonjourLauncher:addRecipes("SMB")</code> after the spoon has loaded, and is defined as follows:
+ {
+<pre><code> image   = hs.image.imageFromName("NSNetwork"),
+ label   = "SMB",
+ type    = "_smb._tcp.",
+ text    = "%name%",
+ subText = "smb://%hostname%:%port%",
+ url     = "smb://%hostname%:%port%",
+</code></pre>
+ }</li>
 <li>On Linux servers, Samba advertises this by default if Avahi is installed.</li>
 </ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/BonjourLauncher.spoon/recipes.lua#L59">Source/BonjourLauncher.spoon/recipes.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/BonjourLauncher.spoon/recipes.lua#L54">Source/BonjourLauncher.spoon/recipes.lua</a></td>
               </tr>
             </table>
           </section>
@@ -108,13 +139,34 @@ spoon.BonjourLauncher:addRecipes(*name*)
               <tr>
                   <th>Notes</th>
                   <td><ul>
-<li>On Linux servers, you can advertise this by installing Avahi and saving the following in <code>/etc/avahi/services/ssh.service</code>:</li>
+<li>SSH connections are initiated by the URL <code>ssh://%hostname%:%port%</code>, which usually opens up a Terminal window with the SSH session, and assumes that the username matches your username on your Mac. At present there is no way to prompt for a different username at the time of connection -- you will need to modify your <code>~/.ssh/config</code> file if a different username is required for a specific host. See <code>man ssh_config</code> in a terminal window.</li>
+<li>The template can be added to your BonjourLauncer with <code>spoon.BonjourLauncher:addRecipes("SSH")</code> after the spoon has loaded, and is defined as follows:
+ {
+<pre><code> image   = hs.image.imageFromAppBundle("com.apple.Terminal"),
+ label   = "SSH",
+ type    = "_ssh._tcp.",
+ text    = "%name%",
+ subText = "%hostname%:%port% (%address4%/%address6%)",
+ url     = "ssh://%hostname%:%port%",
+</code></pre>
+ }</li>
+<li>On Linux servers, you can advertise this by installing Avahi and saving the following in <code>/etc/avahi/services/ssh.service</code>:
+<pre><code> &lt;?xml version="1.0" standalone='no'?&gt;
+ &lt;!DOCTYPE service-group SYSTEM "avahi-service.dtd"&gt;
+ &lt;service-group&gt;
+   &lt;name replace-wildcards="yes"&gt;%h&lt;/name&gt;
+   &lt;service&gt;
+     &lt;type&gt;_ssh._tcp&lt;/type&gt;
+     &lt;port&gt;22&lt;/port&gt;
+   &lt;/service&gt;
+ &lt;/service-group&gt;</code></pre>
+</li>
 </ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/BonjourLauncher.spoon/recipes.lua#L18">Source/BonjourLauncher.spoon/recipes.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/BonjourLauncher.spoon/recipes.lua#L18">Source/BonjourLauncher.spoon/recipes.lua</a></td>
               </tr>
             </table>
           </section>
@@ -137,13 +189,36 @@ spoon.BonjourLauncher:addRecipes(*name*)
               <tr>
                   <th>Notes</th>
                   <td><ul>
+<li>Screen Sharing connections are initiated by the URL <code>vnc://%hostname%:%port%</code>, which usually opens up Screen Sharing which will prompt you for login credentials.</li>
+<li>The template can be added to your BonjourLauncer with <code>spoon.BonjourLauncher:addRecipes("VNC")</code> after the spoon has loaded, and is defined as follows:
+ {
+<pre><code> image   = hs.image.imageFromAppBundle("com.apple.ScreenSharing"),
+ label   = "VNC",
+ type    = "_rfb._tcp.",
+ text    = "%name%",
+ subText = "vnc://%hostname%:%port%",
+ url     = "vnc://%hostname%:%port%",
+</code></pre>
+ }</li>
 <li>The built in MacOS Screen Sharing application works with MacOS Screen Sharing clients as well as more traditional VNC implementations that do not implement encryption. This does <em>not</em> include the RealVNC implementation that is commonly included with Raspberry Pi's Raspbian installations.</li>
+<li>See also <a href="#VNC_RealVNC_Alternate">BonjourLauncher.recipes.VNC_RealVNC_Alternate</a> for an example that can use an alternate launcher for RealVNC clients. Note that you sould use only one of these recipes, as they share the same label.</li>
+<li>On Linux servers, some X Windows installations provide built in VNC support while others require you to configure your own with third party software (e.g. RealVNC or TigerVNC to name just a couple). Determining how to set this up is beyond the scope of these instructions, but if you find that whatever solution you have available does <em>not</em> provide ZeroConf or Bonjour advertisements, you can do so yourself by installing Avahi and saving the following in <code>/etc/avahi/services/vnc.service</code> (change 5900 to match the port number your windowing environment uses for VNC, commonly a number between 5900 and 5910 inclusive, but theoretically any available port on the machine):
+<pre><code> &lt;?xml version="1.0" standalone='no'?&gt;
+ &lt;!DOCTYPE service-group SYSTEM "avahi-service.dtd"&gt;
+ &lt;service-group&gt;
+   &lt;name replace-wildcards="yes"&gt;%h&lt;/name&gt;
+   &lt;service&gt;
+     &lt;type&gt;_rfb._tcp&lt;/type&gt;
+     &lt;port&gt;5900&lt;/port&gt;
+   &lt;/service&gt;
+ &lt;/service-group&gt;</code></pre>
+</li>
 </ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/BonjourLauncher.spoon/recipes.lua#L119">Source/BonjourLauncher.spoon/recipes.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/BonjourLauncher.spoon/recipes.lua#L109">Source/BonjourLauncher.spoon/recipes.lua</a></td>
               </tr>
             </table>
           </section>
@@ -166,13 +241,47 @@ spoon.BonjourLauncher:addRecipes(*name*)
               <tr>
                   <th>Notes</th>
                   <td><ul>
+<li>This version of a template for <code>_rfb._tcp.</code> differs from <a href="#VNC">BonjourLauncher.recipes.VNC</a> in that it uses a function which examines the text records for the service to determine which launcher to use for the chosen server: because RealVNC uses an encryption scheme that is not recognized by the macOS Screen Sharing application, if a text record indicating that RealVNC is in use is detected, an alternate launcher is used.</li>
+<li>The template can be added to your BonjourLauncer with <code>spoon.BonjourLauncher:addRecipes("VNC_RealVNC_Alternate")</code> after the spoon has loaded, and is defined as follows:
+ {
+<pre><code> image   = hs.image.imageFromAppBundle("com.apple.ScreenSharing"),
+ label   = "VNC",
+ type    = "_rfb._tcp.",
+ text    = "%name%",
+ subText = "vnc://%hostname%:%port%",
+ url     = "vnc://%hostname%:%port%", -- used in fn when RealVNC not set ; see below
+ cmd     = "open -a \"VNC Viewer\" --args %hostname%:%port%", -- used in fn when RealVNC set; see below
+ fn      = function(svc, choice)
+     local tr = svc:txtRecord()
+     if tr and tr.RealVNC then
+         hs.execute(choice.cmd)
+     else
+         hs.urlevent.openURL(choice.url)
+     end
+ end,
+</code></pre>
+ }</li>
+<li>Note that <code>fn</code> is defined, so it will be invoked in favor of <code>url</code> or <code>cmd</code> by the BonjourLauncer spoon when a VNC service is selected; however, the second argument to the function invoked will include all key-value pairs with string values from the template, so the function can utilizes the <code>url</code> and <code>cmd</code> keys based on its own logic to determine which applies.</li>
 <li>This variant was developed to address the fact that the macOS Screen Sharing application does not recognize the encryption used by the RealVNC implemntataion found in the Raspbian distribution installed on most Raspberry Pi computers. By adding text record to the Avahi advertisement from the Raspberry Pi, we can determine whether or not to utilize the built in screen sharing app or launch the RealVNC client to view the specified service.</li>
+<li>See also <a href="#VNC">BonjourLauncher.recipes.VNC</a> for a simpler implementation if you are only connecting to other Mac computers or if none of your servers require RealVNC's specific viewer application.</li>
+<li>To create the advertisement on the Raspbian installation which includes the text record entry we need to make this template work, install Avahi on your Raspbian machine and save the following as <code>/etc/avahi/services/vnc.service</code>:
+<pre><code> &lt;?xml version="1.0" standalone='no'?&gt;
+ &lt;!DOCTYPE service-group SYSTEM "avahi-service.dtd"&gt;
+ &lt;service-group&gt;
+   &lt;name replace-wildcards="yes"&gt;%h&lt;/name&gt;
+   &lt;service&gt;
+     &lt;type&gt;_rfb._tcp&lt;/type&gt;
+     &lt;port&gt;5900&lt;/port&gt;
+     &lt;txt-record&gt;RealVNC=True&lt;/txt-record&gt;
+   &lt;/service&gt;
+ &lt;/service-group&gt;</code></pre>
+</li>
 </ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/BonjourLauncher.spoon/recipes.lua#L164">Source/BonjourLauncher.spoon/recipes.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/BonjourLauncher.spoon/recipes.lua#L147">Source/BonjourLauncher.spoon/recipes.lua</a></td>
               </tr>
             </table>
           </section>
