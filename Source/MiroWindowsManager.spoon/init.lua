@@ -36,22 +36,25 @@ obj.license = "MIT - https://opensource.org/licenses/MIT"
 
 --- MiroWindowsManager.sizes
 --- Variable
---- The sizes that the window can have. 
---- The sizes are expressed as dividend of the entire screen's size.
---- For example `{2, 3, 3/2}` means that it can be 1/2, 1/3 and 2/3 of the total screen's size
+--- The sizes that the window can have.
+---
+--- Notes:
+---  * The sizes are expressed as dividend of the entire screen's size.
+---  * For example `{2, 3, 3/2}` means that it can be 1/2, 1/3 and 2/3 of the total screen's size
 obj.sizes = {2, 3, 3/2}
 
 --- MiroWindowsManager.fullScreenSizes
 --- Variable
---- The sizes that the window can have in full-screen. 
---- The sizes are expressed as dividend of the entire screen's size.
---- For example `{1, 4/3, 2}` means that it can be 1/1 (hence full screen), 3/4 and 1/2 of the total screen's size
+--- The sizes that the window can have in full-screen.
+---
+--- Notes:
+---  * The sizes are expressed as dividend of the entire screen's size.
+---  * For example `{1, 4/3, 2}` means that it can be 1/1 (hence full screen), 3/4 and 1/2 of the total screen's size
 obj.fullScreenSizes = {1, 4/3, 2}
 
 --- MiroWindowsManager.GRID
 --- Variable
---- The screen's size using `hs.grid.setGrid()`
---- This parameter is used at the spoon's `:init()`
+--- The screen's size using `hs.grid.setGrid()` This parameter is used at the spoon's `:init()`
 obj.GRID = {w = 24, h = 24}
 
 obj._pressed = {
@@ -149,7 +152,8 @@ end
 ---   * left: for the left action (usually {hyper, "left"})
 ---   * fullscreen: for the full-screen action (e.g. {hyper, "f"})
 ---
---- A configuration example can be:
+--- Examples:
+---  * A configuration example can be:
 --- ```
 --- local hyper = {"ctrl", "alt", "cmd"}
 --- spoon.MiroWindowsManager:bindHotkeys({

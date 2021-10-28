@@ -62,7 +62,10 @@ obj.logger = hs.logger.new('ClipboardTool')
 
 --- ClipboardTool.ignoredIdentifiers
 --- Variable
---- Types of clipboard entries to ignore, see http://nspasteboard.org. Code from https://github.com/asmagill/hammerspoon-config/blob/master/utils/_menus/newClipper.lua. Default value (don't modify unless you know what you are doing):
+--- Types of clipboard entries to ignore, see http://nspasteboard.org. Code from https://github.com/asmagill/hammerspoon-config/blob/master/utils/_menus/newClipper.lua.
+---
+--- Notes:
+---  * Default value (don't modify unless you know what you are doing):
 --- ```
 ---  {
 ---     ["de.petermaurer.TransientPasteboardType"] = true, -- Transient : Textpander, TextExpander, Butler

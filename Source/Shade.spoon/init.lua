@@ -85,8 +85,7 @@ obj.shade = hs.drawing.rectangle(obj.screenSize:fullFrame())
 
 --- Shade.shadeTransparency
 --- Variable
---- Contains the alpha (transparency) of the overlay, from 0.0 (completely
---- transparent to 1.0 (completely opaque). Default is 0.5.
+--- Contains the alpha (transparency) of the overlay, from 0.0 (completely transparent to 1.0 (completely opaque). Default is 0.5.
 obj.shadeTransparency = 0.5
 
 
@@ -257,7 +256,9 @@ end
 --- Parameters:
 ---  * map - A table containing hotkey modifier/key details for the following item:
 ---   * toggleShade - This will toggle the shade on/off, and update the menubar graphic
---- E.g.: { toggleShade = {"cmd","alt","ctrl"},"s" }
+---
+--- Examples:
+---  * E.g.: { toggleShade = {"cmd","alt","ctrl"},"s" }
 ---
 --- Returns:
 ---  * None

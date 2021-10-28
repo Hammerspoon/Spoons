@@ -117,16 +117,18 @@ homepage = "https://github.com/malob/PersonalHotspot.spoon"
 --- Variable
 --- A list of strings representing applications to kill/open, when `PersonalHotspot:connect()` and `PersonalHotspot:disconnect()` are called respectively.
 ---
---- Each string should be either:
----  * a bundle ID string as per `hs.application:bundleID()`, or
----  * an application name string as per `hs.application:name()`.
+--- Notes:
+---  * Each string should be either:
+---   * a bundle ID string as per `hs.application:bundleID()`, or
+---   * an application name string as per `hs.application:name()`.
 appsToKill = {}
 
 --- PersonalHotspot.hotspotName (String)
 --- Variable
 --- The name of the personal hotspot you want to connect/disconnect from, e.g., "John Appleseed’s iPhone".
 ---
---- You can see the names of available hotspots by clicking on the Wi-Fi icon in the macOS menu bar and looking for menu items under the "Personal Hotspot(s)" heading.
+--- Notes:
+---  * You can see the names of available hotspots by clicking on the Wi-Fi icon in the macOS menu bar and looking for menu items under the "Personal Hotspot(s)" heading.
 hotspotName = nil
 
 --- PersonalHotspot.timeout (Number)

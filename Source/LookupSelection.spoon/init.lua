@@ -100,7 +100,8 @@ end
 ---   * `neue_notiz` -  create new note in notes app
 ---   * `hsdocs` -  display online help
 ---
---- Sample value for `mapping`:
+--- Notes:
+---  * Sample value for `mapping`:
 --- ```
 ---  {
 ---     lexicon = { { "ctrl", "alt", "cmd" }, "L" },

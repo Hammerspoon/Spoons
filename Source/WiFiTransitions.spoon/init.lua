@@ -21,15 +21,18 @@ obj.logger = hs.logger.new('WiFiTransitions')
 
 --- WiFiTransitions.actions
 --- Variable
---- Table containing a list of actions to execute for SSID transitions. Transitions to a "no network" state (`nil` SSID) are ignored unless you set `WiFiTransitions.actOnNilTransitions`. Each action is itself a table with the following keys:
----  * to - if given, pattern to match against the new SSID. Defaults to match any network.
----  * from - if given, pattern to match against the previous SSID. Defaults to match any network.
----  * fn - function to execute if there is a match. Can also be a list of functions, which will be executed in sequence. Each function will receive the following arguments:
----    * event - always "SSIDChange"
----    * interface - name of the interface on which the SSID changed
----    * old_ssid - previous SSID name
----    * new_ssid - new SSID name
----  * cmd - shell command to execute if there is a match. Can also be a list of commands, which will be executed in sequence using `hs.execute`. If `fn` is given, `cmd` is ignored.
+--- Table containing a list of actions to execute for SSID transitions.
+---
+--- Notes:
+---  * Transitions to a "no network" state (`nil` SSID) are ignored unless you set `WiFiTransitions.actOnNilTransitions`. Each action is itself a table with the following keys:
+---   * to - if given, pattern to match against the new SSID. Defaults to match any network.
+---   * from - if given, pattern to match against the previous SSID. Defaults to match any network.
+---   * fn - function to execute if there is a match. Can also be a list of functions, which will be executed in sequence. Each function will receive the following arguments:
+---     * event - always "SSIDChange"
+---     * interface - name of the interface on which the SSID changed
+---     * old_ssid - previous SSID name
+---     * new_ssid - new SSID name
+---   * cmd - shell command to execute if there is a match. Can also be a list of commands, which will be executed in sequence using `hs.execute`. If `fn` is given, `cmd` is ignored.
 obj.actions = {}
 
 --- WiFiTransitions.actOnNilTransitions

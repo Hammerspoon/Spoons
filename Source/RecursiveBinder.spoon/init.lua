@@ -35,7 +35,9 @@ obj.helperEntryLengthInChar = 20
 --- RecursiveBinder.helperFormat
 --- Variable
 --- format of helper, the helper is just a hs.alert
---- default to {atScreenEdge=2,
+---
+--- Notes:
+---  * default to {atScreenEdge=2,
 ---             strokeColor={ white = 0, alpha = 2 },
 ---             textFont='SF Mono'
 ---             textSize=20}
@@ -52,7 +54,9 @@ obj.showBindHelper = true
 --- RecursiveBinder.helperModifierMapping()
 --- Variable
 --- The mapping used to display modifiers on helper.
---- Default to {
+---
+--- Notes:
+---  * Default to {
 ---  command = '⌘',
 ---  control = '⌃',
 ---  option = '⌥',
@@ -232,15 +236,14 @@ end
 --- Returns:
 ---  * A function to start. Bind it to a initial key binding.
 ---
---- Note:
---- Spec of keymap:
---- Every key is of format {{modifers}, key, (optional) description}
---- The first two element is what you usually pass into a hs.hotkey.bind() function.
---- 
---- Each value of key can be in two form:
---- 1. A function. Then pressing the key invokes the function
---- 2. A table. Then pressing the key bring to another layer of keybindings.
----    And the table have the same format of top table: keys to keys, value to table or function
+--- Notes:
+---  * Spec of keymap:
+---   * Every key is of format {{modifers}, key, (optional) description}
+---   * The first two element is what you usually pass into a hs.hotkey.bind() function.
+---   * Each value of key can be in two form:
+---      1. A function. Then pressing the key invokes the function
+---      2. A table. Then pressing the key bring to another layer of keybindings.
+---      And the table have the same format of top table: keys to keys, value to table or function
 
 -- the actual binding function
 function obj.recursiveBind(keymap)

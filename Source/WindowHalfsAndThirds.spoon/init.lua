@@ -21,11 +21,11 @@ obj.logger = hs.logger.new('WindowHalfsAndThirds')
 
 --- WindowHalfsAndThirds.defaultHotkeys
 --- Variable
---- Table containing a sample set of hotkeys that can be
---- assigned to the different operations. These are not bound
---- by default - if you want to use them you have to call:
---- `spoon.WindowHalfsAndThirds:bindHotkeys(spoon.WindowHalfsAndThirds.defaultHotkeys)`
---- after loading the spoon. Value:
+--- Table containing a sample set of hotkeys that can be assigned to the different operations.
+---
+--- Notes:
+---  * These are not bound by default - if you want to use them you have to call: `spoon.WindowHalfsAndThirds:bindHotkeys(spoon.WindowHalfsAndThirds.defaultHotkeys)` after loading the spoon.
+---  * Value:
 --- ```
 ---  {
 ---     left_half   = { {"ctrl",        "cmd"}, "Left" },

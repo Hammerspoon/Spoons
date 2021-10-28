@@ -29,23 +29,21 @@ obj.license = "MIT - https://opensource.org/licenses/MIT"
 -- you can add your comstom commands dynamically
 -- key is name of command
 -- value is the command(function)
+
 --- Commander.commandTable
 --- Variable
 --- This is the table which stores all the commands
---- Each key is the name of the command,
---- and each value is the actual function.
---- you can add your custom commands to it.
+---
+--- Notes:
+---  * Each key is the name of the command, and each value is the actual function. You can add your custom commands to it.
 obj.commandTable = {}
 
 --- Commander.ignoredCommandList
 --- Variable
---- This list contains all the ignored function names,
---- any function matches the name inside this list will not
---- be added to Commander.commandTable.
+--- This list contains all the ignored function names, any function matches the name inside this list will not be added to Commander.commandTable.
 ---
---- The list contains normal lua builtin functions
---- and some hammerspoon functions that generally shouldn't
---- be a command, such as init, bindHotkeys, etc.
+--- Notes:
+---  * The list contains normal lua builtin functions and some hammerspoon functions that generally shouldn't be a command, such as init, bindHotkeys, etc.
 obj.ignoredCommandList = {
    'load', 'pcall', 'dofile', 'pairs', 'rawset', 'callback', 'setmetatable',
    'tonumber', 'print', 'require', 'getmetatable', 'error', 'init', 'rawequal',
@@ -55,14 +53,12 @@ obj.ignoredCommandList = {
 
 --- Commander.forceLayout
 --- Variable
---- If you want to switch to a layout when enabled chooser,
---- set this to name of that layout
+--- If you want to switch to a layout when enabled chooser, set this to name of that layout
 obj.forceLayout = nil
 
 --- Commander.forceMethod
 --- Variable
---- If you want to switch to a method when enabled chooser,
---- set this to name of that method
+--- If you want to switch to a method when enabled chooser, set this to name of that method
 obj.forceMethod = nil
 
 --- Commander.show()
@@ -130,12 +126,10 @@ end
 --- Add a command to Commander.commandTable
 ---
 --- Parameters:
----  * commandTable - It is a table with same form of Commander.commandTable
----                  key is name of command, value is the function.
+---  * commandTable - It is a table with same form of Commander.commandTable key is name of command, value is the function.
 ---
---- Note:
---- Commander doesn't test the name against Commander.ignoredCommandList
---- because it assumes you know what you are doing.
+--- Notes:
+---  * Commander doesn't test the name against Commander.ignoredCommandList because it assumes you know what you are doing.
 function obj.addCommand(commandTable)
    obj.commandTable[commandTable.name] = commandTable.command
 end

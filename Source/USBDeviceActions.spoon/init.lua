@@ -88,8 +88,8 @@ homepage = "https://github.com/malob/USBDeviceActions.spoon"
 --- Variable
 --- A table where the keys should correspond to `productName`s of USB devices and the values should be tables containing the keys `apps` and/or `fn`. (You can find the `productName` for a connected USB device using `hs.usb.attachedDevices()`).
 ---
---- The value of the `apps` key should contain a list of apps that will be launched/killed when the USB device is connected/disconnected. The value of the `fn` key should be a single parameter function that will be passed `true`/`false` when the USB device is connected/disconnected.
----
+--- Notes:
+---  * The value of the `apps` key should contain a list of apps that will be launched/killed when the USB device is connected/disconnected. The value of the `fn` key should be a single parameter function that will be passed `true`/`false` when the USB device is connected/disconnected.
 --- Example:
 --- ```
 --- {

@@ -432,32 +432,23 @@ end
 ---
 --- Notes:
 ---  * This table should be an array of tables, with each table in the array specifying a service type.
----
 ---  * Changes to this variable will be reflected the next time the BonjourLauncher chooser window is shown -- if it is currently visible when changes are made, the new changes will *NOT* be reflected in the currently open chooser.
----
 ---  * Each service type table entry should contain one or more of the following keys:
 ---    * `type`         - a required string specifying the type of advertisement to search for with this entry. Example service types can be seen in `hs.bonjour.serviceTypes`.
 ---    * `label`        - an optional string, defaulting to the value for `type`, specifying the label for the toolbar item under which these advertised services are collected in the BonjourLauncher chooser window. May or may not be displayed if you have customized the toolbar's visual properties. Note that this field is used for internally identifying different template views, so it must be unique among the template entries where `disabled` is false or undefined.
 ---    * `image`        - an optional `hs.image` object specifying the image to display for the toolbar item under which these advertised services are collected in the BonjourLauncher chooser window. May or may not be displayed if you have customized the toolbar's visual properties.
----
 ---    * `text`         - an optional string, defaulting to "%name%", specifying the text to be displayed for each advertised service listed in this collection in the BonjourLauncher chooser window.
 ---    * `subText`      - an optional string, specifying the sub-text to be displayed for each advertised service listed in this collection in the BonjourLauncher chooser window.
 ---    * `filter`       - an optional function which can be used to filter out advertised services which you do not wish to include in the chooser window. The function should expect two parameters, the `hs.bonjour.service` object for the discovered service and a table containing all of the key-value pairs of the service template with values expanded to describe what is known about this specific service. The filter function should return `true` if the service is to be included or `false` if the service is to be omitted.
----
 ---    * `fn`           - The function to invoke. This function should expect two arguments, the `hs.bonjour.service` object for the selected service and a table containing all of the key-value pairs of the service template with values expanded to describe what is known about this specific service. Any return value for the function is ignored. If this is present, `url` and `cmd` will be ignored by the default handler, though they may be accessed through the second argument to the function.
 ---    * `url`          - The url to open with `hs.urlevent.openURL`. If this is present, `cmd` is ignored.
 ---    * `cmd`          - The command to execute with `hs.execute`.
----
 ---    * `hidden`       - an optional boolean, default false, that can be used to specify that the service list should not be displayed in the toolbar by default. You can still access these service types by specifying them as arguments to the [BonjourLauncher:show](#show) or [BonjourLauncher:toggle](#toggle) methods, or by creating a psuedo-key for the service type with [BonjourLauncher:bindHotkeys](#bindHotkeys). If the user customizes the toolbar by right-clicking on it, they can add this service to the toolbar, but it won't be in the default list.
 ---    * `disabled`      - an optional boolean, default false, specifying that this service should be skipped entirely is not available for viewing by any means.
----
 ---    * `textColor`    - an optional color table as defined in the `hs.drawing.color` module documentation to be used for the text displayed for each discovered service when this template is being displayed in the BonjourLauncher chooser. If not present, the color specified for [BonjourLauncher.textColor](#textColor) will be used.
 ---    * `subTextColor` - an optional color table as defined in the `hs.drawing.color` module documentation to be used for the sub-text displayed for each discovered service when this template is being displayed in the BonjourLauncher chooser. If not present, the color specified for [BonjourLauncher.subTextColor](#subTextColor) will be used.
----
 ---    * Additional key-value pairs do not have special meaning for this spoon but kay-value pairs with a string for the value will be included in the second argument passwd to `fn`, if present.
----
 ---  * Note that only `type` and one of `url`, `cmd`, or `fn` must be provided -- everything else is optional.
----
 ---  * For all keys, except for `type` and `label`, in the template definition which have string values, the following substring patterns will be matched and replaced as described below:
 ---    * `%address%`   - Will be replaced with the first address discovered for the service when it is resolved.
 ---      * `%address4%` - Variant of `%address%` which is replaced with the first IPv4 address or "n/a" if one cannot be found or has not been discovered yet.
@@ -518,46 +509,50 @@ local _internals = {}
 --- Variable
 --- Whether or not to display a toolbar at the top of the BonjourLauncher chooser window. Defaults to true.
 ---
---- This boolean variable determines if the toolbar which allows changing the currently visible service type is displayed when the BonjourLauncher chooser window is presented. If you set this to `false` then you will only be able to change the currently visible services with the [BonjourLauncher:show(serviceType)](#show) and [BonjourLauncher:toggle(serviceType)](#toggle) methods.
+--- Notes:
+---  * This boolean variable determines if the toolbar which allows changing the currently visible service type is displayed when the BonjourLauncher chooser window is presented. If you set this to `false` then you will only be able to change the currently visible services with the [BonjourLauncher:show(serviceType)](#show) and [BonjourLauncher:toggle(serviceType)](#toggle) methods.
 _internals.displayToolbar = true
 
 --- BonjourLauncher.rows
 --- Variable
 --- The number of rows to display when the chooser is visible. Defaults to 10.
 ---
---- Set this variable to an integer to specify the number of rows of choices to display when the BonjourLauncher chooser window is visible. Set it to `nil` to revert to the default.
+--- Notes:
+---  * Set this variable to an integer to specify the number of rows of choices to display when the BonjourLauncher chooser window is visible. Set it to `nil` to revert to the default.
 _internals.rows = _defaultRows
 
 --- BonjourLauncher.width
 --- Variable
 --- The width of the BonjourLauncher chooser window as a percentage of the screen size. Defaults to 40.
 ---
---- Set this variable to a numeric value between 1 and 100 to specify the percentage of screen the screen's width the BonjourLauncher window should occupy when visible. Set it to `nil` to revert to the default.
+--- Notes:
+---  * Set this variable to a numeric value between 1 and 100 to specify the percentage of screen the screen's width the BonjourLauncher window should occupy when visible. Set it to `nil` to revert to the default.
 _internals.width = _defaultWidth
 
 --- BonjourLauncher.textColor
 --- Variable
 --- Sets the color of the primary text for each service listed in the BonjourLauncher chooser window. Defaults to nil.
 ---
---- This should be a table representing a color as defined by the `hs.drawing.color` module documentation, or nil to revert to the `hs.chooser` module default.
----
---- You can override this on a per template basis by including the `textColor` field in the service type definition. See [BonjourLauncher.templates](#templates).
+--- Notes:
+---  * This should be a table representing a color as defined by the `hs.drawing.color` module documentation, or nil to revert to the `hs.chooser` module default.
+---  * You can override this on a per template basis by including the `textColor` field in the service type definition. See [BonjourLauncher.templates](#templates).
 _internals.textColor = nil
 
 --- BonjourLauncher.subTextColor
 --- Variable
 --- Sets the color of the subText for each service listed in the BonjourLauncher chooser window. Defaults to nil.
 ---
---- This should be a table representing a color as defined by the `hs.drawing.color` module documentation, or nil to revert to the `hs.chooser` module default.
----
---- You can override this on a per template basis by including the `subTextColor` field in the service type definition. See [BonjourLauncher.templates](#templates).
+--- Notes:
+---  * This should be a table representing a color as defined by the `hs.drawing.color` module documentation, or nil to revert to the `hs.chooser` module default.
+---  * You can override this on a per template basis by including the `subTextColor` field in the service type definition. See [BonjourLauncher.templates](#templates).
 _internals.subTextColor = nil
 
 --- BonjourLauncher.darkMode
 --- Variable
 --- Set whether the BonjourLauncher chooser window should apoear dark themed, aqua themed (light) or track the current system settings for Dark mode. Defaults to nil.
 ---
---- This should be a boolean specifying whether the BonjourLauncher chooser window should appear in dark mode (true) or not (false). If set to `nil`, the chooser will track the current system settings for Dark mode.
+--- Notes:
+---  * This should be a boolean specifying whether the BonjourLauncher chooser window should appear in dark mode (true) or not (false). If set to `nil`, the chooser will track the current system settings for Dark mode.
 _internals.darkMode = nil
 
 ---------- Spoon Methods ----------
@@ -642,7 +637,6 @@ end
 ---
 --- Notes:
 ---  * Automatically invokes [BonjourLauncher:start()](#start) if this has not already been done.
----
 ---  * Service queries are grouped by type and the currently visible items can be changed by clicking on the type icon or label in the chooser toolbar if [BonjourLauncher.displayToolbar](#displayToolbar) is true.
 obj.show = function(self, st)
     -- in case called as function
@@ -748,9 +742,9 @@ end
 ---
 --- Parameters:
 ---  * `mapping` - A table containing hotkey modifier/key details for one or more of the following commands:
----    * "show"   - Show the BonjourLauncher chooser window
----    * "hide"   - Hide the BonjourLauncher chooser window
----    * "toggle" - Toggles the visibility of the BonjourLauncher window
+---   * "show"   - Show the BonjourLauncher chooser window
+---   * "hide"   - Hide the BonjourLauncher chooser window
+---   * "toggle" - Toggles the visibility of the BonjourLauncher window
 ---
 --- Returns:
 ---  * the BonjourLauncher spoon object
@@ -760,9 +754,7 @@ end
 ---    * `command`   - is one of the commands listed above
 ---    * `modifiers` - is a table containing keyboard modifiers, as specified in `hs.hotkey.bind()`
 ---    * `key`       - is a string containing the name of a keyboard key, as specified in `hs.hotkey.bind()`
----
 ---  * Psuedo keys for `show` and `toggle` are also supported which can be used to generate hotkeys which will take you to a specific list of services when the BonjourLauncher chooser is displayed. The format of these psuedo keys is `<function>_<label>` where `<label>` matches the `label` field of a specific entry in [BonjourLauncher.templates](#templates); for example:
----
 ---         BonjourLauncher:bindHotkeys({
 ---             -- create a general toggle hotkey
 ---             toggle     = { { "cmd", "ctrl", "alt"}, "=" },

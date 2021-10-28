@@ -21,14 +21,14 @@ obj.logger = hs.logger.new('SpoonInstall')
 
 --- SpoonInstall.repos
 --- Variable
---- Table containing the list of available Spoon repositories. The key
---- of each entry is an identifier for the repository, and its value
---- is a table with the following entries:
----  * desc - Human-readable description for the repository
----  * branch - Active git branch for the Spoon files
----  * url - Base URL for the repository. For now the repository is assumed to be hosted in GitHub, and the URL should be the main base URL of the repository. Repository metadata needs to be stored under `docs/docs.json`, and the Spoon zip files need to be stored under `Spoons/`.
+--- Table containing the list of available Spoon repositories.
 ---
---- Default value:
+--- Notes:
+---  * The key of each entry is an identifier for the repository, and its value is a table with the following entries:
+---   * desc - Human-readable description for the repository
+---   * branch - Active git branch for the Spoon files
+---   * url - Base URL for the repository. For now the repository is assumed to be hosted in GitHub, and the URL should be the main base URL of the repository. Repository metadata needs to be stored under `docs/docs.json`, and the Spoon zip files need to be stored under `Spoons/`.
+---  * Default value:
 --- ```
 --- {
 ---    default = {
@@ -50,9 +50,8 @@ obj.repos = {
 --- Variable
 --- If `true`, `andUse()` will update repos and install packages synchronously. Defaults to `false`.
 ---
---- Keep in mind that if you set this to `true`, Hammerspoon will
---- block until all missing Spoons are installed, but the notifications
---- will happen at a more "human readable" rate.
+--- Notes:
+---  * Keep in mind that if you set this to `true`, Hammerspoon will block until all missing Spoons are installed, but the notifications will happen at a more "human readable" rate.
 obj.use_syncinstall = false
 
 -- Execute a command and return its output with trailing EOLs trimmed. If the command fails, an error message is logged.

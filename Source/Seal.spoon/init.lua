@@ -36,7 +36,9 @@ obj.spoonPath = hs.spoons.scriptPath()
 --- Seal.queryChangedTimerDuration
 --- Variable
 --- Time between the last keystroke and the start of the recalculation of the choices to display, in seconds.
---- Defaults to 0.02s (20ms).
+---
+--- Notes:
+---  * Defaults to 0.02s (20ms).
 obj.queryChangedTimerDuration = 0.02
 
 --- Seal.plugin_search_paths
