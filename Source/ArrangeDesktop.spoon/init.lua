@@ -8,7 +8,6 @@
 local obj = {}
 obj.__index = obj
 
---- Metadata
 obj.name = "ArrangeDesktop"
 obj.version = "2.0.0"
 obj.author = "Luis Cruz <sprak3000+github@gmail.com>"

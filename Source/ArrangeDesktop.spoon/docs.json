@@ -1,132 +1,465 @@
 [
   {
-    "Command": [],
-    "Constant": [],
-    "Constructor": [],
-    "Deprecated": [],
-    "Field": [],
-    "Function": [],
-    "Method": [
+    "Constant" : [
+
+    ],
+    "submodules" : [
+
+    ],
+    "Function" : [
       {
-        "def": "ArrangeDesktop:addMenuItems",
-        "desc": "Add menu items to a table for each configured desktop arrangment.",
-        "doc": "Add menu items to a table for each configured desktop arrangment.\n\nParameters:\n* menuItems - table of menu items\n* arrangements - table of desktop arrangements\n\nReturns:\ntable of menu items",
-        "name": "addMenuItems",
-        "parameters": [
-          "* menuItems - table of menu items",
-          "* arrangements - table of desktop arrangements"
+        "doc" : "Loads the configuration file.\n\nParameters:\n * None\n\nReturns:\n * A table containing the configured desktop arrangements, or nil if an error occurred",
+        "def" : "ArrangeDesktop._loadConfiguration() -> table or nil",
+        "stripped_doc" : [
+          "Loads the configuration file.",
+          ""
         ],
-        "returns": [
-          "table of menu items"
+        "parameters" : [
+          " * None",
+          ""
         ],
-        "signature": "ArrangeDesktop:addMenuItems",
-        "stripped_doc": "",
-        "type": "Method"
+        "notes" : [
+
+        ],
+        "signature" : "ArrangeDesktop._loadConfiguration() -> table or nil",
+        "type" : "Function",
+        "returns" : [
+          " * A table containing the configured desktop arrangements, or nil if an error occurred"
+        ],
+        "name" : "_loadConfiguration",
+        "desc" : "Loads the configuration file."
       },
       {
-        "def": "ArrangeDesktop:arrange",
-        "desc": "Arrange the desktop based on a given configuration",
-        "doc": "Arrange the desktop based on a given configuration\n\nParameters:\n* arrangement - table of arrangement data",
-        "name": "arrange",
-        "parameters": [
-          "* arrangement - table of arrangement data"
+        "doc" : "Writes the configuration to a file.\n\nParameters:\n * config - A table containing the configuration to write\n\nReturns:\n * A boolean indicating if the write was successful",
+        "def" : "ArrangeDesktop._writeConfiguration(config) -> bool",
+        "stripped_doc" : [
+          "Writes the configuration to a file.",
+          ""
         ],
-        "signature": "ArrangeDesktop:arrange",
-        "stripped_doc": "",
-        "type": "Method"
+        "parameters" : [
+          " * config - A table containing the configuration to write",
+          ""
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "ArrangeDesktop._writeConfiguration(config) -> bool",
+        "type" : "Function",
+        "returns" : [
+          " * A boolean indicating if the write was successful"
+        ],
+        "name" : "_writeConfiguration",
+        "desc" : "Writes the configuration to a file."
       },
       {
-        "def": "ArrangeDesktop:logCurrentArrangement()",
-        "desc": "Build up the configuration for the current desktop arrangement and log it to the Hammerspoon console.",
-        "doc": "Build up the configuration for the current desktop arrangement and log it to the Hammerspoon console.",
-        "name": "logCurrentArrangement",
-        "signature": "ArrangeDesktop:logCurrentArrangement()",
-        "stripped_doc": "",
-        "type": "Method"
+        "doc" : "Builds the configuration for the current desktop arrangement.\n\nParameters:\n * None\n\nReturns:\n * A table containing the configuration data for the current desktop arrangement",
+        "def" : "ArrangeDesktop._buildArrangement() -> table",
+        "stripped_doc" : [
+          "Builds the configuration for the current desktop arrangement.",
+          ""
+        ],
+        "parameters" : [
+          " * None",
+          ""
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "ArrangeDesktop._buildArrangement() -> table",
+        "type" : "Function",
+        "returns" : [
+          " * A table containing the configuration data for the current desktop arrangement"
+        ],
+        "name" : "_buildArrangement",
+        "desc" : "Builds the configuration for the current desktop arrangement."
+      },
+      {
+        "doc" : "Positions all windows for an application based on the given configuration.\n\nParameters:\n * app - A table of the application instance\n * appTitle - The name of the application, e.g., Slack, Firefox, etc.\n * screen - A table of the position of the screen (x, y integer pair) to place the application window into\n * frame - A table of the frame details for the application window, e.g., {w=12, h=12, x=12, y=12}",
+        "def" : "ArrangeDesktop._positionApp(app, appTitle, screen, frame)",
+        "stripped_doc" : [
+          "Positions all windows for an application based on the given configuration.",
+          ""
+        ],
+        "parameters" : [
+          " * app - A table of the application instance",
+          " * appTitle - The name of the application, e.g., Slack, Firefox, etc.",
+          " * screen - A table of the position of the screen (x, y integer pair) to place the application window into",
+          " * frame - A table of the frame details for the application window, e.g., {w=12, h=12, x=12, y=12}"
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "ArrangeDesktop._positionApp(app, appTitle, screen, frame)",
+        "type" : "Function",
+        "returns" : [
+
+        ],
+        "name" : "_positionApp",
+        "desc" : "Positions all windows for an application based on the given configuration."
       }
     ],
-    "Variable": [
+    "Variable" : [
       {
-        "def": "ArrangeDesktop.arrangements",
-        "desc": "Contains the configured desktop arrangements",
-        "doc": "Contains the configured desktop arrangements",
-        "name": "arrangements",
-        "signature": "ArrangeDesktop.arrangements",
-        "stripped_doc": "",
-        "type": "Variable"
+        "doc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "def" : "ArrangeDesktop.logger",
+        "stripped_doc" : [
+          "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
+        ],
+        "parameters" : [
+
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "ArrangeDesktop.logger",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "logger",
+        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
       },
       {
-        "def": "ArrangeDesktop.logger",
-        "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
-        "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
-        "name": "logger",
-        "signature": "ArrangeDesktop.logger",
-        "stripped_doc": "",
-        "type": "Variable"
+        "doc" : "Contains the configured desktop arrangements",
+        "def" : "ArrangeDesktop.arrangements",
+        "stripped_doc" : [
+          "Contains the configured desktop arrangements"
+        ],
+        "parameters" : [
+
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "ArrangeDesktop.arrangements",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "arrangements",
+        "desc" : "Contains the configured desktop arrangements"
+      },
+      {
+        "doc" : "Defines where the config file is stored. Defaults to hs.spoons.scriptPath()\/config.json",
+        "def" : "ArrangeDesktop.configFile",
+        "stripped_doc" : [
+          "Defines where the config file is stored. Defaults to hs.spoons.scriptPath()\/config.json"
+        ],
+        "parameters" : [
+
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "ArrangeDesktop.configFile",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "configFile",
+        "desc" : "Defines where the config file is stored. Defaults to hs.spoons.scriptPath()\/config.json"
       }
     ],
-    "desc": "Utilities for arranging your desktop how you like it.",
-    "doc": "Utilities for arranging your desktop how you like it.\n\nPositioning logic adapted from https://github.com/dploeger/hammerspoon-window-manager",
-    "items": [
+    "stripped_doc" : [
+
+    ],
+    "desc" : "Easily create, save, and use desktop arrangements.",
+    "type" : "Module",
+    "Deprecated" : [
+
+    ],
+    "Constructor" : [
+
+    ],
+    "doc" : "Easily create, save, and use desktop arrangements.\nSee the blog post at for a usage guide.\n\nPositioning logic adapted from https:\/\/github.com\/dploeger\/hammerspoon-window-manager",
+    "Field" : [
+
+    ],
+    "Command" : [
+
+    ],
+    "items" : [
       {
-        "def": "ArrangeDesktop:addMenuItems",
-        "desc": "Add menu items to a table for each configured desktop arrangment.",
-        "doc": "Add menu items to a table for each configured desktop arrangment.\n\nParameters:\n* menuItems - table of menu items\n* arrangements - table of desktop arrangements\n\nReturns:\ntable of menu items",
-        "name": "addMenuItems",
-        "parameters": [
-          "* menuItems - table of menu items",
-          "* arrangements - table of desktop arrangements"
+        "doc" : "Contains the configured desktop arrangements",
+        "def" : "ArrangeDesktop.arrangements",
+        "stripped_doc" : [
+          "Contains the configured desktop arrangements"
         ],
-        "returns": [
-          "table of menu items"
+        "parameters" : [
+
         ],
-        "signature": "ArrangeDesktop:addMenuItems",
-        "stripped_doc": "",
-        "type": "Method"
-      },
-      {
-        "def": "ArrangeDesktop:arrange",
-        "desc": "Arrange the desktop based on a given configuration",
-        "doc": "Arrange the desktop based on a given configuration\n\nParameters:\n* arrangement - table of arrangement data",
-        "name": "arrange",
-        "parameters": [
-          "* arrangement - table of arrangement data"
+        "notes" : [
+
         ],
-        "signature": "ArrangeDesktop:arrange",
-        "stripped_doc": "",
-        "type": "Method"
+        "signature" : "ArrangeDesktop.arrangements",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "arrangements",
+        "desc" : "Contains the configured desktop arrangements"
       },
       {
-        "def": "ArrangeDesktop.arrangements",
-        "desc": "Contains the configured desktop arrangements",
-        "doc": "Contains the configured desktop arrangements",
-        "name": "arrangements",
-        "signature": "ArrangeDesktop.arrangements",
-        "stripped_doc": "",
-        "type": "Variable"
+        "doc" : "Defines where the config file is stored. Defaults to hs.spoons.scriptPath()\/config.json",
+        "def" : "ArrangeDesktop.configFile",
+        "stripped_doc" : [
+          "Defines where the config file is stored. Defaults to hs.spoons.scriptPath()\/config.json"
+        ],
+        "parameters" : [
+
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "ArrangeDesktop.configFile",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "configFile",
+        "desc" : "Defines where the config file is stored. Defaults to hs.spoons.scriptPath()\/config.json"
       },
       {
-        "def": "ArrangeDesktop:logCurrentArrangement()",
-        "desc": "Build up the configuration for the current desktop arrangement and log it to the Hammerspoon console.",
-        "doc": "Build up the configuration for the current desktop arrangement and log it to the Hammerspoon console.",
-        "name": "logCurrentArrangement",
-        "signature": "ArrangeDesktop:logCurrentArrangement()",
-        "stripped_doc": "",
-        "type": "Method"
+        "doc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "def" : "ArrangeDesktop.logger",
+        "stripped_doc" : [
+          "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
+        ],
+        "parameters" : [
+
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "ArrangeDesktop.logger",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "logger",
+        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
       },
       {
-        "def": "ArrangeDesktop.logger",
-        "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
-        "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
-        "name": "logger",
-        "signature": "ArrangeDesktop.logger",
-        "stripped_doc": "",
-        "type": "Variable"
+        "doc" : "Builds the configuration for the current desktop arrangement.\n\nParameters:\n * None\n\nReturns:\n * A table containing the configuration data for the current desktop arrangement",
+        "def" : "ArrangeDesktop._buildArrangement() -> table",
+        "stripped_doc" : [
+          "Builds the configuration for the current desktop arrangement.",
+          ""
+        ],
+        "parameters" : [
+          " * None",
+          ""
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "ArrangeDesktop._buildArrangement() -> table",
+        "type" : "Function",
+        "returns" : [
+          " * A table containing the configuration data for the current desktop arrangement"
+        ],
+        "name" : "_buildArrangement",
+        "desc" : "Builds the configuration for the current desktop arrangement."
+      },
+      {
+        "doc" : "Loads the configuration file.\n\nParameters:\n * None\n\nReturns:\n * A table containing the configured desktop arrangements, or nil if an error occurred",
+        "def" : "ArrangeDesktop._loadConfiguration() -> table or nil",
+        "stripped_doc" : [
+          "Loads the configuration file.",
+          ""
+        ],
+        "parameters" : [
+          " * None",
+          ""
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "ArrangeDesktop._loadConfiguration() -> table or nil",
+        "type" : "Function",
+        "returns" : [
+          " * A table containing the configured desktop arrangements, or nil if an error occurred"
+        ],
+        "name" : "_loadConfiguration",
+        "desc" : "Loads the configuration file."
+      },
+      {
+        "doc" : "Positions all windows for an application based on the given configuration.\n\nParameters:\n * app - A table of the application instance\n * appTitle - The name of the application, e.g., Slack, Firefox, etc.\n * screen - A table of the position of the screen (x, y integer pair) to place the application window into\n * frame - A table of the frame details for the application window, e.g., {w=12, h=12, x=12, y=12}",
+        "def" : "ArrangeDesktop._positionApp(app, appTitle, screen, frame)",
+        "stripped_doc" : [
+          "Positions all windows for an application based on the given configuration.",
+          ""
+        ],
+        "parameters" : [
+          " * app - A table of the application instance",
+          " * appTitle - The name of the application, e.g., Slack, Firefox, etc.",
+          " * screen - A table of the position of the screen (x, y integer pair) to place the application window into",
+          " * frame - A table of the frame details for the application window, e.g., {w=12, h=12, x=12, y=12}"
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "ArrangeDesktop._positionApp(app, appTitle, screen, frame)",
+        "type" : "Function",
+        "returns" : [
+
+        ],
+        "name" : "_positionApp",
+        "desc" : "Positions all windows for an application based on the given configuration."
+      },
+      {
+        "doc" : "Writes the configuration to a file.\n\nParameters:\n * config - A table containing the configuration to write\n\nReturns:\n * A boolean indicating if the write was successful",
+        "def" : "ArrangeDesktop._writeConfiguration(config) -> bool",
+        "stripped_doc" : [
+          "Writes the configuration to a file.",
+          ""
+        ],
+        "parameters" : [
+          " * config - A table containing the configuration to write",
+          ""
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "ArrangeDesktop._writeConfiguration(config) -> bool",
+        "type" : "Function",
+        "returns" : [
+          " * A boolean indicating if the write was successful"
+        ],
+        "name" : "_writeConfiguration",
+        "desc" : "Writes the configuration to a file."
+      },
+      {
+        "doc" : "Add menu items to a table for each configured desktop arrangement.\n\nParameters:\n * menuItems - A table of menu items to append to\n\nReturns:\n * A table of menu items",
+        "def" : "ArrangeDesktop:addMenuItems(menuItems) -> table",
+        "stripped_doc" : [
+          "Add menu items to a table for each configured desktop arrangement.",
+          ""
+        ],
+        "parameters" : [
+          " * menuItems - A table of menu items to append to",
+          ""
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "ArrangeDesktop:addMenuItems(menuItems) -> table",
+        "type" : "Method",
+        "returns" : [
+          " * A table of menu items"
+        ],
+        "name" : "addMenuItems",
+        "desc" : "Add menu items to a table for each configured desktop arrangement."
+      },
+      {
+        "doc" : "Arrange the desktop based on a given configuration\n\nParameters:\n * arrangement - A table of arrangement data",
+        "def" : "ArrangeDesktop:arrange(arrangement)",
+        "stripped_doc" : [
+          "Arrange the desktop based on a given configuration",
+          ""
+        ],
+        "parameters" : [
+          " * arrangement - A table of arrangement data"
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "ArrangeDesktop:arrange(arrangement)",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "name" : "arrange",
+        "desc" : "Arrange the desktop based on a given configuration"
+      },
+      {
+        "doc" : "Creates the desktop arrangement and saves it to the configuration file.\n\nParameters:\n * None",
+        "def" : "ArrangeDesktop:createArrangement()",
+        "stripped_doc" : [
+          "Creates the desktop arrangement and saves it to the configuration file.",
+          ""
+        ],
+        "parameters" : [
+          " * None"
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "ArrangeDesktop:createArrangement()",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "name" : "createArrangement",
+        "desc" : "Creates the desktop arrangement and saves it to the configuration file."
       }
     ],
-    "name": "ArrangeDesktop",
-    "stripped_doc": "\nPositioning logic adapted from https://github.com/dploeger/hammerspoon-window-manager",
-    "submodules": [],
-    "type": "Module"
+    "Method" : [
+      {
+        "doc" : "Arrange the desktop based on a given configuration\n\nParameters:\n * arrangement - A table of arrangement data",
+        "def" : "ArrangeDesktop:arrange(arrangement)",
+        "stripped_doc" : [
+          "Arrange the desktop based on a given configuration",
+          ""
+        ],
+        "parameters" : [
+          " * arrangement - A table of arrangement data"
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "ArrangeDesktop:arrange(arrangement)",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "name" : "arrange",
+        "desc" : "Arrange the desktop based on a given configuration"
+      },
+      {
+        "doc" : "Add menu items to a table for each configured desktop arrangement.\n\nParameters:\n * menuItems - A table of menu items to append to\n\nReturns:\n * A table of menu items",
+        "def" : "ArrangeDesktop:addMenuItems(menuItems) -> table",
+        "stripped_doc" : [
+          "Add menu items to a table for each configured desktop arrangement.",
+          ""
+        ],
+        "parameters" : [
+          " * menuItems - A table of menu items to append to",
+          ""
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "ArrangeDesktop:addMenuItems(menuItems) -> table",
+        "type" : "Method",
+        "returns" : [
+          " * A table of menu items"
+        ],
+        "name" : "addMenuItems",
+        "desc" : "Add menu items to a table for each configured desktop arrangement."
+      },
+      {
+        "doc" : "Creates the desktop arrangement and saves it to the configuration file.\n\nParameters:\n * None",
+        "def" : "ArrangeDesktop:createArrangement()",
+        "stripped_doc" : [
+          "Creates the desktop arrangement and saves it to the configuration file.",
+          ""
+        ],
+        "parameters" : [
+          " * None"
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "ArrangeDesktop:createArrangement()",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "name" : "createArrangement",
+        "desc" : "Creates the desktop arrangement and saves it to the configuration file."
+      }
+    ],
+    "name" : "ArrangeDesktop"
   }
 ]
