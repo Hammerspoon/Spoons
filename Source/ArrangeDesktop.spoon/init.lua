@@ -1,7 +1,6 @@
 --- === ArrangeDesktop ===
 ---
 --- Easily create, save, and use desktop arrangements.
---- See the blog post at for a usage guide.
 ---
 --- Positioning logic adapted from https://github.com/dploeger/hammerspoon-window-manager
 
