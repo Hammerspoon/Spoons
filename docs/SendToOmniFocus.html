@@ -52,9 +52,12 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Table containing application handlers for sending the current item to OmniFocus.
-Each entry's key is the application name, and its value is another table with the following keys:</p>
-<ul>
+                <td>Table containing application handlers for sending the current item to OmniFocus.</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>Each entry's key is the application name, and its value is another table with the following keys:<ul>
 <li><code>itemname</code> - how to name the current item in the context of the application. Purely for cosmetic purposes in the notifications (e.g. in Mail, the notification says "filing message" instead of "filing item". Defaults to "item".</li>
 <li>One of the following, invoked to do the actual filing:<ul>
 <li><code>as_scriptfile</code> - path of a file containing AppleScript code. It will be executed using the <code>osascript</code> command. If <code>quickentrydialog</code> is set to <code>false</code>, the string <code>nodialog</code> will be passed as argument to the script.</li>
@@ -64,33 +67,35 @@ Each entry's key is the application name, and its value is another table with th
 </ul>
 </li>
 </ul>
-<p>The built-in handlers for Outlook, Evernote, Chrome and Mail are implemented by scripts bundled with the SendToOmniFocus spoon.
-New handlers can be registered using <code>SendToOmniFocus:registerApplication()</code></p>
-<p>Default value:</p>
-
-<pre><code>  {
-     ["Microsoft Outlook"] = {
-        as_scriptfile = _resource_path("scripts/outlook-to-omnifocus.applescript"),
-        itemname = "message"
-     },
-     Evernote = {
-        as_scriptfile = _resource_path("scripts/evernote-to-omnifocus.applescript"),
-        itemname = "note"
-     },
-     ["Google Chrome"] = {
-        apptype = "chromeapp",
-        itemname = "tab"
-     },
-     Mail = {
-        as_scriptfile = _resource_path("scripts/mail-to-omnifocus.applescript"),
-        itemname = "message"
-     }
-  }</code></pre>
+</li>
+<li>The built-in handlers for Outlook, Evernote, Chrome and Mail are implemented by scripts bundled with the SendToOmniFocus spoon.</li>
+<li>New handlers can be registered using <code>SendToOmniFocus:registerApplication()</code></li>
+<li>Default value:
+<pre><code>{
+  ["Microsoft Outlook"] = {
+     as_scriptfile = _resource_path("scripts/outlook-to-omnifocus.applescript"),
+     itemname = "message"
+  },
+  Evernote = {
+     as_scriptfile = _resource_path("scripts/evernote-to-omnifocus.applescript"),
+     itemname = "note"
+  },
+  ["Google Chrome"] = {
+     apptype = "chromeapp",
+     itemname = "tab"
+  },
+  Mail = {
+     as_scriptfile = _resource_path("scripts/mail-to-omnifocus.applescript"),
+     itemname = "message"
+  }
+}</code></pre>
+</li>
+</ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/SendToOmniFocus.spoon/init.lua#L65">Source/SendToOmniFocus.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/SendToOmniFocus.spoon/init.lua#L65">Source/SendToOmniFocus.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -108,12 +113,11 @@ New handlers can be registered using <code>SendToOmniFocus:registerApplication()
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.</p>
-</td>
+                <td>Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.</td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/SendToOmniFocus.spoon/init.lua#L50">Source/SendToOmniFocus.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/SendToOmniFocus.spoon/init.lua#L50">Source/SendToOmniFocus.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -131,12 +135,11 @@ New handlers can be registered using <code>SendToOmniFocus:registerApplication()
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Boolean to control Hammerspoon-generated notifications when filing items (doest not control AppleScript notifications, if any, generated from within the scripts). Defaults to <code>true</code>.</p>
-</td>
+                <td>Boolean to control Hammerspoon-generated notifications when filing items (doest not control AppleScript notifications, if any, generated from within the scripts). Defaults to `true`.</td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/SendToOmniFocus.spoon/init.lua#L55">Source/SendToOmniFocus.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/SendToOmniFocus.spoon/init.lua#L55">Source/SendToOmniFocus.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -154,12 +157,11 @@ New handlers can be registered using <code>SendToOmniFocus:registerApplication()
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Whether to display the new tasks in the OmniFocus quick-entry dialog before adding them. Defaults to <code>true</code> (set to <code>false</code> to send directly to the Inbox, without prompting)</p>
-</td>
+                <td>Whether to display the new tasks in the OmniFocus quick-entry dialog before adding them. Defaults to `true` (set to `false` to send directly to the Inbox, without prompting)</td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/SendToOmniFocus.spoon/init.lua#L60">Source/SendToOmniFocus.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/SendToOmniFocus.spoon/init.lua#L60">Source/SendToOmniFocus.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -178,9 +180,11 @@ New handlers can be registered using <code>SendToOmniFocus:registerApplication()
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Binds hotkeys for SendToOmniFocus</p>
-<p>Parameters:</p>
-<ul>
+                <td>Binds hotkeys for SendToOmniFocus</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>mapping - A table containing hotkey objifier/key details for the following items:<ul>
 <li>send_to_omnifocus - file current item to OmniFocus.</li>
 </ul>
@@ -189,8 +193,12 @@ New handlers can be registered using <code>SendToOmniFocus:registerApplication()
 </td>
               </tr>
               <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/SendToOmniFocus.spoon/init.lua#L201">Source/SendToOmniFocus.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/SendToOmniFocus.spoon/init.lua#L201">Source/SendToOmniFocus.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -208,17 +216,23 @@ New handlers can be registered using <code>SendToOmniFocus:registerApplication()
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Register a new application handler</p>
-<p>Parameters:</p>
-<ul>
+                <td>Register a new application handler</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>app - application name</li>
 <li>handlerSpec - a handler definition in the format of <code>SendToOmniFocus.actions</code>, or <code>nil</code> to unregister the application.</li>
 </ul>
 </td>
               </tr>
               <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/SendToOmniFocus.spoon/init.lua#L190">Source/SendToOmniFocus.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/SendToOmniFocus.spoon/init.lua#L190">Source/SendToOmniFocus.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -236,20 +250,25 @@ New handlers can be registered using <code>SendToOmniFocus:registerApplication()
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Send current item in current application to OmniFocus by triggering the appropriate handler.</p>
-<p>Parameters:</p>
-<ul>
+                <td>Send current item in current application to OmniFocus by triggering the appropriate handler.</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>None</li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li>The SendToOmniFocus object</li>
 </ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/SendToOmniFocus.spoon/init.lua#L135">Source/SendToOmniFocus.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/SendToOmniFocus.spoon/init.lua#L135">Source/SendToOmniFocus.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>

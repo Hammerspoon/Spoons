@@ -54,12 +54,11 @@ Code by @tdlm, spoon by Tyler Thrailkill <a href="mailto:tyler.b.thrailkill@gmai
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>String api developer key. Can be found <a href="http://pastebin.com/api">here</a></p>
-</td>
+                <td>String api developer key. Can be found [here](http://pastebin.com/api)</td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/Pastebin.spoon/init.lua#L19">Source/Pastebin.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/Pastebin.spoon/init.lua#L19">Source/Pastebin.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -77,12 +76,11 @@ Code by @tdlm, spoon by Tyler Thrailkill <a href="mailto:tyler.b.thrailkill@gmai
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>String api user key. Can be generated <a href="http://pastebin.com/api/api_user_key.html">here</a></p>
-</td>
+                <td>String api user key. Can be generated [here](http://pastebin.com/api/api_user_key.html)</td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/Pastebin.spoon/init.lua#L24">Source/Pastebin.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/Pastebin.spoon/init.lua#L24">Source/Pastebin.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -100,22 +98,29 @@ Code by @tdlm, spoon by Tyler Thrailkill <a href="mailto:tyler.b.thrailkill@gmai
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>String indicating how long until the paste expires. Default is 'N' (Never)
-Valid expiration times at this time are (current list can be found <a href="https://pastebin.com/api#6">here</a>)
-N
-10M
-1H
-1D
-1W
-2W
-1M
-6M
-1Y</p>
+                <td>String indicating how long until the paste expires. Default is 'N' (Never)</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>Valid expiration times at this time are (current list can be found <a href="https://pastebin.com/api#6">here</a>)<ul>
+<li>N</li>
+<li>10M</li>
+<li>1H</li>
+<li>1D</li>
+<li>1W</li>
+<li>2W</li>
+<li>1M</li>
+<li>6M</li>
+<li>1Y</li>
+</ul>
+</li>
+</ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/Pastebin.spoon/init.lua#L34">Source/Pastebin.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/Pastebin.spoon/init.lua#L34">Source/Pastebin.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -133,266 +138,273 @@ N
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>String indicating the format of the paste. Default is 'text' (plain text). 
-Valid formats at this time are (current list can be found <a href="https://pastebin.com/api#5">here</a>): 
-'4cs'
-'6502acme'
-'6502kickass'
-'6502tasm'
-'abap'
-'actionscript'
-'actionscript3'
-'ada'
-'aimms'
-'algol68'
-'apache'
-'applescript'
-'apt_sources'
-'arm'
-'asm'
-'asp'
-'asymptote'
-'autoconf'
-'autohotkey'
-'autoit'
-'avisynth'
-'awk'
-'bascomavr'
-'bash'
-'basic4gl'
-'dos'
-'bibtex'
-'blitzbasic'
-'b3d'
-'bmx'
-'bnf'
-'boo'
-'bf'
-'c'
-'c_winapi'
-'c_mac'
-'cil'
-'csharp'
-'cpp'
-'cpp-winapi'
-'cpp-qt'
-'c_loadrunner'
-'caddcl'
-'cadlisp'
-'ceylon'
-'cfdg'
-'chaiscript'
-'chapel'
-'clojure'
-'klonec'
-'klonecpp'
-'cmake'
-'cobol'
-'coffeescript'
-'cfm'
-'css'
-'cuesheet'
-'d'
-'dart'
-'dcl'
-'dcpu16'
-'dcs'
-'delphi'
-'oxygene'
-'diff'
-'div'
-'dot'
-'e'
-'ezt'
-'ecmascript'
-'eiffel'
-'email'
-'epc'
-'erlang'
-'euphoria'
-'fsharp'
-'falcon'
-'filemaker'
-'fo'
-'f1'
-'fortran'
-'freebasic'
-'freeswitch'
-'gambas'
-'gml'
-'gdb'
-'genero'
-'genie'
-'gettext'
-'go'
-'groovy'
-'gwbasic'
-'haskell'
-'haxe'
-'hicest'
-'hq9plus'
-'html4strict'
-'html5'
-'icon'
-'idl'
-'ini'
-'inno'
-'intercal'
-'io'
-'ispfpanel'
-'j'
-'java'
-'java5'
-'javascript'
-'jcl'
-'jquery'
-'json'
-'julia'
-'kixtart'
-'kotlin'
-'latex'
-'ldif'
-'lb'
-'lsl2'
-'lisp'
-'llvm'
-'locobasic'
-'logtalk'
-'lolcode'
-'lotusformulas'
-'lotusscript'
-'lscript'
-'lua'
-'m68k'
-'magiksf'
-'make'
-'mapbasic'
-'markdown'
-'matlab'
-'mirc'
-'mmix'
-'modula2'
-'modula3'
-'68000devpac'
-'mpasm'
-'mxml'
-'mysql'
-'nagios'
-'netrexx'
-'newlisp'
-'nginx'
-'nim'
-'text'
-'nsis'
-'oberon2'
-'objeck'
-'objc'
-'ocaml-brief'
-'ocaml'
-'octave'
-'oorexx'
-'pf'
-'glsl'
-'oobas'
-'oracle11'
-'oracle8'
-'oz'
-'parasail'
-'parigp'
-'pascal'
-'pawn'
-'pcre'
-'per'
-'perl'
-'perl6'
-'php'
-'php-brief'
-'pic16'
-'pike'
-'pixelbender'
-'pli'
-'plsql'
-'postgresql'
-'postscript'
-'povray'
-'powerbuilder'
-'powershell'
-'proftpd'
-'progress'
-'prolog'
-'properties'
-'providex'
-'puppet'
-'purebasic'
-'pycon'
-'python'
-'pys60'
-'q'
-'qbasic'
-'qml'
-'rsplus'
-'racket'
-'rails'
-'rbs'
-'rebol'
-'reg'
-'rexx'
-'robots'
-'rpmspec'
-'ruby'
-'gnuplot'
-'rust'
-'sas'
-'scala'
-'scheme'
-'scilab'
-'scl'
-'sdlbasic'
-'smalltalk'
-'smarty'
-'spark'
-'sparql'
-'sqf'
-'sql'
-'standardml'
-'stonescript'
-'sclang'
-'swift'
-'systemverilog'
-'tsql'
-'tcl'
-'teraterm'
-'thinbasic'
-'typoscript'
-'unicon'
-'uscript'
-'upc'
-'urbi'
-'vala'
-'vbnet'
-'vbscript'
-'vedit'
-'verilog'
-'vhdl'
-'vim'
-'visualprolog'
-'vb'
-'visualfoxpro'
-'whitespace'
-'whois'
-'winbatch'
-'xbasic'
-'xml'
-'xorg_conf'
-'xpp'
-'yaml'
-'z80'
-'zxbasic'</p>
+                <td>String indicating the format of the paste. Default is 'text' (plain text). </td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>Valid formats at this time are (current list can be found <a href="https://pastebin.com/api#5">here</a>): <ul>
+<li>'4cs'</li>
+<li>'6502acme'</li>
+<li>'6502kickass'</li>
+<li>'6502tasm'</li>
+<li>'abap'</li>
+<li>'actionscript'</li>
+<li>'actionscript3'</li>
+<li>'ada'</li>
+<li>'aimms'</li>
+<li>'algol68'</li>
+<li>'apache'</li>
+<li>'applescript'</li>
+<li>'apt_sources'</li>
+<li>'arm'</li>
+<li>'asm'</li>
+<li>'asp'</li>
+<li>'asymptote'</li>
+<li>'autoconf'</li>
+<li>'autohotkey'</li>
+<li>'autoit'</li>
+<li>'avisynth'</li>
+<li>'awk'</li>
+<li>'bascomavr'</li>
+<li>'bash'</li>
+<li>'basic4gl'</li>
+<li>'dos'</li>
+<li>'bibtex'</li>
+<li>'blitzbasic'</li>
+<li>'b3d'</li>
+<li>'bmx'</li>
+<li>'bnf'</li>
+<li>'boo'</li>
+<li>'bf'</li>
+<li>'c'</li>
+<li>'c_winapi'</li>
+<li>'c_mac'</li>
+<li>'cil'</li>
+<li>'csharp'</li>
+<li>'cpp'</li>
+<li>'cpp-winapi'</li>
+<li>'cpp-qt'</li>
+<li>'c_loadrunner'</li>
+<li>'caddcl'</li>
+<li>'cadlisp'</li>
+<li>'ceylon'</li>
+<li>'cfdg'</li>
+<li>'chaiscript'</li>
+<li>'chapel'</li>
+<li>'clojure'</li>
+<li>'klonec'</li>
+<li>'klonecpp'</li>
+<li>'cmake'</li>
+<li>'cobol'</li>
+<li>'coffeescript'</li>
+<li>'cfm'</li>
+<li>'css'</li>
+<li>'cuesheet'</li>
+<li>'d'</li>
+<li>'dart'</li>
+<li>'dcl'</li>
+<li>'dcpu16'</li>
+<li>'dcs'</li>
+<li>'delphi'</li>
+<li>'oxygene'</li>
+<li>'diff'</li>
+<li>'div'</li>
+<li>'dot'</li>
+<li>'e'</li>
+<li>'ezt'</li>
+<li>'ecmascript'</li>
+<li>'eiffel'</li>
+<li>'email'</li>
+<li>'epc'</li>
+<li>'erlang'</li>
+<li>'euphoria'</li>
+<li>'fsharp'</li>
+<li>'falcon'</li>
+<li>'filemaker'</li>
+<li>'fo'</li>
+<li>'f1'</li>
+<li>'fortran'</li>
+<li>'freebasic'</li>
+<li>'freeswitch'</li>
+<li>'gambas'</li>
+<li>'gml'</li>
+<li>'gdb'</li>
+<li>'genero'</li>
+<li>'genie'</li>
+<li>'gettext'</li>
+<li>'go'</li>
+<li>'groovy'</li>
+<li>'gwbasic'</li>
+<li>'haskell'</li>
+<li>'haxe'</li>
+<li>'hicest'</li>
+<li>'hq9plus'</li>
+<li>'html4strict'</li>
+<li>'html5'</li>
+<li>'icon'</li>
+<li>'idl'</li>
+<li>'ini'</li>
+<li>'inno'</li>
+<li>'intercal'</li>
+<li>'io'</li>
+<li>'ispfpanel'</li>
+<li>'j'</li>
+<li>'java'</li>
+<li>'java5'</li>
+<li>'javascript'</li>
+<li>'jcl'</li>
+<li>'jquery'</li>
+<li>'json'</li>
+<li>'julia'</li>
+<li>'kixtart'</li>
+<li>'kotlin'</li>
+<li>'latex'</li>
+<li>'ldif'</li>
+<li>'lb'</li>
+<li>'lsl2'</li>
+<li>'lisp'</li>
+<li>'llvm'</li>
+<li>'locobasic'</li>
+<li>'logtalk'</li>
+<li>'lolcode'</li>
+<li>'lotusformulas'</li>
+<li>'lotusscript'</li>
+<li>'lscript'</li>
+<li>'lua'</li>
+<li>'m68k'</li>
+<li>'magiksf'</li>
+<li>'make'</li>
+<li>'mapbasic'</li>
+<li>'markdown'</li>
+<li>'matlab'</li>
+<li>'mirc'</li>
+<li>'mmix'</li>
+<li>'modula2'</li>
+<li>'modula3'</li>
+<li>'68000devpac'</li>
+<li>'mpasm'</li>
+<li>'mxml'</li>
+<li>'mysql'</li>
+<li>'nagios'</li>
+<li>'netrexx'</li>
+<li>'newlisp'</li>
+<li>'nginx'</li>
+<li>'nim'</li>
+<li>'text'</li>
+<li>'nsis'</li>
+<li>'oberon2'</li>
+<li>'objeck'</li>
+<li>'objc'</li>
+<li>'ocaml-brief'</li>
+<li>'ocaml'</li>
+<li>'octave'</li>
+<li>'oorexx'</li>
+<li>'pf'</li>
+<li>'glsl'</li>
+<li>'oobas'</li>
+<li>'oracle11'</li>
+<li>'oracle8'</li>
+<li>'oz'</li>
+<li>'parasail'</li>
+<li>'parigp'</li>
+<li>'pascal'</li>
+<li>'pawn'</li>
+<li>'pcre'</li>
+<li>'per'</li>
+<li>'perl'</li>
+<li>'perl6'</li>
+<li>'php'</li>
+<li>'php-brief'</li>
+<li>'pic16'</li>
+<li>'pike'</li>
+<li>'pixelbender'</li>
+<li>'pli'</li>
+<li>'plsql'</li>
+<li>'postgresql'</li>
+<li>'postscript'</li>
+<li>'povray'</li>
+<li>'powerbuilder'</li>
+<li>'powershell'</li>
+<li>'proftpd'</li>
+<li>'progress'</li>
+<li>'prolog'</li>
+<li>'properties'</li>
+<li>'providex'</li>
+<li>'puppet'</li>
+<li>'purebasic'</li>
+<li>'pycon'</li>
+<li>'python'</li>
+<li>'pys60'</li>
+<li>'q'</li>
+<li>'qbasic'</li>
+<li>'qml'</li>
+<li>'rsplus'</li>
+<li>'racket'</li>
+<li>'rails'</li>
+<li>'rbs'</li>
+<li>'rebol'</li>
+<li>'reg'</li>
+<li>'rexx'</li>
+<li>'robots'</li>
+<li>'rpmspec'</li>
+<li>'ruby'</li>
+<li>'gnuplot'</li>
+<li>'rust'</li>
+<li>'sas'</li>
+<li>'scala'</li>
+<li>'scheme'</li>
+<li>'scilab'</li>
+<li>'scl'</li>
+<li>'sdlbasic'</li>
+<li>'smalltalk'</li>
+<li>'smarty'</li>
+<li>'spark'</li>
+<li>'sparql'</li>
+<li>'sqf'</li>
+<li>'sql'</li>
+<li>'standardml'</li>
+<li>'stonescript'</li>
+<li>'sclang'</li>
+<li>'swift'</li>
+<li>'systemverilog'</li>
+<li>'tsql'</li>
+<li>'tcl'</li>
+<li>'teraterm'</li>
+<li>'thinbasic'</li>
+<li>'typoscript'</li>
+<li>'unicon'</li>
+<li>'uscript'</li>
+<li>'upc'</li>
+<li>'urbi'</li>
+<li>'vala'</li>
+<li>'vbnet'</li>
+<li>'vbscript'</li>
+<li>'vedit'</li>
+<li>'verilog'</li>
+<li>'vhdl'</li>
+<li>'vim'</li>
+<li>'visualprolog'</li>
+<li>'vb'</li>
+<li>'visualfoxpro'</li>
+<li>'whitespace'</li>
+<li>'whois'</li>
+<li>'winbatch'</li>
+<li>'xbasic'</li>
+<li>'xml'</li>
+<li>'xorg_conf'</li>
+<li>'xpp'</li>
+<li>'yaml'</li>
+<li>'z80'</li>
+<li>'zxbasic'</li>
+</ul>
+</li>
+</ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/Pastebin.spoon/init.lua#L50">Source/Pastebin.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/Pastebin.spoon/init.lua#L52">Source/Pastebin.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -410,12 +422,11 @@ Valid formats at this time are (current list can be found <a href="https://paste
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.</p>
-</td>
+                <td>Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.</td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/Pastebin.spoon/init.lua#L309">Source/Pastebin.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/Pastebin.spoon/init.lua#L313">Source/Pastebin.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -433,12 +444,11 @@ Valid formats at this time are (current list can be found <a href="https://paste
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Integer indicating whether a paste should be public, unlisted, or private. Default is 0 (public). (0=public, 1=unlisted, 2=private)</p>
-</td>
+                <td>Integer indicating whether a paste should be public, unlisted, or private. Default is 0 (public). (0=public, 1=unlisted, 2=private)</td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/Pastebin.spoon/init.lua#L29">Source/Pastebin.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/Pastebin.spoon/init.lua#L29">Source/Pastebin.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -457,9 +467,11 @@ Valid formats at this time are (current list can be found <a href="https://paste
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Binds hotkeys for Pastebin</p>
-<p>Parameters:</p>
-<ul>
+                <td>Binds hotkeys for Pastebin</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>mapping - A table containing hotkey objifier/key details for the following items:<ul>
 <li>paste - paste to Pastebin</li>
 </ul>
@@ -468,8 +480,12 @@ Valid formats at this time are (current list can be found <a href="https://paste
 </td>
               </tr>
               <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/Pastebin.spoon/init.lua#L364">Source/Pastebin.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/Pastebin.spoon/init.lua#L368">Source/Pastebin.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -487,9 +503,11 @@ Valid formats at this time are (current list can be found <a href="https://paste
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Pastes an item to Pastebin using the Pastebin api</p>
-<p>Parameters:</p>
-<ul>
+                <td>Pastes an item to Pastebin using the Pastebin api</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>private - Integer specifying whether the paste should be public, private, or unlisted. Defaults to obj.private (0=public)</li>
 <li>expire - String specifying the TTL for the paste. Defaults to obj.expire ('N'=never). Valid values are listed on obj.expire</li>
 <li>format - String specifying the appropriate Pastebin format enum. Default is obj.format ('text'). Valid values are listed on obj.format</li>
@@ -497,8 +515,12 @@ Valid formats at this time are (current list can be found <a href="https://paste
 </td>
               </tr>
               <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/Pastebin.spoon/init.lua#L314">Source/Pastebin.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/Pastebin.spoon/init.lua#L318">Source/Pastebin.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>

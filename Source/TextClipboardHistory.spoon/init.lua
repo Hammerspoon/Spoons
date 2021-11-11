@@ -46,7 +46,10 @@ obj.logger = hs.logger.new('TextClipboardHistory')
 
 --- TextClipboardHistory.ignoredIdentifiers
 --- Variable
---- Types of clipboard entries to ignore, see http://nspasteboard.org. Code from https://github.com/asmagill/hammerspoon-config/blob/master/utils/_menus/newClipper.lua. Default value (don't modify unless you know what you are doing):
+--- Types of clipboard entries to ignore, see http://nspasteboard.org. Code from https://github.com/asmagill/hammerspoon-config/blob/master/utils/_menus/newClipper.lua.
+---
+--- Notes:
+---  * Default value (don't modify unless you know what you are doing):
 --- ```
 ---  {
 ---     ["de.petermaurer.TransientPasteboardType"] = true, -- Transient : Textpander, TextExpander, Butler
@@ -80,7 +83,10 @@ obj.show_in_menubar = true
 
 --- TextClipboardHistory.menubar_title
 --- Variable
---- String to show in the menubar if `TextClipboardHistory.show_in_menubar` is `true`. Defaults to `"\u{1f4ce}"`, which is the [Unicode paperclip character](https://codepoints.net/U+1F4CE)
+--- String to show in the menubar if `TextClipboardHistory.show_in_menubar` is `true`.
+---
+--- Notes:
+---  * Defaults to `"\u{1f4ce}"`, which is the [Unicode paperclip character](https://codepoints.net/U+1F4CE)
 obj.menubar_title   = "\u{1f4ce}"
 
 ----------------------------------------------------------------------

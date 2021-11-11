@@ -58,12 +58,11 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.</p>
-</td>
+                <td>Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.</td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/SpoonInstall.spoon/init.lua#L17">Source/SpoonInstall.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/SpoonInstall.spoon/init.lua#L17">Source/SpoonInstall.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -81,28 +80,32 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Table containing the list of available Spoon repositories. The key
-of each entry is an identifier for the repository, and its value
-is a table with the following entries:</p>
-<ul>
+                <td>Table containing the list of available Spoon repositories.</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>The key of each entry is an identifier for the repository, and its value is a table with the following entries:<ul>
 <li>desc - Human-readable description for the repository</li>
 <li>branch - Active git branch for the Spoon files</li>
 <li>url - Base URL for the repository. For now the repository is assumed to be hosted in GitHub, and the URL should be the main base URL of the repository. Repository metadata needs to be stored under <code>docs/docs.json</code>, and the Spoon zip files need to be stored under <code>Spoons/</code>.</li>
 </ul>
-<p>Default value:</p>
-
+</li>
+<li>Default value:
 <pre><code>{
-   default = {
-      url = "https://github.com/Hammerspoon/Spoons",
-      desc = "Main Hammerspoon Spoon repository",
-      branch = "master",
-   }
+default = {
+   url = "https://github.com/Hammerspoon/Spoons",
+   desc = "Main Hammerspoon Spoon repository",
+   branch = "master",
+}
 }</code></pre>
+</li>
+</ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/SpoonInstall.spoon/init.lua#L22">Source/SpoonInstall.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/SpoonInstall.spoon/init.lua#L22">Source/SpoonInstall.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -120,15 +123,18 @@ is a table with the following entries:</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>If <code>true</code>, <code>andUse()</code> will update repos and install packages synchronously. Defaults to <code>false</code>.</p>
-<p>Keep in mind that if you set this to <code>true</code>, Hammerspoon will
-block until all missing Spoons are installed, but the notifications
-will happen at a more "human readable" rate.</p>
+                <td>If `true`, `andUse()` will update repos and install packages synchronously. Defaults to `false`.</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>Keep in mind that if you set this to <code>true</code>, Hammerspoon will block until all missing Spoons are installed, but the notifications will happen at a more "human readable" rate.</li>
+</ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/SpoonInstall.spoon/init.lua#L49">Source/SpoonInstall.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/SpoonInstall.spoon/init.lua#L49">Source/SpoonInstall.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -147,9 +153,11 @@ will happen at a more "human readable" rate.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Declaratively install, load and configure a Spoon</p>
-<p>Parameters:</p>
-<ul>
+                <td>Declaratively install, load and configure a Spoon</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>name - the name of the Spoon to install (without the <code>.spoon</code> extension). If the Spoon is already installed, it will be loaded using <code>hs.loadSpoon()</code>. If it is not installed, it will be installed using <code>SpoonInstall:asyncInstallSpoonFromRepo()</code> and then loaded.</li>
 <li>arg - if provided, can be used to specify the configuration of the Spoon. The following keys are recognized (all are optional):<ul>
 <li>repo - repository from where the Spoon should be installed if not present in the system, as defined in <code>SpoonInstall.repos</code>. Defaults to <code>"default"</code>.</li>
@@ -162,15 +170,18 @@ will happen at a more "human readable" rate.</p>
 </ul>
 </li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li>None</li>
 </ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/SpoonInstall.spoon/init.lua#L388">Source/SpoonInstall.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/SpoonInstall.spoon/init.lua#L387">Source/SpoonInstall.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -188,9 +199,11 @@ will happen at a more "human readable" rate.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Asynchronously install a Spoon from a registered repository</p>
-<p>Parameters:</p>
-<ul>
+                <td>Asynchronously install a Spoon from a registered repository</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>name - Name of the Spoon to install.</li>
 <li>repo - Name of the repository to use. Defaults to <code>"default"</code></li>
 <li>callback - if given, a function to call after the installation finishes (also if it fails). The function receives the following arguments:<ul>
@@ -199,15 +212,18 @@ will happen at a more "human readable" rate.</p>
 </ul>
 </li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li><code>true</code> if the installation was correctly initiated (i.e. the repo and spoon name were correct), <code>false</code> otherwise.</li>
 </ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/SpoonInstall.spoon/init.lua#L349">Source/SpoonInstall.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/SpoonInstall.spoon/init.lua#L348">Source/SpoonInstall.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -225,9 +241,11 @@ will happen at a more "human readable" rate.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Asynchronously download a Spoon zip file and install it.</p>
-<p>Parameters:</p>
-<ul>
+                <td>Asynchronously download a Spoon zip file and install it.</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>url - URL of the zip file to install.</li>
 <li>callback - if given, a function to call after the installation finishes (also if it fails). The function receives the following arguments:<ul>
 <li>urlparts - Result of calling <code>hs.http.urlParts</code> on the URL of the Spoon zip file</li>
@@ -235,15 +253,18 @@ will happen at a more "human readable" rate.</p>
 </ul>
 </li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li><code>true</code> if the installation was correctly initiated (i.e. the URL is valid), <code>false</code> otherwise</li>
 </ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/SpoonInstall.spoon/init.lua#L286">Source/SpoonInstall.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/SpoonInstall.spoon/init.lua#L285">Source/SpoonInstall.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -261,24 +282,32 @@ will happen at a more "human readable" rate.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Asynchronously fetch the information about the contents of all Spoon repositories registered in <code>SpoonInstall.repos</code></p>
-<p>Parameters:</p>
-<ul>
+                <td>Asynchronously fetch the information about the contents of all Spoon repositories registered in `SpoonInstall.repos`</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>None</li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li>None</li>
 </ul>
-<p>Notes:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
 <li>For now, the repository data is not persisted, so you need to update it after every restart if you want to use any of the install functions.</li>
 </ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/SpoonInstall.spoon/init.lua#L160">Source/SpoonInstall.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/SpoonInstall.spoon/init.lua#L159">Source/SpoonInstall.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -296,9 +325,11 @@ will happen at a more "human readable" rate.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Asynchronously fetch the information about the contents of a Spoon repository</p>
-<p>Parameters:</p>
-<ul>
+                <td>Asynchronously fetch the information about the contents of a Spoon repository</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>repo - name of the repository to update. Defaults to <code>"default"</code>.</li>
 <li>callback - if given, a function to be called after the update finishes (also if it fails). The function will receive the following arguments:<ul>
 <li>repo - name of the repository</li>
@@ -306,19 +337,25 @@ will happen at a more "human readable" rate.</p>
 </ul>
 </li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li><code>true</code> if the update was correctly initiated (i.e. the repo name is valid), <code>nil</code> otherwise</li>
 </ul>
-<p>Notes:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
 <li>For now, the repository data is not persisted, so you need to update it after every restart if you want to use any of the install functions.</li>
 </ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/SpoonInstall.spoon/init.lua#L112">Source/SpoonInstall.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/SpoonInstall.spoon/init.lua#L111">Source/SpoonInstall.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -336,21 +373,26 @@ will happen at a more "human readable" rate.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Synchronously install a Spoon from a registered repository</p>
-<p>Parameters:</p>
-<ul>
+                <td>Synchronously install a Spoon from a registered repository</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>name = Name of the Spoon to install.</li>
 <li>repo - Name of the repository to use. Defaults to <code>"default"</code></li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li><code>true</code> if the installation was successful, <code>nil</code> otherwise.</li>
 </ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/SpoonInstall.spoon/init.lua#L370">Source/SpoonInstall.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/SpoonInstall.spoon/init.lua#L369">Source/SpoonInstall.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -368,20 +410,25 @@ will happen at a more "human readable" rate.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Synchronously download a Spoon zip file and install it.</p>
-<p>Parameters:</p>
-<ul>
+                <td>Synchronously download a Spoon zip file and install it.</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>url - URL of the zip file to install.</li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li><code>true</code> if the installation was successful, <code>nil</code> otherwise</li>
 </ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/SpoonInstall.spoon/init.lua#L310">Source/SpoonInstall.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/SpoonInstall.spoon/init.lua#L309">Source/SpoonInstall.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -399,20 +446,25 @@ will happen at a more "human readable" rate.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Return a sorted list of registered Spoon repositories</p>
-<p>Parameters:</p>
-<ul>
+                <td>Return a sorted list of registered Spoon repositories</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>None</li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li>Table containing a list of strings with the repository identifiers</li>
 </ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/SpoonInstall.spoon/init.lua#L197">Source/SpoonInstall.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/SpoonInstall.spoon/init.lua#L196">Source/SpoonInstall.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -430,13 +482,18 @@ will happen at a more "human readable" rate.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Search repositories for a pattern</p>
-<p>Parameters:</p>
-<ul>
+                <td>Search repositories for a pattern</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>pat - Lua pattern that will be matched against the name and description of each spoon in the registered repositories. All text is converted to lowercase before searching it, so you can use all-lowercase in your pattern.</li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li>Table containing a list of matching entries. Each entry is a table with the following keys:<ul>
 <li>name - Spoon name</li>
 <li>desc - description of the spoon</li>
@@ -448,7 +505,7 @@ will happen at a more "human readable" rate.</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/SpoonInstall.spoon/init.lua#L214">Source/SpoonInstall.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/SpoonInstall.spoon/init.lua#L213">Source/SpoonInstall.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -466,17 +523,25 @@ will happen at a more "human readable" rate.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Synchronously fetch the information about the contents of all Spoon repositories registered in <code>SpoonInstall.repos</code></p>
-<p>Parameters:</p>
-<ul>
+                <td>Synchronously fetch the information about the contents of all Spoon repositories registered in `SpoonInstall.repos`</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>None</li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li>None</li>
 </ul>
-<p>Notes:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
 <li>This is a synchronous call, which means Hammerspoon will be blocked until it finishes.</li>
 <li>For now, the repository data is not persisted, so you need to update it after every restart if you want to use any of the install functions.</li>
 </ul>
@@ -484,7 +549,7 @@ will happen at a more "human readable" rate.</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/SpoonInstall.spoon/init.lua#L178">Source/SpoonInstall.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/SpoonInstall.spoon/init.lua#L177">Source/SpoonInstall.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -502,17 +567,25 @@ will happen at a more "human readable" rate.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Synchronously fetch the information about the contents of a Spoon repository</p>
-<p>Parameters:</p>
-<ul>
+                <td>Synchronously fetch the information about the contents of a Spoon repository</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>repo - name of the repository to update. Defaults to <code>"default"</code>.</li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li><code>true</code> if the update was successful, <code>nil</code> otherwise</li>
 </ul>
-<p>Notes:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
 <li>This is a synchronous call, which means Hammerspoon will be blocked until it finishes. For use in your configuration files, it's advisable to use <code>SpoonInstall.asyncUpdateRepo()</code> instead.</li>
 <li>For now, the repository data is not persisted, so you need to update it after every restart if you want to use any of the install functions.</li>
 </ul>
@@ -520,7 +593,7 @@ will happen at a more "human readable" rate.</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/SpoonInstall.spoon/init.lua#L137">Source/SpoonInstall.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/SpoonInstall.spoon/init.lua#L136">Source/SpoonInstall.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>

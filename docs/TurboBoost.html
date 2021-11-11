@@ -77,13 +77,18 @@ by purchasing the Pro version of the app!</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Command to execute to check whether the DisableTurboBoost kernel
-extension is loaded. Default value: <code>"/usr/sbin/kextstat | grep com.rugarciap.DisableTurboBoost"</code></p>
+                <td>Command to execute to check whether the DisableTurboBoost kernel extension is loaded.</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>Default value: <code>"/usr/sbin/kextstat | grep com.rugarciap.DisableTurboBoost"</code></li>
+</ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/TurboBoost.spoon/init.lua#L102">Source/TurboBoost.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L100">Source/TurboBoost.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -101,13 +106,11 @@ extension is loaded. Default value: <code>"/usr/sbin/kextstat | grep com.rugarci
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Boolean to indicate whether Turbo Boost should be disabled when
-the Spoon starts. Default value: <code>false</code>.</p>
-</td>
+                <td>Boolean to indicate whether Turbo Boost should be disabled when</td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/TurboBoost.spoon/init.lua#L45">Source/TurboBoost.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L45">Source/TurboBoost.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -125,14 +128,18 @@ the Spoon starts. Default value: <code>false</code>.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Where to find the icon to use for the "Disabled" icon. Default value
-uses the icon from the Turbo Boost application:
-<code>"/Applications/Turbo Boost Switcher.app/Contents/Resources/icon_off.tiff"</code></p>
+                <td>Where to find the icon to use for the "Disabled" icon.</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>Default value uses the icon from the Turbo Boost application: <code>"/Applications/Turbo Boost Switcher.app/Contents/Resources/icon_off.tiff"</code></li>
+</ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/TurboBoost.spoon/init.lua#L121">Source/TurboBoost.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L121">Source/TurboBoost.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -150,14 +157,18 @@ uses the icon from the Turbo Boost application:
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Where to find the icon to use for the "Enabled" icon. Default value
-uses the icon from the Turbo Boost application:
-<code>"/Applications/Turbo Boost Switcher.app/Contents/Resources/icon.tiff"</code></p>
+                <td>Where to find the icon to use for the "Enabled" icon.</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>Default value uses the icon from the Turbo Boost application: <code>"/Applications/Turbo Boost Switcher.app/Contents/Resources/icon.tiff"</code></li>
+</ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/TurboBoost.spoon/init.lua#L114">Source/TurboBoost.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L113">Source/TurboBoost.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -175,13 +186,11 @@ uses the icon from the Turbo Boost application:
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Where the DisableTurboBoost.kext file is located.</p>
-<p>Default value: whichever one of <code>TurboBoost.kext_paths</code> exists.</p>
-</td>
+                <td>Where the DisableTurboBoost.kext file is located.</td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/TurboBoost.spoon/init.lua#L67">Source/TurboBoost.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L67">Source/TurboBoost.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -199,15 +208,11 @@ uses the icon from the Turbo Boost application:
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>List with paths to check for the DisableTurboBoost.kext file. The first one
-to be found is used by default unless DisableTurboBoost.kext_path is set
-explicitly.</p>
-<p>Default value: <code>{"/Applications/Turbo Boost Switcher.app/Contents/Resources/DisableTurboBoost.64bits.kext", "/Applications/tbswitcher_resources/DisableTurboBoost.64bits.kext"}</code></p>
-</td>
+                <td>List with paths to check for the DisableTurboBoost.kext file. The first one</td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/TurboBoost.spoon/init.lua#L57">Source/TurboBoost.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L57">Source/TurboBoost.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -225,17 +230,19 @@ explicitly.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Command to execute to load the DisableTurboBoost kernel
-extension. This command must execute with root privileges and
-either query the user for the credentials, or be configured
-(e.g. with sudo) to run without prompting. The string "%s" in this
-variable gets replaced with the value of
-TurboBoost.kext_path. Default value: <code>"/usr/bin/sudo /usr/bin/kextutil '%s'"</code></p>
+                <td>Command to execute to load the DisableTurboBoost kernel extension.</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>This command must execute with root privileges and either query the user for the credentials, or be configured (e.g. with sudo) to run without prompting.</li>
+<li>The string "%s" in this variable gets replaced with the value of TurboBoost.kext_path. Default value: <code>"/usr/bin/sudo /usr/bin/kextutil '%s'"</code></li>
+</ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/TurboBoost.spoon/init.lua#L82">Source/TurboBoost.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L82">Source/TurboBoost.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -253,12 +260,11 @@ TurboBoost.kext_path. Default value: <code>"/usr/bin/sudo /usr/bin/kextutil '%s'
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.</p>
-</td>
+                <td>Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.</td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/TurboBoost.spoon/init.lua#L37">Source/TurboBoost.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L37">Source/TurboBoost.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -276,13 +282,11 @@ TurboBoost.kext_path. Default value: <code>"/usr/bin/sudo /usr/bin/kextutil '%s'
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Boolean indicating whether notifications should be generated when
-Turbo Boost is enabled/disabled. Default value: <code>true</code></p>
-</td>
+                <td>Boolean indicating whether notifications should be generated when Turbo Boost is enabled/disabled. Default value: `true`</td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/TurboBoost.spoon/init.lua#L108">Source/TurboBoost.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L108">Source/TurboBoost.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -300,13 +304,11 @@ Turbo Boost is enabled/disabled. Default value: <code>true</code></p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Boolean to indicate whether Turbo Boost should be reenabled when
-the Spoon stops. Default value: <code>true</code>.</p>
-</td>
+                <td>Boolean to indicate whether Turbo Boost should be reenabled when</td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/TurboBoost.spoon/init.lua#L51">Source/TurboBoost.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L51">Source/TurboBoost.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -324,17 +326,19 @@ the Spoon stops. Default value: <code>true</code>.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Command to execute to unload the DisableTurboBoost kernel
-extension. This command must execute with root privileges and
-either query the user for the credentials, or be configured
-(e.g. with sudo) to run without prompting. The string "%s" in this
-variable gets replaced with the value of
-TurboBoost.kext_path. Default value: <code>"/usr/bin/sudo /sbin/kextunload '%s'"</code></p>
+                <td>Command to execute to unload the DisableTurboBoost kernel extension.</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>This command must execute with root privileges and either query the user for the credentials, or be configured (e.g. with sudo) to run without prompting.</li>
+<li>The string "%s" in this variable gets replaced with the value of TurboBoost.kext_path. Default value: <code>"/usr/bin/sudo /sbin/kextunload '%s'"</code></li>
+</ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/TurboBoost.spoon/init.lua#L92">Source/TurboBoost.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L91">Source/TurboBoost.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -353,9 +357,11 @@ TurboBoost.kext_path. Default value: <code>"/usr/bin/sudo /sbin/kextunload '%s'"
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Binds hotkeys for TurboBoost</p>
-<p>Parameters:</p>
-<ul>
+                <td>Binds hotkeys for TurboBoost</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>mapping - A table containing hotkey objifier/key details for the following items:<ul>
 <li>hello - Say Hello</li>
 </ul>
@@ -364,8 +370,12 @@ TurboBoost.kext_path. Default value: <code>"/usr/bin/sudo /sbin/kextunload '%s'"
 </td>
               </tr>
               <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/TurboBoost.spoon/init.lua#L200">Source/TurboBoost.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L197">Source/TurboBoost.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -383,25 +393,26 @@ TurboBoost.kext_path. Default value: <code>"/usr/bin/sudo /sbin/kextunload '%s'"
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Sets whether Turbo Boost should be disabled (kernel extension loaded) or enabled (normal state, kernel extension not loaded).</p>
-<p>Parameters:</p>
-<ul>
-<li>state - A boolean, false if Turbo Boost should be disabled
-(load kernel extension), true if it should be enabled (unload
-kernel extension if loaded).</li>
-<li>notify - Optional boolean indicating whether a notification
-should be produced. If not given, the value of
-TurboBoost.notify is used.</li>
+                <td>Sets whether Turbo Boost should be disabled (kernel extension loaded) or enabled (normal state, kernel extension not loaded).</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>state - A boolean, false if Turbo Boost should be disabled (load kernel extension), true if it should be enabled (unload kernel extension if loaded).</li>
+<li>notify - Optional boolean indicating whether a notification should be produced. If not given, the value of TurboBoost.notify is used.</li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li>Boolean indicating new state</li>
 </ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/TurboBoost.spoon/init.lua#L128">Source/TurboBoost.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L129">Source/TurboBoost.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -419,20 +430,25 @@ TurboBoost.notify is used.</li>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Starts TurboBoost</p>
-<p>Parameters:</p>
-<ul>
+                <td>Starts TurboBoost</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>None</li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li>The TurboBoost object</li>
 </ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/TurboBoost.spoon/init.lua#L212">Source/TurboBoost.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L209">Source/TurboBoost.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -450,20 +466,25 @@ TurboBoost.notify is used.</li>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Check whether Turbo Boost is enabled</p>
-<p>Parameters:</p>
-<ul>
+                <td>Check whether Turbo Boost is enabled</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>None</li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li>true if TurboBoost is enabled (kernel ext not loaded), false otherwise.</li>
 </ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/TurboBoost.spoon/init.lua#L171">Source/TurboBoost.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L168">Source/TurboBoost.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -481,20 +502,25 @@ TurboBoost.notify is used.</li>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Stops TurboBoost</p>
-<p>Parameters:</p>
-<ul>
+                <td>Stops TurboBoost</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>None</li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li>The TurboBoost object</li>
 </ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/TurboBoost.spoon/init.lua#L233">Source/TurboBoost.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L230">Source/TurboBoost.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -512,20 +538,25 @@ TurboBoost.notify is used.</li>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Toggle TurboBoost status</p>
-<p>Parameters:</p>
-<ul>
+                <td>Toggle TurboBoost status</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>None</li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li>New TurboBoost status, after the toggle</li>
 </ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/TurboBoost.spoon/init.lua#L186">Source/TurboBoost.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L183">Source/TurboBoost.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>

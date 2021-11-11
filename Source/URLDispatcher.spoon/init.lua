@@ -48,15 +48,12 @@ obj.url_redir_decoders = { }
 --- URLDispatcher.url_patterns
 --- Variable
 --- URL dispatch rules.
---- A table containing a list of dispatch rules. Each rule should be its own
---- table in the format: `{ "url pattern", "application bundle ID", "function"
---- }`, and they are evaluated in the order they are declared. Note that the
---- patterns are [Lua patterns](https://www.lua.org/pil/20.2.html) and not
---- regular expressions. Defaults to an empty table, which has the effect of
---- having all URLs dispatched to the `default_handler`. If "application bundle
---- ID" is specified, that application will be used to open matching URLs. If no
---- "application bundle ID" is specified, but "function" is provided (and is a
---- Lua function) it will be called with the URL.
+---
+--- Notes:
+---  * A table containing a list of dispatch rules. Each rule should be its own table in the format: `{ "url pattern", "application bundle ID", "function" }`, and they are evaluated in the order they are declared.
+---  * Note that the patterns are [Lua patterns](https://www.lua.org/pil/20.2.html) and not regular expressions.
+---  * Defaults to an empty table, which has the effect of having all URLs dispatched to the `default_handler`.
+---  * If "application bundle ID" is specified, that application will be used to open matching URLs. If no "application bundle ID" is specified, but "function" is provided (and is a Lua function) it will be called with the URL.
 obj.url_patterns = { }
 
 --- URLDispatcher.logger

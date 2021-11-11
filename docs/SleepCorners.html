@@ -65,12 +65,11 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Specifies the height and width in screen pixels, default 20, of the visual feedback to be displayed when the mouse pointer moves into one of the recognized hot corners</p>
-</td>
+                <td>Specifies the height and width in screen pixels, default 20, of the visual feedback to be displayed when the mouse pointer moves into one of the recognized hot corners</td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/SleepCorners.spoon/init.lua#L99">Source/SleepCorners.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/SleepCorners.spoon/init.lua#L99">Source/SleepCorners.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -88,21 +87,26 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>A table, default <code>{ fn = true }</code>, specifying keyboard modifiers which if held when the mouse pointer enters the sleep now hot corner will trigger sleep immediately rather then delay for <a href="#sleepDelay">SleepCorners.sleepDelay</a> seconds.</p>
-<p>This variable may be set to nil or an empty table, disabling the immediate sleep option, or a table containing one or more of the following keys:</p>
-<ul>
+                <td>A table, default `{ fn = true }`, specifying keyboard modifiers which if held when the mouse pointer enters the sleep now hot corner will trigger sleep immediately rather then delay for [SleepCorners.sleepDelay](#sleepDelay) seconds.</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>This variable may be set to nil or an empty table, disabling the immediate sleep option, or a table containing one or more of the following keys:<ul>
 <li><code>fn</code>    - Set to true to require that the <code>Fn</code> key be pressed. May not be available on all keyboards, especially non-Apple ones.</li>
 <li><code>cmd</code>   - Set to true to require that the Command (⌘) key be pressed</li>
 <li><code>alt</code>   - Set to true to require that the Alt (or Option) (⌥) key be pressed</li>
 <li><code>shift</code> - Set to true to require that the Shift (⇧) key be pressed</li>
 <li><code>ctrl</code>  - Set to true to require that the Control (^) key be pressed</li>
 </ul>
-<p>If this table contains multiple keys, then all of the specified modifiers must be pressed for immediate sleep to take affect.</p>
+</li>
+<li>If this table contains multiple keys, then all of the specified modifiers must be pressed for immediate sleep to take affect.</li>
+</ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/SleepCorners.spoon/init.lua#L120">Source/SleepCorners.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/SleepCorners.spoon/init.lua#L120">Source/SleepCorners.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -120,14 +124,19 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Specifies whether the sleep now corner, when the modifiers defined for <a href="#immediateSleepModifiers">SleepCorners.immediateSleepModifiers</a> are also held, should trigger the display sleep or lock the users session. Defaults to true.</p>
-<p>When this variable is set to true, triggering the sleep now corner for immediate sleep will lock the users session. When this variable is false, the display will be put to sleep instead.</p>
-<p>Note that depending upon the user's settings in the Security &amp; Privacy System Preferences, triggering the display sleep may also lock the user session immediately.</p>
+                <td>Specifies whether the sleep now corner, when the modifiers defined for [SleepCorners.immediateSleepModifiers](#immediateSleepModifiers) are also held, should trigger the display sleep or lock the users session. Defaults to true.</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>When this variable is set to true, triggering the sleep now corner for immediate sleep will lock the users session. When this variable is false, the display will be put to sleep instead.</li>
+<li>Note that depending upon the user's settings in the Security &amp; Privacy System Preferences, triggering the display sleep may also lock the user session immediately.</li>
+</ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/SleepCorners.spoon/init.lua#L144">Source/SleepCorners.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/SleepCorners.spoon/init.lua#L143">Source/SleepCorners.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -145,20 +154,11 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Specifies the location of the never sleep corner on the screen. Defaults to "LR".</p>
-<p>This variable may be set to one of the following string values:</p>
-<ul>
-<li><code>*</code>  - Do not provide a sleep now corner (disable this feature)</li>
-<li><code>UL</code> - Upper left corner</li>
-<li><code>UR</code> - Upper right corner</li>
-<li><code>LR</code> - Lower right corner</li>
-<li><code>LL</code> - Lower left corner</li>
-</ul>
-</td>
+                <td>Specifies the location of the never sleep corner on the screen. Defaults to "LR".</td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/SleepCorners.spoon/init.lua#L86">Source/SleepCorners.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/SleepCorners.spoon/init.lua#L86">Source/SleepCorners.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -176,21 +176,26 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>A table, default <code>{ fn = true }</code>, specifying keyboard modifiers which if held when the mouse pointer enters the never sleep hot corner will disable display sleep and leave it disabled even if the mouse pointer leaves the hot corner. While the never sleep lock is in effect the never sleep visual feedback will remain visible in the appropriate corner of the screen. The never sleep lock may is unlocked when you move the mouse pointer back into the never sleep corner with the modifiers held down a second time or move the mouse pointer into the sleep now corner.</p>
-<p>This variable may be set to nil or an empty table, disabling the never sleep lock option, or a table containing one or more of the following keys:</p>
-<ul>
+                <td>A table, default `{ fn = true }`, specifying keyboard modifiers which if held when the mouse pointer enters the never sleep hot corner will disable display sleep and leave it disabled even if the mouse pointer leaves the hot corner. While the never sleep lock is in effect the never sleep visual feedback will remain visible in the appropriate corner of the screen. The never sleep lock may is unlocked when you move the mouse pointer back into the never sleep corner with the modifiers held down a second time or move the mouse pointer into the sleep now corner.</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>This variable may be set to nil or an empty table, disabling the never sleep lock option, or a table containing one or more of the following keys:<ul>
 <li><code>fn</code>    - Set to true to require that the <code>Fn</code> key be pressed. May not be available on all keyboards, especially non-Apple ones.</li>
 <li><code>cmd</code>   - Set to true to require that the Command (⌘) key be pressed</li>
 <li><code>alt</code>   - Set to true to require that the Alt (or Option) (⌥) key be pressed</li>
 <li><code>shift</code> - Set to true to require that the Shift (⇧) key be pressed</li>
 <li><code>ctrl</code>  - Set to true to require that the Control (^) key be pressed</li>
 </ul>
-<p>If this table contains multiple keys, then all of the specified modifiers must be pressed for the never sleep lock to be triggered.</p>
+</li>
+<li>If this table contains multiple keys, then all of the specified modifiers must be pressed for the never sleep lock to be triggered.</li>
+</ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/SleepCorners.spoon/init.lua#L153">Source/SleepCorners.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/SleepCorners.spoon/init.lua#L152">Source/SleepCorners.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -208,14 +213,11 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Specifies which action should be preferred if both the sleep now and never sleep hot corners are assigned to the same location on the screen. The default is false.</p>
-<p>If this variable is set to <code>true</code>, then sleep now action will be triggered if both hot corners are assigned to the same location on the screen. If this variable is set to <code>false</code>, then the never sleep action will be triggered.</p>
-<p>Note that this variable has no effect if the hot corners are distinct (i.e. are not assigned to the same corner)</p>
-</td>
+                <td>Specifies which action should be preferred if both the sleep now and never sleep hot corners are assigned to the same location on the screen. The default is false.</td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/SleepCorners.spoon/init.lua#L111">Source/SleepCorners.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/SleepCorners.spoon/init.lua#L111">Source/SleepCorners.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -233,13 +235,11 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Specifies the number of seconds, default 2, the mouse pointer must remain within the trigger area of the sleep now corner in order to put the system's display to sleep.</p>
-<p>When the mouse pointer moves into the trigger area for the sleep now hot corner, visual feedback will be provided for the user. If the user does not move the mouse pointer out of the trigger area within the number of seconds specified by this variable, display sleep will be activated.</p>
-</td>
+                <td>Specifies the number of seconds, default 2, the mouse pointer must remain within the trigger area of the sleep now corner in order to put the system's display to sleep.</td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/SleepCorners.spoon/init.lua#L55">Source/SleepCorners.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/SleepCorners.spoon/init.lua#L55">Source/SleepCorners.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -257,18 +257,11 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Specifies the location of the sleep now corner on the screen. Defaults to "LL".</p>
-<p>This variable may be set to one of the following string values:</p>
-<p><code>*</code>  - Do not provide a sleep now corner (disable this feature)
-  <code>UL</code> - Upper left corner
-  <code>UR</code> - Upper right corner
-  <code>LR</code> - Lower right corner
-  <code>LL</code> - Lower left corner</p>
-</td>
+                <td>Specifies the location of the sleep now corner on the screen. Defaults to "LL".</td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/SleepCorners.spoon/init.lua#L73">Source/SleepCorners.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/SleepCorners.spoon/init.lua#L73">Source/SleepCorners.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -286,14 +279,19 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Specifies whether the sleep now corner should trigger the display sleep or lock the users session. Defaults to false.</p>
-<p>When this variable is set to true, triggering the sleep now corner will lock the users session. When this variable is false, the display will be put to sleep instead.</p>
-<p>Note that depending upon the user's settings in the Security &amp; Privacy System Preferences, triggering the display sleep may also lock the user session immediately.</p>
+                <td>Specifies whether the sleep now corner should trigger the display sleep or lock the users session. Defaults to false.</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>When this variable is set to true, triggering the sleep now corner will lock the users session. When this variable is false, the display will be put to sleep instead.</li>
+<li>Note that depending upon the user's settings in the Security &amp; Privacy System Preferences, triggering the display sleep may also lock the user session immediately.</li>
+</ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/SleepCorners.spoon/init.lua#L135">Source/SleepCorners.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/SleepCorners.spoon/init.lua#L134">Source/SleepCorners.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -311,17 +309,11 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Specifies the screen on which the sleep corners are made active. Defaults to the value returned by <code>hs.screen.primaryScreen()</code>.</p>
-<p>This variable may be set to an <code>hs.screen</code> userdata object or a function which returns an <code>hs.screen</code> userdata object. For example, to make the sleep corners active on the screen with the currently focused window, you could use the following function:</p>
-
-<pre><code>SleepCorners.sleepScreen = function()
-    return hs.screen.mainScreen()
-end</code></pre>
-</td>
+                <td>Specifies the screen on which the sleep corners are made active. Defaults to the value returned by `hs.screen.primaryScreen()`.</td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/SleepCorners.spoon/init.lua#L62">Source/SleepCorners.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/SleepCorners.spoon/init.lua#L62">Source/SleepCorners.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -339,13 +331,11 @@ end</code></pre>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Specifies the height and width in screen pixels, default 2, of the trigger area for the recognized hot corners.</p>
-<p>The trigger area, which may be smaller than the <a href="#feedbackSize">SleepCorners.feedbackSize</a> area, is the region which the mouse pointer must be moved into before the specified feedback or sleep activity will occur.</p>
-</td>
+                <td>Specifies the height and width in screen pixels, default 2, of the trigger area for the recognized hot corners.</td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/SleepCorners.spoon/init.lua#L104">Source/SleepCorners.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/SleepCorners.spoon/init.lua#L104">Source/SleepCorners.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -364,9 +354,11 @@ end</code></pre>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Binds hotkeys for SleepCorners</p>
-<p>Parameters:</p>
-<ul>
+                <td>Binds hotkeys for SleepCorners</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li><code>mapping</code> - A table containing hotkey modifier/key details for one or more of the following commands:<ul>
 <li>"start"  - start monitoring the defined corners</li>
 <li>"stop"   - stop monitoring the defined corners</li>
@@ -375,12 +367,18 @@ end</code></pre>
 </ul>
 </li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li>the SleepCorners spoon object</li>
 </ul>
-<p>Notes:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
 <li>the <code>mapping</code> table is a table of one or more key-value pairs of the format <code>command = { { modifiers }, key }</code> where:<ul>
 <li><code>command</code>   - is one of the commands listed above</li>
 <li><code>modifiers</code> - is a table containing keyboard modifiers, as specified in <code>hs.hotkey.bind()</code></li>
@@ -392,7 +390,7 @@ end</code></pre>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/SleepCorners.spoon/init.lua#L634">Source/SleepCorners.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/SleepCorners.spoon/init.lua#L632">Source/SleepCorners.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -410,17 +408,25 @@ end</code></pre>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Returns whether or not the sleep corners are currently active</p>
-<p>Parameters:</p>
-<ul>
+                <td>Returns whether or not the sleep corners are currently active</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>None</li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li><code>true</code> if the sleep corners are currently active or <code>false</code> if they are not</li>
 </ul>
-<p>Notes:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
 <li>This method only identifies whether or not the SleepCorners spoon has been started; it does not check whether or not the specified corners have been set to a location of "*" with <a href="#sleepNowCorner">SleepCorners.sleepNowCorner</a> or <a href="#neverSleepCorner">SleepCorners.neverSleepCorner</a>.</li>
 <li>If you want to check to see if SleepCorners has been started and that at least one of the corners is assigned to a corner, you should use something like <code>SleepCorners:isActive() and (SleepCorners.sleepNowCorner ~= "*" or SleepCorners.neverSleepCorner ~= "*")</code></li>
 </ul>
@@ -428,7 +434,7 @@ end</code></pre>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/SleepCorners.spoon/init.lua#L460">Source/SleepCorners.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/SleepCorners.spoon/init.lua#L458">Source/SleepCorners.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -446,24 +452,32 @@ end</code></pre>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Temporarily show the SleepCorner feedback images in their current locations as a reminder of their positions on the screen.</p>
-<p>Parameters:</p>
-<ul>
+                <td>Temporarily show the SleepCorner feedback images in their current locations as a reminder of their positions on the screen.</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li><code>duration</code> - an optional number, default 3, specifying the number of seconds the feedback images should be displayed. If you specify <code>false</code> and the feedback images are currently being shown, the timer will be cur short and the images will be removed immediately.</li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li>the SleepCorners spoon object</li>
 </ul>
-<p>Notes:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
 <li>this method will temporarily show the feedback images even if SleepCorners has been stopped (or has not yet been started).</li>
 </ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/SleepCorners.spoon/init.lua#L582">Source/SleepCorners.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/SleepCorners.spoon/init.lua#L580">Source/SleepCorners.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -481,24 +495,32 @@ end</code></pre>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Starts monitoring the defined sleep corners to allow triggering or preventing the system display  sleep state.</p>
-<p>Parameters:</p>
-<ul>
+                <td>Starts monitoring the defined sleep corners to allow triggering or preventing the system display  sleep state.</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>None</li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li>the SleepCorners spoon object</li>
 </ul>
-<p>Notes:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
 <li>has no effect if SleepCorners has already been started</li>
 </ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/SleepCorners.spoon/init.lua#L480">Source/SleepCorners.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/SleepCorners.spoon/init.lua#L478">Source/SleepCorners.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -516,17 +538,25 @@ end</code></pre>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Stop monitoring the defined sleep corners.</p>
-<p>Parameters:</p>
-<ul>
+                <td>Stop monitoring the defined sleep corners.</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>None</li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li>the SleepCorners spoon object</li>
 </ul>
-<p>Notes:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
 <li>has no effect if SleepCorners has already been stopped</li>
 <li>if SleepCorners was active, this method will return the display idle sleep setting back to its previous state and reset the never sleep lock if it has been triggered.</li>
 </ul>
@@ -534,7 +564,7 @@ end</code></pre>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/SleepCorners.spoon/init.lua#L510">Source/SleepCorners.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/SleepCorners.spoon/init.lua#L508">Source/SleepCorners.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -552,17 +582,25 @@ end</code></pre>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Toggles or sets whether or not SleepCorners is currently monitoring the defined screen corners for managing the system display's sleep state and displays an alert indicating the new state of the SleepCorners spoon.</p>
-<p>Parameters:</p>
-<ul>
+                <td>Toggles or sets whether or not SleepCorners is currently monitoring the defined screen corners for managing the system display's sleep state and displays an alert indicating the new state of the SleepCorners spoon.</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li><code>state</code> - an optional boolean which specifies specifically whether SleepCorners should be started if it isn't already running (true) or stopped if it currently is running (false)</li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li>the SleepCorners spoon object</li>
 </ul>
-<p>Notes:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
 <li>If <code>state</code> is not provided, this method will start SleepCorners if it is currently stopped or stop it if is currently started.</li>
 <li><code>SleepCorners:toggle(true)</code> is equivalent to <a href="#start">SleepCorners:start()</a> with the addition of displaying an alert specifying that SleepCorners is active.</li>
 <li><code>SleepCorners:toggle(false)</code> is equivalent to <a href="#stop">SleepCorners:stop()</a> with the addition of displaying an alert specifying that SleepCorners has been deactivated.</li>
@@ -571,7 +609,7 @@ end</code></pre>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/SleepCorners.spoon/init.lua#L546">Source/SleepCorners.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/SleepCorners.spoon/init.lua#L544">Source/SleepCorners.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>

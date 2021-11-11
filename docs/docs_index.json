@@ -388,7 +388,7 @@
     "type": "Variable"
   },
   {
-    "desc": "Types of clipboard entries to ignore, see http://nspasteboard.org. Code from https://github.com/asmagill/hammerspoon-config/blob/master/utils/_menus/newClipper.lua. Default value (don't modify unless you know what you are doing):",
+    "desc": "Types of clipboard entries to ignore, see http://nspasteboard.org. Code from https://github.com/asmagill/hammerspoon-config/blob/master/utils/_menus/newClipper.lua.",
     "module": "ClipboardTool",
     "name": "ignoredIdentifiers",
     "type": "Variable"
@@ -583,19 +583,19 @@
     "type": "Variable"
   },
   {
-    "desc": "If you want to switch to a layout when enabled chooser,",
+    "desc": "If you want to switch to a layout when enabled chooser, set this to name of that layout",
     "module": "Commander",
     "name": "forceLayout",
     "type": "Variable"
   },
   {
-    "desc": "If you want to switch to a method when enabled chooser,",
+    "desc": "If you want to switch to a method when enabled chooser, set this to name of that method",
     "module": "Commander",
     "name": "forceMethod",
     "type": "Variable"
   },
   {
-    "desc": "This list contains all the ignored function names,",
+    "desc": "This list contains all the ignored function names, any function matches the name inside this list will not be added to Commander.commandTable.",
     "module": "Commander",
     "name": "ignoredCommandList",
     "type": "Variable"
@@ -700,7 +700,7 @@
     "type": "Module"
   },
   {
-    "desc": "Boolean, whether to eject volumes when the laptop lid is closed",
+    "desc": "Boolean, whether to eject volumes when the laptop lid is closed with an external display connected.",
     "module": "EjectMenu",
     "name": "eject_on_lid_close",
     "type": "Variable"
@@ -730,7 +730,7 @@
     "type": "Variable"
   },
   {
-    "desc": "List of additional system events on which the volumes should be ejected. The",
+    "desc": "List of additional system events on which the volumes should be ejected.",
     "module": "EjectMenu",
     "name": "other_eject_events",
     "type": "Variable"
@@ -999,7 +999,7 @@
     "type": "Variable"
   },
   {
-    "desc": "Table containing one key per application, with the value indicating whether HeadphoneAutoPause should try to pause/unpause that application in response to the headphone being plugged/unplugged. The key name must ideally correspond to the name of the corresponding `hs.*` module. Default value:",
+    "desc": "Table containing one key per application, with the value indicating whether HeadphoneAutoPause should try to pause/unpause that application in response to the headphone being plugged/unplugged.",
     "module": "HeadphoneAutoPause",
     "name": "control",
     "type": "Variable"
@@ -1279,55 +1279,55 @@
     "type": "Module"
   },
   {
-    "desc": "String containing the key to use for Leanpub API requests. Get it",
+    "desc": "String containing the key to use for Leanpub API requests.",
     "module": "Leanpub",
     "name": "api_key",
     "type": "Variable"
   },
   {
-    "desc": "Boolean that specifies whether all your books are being synced to",
+    "desc": "Boolean that specifies whether all your books are being synced to Dropbox.",
     "module": "Leanpub",
     "name": "books_sync_to_dropbox",
     "type": "Variable"
   },
   {
-    "desc": "Integer containing the interval (in seconds) at which the book",
+    "desc": "Integer containing the interval (in seconds) at which the book status is checked. Default 5.",
     "module": "Leanpub",
     "name": "check_interval",
     "type": "Variable"
   },
   {
-    "desc": "String containing the base Dropbox path to which the books are",
+    "desc": "String containing the base Dropbox path to which the books are synced, if the corresponding parameters are set.",
     "module": "Leanpub",
     "name": "dropbox_path",
     "type": "Variable"
   },
   {
-    "desc": "String containing the name of the Dropbox account type to use for",
+    "desc": "String containing the name of the Dropbox account type to use for determining the base path of the Dropbox directory.",
     "module": "Leanpub",
     "name": "dropbox_type",
     "type": "Variable"
   },
   {
-    "desc": "Boolean indicating whether we should try to fetch book covers from",
+    "desc": "Boolean indicating whether we should try to fetch book covers from Leanpub.",
     "module": "Leanpub",
     "name": "fetch_leanpub_covers",
     "type": "Variable"
   },
   {
-    "desc": "Logger object used within the Spoon. Can be accessed to set the",
+    "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
     "module": "Leanpub",
     "name": "logger",
     "type": "Variable"
   },
   {
-    "desc": "Table specifying the Leanpub status for which notifications should",
+    "desc": "Table specifying the Leanpub status for which notifications should not disappear automatically.",
     "module": "Leanpub",
     "name": "persistent_notification",
     "type": "Variable"
   },
   {
-    "desc": "List of books to watch (by default an empty list). Each element of",
+    "desc": "List of books to watch (by default an empty list).",
     "module": "Leanpub",
     "name": "watch_books",
     "type": "Variable"
@@ -1479,19 +1479,19 @@
     "type": "Module"
   },
   {
-    "desc": "The sizes that the window can have in full-screen. ",
+    "desc": "The sizes that the window can have in full-screen.",
     "module": "MiroWindowsManager",
     "name": "fullScreenSizes",
     "type": "Variable"
   },
   {
-    "desc": "The screen's size using `hs.grid.setGrid()`",
+    "desc": "The screen's size using `hs.grid.setGrid()` This parameter is used at the spoon's `:init()`",
     "module": "MiroWindowsManager",
     "name": "GRID",
     "type": "Variable"
   },
   {
-    "desc": "The sizes that the window can have. ",
+    "desc": "The sizes that the window can have.",
     "module": "MiroWindowsManager",
     "name": "sizes",
     "type": "Variable"
@@ -2295,7 +2295,7 @@
     "type": "Variable"
   },
   {
-    "desc": "Contains the alpha (transparency) of the overlay, from 0.0 (completely",
+    "desc": "Contains the alpha (transparency) of the overlay, from 0.0 (completely transparent to 1.0 (completely opaque). Default is 0.5.",
     "module": "Shade",
     "name": "shadeTransparency",
     "type": "Variable"
@@ -2460,7 +2460,7 @@
     "type": "Variable"
   },
   {
-    "desc": "Table containing the list of available Spoon repositories. The key",
+    "desc": "Table containing the list of available Spoon repositories.",
     "module": "SpoonInstall",
     "name": "repos",
     "type": "Variable"
@@ -2567,7 +2567,7 @@
     "type": "Variable"
   },
   {
-    "desc": "Types of clipboard entries to ignore, see http://nspasteboard.org. Code from https://github.com/asmagill/hammerspoon-config/blob/master/utils/_menus/newClipper.lua. Default value (don't modify unless you know what you are doing):",
+    "desc": "Types of clipboard entries to ignore, see http://nspasteboard.org. Code from https://github.com/asmagill/hammerspoon-config/blob/master/utils/_menus/newClipper.lua.",
     "module": "TextClipboardHistory",
     "name": "ignoredIdentifiers",
     "type": "Variable"
@@ -2579,7 +2579,7 @@
     "type": "Variable"
   },
   {
-    "desc": "String to show in the menubar if `TextClipboardHistory.show_in_menubar` is `true`. Defaults to `\"\\u{1f4ce}\"`, which is the [Unicode paperclip character](https://codepoints.net/U+1F4CE)",
+    "desc": "String to show in the menubar if `TextClipboardHistory.show_in_menubar` is `true`.",
     "module": "TextClipboardHistory",
     "name": "menubar_title",
     "type": "Variable"
@@ -2667,7 +2667,7 @@
     "type": "Module"
   },
   {
-    "desc": "",
+    "desc": "Image to use for the menubar icon.",
     "module": "TimeMachineProgress",
     "name": "backupIcon",
     "type": "Variable"
@@ -2836,7 +2836,7 @@
     "type": "Module"
   },
   {
-    "desc": "Command to execute to check whether the DisableTurboBoost kernel",
+    "desc": "Command to execute to check whether the DisableTurboBoost kernel extension is loaded.",
     "module": "TurboBoost",
     "name": "check_kext_cmd",
     "type": "Variable"
@@ -2848,13 +2848,13 @@
     "type": "Variable"
   },
   {
-    "desc": "Where to find the icon to use for the \"Disabled\" icon. Default value",
+    "desc": "Where to find the icon to use for the \"Disabled\" icon.",
     "module": "TurboBoost",
     "name": "disabled_icon_path",
     "type": "Variable"
   },
   {
-    "desc": "Where to find the icon to use for the \"Enabled\" icon. Default value",
+    "desc": "Where to find the icon to use for the \"Enabled\" icon.",
     "module": "TurboBoost",
     "name": "enabled_icon_path",
     "type": "Variable"
@@ -2872,7 +2872,7 @@
     "type": "Variable"
   },
   {
-    "desc": "Command to execute to load the DisableTurboBoost kernel",
+    "desc": "Command to execute to load the DisableTurboBoost kernel extension.",
     "module": "TurboBoost",
     "name": "load_kext_cmd",
     "type": "Variable"
@@ -2884,7 +2884,7 @@
     "type": "Variable"
   },
   {
-    "desc": "Boolean indicating whether notifications should be generated when",
+    "desc": "Boolean indicating whether notifications should be generated when Turbo Boost is enabled/disabled. Default value: `true`",
     "module": "TurboBoost",
     "name": "notify",
     "type": "Variable"
@@ -2896,7 +2896,7 @@
     "type": "Variable"
   },
   {
-    "desc": "Command to execute to unload the DisableTurboBoost kernel",
+    "desc": "Command to execute to unload the DisableTurboBoost kernel extension.",
     "module": "TurboBoost",
     "name": "unload_kext_cmd",
     "type": "Variable"
@@ -2955,7 +2955,7 @@
     "type": "Variable"
   },
   {
-    "desc": "In Evernote, archive is done by selectin \"Move note\" and then",
+    "desc": "A short pause to make typing into Evernote more reliable",
     "module": "UniversalArchive",
     "name": "evernote_delay_before_typing",
     "type": "Variable"
@@ -3170,7 +3170,7 @@
     "type": "Module"
   },
   {
-    "desc": "Table containing a list of actions to execute for SSID transitions. Transitions to a \"no network\" state (`nil` SSID) are ignored unless you set `WiFiTransitions.actOnNilTransitions`. Each action is itself a table with the following keys:",
+    "desc": "Table containing a list of actions to execute for SSID transitions.",
     "module": "WiFiTransitions",
     "name": "actions",
     "type": "Variable"
@@ -3240,7 +3240,7 @@
     "type": "Variable"
   },
   {
-    "desc": "Table containing a sample set of hotkeys that can be",
+    "desc": "Table containing a sample set of hotkeys that can be assigned to the different operations.",
     "module": "WindowHalfsAndThirds",
     "name": "defaultHotkeys",
     "type": "Variable"
@@ -3305,13 +3305,13 @@
     "type": "Module"
   },
   {
-    "desc": "Length of the animation to use for the window movements across the",
+    "desc": "Length of the animation to use for the window movements across the screens.",
     "module": "WindowScreenLeftAndRight",
     "name": "animationDuration",
     "type": "Variable"
   },
   {
-    "desc": "Table containing a sample set of hotkeys that can be",
+    "desc": "Table containing a sample set of hotkeys that can be assigned to the different operations.",
     "module": "WindowScreenLeftAndRight",
     "name": "defaultHotkeys",
     "type": "Variable"

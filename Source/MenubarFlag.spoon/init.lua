@@ -43,16 +43,12 @@ obj.indicatorInAllSpaces = true
 --- Variable
 --- Table that contains the configuration of indicator colors
 ---
---- The table below indicates the colors to use for a given keyboard
---- layout. The index is the name of the layout as it appears in the
---- input source menu. The value of each indicator is a table made of
---- an arbitrary number of segments, which will be distributed evenly
---- across the width of the screen. Each segment must be a valid
---- `hs.drawing.color` specification (most commonly, you should just
---- use the named colors from within the tables). If a layout is not
---- found, then the indicators are removed when that layout is active.
----
---- Indicator specs can be static flag-like:
+--- Notes:
+---  * The table below indicates the colors to use for a given keyboard layout.
+---  * The index is the name of the layout as it appears in the input source menu.
+---  * The value of each indicator is a table made of an arbitrary number of segments, which will be distributed evenly across the width of the screen.
+---  * Each segment must be a valid `hs.drawing.color` specification (most commonly, you should just use the named colors from within the tables). If a layout is not found, then the indicators are removed when that layout is active.
+---  * Indicator specs can be static flag-like:
 --- ```
 ---   Spanish = {col.green, col.white, col.red},
 ---   German = {col.black, col.red, col.yellow},
@@ -74,7 +70,7 @@ obj.indicatorInAllSpaces = true
 ---   Spanish = {col.red},
 ---   German = {col.yellow},
 --- ```
---- Contributions of indicator specs are welcome!
+---  * Contributions of indicator specs are welcome!
 obj.colors = {
    ["U.S."] = { }, -- empty list or no table entry means "no indicator"
    Spanish = {col.red, col.yellow, col.red},
@@ -85,10 +81,9 @@ obj.colors = {
 --- Variable
 --- Number to indicate how frequently (in seconds) should the menubar indicator be updated. Defaults to 1.0.
 ---
---- Sometimes Hammerspoon misses the callback when the keyboard layout
---- changes. As a workaround, MenuBarFlag can automatically update the
---- indicator at a fixed frequency. The timer can be disabled by
---- setting this parameter to 0.
+--- Notes:
+---  * Sometimes Hammerspoon misses the callback when the keyboard layout changes. As a workaround, MenuBarFlag can automatically update the indicator at a fixed frequency.
+---  * The timer can be disabled by setting this parameter to 0.
 obj.timerFreq = 1.0
 
 obj.logger = hs.logger.new('MenubarFlag')

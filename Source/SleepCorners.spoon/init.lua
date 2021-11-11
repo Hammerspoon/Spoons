@@ -121,48 +121,46 @@ _internals.preferSleepNow = false
 --- Variable
 --- A table, default `{ fn = true }`, specifying keyboard modifiers which if held when the mouse pointer enters the sleep now hot corner will trigger sleep immediately rather then delay for [SleepCorners.sleepDelay](#sleepDelay) seconds.
 ---
---- This variable may be set to nil or an empty table, disabling the immediate sleep option, or a table containing one or more of the following keys:
----
+--- Notes:
+---  * This variable may be set to nil or an empty table, disabling the immediate sleep option, or a table containing one or more of the following keys:
 ---   * `fn`    - Set to true to require that the `Fn` key be pressed. May not be available on all keyboards, especially non-Apple ones.
 ---   * `cmd`   - Set to true to require that the Command (⌘) key be pressed
 ---   * `alt`   - Set to true to require that the Alt (or Option) (⌥) key be pressed
 ---   * `shift` - Set to true to require that the Shift (⇧) key be pressed
 ---   * `ctrl`  - Set to true to require that the Control (^) key be pressed
----
---- If this table contains multiple keys, then all of the specified modifiers must be pressed for immediate sleep to take affect.
+---  * If this table contains multiple keys, then all of the specified modifiers must be pressed for immediate sleep to take affect.
 _internals.immediateSleepModifiers = { fn = true }
 
 --- SleepCorners.sleepNowShouldLock
 --- Variable
 --- Specifies whether the sleep now corner should trigger the display sleep or lock the users session. Defaults to false.
 ---
---- When this variable is set to true, triggering the sleep now corner will lock the users session. When this variable is false, the display will be put to sleep instead.
----
---- Note that depending upon the user's settings in the Security & Privacy System Preferences, triggering the display sleep may also lock the user session immediately.
+--- Notes:
+---  * When this variable is set to true, triggering the sleep now corner will lock the users session. When this variable is false, the display will be put to sleep instead.
+---  * Note that depending upon the user's settings in the Security & Privacy System Preferences, triggering the display sleep may also lock the user session immediately.
 _internals.sleepNowShouldLock = false
 
 --- SleepCorners.immediateSleepShouldLock
 --- Variable
 --- Specifies whether the sleep now corner, when the modifiers defined for [SleepCorners.immediateSleepModifiers](#immediateSleepModifiers) are also held, should trigger the display sleep or lock the users session. Defaults to true.
 ---
---- When this variable is set to true, triggering the sleep now corner for immediate sleep will lock the users session. When this variable is false, the display will be put to sleep instead.
----
---- Note that depending upon the user's settings in the Security & Privacy System Preferences, triggering the display sleep may also lock the user session immediately.
+--- Notes:
+---  * When this variable is set to true, triggering the sleep now corner for immediate sleep will lock the users session. When this variable is false, the display will be put to sleep instead.
+---  * Note that depending upon the user's settings in the Security & Privacy System Preferences, triggering the display sleep may also lock the user session immediately.
 _internals.immediateSleepShouldLock = true
 
 --- SleepCorners.neverSleepLockModifiers
 --- Variable
 --- A table, default `{ fn = true }`, specifying keyboard modifiers which if held when the mouse pointer enters the never sleep hot corner will disable display sleep and leave it disabled even if the mouse pointer leaves the hot corner. While the never sleep lock is in effect the never sleep visual feedback will remain visible in the appropriate corner of the screen. The never sleep lock may is unlocked when you move the mouse pointer back into the never sleep corner with the modifiers held down a second time or move the mouse pointer into the sleep now corner.
 ---
---- This variable may be set to nil or an empty table, disabling the never sleep lock option, or a table containing one or more of the following keys:
----
+--- Notes:
+---  * This variable may be set to nil or an empty table, disabling the never sleep lock option, or a table containing one or more of the following keys:
 ---   * `fn`    - Set to true to require that the `Fn` key be pressed. May not be available on all keyboards, especially non-Apple ones.
 ---   * `cmd`   - Set to true to require that the Command (⌘) key be pressed
 ---   * `alt`   - Set to true to require that the Alt (or Option) (⌥) key be pressed
 ---   * `shift` - Set to true to require that the Shift (⇧) key be pressed
 ---   * `ctrl`  - Set to true to require that the Control (^) key be pressed
----
---- If this table contains multiple keys, then all of the specified modifiers must be pressed for the never sleep lock to be triggered.
+---  * If this table contains multiple keys, then all of the specified modifiers must be pressed for the never sleep lock to be triggered.
 _internals.neverSleepLockModifiers = { fn = true }
 
 local neverSleepSymbol = [[

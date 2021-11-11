@@ -53,16 +53,11 @@ indicating current state/progress of the backup.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Image to use for the menubar icon. Defaults to the default macOS Time
-Machine menubar icon stored in <code>/System/Library/CoreServices/Menu
-Extras/TimeMachine.menu/Contents/Resources/TMBackingUp.pdf</code>. If this fails,
-it defaults to the Time Machine application icon, obtained as
-<code>hs.image.imageFromAppBundle('com.apple.backup.launcher'):setSize({w=18,h=18})</code>.</p>
-</td>
+                <td>Image to use for the menubar icon.</td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/TimeMachineProgress.spoon/init.lua#L31">Source/TimeMachineProgress.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TimeMachineProgress.spoon/init.lua#L31">Source/TimeMachineProgress.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -80,12 +75,11 @@ it defaults to the Time Machine application icon, obtained as
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.</p>
-</td>
+                <td>Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.</td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/TimeMachineProgress.spoon/init.lua#L21">Source/TimeMachineProgress.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TimeMachineProgress.spoon/init.lua#L21">Source/TimeMachineProgress.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -103,12 +97,11 @@ it defaults to the Time Machine application icon, obtained as
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Integer specifying how often the indicator should be refreshed. Defaults to 5 seconds.</p>
-</td>
+                <td>Integer specifying how often the indicator should be refreshed. Defaults to 5 seconds.</td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/TimeMachineProgress.spoon/init.lua#L26">Source/TimeMachineProgress.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TimeMachineProgress.spoon/init.lua#L26">Source/TimeMachineProgress.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -127,16 +120,22 @@ it defaults to the Time Machine application icon, obtained as
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Update the indicator and menu according to the current backup status.</p>
-<p>Parameters:</p>
-<ul>
+                <td>Update the indicator and menu according to the current backup status.</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>None</li>
 </ul>
 </td>
               </tr>
               <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/TimeMachineProgress.spoon/init.lua#L97">Source/TimeMachineProgress.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TimeMachineProgress.spoon/init.lua#L95">Source/TimeMachineProgress.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -154,20 +153,25 @@ it defaults to the Time Machine application icon, obtained as
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Starts the indicator</p>
-<p>Parameters:</p>
-<ul>
+                <td>Starts the indicator</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>None</li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li>The TimeMachineProgress object</li>
 </ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/TimeMachineProgress.spoon/init.lua#L205">Source/TimeMachineProgress.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TimeMachineProgress.spoon/init.lua#L203">Source/TimeMachineProgress.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -185,20 +189,25 @@ it defaults to the Time Machine application icon, obtained as
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Stops the indicator</p>
-<p>Parameters:</p>
-<ul>
+                <td>Stops the indicator</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>None</li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li>The TimeMachineProgress object</li>
 </ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/TimeMachineProgress.spoon/init.lua#L223">Source/TimeMachineProgress.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TimeMachineProgress.spoon/init.lua#L221">Source/TimeMachineProgress.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>

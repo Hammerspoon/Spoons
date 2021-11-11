@@ -49,14 +49,19 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>The sizes that the window can have in full-screen. 
-The sizes are expressed as dividend of the entire screen's size.
-For example <code>{1, 4/3, 2}</code> means that it can be 1/1 (hence full screen), 3/4 and 1/2 of the total screen's size</p>
+                <td>The sizes that the window can have in full-screen.</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>The sizes are expressed as dividend of the entire screen's size.</li>
+<li>For example <code>{1, 4/3, 2}</code> means that it can be 1/1 (hence full screen), 3/4 and 1/2 of the total screen's size</li>
+</ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/MiroWindowsManager.spoon/init.lua#L44">Source/MiroWindowsManager.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/MiroWindowsManager.spoon/init.lua#L46">Source/MiroWindowsManager.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -74,13 +79,11 @@ For example <code>{1, 4/3, 2}</code> means that it can be 1/1 (hence full screen
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>The screen's size using <code>hs.grid.setGrid()</code>
-This parameter is used at the spoon's <code>:init()</code></p>
-</td>
+                <td>The screen's size using `hs.grid.setGrid()` This parameter is used at the spoon's `:init()`</td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/MiroWindowsManager.spoon/init.lua#L51">Source/MiroWindowsManager.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/MiroWindowsManager.spoon/init.lua#L55">Source/MiroWindowsManager.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -98,14 +101,19 @@ This parameter is used at the spoon's <code>:init()</code></p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>The sizes that the window can have. 
-The sizes are expressed as dividend of the entire screen's size.
-For example <code>{2, 3, 3/2}</code> means that it can be 1/2, 1/3 and 2/3 of the total screen's size</p>
+                <td>The sizes that the window can have.</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>The sizes are expressed as dividend of the entire screen's size.</li>
+<li>For example <code>{2, 3, 3/2}</code> means that it can be 1/2, 1/3 and 2/3 of the total screen's size</li>
+</ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/MiroWindowsManager.spoon/init.lua#L37">Source/MiroWindowsManager.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/MiroWindowsManager.spoon/init.lua#L37">Source/MiroWindowsManager.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -124,9 +132,11 @@ For example <code>{2, 3, 3/2}</code> means that it can be 1/2, 1/3 and 2/3 of th
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Binds hotkeys for Miro's Windows Manager
-Parameters:</p>
-<ul>
+                <td>Binds hotkeys for Miro's Windows Manager</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>mapping - A table containing hotkey details for the following items:<ul>
 <li>up: for the up action (usually {hyper, "up"})</li>
 <li>right: for the right action (usually {hyper, "right"})</li>
@@ -136,21 +146,19 @@ Parameters:</p>
 </ul>
 </li>
 </ul>
-<p>A configuration example can be:</p>
-
-<pre><code>local hyper = {"ctrl", "alt", "cmd"}
-spoon.MiroWindowsManager:bindHotkeys({
-  up = {hyper, "up"},
-  right = {hyper, "right"},
-  down = {hyper, "down"},
-  left = {hyper, "left"},
-  fullscreen = {hyper, "f"}
-})</code></pre>
 </td>
               </tr>
               <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
+                  <th>Examples</th>
+                  <td></td>
+              </tr>
+              <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/MiroWindowsManager.spoon/init.lua#L141">Source/MiroWindowsManager.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/MiroWindowsManager.spoon/init.lua#L144">Source/MiroWindowsManager.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>

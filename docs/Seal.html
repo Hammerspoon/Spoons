@@ -70,12 +70,11 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>List of directories where Seal will look for plugins. Defaults to <code>~/.hammerspoon/seal_plugins/</code> and the Seal Spoon directory.</p>
-</td>
+                <td>List of directories where Seal will look for plugins. Defaults to `~/.hammerspoon/seal_plugins/` and the Seal Spoon directory.</td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/Seal.spoon/init.lua#L42">Source/Seal.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/Seal.spoon/init.lua#L44">Source/Seal.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -93,13 +92,18 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Time between the last keystroke and the start of the recalculation of the choices to display, in seconds.
-Defaults to 0.02s (20ms).</p>
+                <td>Time between the last keystroke and the start of the recalculation of the choices to display, in seconds.</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>Defaults to 0.02s (20ms).</li>
+</ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/Seal.spoon/init.lua#L36">Source/Seal.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/Seal.spoon/init.lua#L36">Source/Seal.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -118,24 +122,29 @@ Defaults to 0.02s (20ms).</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Binds hotkeys for Seal</p>
-<p>Parameters:</p>
-<ul>
+                <td>Binds hotkeys for Seal</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>mapping - A table containing hotkey modifier/key details for the following (optional) items:<ul>
 <li>show - This will cause Seal's UI to be shown</li>
 <li>toggle - This will cause Seal's UI to be shown or hidden depending on its current state</li>
 </ul>
 </li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li>The Seal object</li>
 </ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/Seal.spoon/init.lua#L154">Source/Seal.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/Seal.spoon/init.lua#L156">Source/Seal.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -153,18 +162,26 @@ Defaults to 0.02s (20ms).</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Loads a plugin from a given file</p>
-<p>Parameters:</p>
-<ul>
+                <td>Loads a plugin from a given file</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>plugin<em>name - the name of the plugin, without "seal</em>" at the beginning or ".lua" at the end</li>
 <li>file - the file where the plugin code is stored.</li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li>The Seal object if the plugin was successfully loaded, <code>nil</code> otherwise</li>
 </ul>
-<p>Notes:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
 <li>You should normally use <code>Seal:loadPlugins()</code>. This method allows you to load plugins
 from non-standard locations and is mostly a development interface.</li>
 <li>Some plugins may immediately begin doing background work (e.g. Spotlight searches)</li>
@@ -173,7 +190,7 @@ from non-standard locations and is mostly a development interface.</li>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/Seal.spoon/init.lua#L91">Source/Seal.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/Seal.spoon/init.lua#L93">Source/Seal.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -191,17 +208,25 @@ from non-standard locations and is mostly a development interface.</li>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Loads a list of Seal plugins</p>
-<p>Parameters:</p>
-<ul>
+                <td>Loads a list of Seal plugins</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>plugins - A list containing the names of plugins to load</li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li>The Seal object</li>
 </ul>
-<p>Notes:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
 <li>The plugins live inside the Seal.spoon directory</li>
 <li>The plugin names in the list, should not have <code>seal_</code> at the start, or <code>.lua</code> at the end</li>
 <li>Some plugins may immediately begin doing background work (e.g. Spotlight searches)</li>
@@ -210,7 +235,7 @@ from non-standard locations and is mostly a development interface.</li>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/Seal.spoon/init.lua#L119">Source/Seal.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/Seal.spoon/init.lua#L121">Source/Seal.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -228,24 +253,32 @@ from non-standard locations and is mostly a development interface.</li>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Refresh the list of commands provided by all the currently loaded plugins.</p>
-<p>Parameters:</p>
-<ul>
+                <td>Refresh the list of commands provided by all the currently loaded plugins.</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>None</li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li>The Seal object</li>
 </ul>
-<p>Notes:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
 <li>Most Seal plugins expose a static list of commands (if any), which are registered at the time the plugin is loaded. This method is used for plugins which expose a dynamic or changing (e.g. depending on configuration) list of commands.</li>
 </ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/Seal.spoon/init.lua#L72">Source/Seal.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/Seal.spoon/init.lua#L74">Source/Seal.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -263,24 +296,32 @@ from non-standard locations and is mostly a development interface.</li>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Refresh the list of commands provided by the given plugin.</p>
-<p>Parameters:</p>
-<ul>
+                <td>Refresh the list of commands provided by the given plugin.</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>plugin_name - the name of the plugin. Should be the name as passed to <code>loadPlugins()</code> or <code>loadPluginFromFile</code>.</li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li>The Seal object</li>
 </ul>
-<p>Notes:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
 <li>Most Seal plugins expose a static list of commands (if any), which are registered at the time the plugin is loaded. This method is used for plugins which expose a dynamic or changing (e.g. depending on configuration) list of commands.</li>
 </ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/Seal.spoon/init.lua#L47">Source/Seal.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/Seal.spoon/init.lua#L49">Source/Seal.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -298,24 +339,32 @@ from non-standard locations and is mostly a development interface.</li>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Shows the Seal UI</p>
-<p>Parameters:</p>
-<ul>
+                <td>Shows the Seal UI</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>query - An optional string to pre-populate the query box with</li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li>None</li>
 </ul>
-<p>Notes:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
 <li>This may be useful if you wish to show Seal in response to something other than its hotkey</li>
 </ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/Seal.spoon/init.lua#L231">Source/Seal.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/Seal.spoon/init.lua#L233">Source/Seal.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -333,20 +382,25 @@ from non-standard locations and is mostly a development interface.</li>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Starts Seal</p>
-<p>Parameters:</p>
-<ul>
+                <td>Starts Seal</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>None</li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li>The Seal object</li>
 </ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/Seal.spoon/init.lua#L187">Source/Seal.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/Seal.spoon/init.lua#L189">Source/Seal.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -364,24 +418,32 @@ from non-standard locations and is mostly a development interface.</li>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Stops Seal</p>
-<p>Parameters:</p>
-<ul>
+                <td>Stops Seal</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>None</li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li>The Seal object</li>
 </ul>
-<p>Notes:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
 <li>Some Seal plugins will continue performing background work even after this call (e.g. Spotlight searches)</li>
 </ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/Seal.spoon/init.lua#L207">Source/Seal.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/Seal.spoon/init.lua#L209">Source/Seal.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -399,20 +461,25 @@ from non-standard locations and is mostly a development interface.</li>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Shows or hides the Seal UI</p>
-<p>Parameters:</p>
-<ul>
+                <td>Shows or hides the Seal UI</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>query - An optional string to pre-populate the query box with</li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li>None</li>
 </ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/Seal.spoon/init.lua#L249">Source/Seal.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/Seal.spoon/init.lua#L251">Source/Seal.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>

@@ -35,13 +35,17 @@ obj.pushed = false
 --- PushToTalk.app_switcher
 --- Variable
 --- Takes mapping from application name to mic state.
---- For example this `{ ['zoom.us'] = 'push-to-talk' }` will switch mic to `push-to-talk` state when Zoom app starts.
+---
+--- Notes:
+---  * For example this `{ ['zoom.us'] = 'push-to-talk' }` will switch mic to `push-to-talk` state when Zoom app starts.
 obj.app_switcher = {}
 
 --- PushToTalk.detect_on_start
 --- Variable
 --- Check running applications when starting PushToTalk.
---- Defaults to false for backwards compatibility. With this disabled, PushToTalk will only change state when applications are launched or quit while PushToTalk is already active. Enable this to look through list of running applications when PushToTalk is started. If multiple apps defined in app_switcher are running, it will set state to the first one it encounters.
+---
+--- Notes:
+---  * Defaults to false for backwards compatibility. With this disabled, PushToTalk will only change state when applications are launched or quit while PushToTalk is already active. Enable this to look through list of running applications when PushToTalk is started. If multiple apps defined in app_switcher are running, it will set state to the first one it encounters.
 obj.detect_on_start = false
 
 local function showState()

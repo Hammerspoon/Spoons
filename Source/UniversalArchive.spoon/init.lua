@@ -50,11 +50,12 @@ obj.archive_notifications = true
 
 --- UniversalArchive.evernote_delay_before_typing
 --- Variable
---- In Evernote, archive is done by selectin "Move note" and then
---- simulating typing of the notebook name. A short pause in between
---- makes it more reliable for Evernote to recognize the notebook name
---- correctly. This variable controls how much to wait, in seconds.
---- Do not change this unless you know what you are doing
+--- A short pause to make typing into Evernote more reliable
+---
+--- Notes:
+---  * In Evernote, archive is done by selectin "Move note" and then simulating typing of the notebook name. A short pause in between makes it more reliable for Evernote to recognize the notebook name correctly.
+---  * This variable controls how much to wait, in seconds.
+---  * Do not change this unless you know what you are doing
 obj.evernote_delay_before_typing = 0.2
 
 --- UniversalArchive:evernoteArchive(where)

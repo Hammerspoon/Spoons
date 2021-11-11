@@ -51,12 +51,11 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.</p>
-</td>
+                <td>Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.</td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/EvernoteOpenAndTag.spoon/init.lua#L17">Source/EvernoteOpenAndTag.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/EvernoteOpenAndTag.spoon/init.lua#L17">Source/EvernoteOpenAndTag.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -75,9 +74,11 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Binds hotkeys for EvernoteOpenAndTag</p>
-<p>Parameters:</p>
-<ul>
+                <td>Binds hotkeys for EvernoteOpenAndTag</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>mapping - A table containing hotkey objifier/key details for the following items:<ul>
 <li><code>open_note</code> - open the current note in a new window</li>
 <li><code>open_and_tag-&lt;tag1&gt;,&lt;tag2&gt;...</code> - open the current note and apply all the comma-separated tags given. The tags must already exist in Evernote for the tagging to succeed.</li>
@@ -88,8 +89,12 @@
 </td>
               </tr>
               <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/EvernoteOpenAndTag.spoon/init.lua#L130">Source/EvernoteOpenAndTag.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/EvernoteOpenAndTag.spoon/init.lua#L130">Source/EvernoteOpenAndTag.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -107,20 +112,25 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Returns <code>true</code> if Evernote is the frontmost application</p>
-<p>Parameters:</p>
-<ul>
+                <td>Returns `true` if Evernote is the frontmost application</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>None</li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li><code>true</code> if Evernote is the frontmost application, <code>false</code> otherwise</li>
 </ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/EvernoteOpenAndTag.spoon/init.lua#L22">Source/EvernoteOpenAndTag.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/EvernoteOpenAndTag.spoon/init.lua#L22">Source/EvernoteOpenAndTag.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -138,24 +148,32 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Apply the given tags to the selected Evernote notes</p>
-<p>Parameters:</p>
-<ul>
+                <td>Apply the given tags to the selected Evernote notes</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>tags - a table containing a list of tags to apply. The tags must already exist in Evernote.</li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li>None</li>
 </ul>
-<p>Notes:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
 <li>If multiple notes are selected, the tags are applied to all of them</li>
 </ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/EvernoteOpenAndTag.spoon/init.lua#L103">Source/EvernoteOpenAndTag.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/EvernoteOpenAndTag.spoon/init.lua#L103">Source/EvernoteOpenAndTag.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -173,24 +191,32 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Open the current Evernote note in a new window and apply the given tags to it</p>
-<p>Parameters:</p>
-<ul>
+                <td>Open the current Evernote note in a new window and apply the given tags to it</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>tags - a table containing a list of tags to apply. The tags must already exist in Evernote.</li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li>None</li>
 </ul>
-<p>Notes:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
 <li>Even if multiple notes are selected, only the first one is tagged, as it will become the "current one" after it's opened in a new window</li>
 </ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/EvernoteOpenAndTag.spoon/init.lua#L84">Source/EvernoteOpenAndTag.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/EvernoteOpenAndTag.spoon/init.lua#L84">Source/EvernoteOpenAndTag.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -208,24 +234,32 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Open the currently-selected Evernote notes in new windows.</p>
-<p>Parameters:</p>
-<ul>
+                <td>Open the currently-selected Evernote notes in new windows.</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>None</li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li>None</li>
 </ul>
-<p>Notes:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
 <li>Uses Applescript from <a href="https://discussion.evernote.com/topic/85685-feature-request-open-note-in-separate-window-keyboard-shortcut/#comment-366797">https://discussion.evernote.com/topic/85685-feature-request-open-note-in-separate-window-keyboard-shortcut/#comment-366797</a></li>
 </ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/EvernoteOpenAndTag.spoon/init.lua#L36">Source/EvernoteOpenAndTag.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/EvernoteOpenAndTag.spoon/init.lua#L36">Source/EvernoteOpenAndTag.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -243,20 +277,25 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Assigns tags to the currently-selected Evernote notes</p>
-<p>Parameters:</p>
-<ul>
+                <td>Assigns tags to the currently-selected Evernote notes</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>tags - a table containing a list of tags to apply. The tags must already exist in Evernote.</li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li>None</li>
 </ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/EvernoteOpenAndTag.spoon/init.lua#L61">Source/EvernoteOpenAndTag.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/EvernoteOpenAndTag.spoon/init.lua#L61">Source/EvernoteOpenAndTag.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>

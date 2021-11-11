@@ -21,11 +21,11 @@ obj.logger = hs.logger.new('WindowScreenLeftAndRight')
 
 --- WindowScreenLeftAndRight.defaultHotkeys
 --- Variable
---- Table containing a sample set of hotkeys that can be
---- assigned to the different operations. These are not bound
---- by default - if you want to use them you have to call:
---- `spoon.WindowScreenLeftAndRight:bindHotkeys(spoon.WindowScreenLeftAndRight.defaultHotkeys)`
---- after loading the spoon. Value:
+--- Table containing a sample set of hotkeys that can be assigned to the different operations.
+---
+--- Notes:
+---  * These are not bound by default - if you want to use them you have to call: `spoon.WindowScreenLeftAndRight:bindHotkeys(spoon.WindowScreenLeftAndRight.defaultHotkeys)` after loading the spoon.
+---  * Value:
 --- ```
 ---  {
 ---     screen_left = { {"ctrl", "alt", "cmd"}, "Left" },
@@ -39,10 +39,11 @@ obj.defaultHotkeys = {
 
 --- WindowScreenLeftAndRight.animationDuration
 --- Variable
---- Length of the animation to use for the window movements across the
---- screens. `nil` means to use the existing value from
---- `hs.window.animationDuration`. 0 means to disable the
---- animations. Default: `nil`.
+--- Length of the animation to use for the window movements across the screens.
+---
+--- Notes:
+---  * `nil` means to use the existing value from `hs.window.animationDuration`. 0 means to disable the animations.
+---  * Default: `nil`.
 obj.animationDuration = nil
 
 -- Internal functions to store/restore the current value of setFrameCorrectness and animationDuration

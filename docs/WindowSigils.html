@@ -83,12 +83,11 @@ sigils:start()</code></pre>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.</p>
-</td>
+                <td>Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.</td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/WindowSigils.spoon/init.lua#L51">Source/WindowSigils.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/WindowSigils.spoon/init.lua#L51">Source/WindowSigils.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -107,9 +106,11 @@ sigils:start()</code></pre>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Binds hotkeys for WindowSigils</p>
-<p>Parameters:</p>
-<ul>
+                <td>Binds hotkeys for WindowSigils</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>mapping - A table containing hotkey objifier/key details for the following items:<ul>
 <li>enter - Enter the sigil mode</li>
 </ul>
@@ -118,8 +119,12 @@ sigils:start()</code></pre>
 </td>
               </tr>
               <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/WindowSigils.spoon/init.lua#L62">Source/WindowSigils.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/WindowSigils.spoon/init.lua#L62">Source/WindowSigils.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -137,9 +142,11 @@ sigils:start()</code></pre>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Bind an extra action to be triggered by a key in the sigil mode.</p>
-<p>Parameters:</p>
-<ul>
+                <td>Bind an extra action to be triggered by a key in the sigil mode.</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>mods - The key modifiers</li>
 <li>key - The key</li>
 <li>action - A function, called with no parameters.</li>
@@ -147,8 +154,12 @@ sigils:start()</code></pre>
 </td>
               </tr>
               <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/WindowSigils.spoon/init.lua#L112">Source/WindowSigils.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/WindowSigils.spoon/init.lua#L112">Source/WindowSigils.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -166,17 +177,23 @@ sigils:start()</code></pre>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Bind an action to be triggered in the sigil mode when a window's sigil key is pressed.</p>
-<p>Parameters:</p>
-<ul>
+                <td>Bind an action to be triggered in the sigil mode when a window's sigil key is pressed.</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>mods - The modifiers which must be held to trigger this action.</li>
 <li>action - A function which takes a window object and performs this action.</li>
 </ul>
 </td>
               </tr>
               <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/WindowSigils.spoon/init.lua#L138">Source/WindowSigils.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/WindowSigils.spoon/init.lua#L138">Source/WindowSigils.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -194,24 +211,27 @@ sigils:start()</code></pre>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Configures the spoon.</p>
-<p>Parameters:</p>
-<ul>
+                <td>Configures the spoon.</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>configuration - :<ul>
-<li>hotkeys </li>
-<li>mode_keys - a table of key specs (e.g. {{'shift'}, 'n'}) to functions.  The keys are
-mapped inside the sigil mode and the key is no longer used as a window sigil.</li>
-<li>sigil_actions - a table of mod specs (e.g. {'alt'}) to functions.  When the sigil is
-used in the sigil mode with the specified modifier pressed, the function is invoked
-with a window object.</li>
+<li>hotkeys</li>
+<li>mode_keys - a table of key specs (e.g. {{'shift'}, 'n'}) to functions.  The keys are mapped inside the sigil mode and the key is no longer used as a window sigil.</li>
+<li>sigil_actions - a table of mod specs (e.g. {'alt'}) to functions.  When the sigil is used in the sigil mode with the specified modifier pressed, the function is invoked with a window object.</li>
 </ul>
 </li>
 </ul>
 </td>
               </tr>
               <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/WindowSigils.spoon/init.lua#L83">Source/WindowSigils.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/WindowSigils.spoon/init.lua#L83">Source/WindowSigils.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -229,16 +249,22 @@ with a window object.</li>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>A list of windows, in the order sigils are assigned.</p>
-<p>Parameters:</p>
-<ul>
+                <td>A list of windows, in the order sigils are assigned.</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>None</li>
 </ul>
 </td>
               </tr>
               <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/WindowSigils.spoon/init.lua#L211">Source/WindowSigils.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/WindowSigils.spoon/init.lua#L211">Source/WindowSigils.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -256,16 +282,22 @@ with a window object.</li>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Rerender all window sigils.</p>
-<p>Parameters:</p>
-<ul>
+                <td>Rerender all window sigils.</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>None</li>
 </ul>
 </td>
               </tr>
               <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/WindowSigils.spoon/init.lua#L257">Source/WindowSigils.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/WindowSigils.spoon/init.lua#L257">Source/WindowSigils.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -283,16 +315,22 @@ with a window object.</li>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Starts rendering the sigils and handling hotkeys</p>
-<p>Parameters:</p>
-<ul>
+                <td>Starts rendering the sigils and handling hotkeys</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>None</li>
 </ul>
 </td>
               </tr>
               <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/WindowSigils.spoon/init.lua#L163">Source/WindowSigils.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/WindowSigils.spoon/init.lua#L163">Source/WindowSigils.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -310,16 +348,22 @@ with a window object.</li>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Stops rendering the sigils and handling hotkeys</p>
-<p>Parameters:</p>
-<ul>
+                <td>Stops rendering the sigils and handling hotkeys</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>None</li>
 </ul>
 </td>
               </tr>
               <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/WindowSigils.spoon/init.lua#L200">Source/WindowSigils.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/WindowSigils.spoon/init.lua#L200">Source/WindowSigils.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
@@ -337,18 +381,22 @@ with a window object.</li>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Find the window with the given index or sigil.</p>
-<p>Parameters:</p>
-<ul>
-<li>sigil - If a number, the index of the window; if a string, the sigil of the window.
-Can also be 'North', 'East', 'South', or 'West' to find a window related to the
-currently focused window.</li>
+                <td>Find the window with the given index or sigil.</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>sigil - If a number, the index of the window; if a string, the sigil of the window. Can also be 'North', 'East', 'South', or 'West' to find a window related to the currently focused window.</li>
 </ul>
 </td>
               </tr>
               <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/hammerspoon/blob/master/Source/WindowSigils.spoon/init.lua#L228">Source/WindowSigils.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/WindowSigils.spoon/init.lua#L228">Source/WindowSigils.spoon/init.lua</a></td>
               </tr>
             </table>
           </section>
