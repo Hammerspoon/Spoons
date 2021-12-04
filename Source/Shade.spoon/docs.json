@@ -31,7 +31,7 @@
         "parameters": [
           " * map - A table containing hotkey modifier/key details for the following item:",
           "  * toggleShade - This will toggle the shade on/off, and update the menubar graphic",
-          "E.g.: { toggleShade = {\"cmd\",\"alt\",\"ctrl\"},\"s\" }"
+          "E.g.: { toggleShade = { {\"cmd\",\"alt\",\"ctrl\"},\"s\" } }"
         ],
         "returns": [
           " * None"
