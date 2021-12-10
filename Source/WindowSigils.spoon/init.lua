@@ -268,6 +268,9 @@ function obj:_removeUnuseableWindows(windows)
     -- On Big Sur :(
     if bundleID == "com.apple.notificationcenterui" then return false end
     if bundleID == "com.apple.UserNotificationCenter" then return false end
+    -- Other things
+    if bundleID == "com.pop.pop.app" and window:title() == "overlay" then return false end
+    if bundleID == "us.zoom.xos" and window:title() == "" then return false end
     return true
   end)
 end
