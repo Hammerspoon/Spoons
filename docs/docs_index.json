@@ -114,6 +114,12 @@
     "type": "Module"
   },
   {
+    "desc": "If `true`, download image in UHD resolution instead of HD. Defaults to `false`.",
+    "module": "BingDaily",
+    "name": "uhd_resolution",
+    "type": "Variable"
+  },
+  {
     "desc": "List advertised services on your network that match defined templates and provide a list for the user to access them.",
     "name": "BonjourLauncher",
     "type": "Module"

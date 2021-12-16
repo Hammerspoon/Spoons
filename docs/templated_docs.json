@@ -697,12 +697,40 @@
     "Field": [],
     "Function": [],
     "Method": [],
-    "Variable": [],
+    "Variable": [
+      {
+        "def": "BingDaily.uhd_resolution",
+        "def_gfm": "BingDaily.uhd_resolution",
+        "desc": "If `true`, download image in UHD resolution instead of HD. Defaults to `false`.",
+        "doc": "If `true`, download image in UHD resolution instead of HD. Defaults to `false`.",
+        "doc_gfm": "<p>If <code>true</code>, download image in UHD resolution instead of HD. Defaults to <code>false</code>.</p>\n",
+        "file": "Source/BingDaily.spoon/init.lua",
+        "lineno": "17",
+        "name": "uhd_resolution",
+        "signature": "BingDaily.uhd_resolution",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
     "desc": "Use Bing daily picture as your wallpaper, automatically.",
     "desc_gfm": "<p>Use Bing daily picture as your wallpaper, automatically.</p>\n",
     "doc": "Use Bing daily picture as your wallpaper, automatically.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/BingDaily.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/BingDaily.spoon.zip)",
     "doc_gfm": "<p>Use Bing daily picture as your wallpaper, automatically.</p>\n<p>Download: <a href=\"https://github.com/Hammerspoon/Spoons/raw/master/Spoons/BingDaily.spoon.zip\">https://github.com/Hammerspoon/Spoons/raw/master/Spoons/BingDaily.spoon.zip</a></p>\n",
-    "items": [],
+    "items": [
+      {
+        "def": "BingDaily.uhd_resolution",
+        "def_gfm": "BingDaily.uhd_resolution",
+        "desc": "If `true`, download image in UHD resolution instead of HD. Defaults to `false`.",
+        "doc": "If `true`, download image in UHD resolution instead of HD. Defaults to `false`.",
+        "doc_gfm": "<p>If <code>true</code>, download image in UHD resolution instead of HD. Defaults to <code>false</code>.</p>\n",
+        "file": "Source/BingDaily.spoon/init.lua",
+        "lineno": "17",
+        "name": "uhd_resolution",
+        "signature": "BingDaily.uhd_resolution",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
     "name": "BingDaily",
     "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/BingDaily.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/BingDaily.spoon.zip)",
     "submodules": [],
