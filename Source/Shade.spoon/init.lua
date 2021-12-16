@@ -258,7 +258,7 @@ end
 ---   * toggleShade - This will toggle the shade on/off, and update the menubar graphic
 ---
 --- Examples:
----  * E.g.: { toggleShade = {"cmd","alt","ctrl"},"s" }
+---  * E.g.: { toggleShade = { {"cmd","alt","ctrl"},"s" } }
 ---
 --- Returns:
 ---  * None
