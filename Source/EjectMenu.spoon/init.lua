@@ -212,7 +212,7 @@ function obj:initEjectMenu (mods)
   return ejectMenuTable
 end
 
---- EjectMenu:bindHotkeys(mapping)
+--- EjectMenu:bindHotkeys(mapping, ejectAll)
 --- Method
 --- Binds hotkeys for EjectMenu
 ---
