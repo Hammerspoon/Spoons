@@ -16,16 +16,16 @@
     <header>
       <h1><a href="./index.html">docs</a> &raquo; PushToTalk</h1>
       <p>Implements push-to-talk and push-to-mute functionality with <code>fn</code> key.
-I implemented this after reading Gitlab remote handbook <a href="https://about.gitlab.com/handbook/communication/">https://about.gitlab.com/handbook/communication/</a> about Shush utility.</p>
+I implemented this after reading Gitlab remote handbook https://about.gitlab.com/handbook/communication/ about Shush utility.</p>
 <p>My workflow:</p>
 <p>When Zoom starts, PushToTalk automatically changes mic state from <code>default</code>
 to <code>push-to-talk</code>, so I need to press <code>fn</code> key to unmute myself and speak.
 If I need to actively chat in group meeting or it's one-on-one meeting,
 I'm switching to <code>push-to-mute</code> state, so mic will be unmute by default and <code>fn</code> key mutes it.</p>
 <p>PushToTalk has menubar with colorful icons so you can easily see current mic state.</p>
-<p>Sample config: <code>spoon.SpoonInstall:andUse("PushToTalk", {start = true, config = { app_switcher = { ['zoom.us'] = 'push-to-talk' }}})</code>
+<p>Sample config: <code>spoon.SpoonInstall:andUse(&quot;PushToTalk&quot;, {start = true, config = { app_switcher = { ['zoom.us'] = 'push-to-talk' }}})</code>
 and separate keybinding to toggle states with lambda function <code>function() spoon.PushToTalk.toggleStates({'push-to-talk', 'release-to-talk'}) end</code></p>
-<p>Check out my config: <a href="https://github.com/skrypka/hammerspoon_config/blob/master/init.lua">https://github.com/skrypka/hammerspoon_config/blob/master/init.lua</a></p>
+<p>Check out my config: https://github.com/skrypka/hammerspoon_config/blob/master/init.lua</p>
 
       </header>
       <h3>API Overview</h3>
@@ -69,7 +69,7 @@ and separate keybinding to toggle states with lambda function <code>function() s
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PushToTalk.spoon/init.lua#L35">Source/PushToTalk.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PushToTalk.spoon/init.lua#L35">Source/PushToTalk.spoon/init.lua line 35</a></td>
               </tr>
             </table>
           </section>
@@ -98,7 +98,7 @@ and separate keybinding to toggle states with lambda function <code>function() s
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PushToTalk.spoon/init.lua#L43">Source/PushToTalk.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PushToTalk.spoon/init.lua#L43">Source/PushToTalk.spoon/init.lua line 43</a></td>
               </tr>
             </table>
           </section>
@@ -132,7 +132,7 @@ and separate keybinding to toggle states with lambda function <code>function() s
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PushToTalk.spoon/init.lua#L134">Source/PushToTalk.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PushToTalk.spoon/init.lua#L134">Source/PushToTalk.spoon/init.lua line 134</a></td>
               </tr>
             </table>
           </section>
@@ -165,7 +165,7 @@ and separate keybinding to toggle states with lambda function <code>function() s
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PushToTalk.spoon/init.lua#L154">Source/PushToTalk.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PushToTalk.spoon/init.lua#L154">Source/PushToTalk.spoon/init.lua line 154</a></td>
               </tr>
             </table>
           </section>
@@ -198,7 +198,7 @@ and separate keybinding to toggle states with lambda function <code>function() s
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PushToTalk.spoon/init.lua#L166">Source/PushToTalk.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PushToTalk.spoon/init.lua#L166">Source/PushToTalk.spoon/init.lua line 166</a></td>
               </tr>
             </table>
           </section>

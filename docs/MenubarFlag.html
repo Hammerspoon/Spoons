@@ -59,7 +59,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/MenubarFlag.spoon/init.lua#L22">Source/MenubarFlag.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/MenubarFlag.spoon/init.lua#L22">Source/MenubarFlag.spoon/init.lua line 22</a></td>
               </tr>
             </table>
           </section>
@@ -86,30 +86,37 @@
 <li>The index is the name of the layout as it appears in the input source menu.</li>
 <li>The value of each indicator is a table made of an arbitrary number of segments, which will be distributed evenly across the width of the screen.</li>
 <li>Each segment must be a valid <code>hs.drawing.color</code> specification (most commonly, you should just use the named colors from within the tables). If a layout is not found, then the indicators are removed when that layout is active.</li>
-<li>Indicator specs can be static flag-like:
-<pre><code>Spanish = {col.green, col.white, col.red},
-German = {col.black, col.red, col.yellow},</code></pre>
-or complex, programmatically-generated:
-<pre><code>["U.S."] = (
-function() res={}
-   for i = 0,10,1 do
-      table.insert(res, col.blue)
-      table.insert(res, col.white)
-      table.insert(res, col.red)
-   end
-   return res
-end)()</code></pre>
-or solid colors:
-<pre><code>Spanish = {col.red},
-German = {col.yellow},</code></pre>
-</li>
+<li>Indicator specs can be static flag-like:</li>
+</ul>
+
+<pre><code>  Spanish = {col.green, col.white, col.red},
+  German = {col.black, col.red, col.yellow},
+</code></pre>
+<p>or complex, programmatically-generated:</p>
+
+<pre><code>[&quot;U.S.&quot;] = (
+   function() res={}
+      for i = 0,10,1 do
+         table.insert(res, col.blue)
+         table.insert(res, col.white)
+         table.insert(res, col.red)
+      end
+      return res
+   end)()
+</code></pre>
+<p>or solid colors:</p>
+
+<pre><code>  Spanish = {col.red},
+  German = {col.yellow},
+</code></pre>
+<ul>
 <li>Contributions of indicator specs are welcome!</li>
 </ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/MenubarFlag.spoon/init.lua#L42">Source/MenubarFlag.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/MenubarFlag.spoon/init.lua#L42">Source/MenubarFlag.spoon/init.lua line 42</a></td>
               </tr>
             </table>
           </section>
@@ -131,7 +138,7 @@ German = {col.yellow},</code></pre>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/MenubarFlag.spoon/init.lua#L32">Source/MenubarFlag.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/MenubarFlag.spoon/init.lua#L32">Source/MenubarFlag.spoon/init.lua line 32</a></td>
               </tr>
             </table>
           </section>
@@ -153,7 +160,7 @@ German = {col.yellow},</code></pre>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/MenubarFlag.spoon/init.lua#L27">Source/MenubarFlag.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/MenubarFlag.spoon/init.lua#L27">Source/MenubarFlag.spoon/init.lua line 27</a></td>
               </tr>
             </table>
           </section>
@@ -175,7 +182,7 @@ German = {col.yellow},</code></pre>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/MenubarFlag.spoon/init.lua#L37">Source/MenubarFlag.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/MenubarFlag.spoon/init.lua#L37">Source/MenubarFlag.spoon/init.lua line 37</a></td>
               </tr>
             </table>
           </section>
@@ -205,7 +212,7 @@ German = {col.yellow},</code></pre>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/MenubarFlag.spoon/init.lua#L80">Source/MenubarFlag.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/MenubarFlag.spoon/init.lua#L80">Source/MenubarFlag.spoon/init.lua line 80</a></td>
               </tr>
             </table>
           </section>
@@ -242,7 +249,7 @@ German = {col.yellow},</code></pre>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/MenubarFlag.spoon/init.lua#L118">Source/MenubarFlag.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/MenubarFlag.spoon/init.lua#L118">Source/MenubarFlag.spoon/init.lua line 118</a></td>
               </tr>
             </table>
           </section>
@@ -278,7 +285,7 @@ German = {col.yellow},</code></pre>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/MenubarFlag.spoon/init.lua#L175">Source/MenubarFlag.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/MenubarFlag.spoon/init.lua#L175">Source/MenubarFlag.spoon/init.lua line 175</a></td>
               </tr>
             </table>
           </section>
@@ -311,7 +318,7 @@ German = {col.yellow},</code></pre>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/MenubarFlag.spoon/init.lua#L188">Source/MenubarFlag.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/MenubarFlag.spoon/init.lua#L188">Source/MenubarFlag.spoon/init.lua line 188</a></td>
               </tr>
             </table>
           </section>
@@ -344,7 +351,7 @@ German = {col.yellow},</code></pre>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/MenubarFlag.spoon/init.lua#L208">Source/MenubarFlag.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/MenubarFlag.spoon/init.lua#L208">Source/MenubarFlag.spoon/init.lua line 208</a></td>
               </tr>
             </table>
           </section>

@@ -3786,7 +3786,7 @@
     "Function": [],
     "Method": [
       {
-        "def": "EjectMenu:bindHotkeys(mapping)",
+        "def": "EjectMenu:bindHotkeys(mapping, ejectAll)",
         "desc": "Binds hotkeys for EjectMenu",
         "doc": "Binds hotkeys for EjectMenu\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n * ejectAll - eject all volumes.",
         "examples": [],
@@ -3799,7 +3799,7 @@
           " * ejectAll - eject all volumes."
         ],
         "returns": [],
-        "signature": "EjectMenu:bindHotkeys(mapping)",
+        "signature": "EjectMenu:bindHotkeys(mapping, ejectAll)",
         "stripped_doc": "",
         "type": "Method"
       },
@@ -3985,7 +3985,7 @@
     "doc": "A much-needed eject menu for your Mac menu bar. Allows ejecting\nindividual or all non-internal disks. Ejection can also be\ntriggered on sleep, on lid close, or using a hotkey.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/EjectMenu.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/EjectMenu.spoon.zip)",
     "items": [
       {
-        "def": "EjectMenu:bindHotkeys(mapping)",
+        "def": "EjectMenu:bindHotkeys(mapping, ejectAll)",
         "desc": "Binds hotkeys for EjectMenu",
         "doc": "Binds hotkeys for EjectMenu\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n * ejectAll - eject all volumes.",
         "examples": [],
@@ -3998,7 +3998,7 @@
           " * ejectAll - eject all volumes."
         ],
         "returns": [],
-        "signature": "EjectMenu:bindHotkeys(mapping)",
+        "signature": "EjectMenu:bindHotkeys(mapping, ejectAll)",
         "stripped_doc": "",
         "type": "Method"
       },
@@ -12588,9 +12588,9 @@
       {
         "def": "Shade:bindHotkeys(map)",
         "desc": "Binds hotkeys for Shade",
-        "doc": "Binds hotkeys for Shade\n\nParameters:\n * map - A table containing hotkey modifier/key details for the following item:\n  * toggleShade - This will toggle the shade on/off, and update the menubar graphic\n\nExamples:\n * E.g.: { toggleShade = {\"cmd\",\"alt\",\"ctrl\"},\"s\" }\n\nReturns:\n * None",
+        "doc": "Binds hotkeys for Shade\n\nParameters:\n * map - A table containing hotkey modifier/key details for the following item:\n  * toggleShade - This will toggle the shade on/off, and update the menubar graphic\n\nExamples:\n * E.g.: { toggleShade = { {\"cmd\",\"alt\",\"ctrl\"},\"s\" } }\n\nReturns:\n * None",
         "examples": [
-          " * E.g.: { toggleShade = {\"cmd\",\"alt\",\"ctrl\"},\"s\" }"
+          " * E.g.: { toggleShade = { {\"cmd\",\"alt\",\"ctrl\"},\"s\" } }"
         ],
         "file": "Source/Shade.spoon/init.lua",
         "lineno": "252",
@@ -12694,9 +12694,9 @@
       {
         "def": "Shade:bindHotkeys(map)",
         "desc": "Binds hotkeys for Shade",
-        "doc": "Binds hotkeys for Shade\n\nParameters:\n * map - A table containing hotkey modifier/key details for the following item:\n  * toggleShade - This will toggle the shade on/off, and update the menubar graphic\n\nExamples:\n * E.g.: { toggleShade = {\"cmd\",\"alt\",\"ctrl\"},\"s\" }\n\nReturns:\n * None",
+        "doc": "Binds hotkeys for Shade\n\nParameters:\n * map - A table containing hotkey modifier/key details for the following item:\n  * toggleShade - This will toggle the shade on/off, and update the menubar graphic\n\nExamples:\n * E.g.: { toggleShade = { {\"cmd\",\"alt\",\"ctrl\"},\"s\" } }\n\nReturns:\n * None",
         "examples": [
-          " * E.g.: { toggleShade = {\"cmd\",\"alt\",\"ctrl\"},\"s\" }"
+          " * E.g.: { toggleShade = { {\"cmd\",\"alt\",\"ctrl\"},\"s\" } }"
         ],
         "file": "Source/Shade.spoon/init.lua",
         "lineno": "252",

@@ -19,34 +19,35 @@
 <p>Example configuration (using SpoonInstall.spoon and Seal.spoon):</p>
 
 <pre><code>-- Load configuration constants used throughout the code
-consts = require "configConsts" -- just a table
+consts = require &quot;configConsts&quot; -- just a table
 
 -- Load Asana spoon and configure it with API key
-spoon.SpoonInstall:andUse("Asana", { config = { apiKey = consts.asanaApiKey } })
+spoon.SpoonInstall:andUse(&quot;Asana&quot;, { config = { apiKey = consts.asanaApiKey } })
 
 -- Load Seal and setup user actions to add task to Asana workspaces
 spoon.SpoonInstall:andUse(
-  "Seal",
+  &quot;Seal&quot;,
   {
     fn = function(x)
-      x:loadPlugins({"apps", "calc", "useractions", "rot13"})
+      x:loadPlugins({&quot;apps&quot;, &quot;calc&quot;, &quot;useractions&quot;, &quot;rot13&quot;})
       x.plugins.useractions.actions = {
-        ["New Asana task in " .. consts.asanaWorkWorkspaceName] = {
+        [&quot;New Asana task in &quot; .. consts.asanaWorkWorkspaceName] = {
           fn = function(y) spoon.Asana:createTask(y, consts.asanaWorkWorkspaceName) end,
-          keyword = "awork"
+          keyword = &quot;awork&quot;
         },
-        ["New Asana task in " .. consts.asanaPersonalWorkspaceName] = {
+        [&quot;New Asana task in &quot; .. consts.asanaPersonalWorkspaceName] = {
           fn = function(y) spoon.Asana:createTask(y, consts.asanaPersonalWorkspaceName) end,
-          keyword = "ahome"
+          keyword = &quot;ahome&quot;
         }
       }
       x:refreshAllCommands()
     end,
     start = true,
-    hotkeys = { toggle = { "cmd", "space" } }
+    hotkeys = { toggle = { &quot;cmd&quot;, &quot;space&quot; } }
   }
-)</code></pre>
-<p>With this setup, adding a new task to Asana is as easy pressing <code>Command + Space</code> to launch Seal and entering, e.g., "awork Do that thing I forgot to do".</p>
+)
+</code></pre>
+<p>With this setup, adding a new task to Asana is as easy pressing <code>Command + Space</code> to launch Seal and entering, e.g., &quot;awork Do that thing I forgot to do&quot;.</p>
 
       </header>
       <h3>API Overview</h3>
@@ -80,7 +81,7 @@ spoon.SpoonInstall:andUse(
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/Asana.spoon/init.lua#L93">Source/Asana.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/Asana.spoon/init.lua#L93">Source/Asana.spoon/init.lua line 93</a></td>
               </tr>
             </table>
           </section>
@@ -122,7 +123,7 @@ spoon.SpoonInstall:andUse(
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/Asana.spoon/init.lua#L98">Source/Asana.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/Asana.spoon/init.lua#L98">Source/Asana.spoon/init.lua line 98</a></td>
               </tr>
             </table>
           </section>

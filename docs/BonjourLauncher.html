@@ -74,7 +74,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/BonjourLauncher.spoon/init.lua#L550">Source/BonjourLauncher.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/BonjourLauncher.spoon/init.lua#L550">Source/BonjourLauncher.spoon/init.lua line 550</a></td>
               </tr>
             </table>
           </section>
@@ -103,7 +103,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/BonjourLauncher.spoon/init.lua#L508">Source/BonjourLauncher.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/BonjourLauncher.spoon/init.lua#L508">Source/BonjourLauncher.spoon/init.lua line 508</a></td>
               </tr>
             </table>
           </section>
@@ -132,7 +132,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/BonjourLauncher.spoon/init.lua#L516">Source/BonjourLauncher.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/BonjourLauncher.spoon/init.lua#L516">Source/BonjourLauncher.spoon/init.lua line 516</a></td>
               </tr>
             </table>
           </section>
@@ -162,7 +162,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/BonjourLauncher.spoon/init.lua#L541">Source/BonjourLauncher.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/BonjourLauncher.spoon/init.lua#L541">Source/BonjourLauncher.spoon/init.lua line 541</a></td>
               </tr>
             </table>
           </section>
@@ -191,7 +191,7 @@
 <li><code>type</code>         - a required string specifying the type of advertisement to search for with this entry. Example service types can be seen in <code>hs.bonjour.serviceTypes</code>.</li>
 <li><code>label</code>        - an optional string, defaulting to the value for <code>type</code>, specifying the label for the toolbar item under which these advertised services are collected in the BonjourLauncher chooser window. May or may not be displayed if you have customized the toolbar's visual properties. Note that this field is used for internally identifying different template views, so it must be unique among the template entries where <code>disabled</code> is false or undefined.</li>
 <li><code>image</code>        - an optional <code>hs.image</code> object specifying the image to display for the toolbar item under which these advertised services are collected in the BonjourLauncher chooser window. May or may not be displayed if you have customized the toolbar's visual properties.</li>
-<li><code>text</code>         - an optional string, defaulting to "%name%", specifying the text to be displayed for each advertised service listed in this collection in the BonjourLauncher chooser window.</li>
+<li><code>text</code>         - an optional string, defaulting to &quot;%name%&quot;, specifying the text to be displayed for each advertised service listed in this collection in the BonjourLauncher chooser window.</li>
 <li><code>subText</code>      - an optional string, specifying the sub-text to be displayed for each advertised service listed in this collection in the BonjourLauncher chooser window.</li>
 <li><code>filter</code>       - an optional function which can be used to filter out advertised services which you do not wish to include in the chooser window. The function should expect two parameters, the <code>hs.bonjour.service</code> object for the discovered service and a table containing all of the key-value pairs of the service template with values expanded to describe what is known about this specific service. The filter function should return <code>true</code> if the service is to be included or <code>false</code> if the service is to be omitted.</li>
 <li><code>fn</code>           - The function to invoke. This function should expect two arguments, the <code>hs.bonjour.service</code> object for the selected service and a table containing all of the key-value pairs of the service template with values expanded to describe what is known about this specific service. Any return value for the function is ignored. If this is present, <code>url</code> and <code>cmd</code> will be ignored by the default handler, though they may be accessed through the second argument to the function.</li>
@@ -207,11 +207,11 @@
 <li>Note that only <code>type</code> and one of <code>url</code>, <code>cmd</code>, or <code>fn</code> must be provided -- everything else is optional.</li>
 <li>For all keys, except for <code>type</code> and <code>label</code>, in the template definition which have string values, the following substring patterns will be matched and replaced as described below:<ul>
 <li><code>%address%</code>   - Will be replaced with the first address discovered for the service when it is resolved.<ul>
-<li><code>%address4%</code> - Variant of <code>%address%</code> which is replaced with the first IPv4 address or "n/a" if one cannot be found or has not been discovered yet.</li>
-<li><code>%address6%</code> - Variant of <code>%address%</code> which is replaced with the first IPv6 address or "n/a" if one cannot be found or has not been discovered yet.</li>
+<li><code>%address4%</code> - Variant of <code>%address%</code> which is replaced with the first IPv4 address or &quot;n/a&quot; if one cannot be found or has not been discovered yet.</li>
+<li><code>%address6%</code> - Variant of <code>%address%</code> which is replaced with the first IPv6 address or &quot;n/a&quot; if one cannot be found or has not been discovered yet.</li>
 </ul>
 </li>
-<li><code>%domain%</code>    - Will be replaced with the domain the service was found in, usually "local."</li>
+<li><code>%domain%</code>    - Will be replaced with the domain the service was found in, usually &quot;local.&quot;</li>
 <li><code>%hostname%</code>  - Will be replaced with the hostname on which the service is being offered</li>
 <li><code>%name%</code>      - Will be replaced with the name of the advertised service.</li>
 <li><code>%port%</code>      - Will be replaced with the port number on the machine that the service is provided on.</li>
@@ -223,7 +223,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/BonjourLauncher.spoon/init.lua#L429">Source/BonjourLauncher.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/BonjourLauncher.spoon/init.lua#L429">Source/BonjourLauncher.spoon/init.lua line 429</a></td>
               </tr>
             </table>
           </section>
@@ -253,7 +253,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/BonjourLauncher.spoon/init.lua#L532">Source/BonjourLauncher.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/BonjourLauncher.spoon/init.lua#L532">Source/BonjourLauncher.spoon/init.lua line 532</a></td>
               </tr>
             </table>
           </section>
@@ -282,7 +282,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/BonjourLauncher.spoon/init.lua#L524">Source/BonjourLauncher.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/BonjourLauncher.spoon/init.lua#L524">Source/BonjourLauncher.spoon/init.lua line 524</a></td>
               </tr>
             </table>
           </section>
@@ -326,7 +326,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/BonjourLauncher.spoon/init.lua#L791">Source/BonjourLauncher.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/BonjourLauncher.spoon/init.lua#L791">Source/BonjourLauncher.spoon/init.lua line 791</a></td>
               </tr>
             </table>
           </section>
@@ -350,9 +350,9 @@
                   <th>Parameters</th>
                   <td><ul>
 <li><code>mapping</code> - A table containing hotkey modifier/key details for one or more of the following commands:<ul>
-<li>"show"   - Show the BonjourLauncher chooser window</li>
-<li>"hide"   - Hide the BonjourLauncher chooser window</li>
-<li>"toggle" - Toggles the visibility of the BonjourLauncher window</li>
+<li>&quot;show&quot;   - Show the BonjourLauncher chooser window</li>
+<li>&quot;hide&quot;   - Hide the BonjourLauncher chooser window</li>
+<li>&quot;toggle&quot; - Toggles the visibility of the BonjourLauncher window</li>
 </ul>
 </li>
 </ul>
@@ -375,22 +375,21 @@
 </ul>
 </li>
 <li>Psuedo keys for <code>show</code> and <code>toggle</code> are also supported which can be used to generate hotkeys which will take you to a specific list of services when the BonjourLauncher chooser is displayed. The format of these psuedo keys is <code>&lt;function&gt;_&lt;label&gt;</code> where <code>&lt;label&gt;</code> matches the <code>label</code> field of a specific entry in <a href="#templates">BonjourLauncher.templates</a>; for example:
-<pre><code> BonjourLauncher:bindHotkeys({
-     -- create a general toggle hotkey
-     toggle     = { { "cmd", "ctrl", "alt"}, "=" },
-     -- create a hotkey which will open the chooser to the SSH display, or
-     -- change to it if another service type is currently being viewed. If the
-     -- SSH display is currently being viewed, closes the chooser window (i.e.
-     -- "toggle")
-     toggle_SSH = { { "cmd", "ctrl", "alt" }, "s" }
- })</code></pre>
-</li>
+     BonjourLauncher:bindHotkeys({
+         -- create a general toggle hotkey
+         toggle     = { { &quot;cmd&quot;, &quot;ctrl&quot;, &quot;alt&quot;}, &quot;=&quot; },
+         -- create a hotkey which will open the chooser to the SSH display, or
+         -- change to it if another service type is currently being viewed. If the
+         -- SSH display is currently being viewed, closes the chooser window (i.e.
+         -- &quot;toggle&quot;)
+         toggle_SSH = { { &quot;cmd&quot;, &quot;ctrl&quot;, &quot;alt&quot; }, &quot;s&quot; }
+     })</li>
 </ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/BonjourLauncher.spoon/init.lua#L739">Source/BonjourLauncher.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/BonjourLauncher.spoon/init.lua#L739">Source/BonjourLauncher.spoon/init.lua line 739</a></td>
               </tr>
             </table>
           </section>
@@ -426,7 +425,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/BonjourLauncher.spoon/init.lua#L673">Source/BonjourLauncher.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/BonjourLauncher.spoon/init.lua#L673">Source/BonjourLauncher.spoon/init.lua line 673</a></td>
               </tr>
             </table>
           </section>
@@ -470,7 +469,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/BonjourLauncher.spoon/init.lua#L628">Source/BonjourLauncher.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/BonjourLauncher.spoon/init.lua#L628">Source/BonjourLauncher.spoon/init.lua line 628</a></td>
               </tr>
             </table>
           </section>
@@ -513,7 +512,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/BonjourLauncher.spoon/init.lua#L567">Source/BonjourLauncher.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/BonjourLauncher.spoon/init.lua#L567">Source/BonjourLauncher.spoon/init.lua line 567</a></td>
               </tr>
             </table>
           </section>
@@ -556,7 +555,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/BonjourLauncher.spoon/init.lua#L598">Source/BonjourLauncher.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/BonjourLauncher.spoon/init.lua#L598">Source/BonjourLauncher.spoon/init.lua line 598</a></td>
               </tr>
             </table>
           </section>
@@ -592,7 +591,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/BonjourLauncher.spoon/init.lua#L694">Source/BonjourLauncher.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/BonjourLauncher.spoon/init.lua#L694">Source/BonjourLauncher.spoon/init.lua line 694</a></td>
               </tr>
             </table>
           </section>

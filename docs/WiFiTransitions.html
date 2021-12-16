@@ -54,11 +54,11 @@
               <tr>
                   <th>Notes</th>
                   <td><ul>
-<li>Transitions to a "no network" state (<code>nil</code> SSID) are ignored unless you set <code>WiFiTransitions.actOnNilTransitions</code>. Each action is itself a table with the following keys:<ul>
+<li>Transitions to a &quot;no network&quot; state (<code>nil</code> SSID) are ignored unless you set <code>WiFiTransitions.actOnNilTransitions</code>. Each action is itself a table with the following keys:</li>
 <li>to - if given, pattern to match against the new SSID. Defaults to match any network.</li>
 <li>from - if given, pattern to match against the previous SSID. Defaults to match any network.</li>
 <li>fn - function to execute if there is a match. Can also be a list of functions, which will be executed in sequence. Each function will receive the following arguments:<ul>
-<li>event - always "SSIDChange"</li>
+<li>event - always &quot;SSIDChange&quot;</li>
 <li>interface - name of the interface on which the SSID changed</li>
 <li>old_ssid - previous SSID name</li>
 <li>new_ssid - new SSID name</li>
@@ -66,13 +66,11 @@
 </li>
 <li>cmd - shell command to execute if there is a match. Can also be a list of commands, which will be executed in sequence using <code>hs.execute</code>. If <code>fn</code> is given, <code>cmd</code> is ignored.</li>
 </ul>
-</li>
-</ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/WiFiTransitions.spoon/init.lua#L22">Source/WiFiTransitions.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/WiFiTransitions.spoon/init.lua#L22">Source/WiFiTransitions.spoon/init.lua line 22</a></td>
               </tr>
             </table>
           </section>
@@ -94,7 +92,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/WiFiTransitions.spoon/init.lua#L38">Source/WiFiTransitions.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/WiFiTransitions.spoon/init.lua#L38">Source/WiFiTransitions.spoon/init.lua line 38</a></td>
               </tr>
             </table>
           </section>
@@ -116,7 +114,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/WiFiTransitions.spoon/init.lua#L17">Source/WiFiTransitions.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/WiFiTransitions.spoon/init.lua#L17">Source/WiFiTransitions.spoon/init.lua line 17</a></td>
               </tr>
             </table>
           </section>
@@ -153,13 +151,13 @@
               <tr>
                   <th>Notes</th>
                   <td><ul>
-<li>This method is called internally by the <code>hs.wifi.watcher</code> object when WiFi transitions happen. It does not get any system information nor does it set any Spoon state information, so it can also be used to "trigger" transitions manually, either for testing or if the automated processing fails for any reason.</li>
+<li>This method is called internally by the <code>hs.wifi.watcher</code> object when WiFi transitions happen. It does not get any system information nor does it set any Spoon state information, so it can also be used to &quot;trigger&quot; transitions manually, either for testing or if the automated processing fails for any reason.</li>
 </ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/WiFiTransitions.spoon/init.lua#L57">Source/WiFiTransitions.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/WiFiTransitions.spoon/init.lua#L57">Source/WiFiTransitions.spoon/init.lua line 57</a></td>
               </tr>
             </table>
           </section>
@@ -195,7 +193,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/WiFiTransitions.spoon/init.lua#L104">Source/WiFiTransitions.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/WiFiTransitions.spoon/init.lua#L104">Source/WiFiTransitions.spoon/init.lua line 104</a></td>
               </tr>
             </table>
           </section>
