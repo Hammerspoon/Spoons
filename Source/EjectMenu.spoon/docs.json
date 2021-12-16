@@ -8,37 +8,52 @@
     "Function": [],
     "Method": [
       {
-        "def": "EjectMenu:bindHotkeys(mapping)",
+        "def": "EjectMenu:bindHotkeys(mapping, ejectAll)",
         "desc": "Binds hotkeys for EjectMenu",
-        "doc": "Binds hotkeys for EjectMenu\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n  * ejectAll - eject all volumes.",
+        "doc": "Binds hotkeys for EjectMenu\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n * ejectAll - eject all volumes.",
+        "examples": [],
+        "file": "Source/EjectMenu.spoon//init.lua",
+        "lineno": "215",
         "name": "bindHotkeys",
+        "notes": [],
         "parameters": [
           " * mapping - A table containing hotkey objifier/key details for the following items:",
-          "  * ejectAll - eject all volumes."
+          " * ejectAll - eject all volumes."
         ],
-        "signature": "EjectMenu:bindHotkeys(mapping)",
+        "returns": [],
+        "signature": "EjectMenu:bindHotkeys(mapping, ejectAll)",
         "stripped_doc": "",
         "type": "Method"
       },
       {
         "def": "EjectMenu:ejectVolumes()",
         "desc": "Eject all volumes",
-        "doc": "Eject all volumes\n\nParameters\n * persistent_notifs: a boolean indicating whether notifications (if shown) should be persistent.",
+        "doc": "Eject all volumes\n\nParameters:\n * persistent_notifs: a boolean indicating whether notifications (if shown) should be persistent.",
+        "examples": [],
+        "file": "Source/EjectMenu.spoon//init.lua",
+        "lineno": "123",
         "name": "ejectVolumes",
+        "notes": [],
+        "parameters": [
+          " * persistent_notifs: a boolean indicating whether notifications (if shown) should be persistent."
+        ],
+        "returns": [],
         "signature": "EjectMenu:ejectVolumes()",
-        "stripped_doc": "Parameters\n * persistent_notifs: a boolean indicating whether notifications (if shown) should be persistent.",
+        "stripped_doc": "",
         "type": "Method"
       },
       {
         "def": "EjectMenu:shouldEject(path, info)",
         "desc": "Determine if a volume should be ejected.",
-        "doc": "Determine if a volume should be ejected.\n\nParameters:\n * path - the mount path of the volume.\n * info - a table containing a data structure as returned by `hs.fs.volume.allVolumes()`.\nReturns:\n * A boolean indicating whether the volume should be ejected.",
+        "doc": "Determine if a volume should be ejected.\n\nParameters:\n * path - the mount path of the volume.\n * info - a table containing a data structure as returned by `hs.fs.volume.allVolumes()`.\n\nReturns:\n * A boolean indicating whether the volume should be ejected.",
+        "examples": [],
+        "file": "Source/EjectMenu.spoon//init.lua",
+        "lineno": "70",
         "name": "shouldEject",
+        "notes": [],
         "parameters": [
           " * path - the mount path of the volume.",
-          " * info - a table containing a data structure as returned by `hs.fs.volume.allVolumes()`.",
-          "Returns:",
-          " * A boolean indicating whether the volume should be ejected."
+          " * info - a table containing a data structure as returned by `hs.fs.volume.allVolumes()`."
         ],
         "returns": [
           " * A boolean indicating whether the volume should be ejected."
@@ -50,8 +65,16 @@
       {
         "def": "EjectMenu:start()",
         "desc": "Start the watchers for power events and screen changes, to trigger volume ejection.",
-        "doc": "Start the watchers for power events and screen changes, to trigger volume ejection.",
+        "doc": "Start the watchers for power events and screen changes, to trigger volume ejection.\n\nParameters:\n * None",
+        "examples": [],
+        "file": "Source/EjectMenu.spoon//init.lua",
+        "lineno": "241",
         "name": "start",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
         "signature": "EjectMenu:start()",
         "stripped_doc": "",
         "type": "Method"
@@ -59,8 +82,16 @@
       {
         "def": "EjectMenu:stop()",
         "desc": "Stop the watchers",
-        "doc": "Stop the watchers",
+        "doc": "Stop the watchers\n\nParameters:\n * None",
+        "examples": [],
+        "file": "Source/EjectMenu.spoon//init.lua",
+        "lineno": "283",
         "name": "stop",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
         "signature": "EjectMenu:stop()",
         "stripped_doc": "",
         "type": "Method"
@@ -68,12 +99,17 @@
       {
         "def": "EjectMenu:volumesToEject()",
         "desc": "Return table of volumes to be ejected when \"Eject All\" is invoked.",
-        "doc": "Return table of volumes to be ejected when \"Eject All\" is invoked.\n\nReturns:\n * A table in the same format as returned by\n   `hs.fs.volume.allVolumes()` but containing only those volumes\n   for which `EjectMenu:shouldEject()` returns `true`.\n * An integer indicating how many volumes are in the table.",
+        "doc": "Return table of volumes to be ejected when \"Eject All\" is invoked.\n\nParameters:\n * None\n\nReturns:\n * A table in the same format as returned by `hs.fs.volume.allVolumes()` but containing only those volumes for which `EjectMenu:shouldEject()` returns `true`.\n * An integer indicating how many volumes are in the table.",
+        "examples": [],
+        "file": "Source/EjectMenu.spoon//init.lua",
+        "lineno": "85",
         "name": "volumesToEject",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
         "returns": [
-          " * A table in the same format as returned by",
-          "   `hs.fs.volume.allVolumes()` but containing only those volumes",
-          "   for which `EjectMenu:shouldEject()` returns `true`.",
+          " * A table in the same format as returned by `hs.fs.volume.allVolumes()` but containing only those volumes for which `EjectMenu:shouldEject()` returns `true`.",
           " * An integer indicating how many volumes are in the table."
         ],
         "signature": "EjectMenu:volumesToEject()",
@@ -84,17 +120,25 @@
     "Variable": [
       {
         "def": "EjectMenu.eject_on_lid_close",
-        "desc": "Boolean, whether to eject volumes when the laptop lid is closed",
-        "doc": "Boolean, whether to eject volumes when the laptop lid is closed\nwith an external display connected. There is no \"lid close\" event,\nso we detect when the internal display gets disabled. This method\nis somewhat unreliable (e.g. it also triggers when the internal\ndisplay goes to sleep due to inactivity), so its default value is\n`false`",
+        "desc": "Boolean, whether to eject volumes when the laptop lid is closed with an external display connected.",
+        "doc": "Boolean, whether to eject volumes when the laptop lid is closed with an external display connected.\n\nNotes:\n * There is no \"lid close\" event, so we detect when the internal display gets disabled.\n * This method is somewhat unreliable (e.g. it also triggers when the internal display goes to sleep due to inactivity), so its default value is `false`",
+        "file": "Source/EjectMenu.spoon//init.lua",
+        "lineno": "48",
         "name": "eject_on_lid_close",
+        "notes": [
+          " * There is no \"lid close\" event, so we detect when the internal display gets disabled.",
+          " * This method is somewhat unreliable (e.g. it also triggers when the internal display goes to sleep due to inactivity), so its default value is `false`"
+        ],
         "signature": "EjectMenu.eject_on_lid_close",
-        "stripped_doc": "with an external display connected. There is no \"lid close\" event,\nso we detect when the internal display gets disabled. This method\nis somewhat unreliable (e.g. it also triggers when the internal\ndisplay goes to sleep due to inactivity), so its default value is\n`false`",
+        "stripped_doc": "",
         "type": "Variable"
       },
       {
         "def": "EjectMenu.eject_on_sleep",
         "desc": "Boolean, whether to eject volumes before the system goes to sleep. Default value: true",
         "doc": "Boolean, whether to eject volumes before the system goes to sleep. Default value: true",
+        "file": "Source/EjectMenu.spoon//init.lua",
+        "lineno": "43",
         "name": "eject_on_sleep",
         "signature": "EjectMenu.eject_on_sleep",
         "stripped_doc": "",
@@ -104,6 +148,8 @@
         "def": "EjectMenu.logger",
         "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "file": "Source/EjectMenu.spoon//init.lua",
+        "lineno": "28",
         "name": "logger",
         "signature": "EjectMenu.logger",
         "stripped_doc": "",
@@ -113,6 +159,8 @@
         "def": "EjectMenu.never_eject",
         "desc": "List containing volume paths that should never be ejected. Default value: empty list",
         "doc": "List containing volume paths that should never be ejected. Default value: empty list",
+        "file": "Source/EjectMenu.spoon//init.lua",
+        "lineno": "33",
         "name": "never_eject",
         "signature": "EjectMenu.never_eject",
         "stripped_doc": "",
@@ -122,6 +170,8 @@
         "def": "EjectMenu.notify",
         "desc": "Boolean, whether to produce a notification about the volumes that get ejected. Default value: `false`",
         "doc": "Boolean, whether to produce a notification about the volumes that get ejected. Default value: `false`",
+        "file": "Source/EjectMenu.spoon//init.lua",
+        "lineno": "38",
         "name": "notify",
         "signature": "EjectMenu.notify",
         "stripped_doc": "",
@@ -129,17 +179,24 @@
       },
       {
         "def": "EjectMenu.other_eject_events",
-        "desc": "List of additional system events on which the volumes should be ejected. The",
-        "doc": "List of additional system events on which the volumes should be ejected. The\nvalues must be\n[http://www.hammerspoon.org/docs/hs.caffeinate.watcher.html](`hs.caffeinate.watcher`)\nconstant values. Default value: empty list",
+        "desc": "List of additional system events on which the volumes should be ejected.",
+        "doc": "List of additional system events on which the volumes should be ejected.\n\nNotes:\n * The values must be [http://www.hammerspoon.org/docs/hs.caffeinate.watcher.html](`hs.caffeinate.watcher`) constant values. Default value: empty list",
+        "file": "Source/EjectMenu.spoon//init.lua",
+        "lineno": "62",
         "name": "other_eject_events",
+        "notes": [
+          " * The values must be [http://www.hammerspoon.org/docs/hs.caffeinate.watcher.html](`hs.caffeinate.watcher`) constant values. Default value: empty list"
+        ],
         "signature": "EjectMenu.other_eject_events",
-        "stripped_doc": "values must be\n[http://www.hammerspoon.org/docs/hs.caffeinate.watcher.html](`hs.caffeinate.watcher`)\nconstant values. Default value: empty list",
+        "stripped_doc": "",
         "type": "Variable"
       },
       {
         "def": "EjectMenu.show_in_menubar",
         "desc": "Boolean, whether to show a menubar button to eject all drives. Default value: true",
         "doc": "Boolean, whether to show a menubar button to eject all drives. Default value: true",
+        "file": "Source/EjectMenu.spoon//init.lua",
+        "lineno": "57",
         "name": "show_in_menubar",
         "signature": "EjectMenu.show_in_menubar",
         "stripped_doc": "",
@@ -150,31 +207,44 @@
     "doc": "A much-needed eject menu for your Mac menu bar. Allows ejecting\nindividual or all non-internal disks. Ejection can also be\ntriggered on sleep, on lid close, or using a hotkey.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/EjectMenu.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/EjectMenu.spoon.zip)",
     "items": [
       {
-        "def": "EjectMenu:bindHotkeys(mapping)",
+        "def": "EjectMenu:bindHotkeys(mapping, ejectAll)",
         "desc": "Binds hotkeys for EjectMenu",
-        "doc": "Binds hotkeys for EjectMenu\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n  * ejectAll - eject all volumes.",
+        "doc": "Binds hotkeys for EjectMenu\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n * ejectAll - eject all volumes.",
+        "examples": [],
+        "file": "Source/EjectMenu.spoon//init.lua",
+        "lineno": "215",
         "name": "bindHotkeys",
+        "notes": [],
         "parameters": [
           " * mapping - A table containing hotkey objifier/key details for the following items:",
-          "  * ejectAll - eject all volumes."
+          " * ejectAll - eject all volumes."
         ],
-        "signature": "EjectMenu:bindHotkeys(mapping)",
+        "returns": [],
+        "signature": "EjectMenu:bindHotkeys(mapping, ejectAll)",
         "stripped_doc": "",
         "type": "Method"
       },
       {
         "def": "EjectMenu.eject_on_lid_close",
-        "desc": "Boolean, whether to eject volumes when the laptop lid is closed",
-        "doc": "Boolean, whether to eject volumes when the laptop lid is closed\nwith an external display connected. There is no \"lid close\" event,\nso we detect when the internal display gets disabled. This method\nis somewhat unreliable (e.g. it also triggers when the internal\ndisplay goes to sleep due to inactivity), so its default value is\n`false`",
+        "desc": "Boolean, whether to eject volumes when the laptop lid is closed with an external display connected.",
+        "doc": "Boolean, whether to eject volumes when the laptop lid is closed with an external display connected.\n\nNotes:\n * There is no \"lid close\" event, so we detect when the internal display gets disabled.\n * This method is somewhat unreliable (e.g. it also triggers when the internal display goes to sleep due to inactivity), so its default value is `false`",
+        "file": "Source/EjectMenu.spoon//init.lua",
+        "lineno": "48",
         "name": "eject_on_lid_close",
+        "notes": [
+          " * There is no \"lid close\" event, so we detect when the internal display gets disabled.",
+          " * This method is somewhat unreliable (e.g. it also triggers when the internal display goes to sleep due to inactivity), so its default value is `false`"
+        ],
         "signature": "EjectMenu.eject_on_lid_close",
-        "stripped_doc": "with an external display connected. There is no \"lid close\" event,\nso we detect when the internal display gets disabled. This method\nis somewhat unreliable (e.g. it also triggers when the internal\ndisplay goes to sleep due to inactivity), so its default value is\n`false`",
+        "stripped_doc": "",
         "type": "Variable"
       },
       {
         "def": "EjectMenu.eject_on_sleep",
         "desc": "Boolean, whether to eject volumes before the system goes to sleep. Default value: true",
         "doc": "Boolean, whether to eject volumes before the system goes to sleep. Default value: true",
+        "file": "Source/EjectMenu.spoon//init.lua",
+        "lineno": "43",
         "name": "eject_on_sleep",
         "signature": "EjectMenu.eject_on_sleep",
         "stripped_doc": "",
@@ -183,16 +253,26 @@
       {
         "def": "EjectMenu:ejectVolumes()",
         "desc": "Eject all volumes",
-        "doc": "Eject all volumes\n\nParameters\n * persistent_notifs: a boolean indicating whether notifications (if shown) should be persistent.",
+        "doc": "Eject all volumes\n\nParameters:\n * persistent_notifs: a boolean indicating whether notifications (if shown) should be persistent.",
+        "examples": [],
+        "file": "Source/EjectMenu.spoon//init.lua",
+        "lineno": "123",
         "name": "ejectVolumes",
+        "notes": [],
+        "parameters": [
+          " * persistent_notifs: a boolean indicating whether notifications (if shown) should be persistent."
+        ],
+        "returns": [],
         "signature": "EjectMenu:ejectVolumes()",
-        "stripped_doc": "Parameters\n * persistent_notifs: a boolean indicating whether notifications (if shown) should be persistent.",
+        "stripped_doc": "",
         "type": "Method"
       },
       {
         "def": "EjectMenu.logger",
         "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "file": "Source/EjectMenu.spoon//init.lua",
+        "lineno": "28",
         "name": "logger",
         "signature": "EjectMenu.logger",
         "stripped_doc": "",
@@ -202,6 +282,8 @@
         "def": "EjectMenu.never_eject",
         "desc": "List containing volume paths that should never be ejected. Default value: empty list",
         "doc": "List containing volume paths that should never be ejected. Default value: empty list",
+        "file": "Source/EjectMenu.spoon//init.lua",
+        "lineno": "33",
         "name": "never_eject",
         "signature": "EjectMenu.never_eject",
         "stripped_doc": "",
@@ -211,6 +293,8 @@
         "def": "EjectMenu.notify",
         "desc": "Boolean, whether to produce a notification about the volumes that get ejected. Default value: `false`",
         "doc": "Boolean, whether to produce a notification about the volumes that get ejected. Default value: `false`",
+        "file": "Source/EjectMenu.spoon//init.lua",
+        "lineno": "38",
         "name": "notify",
         "signature": "EjectMenu.notify",
         "stripped_doc": "",
@@ -218,23 +302,30 @@
       },
       {
         "def": "EjectMenu.other_eject_events",
-        "desc": "List of additional system events on which the volumes should be ejected. The",
-        "doc": "List of additional system events on which the volumes should be ejected. The\nvalues must be\n[http://www.hammerspoon.org/docs/hs.caffeinate.watcher.html](`hs.caffeinate.watcher`)\nconstant values. Default value: empty list",
+        "desc": "List of additional system events on which the volumes should be ejected.",
+        "doc": "List of additional system events on which the volumes should be ejected.\n\nNotes:\n * The values must be [http://www.hammerspoon.org/docs/hs.caffeinate.watcher.html](`hs.caffeinate.watcher`) constant values. Default value: empty list",
+        "file": "Source/EjectMenu.spoon//init.lua",
+        "lineno": "62",
         "name": "other_eject_events",
+        "notes": [
+          " * The values must be [http://www.hammerspoon.org/docs/hs.caffeinate.watcher.html](`hs.caffeinate.watcher`) constant values. Default value: empty list"
+        ],
         "signature": "EjectMenu.other_eject_events",
-        "stripped_doc": "values must be\n[http://www.hammerspoon.org/docs/hs.caffeinate.watcher.html](`hs.caffeinate.watcher`)\nconstant values. Default value: empty list",
+        "stripped_doc": "",
         "type": "Variable"
       },
       {
         "def": "EjectMenu:shouldEject(path, info)",
         "desc": "Determine if a volume should be ejected.",
-        "doc": "Determine if a volume should be ejected.\n\nParameters:\n * path - the mount path of the volume.\n * info - a table containing a data structure as returned by `hs.fs.volume.allVolumes()`.\nReturns:\n * A boolean indicating whether the volume should be ejected.",
+        "doc": "Determine if a volume should be ejected.\n\nParameters:\n * path - the mount path of the volume.\n * info - a table containing a data structure as returned by `hs.fs.volume.allVolumes()`.\n\nReturns:\n * A boolean indicating whether the volume should be ejected.",
+        "examples": [],
+        "file": "Source/EjectMenu.spoon//init.lua",
+        "lineno": "70",
         "name": "shouldEject",
+        "notes": [],
         "parameters": [
           " * path - the mount path of the volume.",
-          " * info - a table containing a data structure as returned by `hs.fs.volume.allVolumes()`.",
-          "Returns:",
-          " * A boolean indicating whether the volume should be ejected."
+          " * info - a table containing a data structure as returned by `hs.fs.volume.allVolumes()`."
         ],
         "returns": [
           " * A boolean indicating whether the volume should be ejected."
@@ -247,6 +338,8 @@
         "def": "EjectMenu.show_in_menubar",
         "desc": "Boolean, whether to show a menubar button to eject all drives. Default value: true",
         "doc": "Boolean, whether to show a menubar button to eject all drives. Default value: true",
+        "file": "Source/EjectMenu.spoon//init.lua",
+        "lineno": "57",
         "name": "show_in_menubar",
         "signature": "EjectMenu.show_in_menubar",
         "stripped_doc": "",
@@ -255,8 +348,16 @@
       {
         "def": "EjectMenu:start()",
         "desc": "Start the watchers for power events and screen changes, to trigger volume ejection.",
-        "doc": "Start the watchers for power events and screen changes, to trigger volume ejection.",
+        "doc": "Start the watchers for power events and screen changes, to trigger volume ejection.\n\nParameters:\n * None",
+        "examples": [],
+        "file": "Source/EjectMenu.spoon//init.lua",
+        "lineno": "241",
         "name": "start",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
         "signature": "EjectMenu:start()",
         "stripped_doc": "",
         "type": "Method"
@@ -264,8 +365,16 @@
       {
         "def": "EjectMenu:stop()",
         "desc": "Stop the watchers",
-        "doc": "Stop the watchers",
+        "doc": "Stop the watchers\n\nParameters:\n * None",
+        "examples": [],
+        "file": "Source/EjectMenu.spoon//init.lua",
+        "lineno": "283",
         "name": "stop",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
         "signature": "EjectMenu:stop()",
         "stripped_doc": "",
         "type": "Method"
@@ -273,12 +382,17 @@
       {
         "def": "EjectMenu:volumesToEject()",
         "desc": "Return table of volumes to be ejected when \"Eject All\" is invoked.",
-        "doc": "Return table of volumes to be ejected when \"Eject All\" is invoked.\n\nReturns:\n * A table in the same format as returned by\n   `hs.fs.volume.allVolumes()` but containing only those volumes\n   for which `EjectMenu:shouldEject()` returns `true`.\n * An integer indicating how many volumes are in the table.",
+        "doc": "Return table of volumes to be ejected when \"Eject All\" is invoked.\n\nParameters:\n * None\n\nReturns:\n * A table in the same format as returned by `hs.fs.volume.allVolumes()` but containing only those volumes for which `EjectMenu:shouldEject()` returns `true`.\n * An integer indicating how many volumes are in the table.",
+        "examples": [],
+        "file": "Source/EjectMenu.spoon//init.lua",
+        "lineno": "85",
         "name": "volumesToEject",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
         "returns": [
-          " * A table in the same format as returned by",
-          "   `hs.fs.volume.allVolumes()` but containing only those volumes",
-          "   for which `EjectMenu:shouldEject()` returns `true`.",
+          " * A table in the same format as returned by `hs.fs.volume.allVolumes()` but containing only those volumes for which `EjectMenu:shouldEject()` returns `true`.",
           " * An integer indicating how many volumes are in the table."
         ],
         "signature": "EjectMenu:volumesToEject()",
