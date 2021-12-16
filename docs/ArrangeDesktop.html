@@ -15,7 +15,7 @@
   <body>
     <header>
       <h1><a href="./index.html">docs</a> &raquo; ArrangeDesktop</h1>
-      <p>Utilities for arranging your desktop how you like it.</p>
+      <p>Easily create, save, and use desktop arrangements.</p>
 <p>Positioning logic adapted from https://github.com/dploeger/hammerspoon-window-manager</p>
 
       </header>
@@ -24,13 +24,21 @@
         <li>Variables - Configurable values</li>
           <ul>
             <li><a href="#arrangements">arrangements</a></li>
+            <li><a href="#configFile">configFile</a></li>
             <li><a href="#logger">logger</a></li>
+          </ul>
+        <li>Functions - API calls offered directly by the extension</li>
+          <ul>
+            <li><a href="#_buildArrangement">_buildArrangement</a></li>
+            <li><a href="#_loadConfiguration">_loadConfiguration</a></li>
+            <li><a href="#_positionApp">_positionApp</a></li>
+            <li><a href="#_writeConfiguration">_writeConfiguration</a></li>
           </ul>
         <li>Methods - API calls which can only be made on an object returned by a constructor</li>
           <ul>
             <li><a href="#addMenuItems">addMenuItems</a></li>
             <li><a href="#arrange">arrange</a></li>
-            <li><a href="#logCurrentArrangement">logCurrentArrangement</a></li>
+            <li><a href="#createArrangement">createArrangement</a></li>
           </ul>
       </ul>
       <h3>API Documentation</h3>
@@ -53,7 +61,29 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/ArrangeDesktop.spoon/init.lua#L22">Source/ArrangeDesktop.spoon/init.lua line 22</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/ArrangeDesktop.spoon/init.lua#L21">Source/ArrangeDesktop.spoon/init.lua line 21</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="configFile">
+            <a name="//apple_ref/cpp/Variable/configFile" class="dashAnchor"></a>
+            <h5><a href="#configFile">configFile</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>ArrangeDesktop.configFile</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td>Defines where the config file is stored. Defaults to hs.spoons.scriptPath()/config.json</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/ArrangeDesktop.spoon/init.lua#L26">Source/ArrangeDesktop.spoon/init.lua line 26</a></td>
               </tr>
             </table>
           </section>
@@ -75,7 +105,152 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/ArrangeDesktop.spoon/init.lua#L17">Source/ArrangeDesktop.spoon/init.lua line 17</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/ArrangeDesktop.spoon/init.lua#L16">Source/ArrangeDesktop.spoon/init.lua line 16</a></td>
+              </tr>
+            </table>
+          </section>
+        <h4 class="documentation-section">Functions</h4>
+          <section id="_buildArrangement">
+            <a name="//apple_ref/cpp/Function/_buildArrangement" class="dashAnchor"></a>
+            <h5><a href="#_buildArrangement">_buildArrangement</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>ArrangeDesktop._buildArrangement() -&gt; table</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Function</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td>Builds the configuration for the current desktop arrangement.</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>None</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
+<li>A table containing the configuration data for the current desktop arrangement</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/ArrangeDesktop.spoon/init.lua#L72">Source/ArrangeDesktop.spoon/init.lua line 72</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="_loadConfiguration">
+            <a name="//apple_ref/cpp/Function/_loadConfiguration" class="dashAnchor"></a>
+            <h5><a href="#_loadConfiguration">_loadConfiguration</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>ArrangeDesktop._loadConfiguration() -&gt; table or nil</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Function</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td>Loads the configuration file.</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>None</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
+<li>A table containing the configured desktop arrangements, or nil if an error occurred</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/ArrangeDesktop.spoon/init.lua#L31">Source/ArrangeDesktop.spoon/init.lua line 31</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="_positionApp">
+            <a name="//apple_ref/cpp/Function/_positionApp" class="dashAnchor"></a>
+            <h5><a href="#_positionApp">_positionApp</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>ArrangeDesktop._positionApp(app, appTitle, screen, frame)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Function</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td>Positions all windows for an application based on the given configuration.</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>app - A table of the application instance</li>
+<li>appTitle - The name of the application, e.g., Slack, Firefox, etc.</li>
+<li>screen - A table of the position of the screen (x, y integer pair) to place the application window into</li>
+<li>frame - A table of the frame details for the application window, e.g., {w=12, h=12, x=12, y=12}</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/ArrangeDesktop.spoon/init.lua#L113">Source/ArrangeDesktop.spoon/init.lua line 113</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="_writeConfiguration">
+            <a name="//apple_ref/cpp/Function/_writeConfiguration" class="dashAnchor"></a>
+            <h5><a href="#_writeConfiguration">_writeConfiguration</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>ArrangeDesktop._writeConfiguration(config) -&gt; bool</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Function</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td>Writes the configuration to a file.</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>config - A table containing the configuration to write</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
+<li>A boolean indicating if the write was successful</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/ArrangeDesktop.spoon/init.lua#L59">Source/ArrangeDesktop.spoon/init.lua line 59</a></td>
               </tr>
             </table>
           </section>
@@ -86,7 +261,7 @@
             <table>
               <tr>
                 <th>Signature</th>
-                <td><code>ArrangeDesktop:addMenuItems(menuItems, arrangements)</code></td>
+                <td><code>ArrangeDesktop:addMenuItems(menuItems) -&gt; table</code></td>
               </tr>
               <tr>
                 <th>Type</th>
@@ -94,24 +269,25 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td>Add menu items to a table for each configured desktop arrangment.</td>
+                <td>Add menu items to a table for each configured desktop arrangement.</td>
               </tr>
               <tr>
                   <th>Parameters</th>
                   <td><ul>
-<li>menuItems - table of menu items</li>
-<li>arrangements - table of desktop arrangements</li>
+<li>menuItems - A table of menu items to append to</li>
 </ul>
 </td>
               </tr>
               <tr>
                   <th>Returns</th>
-                  <td><p>table of menu items</p>
+                  <td><ul>
+<li>A table of menu items</li>
+</ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/ArrangeDesktop.spoon/init.lua#L66">Source/ArrangeDesktop.spoon/init.lua line 66</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/ArrangeDesktop.spoon/init.lua#L154">Source/ArrangeDesktop.spoon/init.lua line 154</a></td>
               </tr>
             </table>
           </section>
@@ -134,7 +310,7 @@
               <tr>
                   <th>Parameters</th>
                   <td><ul>
-<li>arrangement - table of arrangement data</li>
+<li>arrangement - A table of arrangement data</li>
 </ul>
 </td>
               </tr>
@@ -144,17 +320,17 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/ArrangeDesktop.spoon/init.lua#L47">Source/ArrangeDesktop.spoon/init.lua line 47</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/ArrangeDesktop.spoon/init.lua#L135">Source/ArrangeDesktop.spoon/init.lua line 135</a></td>
               </tr>
             </table>
           </section>
-          <section id="logCurrentArrangement">
-            <a name="//apple_ref/cpp/Method/logCurrentArrangement" class="dashAnchor"></a>
-            <h5><a href="#logCurrentArrangement">logCurrentArrangement</a></h5>
+          <section id="createArrangement">
+            <a name="//apple_ref/cpp/Method/createArrangement" class="dashAnchor"></a>
+            <h5><a href="#createArrangement">createArrangement</a></h5>
             <table>
               <tr>
                 <th>Signature</th>
-                <td><code>ArrangeDesktop:logCurrentArrangement()</code></td>
+                <td><code>ArrangeDesktop:createArrangement()</code></td>
               </tr>
               <tr>
                 <th>Type</th>
@@ -162,7 +338,7 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td>Build up the configuration for the current desktop arrangement and log it to the Hammerspoon console.</td>
+                <td>Creates the desktop arrangement and saves it to the configuration file.</td>
               </tr>
               <tr>
                   <th>Parameters</th>
@@ -177,7 +353,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/ArrangeDesktop.spoon/init.lua#L92">Source/ArrangeDesktop.spoon/init.lua line 92</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/ArrangeDesktop.spoon/init.lua#L186">Source/ArrangeDesktop.spoon/init.lua line 186</a></td>
               </tr>
             </table>
           </section>
