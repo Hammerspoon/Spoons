@@ -132,7 +132,7 @@ local function slurp(path)
    return s
 end
 
---- SendToOmniFocus:sendCurrentItem
+--- SendToOmniFocus:sendCurrentItem()
 --- Method
 --- Send current item in current application to OmniFocus by triggering the appropriate handler.
 ---
