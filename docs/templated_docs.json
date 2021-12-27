@@ -7108,8 +7108,8 @@
         "type": "Method"
       },
       {
-        "def": "HoldToQuit.killCurrentApp",
-        "def_gfm": "HoldToQuit.killCurrentApp",
+        "def": "HoldToQuit.killCurrentApp()",
+        "def_gfm": "HoldToQuit.killCurrentApp()",
         "desc": "Kill the frontmost application",
         "doc": "Kill the frontmost application\n\nParameters:\n * None",
         "doc_gfm": "<p>Kill the frontmost application</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n",
@@ -7125,7 +7125,7 @@
         "parameters_gfm": "<ul>\n<li>None</li>\n</ul>\n",
         "returns": [],
         "returns_gfm": "",
-        "signature": "HoldToQuit.killCurrentApp",
+        "signature": "HoldToQuit.killCurrentApp()",
         "stripped_doc": "",
         "type": "Method"
       },
@@ -7361,8 +7361,8 @@
         "type": "Method"
       },
       {
-        "def": "HoldToQuit.killCurrentApp",
-        "def_gfm": "HoldToQuit.killCurrentApp",
+        "def": "HoldToQuit.killCurrentApp()",
+        "def_gfm": "HoldToQuit.killCurrentApp()",
         "desc": "Kill the frontmost application",
         "doc": "Kill the frontmost application\n\nParameters:\n * None",
         "doc_gfm": "<p>Kill the frontmost application</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n",
@@ -7378,7 +7378,7 @@
         "parameters_gfm": "<ul>\n<li>None</li>\n</ul>\n",
         "returns": [],
         "returns_gfm": "",
-        "signature": "HoldToQuit.killCurrentApp",
+        "signature": "HoldToQuit.killCurrentApp()",
         "stripped_doc": "",
         "type": "Method"
       },
@@ -9234,8 +9234,8 @@
         "type": "Method"
       },
       {
-        "def": "MenubarFlag:getLayoutAndDrawindicators",
-        "def_gfm": "MenubarFlag:getLayoutAndDrawindicators",
+        "def": "MenubarFlag:getLayoutAndDrawindicators()",
+        "def_gfm": "MenubarFlag:getLayoutAndDrawindicators()",
         "desc": "Draw indicators for the current keyboard method or layout",
         "doc": "Draw indicators for the current keyboard method or layout\n\nParameters:\n * None\n\nReturns:\n * The MenubarFlag object",
         "doc_gfm": "<p>Draw indicators for the current keyboard method or layout</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>The MenubarFlag object</li>\n</ul>\n",
@@ -9253,7 +9253,7 @@
           " * The MenubarFlag object"
         ],
         "returns_gfm": "<ul>\n<li>The MenubarFlag object</li>\n</ul>\n",
-        "signature": "MenubarFlag:getLayoutAndDrawindicators",
+        "signature": "MenubarFlag:getLayoutAndDrawindicators()",
         "stripped_doc": "",
         "type": "Method"
       },
@@ -9503,8 +9503,8 @@
         "type": "Method"
       },
       {
-        "def": "MenubarFlag:getLayoutAndDrawindicators",
-        "def_gfm": "MenubarFlag:getLayoutAndDrawindicators",
+        "def": "MenubarFlag:getLayoutAndDrawindicators()",
+        "def_gfm": "MenubarFlag:getLayoutAndDrawindicators()",
         "desc": "Draw indicators for the current keyboard method or layout",
         "doc": "Draw indicators for the current keyboard method or layout\n\nParameters:\n * None\n\nReturns:\n * The MenubarFlag object",
         "doc_gfm": "<p>Draw indicators for the current keyboard method or layout</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>The MenubarFlag object</li>\n</ul>\n",
@@ -9522,7 +9522,7 @@
           " * The MenubarFlag object"
         ],
         "returns_gfm": "<ul>\n<li>The MenubarFlag object</li>\n</ul>\n",
-        "signature": "MenubarFlag:getLayoutAndDrawindicators",
+        "signature": "MenubarFlag:getLayoutAndDrawindicators()",
         "stripped_doc": "",
         "type": "Method"
       },
@@ -15132,8 +15132,8 @@
         "type": "Method"
       },
       {
-        "def": "SendToOmniFocus:sendCurrentItem",
-        "def_gfm": "SendToOmniFocus:sendCurrentItem",
+        "def": "SendToOmniFocus:sendCurrentItem()",
+        "def_gfm": "SendToOmniFocus:sendCurrentItem()",
         "desc": "Send current item in current application to OmniFocus by triggering the appropriate handler.",
         "doc": "Send current item in current application to OmniFocus by triggering the appropriate handler.\n\nParameters:\n * None\n\nReturns:\n * The SendToOmniFocus object",
         "doc_gfm": "<p>Send current item in current application to OmniFocus by triggering the appropriate handler.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>The SendToOmniFocus object</li>\n</ul>\n",
@@ -15151,7 +15151,7 @@
           " * The SendToOmniFocus object"
         ],
         "returns_gfm": "<ul>\n<li>The SendToOmniFocus object</li>\n</ul>\n",
-        "signature": "SendToOmniFocus:sendCurrentItem",
+        "signature": "SendToOmniFocus:sendCurrentItem()",
         "stripped_doc": "",
         "type": "Method"
       }
@@ -15379,8 +15379,8 @@
         "type": "Method"
       },
       {
-        "def": "SendToOmniFocus:sendCurrentItem",
-        "def_gfm": "SendToOmniFocus:sendCurrentItem",
+        "def": "SendToOmniFocus:sendCurrentItem()",
+        "def_gfm": "SendToOmniFocus:sendCurrentItem()",
         "desc": "Send current item in current application to OmniFocus by triggering the appropriate handler.",
         "doc": "Send current item in current application to OmniFocus by triggering the appropriate handler.\n\nParameters:\n * None\n\nReturns:\n * The SendToOmniFocus object",
         "doc_gfm": "<p>Send current item in current application to OmniFocus by triggering the appropriate handler.</p>\n<p>Parameters:</p>\n<ul>\n<li>None</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>The SendToOmniFocus object</li>\n</ul>\n",
@@ -15398,7 +15398,7 @@
           " * The SendToOmniFocus object"
         ],
         "returns_gfm": "<ul>\n<li>The SendToOmniFocus object</li>\n</ul>\n",
-        "signature": "SendToOmniFocus:sendCurrentItem",
+        "signature": "SendToOmniFocus:sendCurrentItem()",
         "stripped_doc": "",
         "type": "Method"
       }
