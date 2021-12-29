@@ -79,11 +79,6 @@ local function fetchRequiredIds()
   )
 end
 
-local function getTaskParameter(val, prefix)
-   local v = hs.json.encode(val)
-   return "\"" .. prefix .. "\": " .. v
-end 
-
 ------------
 -- Public --
 ------------
@@ -108,7 +103,7 @@ function tableCopy(tabl)
    local t = {}
    for k,v in pairs(tabl) do
       t[k] = type(v)=="table" and tableCopy(v) or v
-   end 
+   end
    return t
 end
 
@@ -116,13 +111,13 @@ end
 function tableMerge(tbl1,tbl2)
    local t = {}
    for k,v in pairs(tbl1) do t[k] = type(v)=="table" and tableCopy(v) or v end
-   for k,v in pairs(tbl2) do t[k] = type(v)=="table" and tableCopy(v) or v end 
+   for k,v in pairs(tbl2) do t[k] = type(v)=="table" and tableCopy(v) or v end
    return t
 end
 
 function getTaskBody(tbl1,tbl2)
    s = stringFormat('{"data": %s}', hs.json.encode(tableMerge(tbl1,tbl2), false))
-   return s 
+   return s
 end
 
 --- Asana:createTask(taskName, workspaceName) -> Self
@@ -134,9 +129,9 @@ end
 ---  * WorkspaceName (String) - The name of the workspace in which to create the task.
 ---  * taskParameters (Table) - This is what will be sent as the `data` field of the POST body.
 ---
----  taskParmeters can be defined in the `configConsts.lua` or be rendered direcly in the 
+---  taskParmeters can be defined in the `configConsts.lua` or be rendered direcly in the
 ---  hammerspoon `init.lua` file where the task is registered.
---- 
+---
 --- Returns:
 ---  * Self
 ---
@@ -156,7 +151,7 @@ function createTask(self, taskName, workspaceName, taskParameters)
 
   -- Add content type so the server will know how to read the body
   reqHeader = tableMerge(reqHeader, {['Content-Type'] = "application/json; charset=UTF8"})
-  
+
   hs.http.asyncPost(
   endPoint,
   body,
