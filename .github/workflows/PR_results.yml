@@ -54,7 +54,7 @@ jobs:
         run: find artifacts -ls
 
       - name: Publish Docstring Annotations
-        uses: cmsj/annotations-action-cmsj-fork@v0.4.0-cmsj-alpha
+        uses: cmsj/annotations-action@v0.4.0-cmsj-alpha
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
           title: "Docstrings linter"
