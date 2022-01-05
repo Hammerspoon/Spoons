@@ -58,6 +58,6 @@ jobs:
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
           title: "Docstrings linter"
-          input: "annotations.json/annotations.json"
+          input: "artifacts/annotations.json/annotations.json"
           commit: ${{ github.event.workflow_run.head_sha }}
 
