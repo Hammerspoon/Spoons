@@ -64,6 +64,7 @@ jobs:
       run: ./gh_actions_doclint.sh
 
     # Publish Docstring Annotations
+    # NOTE: This will fail on third party PRs, until https://github.com/yuzutech/annotations-action/issues/23 is implemented
     - name: Publish Docstring Annotations
       uses: yuzutech/annotations-action@v0.3.0
       with:
