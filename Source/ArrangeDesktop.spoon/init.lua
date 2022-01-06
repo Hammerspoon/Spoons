@@ -1,15 +1,14 @@
 --- === ArrangeDesktop ===
 ---
---- Utilities for arranging your desktop how you like it.
+--- Easily create, save, and use desktop arrangements.
 ---
 --- Positioning logic adapted from https://github.com/dploeger/hammerspoon-window-manager
 
 local obj = {}
 obj.__index = obj
 
--- Metadata
 obj.name = "ArrangeDesktop"
-obj.version = "1.0.0"
+obj.version = "2.0.0"
 obj.author = "Luis Cruz <sprak3000+github@gmail.com>"
 obj.homepage = "https://github.com/Hammerspoon/Spoons"
 obj.license = "MIT - https://opensource.org/licenses/MIT"
@@ -24,20 +23,109 @@ obj.logger = hs.logger.new('ArrangeDesktop')
 --- Contains the configured desktop arrangements
 obj.arrangements = {}
 
--- Internal method - Positions all windows for an application based on the given criteria.
---
--- Parameters
--- * app - table of the application instance
--- * appTitle - the name of the application, e.g., Slack, Firefox, etc.
--- * screen - table of the position of the screen (x, y integer pair) to place the application window into
--- * frame - table of the frame details for the application window, e.g., {w=12, h=12, x=12, y=12}
+--- ArrangeDesktop.configFile
+--- Variable
+--- Defines where the config file is stored. Defaults to hs.spoons.scriptPath()/config.json
+obj.configFile = hs.spoons.scriptPath() .. "config.json"
+
+--- ArrangeDesktop._loadConfiguration() -> table or nil
+--- Function
+--- Loads the configuration file.
+---
+--- Parameters:
+---  * None
+---
+--- Returns:
+---  * A table containing the configured desktop arrangements, or nil if an error occurred
+function obj:_loadConfiguration()
+    local config = {}
+    local fileExists = hs.fs.displayName(obj.configFile)
+
+    if fileExists == nil then
+        if hs.json.write(config, obj.configFile, true, true) == false then
+            obj.logger.e("Unable to write out initial Arrange Desktop configuration file.")
+            return nil
+        end
+    else
+        config = hs.json.read(obj.configFile)
+        if config == nil then
+            return nil
+        end
+    end
+
+    return config
+end
+
+--- ArrangeDesktop._writeConfiguration(config) -> bool
+--- Function
+--- Writes the configuration to a file.
+---
+--- Parameters:
+---  * config - A table containing the configuration to write
+---
+--- Returns:
+---  * A boolean indicating if the write was successful
+function obj:_writeConfiguration(config)
+    return hs.json.write(config, obj.configFile, true, true)
+end
+
+--- ArrangeDesktop._buildArrangement() -> table
+--- Function
+--- Builds the configuration for the current desktop arrangement.
+---
+--- Parameters:
+---  * None
+---
+--- Returns:
+---  * A table containing the configuration data for the current desktop arrangement
+function obj:_buildArrangement()
+    local arrangement = {}
+    for _, v in pairs(hs.screen.allScreens()) do
+        local monitorUUID = v:getUUID()
+
+        arrangement[monitorUUID] = {}
+        arrangement[monitorUUID]['Monitor Name'] = v:name()
+        arrangement[monitorUUID]['apps'] = {}
+
+        local windows = hs.window.filter.new(true):setScreens(v:getUUID()):getWindows()
+        for k, wv in pairs(windows) do
+            arrangement[monitorUUID]['apps'][wv:application():title()] = {}
+
+            wv:focus()
+
+            if k == 1 then
+                local buttonPressed, name = hs.dialog.textPrompt("Name this monitor", "", "e.g., " .. v:name(), "OK", "Cancel")
+                if buttonPressed == "OK" and name ~= "" then
+                    arrangement[monitorUUID]['Monitor Name'] = name
+                end
+            end
+
+            for i, t in pairs(wv:frame()) do
+                local attribute = string.gsub(i, '_', '')
+                arrangement[monitorUUID]['apps'][wv:application():title()][attribute] = t
+            end
+        end
+    end
+
+    return arrangement
+end
+
+--- ArrangeDesktop._positionApp(app, appTitle, screen, frame)
+--- Function
+--- Positions all windows for an application based on the given configuration.
+---
+--- Parameters:
+---  * app - A table of the application instance
+---  * appTitle - The name of the application, e.g., Slack, Firefox, etc.
+---  * screen - A table of the position of the screen (x, y integer pair) to place the application window into
+---  * frame - A table of the frame details for the application window, e.g., {w=12, h=12, x=12, y=12}
 function obj:_positionApp(app, appTitle, screen, frame)
     obj.logger.d('Positioning ' .. appTitle)
 
     app:activate()
     local windows = hs.window.filter.new(appTitle):getWindows()
 
-    for k, v in pairs(windows) do
+    for _, v in pairs(windows) do
         obj.logger.d('Positioning window ' .. v:id() .. ' of app ' .. appTitle)
         v:moveToScreen(screen)
         v:setFrame(frame, 0)
@@ -49,7 +137,7 @@ end
 --- Arrange the desktop based on a given configuration
 ---
 --- Parameters:
----  * arrangement - table of arrangement data
+---  * arrangement - A table of arrangement data
 function obj:arrange(arrangement)
     for monitorUUID, monitorDetails in pairs(obj.arrangements[arrangement]) do
         if hs.screen.find(monitorUUID) ~= nil then
@@ -63,70 +151,68 @@ function obj:arrange(arrangement)
     end
 end
 
---- ArrangeDesktop:addMenuItems(menuItems, arrangements)
+--- ArrangeDesktop:addMenuItems(menuItems) -> table
 --- Method
---- Add menu items to a table for each configured desktop arrangment.
+--- Add menu items to a table for each configured desktop arrangement.
 ---
 --- Parameters:
----  * menuItems - table of menu items
----  * arrangements - table of desktop arrangements
+---  * menuItems - A table of menu items to append to
 ---
 --- Returns:
---- table of menu items
-function obj:addMenuItems(menuItems, arrangements)
+---  * A table of menu items
+function obj:addMenuItems(menuItems)
     if menuItems == nil then
         menuItems = {}
     end
 
-    table.insert(menuItems, { title = "Log Current Desktop Arrangement", fn = function() obj:logCurrentArrangement() end })
+    table.insert(menuItems, { title = "Create Desktop Arrangement", fn = function() obj:createArrangement() end })
 
-    if obj.arrangements ~= nil then
-        for k, v in pairs(obj.arrangements) do
-            table.insert(menuItems, { title = "Use " .. k .. " desktop arrangement", fn = function() obj:arrange(k) end })
+    local next = next
+    local subMenu = {}
+    obj.arrangements = obj:_loadConfiguration()
+    --obj.arrangements = {}
+    if next(obj.arrangements) ~= nil then
+        for k, _ in pairs(obj.arrangements) do
+            table.insert(subMenu, { title = k, fn = function() obj:arrange(k) end })
         end
+
+        table.insert(menuItems, { title = "-" })
+        table.insert(menuItems, { title = "Desktop Arrangements", menu = subMenu })
     end
 
     return menuItems
 end
 
---- ArrangeDesktop:logCurrentArrangement()
+--- ArrangeDesktop:createArrangement()
 --- Method
---- Build up the configuration for the current desktop arrangement and log it to the Hammerspoon console.
+--- Creates the desktop arrangement and saves it to the configuration file.
 ---
 --- Parameters:
 ---  * None
-function obj:logCurrentArrangement()
-    local frameTemplate = '{ w = wVal, h = hVal, x = xVal, y = yVal }'
-    local cmdTemplate = '    positionApp(\'appName\', monitorUUID, frame)'
-    local output = { "\n['<ARRANGEMENT NAME>'] = {" }
+function obj:createArrangement()
+    local config = obj:_loadConfiguration()
 
-    for k, v in pairs(hs.screen.allScreens()) do
-        table.insert(output, "    ['" .. v:getUUID() .. "'] = {")
-        table.insert(output, "        ['Montior Name'] = '" .. v:name() .. "',")
-        table.insert(output, "        ['apps'] = {")
-
-        local windows = hs.window.filter.new(true):setScreens(v:getUUID()):getWindows()
-        for wi, wv in pairs(windows) do
-            local frame = frameTemplate
-
-            wv:focus()
-            for i, t in pairs(wv:frame()) do
-                local pattern = string.gsub(i, '_', '') .. 'Val'
-                frame = string.gsub(frame, pattern, t)
-            end
-
-            table.insert(output, "            ['" .. wv:application():title() .. "'] = " .. frame .. "")
-        end
-
-        table.insert(output, "        },")
-        table.insert(output, "    },")
+    local continue = hs.dialog.blockAlert("Welcome to \"Arrange Desktop\"!", "If your application windows are sized and arranged as you like, click \"OK\" to continue. Otherwise, click \"Cancel\"", "OK", "Cancel")
+    if continue == "Cancel" then
+        return
     end
 
-    table.insert(output, '}')
+    local buttonPressed, arrangementName = hs.dialog.textPrompt("Name this Desktop Arrangement:", "", "e.g., Office", "OK", "Cancel")
+    if buttonPressed == "Cancel" then
+        return
+    end
 
-    obj.logger.i('--------------------------------------------------------------------------------')
-    obj.logger.i(table.concat(output, "\n"))
-    obj.logger.i('--------------------------------------------------------------------------------')
+    hs.dialog.blockAlert("We will now record each of your application windows.", "Each will window will flash into focus. The first focus on each monitor will prompt you to name the monitor.")
+
+    config[arrangementName] = obj:_buildArrangement(arrangementName)
+
+    written = obj:_writeConfiguration(config)
+    if written == false then
+        hs.dialog.blockAlert("We could not create your desktop configuration file.", "", "OK")
+        return
+    end
+
+    hs.dialog.blockAlert("Your desktop arrangement has been saved!", "Make sure to check your configuration for any duplicate application windows.", "OK")
 end
 
 return obj

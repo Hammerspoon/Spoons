@@ -9,10 +9,15 @@ obj.__index = obj
 
 -- Metadata
 obj.name = "BingDaily"
-obj.version = "1.0"
+obj.version = "1.1"
 obj.author = "ashfinal <ashfinal@gmail.com>"
 obj.homepage = "https://github.com/Hammerspoon/Spoons"
 obj.license = "MIT - https://opensource.org/licenses/MIT"
+
+--- BingDaily.uhd_resolution
+--- Variable
+--- If `true`, download image in UHD resolution instead of HD. Defaults to `false`.
+obj.uhd_resolution = false
 
 local function curl_callback(exitCode, stdOut, stdErr)
     if exitCode == 0 then
@@ -38,6 +43,9 @@ local function bingRequest()
             if pcall(function() hs.json.decode(body) end) then
                 local decode_data = hs.json.decode(body)
                 local pic_url = decode_data.images[1].url
+                if obj.uhd_resolution then
+                    pic_url = pic_url:gsub("1920x1080", "UHD")
+                end
                 local pic_name = "pic-temp-spoon.jpg"
                 for k, v in pairs(hs.http.urlParts(pic_url).queryItems) do
                     if v.id then

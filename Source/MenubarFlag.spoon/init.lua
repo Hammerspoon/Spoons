@@ -172,7 +172,7 @@ function obj:drawIndicators(src)
    return self
 end
 
---- MenubarFlag:getLayoutAndDrawindicators
+--- MenubarFlag:getLayoutAndDrawindicators()
 --- Method
 --- Draw indicators for the current keyboard method or layout
 ---

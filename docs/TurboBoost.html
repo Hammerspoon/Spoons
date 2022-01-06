@@ -16,7 +16,7 @@
     <header>
       <h1><a href="./index.html">docs</a> &raquo; TurboBoost</h1>
       <p>A spoon to load/unload the Turbo Boost Disable kernel extension
-from <a href="https://github.com/rugarciap/Turbo-Boost-Switcher">https://github.com/rugarciap/Turbo-Boost-Switcher</a>.</p>
+from https://github.com/rugarciap/Turbo-Boost-Switcher.</p>
 <p>Note: this spoon by default uses sudo to load/unload the kernel
 extension, so for it to work from Hammerspoon, you need to
 configure sudo to be able to load/unload the extension without a
@@ -29,7 +29,8 @@ unloading the module without a password:</p>
 
 <pre><code>Cmnd_Alias    TURBO_OPS = /sbin/kextunload /Applications/Turbo Boost Switcher.app/Contents/Resources/DisableTurboBoost.64bits.kext, /usr/bin/kextutil /Applications/Turbo Boost Switcher.app/Contents/Resources/DisableTurboBoost.64bits.kext
 
-%admin ALL=(ALL) NOPASSWD: TURBO_OPS</code></pre>
+%admin ALL=(ALL) NOPASSWD: TURBO_OPS
+</code></pre>
 <p>If you use this, please support the author of Turbo Boost Disabler
 by purchasing the Pro version of the app!</p>
 <p>Download: <a href="https://github.com/Hammerspoon/Spoons/raw/master/Spoons/TurboBoost.spoon.zip">https://github.com/Hammerspoon/Spoons/raw/master/Spoons/TurboBoost.spoon.zip</a></p>
@@ -82,13 +83,13 @@ by purchasing the Pro version of the app!</p>
               <tr>
                   <th>Notes</th>
                   <td><ul>
-<li>Default value: <code>"/usr/sbin/kextstat | grep com.rugarciap.DisableTurboBoost"</code></li>
+<li>Default value: <code>&quot;/usr/sbin/kextstat | grep com.rugarciap.DisableTurboBoost&quot;</code></li>
 </ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L100">Source/TurboBoost.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L100">Source/TurboBoost.spoon/init.lua line 100</a></td>
               </tr>
             </table>
           </section>
@@ -110,7 +111,7 @@ by purchasing the Pro version of the app!</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L45">Source/TurboBoost.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L45">Source/TurboBoost.spoon/init.lua line 45</a></td>
               </tr>
             </table>
           </section>
@@ -133,13 +134,13 @@ by purchasing the Pro version of the app!</p>
               <tr>
                   <th>Notes</th>
                   <td><ul>
-<li>Default value uses the icon from the Turbo Boost application: <code>"/Applications/Turbo Boost Switcher.app/Contents/Resources/icon_off.tiff"</code></li>
+<li>Default value uses the icon from the Turbo Boost application: <code>&quot;/Applications/Turbo Boost Switcher.app/Contents/Resources/icon_off.tiff&quot;</code></li>
 </ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L121">Source/TurboBoost.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L121">Source/TurboBoost.spoon/init.lua line 121</a></td>
               </tr>
             </table>
           </section>
@@ -162,13 +163,13 @@ by purchasing the Pro version of the app!</p>
               <tr>
                   <th>Notes</th>
                   <td><ul>
-<li>Default value uses the icon from the Turbo Boost application: <code>"/Applications/Turbo Boost Switcher.app/Contents/Resources/icon.tiff"</code></li>
+<li>Default value uses the icon from the Turbo Boost application: <code>&quot;/Applications/Turbo Boost Switcher.app/Contents/Resources/icon.tiff&quot;</code></li>
 </ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L113">Source/TurboBoost.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L113">Source/TurboBoost.spoon/init.lua line 113</a></td>
               </tr>
             </table>
           </section>
@@ -190,7 +191,7 @@ by purchasing the Pro version of the app!</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L67">Source/TurboBoost.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L67">Source/TurboBoost.spoon/init.lua line 67</a></td>
               </tr>
             </table>
           </section>
@@ -212,7 +213,7 @@ by purchasing the Pro version of the app!</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L57">Source/TurboBoost.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L57">Source/TurboBoost.spoon/init.lua line 57</a></td>
               </tr>
             </table>
           </section>
@@ -236,13 +237,13 @@ by purchasing the Pro version of the app!</p>
                   <th>Notes</th>
                   <td><ul>
 <li>This command must execute with root privileges and either query the user for the credentials, or be configured (e.g. with sudo) to run without prompting.</li>
-<li>The string "%s" in this variable gets replaced with the value of TurboBoost.kext_path. Default value: <code>"/usr/bin/sudo /usr/bin/kextutil '%s'"</code></li>
+<li>The string &quot;%s&quot; in this variable gets replaced with the value of TurboBoost.kext_path. Default value: <code>&quot;/usr/bin/sudo /usr/bin/kextutil '%s'&quot;</code></li>
 </ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L82">Source/TurboBoost.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L82">Source/TurboBoost.spoon/init.lua line 82</a></td>
               </tr>
             </table>
           </section>
@@ -264,7 +265,7 @@ by purchasing the Pro version of the app!</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L37">Source/TurboBoost.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L37">Source/TurboBoost.spoon/init.lua line 37</a></td>
               </tr>
             </table>
           </section>
@@ -286,7 +287,7 @@ by purchasing the Pro version of the app!</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L108">Source/TurboBoost.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L108">Source/TurboBoost.spoon/init.lua line 108</a></td>
               </tr>
             </table>
           </section>
@@ -308,7 +309,7 @@ by purchasing the Pro version of the app!</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L51">Source/TurboBoost.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L51">Source/TurboBoost.spoon/init.lua line 51</a></td>
               </tr>
             </table>
           </section>
@@ -332,13 +333,13 @@ by purchasing the Pro version of the app!</p>
                   <th>Notes</th>
                   <td><ul>
 <li>This command must execute with root privileges and either query the user for the credentials, or be configured (e.g. with sudo) to run without prompting.</li>
-<li>The string "%s" in this variable gets replaced with the value of TurboBoost.kext_path. Default value: <code>"/usr/bin/sudo /sbin/kextunload '%s'"</code></li>
+<li>The string &quot;%s&quot; in this variable gets replaced with the value of TurboBoost.kext_path. Default value: <code>&quot;/usr/bin/sudo /sbin/kextunload '%s'&quot;</code></li>
 </ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L91">Source/TurboBoost.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L91">Source/TurboBoost.spoon/init.lua line 91</a></td>
               </tr>
             </table>
           </section>
@@ -375,7 +376,7 @@ by purchasing the Pro version of the app!</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L197">Source/TurboBoost.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L197">Source/TurboBoost.spoon/init.lua line 197</a></td>
               </tr>
             </table>
           </section>
@@ -412,7 +413,7 @@ by purchasing the Pro version of the app!</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L129">Source/TurboBoost.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L129">Source/TurboBoost.spoon/init.lua line 129</a></td>
               </tr>
             </table>
           </section>
@@ -448,7 +449,7 @@ by purchasing the Pro version of the app!</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L209">Source/TurboBoost.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L209">Source/TurboBoost.spoon/init.lua line 209</a></td>
               </tr>
             </table>
           </section>
@@ -484,7 +485,7 @@ by purchasing the Pro version of the app!</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L168">Source/TurboBoost.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L168">Source/TurboBoost.spoon/init.lua line 168</a></td>
               </tr>
             </table>
           </section>
@@ -520,7 +521,7 @@ by purchasing the Pro version of the app!</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L230">Source/TurboBoost.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L230">Source/TurboBoost.spoon/init.lua line 230</a></td>
               </tr>
             </table>
           </section>
@@ -556,7 +557,7 @@ by purchasing the Pro version of the app!</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L183">Source/TurboBoost.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TurboBoost.spoon/init.lua#L183">Source/TurboBoost.spoon/init.lua line 183</a></td>
               </tr>
             </table>
           </section>

@@ -36,7 +36,7 @@ obj.hotkeyQbj = nil
 --- Timer for counting the holding time
 obj.timer = nil
 
---- HoldToQuit.killCurrentApp
+--- HoldToQuit.killCurrentApp()
 --- Method
 --- Kill the frontmost application
 ---

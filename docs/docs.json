@@ -305,39 +305,116 @@
     "Constructor": [],
     "Deprecated": [],
     "Field": [],
-    "Function": [],
-    "Method": [
+    "Function": [
       {
-        "def": "ArrangeDesktop:addMenuItems(menuItems, arrangements)",
-        "desc": "Add menu items to a table for each configured desktop arrangment.",
-        "doc": "Add menu items to a table for each configured desktop arrangment.\n\nParameters:\n * menuItems - table of menu items\n * arrangements - table of desktop arrangements\n\nReturns:\ntable of menu items",
+        "def": "ArrangeDesktop._buildArrangement() -> table",
+        "desc": "Builds the configuration for the current desktop arrangement.",
+        "doc": "Builds the configuration for the current desktop arrangement.\n\nParameters:\n * None\n\nReturns:\n * A table containing the configuration data for the current desktop arrangement",
         "examples": [],
         "file": "Source/ArrangeDesktop.spoon/init.lua",
-        "lineno": "66",
+        "lineno": "72",
+        "name": "_buildArrangement",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * A table containing the configuration data for the current desktop arrangement"
+        ],
+        "signature": "ArrangeDesktop._buildArrangement() -> table",
+        "stripped_doc": "",
+        "type": "Function"
+      },
+      {
+        "def": "ArrangeDesktop._loadConfiguration() -> table or nil",
+        "desc": "Loads the configuration file.",
+        "doc": "Loads the configuration file.\n\nParameters:\n * None\n\nReturns:\n * A table containing the configured desktop arrangements, or nil if an error occurred",
+        "examples": [],
+        "file": "Source/ArrangeDesktop.spoon/init.lua",
+        "lineno": "31",
+        "name": "_loadConfiguration",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * A table containing the configured desktop arrangements, or nil if an error occurred"
+        ],
+        "signature": "ArrangeDesktop._loadConfiguration() -> table or nil",
+        "stripped_doc": "",
+        "type": "Function"
+      },
+      {
+        "def": "ArrangeDesktop._positionApp(app, appTitle, screen, frame)",
+        "desc": "Positions all windows for an application based on the given configuration.",
+        "doc": "Positions all windows for an application based on the given configuration.\n\nParameters:\n * app - A table of the application instance\n * appTitle - The name of the application, e.g., Slack, Firefox, etc.\n * screen - A table of the position of the screen (x, y integer pair) to place the application window into\n * frame - A table of the frame details for the application window, e.g., {w=12, h=12, x=12, y=12}",
+        "examples": [],
+        "file": "Source/ArrangeDesktop.spoon/init.lua",
+        "lineno": "113",
+        "name": "_positionApp",
+        "notes": [],
+        "parameters": [
+          " * app - A table of the application instance",
+          " * appTitle - The name of the application, e.g., Slack, Firefox, etc.",
+          " * screen - A table of the position of the screen (x, y integer pair) to place the application window into",
+          " * frame - A table of the frame details for the application window, e.g., {w=12, h=12, x=12, y=12}"
+        ],
+        "returns": [],
+        "signature": "ArrangeDesktop._positionApp(app, appTitle, screen, frame)",
+        "stripped_doc": "",
+        "type": "Function"
+      },
+      {
+        "def": "ArrangeDesktop._writeConfiguration(config) -> bool",
+        "desc": "Writes the configuration to a file.",
+        "doc": "Writes the configuration to a file.\n\nParameters:\n * config - A table containing the configuration to write\n\nReturns:\n * A boolean indicating if the write was successful",
+        "examples": [],
+        "file": "Source/ArrangeDesktop.spoon/init.lua",
+        "lineno": "59",
+        "name": "_writeConfiguration",
+        "notes": [],
+        "parameters": [
+          " * config - A table containing the configuration to write"
+        ],
+        "returns": [
+          " * A boolean indicating if the write was successful"
+        ],
+        "signature": "ArrangeDesktop._writeConfiguration(config) -> bool",
+        "stripped_doc": "",
+        "type": "Function"
+      }
+    ],
+    "Method": [
+      {
+        "def": "ArrangeDesktop:addMenuItems(menuItems) -> table",
+        "desc": "Add menu items to a table for each configured desktop arrangement.",
+        "doc": "Add menu items to a table for each configured desktop arrangement.\n\nParameters:\n * menuItems - A table of menu items to append to\n\nReturns:\n * A table of menu items",
+        "examples": [],
+        "file": "Source/ArrangeDesktop.spoon/init.lua",
+        "lineno": "154",
         "name": "addMenuItems",
         "notes": [],
         "parameters": [
-          " * menuItems - table of menu items",
-          " * arrangements - table of desktop arrangements"
+          " * menuItems - A table of menu items to append to"
         ],
         "returns": [
-          "table of menu items"
+          " * A table of menu items"
         ],
-        "signature": "ArrangeDesktop:addMenuItems(menuItems, arrangements)",
+        "signature": "ArrangeDesktop:addMenuItems(menuItems) -> table",
         "stripped_doc": "",
         "type": "Method"
       },
       {
         "def": "ArrangeDesktop:arrange(arrangement)",
         "desc": "Arrange the desktop based on a given configuration",
-        "doc": "Arrange the desktop based on a given configuration\n\nParameters:\n * arrangement - table of arrangement data",
+        "doc": "Arrange the desktop based on a given configuration\n\nParameters:\n * arrangement - A table of arrangement data",
         "examples": [],
         "file": "Source/ArrangeDesktop.spoon/init.lua",
-        "lineno": "47",
+        "lineno": "135",
         "name": "arrange",
         "notes": [],
         "parameters": [
-          " * arrangement - table of arrangement data"
+          " * arrangement - A table of arrangement data"
         ],
         "returns": [],
         "signature": "ArrangeDesktop:arrange(arrangement)",
@@ -345,19 +422,19 @@
         "type": "Method"
       },
       {
-        "def": "ArrangeDesktop:logCurrentArrangement()",
-        "desc": "Build up the configuration for the current desktop arrangement and log it to the Hammerspoon console.",
-        "doc": "Build up the configuration for the current desktop arrangement and log it to the Hammerspoon console.\n\nParameters:\n * None",
+        "def": "ArrangeDesktop:createArrangement()",
+        "desc": "Creates the desktop arrangement and saves it to the configuration file.",
+        "doc": "Creates the desktop arrangement and saves it to the configuration file.\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/ArrangeDesktop.spoon/init.lua",
-        "lineno": "92",
-        "name": "logCurrentArrangement",
+        "lineno": "186",
+        "name": "createArrangement",
         "notes": [],
         "parameters": [
           " * None"
         ],
         "returns": [],
-        "signature": "ArrangeDesktop:logCurrentArrangement()",
+        "signature": "ArrangeDesktop:createArrangement()",
         "stripped_doc": "",
         "type": "Method"
       }
@@ -368,9 +445,20 @@
         "desc": "Contains the configured desktop arrangements",
         "doc": "Contains the configured desktop arrangements",
         "file": "Source/ArrangeDesktop.spoon/init.lua",
-        "lineno": "22",
+        "lineno": "21",
         "name": "arrangements",
         "signature": "ArrangeDesktop.arrangements",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "ArrangeDesktop.configFile",
+        "desc": "Defines where the config file is stored. Defaults to hs.spoons.scriptPath()/config.json",
+        "doc": "Defines where the config file is stored. Defaults to hs.spoons.scriptPath()/config.json",
+        "file": "Source/ArrangeDesktop.spoon/init.lua",
+        "lineno": "26",
+        "name": "configFile",
+        "signature": "ArrangeDesktop.configFile",
         "stripped_doc": "",
         "type": "Variable"
       },
@@ -379,47 +467,123 @@
         "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "file": "Source/ArrangeDesktop.spoon/init.lua",
-        "lineno": "17",
+        "lineno": "16",
         "name": "logger",
         "signature": "ArrangeDesktop.logger",
         "stripped_doc": "",
         "type": "Variable"
       }
     ],
-    "desc": "Utilities for arranging your desktop how you like it.",
-    "doc": "Utilities for arranging your desktop how you like it.\n\nPositioning logic adapted from https://github.com/dploeger/hammerspoon-window-manager",
+    "desc": "Easily create, save, and use desktop arrangements.",
+    "doc": "Easily create, save, and use desktop arrangements.\n\nPositioning logic adapted from https://github.com/dploeger/hammerspoon-window-manager",
     "items": [
       {
-        "def": "ArrangeDesktop:addMenuItems(menuItems, arrangements)",
-        "desc": "Add menu items to a table for each configured desktop arrangment.",
-        "doc": "Add menu items to a table for each configured desktop arrangment.\n\nParameters:\n * menuItems - table of menu items\n * arrangements - table of desktop arrangements\n\nReturns:\ntable of menu items",
+        "def": "ArrangeDesktop._buildArrangement() -> table",
+        "desc": "Builds the configuration for the current desktop arrangement.",
+        "doc": "Builds the configuration for the current desktop arrangement.\n\nParameters:\n * None\n\nReturns:\n * A table containing the configuration data for the current desktop arrangement",
         "examples": [],
         "file": "Source/ArrangeDesktop.spoon/init.lua",
-        "lineno": "66",
+        "lineno": "72",
+        "name": "_buildArrangement",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * A table containing the configuration data for the current desktop arrangement"
+        ],
+        "signature": "ArrangeDesktop._buildArrangement() -> table",
+        "stripped_doc": "",
+        "type": "Function"
+      },
+      {
+        "def": "ArrangeDesktop._loadConfiguration() -> table or nil",
+        "desc": "Loads the configuration file.",
+        "doc": "Loads the configuration file.\n\nParameters:\n * None\n\nReturns:\n * A table containing the configured desktop arrangements, or nil if an error occurred",
+        "examples": [],
+        "file": "Source/ArrangeDesktop.spoon/init.lua",
+        "lineno": "31",
+        "name": "_loadConfiguration",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * A table containing the configured desktop arrangements, or nil if an error occurred"
+        ],
+        "signature": "ArrangeDesktop._loadConfiguration() -> table or nil",
+        "stripped_doc": "",
+        "type": "Function"
+      },
+      {
+        "def": "ArrangeDesktop._positionApp(app, appTitle, screen, frame)",
+        "desc": "Positions all windows for an application based on the given configuration.",
+        "doc": "Positions all windows for an application based on the given configuration.\n\nParameters:\n * app - A table of the application instance\n * appTitle - The name of the application, e.g., Slack, Firefox, etc.\n * screen - A table of the position of the screen (x, y integer pair) to place the application window into\n * frame - A table of the frame details for the application window, e.g., {w=12, h=12, x=12, y=12}",
+        "examples": [],
+        "file": "Source/ArrangeDesktop.spoon/init.lua",
+        "lineno": "113",
+        "name": "_positionApp",
+        "notes": [],
+        "parameters": [
+          " * app - A table of the application instance",
+          " * appTitle - The name of the application, e.g., Slack, Firefox, etc.",
+          " * screen - A table of the position of the screen (x, y integer pair) to place the application window into",
+          " * frame - A table of the frame details for the application window, e.g., {w=12, h=12, x=12, y=12}"
+        ],
+        "returns": [],
+        "signature": "ArrangeDesktop._positionApp(app, appTitle, screen, frame)",
+        "stripped_doc": "",
+        "type": "Function"
+      },
+      {
+        "def": "ArrangeDesktop._writeConfiguration(config) -> bool",
+        "desc": "Writes the configuration to a file.",
+        "doc": "Writes the configuration to a file.\n\nParameters:\n * config - A table containing the configuration to write\n\nReturns:\n * A boolean indicating if the write was successful",
+        "examples": [],
+        "file": "Source/ArrangeDesktop.spoon/init.lua",
+        "lineno": "59",
+        "name": "_writeConfiguration",
+        "notes": [],
+        "parameters": [
+          " * config - A table containing the configuration to write"
+        ],
+        "returns": [
+          " * A boolean indicating if the write was successful"
+        ],
+        "signature": "ArrangeDesktop._writeConfiguration(config) -> bool",
+        "stripped_doc": "",
+        "type": "Function"
+      },
+      {
+        "def": "ArrangeDesktop:addMenuItems(menuItems) -> table",
+        "desc": "Add menu items to a table for each configured desktop arrangement.",
+        "doc": "Add menu items to a table for each configured desktop arrangement.\n\nParameters:\n * menuItems - A table of menu items to append to\n\nReturns:\n * A table of menu items",
+        "examples": [],
+        "file": "Source/ArrangeDesktop.spoon/init.lua",
+        "lineno": "154",
         "name": "addMenuItems",
         "notes": [],
         "parameters": [
-          " * menuItems - table of menu items",
-          " * arrangements - table of desktop arrangements"
+          " * menuItems - A table of menu items to append to"
         ],
         "returns": [
-          "table of menu items"
+          " * A table of menu items"
         ],
-        "signature": "ArrangeDesktop:addMenuItems(menuItems, arrangements)",
+        "signature": "ArrangeDesktop:addMenuItems(menuItems) -> table",
         "stripped_doc": "",
         "type": "Method"
       },
       {
         "def": "ArrangeDesktop:arrange(arrangement)",
         "desc": "Arrange the desktop based on a given configuration",
-        "doc": "Arrange the desktop based on a given configuration\n\nParameters:\n * arrangement - table of arrangement data",
+        "doc": "Arrange the desktop based on a given configuration\n\nParameters:\n * arrangement - A table of arrangement data",
         "examples": [],
         "file": "Source/ArrangeDesktop.spoon/init.lua",
-        "lineno": "47",
+        "lineno": "135",
         "name": "arrange",
         "notes": [],
         "parameters": [
-          " * arrangement - table of arrangement data"
+          " * arrangement - A table of arrangement data"
         ],
         "returns": [],
         "signature": "ArrangeDesktop:arrange(arrangement)",
@@ -431,26 +595,37 @@
         "desc": "Contains the configured desktop arrangements",
         "doc": "Contains the configured desktop arrangements",
         "file": "Source/ArrangeDesktop.spoon/init.lua",
-        "lineno": "22",
+        "lineno": "21",
         "name": "arrangements",
         "signature": "ArrangeDesktop.arrangements",
         "stripped_doc": "",
         "type": "Variable"
       },
       {
-        "def": "ArrangeDesktop:logCurrentArrangement()",
-        "desc": "Build up the configuration for the current desktop arrangement and log it to the Hammerspoon console.",
-        "doc": "Build up the configuration for the current desktop arrangement and log it to the Hammerspoon console.\n\nParameters:\n * None",
+        "def": "ArrangeDesktop.configFile",
+        "desc": "Defines where the config file is stored. Defaults to hs.spoons.scriptPath()/config.json",
+        "doc": "Defines where the config file is stored. Defaults to hs.spoons.scriptPath()/config.json",
+        "file": "Source/ArrangeDesktop.spoon/init.lua",
+        "lineno": "26",
+        "name": "configFile",
+        "signature": "ArrangeDesktop.configFile",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "ArrangeDesktop:createArrangement()",
+        "desc": "Creates the desktop arrangement and saves it to the configuration file.",
+        "doc": "Creates the desktop arrangement and saves it to the configuration file.\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/ArrangeDesktop.spoon/init.lua",
-        "lineno": "92",
-        "name": "logCurrentArrangement",
+        "lineno": "186",
+        "name": "createArrangement",
         "notes": [],
         "parameters": [
           " * None"
         ],
         "returns": [],
-        "signature": "ArrangeDesktop:logCurrentArrangement()",
+        "signature": "ArrangeDesktop:createArrangement()",
         "stripped_doc": "",
         "type": "Method"
       },
@@ -459,7 +634,7 @@
         "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "file": "Source/ArrangeDesktop.spoon/init.lua",
-        "lineno": "17",
+        "lineno": "16",
         "name": "logger",
         "signature": "ArrangeDesktop.logger",
         "stripped_doc": "",
@@ -569,10 +744,34 @@
     "Field": [],
     "Function": [],
     "Method": [],
-    "Variable": [],
+    "Variable": [
+      {
+        "def": "BingDaily.uhd_resolution",
+        "desc": "If `true`, download image in UHD resolution instead of HD. Defaults to `false`.",
+        "doc": "If `true`, download image in UHD resolution instead of HD. Defaults to `false`.",
+        "file": "Source/BingDaily.spoon/init.lua",
+        "lineno": "17",
+        "name": "uhd_resolution",
+        "signature": "BingDaily.uhd_resolution",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
     "desc": "Use Bing daily picture as your wallpaper, automatically.",
     "doc": "Use Bing daily picture as your wallpaper, automatically.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/BingDaily.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/BingDaily.spoon.zip)",
-    "items": [],
+    "items": [
+      {
+        "def": "BingDaily.uhd_resolution",
+        "desc": "If `true`, download image in UHD resolution instead of HD. Defaults to `false`.",
+        "doc": "If `true`, download image in UHD resolution instead of HD. Defaults to `false`.",
+        "file": "Source/BingDaily.spoon/init.lua",
+        "lineno": "17",
+        "name": "uhd_resolution",
+        "signature": "BingDaily.uhd_resolution",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
     "name": "BingDaily",
     "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/BingDaily.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/BingDaily.spoon.zip)",
     "submodules": [],
@@ -3786,7 +3985,7 @@
     "Function": [],
     "Method": [
       {
-        "def": "EjectMenu:bindHotkeys(mapping)",
+        "def": "EjectMenu:bindHotkeys(mapping, ejectAll)",
         "desc": "Binds hotkeys for EjectMenu",
         "doc": "Binds hotkeys for EjectMenu\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n * ejectAll - eject all volumes.",
         "examples": [],
@@ -3799,7 +3998,7 @@
           " * ejectAll - eject all volumes."
         ],
         "returns": [],
-        "signature": "EjectMenu:bindHotkeys(mapping)",
+        "signature": "EjectMenu:bindHotkeys(mapping, ejectAll)",
         "stripped_doc": "",
         "type": "Method"
       },
@@ -3985,7 +4184,7 @@
     "doc": "A much-needed eject menu for your Mac menu bar. Allows ejecting\nindividual or all non-internal disks. Ejection can also be\ntriggered on sleep, on lid close, or using a hotkey.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/EjectMenu.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/EjectMenu.spoon.zip)",
     "items": [
       {
-        "def": "EjectMenu:bindHotkeys(mapping)",
+        "def": "EjectMenu:bindHotkeys(mapping, ejectAll)",
         "desc": "Binds hotkeys for EjectMenu",
         "doc": "Binds hotkeys for EjectMenu\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n * ejectAll - eject all volumes.",
         "examples": [],
@@ -3998,7 +4197,7 @@
           " * ejectAll - eject all volumes."
         ],
         "returns": [],
-        "signature": "EjectMenu:bindHotkeys(mapping)",
+        "signature": "EjectMenu:bindHotkeys(mapping, ejectAll)",
         "stripped_doc": "",
         "type": "Method"
       },
@@ -5631,7 +5830,7 @@
         "type": "Method"
       },
       {
-        "def": "HoldToQuit.killCurrentApp",
+        "def": "HoldToQuit.killCurrentApp()",
         "desc": "Kill the frontmost application",
         "doc": "Kill the frontmost application\n\nParameters:\n * None",
         "examples": [],
@@ -5643,7 +5842,7 @@
           " * None"
         ],
         "returns": [],
-        "signature": "HoldToQuit.killCurrentApp",
+        "signature": "HoldToQuit.killCurrentApp()",
         "stripped_doc": "",
         "type": "Method"
       },
@@ -5833,7 +6032,7 @@
         "type": "Method"
       },
       {
-        "def": "HoldToQuit.killCurrentApp",
+        "def": "HoldToQuit.killCurrentApp()",
         "desc": "Kill the frontmost application",
         "doc": "Kill the frontmost application\n\nParameters:\n * None",
         "examples": [],
@@ -5845,7 +6044,7 @@
           " * None"
         ],
         "returns": [],
-        "signature": "HoldToQuit.killCurrentApp",
+        "signature": "HoldToQuit.killCurrentApp()",
         "stripped_doc": "",
         "type": "Method"
       },
@@ -7348,7 +7547,7 @@
         "type": "Method"
       },
       {
-        "def": "MenubarFlag:getLayoutAndDrawindicators",
+        "def": "MenubarFlag:getLayoutAndDrawindicators()",
         "desc": "Draw indicators for the current keyboard method or layout",
         "doc": "Draw indicators for the current keyboard method or layout\n\nParameters:\n * None\n\nReturns:\n * The MenubarFlag object",
         "examples": [],
@@ -7362,7 +7561,7 @@
         "returns": [
           " * The MenubarFlag object"
         ],
-        "signature": "MenubarFlag:getLayoutAndDrawindicators",
+        "signature": "MenubarFlag:getLayoutAndDrawindicators()",
         "stripped_doc": "",
         "type": "Method"
       },
@@ -7576,7 +7775,7 @@
         "type": "Method"
       },
       {
-        "def": "MenubarFlag:getLayoutAndDrawindicators",
+        "def": "MenubarFlag:getLayoutAndDrawindicators()",
         "desc": "Draw indicators for the current keyboard method or layout",
         "doc": "Draw indicators for the current keyboard method or layout\n\nParameters:\n * None\n\nReturns:\n * The MenubarFlag object",
         "examples": [],
@@ -7590,7 +7789,7 @@
         "returns": [
           " * The MenubarFlag object"
         ],
-        "signature": "MenubarFlag:getLayoutAndDrawindicators",
+        "signature": "MenubarFlag:getLayoutAndDrawindicators()",
         "stripped_doc": "",
         "type": "Method"
       },
@@ -12321,7 +12520,7 @@
         "type": "Method"
       },
       {
-        "def": "SendToOmniFocus:sendCurrentItem",
+        "def": "SendToOmniFocus:sendCurrentItem()",
         "desc": "Send current item in current application to OmniFocus by triggering the appropriate handler.",
         "doc": "Send current item in current application to OmniFocus by triggering the appropriate handler.\n\nParameters:\n * None\n\nReturns:\n * The SendToOmniFocus object",
         "examples": [],
@@ -12335,7 +12534,7 @@
         "returns": [
           " * The SendToOmniFocus object"
         ],
-        "signature": "SendToOmniFocus:sendCurrentItem",
+        "signature": "SendToOmniFocus:sendCurrentItem()",
         "stripped_doc": "",
         "type": "Method"
       }
@@ -12533,7 +12732,7 @@
         "type": "Method"
       },
       {
-        "def": "SendToOmniFocus:sendCurrentItem",
+        "def": "SendToOmniFocus:sendCurrentItem()",
         "desc": "Send current item in current application to OmniFocus by triggering the appropriate handler.",
         "doc": "Send current item in current application to OmniFocus by triggering the appropriate handler.\n\nParameters:\n * None\n\nReturns:\n * The SendToOmniFocus object",
         "examples": [],
@@ -12547,7 +12746,7 @@
         "returns": [
           " * The SendToOmniFocus object"
         ],
-        "signature": "SendToOmniFocus:sendCurrentItem",
+        "signature": "SendToOmniFocus:sendCurrentItem()",
         "stripped_doc": "",
         "type": "Method"
       }
@@ -12588,9 +12787,9 @@
       {
         "def": "Shade:bindHotkeys(map)",
         "desc": "Binds hotkeys for Shade",
-        "doc": "Binds hotkeys for Shade\n\nParameters:\n * map - A table containing hotkey modifier/key details for the following item:\n  * toggleShade - This will toggle the shade on/off, and update the menubar graphic\n\nExamples:\n * E.g.: { toggleShade = {\"cmd\",\"alt\",\"ctrl\"},\"s\" }\n\nReturns:\n * None",
+        "doc": "Binds hotkeys for Shade\n\nParameters:\n * map - A table containing hotkey modifier/key details for the following item:\n  * toggleShade - This will toggle the shade on/off, and update the menubar graphic\n\nExamples:\n * E.g.: { toggleShade = { {\"cmd\",\"alt\",\"ctrl\"},\"s\" } }\n\nReturns:\n * None",
         "examples": [
-          " * E.g.: { toggleShade = {\"cmd\",\"alt\",\"ctrl\"},\"s\" }"
+          " * E.g.: { toggleShade = { {\"cmd\",\"alt\",\"ctrl\"},\"s\" } }"
         ],
         "file": "Source/Shade.spoon/init.lua",
         "lineno": "252",
@@ -12694,9 +12893,9 @@
       {
         "def": "Shade:bindHotkeys(map)",
         "desc": "Binds hotkeys for Shade",
-        "doc": "Binds hotkeys for Shade\n\nParameters:\n * map - A table containing hotkey modifier/key details for the following item:\n  * toggleShade - This will toggle the shade on/off, and update the menubar graphic\n\nExamples:\n * E.g.: { toggleShade = {\"cmd\",\"alt\",\"ctrl\"},\"s\" }\n\nReturns:\n * None",
+        "doc": "Binds hotkeys for Shade\n\nParameters:\n * map - A table containing hotkey modifier/key details for the following item:\n  * toggleShade - This will toggle the shade on/off, and update the menubar graphic\n\nExamples:\n * E.g.: { toggleShade = { {\"cmd\",\"alt\",\"ctrl\"},\"s\" } }\n\nReturns:\n * None",
         "examples": [
-          " * E.g.: { toggleShade = {\"cmd\",\"alt\",\"ctrl\"},\"s\" }"
+          " * E.g.: { toggleShade = { {\"cmd\",\"alt\",\"ctrl\"},\"s\" } }"
         ],
         "file": "Source/Shade.spoon/init.lua",
         "lineno": "252",

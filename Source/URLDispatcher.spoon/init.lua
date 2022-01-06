@@ -94,7 +94,7 @@ end
 ---  * The parameters (follow to the [httpCallback](http://www.hammerspoon.org/docs/hs.urlevent.html#httpCallback) specification)
 function obj:dispatchURL(scheme, host, params, fullUrl)
    local url = fullUrl
-   local currentApp = hs.window.frontmostWindow():application():name()
+   local currentApp = hs.application.frontmostApplication():name()
    self.logger.df("Dispatching URL '%s' from application %s", url, currentApp)
    if self.decode_slack_redir_urls then
       local newUrl = string.match(url, 'https://slack.redir.net/.*url=(.*)')

@@ -19,21 +19,22 @@
 <p>Example configuration (using SpoonInstall.spoon):</p>
 
 <pre><code>spoon.SpoonInstall:andUse(
-  "PersonalHotspot",
+  &quot;PersonalHotspot&quot;,
   {
     config = {
-      hotspotName = "John Appleseed’s iPhone",
+      hotspotName = &quot;John Appleseed’s iPhone&quot;,
       appsToKill = {
-        "Arq",
-        "Arq Agent",
-        "Dropbox"
+        &quot;Arq&quot;,
+        &quot;Arq Agent&quot;,
+        &quot;Dropbox&quot;
       }
     },
     hotkeys = {
-      toggle = {{"cmd", "option", "ctrl"}, "h"}
+      toggle = {{&quot;cmd&quot;, &quot;option&quot;, &quot;ctrl&quot;}, &quot;h&quot;}
     }
   }
-)</code></pre>
+)
+</code></pre>
 <p>If <code>PersonalHotspot.hotspotName</code> isn't set, the first personal hotspot in the Wi-Fi menu will be selected, and <code>PersonalHotspot.hotspotName</code> will be set to the name of that hotspot.</p>
 
       </header>
@@ -74,17 +75,15 @@
               <tr>
                   <th>Notes</th>
                   <td><ul>
-<li>Each string should be either:<ul>
+<li>Each string should be either:</li>
 <li>a bundle ID string as per <code>hs.application:bundleID()</code>, or</li>
 <li>an application name string as per <code>hs.application:name()</code>.</li>
-</ul>
-</li>
 </ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PersonalHotspot.spoon/init.lua#L116">Source/PersonalHotspot.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PersonalHotspot.spoon/init.lua#L116">Source/PersonalHotspot.spoon/init.lua line 116</a></td>
               </tr>
             </table>
           </section>
@@ -107,13 +106,13 @@
               <tr>
                   <th>Notes</th>
                   <td><ul>
-<li>You can see the names of available hotspots by clicking on the Wi-Fi icon in the macOS menu bar and looking for menu items under the "Personal Hotspot(s)" heading.</li>
+<li>You can see the names of available hotspots by clicking on the Wi-Fi icon in the macOS menu bar and looking for menu items under the &quot;Personal Hotspot(s)&quot; heading.</li>
 </ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PersonalHotspot.spoon/init.lua#L126">Source/PersonalHotspot.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PersonalHotspot.spoon/init.lua#L126">Source/PersonalHotspot.spoon/init.lua line 126</a></td>
               </tr>
             </table>
           </section>
@@ -135,7 +134,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PersonalHotspot.spoon/init.lua#L134">Source/PersonalHotspot.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PersonalHotspot.spoon/init.lua#L134">Source/PersonalHotspot.spoon/init.lua line 134</a></td>
               </tr>
             </table>
           </section>
@@ -160,7 +159,7 @@
                   <th>Parameters</th>
                   <td><ul>
 <li>mapping (Table) - A table with keys who's names correspond to methods of this spoon, and values that represent hotkey mappings. For example:<ul>
-<li><code>{ toggle = { {"cmd", "option", "ctrl" }, "h" }</code></li>
+<li><code>{ toggle = { {&quot;cmd&quot;, &quot;option&quot;, &quot;ctrl&quot; }, &quot;h&quot; }</code></li>
 </ul>
 </li>
 </ul>
@@ -175,7 +174,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PersonalHotspot.spoon/init.lua#L216">Source/PersonalHotspot.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PersonalHotspot.spoon/init.lua#L216">Source/PersonalHotspot.spoon/init.lua line 216</a></td>
               </tr>
             </table>
           </section>
@@ -218,7 +217,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PersonalHotspot.spoon/init.lua#L139">Source/PersonalHotspot.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PersonalHotspot.spoon/init.lua#L139">Source/PersonalHotspot.spoon/init.lua line 139</a></td>
               </tr>
             </table>
           </section>
@@ -254,7 +253,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PersonalHotspot.spoon/init.lua#L172">Source/PersonalHotspot.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PersonalHotspot.spoon/init.lua#L172">Source/PersonalHotspot.spoon/init.lua line 172</a></td>
               </tr>
             </table>
           </section>
@@ -297,7 +296,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PersonalHotspot.spoon/init.lua#L194">Source/PersonalHotspot.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PersonalHotspot.spoon/init.lua#L194">Source/PersonalHotspot.spoon/init.lua line 194</a></td>
               </tr>
             </table>
           </section>

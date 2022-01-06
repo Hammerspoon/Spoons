@@ -20,25 +20,26 @@
 
 <pre><code>function toggleKeyboardLayout(x)
   if x then
-    hs.keycodes.setLayout("U.S.")
+    hs.keycodes.setLayout(&quot;U.S.&quot;)
   else
-    hs.keycodes.setLayout("Colemak")
+    hs.keycodes.setLayout(&quot;Colemak&quot;)
   end
 end
 
 spoonInstall:andUse(
-  "USBDeviceActions",
+  &quot;USBDeviceActions&quot;,
   {
     config = {
       devices = {
-        ScanSnapiX500EE            = { apps = { "ScanSnap Manager Evernote Edition" } },
+        ScanSnapiX500EE            = { apps = { &quot;ScanSnap Manager Evernote Edition&quot; } },
         Planck                     = { fn = toggleKeyboardLayout },
-        ["Corne Keyboard (crkbd)"] = { fn = toggleKeyboardLayout }
+        [&quot;Corne Keyboard (crkbd)&quot;] = { fn = toggleKeyboardLayout }
       }
     },
     start = true
   }
-)</code></pre>
+)
+</code></pre>
 
       </header>
       <h3>API Overview</h3>
@@ -75,20 +76,21 @@ spoonInstall:andUse(
               <tr>
                   <th>Notes</th>
                   <td><ul>
-<li>The value of the <code>apps</code> key should contain a list of apps that will be launched/killed when the USB device is connected/disconnected. The value of the <code>fn</code> key should be a single parameter function that will be passed <code>true</code>/<code>false</code> when the USB device is connected/disconnected.
-Example:
-<pre><code>{
-ScanSnapiX500EE            = { apps = { "ScanSnap Manager Evernote Edition" } },
-Planck                     = { fn = toggleKeyboardLayout },
-["Corne Keyboard (crkbd)"] = { fn = toggleKeyboardLayout }
-}</code></pre>
-</li>
+<li>The value of the <code>apps</code> key should contain a list of apps that will be launched/killed when the USB device is connected/disconnected. The value of the <code>fn</code> key should be a single parameter function that will be passed <code>true</code>/<code>false</code> when the USB device is connected/disconnected.</li>
 </ul>
+<p>Example:</p>
+
+<pre><code>{
+  ScanSnapiX500EE            = { apps = { &quot;ScanSnap Manager Evernote Edition&quot; } },
+  Planck                     = { fn = toggleKeyboardLayout },
+  [&quot;Corne Keyboard (crkbd)&quot;] = { fn = toggleKeyboardLayout }
+}
+</code></pre>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/USBDeviceActions.spoon/init.lua#L87">Source/USBDeviceActions.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/USBDeviceActions.spoon/init.lua#L87">Source/USBDeviceActions.spoon/init.lua line 87</a></td>
               </tr>
             </table>
           </section>
@@ -125,7 +127,7 @@ Planck                     = { fn = toggleKeyboardLayout },
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/USBDeviceActions.spoon/init.lua#L103">Source/USBDeviceActions.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/USBDeviceActions.spoon/init.lua#L103">Source/USBDeviceActions.spoon/init.lua line 103</a></td>
               </tr>
             </table>
           </section>
@@ -161,7 +163,7 @@ Planck                     = { fn = toggleKeyboardLayout },
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/USBDeviceActions.spoon/init.lua#L118">Source/USBDeviceActions.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/USBDeviceActions.spoon/init.lua#L118">Source/USBDeviceActions.spoon/init.lua line 118</a></td>
               </tr>
             </table>
           </section>
@@ -197,7 +199,7 @@ Planck                     = { fn = toggleKeyboardLayout },
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/USBDeviceActions.spoon/init.lua#L132">Source/USBDeviceActions.spoon/init.lua</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/USBDeviceActions.spoon/init.lua#L132">Source/USBDeviceActions.spoon/init.lua line 132</a></td>
               </tr>
             </table>
           </section>

@@ -10,17 +10,38 @@
       {
         "def": "URLDispatcher:dispatchURL(scheme, host, params, fullUrl)",
         "desc": "Dispatch a URL to an application according to the defined `url_patterns`.",
-        "doc": "Dispatch a URL to an application according to the defined `url_patterns`.\n\nParameters (according to the [httpCallback](http://www.hammerspoon.org/docs/hs.urlevent.html#httpCallback) specification):\n * scheme - A string containing the URL scheme (i.e. \"http\")\n * host - A string containing the host requested (e.g. \"www.hammerspoon.org\")\n * params - A table containing the key/value pairs of all the URL parameters\n * fullURL - A string containing the full, original URL. This is the only parameter used in this implementation.",
+        "doc": "Dispatch a URL to an application according to the defined `url_patterns`.\n\nParameters:\n * scheme - A string containing the URL scheme (i.e. \"http\")\n * host - A string containing the host requested (e.g. \"www.hammerspoon.org\")\n * params - A table containing the key/value pairs of all the URL parameters\n * fullURL - A string containing the full, original URL. This is the only parameter used in this implementation.\n\nNotes:\n * The parameters (follow to the [httpCallback](http://www.hammerspoon.org/docs/hs.urlevent.html#httpCallback) specification)",
+        "examples": [],
+        "file": "Source/URLDispatcher.spoon//init.lua",
+        "lineno": "83",
         "name": "dispatchURL",
+        "notes": [
+          " * The parameters (follow to the [httpCallback](http://www.hammerspoon.org/docs/hs.urlevent.html#httpCallback) specification)"
+        ],
+        "parameters": [
+          " * scheme - A string containing the URL scheme (i.e. \"http\")",
+          " * host - A string containing the host requested (e.g. \"www.hammerspoon.org\")",
+          " * params - A table containing the key/value pairs of all the URL parameters",
+          " * fullURL - A string containing the full, original URL. This is the only parameter used in this implementation."
+        ],
+        "returns": [],
         "signature": "URLDispatcher:dispatchURL(scheme, host, params, fullUrl)",
-        "stripped_doc": "Parameters (according to the [httpCallback](http://www.hammerspoon.org/docs/hs.urlevent.html#httpCallback) specification):\n * scheme - A string containing the URL scheme (i.e. \"http\")\n * host - A string containing the host requested (e.g. \"www.hammerspoon.org\")\n * params - A table containing the key/value pairs of all the URL parameters\n * fullURL - A string containing the full, original URL. This is the only parameter used in this implementation.",
+        "stripped_doc": "",
         "type": "Method"
       },
       {
         "def": "URLDispatcher:start()",
         "desc": "Start dispatching URLs according to the rules",
-        "doc": "Start dispatching URLs according to the rules",
+        "doc": "Start dispatching URLs according to the rules\n\nParameters:\n * None",
+        "examples": [],
+        "file": "Source/URLDispatcher.spoon//init.lua",
+        "lineno": "150",
         "name": "start",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
         "signature": "URLDispatcher:start()",
         "stripped_doc": "",
         "type": "Method"
@@ -31,6 +52,8 @@
         "def": "URLDispatcher.decode_slack_redir_urls",
         "desc": "If true, handle Slack-redir URLs to apply the rule on the destination URL. Defaults to `true`",
         "doc": "If true, handle Slack-redir URLs to apply the rule on the destination URL. Defaults to `true`",
+        "file": "Source/URLDispatcher.spoon//init.lua",
+        "lineno": "26",
         "name": "decode_slack_redir_urls",
         "signature": "URLDispatcher.decode_slack_redir_urls",
         "stripped_doc": "",
@@ -40,6 +63,8 @@
         "def": "URLDispatcher.default_handler",
         "desc": "Bundle ID for default URL handler. (Defaults to `\"com.apple.Safari\"`)",
         "doc": "Bundle ID for default URL handler. (Defaults to `\"com.apple.Safari\"`)",
+        "file": "Source/URLDispatcher.spoon//init.lua",
+        "lineno": "21",
         "name": "default_handler",
         "signature": "URLDispatcher.default_handler",
         "stripped_doc": "",
@@ -49,6 +74,8 @@
         "def": "URLDispatcher.logger",
         "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "file": "Source/URLDispatcher.spoon//init.lua",
+        "lineno": "59",
         "name": "logger",
         "signature": "URLDispatcher.logger",
         "stripped_doc": "",
@@ -58,6 +85,8 @@
         "def": "URLDispatcher.set_system_handler",
         "desc": "If true, URLDispatcher set itself as system handler for http requests. Defaults to `true`",
         "doc": "If true, URLDispatcher set itself as system handler for http requests. Defaults to `true`",
+        "file": "Source/URLDispatcher.spoon//init.lua",
+        "lineno": "64",
         "name": "set_system_handler",
         "signature": "URLDispatcher.set_system_handler",
         "stripped_doc": "",
@@ -66,16 +95,26 @@
       {
         "def": "URLDispatcher.url_patterns",
         "desc": "URL dispatch rules.",
-        "doc": "URL dispatch rules.\nA table containing a list of dispatch rules. Each rule should be its own\ntable in the format: `{ \"url pattern\", \"application bundle ID\", \"function\"\n}`, and they are evaluated in the order they are declared. Note that the\npatterns are [Lua patterns](https://www.lua.org/pil/20.2.html) and not\nregular expressions. Defaults to an empty table, which has the effect of\nhaving all URLs dispatched to the `default_handler`. If \"application bundle\nID\" is specified, that application will be used to open matching URLs. If no\n\"application bundle ID\" is specified, but \"function\" is provided (and is a\nLua function) it will be called with the URL.",
+        "doc": "URL dispatch rules.\n\nNotes:\n * A table containing a list of dispatch rules. Each rule should be its own table in the format: `{ \"url pattern\", \"application bundle ID\", \"function\" }`, and they are evaluated in the order they are declared.\n * Note that the patterns are [Lua patterns](https://www.lua.org/pil/20.2.html) and not regular expressions.\n * Defaults to an empty table, which has the effect of having all URLs dispatched to the `default_handler`.\n * If \"application bundle ID\" is specified, that application will be used to open matching URLs. If no \"application bundle ID\" is specified, but \"function\" is provided (and is a Lua function) it will be called with the URL.",
+        "file": "Source/URLDispatcher.spoon//init.lua",
+        "lineno": "48",
         "name": "url_patterns",
+        "notes": [
+          " * A table containing a list of dispatch rules. Each rule should be its own table in the format: `{ \"url pattern\", \"application bundle ID\", \"function\" }`, and they are evaluated in the order they are declared.",
+          " * Note that the patterns are [Lua patterns](https://www.lua.org/pil/20.2.html) and not regular expressions.",
+          " * Defaults to an empty table, which has the effect of having all URLs dispatched to the `default_handler`.",
+          " * If \"application bundle ID\" is specified, that application will be used to open matching URLs. If no \"application bundle ID\" is specified, but \"function\" is provided (and is a Lua function) it will be called with the URL."
+        ],
         "signature": "URLDispatcher.url_patterns",
-        "stripped_doc": "A table containing a list of dispatch rules. Each rule should be its own\ntable in the format: `{ \"url pattern\", \"application bundle ID\", \"function\"\n}`, and they are evaluated in the order they are declared. Note that the\npatterns are [Lua patterns](https://www.lua.org/pil/20.2.html) and not\nregular expressions. Defaults to an empty table, which has the effect of\nhaving all URLs dispatched to the `default_handler`. If \"application bundle\nID\" is specified, that application will be used to open matching URLs. If no\n\"application bundle ID\" is specified, but \"function\" is provided (and is a\nLua function) it will be called with the URL.",
+        "stripped_doc": "",
         "type": "Variable"
       },
       {
         "def": "URLDispatcher.url_redir_decoders",
         "desc": "List containing optional additional redirection decoders (other",
         "doc": "List containing optional additional redirection decoders (other\nthan the known Slack decoder, which is enabled by\n`URLDispatcher.decode_slack_redir_urls` to apply to URLs before\ndispatching them. Each list element must be a list itself with four\nelements:\n  * String: a name to identify the decoder;\n  * String: a [Lua pattern](https://www.lua.org/pil/20.2.html) to match against the URL;\n  * String: a replacement pattern to apply if a match is found;\n  * (optional) Boolean: whether to skip URL-decoding of the resulting string (by default the results are always decoded);\n  * (optional) String or Table: a pattern or list of patterns to match against the name of the application from which the URL was opened. If this parameter is present, the decoder will only be applied when the application matches. Default is to apply the decoder regardless of the application.\nThe first two values are passed as arguments to\n[string.gsub](https://www.lua.org/manual/5.3/manual.html#pdf-string.gsub)\napplied on the original URL.  Default value: empty list",
+        "file": "Source/URLDispatcher.spoon//init.lua",
+        "lineno": "31",
         "name": "url_redir_decoders",
         "signature": "URLDispatcher.url_redir_decoders",
         "stripped_doc": "than the known Slack decoder, which is enabled by\n`URLDispatcher.decode_slack_redir_urls` to apply to URLs before\ndispatching them. Each list element must be a list itself with four\nelements:\n  * String: a name to identify the decoder;\n  * String: a [Lua pattern](https://www.lua.org/pil/20.2.html) to match against the URL;\n  * String: a replacement pattern to apply if a match is found;\n  * (optional) Boolean: whether to skip URL-decoding of the resulting string (by default the results are always decoded);\n  * (optional) String or Table: a pattern or list of patterns to match against the name of the application from which the URL was opened. If this parameter is present, the decoder will only be applied when the application matches. Default is to apply the decoder regardless of the application.\nThe first two values are passed as arguments to\n[string.gsub](https://www.lua.org/manual/5.3/manual.html#pdf-string.gsub)\napplied on the original URL.  Default value: empty list",
@@ -89,6 +128,8 @@
         "def": "URLDispatcher.decode_slack_redir_urls",
         "desc": "If true, handle Slack-redir URLs to apply the rule on the destination URL. Defaults to `true`",
         "doc": "If true, handle Slack-redir URLs to apply the rule on the destination URL. Defaults to `true`",
+        "file": "Source/URLDispatcher.spoon//init.lua",
+        "lineno": "26",
         "name": "decode_slack_redir_urls",
         "signature": "URLDispatcher.decode_slack_redir_urls",
         "stripped_doc": "",
@@ -98,6 +139,8 @@
         "def": "URLDispatcher.default_handler",
         "desc": "Bundle ID for default URL handler. (Defaults to `\"com.apple.Safari\"`)",
         "doc": "Bundle ID for default URL handler. (Defaults to `\"com.apple.Safari\"`)",
+        "file": "Source/URLDispatcher.spoon//init.lua",
+        "lineno": "21",
         "name": "default_handler",
         "signature": "URLDispatcher.default_handler",
         "stripped_doc": "",
@@ -106,16 +149,31 @@
       {
         "def": "URLDispatcher:dispatchURL(scheme, host, params, fullUrl)",
         "desc": "Dispatch a URL to an application according to the defined `url_patterns`.",
-        "doc": "Dispatch a URL to an application according to the defined `url_patterns`.\n\nParameters (according to the [httpCallback](http://www.hammerspoon.org/docs/hs.urlevent.html#httpCallback) specification):\n * scheme - A string containing the URL scheme (i.e. \"http\")\n * host - A string containing the host requested (e.g. \"www.hammerspoon.org\")\n * params - A table containing the key/value pairs of all the URL parameters\n * fullURL - A string containing the full, original URL. This is the only parameter used in this implementation.",
+        "doc": "Dispatch a URL to an application according to the defined `url_patterns`.\n\nParameters:\n * scheme - A string containing the URL scheme (i.e. \"http\")\n * host - A string containing the host requested (e.g. \"www.hammerspoon.org\")\n * params - A table containing the key/value pairs of all the URL parameters\n * fullURL - A string containing the full, original URL. This is the only parameter used in this implementation.\n\nNotes:\n * The parameters (follow to the [httpCallback](http://www.hammerspoon.org/docs/hs.urlevent.html#httpCallback) specification)",
+        "examples": [],
+        "file": "Source/URLDispatcher.spoon//init.lua",
+        "lineno": "83",
         "name": "dispatchURL",
+        "notes": [
+          " * The parameters (follow to the [httpCallback](http://www.hammerspoon.org/docs/hs.urlevent.html#httpCallback) specification)"
+        ],
+        "parameters": [
+          " * scheme - A string containing the URL scheme (i.e. \"http\")",
+          " * host - A string containing the host requested (e.g. \"www.hammerspoon.org\")",
+          " * params - A table containing the key/value pairs of all the URL parameters",
+          " * fullURL - A string containing the full, original URL. This is the only parameter used in this implementation."
+        ],
+        "returns": [],
         "signature": "URLDispatcher:dispatchURL(scheme, host, params, fullUrl)",
-        "stripped_doc": "Parameters (according to the [httpCallback](http://www.hammerspoon.org/docs/hs.urlevent.html#httpCallback) specification):\n * scheme - A string containing the URL scheme (i.e. \"http\")\n * host - A string containing the host requested (e.g. \"www.hammerspoon.org\")\n * params - A table containing the key/value pairs of all the URL parameters\n * fullURL - A string containing the full, original URL. This is the only parameter used in this implementation.",
+        "stripped_doc": "",
         "type": "Method"
       },
       {
         "def": "URLDispatcher.logger",
         "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "file": "Source/URLDispatcher.spoon//init.lua",
+        "lineno": "59",
         "name": "logger",
         "signature": "URLDispatcher.logger",
         "stripped_doc": "",
@@ -125,6 +183,8 @@
         "def": "URLDispatcher.set_system_handler",
         "desc": "If true, URLDispatcher set itself as system handler for http requests. Defaults to `true`",
         "doc": "If true, URLDispatcher set itself as system handler for http requests. Defaults to `true`",
+        "file": "Source/URLDispatcher.spoon//init.lua",
+        "lineno": "64",
         "name": "set_system_handler",
         "signature": "URLDispatcher.set_system_handler",
         "stripped_doc": "",
@@ -133,8 +193,16 @@
       {
         "def": "URLDispatcher:start()",
         "desc": "Start dispatching URLs according to the rules",
-        "doc": "Start dispatching URLs according to the rules",
+        "doc": "Start dispatching URLs according to the rules\n\nParameters:\n * None",
+        "examples": [],
+        "file": "Source/URLDispatcher.spoon//init.lua",
+        "lineno": "150",
         "name": "start",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
         "signature": "URLDispatcher:start()",
         "stripped_doc": "",
         "type": "Method"
@@ -142,16 +210,26 @@
       {
         "def": "URLDispatcher.url_patterns",
         "desc": "URL dispatch rules.",
-        "doc": "URL dispatch rules.\nA table containing a list of dispatch rules. Each rule should be its own\ntable in the format: `{ \"url pattern\", \"application bundle ID\", \"function\"\n}`, and they are evaluated in the order they are declared. Note that the\npatterns are [Lua patterns](https://www.lua.org/pil/20.2.html) and not\nregular expressions. Defaults to an empty table, which has the effect of\nhaving all URLs dispatched to the `default_handler`. If \"application bundle\nID\" is specified, that application will be used to open matching URLs. If no\n\"application bundle ID\" is specified, but \"function\" is provided (and is a\nLua function) it will be called with the URL.",
+        "doc": "URL dispatch rules.\n\nNotes:\n * A table containing a list of dispatch rules. Each rule should be its own table in the format: `{ \"url pattern\", \"application bundle ID\", \"function\" }`, and they are evaluated in the order they are declared.\n * Note that the patterns are [Lua patterns](https://www.lua.org/pil/20.2.html) and not regular expressions.\n * Defaults to an empty table, which has the effect of having all URLs dispatched to the `default_handler`.\n * If \"application bundle ID\" is specified, that application will be used to open matching URLs. If no \"application bundle ID\" is specified, but \"function\" is provided (and is a Lua function) it will be called with the URL.",
+        "file": "Source/URLDispatcher.spoon//init.lua",
+        "lineno": "48",
         "name": "url_patterns",
+        "notes": [
+          " * A table containing a list of dispatch rules. Each rule should be its own table in the format: `{ \"url pattern\", \"application bundle ID\", \"function\" }`, and they are evaluated in the order they are declared.",
+          " * Note that the patterns are [Lua patterns](https://www.lua.org/pil/20.2.html) and not regular expressions.",
+          " * Defaults to an empty table, which has the effect of having all URLs dispatched to the `default_handler`.",
+          " * If \"application bundle ID\" is specified, that application will be used to open matching URLs. If no \"application bundle ID\" is specified, but \"function\" is provided (and is a Lua function) it will be called with the URL."
+        ],
         "signature": "URLDispatcher.url_patterns",
-        "stripped_doc": "A table containing a list of dispatch rules. Each rule should be its own\ntable in the format: `{ \"url pattern\", \"application bundle ID\", \"function\"\n}`, and they are evaluated in the order they are declared. Note that the\npatterns are [Lua patterns](https://www.lua.org/pil/20.2.html) and not\nregular expressions. Defaults to an empty table, which has the effect of\nhaving all URLs dispatched to the `default_handler`. If \"application bundle\nID\" is specified, that application will be used to open matching URLs. If no\n\"application bundle ID\" is specified, but \"function\" is provided (and is a\nLua function) it will be called with the URL.",
+        "stripped_doc": "",
         "type": "Variable"
       },
       {
         "def": "URLDispatcher.url_redir_decoders",
         "desc": "List containing optional additional redirection decoders (other",
         "doc": "List containing optional additional redirection decoders (other\nthan the known Slack decoder, which is enabled by\n`URLDispatcher.decode_slack_redir_urls` to apply to URLs before\ndispatching them. Each list element must be a list itself with four\nelements:\n  * String: a name to identify the decoder;\n  * String: a [Lua pattern](https://www.lua.org/pil/20.2.html) to match against the URL;\n  * String: a replacement pattern to apply if a match is found;\n  * (optional) Boolean: whether to skip URL-decoding of the resulting string (by default the results are always decoded);\n  * (optional) String or Table: a pattern or list of patterns to match against the name of the application from which the URL was opened. If this parameter is present, the decoder will only be applied when the application matches. Default is to apply the decoder regardless of the application.\nThe first two values are passed as arguments to\n[string.gsub](https://www.lua.org/manual/5.3/manual.html#pdf-string.gsub)\napplied on the original URL.  Default value: empty list",
+        "file": "Source/URLDispatcher.spoon//init.lua",
+        "lineno": "31",
         "name": "url_redir_decoders",
         "signature": "URLDispatcher.url_redir_decoders",
         "stripped_doc": "than the known Slack decoder, which is enabled by\n`URLDispatcher.decode_slack_redir_urls` to apply to URLs before\ndispatching them. Each list element must be a list itself with four\nelements:\n  * String: a name to identify the decoder;\n  * String: a [Lua pattern](https://www.lua.org/pil/20.2.html) to match against the URL;\n  * String: a replacement pattern to apply if a match is found;\n  * (optional) Boolean: whether to skip URL-decoding of the resulting string (by default the results are always decoded);\n  * (optional) String or Table: a pattern or list of patterns to match against the name of the application from which the URL was opened. If this parameter is present, the decoder will only be applied when the application matches. Default is to apply the decoder regardless of the application.\nThe first two values are passed as arguments to\n[string.gsub](https://www.lua.org/manual/5.3/manual.html#pdf-string.gsub)\napplied on the original URL.  Default value: empty list",

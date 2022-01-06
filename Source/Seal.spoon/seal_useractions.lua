@@ -176,7 +176,7 @@ function obj.bareActions(query)
 end
 
 function obj.favIcon(url)
-   local query=string.format("http://www.google.com/s2/favicons?domain_url=%s", hs.http.encodeForQuery(url))
+   local query=string.format("http://www.google.com/s2/favicons?sz=64&domain_url=%s", hs.http.encodeForQuery(url))
    return hs.image.imageFromURL(query)
 end
 

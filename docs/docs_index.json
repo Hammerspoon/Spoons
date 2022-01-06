@@ -57,7 +57,7 @@
     "type": "Method"
   },
   {
-    "desc": "Utilities for arranging your desktop how you like it.",
+    "desc": "Easily create, save, and use desktop arrangements.",
     "name": "ArrangeDesktop",
     "type": "Module"
   },
@@ -68,13 +68,43 @@
     "type": "Variable"
   },
   {
+    "desc": "Defines where the config file is stored. Defaults to hs.spoons.scriptPath()/config.json",
+    "module": "ArrangeDesktop",
+    "name": "configFile",
+    "type": "Variable"
+  },
+  {
     "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
     "module": "ArrangeDesktop",
     "name": "logger",
     "type": "Variable"
   },
   {
-    "desc": "Add menu items to a table for each configured desktop arrangment.",
+    "desc": "Builds the configuration for the current desktop arrangement.",
+    "module": "ArrangeDesktop",
+    "name": "_buildArrangement",
+    "type": "Function"
+  },
+  {
+    "desc": "Loads the configuration file.",
+    "module": "ArrangeDesktop",
+    "name": "_loadConfiguration",
+    "type": "Function"
+  },
+  {
+    "desc": "Positions all windows for an application based on the given configuration.",
+    "module": "ArrangeDesktop",
+    "name": "_positionApp",
+    "type": "Function"
+  },
+  {
+    "desc": "Writes the configuration to a file.",
+    "module": "ArrangeDesktop",
+    "name": "_writeConfiguration",
+    "type": "Function"
+  },
+  {
+    "desc": "Add menu items to a table for each configured desktop arrangement.",
     "module": "ArrangeDesktop",
     "name": "addMenuItems",
     "type": "Method"
@@ -86,9 +116,9 @@
     "type": "Method"
   },
   {
-    "desc": "Build up the configuration for the current desktop arrangement and log it to the Hammerspoon console.",
+    "desc": "Creates the desktop arrangement and saves it to the configuration file.",
     "module": "ArrangeDesktop",
-    "name": "logCurrentArrangement",
+    "name": "createArrangement",
     "type": "Method"
   },
   {
@@ -112,6 +142,12 @@
     "desc": "Use Bing daily picture as your wallpaper, automatically.",
     "name": "BingDaily",
     "type": "Module"
+  },
+  {
+    "desc": "If `true`, download image in UHD resolution instead of HD. Defaults to `false`.",
+    "module": "BingDaily",
+    "name": "uhd_resolution",
+    "type": "Variable"
   },
   {
     "desc": "List advertised services on your network that match defined templates and provide a list for the user to access them.",
