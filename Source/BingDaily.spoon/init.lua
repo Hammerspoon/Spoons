@@ -82,6 +82,9 @@ local function bingRequest()
 end
 
 function obj:start()
+    if obj.timer ~= nil then
+        obj.timer:stop()
+    end
     if obj.runAt ~= nil then
         obj.timer = hs.timer.doAt(obj.runAt, "1d", bingRequest)
     else
@@ -91,9 +94,6 @@ function obj:start()
 end
 
 function obj:init()
-    if obj.timer ~= nil then
-        obj.timer:stop()
-    end
     obj:start()
 end
 
