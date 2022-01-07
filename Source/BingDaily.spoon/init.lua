@@ -19,15 +19,18 @@ obj.license = "MIT - https://opensource.org/licenses/MIT"
 --- If `true`, download image in UHD resolution instead of HD. Defaults to `false`.
 obj.uhd_resolution = false
 
+--- BingDaily.screens
+--- Variable
+--- Set this to a function that returns a list of screens on which to configure
+--- the desktop image, instead of hs.screen.allScreens
+obj.screens = hs.screen.allScreens
+
 local function curl_callback(exitCode, stdOut, stdErr)
     if exitCode == 0 then
         obj.task = nil
         obj.last_pic = obj.file_name
         local localpath = os.getenv("HOME") .. "/.Trash/" .. obj.file_name
-
-        -- set wallpaper for all screens
-        allScreen = hs.screen.allScreens()
-        for _,screen in ipairs(allScreen) do
+        for _,screen in ipairs(obj.screens()) do
             screen:desktopImageURL("file://" .. localpath)
         end
     else
