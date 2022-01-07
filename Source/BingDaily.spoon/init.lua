@@ -25,6 +25,13 @@ obj.uhd_resolution = false
 --- the desktop image, instead of hs.screen.allScreens
 obj.screens = hs.screen.allScreens
 
+--- BingDaily.runAt
+--- Variable
+--- Set this to a time at which the wallpaper should be refreshed daily, eg,
+--- `"06:00"`. If this is not set, the wallpaper will be updated every 3 hours. If
+--- this is used, you must call `spoon.BingDaily:start()` after configuring.
+obj.runAt = nil
+
 local function curl_callback(exitCode, stdOut, stdErr)
     if exitCode == 0 then
         obj.task = nil
@@ -74,13 +81,24 @@ local function bingRequest()
     end)
 end
 
-function obj:init()
-    if obj.timer == nil then
-        obj.timer = hs.timer.doEvery(3*60*60, function() bingRequest() end)
-        obj.timer:setNextTrigger(5)
+function obj:start()
+    if obj.runAt ~= nil then
+        obj.timer = hs.timer.doAt(obj.runAt, "1d", bingRequest)
     else
-        obj.timer:start()
+        obj.timer = hs.timer.doEvery(3*60*60, bingRequest)
+        obj.timer:setNextTrigger(5)
     end
+end
+
+function obj:init()
+    if obj.timer ~= nil then
+        obj.timer:stop()
+    end
+    obj:start()
+end
+
+function obj:refresh()
+    bingRequest()
 end
 
 return obj
