@@ -71,7 +71,7 @@ local function bingRequest()
                         obj.task = nil
                     end
                     local localpath = os.getenv("HOME") .. "/.Trash/" .. obj.file_name
-                    obj.task = hs.task.new("/usr/bin/curl", curl_callback, {"-A", user_agent_str, obj.full_url, "-o", localpath})
+                    obj.task = hs.task.new("/usr/bin/curl", curl_callback, {"-sSf", "-A", user_agent_str, obj.full_url, "-o", localpath})
                     obj.task:start()
                 end
             end
