@@ -40,6 +40,7 @@ local function curl_callback(exitCode, stdOut, stdErr)
         for _,screen in ipairs(obj.screens()) do
             screen:desktopImageURL("file://" .. localpath)
         end
+        obj.lastRun = os.time()
     else
         print(stdOut, stdErr)
     end
@@ -81,12 +82,61 @@ local function bingRequest()
     end)
 end
 
+local function nextRunAt()
+    if obj.lastRun == nil then
+        return 0
+    end
+    local runAt = hs.timer.seconds(obj.runAt)
+    local lastRun = os.date("*t", obj.lastRun)
+    local result = os.time{year=lastRun.year, month=lastRun.month, day=lastRun.day, hour=0} + runAt
+    if result < obj.lastRun then
+        result = result + 86400
+    end
+    return result
+end
+
+function obj:maybeRefresh()
+    if obj.runAt == nil then
+        return
+    end
+    if obj.lastRun == nil then
+        print("BingDaily: No last run, refreshing now")
+        bingRequest()
+        return
+    end
+    local nextRun = nextRunAt()
+    print(string.format("BingDaily: Next run is at %s", os.date("%Y-%m-%d %H:%M:%S", nextRun)))
+    if os.time() >= nextRun then
+        bingRequest()
+    end
+end
+
 function obj:start()
     if obj.timer ~= nil then
         obj.timer:stop()
     end
+    if obj.networkWatcher ~= nil then
+        obj.networkWatcher:stop()
+        obj.networkWatcher = nil
+    end
+    if obj.caffeinateWatcher ~= nil then
+        obj.caffeinateWatcher:stop()
+        obj.caffeinateWatcher = nil
+    end
     if obj.runAt ~= nil then
         obj.timer = hs.timer.doAt(obj.runAt, "1d", bingRequest)
+        obj.networkWatcher = hs.network.reachability.internet():setCallback(function(self, flags)
+            if (flags & hs.network.reachability.flags.reachable) > 0 then
+                print("BingDaily: Internet has become reachable")
+                obj:maybeRefresh()
+            end
+        end):start()
+        obj.caffeinateWatcher = hs.caffeinate.watcher.new(function (eventType)
+            if eventType == hs.caffeinate.watcher.systemDidWake then
+                print("BingDaily: System awoke")
+                obj:maybeRefresh()
+            end
+        end):start()
     else
         obj.timer = hs.timer.doEvery(3*60*60, bingRequest)
         obj.timer:setNextTrigger(5)
