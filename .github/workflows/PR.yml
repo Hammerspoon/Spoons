@@ -53,8 +53,7 @@ jobs:
     # If this is a PR, capture its number
     - name: Capture PR number
       if: github.event_name == 'pull_request'
-      run: |
-        echo $(echo ${GITHUB_REF} | awk 'BEGIN { FS = "/" } ; { print $3 }') >pr_num.txt
+      run: echo ${GITHUB_REF} | awk 'BEGIN { FS = "/" } ; { print $3 }' >pr_num.txt
     - name: Upload PR number
       if: github.event_name == 'pull_request'
       uses: actions/upload-artifact@v2

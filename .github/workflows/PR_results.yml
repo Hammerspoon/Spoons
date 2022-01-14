@@ -61,6 +61,7 @@ jobs:
           files: "artifacts/pr_num.txt/pr_num.txt"
       - name: Add annotations output as a PR comment
         if: steps.check_pr_number.outputs.files_exists == 'true'
+        uses: actions/github-script@v5
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
