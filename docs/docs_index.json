@@ -144,6 +144,18 @@
     "type": "Module"
   },
   {
+    "desc": "Set this to a time at which the wallpaper should be refreshed daily, eg,",
+    "module": "BingDaily",
+    "name": "runAt",
+    "type": "Variable"
+  },
+  {
+    "desc": "Set this to a function that returns a list of screens on which to configure",
+    "module": "BingDaily",
+    "name": "screens",
+    "type": "Variable"
+  },
+  {
     "desc": "If `true`, download image in UHD resolution instead of HD. Defaults to `false`.",
     "module": "BingDaily",
     "name": "uhd_resolution",
@@ -812,6 +824,11 @@
     "module": "EjectMenu",
     "name": "volumesToEject",
     "type": "Method"
+  },
+  {
+    "desc": "Thie plugin generates EmmyLua annotations for Hammerspoon and any installed Spoons",
+    "name": "EmmyLua",
+    "type": "Module"
   },
   {
     "desc": "Let users choose emojis by name/keyword",
@@ -3365,7 +3382,7 @@
     "type": "Method"
   },
   {
-    "desc": "Assign every window a sigil for quick access.",
+    "desc": "Assign every window and empty rectangle a sigil for quick access.",
     "name": "WindowSigils",
     "type": "Module"
   },

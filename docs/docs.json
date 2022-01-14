@@ -746,6 +746,28 @@
     "Method": [],
     "Variable": [
       {
+        "def": "BingDaily.runAt",
+        "desc": "Set this to a time at which the wallpaper should be refreshed daily, eg,",
+        "doc": "Set this to a time at which the wallpaper should be refreshed daily, eg,\n`\"06:00\"`. If this is not set, the wallpaper will be updated every 3 hours. If\nthis is used, you must call `spoon.BingDaily:start()` after configuring.",
+        "file": "Source/BingDaily.spoon/init.lua",
+        "lineno": "28",
+        "name": "runAt",
+        "signature": "BingDaily.runAt",
+        "stripped_doc": "`\"06:00\"`. If this is not set, the wallpaper will be updated every 3 hours. If\nthis is used, you must call `spoon.BingDaily:start()` after configuring.",
+        "type": "Variable"
+      },
+      {
+        "def": "BingDaily.screens",
+        "desc": "Set this to a function that returns a list of screens on which to configure",
+        "doc": "Set this to a function that returns a list of screens on which to configure\nthe desktop image, instead of hs.screen.allScreens",
+        "file": "Source/BingDaily.spoon/init.lua",
+        "lineno": "22",
+        "name": "screens",
+        "signature": "BingDaily.screens",
+        "stripped_doc": "the desktop image, instead of hs.screen.allScreens",
+        "type": "Variable"
+      },
+      {
         "def": "BingDaily.uhd_resolution",
         "desc": "If `true`, download image in UHD resolution instead of HD. Defaults to `false`.",
         "doc": "If `true`, download image in UHD resolution instead of HD. Defaults to `false`.",
@@ -760,6 +782,28 @@
     "desc": "Use Bing daily picture as your wallpaper, automatically.",
     "doc": "Use Bing daily picture as your wallpaper, automatically.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/BingDaily.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/BingDaily.spoon.zip)",
     "items": [
+      {
+        "def": "BingDaily.runAt",
+        "desc": "Set this to a time at which the wallpaper should be refreshed daily, eg,",
+        "doc": "Set this to a time at which the wallpaper should be refreshed daily, eg,\n`\"06:00\"`. If this is not set, the wallpaper will be updated every 3 hours. If\nthis is used, you must call `spoon.BingDaily:start()` after configuring.",
+        "file": "Source/BingDaily.spoon/init.lua",
+        "lineno": "28",
+        "name": "runAt",
+        "signature": "BingDaily.runAt",
+        "stripped_doc": "`\"06:00\"`. If this is not set, the wallpaper will be updated every 3 hours. If\nthis is used, you must call `spoon.BingDaily:start()` after configuring.",
+        "type": "Variable"
+      },
+      {
+        "def": "BingDaily.screens",
+        "desc": "Set this to a function that returns a list of screens on which to configure",
+        "doc": "Set this to a function that returns a list of screens on which to configure\nthe desktop image, instead of hs.screen.allScreens",
+        "file": "Source/BingDaily.spoon/init.lua",
+        "lineno": "22",
+        "name": "screens",
+        "signature": "BingDaily.screens",
+        "stripped_doc": "the desktop image, instead of hs.screen.allScreens",
+        "type": "Variable"
+      },
       {
         "def": "BingDaily.uhd_resolution",
         "desc": "If `true`, download image in UHD resolution instead of HD. Defaults to `false`.",
@@ -4379,6 +4423,23 @@
     ],
     "name": "EjectMenu",
     "stripped_doc": "individual or all non-internal disks. Ejection can also be\ntriggered on sleep, on lid close, or using a hotkey.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/EjectMenu.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/EjectMenu.spoon.zip)",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [],
+    "Variable": [],
+    "desc": "Thie plugin generates EmmyLua annotations for Hammerspoon and any installed Spoons",
+    "doc": "Thie plugin generates EmmyLua annotations for Hammerspoon and any installed Spoons\nunder ~/.hammerspoon/Spoons/EmmyLua.spoon/annotations.\nAnnotations will only be generated if they don't exist yet or are out of date.\n\nIn order to get auto completion in your editor, you need to have one of the following LSP servers properly configured:\n* [lua-language-server](https://github.com/sumneko/lua-language-server) (recommended)\n* [EmmyLua-LanguageServer](https://github.com/EmmyLua/EmmyLua-LanguageServer)\n\nTo start using this annotations library, add the annotations folder to your workspace.\nfor lua-languag-server:\n\n```json\n{\n  \"Lua.workspace.library\": [\"/Users/YOUR_USERNAME/.hammerspoon/Spoons/EmmyLua.spoon/annotations\"]\n}\n```\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/EmmyLua.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/EmmyLua.spoon.zip)",
+    "items": [],
+    "name": "EmmyLua",
+    "stripped_doc": "under ~/.hammerspoon/Spoons/EmmyLua.spoon/annotations.\nAnnotations will only be generated if they don't exist yet or are out of date.\n\nIn order to get auto completion in your editor, you need to have one of the following LSP servers properly configured:\n* [lua-language-server](https://github.com/sumneko/lua-language-server) (recommended)\n* [EmmyLua-LanguageServer](https://github.com/EmmyLua/EmmyLua-LanguageServer)\n\nTo start using this annotations library, add the annotations folder to your workspace.\nfor lua-languag-server:\n\n```json\n{\n  \"Lua.workspace.library\": [\"/Users/YOUR_USERNAME/.hammerspoon/Spoons/EmmyLua.spoon/annotations\"]\n}\n```\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/EmmyLua.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/EmmyLua.spoon.zip)",
     "submodules": [],
     "type": "Module"
   },
@@ -8893,7 +8954,7 @@
         "doc": "Configures the spoon.  There is currently nothing to configure.\n\nParameters:\n * configuration - :",
         "examples": [],
         "file": "Source/MouseFollowsFocus.spoon/init.lua",
-        "lineno": "22",
+        "lineno": "26",
         "name": "configure",
         "notes": [],
         "parameters": [
@@ -8910,7 +8971,7 @@
         "doc": "Starts updating the mouse position when window focus changes\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/MouseFollowsFocus.spoon/init.lua",
-        "lineno": "31",
+        "lineno": "35",
         "name": "start",
         "notes": [],
         "parameters": [
@@ -8927,7 +8988,7 @@
         "doc": "Stops updating the mouse position when window focus changes\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/MouseFollowsFocus.spoon/init.lua",
-        "lineno": "50",
+        "lineno": "61",
         "name": "stop",
         "notes": [],
         "parameters": [
@@ -8944,7 +9005,7 @@
         "doc": "Moves the mouse to the center of the given window unless it's already inside the window\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/MouseFollowsFocus.spoon/init.lua",
-        "lineno": "61",
+        "lineno": "72",
         "name": "updateMouse",
         "notes": [],
         "parameters": [
@@ -8962,7 +9023,7 @@
         "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "file": "Source/MouseFollowsFocus.spoon/init.lua",
-        "lineno": "17",
+        "lineno": "21",
         "name": "logger",
         "signature": "MouseFollowsFocus.logger",
         "stripped_doc": "",
@@ -8970,7 +9031,7 @@
       }
     ],
     "desc": "Set the mouse pointer to the center of the focused window whenever focus changes.",
-    "doc": "Set the mouse pointer to the center of the focused window whenever focus changes.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MouseFollowsFocus.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MouseFollowsFocus.spoon.zip)",
+    "doc": "Set the mouse pointer to the center of the focused window whenever focus changes.\n\nAdditionally, if focused window moves when no mouse buttons are pressed, set the\nmouse pointer to the new center.  This is intended to work with other utilities\nwhich warp the focused window.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MouseFollowsFocus.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MouseFollowsFocus.spoon.zip)",
     "items": [
       {
         "def": "MouseFollowsFocus:configure(configuration)",
@@ -8978,7 +9039,7 @@
         "doc": "Configures the spoon.  There is currently nothing to configure.\n\nParameters:\n * configuration - :",
         "examples": [],
         "file": "Source/MouseFollowsFocus.spoon/init.lua",
-        "lineno": "22",
+        "lineno": "26",
         "name": "configure",
         "notes": [],
         "parameters": [
@@ -8994,7 +9055,7 @@
         "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "file": "Source/MouseFollowsFocus.spoon/init.lua",
-        "lineno": "17",
+        "lineno": "21",
         "name": "logger",
         "signature": "MouseFollowsFocus.logger",
         "stripped_doc": "",
@@ -9006,7 +9067,7 @@
         "doc": "Starts updating the mouse position when window focus changes\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/MouseFollowsFocus.spoon/init.lua",
-        "lineno": "31",
+        "lineno": "35",
         "name": "start",
         "notes": [],
         "parameters": [
@@ -9023,7 +9084,7 @@
         "doc": "Stops updating the mouse position when window focus changes\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/MouseFollowsFocus.spoon/init.lua",
-        "lineno": "50",
+        "lineno": "61",
         "name": "stop",
         "notes": [],
         "parameters": [
@@ -9040,7 +9101,7 @@
         "doc": "Moves the mouse to the center of the given window unless it's already inside the window\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/MouseFollowsFocus.spoon/init.lua",
-        "lineno": "61",
+        "lineno": "72",
         "name": "updateMouse",
         "notes": [],
         "parameters": [
@@ -9053,7 +9114,7 @@
       }
     ],
     "name": "MouseFollowsFocus",
-    "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MouseFollowsFocus.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MouseFollowsFocus.spoon.zip)",
+    "stripped_doc": "\nAdditionally, if focused window moves when no mouse buttons are pressed, set the\nmouse pointer to the new center.  This is intended to work with other utilities\nwhich warp the focused window.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MouseFollowsFocus.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MouseFollowsFocus.spoon.zip)",
     "submodules": [],
     "type": "Module"
   },
@@ -18249,7 +18310,7 @@
         "doc": "Binds hotkeys for WindowSigils\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n  * enter - Enter the sigil mode",
         "examples": [],
         "file": "Source/WindowSigils.spoon/init.lua",
-        "lineno": "62",
+        "lineno": "99",
         "name": "bindHotkeys",
         "notes": [],
         "parameters": [
@@ -18266,7 +18327,7 @@
         "doc": "Bind an extra action to be triggered by a key in the sigil mode.\n\nParameters:\n * mods - The key modifiers\n * key - The key\n * action - A function, called with no parameters.",
         "examples": [],
         "file": "Source/WindowSigils.spoon/init.lua",
-        "lineno": "112",
+        "lineno": "149",
         "name": "bindModeKey",
         "notes": [],
         "parameters": [
@@ -18285,7 +18346,7 @@
         "doc": "Bind an action to be triggered in the sigil mode when a window's sigil key is pressed.\n\nParameters:\n * mods - The modifiers which must be held to trigger this action.\n * action - A function which takes a window object and performs this action.",
         "examples": [],
         "file": "Source/WindowSigils.spoon/init.lua",
-        "lineno": "138",
+        "lineno": "175",
         "name": "bindSigilAction",
         "notes": [],
         "parameters": [
@@ -18303,7 +18364,7 @@
         "doc": "Configures the spoon.\n\nParameters:\n * configuration - :\n   * hotkeys \n   * mode_keys - a table of key specs (e.g. {{'shift'}, 'n'}) to functions.  The keys are\n     mapped inside the sigil mode and the key is no longer used as a window sigil.\n   * sigil_actions - a table of mod specs (e.g. {'alt'}) to functions.  When the sigil is\n     used in the sigil mode with the specified modifier pressed, the function is invoked\n     with a window object.",
         "examples": [],
         "file": "Source/WindowSigils.spoon/init.lua",
-        "lineno": "83",
+        "lineno": "120",
         "name": "configure",
         "notes": [],
         "parameters": [
@@ -18320,7 +18381,7 @@
         "doc": "A list of windows, in the order sigils are assigned.\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/WindowSigils.spoon/init.lua",
-        "lineno": "211",
+        "lineno": "279",
         "name": "orderedWindows",
         "notes": [],
         "parameters": [
@@ -18337,7 +18398,7 @@
         "doc": "Rerender all window sigils.\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/WindowSigils.spoon/init.lua",
-        "lineno": "257",
+        "lineno": "411",
         "name": "refresh",
         "notes": [],
         "parameters": [
@@ -18354,7 +18415,7 @@
         "doc": "Starts rendering the sigils and handling hotkeys\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/WindowSigils.spoon/init.lua",
-        "lineno": "163",
+        "lineno": "200",
         "name": "start",
         "notes": [],
         "parameters": [
@@ -18371,7 +18432,7 @@
         "doc": "Stops rendering the sigils and handling hotkeys\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/WindowSigils.spoon/init.lua",
-        "lineno": "200",
+        "lineno": "237",
         "name": "stop",
         "notes": [],
         "parameters": [
@@ -18388,7 +18449,7 @@
         "doc": "Find the window with the given index or sigil.\n\nParameters:\n * sigil - If a number, the index of the window; if a string, the sigil of the window.\n   Can also be 'North', 'East', 'South', or 'West' to find a window related to the\n   currently focused window.",
         "examples": [],
         "file": "Source/WindowSigils.spoon/init.lua",
-        "lineno": "228",
+        "lineno": "302",
         "name": "window",
         "notes": [],
         "parameters": [
@@ -18406,15 +18467,15 @@
         "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "file": "Source/WindowSigils.spoon/init.lua",
-        "lineno": "51",
+        "lineno": "88",
         "name": "logger",
         "signature": "WindowSigils.logger",
         "stripped_doc": "",
         "type": "Variable"
       }
     ],
-    "desc": "Assign every window a sigil for quick access.",
-    "doc": "Assign every window a sigil for quick access.\n\nA letter or digit is rendered in the titlebar of every window, and actions can be bound\ninside a \"sigil\" mode with different modifiers.  For example, with no modifiers, the\nthe sigil key can focus the window.  If the 'enter' action is bound to control-w, then\n'control-w c' will focus the window with sigil 'c'.\n\nThe keys 'h', 'j', 'k', and 'l' are reserved for the window west, south, north, and\neast of the currently focused window in standard Vi-like fashion, and so are not\nassigned as sigils.\n\nBy default, two keys (other than the sigils) are bound in the mode: escape leaves the\nmode without doing anything, and '.' sends the sigil key to the focused window.  This\nallows sending 'control-w' to the underlying window by typing 'control-w .'.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WindowSigils.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WindowSigils.spoon.zip)\n\nUsage example:\n```\nsigils = hs.loadSpoon(\"WindowSigils\")\nsigils:configure({\n  hotkeys = {\n    enter = {{\"control\"}, \"W\"}\n  },\n  mode_keys = {\n    [{{'shift'}, 'i'}] = ignore_notification,\n    [{{}, 'v'}]        = paste_as_keystrokes,\n    [{{}, ','}]        = rerun_last_command,\n  },\n  sigil_actions = {\n    [{}]       = focus_window,\n    [{'ctrl'}] = swap_window,\n    [{'alt'}]  = warp_window,\n  }\n})\nsigils:start()\n```",
+    "desc": "Assign every window and empty rectangle a sigil for quick access.",
+    "doc": "Assign every window and empty rectangle a sigil for quick access.\n\nA letter or digit is rendered in the titlebar of every window (or empty space), and\nactions can be bound inside the sigil mode and triggered with different modifiers.\n\nFor example, with no modifiers, a sigil key can focus the window.  If the 'enter'\naction is bound to control-w, then 'control-w c' will focus the window with sigil 'c'.\nThe action is a function which accepts a window, or in the case of an empty space, a\nwindow-like object which reponds to 'id', 'frame', and 'setFrame'.\n\nThe keys 'h', 'j', 'k', and 'l' are reserved for the window west, south, north, and\neast of the currently focused window in standard Vi-like fashion, and so are not\nassigned as sigils.\n\nBy default, two keys (other than the sigils) are bound in the mode: escape leaves the\nmode without doing anything, and '.' sends the sigil key to the focused window.  This\nallows sending 'control-w' to the underlying window by typing 'control-w .'.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WindowSigils.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WindowSigils.spoon.zip)\n\nUsage example:\n```\nlocal function ignore_notification()\n  -- ...\nend\nlocal function paste_as_keystrokes()\n  hs.eventtap.keyStrokes(hs.pasteboard.readString())\nend\nlocal function rerun_last_command()\n  hs.execute(\"kitty @ --to unix:/Users/jfelice/.run/kitty send-text --match=title:kak_repl_window '\\x10\\x0d'\", true)\nend\n\nlocal function focus_window(window)\n  window:focus()\n  if hs.window.focusedWindow() ~= window then\n    -- Some cases with apps having windows on multiple monitors require\n    -- us to try again (?)\n    window:focus()\n  end\nend\n\nlocal function swap_window(window)\n  local focused_frame = hs.window.focusedWindow():frame()\n  local selected_frame = window:frame()\n  hs.window.focusedWindow():setFrame(selected_frame, 0)\n  window:setFrame(focused_frame, 0)\nend\n\nlocal function stack_window(window)\n  local frame = window:frame()\n  hs.window.focusedWindow():setFrame(frame, 0)\nend\n\nsigils = hs.loadSpoon(\"WindowSigils\")\nsigils:configure({\n  hotkeys = {\n    enter = {{\"control\"}, \"W\"}\n  },\n  mode_keys = {\n    [{{'shift'}, 'i'}] = ignore_notification,\n    [{{}, 'v'}]        = paste_as_keystrokes,\n    [{{}, ','}]        = rerun_last_command,\n  },\n  sigil_actions = {\n    [{}]       = focus_window,\n    [{'ctrl'}] = stack_window,\n    [{'alt'}]  = swap_window,\n  }\n})\nsigils:start()\n```",
     "items": [
       {
         "def": "WindowSigils:bindHotkeys(mapping)",
@@ -18422,7 +18483,7 @@
         "doc": "Binds hotkeys for WindowSigils\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n  * enter - Enter the sigil mode",
         "examples": [],
         "file": "Source/WindowSigils.spoon/init.lua",
-        "lineno": "62",
+        "lineno": "99",
         "name": "bindHotkeys",
         "notes": [],
         "parameters": [
@@ -18439,7 +18500,7 @@
         "doc": "Bind an extra action to be triggered by a key in the sigil mode.\n\nParameters:\n * mods - The key modifiers\n * key - The key\n * action - A function, called with no parameters.",
         "examples": [],
         "file": "Source/WindowSigils.spoon/init.lua",
-        "lineno": "112",
+        "lineno": "149",
         "name": "bindModeKey",
         "notes": [],
         "parameters": [
@@ -18458,7 +18519,7 @@
         "doc": "Bind an action to be triggered in the sigil mode when a window's sigil key is pressed.\n\nParameters:\n * mods - The modifiers which must be held to trigger this action.\n * action - A function which takes a window object and performs this action.",
         "examples": [],
         "file": "Source/WindowSigils.spoon/init.lua",
-        "lineno": "138",
+        "lineno": "175",
         "name": "bindSigilAction",
         "notes": [],
         "parameters": [
@@ -18476,7 +18537,7 @@
         "doc": "Configures the spoon.\n\nParameters:\n * configuration - :\n   * hotkeys \n   * mode_keys - a table of key specs (e.g. {{'shift'}, 'n'}) to functions.  The keys are\n     mapped inside the sigil mode and the key is no longer used as a window sigil.\n   * sigil_actions - a table of mod specs (e.g. {'alt'}) to functions.  When the sigil is\n     used in the sigil mode with the specified modifier pressed, the function is invoked\n     with a window object.",
         "examples": [],
         "file": "Source/WindowSigils.spoon/init.lua",
-        "lineno": "83",
+        "lineno": "120",
         "name": "configure",
         "notes": [],
         "parameters": [
@@ -18492,7 +18553,7 @@
         "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "file": "Source/WindowSigils.spoon/init.lua",
-        "lineno": "51",
+        "lineno": "88",
         "name": "logger",
         "signature": "WindowSigils.logger",
         "stripped_doc": "",
@@ -18504,7 +18565,7 @@
         "doc": "A list of windows, in the order sigils are assigned.\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/WindowSigils.spoon/init.lua",
-        "lineno": "211",
+        "lineno": "279",
         "name": "orderedWindows",
         "notes": [],
         "parameters": [
@@ -18521,7 +18582,7 @@
         "doc": "Rerender all window sigils.\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/WindowSigils.spoon/init.lua",
-        "lineno": "257",
+        "lineno": "411",
         "name": "refresh",
         "notes": [],
         "parameters": [
@@ -18538,7 +18599,7 @@
         "doc": "Starts rendering the sigils and handling hotkeys\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/WindowSigils.spoon/init.lua",
-        "lineno": "163",
+        "lineno": "200",
         "name": "start",
         "notes": [],
         "parameters": [
@@ -18555,7 +18616,7 @@
         "doc": "Stops rendering the sigils and handling hotkeys\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/WindowSigils.spoon/init.lua",
-        "lineno": "200",
+        "lineno": "237",
         "name": "stop",
         "notes": [],
         "parameters": [
@@ -18572,7 +18633,7 @@
         "doc": "Find the window with the given index or sigil.\n\nParameters:\n * sigil - If a number, the index of the window; if a string, the sigil of the window.\n   Can also be 'North', 'East', 'South', or 'West' to find a window related to the\n   currently focused window.",
         "examples": [],
         "file": "Source/WindowSigils.spoon/init.lua",
-        "lineno": "228",
+        "lineno": "302",
         "name": "window",
         "notes": [],
         "parameters": [
@@ -18585,7 +18646,7 @@
       }
     ],
     "name": "WindowSigils",
-    "stripped_doc": "\nA letter or digit is rendered in the titlebar of every window, and actions can be bound\ninside a \"sigil\" mode with different modifiers.  For example, with no modifiers, the\nthe sigil key can focus the window.  If the 'enter' action is bound to control-w, then\n'control-w c' will focus the window with sigil 'c'.\n\nThe keys 'h', 'j', 'k', and 'l' are reserved for the window west, south, north, and\neast of the currently focused window in standard Vi-like fashion, and so are not\nassigned as sigils.\n\nBy default, two keys (other than the sigils) are bound in the mode: escape leaves the\nmode without doing anything, and '.' sends the sigil key to the focused window.  This\nallows sending 'control-w' to the underlying window by typing 'control-w .'.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WindowSigils.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WindowSigils.spoon.zip)\n\nUsage example:\n```\nsigils = hs.loadSpoon(\"WindowSigils\")\nsigils:configure({\n  hotkeys = {\n    enter = {{\"control\"}, \"W\"}\n  },\n  mode_keys = {\n    [{{'shift'}, 'i'}] = ignore_notification,\n    [{{}, 'v'}]        = paste_as_keystrokes,\n    [{{}, ','}]        = rerun_last_command,\n  },\n  sigil_actions = {\n    [{}]       = focus_window,\n    [{'ctrl'}] = swap_window,\n    [{'alt'}]  = warp_window,\n  }\n})\nsigils:start()\n```",
+    "stripped_doc": "\nA letter or digit is rendered in the titlebar of every window (or empty space), and\nactions can be bound inside the sigil mode and triggered with different modifiers.\n\nFor example, with no modifiers, a sigil key can focus the window.  If the 'enter'\naction is bound to control-w, then 'control-w c' will focus the window with sigil 'c'.\nThe action is a function which accepts a window, or in the case of an empty space, a\nwindow-like object which reponds to 'id', 'frame', and 'setFrame'.\n\nThe keys 'h', 'j', 'k', and 'l' are reserved for the window west, south, north, and\neast of the currently focused window in standard Vi-like fashion, and so are not\nassigned as sigils.\n\nBy default, two keys (other than the sigils) are bound in the mode: escape leaves the\nmode without doing anything, and '.' sends the sigil key to the focused window.  This\nallows sending 'control-w' to the underlying window by typing 'control-w .'.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WindowSigils.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WindowSigils.spoon.zip)\n\nUsage example:\n```\nlocal function ignore_notification()\n  -- ...\nend\nlocal function paste_as_keystrokes()\n  hs.eventtap.keyStrokes(hs.pasteboard.readString())\nend\nlocal function rerun_last_command()\n  hs.execute(\"kitty @ --to unix:/Users/jfelice/.run/kitty send-text --match=title:kak_repl_window '\\x10\\x0d'\", true)\nend\n\nlocal function focus_window(window)\n  window:focus()\n  if hs.window.focusedWindow() ~= window then\n    -- Some cases with apps having windows on multiple monitors require\n    -- us to try again (?)\n    window:focus()\n  end\nend\n\nlocal function swap_window(window)\n  local focused_frame = hs.window.focusedWindow():frame()\n  local selected_frame = window:frame()\n  hs.window.focusedWindow():setFrame(selected_frame, 0)\n  window:setFrame(focused_frame, 0)\nend\n\nlocal function stack_window(window)\n  local frame = window:frame()\n  hs.window.focusedWindow():setFrame(frame, 0)\nend\n\nsigils = hs.loadSpoon(\"WindowSigils\")\nsigils:configure({\n  hotkeys = {\n    enter = {{\"control\"}, \"W\"}\n  },\n  mode_keys = {\n    [{{'shift'}, 'i'}] = ignore_notification,\n    [{{}, 'v'}]        = paste_as_keystrokes,\n    [{{}, ','}]        = rerun_last_command,\n  },\n  sigil_actions = {\n    [{}]       = focus_window,\n    [{'ctrl'}] = stack_window,\n    [{'alt'}]  = swap_window,\n  }\n})\nsigils:start()\n```",
     "submodules": [],
     "type": "Module"
   },
