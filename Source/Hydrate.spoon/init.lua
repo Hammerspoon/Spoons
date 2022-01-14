@@ -1,3 +1,4 @@
+--- === Hydrate ===
 --- Friendly Reminder to remind you to hydrate.
 ---
 --- This spoon will display a reminder to hydrate every X minutes.
