@@ -13,7 +13,6 @@
 ---  * urlformats : User defined URL formats to open
 ---  * useractions : User defined custom actions
 ---  * vpn : Connect and disconnect VPNs (currently supports Viscosity and macOS system preferences)A
-
 local obj = {}
 obj.__index = obj
 
