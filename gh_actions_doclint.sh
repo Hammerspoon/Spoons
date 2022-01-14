@@ -10,7 +10,17 @@ set -x
 if [ "$1" == "-v" ]; then
     COUNT=$(jq length annotations.json)
     if [ "${COUNT}" != "0" ]; then
-        exit 1
+        JSON=$(cat annotations.json)
+        for row in $(echo "${JSON}" | jq -r '.[] | @base64') ; do
+            _jq() {
+                echo ${row} | base64 --decode | jq -r ${1}
+            }
+            FILE=$(_jq '.file')
+            LINE=$(_jq '.line')
+            TITLE=$(_jq '.title')
+            MSG=$(_jq '.message')
+            echo "::error file=${FILE},line=${LINE},title=${TITLE}::${MSG}" >>/dev/stderr
+        done
     fi
 
     exit 0
