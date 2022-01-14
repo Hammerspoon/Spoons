@@ -66,8 +66,8 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const fs = require('fs')
-            const pr_num = fs.readFileSync('annotations/pr_num.txt/pr_num.txt', 'utf8')
-            const annotations = fs.readFileSync('annotations/annotations.json/annotations.json', 'utf8')
+            const pr_num = fs.readFileSync('artifacts/pr_num.txt/pr_num.txt', 'utf8')
+            const annotations = fs.readFileSync('artifacts/annotations.json/annotations.json', 'utf8')
             github.rest.issues.createComment({
               issue_number: pr_num,
               owner: 'hammerspoon',
