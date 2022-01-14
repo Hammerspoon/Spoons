@@ -13,7 +13,7 @@
         "doc": "Binds hotkeys for Seal\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for the following (optional) items:\n  * show - This will cause Seal's UI to be shown\n  * toggle - This will cause Seal's UI to be shown or hidden depending on its current state\n\nReturns:\n * The Seal object",
         "examples": [],
         "file": "Source/Seal.spoon//init.lua",
-        "lineno": "156",
+        "lineno": "157",
         "name": "bindHotkeys",
         "notes": [],
         "parameters": [
@@ -32,7 +32,7 @@
         "doc": "Loads a plugin from a given file\n\nParameters:\n * plugin_name - the name of the plugin, without \"seal_\" at the beginning or \".lua\" at the end\n * file - the file where the plugin code is stored.\n\nReturns:\n * The Seal object if the plugin was successfully loaded, `nil` otherwise\n\nNotes:\n * You should normally use `Seal:loadPlugins()`. This method allows you to load plugins\n   from non-standard locations and is mostly a development interface.\n * Some plugins may immediately begin doing background work (e.g. Spotlight searches)",
         "examples": [],
         "file": "Source/Seal.spoon//init.lua",
-        "lineno": "93",
+        "lineno": "94",
         "name": "loadPluginFromFile",
         "notes": [
           " * You should normally use `Seal:loadPlugins()`. This method allows you to load plugins",
@@ -56,7 +56,7 @@
         "doc": "Loads a list of Seal plugins\n\nParameters:\n * plugins - A list containing the names of plugins to load\n\nReturns:\n * The Seal object\n\nNotes:\n * The plugins live inside the Seal.spoon directory\n * The plugin names in the list, should not have `seal_` at the start, or `.lua` at the end\n * Some plugins may immediately begin doing background work (e.g. Spotlight searches)",
         "examples": [],
         "file": "Source/Seal.spoon//init.lua",
-        "lineno": "121",
+        "lineno": "122",
         "name": "loadPlugins",
         "notes": [
           " * The plugins live inside the Seal.spoon directory",
@@ -79,7 +79,7 @@
         "doc": "Refresh the list of commands provided by all the currently loaded plugins.\n\nParameters:\n * None\n\nReturns:\n * The Seal object\n\nNotes:\n * Most Seal plugins expose a static list of commands (if any), which are registered at the time the plugin is loaded. This method is used for plugins which expose a dynamic or changing (e.g. depending on configuration) list of commands.",
         "examples": [],
         "file": "Source/Seal.spoon//init.lua",
-        "lineno": "74",
+        "lineno": "75",
         "name": "refreshAllCommands",
         "notes": [
           " * Most Seal plugins expose a static list of commands (if any), which are registered at the time the plugin is loaded. This method is used for plugins which expose a dynamic or changing (e.g. depending on configuration) list of commands."
@@ -100,7 +100,7 @@
         "doc": "Refresh the list of commands provided by the given plugin.\n\nParameters:\n * plugin_name - the name of the plugin. Should be the name as passed to `loadPlugins()` or `loadPluginFromFile`.\n\nReturns:\n * The Seal object\n\nNotes:\n * Most Seal plugins expose a static list of commands (if any), which are registered at the time the plugin is loaded. This method is used for plugins which expose a dynamic or changing (e.g. depending on configuration) list of commands.",
         "examples": [],
         "file": "Source/Seal.spoon//init.lua",
-        "lineno": "49",
+        "lineno": "50",
         "name": "refreshCommandsForPlugin",
         "notes": [
           " * Most Seal plugins expose a static list of commands (if any), which are registered at the time the plugin is loaded. This method is used for plugins which expose a dynamic or changing (e.g. depending on configuration) list of commands."
@@ -121,7 +121,7 @@
         "doc": "Shows the Seal UI\n\nParameters:\n * query - An optional string to pre-populate the query box with\n\nReturns:\n * None\n\nNotes:\n * This may be useful if you wish to show Seal in response to something other than its hotkey",
         "examples": [],
         "file": "Source/Seal.spoon//init.lua",
-        "lineno": "233",
+        "lineno": "234",
         "name": "show",
         "notes": [
           " * This may be useful if you wish to show Seal in response to something other than its hotkey"
@@ -142,7 +142,7 @@
         "doc": "Starts Seal\n\nParameters:\n * None\n\nReturns:\n * The Seal object",
         "examples": [],
         "file": "Source/Seal.spoon//init.lua",
-        "lineno": "189",
+        "lineno": "190",
         "name": "start",
         "notes": [],
         "parameters": [
@@ -161,7 +161,7 @@
         "doc": "Stops Seal\n\nParameters:\n * None\n\nReturns:\n * The Seal object\n\nNotes:\n * Some Seal plugins will continue performing background work even after this call (e.g. Spotlight searches)",
         "examples": [],
         "file": "Source/Seal.spoon//init.lua",
-        "lineno": "209",
+        "lineno": "210",
         "name": "stop",
         "notes": [
           " * Some Seal plugins will continue performing background work even after this call (e.g. Spotlight searches)"
@@ -182,7 +182,7 @@
         "doc": "Shows or hides the Seal UI\n\nParameters:\n * query - An optional string to pre-populate the query box with\n\nReturns:\n * None",
         "examples": [],
         "file": "Source/Seal.spoon//init.lua",
-        "lineno": "251",
+        "lineno": "252",
         "name": "toggle",
         "notes": [],
         "parameters": [
@@ -202,7 +202,7 @@
         "desc": "List of directories where Seal will look for plugins. Defaults to `~/.hammerspoon/seal_plugins/` and the Seal Spoon directory.",
         "doc": "List of directories where Seal will look for plugins. Defaults to `~/.hammerspoon/seal_plugins/` and the Seal Spoon directory.",
         "file": "Source/Seal.spoon//init.lua",
-        "lineno": "44",
+        "lineno": "45",
         "name": "plugin_search_paths",
         "signature": "Seal.plugin_search_paths",
         "stripped_doc": "",
@@ -213,7 +213,7 @@
         "desc": "Time between the last keystroke and the start of the recalculation of the choices to display, in seconds.",
         "doc": "Time between the last keystroke and the start of the recalculation of the choices to display, in seconds.\n\nNotes:\n * Defaults to 0.02s (20ms).",
         "file": "Source/Seal.spoon//init.lua",
-        "lineno": "36",
+        "lineno": "37",
         "name": "queryChangedTimerDuration",
         "notes": [
           " * Defaults to 0.02s (20ms)."
@@ -232,7 +232,7 @@
         "doc": "Binds hotkeys for Seal\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for the following (optional) items:\n  * show - This will cause Seal's UI to be shown\n  * toggle - This will cause Seal's UI to be shown or hidden depending on its current state\n\nReturns:\n * The Seal object",
         "examples": [],
         "file": "Source/Seal.spoon//init.lua",
-        "lineno": "156",
+        "lineno": "157",
         "name": "bindHotkeys",
         "notes": [],
         "parameters": [
@@ -251,7 +251,7 @@
         "doc": "Loads a plugin from a given file\n\nParameters:\n * plugin_name - the name of the plugin, without \"seal_\" at the beginning or \".lua\" at the end\n * file - the file where the plugin code is stored.\n\nReturns:\n * The Seal object if the plugin was successfully loaded, `nil` otherwise\n\nNotes:\n * You should normally use `Seal:loadPlugins()`. This method allows you to load plugins\n   from non-standard locations and is mostly a development interface.\n * Some plugins may immediately begin doing background work (e.g. Spotlight searches)",
         "examples": [],
         "file": "Source/Seal.spoon//init.lua",
-        "lineno": "93",
+        "lineno": "94",
         "name": "loadPluginFromFile",
         "notes": [
           " * You should normally use `Seal:loadPlugins()`. This method allows you to load plugins",
@@ -275,7 +275,7 @@
         "doc": "Loads a list of Seal plugins\n\nParameters:\n * plugins - A list containing the names of plugins to load\n\nReturns:\n * The Seal object\n\nNotes:\n * The plugins live inside the Seal.spoon directory\n * The plugin names in the list, should not have `seal_` at the start, or `.lua` at the end\n * Some plugins may immediately begin doing background work (e.g. Spotlight searches)",
         "examples": [],
         "file": "Source/Seal.spoon//init.lua",
-        "lineno": "121",
+        "lineno": "122",
         "name": "loadPlugins",
         "notes": [
           " * The plugins live inside the Seal.spoon directory",
@@ -297,7 +297,7 @@
         "desc": "List of directories where Seal will look for plugins. Defaults to `~/.hammerspoon/seal_plugins/` and the Seal Spoon directory.",
         "doc": "List of directories where Seal will look for plugins. Defaults to `~/.hammerspoon/seal_plugins/` and the Seal Spoon directory.",
         "file": "Source/Seal.spoon//init.lua",
-        "lineno": "44",
+        "lineno": "45",
         "name": "plugin_search_paths",
         "signature": "Seal.plugin_search_paths",
         "stripped_doc": "",
@@ -308,7 +308,7 @@
         "desc": "Time between the last keystroke and the start of the recalculation of the choices to display, in seconds.",
         "doc": "Time between the last keystroke and the start of the recalculation of the choices to display, in seconds.\n\nNotes:\n * Defaults to 0.02s (20ms).",
         "file": "Source/Seal.spoon//init.lua",
-        "lineno": "36",
+        "lineno": "37",
         "name": "queryChangedTimerDuration",
         "notes": [
           " * Defaults to 0.02s (20ms)."
@@ -323,7 +323,7 @@
         "doc": "Refresh the list of commands provided by all the currently loaded plugins.\n\nParameters:\n * None\n\nReturns:\n * The Seal object\n\nNotes:\n * Most Seal plugins expose a static list of commands (if any), which are registered at the time the plugin is loaded. This method is used for plugins which expose a dynamic or changing (e.g. depending on configuration) list of commands.",
         "examples": [],
         "file": "Source/Seal.spoon//init.lua",
-        "lineno": "74",
+        "lineno": "75",
         "name": "refreshAllCommands",
         "notes": [
           " * Most Seal plugins expose a static list of commands (if any), which are registered at the time the plugin is loaded. This method is used for plugins which expose a dynamic or changing (e.g. depending on configuration) list of commands."
@@ -344,7 +344,7 @@
         "doc": "Refresh the list of commands provided by the given plugin.\n\nParameters:\n * plugin_name - the name of the plugin. Should be the name as passed to `loadPlugins()` or `loadPluginFromFile`.\n\nReturns:\n * The Seal object\n\nNotes:\n * Most Seal plugins expose a static list of commands (if any), which are registered at the time the plugin is loaded. This method is used for plugins which expose a dynamic or changing (e.g. depending on configuration) list of commands.",
         "examples": [],
         "file": "Source/Seal.spoon//init.lua",
-        "lineno": "49",
+        "lineno": "50",
         "name": "refreshCommandsForPlugin",
         "notes": [
           " * Most Seal plugins expose a static list of commands (if any), which are registered at the time the plugin is loaded. This method is used for plugins which expose a dynamic or changing (e.g. depending on configuration) list of commands."
@@ -365,7 +365,7 @@
         "doc": "Shows the Seal UI\n\nParameters:\n * query - An optional string to pre-populate the query box with\n\nReturns:\n * None\n\nNotes:\n * This may be useful if you wish to show Seal in response to something other than its hotkey",
         "examples": [],
         "file": "Source/Seal.spoon//init.lua",
-        "lineno": "233",
+        "lineno": "234",
         "name": "show",
         "notes": [
           " * This may be useful if you wish to show Seal in response to something other than its hotkey"
@@ -386,7 +386,7 @@
         "doc": "Starts Seal\n\nParameters:\n * None\n\nReturns:\n * The Seal object",
         "examples": [],
         "file": "Source/Seal.spoon//init.lua",
-        "lineno": "189",
+        "lineno": "190",
         "name": "start",
         "notes": [],
         "parameters": [
@@ -405,7 +405,7 @@
         "doc": "Stops Seal\n\nParameters:\n * None\n\nReturns:\n * The Seal object\n\nNotes:\n * Some Seal plugins will continue performing background work even after this call (e.g. Spotlight searches)",
         "examples": [],
         "file": "Source/Seal.spoon//init.lua",
-        "lineno": "209",
+        "lineno": "210",
         "name": "stop",
         "notes": [
           " * Some Seal plugins will continue performing background work even after this call (e.g. Spotlight searches)"
@@ -426,7 +426,7 @@
         "doc": "Shows or hides the Seal UI\n\nParameters:\n * query - An optional string to pre-populate the query box with\n\nReturns:\n * None",
         "examples": [],
         "file": "Source/Seal.spoon//init.lua",
-        "lineno": "251",
+        "lineno": "252",
         "name": "toggle",
         "notes": [],
         "parameters": [
