@@ -40,7 +40,7 @@ fi
 mkdir -p annotations
 
 while IFS= read -r SPOON ; do
-    /usr/bin/python3 ./hammerspoon/scripts/docs/bin/build_docs.py -l -o annotations/ -n Source/${SPOON}.spoon/
+    /usr/bin/python3 ./hammerspoon/scripts/docs/bin/build_docs.py -l -o annotations/ -n Source/${SPOON}.spoon
     mv annotations/annotations.json "annotations/${SPOON}-annotations.json"
 done <<< "${SPOONS}"
 
