@@ -21,6 +21,7 @@ if [ "$1" == "-v" ]; then
             MSG=$(_jq '.message')
             echo "::error file=${FILE},line=${LINE},title=${TITLE}::${MSG}" >>/dev/stderr
         done
+        exit 1
     fi
 
     exit 0
