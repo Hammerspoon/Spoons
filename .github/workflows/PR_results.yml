@@ -53,11 +53,33 @@ jobs:
       - name: Show Artifacts
         run: find artifacts -ls
 
-      - name: Publish Docstring Annotations
-        uses: cmsj/annotations-action@v0.4.0-cmsj-alpha
+      # Since proper annotations don't work in this context, we'll just add the JSON annotation output as a comment
+      - name: Check for a PR number
+        id: check_pr_number
+        uses: andstor/file-existence-action@v1
         with:
-          repo-token: "${{ secrets.GITHUB_TOKEN }}"
-          title: "Docstrings linter"
-          input: "artifacts/annotations.json/annotations.json"
-          commit: ${{ github.event.workflow_run.head_sha }}
+          files: "artifacts/pr_num.txt/pr_num.txt"
+      - name: Add annotations output as a PR comment
+        if: steps.check_pr_number.outputs.files_exists == 'true'
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs')
+            const pr_num = fs.readFileSync('annotations/pr_num.txt/pr_num.txt', 'utf8')
+            const annotations = fs.readFileSync('annotations/annotations.json/annotations.json', 'utf8')
+            github.rest.issues.createComment({
+              issue_number: pr_num,
+              owner: 'hammerspoon',
+              repo: 'Spoons',
+              body: '```' + annotations + '```'
+            })
+
+          # This really ought to work, but the annotations disappear into the ether
+          #      - name: Publish Docstring Annotations
+          #        uses: cmsj/annotations-action@v0.4.0-cmsj-alpha
+          #        with:
+          #          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          #          title: "Docstrings linter"
+          #          input: "artifacts/annotations.json/annotations.json"
+          #          commit: ${{ github.event.workflow_run.head_sha }}
 

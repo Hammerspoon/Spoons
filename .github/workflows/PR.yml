@@ -50,6 +50,18 @@ jobs:
         cd $GITHUB_WORKSPACE/hammerspoon
         /usr/bin/python3 -m pip install -r requirements.txt
 
+    # If this is a PR, capture its number
+    - name: Capture PR number
+      if: github.event_name == 'pull_request'
+      run: |
+        echo $(echo ${GITHUB_REF} | awk 'BEGIN { FS = "/" } ; { print $3 }') >pr_num.txt
+    - name: Upload PR number
+      if: github.event_name == 'pull_request'
+      uses: actions/upload-artifact@v2
+      with:
+        name: pr_num.txt
+        path: pr_num.txt
+
     # Find files modified by this PR
     - uses: lots0logs/gh-action-get-changed-files@2.1.4
       with:
@@ -64,7 +76,7 @@ jobs:
       run: ./gh_actions_doclint.sh
 
     # Store docstrings linter annotations as an artifact
-    - name: Upload artifacts
+    - name: Upload linter artifacts
       if: always()
       uses: actions/annotate-action-cmsj-fork@v0.4.0-cmsj-alpha
       with:
