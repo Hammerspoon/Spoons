@@ -390,6 +390,7 @@ function obj:shouldBeStored()
    return true
 end
 
+-- Internal method:
 function obj:isIgnoredWindowActive()
    if not self.honor_ignoredWindows then
       return false
