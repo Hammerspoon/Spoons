@@ -106,13 +106,6 @@ obj.honor_ignoredWindows = true
 --- using bot the UI buttons and the key combination, the text is stored in the history, which is
 --- an undesireable behaviour when copying secrets. The workaround is to detect whether the
 --- application is currently in focus/at the top, and ignoring the entry (see `shouldBeStored()`).
----
---- To see all windows, use:
---- ```
---- for key, value in pairs(hs.window.allWindows()) do
----    print(key .. ':', value)
---- end
---- ```
 obj.ignoredWindows = {
    ["1Password"]                              = true, -- Confidential : 1Password
    ["Bitwarden"]                              = true, -- Confidential : Bitwarden
