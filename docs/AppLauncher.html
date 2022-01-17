@@ -18,18 +18,19 @@
       <p>Simple spoon for launching apps with single letter hotkeys.</p>
 <p>Example configuration using SpoonInstall.spoon:</p>
 
-<pre><code>spoon.SpoonInstall:andUse("AppLauncher", {
+<pre><code>spoon.SpoonInstall:andUse(&quot;AppLauncher&quot;, {
   hotkeys = {
-    c = "Calendar",
-    d = "Discord",
-    f = "Firefox Developer Edition",
-    n = "Notes",
-    p = "1Password 7",
-    r = "Reeder",
-    t = "Kitty",
-    z = "Zoom.us",
+    c = &quot;Calendar&quot;,
+    d = &quot;Discord&quot;,
+    f = &quot;Firefox Developer Edition&quot;,
+    n = &quot;Notes&quot;,
+    p = &quot;1Password 7&quot;,
+    r = &quot;Reeder&quot;,
+    t = &quot;Kitty&quot;,
+    z = &quot;Zoom.us&quot;,
   }
-})</code></pre>
+})
+</code></pre>
 <p>Download: <a href="https://github.com/Hammerspoon/Spoons/raw/master/Spoons/AppLauncher.spoon.zip">https://github.com/Hammerspoon/Spoons/raw/master/Spoons/AppLauncher.spoon.zip</a></p>
 
       </header>
@@ -60,9 +61,18 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Modifier keys used when launching apps</p>
-<p>Default value: <code>{"ctrl", "alt"}</code></p>
+                <td>Modifier keys used when launching apps</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>Default value: <code>{&quot;ctrl&quot;, &quot;alt&quot;}</code></li>
+</ul>
 </td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/AppLauncher.spoon/init.lua#L33">Source/AppLauncher.spoon/init.lua line 33</a></td>
               </tr>
             </table>
           </section>
@@ -81,12 +91,22 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Binds hotkeys for AppLauncher</p>
-<p>Parameters:</p>
-<ul>
+                <td>Binds hotkeys for AppLauncher</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>mapping - A table containing single characters with their associated app</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/AppLauncher.spoon/init.lua#L41">Source/AppLauncher.spoon/init.lua line 41</a></td>
               </tr>
             </table>
           </section>

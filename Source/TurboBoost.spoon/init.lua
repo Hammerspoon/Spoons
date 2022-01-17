@@ -81,62 +81,58 @@ end
 
 --- TurboBoost.load_kext_cmd
 --- Variable
---- Command to execute to load the DisableTurboBoost kernel
---- extension. This command must execute with root privileges and
---- either query the user for the credentials, or be configured
---- (e.g. with sudo) to run without prompting. The string "%s" in this
---- variable gets replaced with the value of
---- TurboBoost.kext_path. Default value: `"/usr/bin/sudo /usr/bin/kextutil '%s'"`
+--- Command to execute to load the DisableTurboBoost kernel extension.
+---
+--- Notes:
+---  * This command must execute with root privileges and either query the user for the credentials, or be configured (e.g. with sudo) to run without prompting.
+---  * The string "%s" in this variable gets replaced with the value of TurboBoost.kext_path. Default value: `"/usr/bin/sudo /usr/bin/kextutil '%s'"`
 obj.load_kext_cmd = "/usr/bin/sudo /usr/bin/kextutil '%s'"
 
 --- TurboBoost.unload_kext_cmd
 --- Variable
---- Command to execute to unload the DisableTurboBoost kernel
---- extension. This command must execute with root privileges and
---- either query the user for the credentials, or be configured
---- (e.g. with sudo) to run without prompting. The string "%s" in this
---- variable gets replaced with the value of
---- TurboBoost.kext_path. Default value: `"/usr/bin/sudo /sbin/kextunload '%s'"`
+--- Command to execute to unload the DisableTurboBoost kernel extension.
+---
+--- Notes:
+---  * This command must execute with root privileges and either query the user for the credentials, or be configured (e.g. with sudo) to run without prompting.
+---  * The string "%s" in this variable gets replaced with the value of TurboBoost.kext_path. Default value: `"/usr/bin/sudo /sbin/kextunload '%s'"`
 obj.unload_kext_cmd = "/usr/bin/sudo /sbin/kextunload '%s'"
 
 --- TurboBoost.check_kext_cmd
 --- Variable
---- Command to execute to check whether the DisableTurboBoost kernel
---- extension is loaded. Default value: `"/usr/sbin/kextstat | grep com.rugarciap.DisableTurboBoost"`
+--- Command to execute to check whether the DisableTurboBoost kernel extension is loaded.
+---
+--- Notes:
+---  * Default value: `"/usr/sbin/kextstat | grep com.rugarciap.DisableTurboBoost"`
 obj.check_kext_cmd = "/usr/sbin/kextstat | grep com.rugarciap.DisableTurboBoost"
 
 --- TurboBoost.notify
 --- Variable
---- Boolean indicating whether notifications should be generated when
---- Turbo Boost is enabled/disabled. Default value: `true`
+--- Boolean indicating whether notifications should be generated when Turbo Boost is enabled/disabled. Default value: `true`
 obj.notify = true
 
 --- TurboBoost.enabled_icon_path
 --- Variable
---- Where to find the icon to use for the "Enabled" icon. Default value
---- uses the icon from the Turbo Boost application:
---- `"/Applications/Turbo Boost Switcher.app/Contents/Resources/icon.tiff"`
+--- Where to find the icon to use for the "Enabled" icon.
+---
+--- Notes:
+---  * Default value uses the icon from the Turbo Boost application: `"/Applications/Turbo Boost Switcher.app/Contents/Resources/icon.tiff"`
 obj.enabled_icon_path = "/Applications/Turbo Boost Switcher.app/Contents/Resources/icon.tiff"
 
 --- TurboBoost.disabled_icon_path
 --- Variable
---- Where to find the icon to use for the "Disabled" icon. Default value
---- uses the icon from the Turbo Boost application:
---- `"/Applications/Turbo Boost Switcher.app/Contents/Resources/icon_off.tiff"`
+--- Where to find the icon to use for the "Disabled" icon.
+---
+--- Notes:
+---  * Default value uses the icon from the Turbo Boost application: `"/Applications/Turbo Boost Switcher.app/Contents/Resources/icon_off.tiff"`
 obj.disabled_icon_path = "/Applications/Turbo Boost Switcher.app/Contents/Resources/icon_off.tiff"
 
 --- TurboBoost:setState(state, notify)
 --- Method
---- Sets whether Turbo Boost should be disabled (kernel extension
---- loaded) or enabled (normal state, kernel extension not loaded).
+--- Sets whether Turbo Boost should be disabled (kernel extension loaded) or enabled (normal state, kernel extension not loaded).
 ---
 --- Parameters:
----  * state - A boolean, false if Turbo Boost should be disabled
----    (load kernel extension), true if it should be enabled (unload
----    kernel extension if loaded).
----  * notify - Optional boolean indicating whether a notification
----    should be produced. If not given, the value of
----    TurboBoost.notify is used.
+---  * state - A boolean, false if Turbo Boost should be disabled (load kernel extension), true if it should be enabled (unload kernel extension if loaded).
+---  * notify - Optional boolean indicating whether a notification should be produced. If not given, the value of TurboBoost.notify is used.
 ---
 --- Returns:
 ---  * Boolean indicating new state

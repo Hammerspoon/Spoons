@@ -65,18 +65,18 @@ obj.quickentrydialog = true
 --- SendToOmniFocus.actions
 --- Variable
 --- Table containing application handlers for sending the current item to OmniFocus.
---- Each entry's key is the application name, and its value is another table with the following keys:
----  * `itemname` - how to name the current item in the context of the application. Purely for cosmetic purposes in the notifications (e.g. in Mail, the notification says "filing message" instead of "filing item". Defaults to "item".
----  * One of the following, invoked to do the actual filing:
----    * `as_scriptfile` - path of a file containing AppleScript code. It will be executed using the `osascript` command. If `quickentrydialog` is set to `false`, the string `nodialog` will be passed as argument to the script.
----    * `as_script` - string containing AppleScript code. There is no way to pass an argument to the script via this method.
----    * `fn` - a function. It will be passed a boolean indicating the value of `quickentrydialog`.
----    * `apptype` - a predefined "application type" to trigger different behavior for application families. The only valid value at the moment is "chromeapp", which can be used for any Chrome-based applications, including Google Chrome itself and, for example, any site-specific browsers generated using [Epichrome](https://github.com/dmarmor/epichrome).
 ---
---- The built-in handlers for Outlook, Evernote, Chrome and Mail are implemented by scripts bundled with the SendToOmniFocus spoon.
---- New handlers can be registered using `SendToOmniFocus:registerApplication()`
----
---- Default value:
+--- Notes:
+---  * Each entry's key is the application name, and its value is another table with the following keys:
+---   * `itemname` - how to name the current item in the context of the application. Purely for cosmetic purposes in the notifications (e.g. in Mail, the notification says "filing message" instead of "filing item". Defaults to "item".
+---   * One of the following, invoked to do the actual filing:
+---     * `as_scriptfile` - path of a file containing AppleScript code. It will be executed using the `osascript` command. If `quickentrydialog` is set to `false`, the string `nodialog` will be passed as argument to the script.
+---     * `as_script` - string containing AppleScript code. There is no way to pass an argument to the script via this method.
+---     * `fn` - a function. It will be passed a boolean indicating the value of `quickentrydialog`.
+---     * `apptype` - a predefined "application type" to trigger different behavior for application families. The only valid value at the moment is "chromeapp", which can be used for any Chrome-based applications, including Google Chrome itself and, for example, any site-specific browsers generated using [Epichrome](https://github.com/dmarmor/epichrome).
+---  * The built-in handlers for Outlook, Evernote, Chrome and Mail are implemented by scripts bundled with the SendToOmniFocus spoon.
+---  * New handlers can be registered using `SendToOmniFocus:registerApplication()`
+---  * Default value:
 --- ```
 ---   {
 ---      ["Microsoft Outlook"] = {
@@ -132,7 +132,7 @@ local function slurp(path)
    return s
 end
 
---- SendToOmniFocus:sendCurrentItem
+--- SendToOmniFocus:sendCurrentItem()
 --- Method
 --- Send current item in current application to OmniFocus by triggering the appropriate handler.
 ---

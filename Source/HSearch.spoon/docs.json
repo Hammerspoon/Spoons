@@ -9,18 +9,34 @@
     "Method": [
       {
         "def": "HSearch:loadSources()",
-        "desc": "Load new sources from `HSearch.search_path`, the search_path defaults to `~/.hammerspoon/private/hsearch_dir` and the HSearch Spoon directory. Only for debug purpose in usual.",
-        "doc": "Load new sources from `HSearch.search_path`, the search_path defaults to `~/.hammerspoon/private/hsearch_dir` and the HSearch Spoon directory. Only for debug purpose in usual.\n",
+        "desc": "Load new sources from `HSearch.search_path`, the search_path defaults to `~/.hammerspoon/private/hsearch_dir` and the HSearch Spoon directory. Only useful for debugging purposes.",
+        "doc": "Load new sources from `HSearch.search_path`, the search_path defaults to `~/.hammerspoon/private/hsearch_dir` and the HSearch Spoon directory. Only useful for debugging purposes.\n\nParameters:\n * None\n",
+        "examples": [],
+        "file": "Source/HSearch.spoon//init.lua",
+        "lineno": "187",
         "name": "loadSources",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
         "signature": "HSearch:loadSources()",
         "stripped_doc": "",
         "type": "Method"
       },
       {
         "def": "HSearch:switchSource()",
-        "desc": "Tigger new source according to hs.chooser's query string and keyword. Only for debug purpose in usual.",
-        "doc": "Tigger new source according to hs.chooser's query string and keyword. Only for debug purpose in usual.\n",
+        "desc": "Trigger new source according to `hs.chooser`'s query string and keyword. Only useful for debugging purposes.",
+        "doc": "Trigger new source according to `hs.chooser`'s query string and keyword. Only useful for debugging purposes.\n\nParameters:\n * None\n",
+        "examples": [],
+        "file": "Source/HSearch.spoon//init.lua",
+        "lineno": "99",
         "name": "switchSource",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
         "signature": "HSearch:switchSource()",
         "stripped_doc": "",
         "type": "Method"
@@ -28,8 +44,16 @@
       {
         "def": "HSearch:toggleShow()",
         "desc": "Toggle the display of HSearch",
-        "doc": "Toggle the display of HSearch\n",
+        "doc": "Toggle the display of HSearch\n\nParameters:\n * None\n",
+        "examples": [],
+        "file": "Source/HSearch.spoon//init.lua",
+        "lineno": "243",
         "name": "toggleShow",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
         "signature": "HSearch:toggleShow()",
         "stripped_doc": "",
         "type": "Method"
@@ -41,18 +65,34 @@
     "items": [
       {
         "def": "HSearch:loadSources()",
-        "desc": "Load new sources from `HSearch.search_path`, the search_path defaults to `~/.hammerspoon/private/hsearch_dir` and the HSearch Spoon directory. Only for debug purpose in usual.",
-        "doc": "Load new sources from `HSearch.search_path`, the search_path defaults to `~/.hammerspoon/private/hsearch_dir` and the HSearch Spoon directory. Only for debug purpose in usual.\n",
+        "desc": "Load new sources from `HSearch.search_path`, the search_path defaults to `~/.hammerspoon/private/hsearch_dir` and the HSearch Spoon directory. Only useful for debugging purposes.",
+        "doc": "Load new sources from `HSearch.search_path`, the search_path defaults to `~/.hammerspoon/private/hsearch_dir` and the HSearch Spoon directory. Only useful for debugging purposes.\n\nParameters:\n * None\n",
+        "examples": [],
+        "file": "Source/HSearch.spoon//init.lua",
+        "lineno": "187",
         "name": "loadSources",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
         "signature": "HSearch:loadSources()",
         "stripped_doc": "",
         "type": "Method"
       },
       {
         "def": "HSearch:switchSource()",
-        "desc": "Tigger new source according to hs.chooser's query string and keyword. Only for debug purpose in usual.",
-        "doc": "Tigger new source according to hs.chooser's query string and keyword. Only for debug purpose in usual.\n",
+        "desc": "Trigger new source according to `hs.chooser`'s query string and keyword. Only useful for debugging purposes.",
+        "doc": "Trigger new source according to `hs.chooser`'s query string and keyword. Only useful for debugging purposes.\n\nParameters:\n * None\n",
+        "examples": [],
+        "file": "Source/HSearch.spoon//init.lua",
+        "lineno": "99",
         "name": "switchSource",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
         "signature": "HSearch:switchSource()",
         "stripped_doc": "",
         "type": "Method"
@@ -60,8 +100,16 @@
       {
         "def": "HSearch:toggleShow()",
         "desc": "Toggle the display of HSearch",
-        "doc": "Toggle the display of HSearch\n",
+        "doc": "Toggle the display of HSearch\n\nParameters:\n * None\n",
+        "examples": [],
+        "file": "Source/HSearch.spoon//init.lua",
+        "lineno": "243",
         "name": "toggleShow",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
         "signature": "HSearch:toggleShow()",
         "stripped_doc": "",
         "type": "Method"

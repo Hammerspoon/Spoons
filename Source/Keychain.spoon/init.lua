@@ -62,11 +62,14 @@ end
 
 
 --- Keychain:login_keychain(name)
---- Method
+--- Deprecated
 --- Retrieve an item from the Login Keychain, returns nil if not found.
---- Deprecated, use getItem() instead.
+---
 --- Parameters:
 ---  * name - The name of the item in the Login Keychain you want to retrieve
+---
+--- Notes:
+---  * Use getItem() instead.
 function obj:login_keychain(name)
   result = getItem{label=name}
   if result ~= nil then
@@ -78,9 +81,7 @@ end
 
 --- Keychain:getItem(options)
 --- Method
---- Retrieve an item from the Login Keychain. Return nil if not found and
---- otherwise a table with found data.
---- Note: if multiple possibles matches just the first one is found.
+--- Retrieve an item from the Login Keychain. Return nil if not found and otherwise a table with found data.
 ---
 --- Parameters:
 ---  * options is a table with values for what keys to try locate with.
@@ -91,6 +92,9 @@ end
 ---   * comment - comment 
 ---   * label - label (defaults to service name)
 ---   * service - service name
+---
+--- Notes:
+---  * If multiple possibles matches just the first one is found.
 function obj:getItem(options)
   local cmd="/usr/bin/security 2>&1 find-generic-password -g"
 

@@ -47,12 +47,11 @@ obj.eject_on_sleep = true
 
 --- EjectMenu.eject_on_lid_close
 --- Variable
---- Boolean, whether to eject volumes when the laptop lid is closed
---- with an external display connected. There is no "lid close" event,
---- so we detect when the internal display gets disabled. This method
---- is somewhat unreliable (e.g. it also triggers when the internal
---- display goes to sleep due to inactivity), so its default value is
---- `false`
+--- Boolean, whether to eject volumes when the laptop lid is closed with an external display connected.
+---
+--- Notes:
+---  * There is no "lid close" event, so we detect when the internal display gets disabled.
+---  * This method is somewhat unreliable (e.g. it also triggers when the internal display goes to sleep due to inactivity), so its default value is `false`
 obj.eject_on_lid_close = false
 
 --- EjectMenu.show_in_menubar
@@ -62,10 +61,10 @@ obj.show_in_menubar = true
 
 --- EjectMenu.other_eject_events
 --- Variable
---- List of additional system events on which the volumes should be ejected. The
---- values must be
---- [http://www.hammerspoon.org/docs/hs.caffeinate.watcher.html](`hs.caffeinate.watcher`)
---- constant values. Default value: empty list
+--- List of additional system events on which the volumes should be ejected.
+---
+--- Notes:
+---  * The values must be [http://www.hammerspoon.org/docs/hs.caffeinate.watcher.html](`hs.caffeinate.watcher`) constant values. Default value: empty list
 obj.other_eject_events = { }
 
 --- EjectMenu:shouldEject(path, info)
@@ -91,9 +90,7 @@ end
 ---  * None
 ---
 --- Returns:
----  * A table in the same format as returned by
----    `hs.fs.volume.allVolumes()` but containing only those volumes
----    for which `EjectMenu:shouldEject()` returns `true`.
+---  * A table in the same format as returned by `hs.fs.volume.allVolumes()` but containing only those volumes for which `EjectMenu:shouldEject()` returns `true`.
 ---  * An integer indicating how many volumes are in the table.
 function obj:volumesToEject()
   local volumes = hs.fs.volume.allVolumes()
@@ -157,9 +154,8 @@ end
 -- Defines and executes menu item based on which modifiers are held.
 --
 -- Parameters
--- * mods: A table containing which modifiers are held in {key = bool} format
---   only if 'bool' is true. Other modifiers are omitted.
--- * table: The menu item being activated.
+--  * mods: A table containing which modifiers are held in {key = bool} format only if 'bool' is true. Other modifiers are omitted.
+--  * table: The menu item being activated.
 function obj:execMenuItem (mods, table)
   if (
     mods['cmd'] == true and
@@ -185,11 +181,10 @@ end
 -- Initializes eject menu when clicked.
 --
 -- Parameters
--- * mods: a table containing {mod = bool} for all modifiers, where bool can be
---   be either 'true' or 'false' (unlike execMenuItem)
+--  * mods: a table containing {mod = bool} for all modifiers, where bool can be be either 'true' or 'false' (unlike execMenuItem)
 --
 -- Returns
--- ejectMenuTable: a table containing entries and functions for ejectable drives.
+--  * ejectMenuTable: a table containing entries and functions for ejectable drives.
 function obj:initEjectMenu (mods)
   local ejectMenuDrives, count = self:volumesToEject()
   local ejectMenuTable = {
@@ -217,13 +212,13 @@ function obj:initEjectMenu (mods)
   return ejectMenuTable
 end
 
---- EjectMenu:bindHotkeys(mapping)
+--- EjectMenu:bindHotkeys(mapping, ejectAll)
 --- Method
 --- Binds hotkeys for EjectMenu
 ---
 --- Parameters:
 ---  * mapping - A table containing hotkey objifier/key details for the following items:
----   * ejectAll - eject all volumes.
+---  * ejectAll - eject all volumes.
 function obj:bindHotkeys(mapping)
   local spec = { ejectAll = hs.fnutils.partial(self.ejectVolumes, self) }
   hs.spoons.bindHotkeysToSpec(spec, mapping)
@@ -234,8 +229,7 @@ end
 -- Changes eject menu icon depending on which modifiers are held.
 --
 -- Parameters
--- * mods: A table containing for which the keys are the modifiers being held
---   and the values are 'true'.
+--  * mods: A table containing for which the keys are the modifiers being held and the values are 'true'.
 function obj:changeEjectMenuIcon (mods)
   if mods:containExactly({'cmd'}) then
     self.menubar:setTitle('⮑')

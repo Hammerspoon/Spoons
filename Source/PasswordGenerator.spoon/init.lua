@@ -123,21 +123,27 @@ obj.word_count = getSetting('word_count', 3)
 --- PasswordGenerator.word_leet
 --- Variable
 --- Which word number will have its word `733t` transformed.
---- Useful to ensure the word will at least have a one numeric value.
---- Defaults to 0
+---
+--- Notes:
+---  * Useful to ensure the word will at least have a one numeric value.
+---  * Defaults to 0
 obj.word_leet = getSetting('word_leet', 0)
 
 --- PasswordGenerator.word_separators
 --- Variable
 --- String of separators to use between words.
---- If multiple characters one will be chosen by random.
---- Used by xkcd. Default is " _-,$"
+---
+--- Notes:
+---  * If multiple characters one will be chosen by random.
+---  * Used by xkcd. Default is " _-,$"
 obj.word_separators = getSetting('word_separators', " _-,$")
 
 --- PasswordGenerator.word_uppercase
 --- Variable
 --- Number of words to uppercase the first letter.
---- Used by xkcd. Default is 1.
+---
+--- Notes:
+---  * Used by xkcd. Default is 1.
 obj.word_uppercase = getSetting('word_uppercase', 1)
 
 --- PasswordGenerator:bindHotkeys(mapping)
@@ -176,8 +182,8 @@ end
 --- Parameters:
 ---  * None
 ---
----  Returns:
----   * The generated password
+--- Returns:
+---  * The generated password
 function obj:copyPassword()
    password = self:getPasswordGenerator()(self)
    pasteboard.setContents(password)
@@ -191,8 +197,8 @@ end
 --- Parameters:
 ---  * None
 ---
----  Returns:
----   * The generated password
+--- Returns:
+---  * The generated password
 function obj:pastePassword()
   print(self:getPasswordGenerator())
    password = self:getPasswordGenerator()(self)

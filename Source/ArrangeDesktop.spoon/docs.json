@@ -5,42 +5,136 @@
     "Constructor": [],
     "Deprecated": [],
     "Field": [],
-    "Function": [],
-    "Method": [
+    "Function": [
       {
-        "def": "ArrangeDesktop:addMenuItems",
-        "desc": "Add menu items to a table for each configured desktop arrangment.",
-        "doc": "Add menu items to a table for each configured desktop arrangment.\n\nParameters:\n* menuItems - table of menu items\n* arrangements - table of desktop arrangements\n\nReturns:\ntable of menu items",
-        "name": "addMenuItems",
+        "def": "ArrangeDesktop._buildArrangement() -> table",
+        "desc": "Builds the configuration for the current desktop arrangement.",
+        "doc": "Builds the configuration for the current desktop arrangement.\n\nParameters:\n * None\n\nReturns:\n * A table containing the configuration data for the current desktop arrangement",
+        "examples": [],
+        "file": "Source/ArrangeDesktop.spoon//init.lua",
+        "lineno": "72",
+        "name": "_buildArrangement",
+        "notes": [],
         "parameters": [
-          "* menuItems - table of menu items",
-          "* arrangements - table of desktop arrangements"
+          " * None"
         ],
         "returns": [
-          "table of menu items"
+          " * A table containing the configuration data for the current desktop arrangement"
         ],
-        "signature": "ArrangeDesktop:addMenuItems",
+        "signature": "ArrangeDesktop._buildArrangement() -> table",
         "stripped_doc": "",
-        "type": "Method"
+        "type": "Function"
       },
       {
-        "def": "ArrangeDesktop:arrange",
-        "desc": "Arrange the desktop based on a given configuration",
-        "doc": "Arrange the desktop based on a given configuration\n\nParameters:\n* arrangement - table of arrangement data",
-        "name": "arrange",
+        "def": "ArrangeDesktop._loadConfiguration() -> table or nil",
+        "desc": "Loads the configuration file.",
+        "doc": "Loads the configuration file.\n\nParameters:\n * None\n\nReturns:\n * A table containing the configured desktop arrangements, or nil if an error occurred",
+        "examples": [],
+        "file": "Source/ArrangeDesktop.spoon//init.lua",
+        "lineno": "31",
+        "name": "_loadConfiguration",
+        "notes": [],
         "parameters": [
-          "* arrangement - table of arrangement data"
+          " * None"
         ],
-        "signature": "ArrangeDesktop:arrange",
+        "returns": [
+          " * A table containing the configured desktop arrangements, or nil if an error occurred"
+        ],
+        "signature": "ArrangeDesktop._loadConfiguration() -> table or nil",
+        "stripped_doc": "",
+        "type": "Function"
+      },
+      {
+        "def": "ArrangeDesktop._positionApp(app, appTitle, screen, frame)",
+        "desc": "Positions all windows for an application based on the given configuration.",
+        "doc": "Positions all windows for an application based on the given configuration.\n\nParameters:\n * app - A table of the application instance\n * appTitle - The name of the application, e.g., Slack, Firefox, etc.\n * screen - A table of the position of the screen (x, y integer pair) to place the application window into\n * frame - A table of the frame details for the application window, e.g., {w=12, h=12, x=12, y=12}",
+        "examples": [],
+        "file": "Source/ArrangeDesktop.spoon//init.lua",
+        "lineno": "113",
+        "name": "_positionApp",
+        "notes": [],
+        "parameters": [
+          " * app - A table of the application instance",
+          " * appTitle - The name of the application, e.g., Slack, Firefox, etc.",
+          " * screen - A table of the position of the screen (x, y integer pair) to place the application window into",
+          " * frame - A table of the frame details for the application window, e.g., {w=12, h=12, x=12, y=12}"
+        ],
+        "returns": [],
+        "signature": "ArrangeDesktop._positionApp(app, appTitle, screen, frame)",
+        "stripped_doc": "",
+        "type": "Function"
+      },
+      {
+        "def": "ArrangeDesktop._writeConfiguration(config) -> bool",
+        "desc": "Writes the configuration to a file.",
+        "doc": "Writes the configuration to a file.\n\nParameters:\n * config - A table containing the configuration to write\n\nReturns:\n * A boolean indicating if the write was successful",
+        "examples": [],
+        "file": "Source/ArrangeDesktop.spoon//init.lua",
+        "lineno": "59",
+        "name": "_writeConfiguration",
+        "notes": [],
+        "parameters": [
+          " * config - A table containing the configuration to write"
+        ],
+        "returns": [
+          " * A boolean indicating if the write was successful"
+        ],
+        "signature": "ArrangeDesktop._writeConfiguration(config) -> bool",
+        "stripped_doc": "",
+        "type": "Function"
+      }
+    ],
+    "Method": [
+      {
+        "def": "ArrangeDesktop:addMenuItems(menuItems) -> table",
+        "desc": "Add menu items to a table for each configured desktop arrangement.",
+        "doc": "Add menu items to a table for each configured desktop arrangement.\n\nParameters:\n * menuItems - A table of menu items to append to\n\nReturns:\n * A table of menu items",
+        "examples": [],
+        "file": "Source/ArrangeDesktop.spoon//init.lua",
+        "lineno": "154",
+        "name": "addMenuItems",
+        "notes": [],
+        "parameters": [
+          " * menuItems - A table of menu items to append to"
+        ],
+        "returns": [
+          " * A table of menu items"
+        ],
+        "signature": "ArrangeDesktop:addMenuItems(menuItems) -> table",
         "stripped_doc": "",
         "type": "Method"
       },
       {
-        "def": "ArrangeDesktop:logCurrentArrangement()",
-        "desc": "Build up the configuration for the current desktop arrangement and log it to the Hammerspoon console.",
-        "doc": "Build up the configuration for the current desktop arrangement and log it to the Hammerspoon console.",
-        "name": "logCurrentArrangement",
-        "signature": "ArrangeDesktop:logCurrentArrangement()",
+        "def": "ArrangeDesktop:arrange(arrangement)",
+        "desc": "Arrange the desktop based on a given configuration",
+        "doc": "Arrange the desktop based on a given configuration\n\nParameters:\n * arrangement - A table of arrangement data",
+        "examples": [],
+        "file": "Source/ArrangeDesktop.spoon//init.lua",
+        "lineno": "135",
+        "name": "arrange",
+        "notes": [],
+        "parameters": [
+          " * arrangement - A table of arrangement data"
+        ],
+        "returns": [],
+        "signature": "ArrangeDesktop:arrange(arrangement)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "ArrangeDesktop:createArrangement()",
+        "desc": "Creates the desktop arrangement and saves it to the configuration file.",
+        "doc": "Creates the desktop arrangement and saves it to the configuration file.\n\nParameters:\n * None",
+        "examples": [],
+        "file": "Source/ArrangeDesktop.spoon//init.lua",
+        "lineno": "186",
+        "name": "createArrangement",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
+        "signature": "ArrangeDesktop:createArrangement()",
         "stripped_doc": "",
         "type": "Method"
       }
@@ -50,8 +144,21 @@
         "def": "ArrangeDesktop.arrangements",
         "desc": "Contains the configured desktop arrangements",
         "doc": "Contains the configured desktop arrangements",
+        "file": "Source/ArrangeDesktop.spoon//init.lua",
+        "lineno": "21",
         "name": "arrangements",
         "signature": "ArrangeDesktop.arrangements",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "ArrangeDesktop.configFile",
+        "desc": "Defines where the config file is stored. Defaults to hs.spoons.scriptPath()/config.json",
+        "doc": "Defines where the config file is stored. Defaults to hs.spoons.scriptPath()/config.json",
+        "file": "Source/ArrangeDesktop.spoon//init.lua",
+        "lineno": "26",
+        "name": "configFile",
+        "signature": "ArrangeDesktop.configFile",
         "stripped_doc": "",
         "type": "Variable"
       },
@@ -59,40 +166,127 @@
         "def": "ArrangeDesktop.logger",
         "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "file": "Source/ArrangeDesktop.spoon//init.lua",
+        "lineno": "16",
         "name": "logger",
         "signature": "ArrangeDesktop.logger",
         "stripped_doc": "",
         "type": "Variable"
       }
     ],
-    "desc": "Utilities for arranging your desktop how you like it.",
-    "doc": "Utilities for arranging your desktop how you like it.\n\nPositioning logic adapted from https://github.com/dploeger/hammerspoon-window-manager",
+    "desc": "Easily create, save, and use desktop arrangements.",
+    "doc": "Easily create, save, and use desktop arrangements.\n\nPositioning logic adapted from https://github.com/dploeger/hammerspoon-window-manager",
     "items": [
       {
-        "def": "ArrangeDesktop:addMenuItems",
-        "desc": "Add menu items to a table for each configured desktop arrangment.",
-        "doc": "Add menu items to a table for each configured desktop arrangment.\n\nParameters:\n* menuItems - table of menu items\n* arrangements - table of desktop arrangements\n\nReturns:\ntable of menu items",
-        "name": "addMenuItems",
+        "def": "ArrangeDesktop._buildArrangement() -> table",
+        "desc": "Builds the configuration for the current desktop arrangement.",
+        "doc": "Builds the configuration for the current desktop arrangement.\n\nParameters:\n * None\n\nReturns:\n * A table containing the configuration data for the current desktop arrangement",
+        "examples": [],
+        "file": "Source/ArrangeDesktop.spoon//init.lua",
+        "lineno": "72",
+        "name": "_buildArrangement",
+        "notes": [],
         "parameters": [
-          "* menuItems - table of menu items",
-          "* arrangements - table of desktop arrangements"
+          " * None"
         ],
         "returns": [
-          "table of menu items"
+          " * A table containing the configuration data for the current desktop arrangement"
         ],
-        "signature": "ArrangeDesktop:addMenuItems",
+        "signature": "ArrangeDesktop._buildArrangement() -> table",
+        "stripped_doc": "",
+        "type": "Function"
+      },
+      {
+        "def": "ArrangeDesktop._loadConfiguration() -> table or nil",
+        "desc": "Loads the configuration file.",
+        "doc": "Loads the configuration file.\n\nParameters:\n * None\n\nReturns:\n * A table containing the configured desktop arrangements, or nil if an error occurred",
+        "examples": [],
+        "file": "Source/ArrangeDesktop.spoon//init.lua",
+        "lineno": "31",
+        "name": "_loadConfiguration",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * A table containing the configured desktop arrangements, or nil if an error occurred"
+        ],
+        "signature": "ArrangeDesktop._loadConfiguration() -> table or nil",
+        "stripped_doc": "",
+        "type": "Function"
+      },
+      {
+        "def": "ArrangeDesktop._positionApp(app, appTitle, screen, frame)",
+        "desc": "Positions all windows for an application based on the given configuration.",
+        "doc": "Positions all windows for an application based on the given configuration.\n\nParameters:\n * app - A table of the application instance\n * appTitle - The name of the application, e.g., Slack, Firefox, etc.\n * screen - A table of the position of the screen (x, y integer pair) to place the application window into\n * frame - A table of the frame details for the application window, e.g., {w=12, h=12, x=12, y=12}",
+        "examples": [],
+        "file": "Source/ArrangeDesktop.spoon//init.lua",
+        "lineno": "113",
+        "name": "_positionApp",
+        "notes": [],
+        "parameters": [
+          " * app - A table of the application instance",
+          " * appTitle - The name of the application, e.g., Slack, Firefox, etc.",
+          " * screen - A table of the position of the screen (x, y integer pair) to place the application window into",
+          " * frame - A table of the frame details for the application window, e.g., {w=12, h=12, x=12, y=12}"
+        ],
+        "returns": [],
+        "signature": "ArrangeDesktop._positionApp(app, appTitle, screen, frame)",
+        "stripped_doc": "",
+        "type": "Function"
+      },
+      {
+        "def": "ArrangeDesktop._writeConfiguration(config) -> bool",
+        "desc": "Writes the configuration to a file.",
+        "doc": "Writes the configuration to a file.\n\nParameters:\n * config - A table containing the configuration to write\n\nReturns:\n * A boolean indicating if the write was successful",
+        "examples": [],
+        "file": "Source/ArrangeDesktop.spoon//init.lua",
+        "lineno": "59",
+        "name": "_writeConfiguration",
+        "notes": [],
+        "parameters": [
+          " * config - A table containing the configuration to write"
+        ],
+        "returns": [
+          " * A boolean indicating if the write was successful"
+        ],
+        "signature": "ArrangeDesktop._writeConfiguration(config) -> bool",
+        "stripped_doc": "",
+        "type": "Function"
+      },
+      {
+        "def": "ArrangeDesktop:addMenuItems(menuItems) -> table",
+        "desc": "Add menu items to a table for each configured desktop arrangement.",
+        "doc": "Add menu items to a table for each configured desktop arrangement.\n\nParameters:\n * menuItems - A table of menu items to append to\n\nReturns:\n * A table of menu items",
+        "examples": [],
+        "file": "Source/ArrangeDesktop.spoon//init.lua",
+        "lineno": "154",
+        "name": "addMenuItems",
+        "notes": [],
+        "parameters": [
+          " * menuItems - A table of menu items to append to"
+        ],
+        "returns": [
+          " * A table of menu items"
+        ],
+        "signature": "ArrangeDesktop:addMenuItems(menuItems) -> table",
         "stripped_doc": "",
         "type": "Method"
       },
       {
-        "def": "ArrangeDesktop:arrange",
+        "def": "ArrangeDesktop:arrange(arrangement)",
         "desc": "Arrange the desktop based on a given configuration",
-        "doc": "Arrange the desktop based on a given configuration\n\nParameters:\n* arrangement - table of arrangement data",
+        "doc": "Arrange the desktop based on a given configuration\n\nParameters:\n * arrangement - A table of arrangement data",
+        "examples": [],
+        "file": "Source/ArrangeDesktop.spoon//init.lua",
+        "lineno": "135",
         "name": "arrange",
+        "notes": [],
         "parameters": [
-          "* arrangement - table of arrangement data"
+          " * arrangement - A table of arrangement data"
         ],
-        "signature": "ArrangeDesktop:arrange",
+        "returns": [],
+        "signature": "ArrangeDesktop:arrange(arrangement)",
         "stripped_doc": "",
         "type": "Method"
       },
@@ -100,17 +294,38 @@
         "def": "ArrangeDesktop.arrangements",
         "desc": "Contains the configured desktop arrangements",
         "doc": "Contains the configured desktop arrangements",
+        "file": "Source/ArrangeDesktop.spoon//init.lua",
+        "lineno": "21",
         "name": "arrangements",
         "signature": "ArrangeDesktop.arrangements",
         "stripped_doc": "",
         "type": "Variable"
       },
       {
-        "def": "ArrangeDesktop:logCurrentArrangement()",
-        "desc": "Build up the configuration for the current desktop arrangement and log it to the Hammerspoon console.",
-        "doc": "Build up the configuration for the current desktop arrangement and log it to the Hammerspoon console.",
-        "name": "logCurrentArrangement",
-        "signature": "ArrangeDesktop:logCurrentArrangement()",
+        "def": "ArrangeDesktop.configFile",
+        "desc": "Defines where the config file is stored. Defaults to hs.spoons.scriptPath()/config.json",
+        "doc": "Defines where the config file is stored. Defaults to hs.spoons.scriptPath()/config.json",
+        "file": "Source/ArrangeDesktop.spoon//init.lua",
+        "lineno": "26",
+        "name": "configFile",
+        "signature": "ArrangeDesktop.configFile",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "ArrangeDesktop:createArrangement()",
+        "desc": "Creates the desktop arrangement and saves it to the configuration file.",
+        "doc": "Creates the desktop arrangement and saves it to the configuration file.\n\nParameters:\n * None",
+        "examples": [],
+        "file": "Source/ArrangeDesktop.spoon//init.lua",
+        "lineno": "186",
+        "name": "createArrangement",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
+        "signature": "ArrangeDesktop:createArrangement()",
         "stripped_doc": "",
         "type": "Method"
       },
@@ -118,6 +333,8 @@
         "def": "ArrangeDesktop.logger",
         "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "file": "Source/ArrangeDesktop.spoon//init.lua",
+        "lineno": "16",
         "name": "logger",
         "signature": "ArrangeDesktop.logger",
         "stripped_doc": "",

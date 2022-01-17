@@ -18,8 +18,9 @@
       <p>Show a fading-and-zooming image in the center of the screen</p>
 <p>By default the Hammerspoon logo is shown. Typical use is to show it as an indicator when your configuration finishes loading, by adding the following to the bottom of your <code>~/.hammerspoon/init.lua</code> file:</p>
 
-<pre><code>  hs.loadSpoon('FadeLogo'):start()</code></pre>
-<p>Which looks like this: <a href="http://imgur.com/a/TbZOl">http://imgur.com/a/TbZOl</a></p>
+<pre><code>  hs.loadSpoon('FadeLogo'):start()
+</code></pre>
+<p>Which looks like this: http://imgur.com/a/TbZOl</p>
 <p>Download: <a href="https://github.com/Hammerspoon/Spoons/raw/master/Spoons/FadeLogo.spoon.zip">https://github.com/Hammerspoon/Spoons/raw/master/Spoons/FadeLogo.spoon.zip</a></p>
 
       </header>
@@ -63,8 +64,11 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Number of seconds over which to fade in the image. Defaults to 0.3.</p>
-</td>
+                <td>Number of seconds over which to fade in the image. Defaults to 0.3.</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/FadeLogo.spoon/init.lua#L48">Source/FadeLogo.spoon/init.lua line 48</a></td>
               </tr>
             </table>
           </section>
@@ -82,8 +86,11 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Number of seconds over which to fade out the image. Defaults to 0.5.</p>
-</td>
+                <td>Number of seconds over which to fade out the image. Defaults to 0.5.</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/FadeLogo.spoon/init.lua#L53">Source/FadeLogo.spoon/init.lua line 53</a></td>
               </tr>
             </table>
           </section>
@@ -101,8 +108,11 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Image to display. Must be an <code>hs.image</code> object. Defaults to <code>hs.image.imageFromName(hs.image.systemImageNames.ApplicationIcon)</code> (the Hammerspoon app icon)</p>
-</td>
+                <td>Image to display. Must be an `hs.image` object. Defaults to `hs.image.imageFromName(hs.image.systemImageNames.ApplicationIcon)` (the Hammerspoon app icon)</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/FadeLogo.spoon/init.lua#L28">Source/FadeLogo.spoon/init.lua line 28</a></td>
               </tr>
             </table>
           </section>
@@ -120,8 +130,11 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Initial transparency of the image. Defaults to 1.0.</p>
-</td>
+                <td>Initial transparency of the image. Defaults to 1.0.</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/FadeLogo.spoon/init.lua#L38">Source/FadeLogo.spoon/init.lua line 38</a></td>
               </tr>
             </table>
           </section>
@@ -139,8 +152,11 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p><code>hs.geometry</code> object specifying the initial size of the image to display in the center of the screen. The image object will be resizes proportionally to fit in this size. Defaults to <code>hs.geometry.size(w=200, h=200)</code></p>
-</td>
+                <td>`hs.geometry` object specifying the initial size of the image to display in the center of the screen. The image object will be resizes proportionally to fit in this size. Defaults to `hs.geometry.size(w=200, h=200)`</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/FadeLogo.spoon/init.lua#L33">Source/FadeLogo.spoon/init.lua line 33</a></td>
               </tr>
             </table>
           </section>
@@ -158,8 +174,11 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.</p>
-</td>
+                <td>Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/FadeLogo.spoon/init.lua#L23">Source/FadeLogo.spoon/init.lua line 23</a></td>
               </tr>
             </table>
           </section>
@@ -177,8 +196,11 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Number of seconds to leave the image on the screen when <code>start()</code> is called.</p>
-</td>
+                <td>Number of seconds to leave the image on the screen when `start()` is called.</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/FadeLogo.spoon/init.lua#L58">Source/FadeLogo.spoon/init.lua line 58</a></td>
               </tr>
             </table>
           </section>
@@ -196,8 +218,11 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Do zoom-and-fade if <code>true</code>, otherwise do a regular fade</p>
-</td>
+                <td>Do zoom-and-fade if `true`, otherwise do a regular fade</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/FadeLogo.spoon/init.lua#L43">Source/FadeLogo.spoon/init.lua line 43</a></td>
               </tr>
             </table>
           </section>
@@ -215,8 +240,11 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Factor by which to scale the image at every iteration during the zoom-and-fade. Defaults to 1.1.</p>
-</td>
+                <td>Factor by which to scale the image at every iteration during the zoom-and-fade. Defaults to 1.1.</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/FadeLogo.spoon/init.lua#L63">Source/FadeLogo.spoon/init.lua line 63</a></td>
               </tr>
             </table>
           </section>
@@ -234,8 +262,11 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Seconds between the zooming iterations</p>
-</td>
+                <td>Seconds between the zooming iterations</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/FadeLogo.spoon/init.lua#L68">Source/FadeLogo.spoon/init.lua line 68</a></td>
               </tr>
             </table>
           </section>
@@ -254,12 +285,22 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Hide and delete the canvas</p>
-<p>Parameters:</p>
-<ul>
+                <td>Hide and delete the canvas</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>None</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/FadeLogo.spoon/init.lua#L78">Source/FadeLogo.spoon/init.lua line 78</a></td>
               </tr>
             </table>
           </section>
@@ -277,12 +318,22 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Hide the image without zoom, fading it out over <code>fade_out_time</code> seconds</p>
-<p>Parameters:</p>
-<ul>
+                <td>Hide the image without zoom, fading it out over `fade_out_time` seconds</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>None</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/FadeLogo.spoon/init.lua#L115">Source/FadeLogo.spoon/init.lua line 115</a></td>
               </tr>
             </table>
           </section>
@@ -300,12 +351,22 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Display the image, fading it in over <code>fade_in_time</code> seconds</p>
-<p>Parameters:</p>
-<ul>
+                <td>Display the image, fading it in over `fade_in_time` seconds</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>None</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/FadeLogo.spoon/init.lua#L90">Source/FadeLogo.spoon/init.lua line 90</a></td>
               </tr>
             </table>
           </section>
@@ -323,12 +384,22 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Show the image, wait <code>run_time</code> seconds, and then zoom-and-fade it out.</p>
-<p>Parameters:</p>
-<ul>
+                <td>Show the image, wait `run_time` seconds, and then zoom-and-fade it out.</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>None</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/FadeLogo.spoon/init.lua#L151">Source/FadeLogo.spoon/init.lua line 151</a></td>
               </tr>
             </table>
           </section>
@@ -346,12 +417,22 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Zoom-and-fade the image over <code>fade_out_time</code> seconds</p>
-<p>Parameters:</p>
-<ul>
+                <td>Zoom-and-fade the image over `fade_out_time` seconds</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>None</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/FadeLogo.spoon/init.lua#L125">Source/FadeLogo.spoon/init.lua line 125</a></td>
               </tr>
             </table>
           </section>

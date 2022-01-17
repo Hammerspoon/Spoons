@@ -55,8 +55,11 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Boolean to specify whether the indicators should be shown on all monitors or just the current one. Defaults to <code>true</code></p>
-</td>
+                <td>Boolean to specify whether the indicators should be shown on all monitors or just the current one. Defaults to `true`</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/MenubarFlag.spoon/init.lua#L22">Source/MenubarFlag.spoon/init.lua line 22</a></td>
               </tr>
             </table>
           </section>
@@ -74,22 +77,24 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Table that contains the configuration of indicator colors</p>
-<p>The table below indicates the colors to use for a given keyboard
-layout. The index is the name of the layout as it appears in the
-input source menu. The value of each indicator is a table made of
-an arbitrary number of segments, which will be distributed evenly
-across the width of the screen. Each segment must be a valid
-<code>hs.drawing.color</code> specification (most commonly, you should just
-use the named colors from within the tables). If a layout is not
-found, then the indicators are removed when that layout is active.</p>
-<p>Indicator specs can be static flag-like:</p>
+                <td>Table that contains the configuration of indicator colors</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>The table below indicates the colors to use for a given keyboard layout.</li>
+<li>The index is the name of the layout as it appears in the input source menu.</li>
+<li>The value of each indicator is a table made of an arbitrary number of segments, which will be distributed evenly across the width of the screen.</li>
+<li>Each segment must be a valid <code>hs.drawing.color</code> specification (most commonly, you should just use the named colors from within the tables). If a layout is not found, then the indicators are removed when that layout is active.</li>
+<li>Indicator specs can be static flag-like:</li>
+</ul>
 
 <pre><code>  Spanish = {col.green, col.white, col.red},
-  German = {col.black, col.red, col.yellow},</code></pre>
+  German = {col.black, col.red, col.yellow},
+</code></pre>
 <p>or complex, programmatically-generated:</p>
 
-<pre><code>["U.S."] = (
+<pre><code>[&quot;U.S.&quot;] = (
    function() res={}
       for i = 0,10,1 do
          table.insert(res, col.blue)
@@ -97,13 +102,21 @@ found, then the indicators are removed when that layout is active.</p>
          table.insert(res, col.red)
       end
       return res
-   end)()</code></pre>
+   end)()
+</code></pre>
 <p>or solid colors:</p>
 
 <pre><code>  Spanish = {col.red},
-  German = {col.yellow},</code></pre>
-<p>Contributions of indicator specs are welcome!</p>
+  German = {col.yellow},
+</code></pre>
+<ul>
+<li>Contributions of indicator specs are welcome!</li>
+</ul>
 </td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/MenubarFlag.spoon/init.lua#L42">Source/MenubarFlag.spoon/init.lua line 42</a></td>
               </tr>
             </table>
           </section>
@@ -121,8 +134,11 @@ found, then the indicators are removed when that layout is active.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Number to specify the indicator transparency (0.0 - invisible; 1.0 - fully opaque). Defaults to 0.3</p>
-</td>
+                <td>Number to specify the indicator transparency (0.0 - invisible; 1.0 - fully opaque). Defaults to 0.3</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/MenubarFlag.spoon/init.lua#L32">Source/MenubarFlag.spoon/init.lua line 32</a></td>
               </tr>
             </table>
           </section>
@@ -140,8 +156,11 @@ found, then the indicators are removed when that layout is active.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Number to specify the height of the indicator. Specify 0.0-1.0 to specify a percentage of the height of the menu bar, larger values indicate a fixed height in pixels. Defaults to 1.0</p>
-</td>
+                <td>Number to specify the height of the indicator. Specify 0.0-1.0 to specify a percentage of the height of the menu bar, larger values indicate a fixed height in pixels. Defaults to 1.0</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/MenubarFlag.spoon/init.lua#L27">Source/MenubarFlag.spoon/init.lua line 27</a></td>
               </tr>
             </table>
           </section>
@@ -159,8 +178,11 @@ found, then the indicators are removed when that layout is active.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Boolean to specify whether the indicator should be shown in all spaces (this includes full-screen mode). Defaults to <code>true</code></p>
-</td>
+                <td>Boolean to specify whether the indicator should be shown in all spaces (this includes full-screen mode). Defaults to `true`</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/MenubarFlag.spoon/init.lua#L37">Source/MenubarFlag.spoon/init.lua line 37</a></td>
               </tr>
             </table>
           </section>
@@ -178,12 +200,19 @@ found, then the indicators are removed when that layout is active.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Number to indicate how frequently (in seconds) should the menubar indicator be updated. Defaults to 1.0.</p>
-<p>Sometimes Hammerspoon misses the callback when the keyboard layout
-changes. As a workaround, MenuBarFlag can automatically update the
-indicator at a fixed frequency. The timer can be disabled by
-setting this parameter to 0.</p>
+                <td>Number to indicate how frequently (in seconds) should the menubar indicator be updated. Defaults to 1.0.</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>Sometimes Hammerspoon misses the callback when the keyboard layout changes. As a workaround, MenuBarFlag can automatically update the indicator at a fixed frequency.</li>
+<li>The timer can be disabled by setting this parameter to 0.</li>
+</ul>
 </td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/MenubarFlag.spoon/init.lua#L80">Source/MenubarFlag.spoon/init.lua line 80</a></td>
               </tr>
             </table>
           </section>
@@ -202,16 +231,25 @@ setting this parameter to 0.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Draw the indicators corresponding to the given layout name</p>
-<p>Parameters:</p>
-<ul>
+                <td>Draw the indicators corresponding to the given layout name</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>src - name of the layout to draw. If the given element exists in <code>MenubarFlag.colors</code>, it will be drawn. If it does not exist, then the indicators will be removed from the screen.</li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li>The MenubarFlag object</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/MenubarFlag.spoon/init.lua#L118">Source/MenubarFlag.spoon/init.lua line 118</a></td>
               </tr>
             </table>
           </section>
@@ -221,7 +259,7 @@ setting this parameter to 0.</p>
             <table>
               <tr>
                 <th>Signature</th>
-                <td><code>MenubarFlag:getLayoutAndDrawindicators</code></td>
+                <td><code>MenubarFlag:getLayoutAndDrawindicators()</code></td>
               </tr>
               <tr>
                 <th>Type</th>
@@ -229,16 +267,25 @@ setting this parameter to 0.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Draw indicators for the current keyboard method or layout</p>
-<p>Parameters:</p>
-<ul>
+                <td>Draw indicators for the current keyboard method or layout</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>None</li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li>The MenubarFlag object</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/MenubarFlag.spoon/init.lua#L175">Source/MenubarFlag.spoon/init.lua line 175</a></td>
               </tr>
             </table>
           </section>
@@ -256,12 +303,22 @@ setting this parameter to 0.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Start the keyboard layout watcher to draw the menubar indicators.</p>
-<p>Parameters:</p>
-<ul>
+                <td>Start the keyboard layout watcher to draw the menubar indicators.</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>None</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/MenubarFlag.spoon/init.lua#L188">Source/MenubarFlag.spoon/init.lua line 188</a></td>
               </tr>
             </table>
           </section>
@@ -279,12 +336,22 @@ setting this parameter to 0.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Remove indicators and stop the keyboard layout watcher</p>
-<p>Parameters:</p>
-<ul>
+                <td>Remove indicators and stop the keyboard layout watcher</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>None</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/MenubarFlag.spoon/init.lua#L208">Source/MenubarFlag.spoon/init.lua line 208</a></td>
               </tr>
             </table>
           </section>

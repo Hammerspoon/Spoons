@@ -48,11 +48,19 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Length of the animation to use for the window movements across the
-screens. <code>nil</code> means to use the existing value from
-<code>hs.window.animationDuration</code>. 0 means to disable the
-animations. Default: <code>nil</code>.</p>
+                <td>Length of the animation to use for the window movements across the screens.</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li><code>nil</code> means to use the existing value from <code>hs.window.animationDuration</code>. 0 means to disable the animations.</li>
+<li>Default: <code>nil</code>.</li>
+</ul>
 </td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/WindowScreenLeftAndRight.spoon/init.lua#L40">Source/WindowScreenLeftAndRight.spoon/init.lua line 40</a></td>
               </tr>
             </table>
           </section>
@@ -70,17 +78,25 @@ animations. Default: <code>nil</code>.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Table containing a sample set of hotkeys that can be
-assigned to the different operations. These are not bound
-by default - if you want to use them you have to call:
-<code>spoon.WindowScreenLeftAndRight:bindHotkeys(spoon.WindowScreenLeftAndRight.defaultHotkeys)</code>
-after loading the spoon. Value:</p>
+                <td>Table containing a sample set of hotkeys that can be assigned to the different operations.</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>These are not bound by default - if you want to use them you have to call: <code>spoon.WindowScreenLeftAndRight:bindHotkeys(spoon.WindowScreenLeftAndRight.defaultHotkeys)</code> after loading the spoon.</li>
+<li>Value:</li>
+</ul>
 
 <pre><code> {
-    screen_left = { {"ctrl", "alt", "cmd"}, "Left" },
-    screen_right= { {"ctrl", "alt", "cmd"}, "Right" },
- }</code></pre>
+    screen_left = { {&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;}, &quot;Left&quot; },
+    screen_right= { {&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;}, &quot;Right&quot; },
+ }
+</code></pre>
 </td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/WindowScreenLeftAndRight.spoon/init.lua#L22">Source/WindowScreenLeftAndRight.spoon/init.lua line 22</a></td>
               </tr>
             </table>
           </section>
@@ -98,8 +114,11 @@ after loading the spoon. Value:</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.</p>
-</td>
+                <td>Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/WindowScreenLeftAndRight.spoon/init.lua#L17">Source/WindowScreenLeftAndRight.spoon/init.lua line 17</a></td>
               </tr>
             </table>
           </section>
@@ -118,15 +137,25 @@ after loading the spoon. Value:</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Binds hotkeys for WindowScreenLeftAndRight</p>
-<p>Parameters:</p>
-<ul>
+                <td>Binds hotkeys for WindowScreenLeftAndRight</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>mapping - A table containing hotkey objifier/key details for the following items:<ul>
 <li>screen_left, screen_right - move the window to the left/right screen (if you have more than one monitor connected, does nothing otherwise)</li>
 </ul>
 </li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/WindowScreenLeftAndRight.spoon/init.lua#L88">Source/WindowScreenLeftAndRight.spoon/init.lua line 88</a></td>
               </tr>
             </table>
           </section>

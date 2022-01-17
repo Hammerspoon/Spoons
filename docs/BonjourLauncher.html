@@ -63,9 +63,18 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Set whether the BonjourLauncher chooser window should apoear dark themed, aqua themed (light) or track the current system settings for Dark mode. Defaults to nil.</p>
-<p>This should be a boolean specifying whether the BonjourLauncher chooser window should appear in dark mode (true) or not (false). If set to <code>nil</code>, the chooser will track the current system settings for Dark mode.</p>
+                <td>Set whether the BonjourLauncher chooser window should apoear dark themed, aqua themed (light) or track the current system settings for Dark mode. Defaults to nil.</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>This should be a boolean specifying whether the BonjourLauncher chooser window should appear in dark mode (true) or not (false). If set to <code>nil</code>, the chooser will track the current system settings for Dark mode.</li>
+</ul>
 </td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/BonjourLauncher.spoon/init.lua#L550">Source/BonjourLauncher.spoon/init.lua line 550</a></td>
               </tr>
             </table>
           </section>
@@ -83,9 +92,18 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Whether or not to display a toolbar at the top of the BonjourLauncher chooser window. Defaults to true.</p>
-<p>This boolean variable determines if the toolbar which allows changing the currently visible service type is displayed when the BonjourLauncher chooser window is presented. If you set this to <code>false</code> then you will only be able to change the currently visible services with the <a href="#show">BonjourLauncher:show(serviceType)</a> and <a href="#toggle">BonjourLauncher:toggle(serviceType)</a> methods.</p>
+                <td>Whether or not to display a toolbar at the top of the BonjourLauncher chooser window. Defaults to true.</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>This boolean variable determines if the toolbar which allows changing the currently visible service type is displayed when the BonjourLauncher chooser window is presented. If you set this to <code>false</code> then you will only be able to change the currently visible services with the <a href="#show">BonjourLauncher:show(serviceType)</a> and <a href="#toggle">BonjourLauncher:toggle(serviceType)</a> methods.</li>
+</ul>
 </td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/BonjourLauncher.spoon/init.lua#L508">Source/BonjourLauncher.spoon/init.lua line 508</a></td>
               </tr>
             </table>
           </section>
@@ -103,9 +121,18 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>The number of rows to display when the chooser is visible. Defaults to 10.</p>
-<p>Set this variable to an integer to specify the number of rows of choices to display when the BonjourLauncher chooser window is visible. Set it to <code>nil</code> to revert to the default.</p>
+                <td>The number of rows to display when the chooser is visible. Defaults to 10.</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>Set this variable to an integer to specify the number of rows of choices to display when the BonjourLauncher chooser window is visible. Set it to <code>nil</code> to revert to the default.</li>
+</ul>
 </td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/BonjourLauncher.spoon/init.lua#L516">Source/BonjourLauncher.spoon/init.lua line 516</a></td>
               </tr>
             </table>
           </section>
@@ -123,10 +150,19 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Sets the color of the subText for each service listed in the BonjourLauncher chooser window. Defaults to nil.</p>
-<p>This should be a table representing a color as defined by the <code>hs.drawing.color</code> module documentation, or nil to revert to the <code>hs.chooser</code> module default.</p>
-<p>You can override this on a per template basis by including the <code>subTextColor</code> field in the service type definition. See <a href="#templates">BonjourLauncher.templates</a>.</p>
+                <td>Sets the color of the subText for each service listed in the BonjourLauncher chooser window. Defaults to nil.</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>This should be a table representing a color as defined by the <code>hs.drawing.color</code> module documentation, or nil to revert to the <code>hs.chooser</code> module default.</li>
+<li>You can override this on a per template basis by including the <code>subTextColor</code> field in the service type definition. See <a href="#templates">BonjourLauncher.templates</a>.</li>
+</ul>
 </td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/BonjourLauncher.spoon/init.lua#L541">Source/BonjourLauncher.spoon/init.lua line 541</a></td>
               </tr>
             </table>
           </section>
@@ -144,51 +180,38 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>A table specifying the service types which the BonjourLauncher looks for on your network and defines how to display and launch discovered services.</p>
-<p>Notes:</p>
-<ul>
-<li><p>This table should be an array of tables, with each table in the array specifying a service type.</p>
-</li>
-<li><p>Changes to this variable will be reflected the next time the BonjourLauncher chooser window is shown -- if it is currently visible when changes are made, the new changes will <em>NOT</em> be reflected in the currently open chooser.</p>
-</li>
-<li><p>Each service type table entry should contain one or more of the following keys:</p>
-<ul>
+                <td>A table specifying the service types which the BonjourLauncher looks for on your network and defines how to display and launch discovered services.</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>This table should be an array of tables, with each table in the array specifying a service type.</li>
+<li>Changes to this variable will be reflected the next time the BonjourLauncher chooser window is shown -- if it is currently visible when changes are made, the new changes will <em>NOT</em> be reflected in the currently open chooser.</li>
+<li>Each service type table entry should contain one or more of the following keys:<ul>
 <li><code>type</code>         - a required string specifying the type of advertisement to search for with this entry. Example service types can be seen in <code>hs.bonjour.serviceTypes</code>.</li>
 <li><code>label</code>        - an optional string, defaulting to the value for <code>type</code>, specifying the label for the toolbar item under which these advertised services are collected in the BonjourLauncher chooser window. May or may not be displayed if you have customized the toolbar's visual properties. Note that this field is used for internally identifying different template views, so it must be unique among the template entries where <code>disabled</code> is false or undefined.</li>
-<li><p><code>image</code>        - an optional <code>hs.image</code> object specifying the image to display for the toolbar item under which these advertised services are collected in the BonjourLauncher chooser window. May or may not be displayed if you have customized the toolbar's visual properties.</p>
-</li>
-<li><p><code>text</code>         - an optional string, defaulting to "%name%", specifying the text to be displayed for each advertised service listed in this collection in the BonjourLauncher chooser window.</p>
-</li>
+<li><code>image</code>        - an optional <code>hs.image</code> object specifying the image to display for the toolbar item under which these advertised services are collected in the BonjourLauncher chooser window. May or may not be displayed if you have customized the toolbar's visual properties.</li>
+<li><code>text</code>         - an optional string, defaulting to &quot;%name%&quot;, specifying the text to be displayed for each advertised service listed in this collection in the BonjourLauncher chooser window.</li>
 <li><code>subText</code>      - an optional string, specifying the sub-text to be displayed for each advertised service listed in this collection in the BonjourLauncher chooser window.</li>
-<li><p><code>filter</code>       - an optional function which can be used to filter out advertised services which you do not wish to include in the chooser window. The function should expect two parameters, the <code>hs.bonjour.service</code> object for the discovered service and a table containing all of the key-value pairs of the service template with values expanded to describe what is known about this specific service. The filter function should return <code>true</code> if the service is to be included or <code>false</code> if the service is to be omitted.</p>
-</li>
-<li><p><code>fn</code>           - The function to invoke. This function should expect two arguments, the <code>hs.bonjour.service</code> object for the selected service and a table containing all of the key-value pairs of the service template with values expanded to describe what is known about this specific service. Any return value for the function is ignored. If this is present, <code>url</code> and <code>cmd</code> will be ignored by the default handler, though they may be accessed through the second argument to the function.</p>
-</li>
+<li><code>filter</code>       - an optional function which can be used to filter out advertised services which you do not wish to include in the chooser window. The function should expect two parameters, the <code>hs.bonjour.service</code> object for the discovered service and a table containing all of the key-value pairs of the service template with values expanded to describe what is known about this specific service. The filter function should return <code>true</code> if the service is to be included or <code>false</code> if the service is to be omitted.</li>
+<li><code>fn</code>           - The function to invoke. This function should expect two arguments, the <code>hs.bonjour.service</code> object for the selected service and a table containing all of the key-value pairs of the service template with values expanded to describe what is known about this specific service. Any return value for the function is ignored. If this is present, <code>url</code> and <code>cmd</code> will be ignored by the default handler, though they may be accessed through the second argument to the function.</li>
 <li><code>url</code>          - The url to open with <code>hs.urlevent.openURL</code>. If this is present, <code>cmd</code> is ignored.</li>
-<li><p><code>cmd</code>          - The command to execute with <code>hs.execute</code>.</p>
-</li>
-<li><p><code>hidden</code>       - an optional boolean, default false, that can be used to specify that the service list should not be displayed in the toolbar by default. You can still access these service types by specifying them as arguments to the <a href="#show">BonjourLauncher:show</a> or <a href="#toggle">BonjourLauncher:toggle</a> methods, or by creating a psuedo-key for the service type with <a href="#bindHotkeys">BonjourLauncher:bindHotkeys</a>. If the user customizes the toolbar by right-clicking on it, they can add this service to the toolbar, but it won't be in the default list.</p>
-</li>
-<li><p><code>disabled</code>      - an optional boolean, default false, specifying that this service should be skipped entirely is not available for viewing by any means.</p>
-</li>
-<li><p><code>textColor</code>    - an optional color table as defined in the <code>hs.drawing.color</code> module documentation to be used for the text displayed for each discovered service when this template is being displayed in the BonjourLauncher chooser. If not present, the color specified for <a href="#textColor">BonjourLauncher.textColor</a> will be used.</p>
-</li>
-<li><p><code>subTextColor</code> - an optional color table as defined in the <code>hs.drawing.color</code> module documentation to be used for the sub-text displayed for each discovered service when this template is being displayed in the BonjourLauncher chooser. If not present, the color specified for <a href="#subTextColor">BonjourLauncher.subTextColor</a> will be used.</p>
-</li>
-<li><p>Additional key-value pairs do not have special meaning for this spoon but kay-value pairs with a string for the value will be included in the second argument passwd to <code>fn</code>, if present.</p>
-</li>
+<li><code>cmd</code>          - The command to execute with <code>hs.execute</code>.</li>
+<li><code>hidden</code>       - an optional boolean, default false, that can be used to specify that the service list should not be displayed in the toolbar by default. You can still access these service types by specifying them as arguments to the <a href="#show">BonjourLauncher:show</a> or <a href="#toggle">BonjourLauncher:toggle</a> methods, or by creating a psuedo-key for the service type with <a href="#bindHotkeys">BonjourLauncher:bindHotkeys</a>. If the user customizes the toolbar by right-clicking on it, they can add this service to the toolbar, but it won't be in the default list.</li>
+<li><code>disabled</code>      - an optional boolean, default false, specifying that this service should be skipped entirely is not available for viewing by any means.</li>
+<li><code>textColor</code>    - an optional color table as defined in the <code>hs.drawing.color</code> module documentation to be used for the text displayed for each discovered service when this template is being displayed in the BonjourLauncher chooser. If not present, the color specified for <a href="#textColor">BonjourLauncher.textColor</a> will be used.</li>
+<li><code>subTextColor</code> - an optional color table as defined in the <code>hs.drawing.color</code> module documentation to be used for the sub-text displayed for each discovered service when this template is being displayed in the BonjourLauncher chooser. If not present, the color specified for <a href="#subTextColor">BonjourLauncher.subTextColor</a> will be used.</li>
+<li>Additional key-value pairs do not have special meaning for this spoon but kay-value pairs with a string for the value will be included in the second argument passwd to <code>fn</code>, if present.</li>
 </ul>
 </li>
-<li><p>Note that only <code>type</code> and one of <code>url</code>, <code>cmd</code>, or <code>fn</code> must be provided -- everything else is optional.</p>
-</li>
-<li><p>For all keys, except for <code>type</code> and <code>label</code>, in the template definition which have string values, the following substring patterns will be matched and replaced as described below:</p>
-<ul>
+<li>Note that only <code>type</code> and one of <code>url</code>, <code>cmd</code>, or <code>fn</code> must be provided -- everything else is optional.</li>
+<li>For all keys, except for <code>type</code> and <code>label</code>, in the template definition which have string values, the following substring patterns will be matched and replaced as described below:<ul>
 <li><code>%address%</code>   - Will be replaced with the first address discovered for the service when it is resolved.<ul>
-<li><code>%address4%</code> - Variant of <code>%address%</code> which is replaced with the first IPv4 address or "n/a" if one cannot be found or has not been discovered yet.</li>
-<li><code>%address6%</code> - Variant of <code>%address%</code> which is replaced with the first IPv6 address or "n/a" if one cannot be found or has not been discovered yet.</li>
+<li><code>%address4%</code> - Variant of <code>%address%</code> which is replaced with the first IPv4 address or &quot;n/a&quot; if one cannot be found or has not been discovered yet.</li>
+<li><code>%address6%</code> - Variant of <code>%address%</code> which is replaced with the first IPv6 address or &quot;n/a&quot; if one cannot be found or has not been discovered yet.</li>
 </ul>
 </li>
-<li><code>%domain%</code>    - Will be replaced with the domain the service was found in, usually "local."</li>
+<li><code>%domain%</code>    - Will be replaced with the domain the service was found in, usually &quot;local.&quot;</li>
 <li><code>%hostname%</code>  - Will be replaced with the hostname on which the service is being offered</li>
 <li><code>%name%</code>      - Will be replaced with the name of the advertised service.</li>
 <li><code>%port%</code>      - Will be replaced with the port number on the machine that the service is provided on.</li>
@@ -197,6 +220,10 @@
 </li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/BonjourLauncher.spoon/init.lua#L429">Source/BonjourLauncher.spoon/init.lua line 429</a></td>
               </tr>
             </table>
           </section>
@@ -214,10 +241,19 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Sets the color of the primary text for each service listed in the BonjourLauncher chooser window. Defaults to nil.</p>
-<p>This should be a table representing a color as defined by the <code>hs.drawing.color</code> module documentation, or nil to revert to the <code>hs.chooser</code> module default.</p>
-<p>You can override this on a per template basis by including the <code>textColor</code> field in the service type definition. See <a href="#templates">BonjourLauncher.templates</a>.</p>
+                <td>Sets the color of the primary text for each service listed in the BonjourLauncher chooser window. Defaults to nil.</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>This should be a table representing a color as defined by the <code>hs.drawing.color</code> module documentation, or nil to revert to the <code>hs.chooser</code> module default.</li>
+<li>You can override this on a per template basis by including the <code>textColor</code> field in the service type definition. See <a href="#templates">BonjourLauncher.templates</a>.</li>
+</ul>
 </td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/BonjourLauncher.spoon/init.lua#L532">Source/BonjourLauncher.spoon/init.lua line 532</a></td>
               </tr>
             </table>
           </section>
@@ -235,9 +271,18 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>The width of the BonjourLauncher chooser window as a percentage of the screen size. Defaults to 40.</p>
-<p>Set this variable to a numeric value between 1 and 100 to specify the percentage of screen the screen's width the BonjourLauncher window should occupy when visible. Set it to <code>nil</code> to revert to the default.</p>
+                <td>The width of the BonjourLauncher chooser window as a percentage of the screen size. Defaults to 40.</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>Set this variable to a numeric value between 1 and 100 to specify the percentage of screen the screen's width the BonjourLauncher window should occupy when visible. Set it to <code>nil</code> to revert to the default.</li>
+</ul>
 </td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/BonjourLauncher.spoon/init.lua#L524">Source/BonjourLauncher.spoon/init.lua line 524</a></td>
               </tr>
             </table>
           </section>
@@ -256,20 +301,32 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Add predefined recipes to <a href="#templates">BonjourLauncher.templates</a> for display by the BonjourLauncher chooser.</p>
-<p>Parameters:</p>
-<ul>
+                <td>Add predefined recipes to [BonjourLauncher.templates](#templates) for display by the BonjourLauncher chooser.</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li><code>recipe</code>, ... - One or more string values matching a variable name in <code>BonjourLauncher.recipes</code> which define basic templates for common services which you may wish to add to your BonjourLauncer chooser window.</li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li>the BonjourLauncer object</li>
 </ul>
-<p>Notes:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
 <li>This method is basically a wrapper which performs <code>table.insert(spoon.BonjourLauncher.templates, spoon.BonjourLauncher.recipes.*recipe*)</code> for each of the recipe names specified as a parameter to this method. You may invoke this method multiple times or combine multiple recipes into one invocation by specifying more thane one string, each separated by a comma.</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/BonjourLauncher.spoon/init.lua#L791">Source/BonjourLauncher.spoon/init.lua line 791</a></td>
               </tr>
             </table>
           </section>
@@ -287,43 +344,52 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Binds hotkeys for the BonjourLauncher spoon</p>
-<p>Parameters:</p>
-<ul>
+                <td>Binds hotkeys for the BonjourLauncher spoon</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li><code>mapping</code> - A table containing hotkey modifier/key details for one or more of the following commands:<ul>
-<li>"show"   - Show the BonjourLauncher chooser window</li>
-<li>"hide"   - Hide the BonjourLauncher chooser window</li>
-<li>"toggle" - Toggles the visibility of the BonjourLauncher window</li>
+<li>&quot;show&quot;   - Show the BonjourLauncher chooser window</li>
+<li>&quot;hide&quot;   - Hide the BonjourLauncher chooser window</li>
+<li>&quot;toggle&quot; - Toggles the visibility of the BonjourLauncher window</li>
 </ul>
 </li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li>the BonjourLauncher spoon object</li>
 </ul>
-<p>Notes:</p>
-<ul>
-<li><p>the <code>mapping</code> table is a table of one or more key-value pairs of the format <code>command = { { modifiers }, key }</code> where:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>the <code>mapping</code> table is a table of one or more key-value pairs of the format <code>command = { { modifiers }, key }</code> where:<ul>
 <li><code>command</code>   - is one of the commands listed above</li>
 <li><code>modifiers</code> - is a table containing keyboard modifiers, as specified in <code>hs.hotkey.bind()</code></li>
 <li><code>key</code>       - is a string containing the name of a keyboard key, as specified in <code>hs.hotkey.bind()</code></li>
 </ul>
 </li>
-<li><p>Psuedo keys for <code>show</code> and <code>toggle</code> are also supported which can be used to generate hotkeys which will take you to a specific list of services when the BonjourLauncher chooser is displayed. The format of these psuedo keys is <code>&lt;function&gt;_&lt;label&gt;</code> where <code>&lt;label&gt;</code> matches the <code>label</code> field of a specific entry in <a href="#templates">BonjourLauncher.templates</a>; for example:</p>
-
-<pre><code> BonjourLauncher:bindHotkeys({
-     -- create a general toggle hotkey
-     toggle     = { { "cmd", "ctrl", "alt"}, "=" },
-     -- create a hotkey which will open the chooser to the SSH display, or
-     -- change to it if another service type is currently being viewed. If the
-     -- SSH display is currently being viewed, closes the chooser window (i.e.
-     -- "toggle")
-     toggle_SSH = { { "cmd", "ctrl", "alt" }, "s" }
- })</code></pre>
-</li>
+<li>Psuedo keys for <code>show</code> and <code>toggle</code> are also supported which can be used to generate hotkeys which will take you to a specific list of services when the BonjourLauncher chooser is displayed. The format of these psuedo keys is <code>&lt;function&gt;_&lt;label&gt;</code> where <code>&lt;label&gt;</code> matches the <code>label</code> field of a specific entry in <a href="#templates">BonjourLauncher.templates</a>; for example:
+     BonjourLauncher:bindHotkeys({
+         -- create a general toggle hotkey
+         toggle     = { { &quot;cmd&quot;, &quot;ctrl&quot;, &quot;alt&quot;}, &quot;=&quot; },
+         -- create a hotkey which will open the chooser to the SSH display, or
+         -- change to it if another service type is currently being viewed. If the
+         -- SSH display is currently being viewed, closes the chooser window (i.e.
+         -- &quot;toggle&quot;)
+         toggle_SSH = { { &quot;cmd&quot;, &quot;ctrl&quot;, &quot;alt&quot; }, &quot;s&quot; }
+     })</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/BonjourLauncher.spoon/init.lua#L739">Source/BonjourLauncher.spoon/init.lua line 739</a></td>
               </tr>
             </table>
           </section>
@@ -341,16 +407,25 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Hides the BonjourLauncher chooser window and clears any active service queries.</p>
-<p>Parameters:</p>
-<ul>
+                <td>Hides the BonjourLauncher chooser window and clears any active service queries.</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>None</li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li>the BonjourLauncher spoon object</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/BonjourLauncher.spoon/init.lua#L673">Source/BonjourLauncher.spoon/init.lua line 673</a></td>
               </tr>
             </table>
           </section>
@@ -368,23 +443,33 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Shows the BonjourLauncher chooser window and begins queries for the currently selected service type.</p>
-<p>Parameters:</p>
-<ul>
+                <td>Shows the BonjourLauncher chooser window and begins queries for the currently selected service type.</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li><code>label</code> - an optional string specifying the <code>label</code> field of a template defined in <a href="#templates">BonjourLauncher.templates</a> for a specific service type to show in the chooser window. Defaults to the last selected service type previously viewed or the first one defined in <a href="#templates">BonjourLauncher.templates</a> if this is the first invocation.</li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li>the BonjourLauncher spoon object</li>
 </ul>
-<p>Notes:</p>
-<ul>
-<li><p>Automatically invokes <a href="#start">BonjourLauncher:start()</a> if this has not already been done.</p>
-</li>
-<li><p>Service queries are grouped by type and the currently visible items can be changed by clicking on the type icon or label in the chooser toolbar if <a href="#displayToolbar">BonjourLauncher.displayToolbar</a> is true.</p>
-</li>
+</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>Automatically invokes <a href="#start">BonjourLauncher:start()</a> if this has not already been done.</li>
+<li>Service queries are grouped by type and the currently visible items can be changed by clicking on the type icon or label in the chooser toolbar if <a href="#displayToolbar">BonjourLauncher.displayToolbar</a> is true.</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/BonjourLauncher.spoon/init.lua#L628">Source/BonjourLauncher.spoon/init.lua line 628</a></td>
               </tr>
             </table>
           </section>
@@ -402,20 +487,32 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Readys the chooser interface for the BonjourLauncher spoon</p>
-<p>Parameters:</p>
-<ul>
+                <td>Readys the chooser interface for the BonjourLauncher spoon</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>None</li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li>the BonjourLauncher spoon object</li>
 </ul>
-<p>Notes:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
 <li>This method is included to conform to the expected Spoon format; it will automatically be invoked by <a href="#show">BonjourLauncher:show</a> if necessary.</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/BonjourLauncher.spoon/init.lua#L567">Source/BonjourLauncher.spoon/init.lua line 567</a></td>
               </tr>
             </table>
           </section>
@@ -433,20 +530,32 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Removes the chooser interface for the NonjourLauncher spoon and any lingering service queries</p>
-<p>Parameters:</p>
-<ul>
+                <td>Removes the chooser interface for the NonjourLauncher spoon and any lingering service queries</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>None</li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li>the BonjourLauncher spoon object</li>
 </ul>
-<p>Notes:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
 <li>This method is included to conform to the expected Spoon format; in general, it should be unnecessary to invoke this method directly as service queries are cleared any time an item is selected from the chooser window or the window closes.</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/BonjourLauncher.spoon/init.lua#L598">Source/BonjourLauncher.spoon/init.lua line 598</a></td>
               </tr>
             </table>
           </section>
@@ -464,20 +573,25 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Toggles the visibility of the BonjourLauncher chooser window.</p>
-<p>Parameters:</p>
-<ul>
+                <td>Toggles the visibility of the BonjourLauncher chooser window.</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li><code>label</code> - an optional string specifying the <code>label</code> field of a template defined in <a href="#templates">BonjourLauncher.templates</a> for a specific service type to show or switch to in the chooser window, if the window is already open and the label of the service type currently on display differs.</li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li>the BonjourLauncher spoon object</li>
 </ul>
-<p>Notes::</p>
-<ul>
-<li>If the chooser window is currently visible, this method will invoke <a href="#hide">BonjourLauncher:hide</a>; otherwise invokes <a href="#show">BonjourLauncher:show</a>.</li>
-</ul>
 </td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/BonjourLauncher.spoon/init.lua#L694">Source/BonjourLauncher.spoon/init.lua line 694</a></td>
               </tr>
             </table>
           </section>

@@ -52,9 +52,18 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Boolean value indicating if music should be automatically resumed when headphones are plugged in again. Only works if music was automatically paused when headphones were unplugged.</p>
-<p>Default value: <code>true</code></p>
+                <td>Boolean value indicating if music should be automatically resumed when headphones are plugged in again. Only works if music was automatically paused when headphones were unplugged.</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>Default value: <code>true</code></li>
+</ul>
 </td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/HeadphoneAutoPause.spoon/init.lua#L43">Source/HeadphoneAutoPause.spoon/init.lua line 43</a></td>
               </tr>
             </table>
           </section>
@@ -72,15 +81,26 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Table containing one key per application, with the value indicating whether HeadphoneAutoPause should try to pause/unpause that application in response to the headphone being plugged/unplugged. The key name must ideally correspond to the name of the corresponding <code>hs.*</code> module. Default value:</p>
+                <td>Table containing one key per application, with the value indicating whether HeadphoneAutoPause should try to pause/unpause that application in response to the headphone being plugged/unplugged.</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>The key name must ideally correspond to the name of the corresponding <code>hs.*</code> module. Default value:</li>
+</ul>
 
 <pre><code>{
    itunes = true,
    spotify = true,
    deezer = true,
    vox = false -- Vox has built-in headphone detection support
-}</code></pre>
+}
+</code></pre>
 </td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/HeadphoneAutoPause.spoon/init.lua#L22">Source/HeadphoneAutoPause.spoon/init.lua line 22</a></td>
               </tr>
             </table>
           </section>
@@ -98,16 +118,23 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Table containing control functions for each application to control.
-The keys must correspond to the values in <code>HeadphoneAutoPause.control</code>, and the value is a table with the following elements:</p>
-<ul>
+                <td>Table containing control functions for each application to control.</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>The keys must correspond to the values in <code>HeadphoneAutoPause.control</code>, and the value is a table with the following elements:</li>
 <li><code>appname</code> - application name (case-sensitive, as the application appears to the system)</li>
 <li><code>isPlaying</code> - function that returns a true value if the application is playing</li>
 <li><code>play</code> - function that starts playback in the application</li>
 <li><code>pause</code> - function that pauses playback in the application</li>
+<li>The default value includes definitions for iTunes, Spotify, Deezer and Vox, using the corresponding functions from <code>hs.itunes</code>, <code>hs.spotify</code>, <code>hs.deezer</code> and <code>hs.vox</code>, respectively.</li>
 </ul>
-<p>The default value includes definitions for iTunes, Spotify, Deezer and Vox, using the corresponding functions from <code>hs.itunes</code>, <code>hs.spotify</code>, <code>hs.deezer</code> and <code>hs.vox</code>, respectively.</p>
 </td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/HeadphoneAutoPause.spoon/init.lua#L68">Source/HeadphoneAutoPause.spoon/init.lua line 68</a></td>
               </tr>
             </table>
           </section>
@@ -125,8 +152,11 @@ The keys must correspond to the values in <code>HeadphoneAutoPause.control</code
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.</p>
-</td>
+                <td>Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/HeadphoneAutoPause.spoon/init.lua#L17">Source/HeadphoneAutoPause.spoon/init.lua line 17</a></td>
               </tr>
             </table>
           </section>
@@ -145,13 +175,23 @@ The keys must correspond to the values in <code>HeadphoneAutoPause.control</code
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Callback function to use as an audio device watcher, to pause/unpause the application on headphones plugged/unplugged</p>
-<p>Parameters:</p>
-<ul>
+                <td>Callback function to use as an audio device watcher, to pause/unpause the application on headphones plugged/unplugged</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>dev_uid - The audio device</li>
 <li>event_name - The event name</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/HeadphoneAutoPause.spoon/init.lua#L97">Source/HeadphoneAutoPause.spoon/init.lua line 97</a></td>
               </tr>
             </table>
           </section>
@@ -169,16 +209,25 @@ The keys must correspond to the values in <code>HeadphoneAutoPause.control</code
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Generate the most common set of application control definition.</p>
-<p>Parameters:</p>
-<ul>
-<li>app - name of the application, with its correct letter casing (i.e. "iTunes"). The name as provided will be used to find the running application, and its lowercase version will be used to find the corresponding <code>hs.*</code> module.</li>
-</ul>
-<p>Returns:</p>
-<ul>
-<li>A table in the correct format for <code>HeadphoneAutoPause.controlfns</code>, using the lower-case value of <code>app</code> as the module name (for example, if app = "iTunes", the module loaded will be <code>hs.itunes</code>, and assuming the functions <code>isPlaying()</code>, <code>play()</code> and <code>pause()</code> exist in that module.</li>
+                <td>Generate the most common set of application control definition.</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>app - name of the application, with its correct letter casing (i.e. &quot;iTunes&quot;). The name as provided will be used to find the running application, and its lowercase version will be used to find the corresponding <code>hs.*</code> module.</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
+<li>A table in the correct format for <code>HeadphoneAutoPause.controlfns</code>, using the lower-case value of <code>app</code> as the module name (for example, if app = &quot;iTunes&quot;, the module loaded will be <code>hs.itunes</code>, and assuming the functions <code>isPlaying()</code>, <code>play()</code> and <code>pause()</code> exist in that module.</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/HeadphoneAutoPause.spoon/init.lua#L51">Source/HeadphoneAutoPause.spoon/init.lua line 51</a></td>
               </tr>
             </table>
           </section>
@@ -196,12 +245,22 @@ The keys must correspond to the values in <code>HeadphoneAutoPause.control</code
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Start headphone detection on all audio devices that support it</p>
-<p>Parameters:</p>
-<ul>
+                <td>Start headphone detection on all audio devices that support it</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>None</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/HeadphoneAutoPause.spoon/init.lua#L137">Source/HeadphoneAutoPause.spoon/init.lua line 137</a></td>
               </tr>
             </table>
           </section>
@@ -219,12 +278,22 @@ The keys must correspond to the values in <code>HeadphoneAutoPause.control</code
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Stop headphone detection</p>
-<p>Parameters:</p>
-<ul>
+                <td>Stop headphone detection</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>None</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/HeadphoneAutoPause.spoon/init.lua#L157">Source/HeadphoneAutoPause.spoon/init.lua line 157</a></td>
               </tr>
             </table>
           </section>

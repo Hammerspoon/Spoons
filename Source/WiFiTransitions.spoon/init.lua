@@ -21,15 +21,18 @@ obj.logger = hs.logger.new('WiFiTransitions')
 
 --- WiFiTransitions.actions
 --- Variable
---- Table containing a list of actions to execute for SSID transitions. Transitions to a "no network" state (`nil` SSID) are ignored unless you set `WiFiTransitions.actOnNilTransitions`. Each action is itself a table with the following keys:
----  * to - if given, pattern to match against the new SSID. Defaults to match any network.
----  * from - if given, pattern to match against the previous SSID. Defaults to match any network.
----  * fn - function to execute if there is a match. Can also be a list of functions, which will be executed in sequence. Each function will receive the following arguments:
----    * event - always "SSIDChange"
----    * interface - name of the interface on which the SSID changed
----    * old_ssid - previous SSID name
----    * new_ssid - new SSID name
----  * cmd - shell command to execute if there is a match. Can also be a list of commands, which will be executed in sequence using `hs.execute`. If `fn` is given, `cmd` is ignored.
+--- Table containing a list of actions to execute for SSID transitions.
+---
+--- Notes:
+---  * Transitions to a "no network" state (`nil` SSID) are ignored unless you set `WiFiTransitions.actOnNilTransitions`. Each action is itself a table with the following keys:
+---   * to - if given, pattern to match against the new SSID. Defaults to match any network.
+---   * from - if given, pattern to match against the previous SSID. Defaults to match any network.
+---   * fn - function to execute if there is a match. Can also be a list of functions, which will be executed in sequence. Each function will receive the following arguments:
+---     * event - always "SSIDChange"
+---     * interface - name of the interface on which the SSID changed
+---     * old_ssid - previous SSID name
+---     * new_ssid - new SSID name
+---   * cmd - shell command to execute if there is a match. Can also be a list of commands, which will be executed in sequence using `hs.execute`. If `fn` is given, `cmd` is ignored.
 obj.actions = {}
 
 --- WiFiTransitions.actOnNilTransitions
@@ -55,16 +58,13 @@ end
 --- Method
 --- Process the rules and execute any actions corresponding to the specified transition.
 ---
---- This method is called internally by the `hs.wifi.watcher` object
---- when WiFi transitions happen. It does not get any system
---- information nor does it set any Spoon state information, so it can
---- also be used to "trigger" transitions manually, either for testing
---- or if the automated processing fails for any reason.
----
 --- Parameters:
 ---  * new_ssid - new SSID name
 ---  * prev_ssid - previous SSID name. Defaults to `nil`
 ---  * interface - interface where the transition occurred. Defaults to `nil`
+---
+--- Notes:
+---  * This method is called internally by the `hs.wifi.watcher` object when WiFi transitions happen. It does not get any system information nor does it set any Spoon state information, so it can also be used to "trigger" transitions manually, either for testing or if the automated processing fails for any reason.
 function obj:processTransition(new_ssid, prev_ssid, interface)
    self.logger.df("Processing transition new_ssid=%s, prev_ssid=%s, interface=%s", new_ssid, prev_ssid, interface)
    if self.actOnNilTransitions or new_ssid ~= nil then

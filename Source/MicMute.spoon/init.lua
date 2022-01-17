@@ -35,7 +35,7 @@ function obj:toggleMicMute()
 	local mic = hs.audiodevice.defaultInputDevice()
 	local zoom = hs.application'Zoom'
 	if mic:muted() then
-		mic:setMuted(false)
+		mic:setInputMuted(false)
 		if zoom then
 			local ok = zoom:selectMenuItem'Unmute Audio'
 			if not ok then
@@ -45,7 +45,7 @@ function obj:toggleMicMute()
 			end
 		end
 	else
-		mic:setMuted(true)
+		mic:setInputMuted(true)
 		if zoom then
 			local ok = zoom:selectMenuItem'Mute Audio'
 			if not ok then

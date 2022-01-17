@@ -15,7 +15,7 @@
   <body>
     <header>
       <h1><a href="./index.html">docs</a> &raquo; UniversalArchive</h1>
-      <p>Handle "archive current item" for multiple applications using the same hotkey</p>
+      <p>Handle &quot;archive current item&quot; for multiple applications using the same hotkey</p>
 <p>Download: <a href="https://github.com/Hammerspoon/Spoons/raw/master/Spoons/UniversalArchive.spoon.zip">https://github.com/Hammerspoon/Spoons/raw/master/Spoons/UniversalArchive.spoon.zip</a></p>
 <p>Using this Spoon enables you to use a single hotkey to archive an
 item in multiple applications.  Out of the box the following
@@ -68,8 +68,11 @@ specify multiple-destination filing hotkeys.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Boolean indicating whether a notification should be produced when an item is archived. Defaults to "true".</p>
-</td>
+                <td>Boolean indicating whether a notification should be produced when an item is archived. Defaults to "true".</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/UniversalArchive.spoon/init.lua#L46">Source/UniversalArchive.spoon/init.lua line 46</a></td>
               </tr>
             </table>
           </section>
@@ -87,8 +90,11 @@ specify multiple-destination filing hotkeys.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Name of the Notebook to use for archiving in Evernote. Defaults to "Archive"</p>
-</td>
+                <td>Name of the Notebook to use for archiving in Evernote. Defaults to "Archive"</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/UniversalArchive.spoon/init.lua#L36">Source/UniversalArchive.spoon/init.lua line 36</a></td>
               </tr>
             </table>
           </section>
@@ -106,12 +112,20 @@ specify multiple-destination filing hotkeys.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>In Evernote, archive is done by selectin "Move note" and then
-simulating typing of the notebook name. A short pause in between
-makes it more reliable for Evernote to recognize the notebook name
-correctly. This variable controls how much to wait, in seconds.
-Do not change this unless you know what you are doing</p>
+                <td>A short pause to make typing into Evernote more reliable</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>In Evernote, archive is done by selectin &quot;Move note&quot; and then simulating typing of the notebook name. A short pause in between makes it more reliable for Evernote to recognize the notebook name correctly.</li>
+<li>This variable controls how much to wait, in seconds.</li>
+<li>Do not change this unless you know what you are doing</li>
+</ul>
 </td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/UniversalArchive.spoon/init.lua#L51">Source/UniversalArchive.spoon/init.lua line 51</a></td>
               </tr>
             </table>
           </section>
@@ -129,8 +143,11 @@ Do not change this unless you know what you are doing</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.</p>
-</td>
+                <td>Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/UniversalArchive.spoon/init.lua#L31">Source/UniversalArchive.spoon/init.lua line 31</a></td>
               </tr>
             </table>
           </section>
@@ -148,8 +165,11 @@ Do not change this unless you know what you are doing</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Name of the mailbox to use for archiving in Outlook. You must move a message manually to that mailbox at least once so that it appears in the "Message" -&gt; "Move..." submenu. Defaults to "Archive"</p>
-</td>
+                <td>Name of the mailbox to use for archiving in Outlook. You must move a message manually to that mailbox at least once so that it appears in the "Message" -> "Move..." submenu. Defaults to "Archive"</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/UniversalArchive.spoon/init.lua#L41">Source/UniversalArchive.spoon/init.lua line 41</a></td>
               </tr>
             </table>
           </section>
@@ -168,16 +188,26 @@ Do not change this unless you know what you are doing</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Binds hotkeys for UniversalArchive</p>
-<p>Parameters:</p>
-<ul>
+                <td>Binds hotkeys for UniversalArchive</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>mapping - A table containing hotkey modifier/key details for the following items:<ul>
 <li><code>archive</code> - hotkey for trigger the <code>universalArchive()</code> method, to archive the current item on the current application.</li>
-<li><code>&lt;app&gt;_&lt;dest&gt;</code> - if an application handler supports multiple destinations, you can specify hotkeys for specific destinations using this format. For example, to assign a hotkey that files the current note in Evernote to the "MyProject" notebook using Ctrl-Alt-Cmd-M, you would specify <code>Evernote_MyProject = { { "ctrl", "alt", "cmd" }, "m" }</code> as one of the elements of <code>mapping</code>. Keep in mind that the application name must appear exactly as the system sees it (including upper/lowercase), and that if either the application or the destination name contain spaces or other non-alphanumeric characters, you need to use the Lua table notation. For example: <code>["Evernote_Some Long Notebook Name"] = { keybinding }</code>. At the moment only the Evernote handler supports multiple destinations.</li>
+<li><code>&lt;app&gt;_&lt;dest&gt;</code> - if an application handler supports multiple destinations, you can specify hotkeys for specific destinations using this format. For example, to assign a hotkey that files the current note in Evernote to the &quot;MyProject&quot; notebook using Ctrl-Alt-Cmd-M, you would specify <code>Evernote_MyProject = { { &quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot; }, &quot;m&quot; }</code> as one of the elements of <code>mapping</code>. Keep in mind that the application name must appear exactly as the system sees it (including upper/lowercase), and that if either the application or the destination name contain spaces or other non-alphanumeric characters, you need to use the Lua table notation. For example: <code>[&quot;Evernote_Some Long Notebook Name&quot;] = { keybinding }</code>. At the moment only the Evernote handler supports multiple destinations.</li>
 </ul>
 </li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/UniversalArchive.spoon/init.lua#L183">Source/UniversalArchive.spoon/init.lua line 183</a></td>
               </tr>
             </table>
           </section>
@@ -195,12 +225,22 @@ Do not change this unless you know what you are doing</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Archive current note in Evernote.</p>
-<p>Parameters:</p>
-<ul>
+                <td>Archive current note in Evernote.</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>where - destination notebook. Defaults to the value of <code>UniversalArchive.evernote_archive_notebook</code>.</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/UniversalArchive.spoon/init.lua#L61">Source/UniversalArchive.spoon/init.lua line 61</a></td>
               </tr>
             </table>
           </section>
@@ -218,12 +258,22 @@ Do not change this unless you know what you are doing</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Archive current message in Mail using the built-in Archive functionality</p>
-<p>Parameters:</p>
-<ul>
+                <td>Archive current message in Mail using the built-in Archive functionality</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>none</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/UniversalArchive.spoon/init.lua#L85">Source/UniversalArchive.spoon/init.lua line 85</a></td>
               </tr>
             </table>
           </section>
@@ -241,22 +291,30 @@ Do not change this unless you know what you are doing</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Archive current message in Outlook using one of two methods:</p>
-<ol>
-<li>If the "Message -&gt; Archive" menu item exists, it is used (this
-has been added in recent versions of Outlook)</li>
-<li>Otherwise, the message gets manually moved to the folder
-specified in <code>UniversalArchive.outlook_archive_folder</code>. The folder
-has to appear in the Message -&gt; Move submenu for this to
-work. Since this submenu only lists the last few destination
-folders, you have to move a message by hand the first time (or
-periodically if you don't archive very often).</li>
-</ol>
-<p>Parameters:</p>
-<ul>
+                <td>Archive current message in Outlook using one of two methods:</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>none</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>If the &quot;Message -&gt; Archive&quot; menu item exists, it is used (this has been added in recent versions of Outlook)</li>
+<li>Otherwise, the message gets manually moved to the folder specified in <code>UniversalArchive.outlook_archive_folder</code>. The folder has to appear in the Message -&gt; Move submenu for this to work. Since this submenu only lists the last few destination folders, you have to move a message by hand the first time (or periodically if you don't archive very often).</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/UniversalArchive.spoon/init.lua#L121">Source/UniversalArchive.spoon/init.lua line 121</a></td>
               </tr>
             </table>
           </section>
@@ -274,17 +332,27 @@ periodically if you don't archive very often).</li>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Register a handler function for an application.</p>
-<p>Parameters:</p>
-<ul>
+                <td>Register a handler function for an application.</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>appname - string containing the name of the application. If the application already has a handler, it will be replaced with the new one.</li>
 <li>fn - handler function (to remove the handler for an application, use <code>nil</code>). The function receives the following arguments:<ul>
 <li>self - the UniversalArchive object, so the handler can make use of all the object methods and variables.</li>
-<li>where - optional "destination" for the archive operation. Handlers must provide a default destination when <code>where == nil</code>. Destination doesn't make sense for all applications, so the implementation of this is optional and depending on the handler.</li>
+<li>where - optional &quot;destination&quot; for the archive operation. Handlers must provide a default destination when <code>where == nil</code>. Destination doesn't make sense for all applications, so the implementation of this is optional and depending on the handler.</li>
 </ul>
 </li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/UniversalArchive.spoon/init.lua#L166">Source/UniversalArchive.spoon/init.lua line 166</a></td>
               </tr>
             </table>
           </section>
@@ -302,12 +370,22 @@ periodically if you don't archive very often).</li>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Archive current message in Spark using the built-in Archive functionality</p>
-<p>Parameters:</p>
-<ul>
+                <td>Archive current message in Spark using the built-in Archive functionality</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>none</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/UniversalArchive.spoon/init.lua#L103">Source/UniversalArchive.spoon/init.lua line 103</a></td>
               </tr>
             </table>
           </section>
@@ -325,19 +403,30 @@ periodically if you don't archive very often).</li>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Main entry point for archiving an item. If a handler function is
-defined for the current application, it is called with the
-<code>UniversalArchive</code> object as its first argument, and the archive
-destination (if provided) as the second. Handlers must have a
-"default destination" that gets used when no destination is
-provided. Not all handlers support specifying a destination. New
-handlers can be registered using the <code>registerApplication()</code>
-method.</p>
-<p>Parameters:</p>
-<ul>
+                <td>Main entry point for archiving an item.</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>None</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>If a handler function is defined for the current application, it is called with the <code>UniversalArchive</code> object as its first argument, and the archive destination (if provided) as the second.</li>
+<li>Handlers must have a &quot;default destination&quot; that gets used when no destination is provided. Not all handlers support specifying a destination. New handlers can be registered using the <code>registerApplication()</code> method.</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/UniversalArchive.spoon/init.lua#L143">Source/UniversalArchive.spoon/init.lua line 143</a></td>
               </tr>
             </table>
           </section>

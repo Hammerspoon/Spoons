@@ -20,25 +20,26 @@
 
 <pre><code>function toggleKeyboardLayout(x)
   if x then
-    hs.keycodes.setLayout("U.S.")
+    hs.keycodes.setLayout(&quot;U.S.&quot;)
   else
-    hs.keycodes.setLayout("Colemak")
+    hs.keycodes.setLayout(&quot;Colemak&quot;)
   end
 end
 
 spoonInstall:andUse(
-  "USBDeviceActions",
+  &quot;USBDeviceActions&quot;,
   {
     config = {
       devices = {
-        ScanSnapiX500EE            = { apps = { "ScanSnap Manager Evernote Edition" } },
+        ScanSnapiX500EE            = { apps = { &quot;ScanSnap Manager Evernote Edition&quot; } },
         Planck                     = { fn = toggleKeyboardLayout },
-        ["Corne Keyboard (crkbd)"] = { fn = toggleKeyboardLayout }
+        [&quot;Corne Keyboard (crkbd)&quot;] = { fn = toggleKeyboardLayout }
       }
     },
     start = true
   }
-)</code></pre>
+)
+</code></pre>
 
       </header>
       <h3>API Overview</h3>
@@ -70,16 +71,26 @@ spoonInstall:andUse(
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>A table where the keys should correspond to <code>productName</code>s of USB devices and the values should be tables containing the keys <code>apps</code> and/or <code>fn</code>. (You can find the <code>productName</code> for a connected USB device using <code>hs.usb.attachedDevices()</code>).</p>
-<p>The value of the <code>apps</code> key should contain a list of apps that will be launched/killed when the USB device is connected/disconnected. The value of the <code>fn</code> key should be a single parameter function that will be passed <code>true</code>/<code>false</code> when the USB device is connected/disconnected.</p>
+                <td>A table where the keys should correspond to `productName`s of USB devices and the values should be tables containing the keys `apps` and/or `fn`. (You can find the `productName` for a connected USB device using `hs.usb.attachedDevices()`).</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>The value of the <code>apps</code> key should contain a list of apps that will be launched/killed when the USB device is connected/disconnected. The value of the <code>fn</code> key should be a single parameter function that will be passed <code>true</code>/<code>false</code> when the USB device is connected/disconnected.</li>
+</ul>
 <p>Example:</p>
 
 <pre><code>{
-  ScanSnapiX500EE            = { apps = { "ScanSnap Manager Evernote Edition" } },
+  ScanSnapiX500EE            = { apps = { &quot;ScanSnap Manager Evernote Edition&quot; } },
   Planck                     = { fn = toggleKeyboardLayout },
-  ["Corne Keyboard (crkbd)"] = { fn = toggleKeyboardLayout }
-}</code></pre>
+  [&quot;Corne Keyboard (crkbd)&quot;] = { fn = toggleKeyboardLayout }
+}
+</code></pre>
 </td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/USBDeviceActions.spoon/init.lua#L87">Source/USBDeviceActions.spoon/init.lua line 87</a></td>
               </tr>
             </table>
           </section>
@@ -98,16 +109,25 @@ spoonInstall:andUse(
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Creates an <code>hs.usb.watcher</code> with a callback that will execute the specified actions for the USB devices in <code>USBDeviceActions.devices</code> when they are connected/disconnected, but doesn't start the watcher.</p>
-<p>Parameters:</p>
-<ul>
+                <td>Creates an `hs.usb.watcher` with a callback that will execute the specified actions for the USB devices in `USBDeviceActions.devices` when they are connected/disconnected, but doesn't start the watcher.</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>None</li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li>Self</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/USBDeviceActions.spoon/init.lua#L103">Source/USBDeviceActions.spoon/init.lua line 103</a></td>
               </tr>
             </table>
           </section>
@@ -125,16 +145,25 @@ spoonInstall:andUse(
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Starts the <code>hs.usb.watcher</code> created by <code>USBDeviceActions:init()</code>.</p>
-<p>Parameters:</p>
-<ul>
+                <td>Starts the `hs.usb.watcher` created by `USBDeviceActions:init()`.</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>None</li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li>Self</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/USBDeviceActions.spoon/init.lua#L118">Source/USBDeviceActions.spoon/init.lua line 118</a></td>
               </tr>
             </table>
           </section>
@@ -152,16 +181,25 @@ spoonInstall:andUse(
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Stops the <code>hs.usb.watcher</code> created by <code>USBDeviceActions:init()</code>.</p>
-<p>Parameters:</p>
-<ul>
+                <td>Stops the `hs.usb.watcher` created by `USBDeviceActions:init()`.</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>None</li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li>Self</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/USBDeviceActions.spoon/init.lua#L132">Source/USBDeviceActions.spoon/init.lua line 132</a></td>
               </tr>
             </table>
           </section>

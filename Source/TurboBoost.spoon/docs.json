@@ -11,6 +11,8 @@
         "def": "TurboBoost:bindHotkeys(mapping)",
         "desc": "Binds hotkeys for TurboBoost",
         "doc": "Binds hotkeys for TurboBoost\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n  * hello - Say Hello",
+        "file": "Source/TurboBoost.spoon//init.lua",
+        "lineno": "200",
         "name": "bindHotkeys",
         "parameters": [
           " * mapping - A table containing hotkey objifier/key details for the following items:",
@@ -21,9 +23,11 @@
         "type": "Method"
       },
       {
-        "def": "TurboBoost:setState(state)",
-        "desc": "Sets whether Turbo Boost should be disabled (kernel extension",
-        "doc": "Sets whether Turbo Boost should be disabled (kernel extension\nloaded) or enabled (normal state, kernel extension not loaded).\n\nParameters:\n * state - A boolean, false if Turbo Boost should be disabled\n   (load kernel extension), true if it should be enabled (unload\n   kernel extension if loaded).\n * notify - Optional boolean indicating whether a notification\n   should be produced. If not given, the value of\n   TurboBoost.notify is used.\n\nReturns:\n * Boolean indicating new state",
+        "def": "TurboBoost:setState(state, notify)",
+        "desc": "Sets whether Turbo Boost should be disabled (kernel extension loaded) or enabled (normal state, kernel extension not loaded).",
+        "doc": "Sets whether Turbo Boost should be disabled (kernel extension loaded) or enabled (normal state, kernel extension not loaded).\n\nParameters:\n * state - A boolean, false if Turbo Boost should be disabled\n   (load kernel extension), true if it should be enabled (unload\n   kernel extension if loaded).\n * notify - Optional boolean indicating whether a notification\n   should be produced. If not given, the value of\n   TurboBoost.notify is used.\n\nReturns:\n * Boolean indicating new state",
+        "file": "Source/TurboBoost.spoon//init.lua",
+        "lineno": "128",
         "name": "setState",
         "parameters": [
           " * state - A boolean, false if Turbo Boost should be disabled",
@@ -36,14 +40,16 @@
         "returns": [
           " * Boolean indicating new state"
         ],
-        "signature": "TurboBoost:setState(state)",
-        "stripped_doc": "loaded) or enabled (normal state, kernel extension not loaded).",
+        "signature": "TurboBoost:setState(state, notify)",
+        "stripped_doc": "",
         "type": "Method"
       },
       {
         "def": "TurboBoost:start()",
         "desc": "Starts TurboBoost",
         "doc": "Starts TurboBoost\n\nParameters:\n * None\n\nReturns:\n * The TurboBoost object",
+        "file": "Source/TurboBoost.spoon//init.lua",
+        "lineno": "212",
         "name": "start",
         "parameters": [
           " * None"
@@ -58,8 +64,13 @@
       {
         "def": "TurboBoost:status()",
         "desc": "Check whether Turbo Boost is enabled",
-        "doc": "Check whether Turbo Boost is enabled\n\nReturns:\n * true if TurboBoost is enabled (kernel ext not loaded), false otherwise.",
+        "doc": "Check whether Turbo Boost is enabled\n\nParameters:\n * None\n\nReturns:\n * true if TurboBoost is enabled (kernel ext not loaded), false otherwise.",
+        "file": "Source/TurboBoost.spoon//init.lua",
+        "lineno": "171",
         "name": "status",
+        "parameters": [
+          " * None"
+        ],
         "returns": [
           " * true if TurboBoost is enabled (kernel ext not loaded), false otherwise."
         ],
@@ -71,6 +82,8 @@
         "def": "TurboBoost:stop()",
         "desc": "Stops TurboBoost",
         "doc": "Stops TurboBoost\n\nParameters:\n * None\n\nReturns:\n * The TurboBoost object",
+        "file": "Source/TurboBoost.spoon//init.lua",
+        "lineno": "233",
         "name": "stop",
         "parameters": [
           " * None"
@@ -85,8 +98,13 @@
       {
         "def": "TurboBoost:toggle()",
         "desc": "Toggle TurboBoost status",
-        "doc": "Toggle TurboBoost status\n\nReturns:\n * New TurboBoost status, after the toggle",
+        "doc": "Toggle TurboBoost status\n\nParameters:\n * None\n\nReturns:\n * New TurboBoost status, after the toggle",
+        "file": "Source/TurboBoost.spoon//init.lua",
+        "lineno": "186",
         "name": "toggle",
+        "parameters": [
+          " * None"
+        ],
         "returns": [
           " * New TurboBoost status, after the toggle"
         ],
@@ -100,6 +118,8 @@
         "def": "TurboBoost.check_kext_cmd",
         "desc": "Command to execute to check whether the DisableTurboBoost kernel",
         "doc": "Command to execute to check whether the DisableTurboBoost kernel\nextension is loaded. Default value: `\"/usr/sbin/kextstat | grep com.rugarciap.DisableTurboBoost\"`",
+        "file": "Source/TurboBoost.spoon//init.lua",
+        "lineno": "102",
         "name": "check_kext_cmd",
         "signature": "TurboBoost.check_kext_cmd",
         "stripped_doc": "extension is loaded. Default value: `\"/usr/sbin/kextstat | grep com.rugarciap.DisableTurboBoost\"`",
@@ -109,6 +129,8 @@
         "def": "TurboBoost.disable_on_start",
         "desc": "Boolean to indicate whether Turbo Boost should be disabled when",
         "doc": "Boolean to indicate whether Turbo Boost should be disabled when\nthe Spoon starts. Default value: `false`.",
+        "file": "Source/TurboBoost.spoon//init.lua",
+        "lineno": "45",
         "name": "disable_on_start",
         "signature": "TurboBoost.disable_on_start",
         "stripped_doc": "the Spoon starts. Default value: `false`.",
@@ -118,6 +140,8 @@
         "def": "TurboBoost.disabled_icon_path",
         "desc": "Where to find the icon to use for the \"Disabled\" icon. Default value",
         "doc": "Where to find the icon to use for the \"Disabled\" icon. Default value\nuses the icon from the Turbo Boost application:\n`\"/Applications/Turbo Boost Switcher.app/Contents/Resources/icon_off.tiff\"`",
+        "file": "Source/TurboBoost.spoon//init.lua",
+        "lineno": "121",
         "name": "disabled_icon_path",
         "signature": "TurboBoost.disabled_icon_path",
         "stripped_doc": "uses the icon from the Turbo Boost application:\n`\"/Applications/Turbo Boost Switcher.app/Contents/Resources/icon_off.tiff\"`",
@@ -127,6 +151,8 @@
         "def": "TurboBoost.enabled_icon_path",
         "desc": "Where to find the icon to use for the \"Enabled\" icon. Default value",
         "doc": "Where to find the icon to use for the \"Enabled\" icon. Default value\nuses the icon from the Turbo Boost application:\n`\"/Applications/Turbo Boost Switcher.app/Contents/Resources/icon.tiff\"`",
+        "file": "Source/TurboBoost.spoon//init.lua",
+        "lineno": "114",
         "name": "enabled_icon_path",
         "signature": "TurboBoost.enabled_icon_path",
         "stripped_doc": "uses the icon from the Turbo Boost application:\n`\"/Applications/Turbo Boost Switcher.app/Contents/Resources/icon.tiff\"`",
@@ -135,16 +161,31 @@
       {
         "def": "TurboBoost.kext_path",
         "desc": "Where the DisableTurboBoost.kext file is located.",
-        "doc": "Where the DisableTurboBoost.kext file is located.\nDefault value: `\"/Applications/Turbo Boost Switcher.app/Contents/Resources/DisableTurboBoost.64bits.kext\"`",
+        "doc": "Where the DisableTurboBoost.kext file is located.\n\nDefault value: whichever one of `TurboBoost.kext_paths` exists.",
+        "file": "Source/TurboBoost.spoon//init.lua",
+        "lineno": "67",
         "name": "kext_path",
         "signature": "TurboBoost.kext_path",
-        "stripped_doc": "Default value: `\"/Applications/Turbo Boost Switcher.app/Contents/Resources/DisableTurboBoost.64bits.kext\"`",
+        "stripped_doc": "Default value: whichever one of `TurboBoost.kext_paths` exists.",
+        "type": "Variable"
+      },
+      {
+        "def": "TurboBoost.kext_paths",
+        "desc": "List with paths to check for the DisableTurboBoost.kext file. The first one",
+        "doc": "List with paths to check for the DisableTurboBoost.kext file. The first one\nto be found is used by default unless DisableTurboBoost.kext_path is set\nexplicitly.\n\nDefault value: `{\"/Applications/Turbo Boost Switcher.app/Contents/Resources/DisableTurboBoost.64bits.kext\", \"/Applications/tbswitcher_resources/DisableTurboBoost.64bits.kext\"}`",
+        "file": "Source/TurboBoost.spoon//init.lua",
+        "lineno": "57",
+        "name": "kext_paths",
+        "signature": "TurboBoost.kext_paths",
+        "stripped_doc": "to be found is used by default unless DisableTurboBoost.kext_path is set\nexplicitly.\nDefault value: `{\"/Applications/Turbo Boost Switcher.app/Contents/Resources/DisableTurboBoost.64bits.kext\", \"/Applications/tbswitcher_resources/DisableTurboBoost.64bits.kext\"}`",
         "type": "Variable"
       },
       {
         "def": "TurboBoost.load_kext_cmd",
         "desc": "Command to execute to load the DisableTurboBoost kernel",
         "doc": "Command to execute to load the DisableTurboBoost kernel\nextension. This command must execute with root privileges and\neither query the user for the credentials, or be configured\n(e.g. with sudo) to run without prompting. The string \"%s\" in this\nvariable gets replaced with the value of\nTurboBoost.kext_path. Default value: `\"/usr/bin/sudo /usr/bin/kextutil '%s'\"`",
+        "file": "Source/TurboBoost.spoon//init.lua",
+        "lineno": "82",
         "name": "load_kext_cmd",
         "signature": "TurboBoost.load_kext_cmd",
         "stripped_doc": "extension. This command must execute with root privileges and\neither query the user for the credentials, or be configured\n(e.g. with sudo) to run without prompting. The string \"%s\" in this\nvariable gets replaced with the value of\nTurboBoost.kext_path. Default value: `\"/usr/bin/sudo /usr/bin/kextutil '%s'\"`",
@@ -154,6 +195,8 @@
         "def": "TurboBoost.logger",
         "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "file": "Source/TurboBoost.spoon//init.lua",
+        "lineno": "37",
         "name": "logger",
         "signature": "TurboBoost.logger",
         "stripped_doc": "",
@@ -163,6 +206,8 @@
         "def": "TurboBoost.notify",
         "desc": "Boolean indicating whether notifications should be generated when",
         "doc": "Boolean indicating whether notifications should be generated when\nTurbo Boost is enabled/disabled. Default value: `true`",
+        "file": "Source/TurboBoost.spoon//init.lua",
+        "lineno": "108",
         "name": "notify",
         "signature": "TurboBoost.notify",
         "stripped_doc": "Turbo Boost is enabled/disabled. Default value: `true`",
@@ -172,6 +217,8 @@
         "def": "TurboBoost.reenable_on_stop",
         "desc": "Boolean to indicate whether Turbo Boost should be reenabled when",
         "doc": "Boolean to indicate whether Turbo Boost should be reenabled when\nthe Spoon stops. Default value: `true`.",
+        "file": "Source/TurboBoost.spoon//init.lua",
+        "lineno": "51",
         "name": "reenable_on_stop",
         "signature": "TurboBoost.reenable_on_stop",
         "stripped_doc": "the Spoon stops. Default value: `true`.",
@@ -181,6 +228,8 @@
         "def": "TurboBoost.unload_kext_cmd",
         "desc": "Command to execute to unload the DisableTurboBoost kernel",
         "doc": "Command to execute to unload the DisableTurboBoost kernel\nextension. This command must execute with root privileges and\neither query the user for the credentials, or be configured\n(e.g. with sudo) to run without prompting. The string \"%s\" in this\nvariable gets replaced with the value of\nTurboBoost.kext_path. Default value: `\"/usr/bin/sudo /sbin/kextunload '%s'\"`",
+        "file": "Source/TurboBoost.spoon//init.lua",
+        "lineno": "92",
         "name": "unload_kext_cmd",
         "signature": "TurboBoost.unload_kext_cmd",
         "stripped_doc": "extension. This command must execute with root privileges and\neither query the user for the credentials, or be configured\n(e.g. with sudo) to run without prompting. The string \"%s\" in this\nvariable gets replaced with the value of\nTurboBoost.kext_path. Default value: `\"/usr/bin/sudo /sbin/kextunload '%s'\"`",
@@ -194,6 +243,8 @@
         "def": "TurboBoost:bindHotkeys(mapping)",
         "desc": "Binds hotkeys for TurboBoost",
         "doc": "Binds hotkeys for TurboBoost\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n  * hello - Say Hello",
+        "file": "Source/TurboBoost.spoon//init.lua",
+        "lineno": "200",
         "name": "bindHotkeys",
         "parameters": [
           " * mapping - A table containing hotkey objifier/key details for the following items:",
@@ -207,6 +258,8 @@
         "def": "TurboBoost.check_kext_cmd",
         "desc": "Command to execute to check whether the DisableTurboBoost kernel",
         "doc": "Command to execute to check whether the DisableTurboBoost kernel\nextension is loaded. Default value: `\"/usr/sbin/kextstat | grep com.rugarciap.DisableTurboBoost\"`",
+        "file": "Source/TurboBoost.spoon//init.lua",
+        "lineno": "102",
         "name": "check_kext_cmd",
         "signature": "TurboBoost.check_kext_cmd",
         "stripped_doc": "extension is loaded. Default value: `\"/usr/sbin/kextstat | grep com.rugarciap.DisableTurboBoost\"`",
@@ -216,6 +269,8 @@
         "def": "TurboBoost.disable_on_start",
         "desc": "Boolean to indicate whether Turbo Boost should be disabled when",
         "doc": "Boolean to indicate whether Turbo Boost should be disabled when\nthe Spoon starts. Default value: `false`.",
+        "file": "Source/TurboBoost.spoon//init.lua",
+        "lineno": "45",
         "name": "disable_on_start",
         "signature": "TurboBoost.disable_on_start",
         "stripped_doc": "the Spoon starts. Default value: `false`.",
@@ -225,6 +280,8 @@
         "def": "TurboBoost.disabled_icon_path",
         "desc": "Where to find the icon to use for the \"Disabled\" icon. Default value",
         "doc": "Where to find the icon to use for the \"Disabled\" icon. Default value\nuses the icon from the Turbo Boost application:\n`\"/Applications/Turbo Boost Switcher.app/Contents/Resources/icon_off.tiff\"`",
+        "file": "Source/TurboBoost.spoon//init.lua",
+        "lineno": "121",
         "name": "disabled_icon_path",
         "signature": "TurboBoost.disabled_icon_path",
         "stripped_doc": "uses the icon from the Turbo Boost application:\n`\"/Applications/Turbo Boost Switcher.app/Contents/Resources/icon_off.tiff\"`",
@@ -234,6 +291,8 @@
         "def": "TurboBoost.enabled_icon_path",
         "desc": "Where to find the icon to use for the \"Enabled\" icon. Default value",
         "doc": "Where to find the icon to use for the \"Enabled\" icon. Default value\nuses the icon from the Turbo Boost application:\n`\"/Applications/Turbo Boost Switcher.app/Contents/Resources/icon.tiff\"`",
+        "file": "Source/TurboBoost.spoon//init.lua",
+        "lineno": "114",
         "name": "enabled_icon_path",
         "signature": "TurboBoost.enabled_icon_path",
         "stripped_doc": "uses the icon from the Turbo Boost application:\n`\"/Applications/Turbo Boost Switcher.app/Contents/Resources/icon.tiff\"`",
@@ -242,16 +301,31 @@
       {
         "def": "TurboBoost.kext_path",
         "desc": "Where the DisableTurboBoost.kext file is located.",
-        "doc": "Where the DisableTurboBoost.kext file is located.\nDefault value: `\"/Applications/Turbo Boost Switcher.app/Contents/Resources/DisableTurboBoost.64bits.kext\"`",
+        "doc": "Where the DisableTurboBoost.kext file is located.\n\nDefault value: whichever one of `TurboBoost.kext_paths` exists.",
+        "file": "Source/TurboBoost.spoon//init.lua",
+        "lineno": "67",
         "name": "kext_path",
         "signature": "TurboBoost.kext_path",
-        "stripped_doc": "Default value: `\"/Applications/Turbo Boost Switcher.app/Contents/Resources/DisableTurboBoost.64bits.kext\"`",
+        "stripped_doc": "Default value: whichever one of `TurboBoost.kext_paths` exists.",
+        "type": "Variable"
+      },
+      {
+        "def": "TurboBoost.kext_paths",
+        "desc": "List with paths to check for the DisableTurboBoost.kext file. The first one",
+        "doc": "List with paths to check for the DisableTurboBoost.kext file. The first one\nto be found is used by default unless DisableTurboBoost.kext_path is set\nexplicitly.\n\nDefault value: `{\"/Applications/Turbo Boost Switcher.app/Contents/Resources/DisableTurboBoost.64bits.kext\", \"/Applications/tbswitcher_resources/DisableTurboBoost.64bits.kext\"}`",
+        "file": "Source/TurboBoost.spoon//init.lua",
+        "lineno": "57",
+        "name": "kext_paths",
+        "signature": "TurboBoost.kext_paths",
+        "stripped_doc": "to be found is used by default unless DisableTurboBoost.kext_path is set\nexplicitly.\nDefault value: `{\"/Applications/Turbo Boost Switcher.app/Contents/Resources/DisableTurboBoost.64bits.kext\", \"/Applications/tbswitcher_resources/DisableTurboBoost.64bits.kext\"}`",
         "type": "Variable"
       },
       {
         "def": "TurboBoost.load_kext_cmd",
         "desc": "Command to execute to load the DisableTurboBoost kernel",
         "doc": "Command to execute to load the DisableTurboBoost kernel\nextension. This command must execute with root privileges and\neither query the user for the credentials, or be configured\n(e.g. with sudo) to run without prompting. The string \"%s\" in this\nvariable gets replaced with the value of\nTurboBoost.kext_path. Default value: `\"/usr/bin/sudo /usr/bin/kextutil '%s'\"`",
+        "file": "Source/TurboBoost.spoon//init.lua",
+        "lineno": "82",
         "name": "load_kext_cmd",
         "signature": "TurboBoost.load_kext_cmd",
         "stripped_doc": "extension. This command must execute with root privileges and\neither query the user for the credentials, or be configured\n(e.g. with sudo) to run without prompting. The string \"%s\" in this\nvariable gets replaced with the value of\nTurboBoost.kext_path. Default value: `\"/usr/bin/sudo /usr/bin/kextutil '%s'\"`",
@@ -261,6 +335,8 @@
         "def": "TurboBoost.logger",
         "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "file": "Source/TurboBoost.spoon//init.lua",
+        "lineno": "37",
         "name": "logger",
         "signature": "TurboBoost.logger",
         "stripped_doc": "",
@@ -270,6 +346,8 @@
         "def": "TurboBoost.notify",
         "desc": "Boolean indicating whether notifications should be generated when",
         "doc": "Boolean indicating whether notifications should be generated when\nTurbo Boost is enabled/disabled. Default value: `true`",
+        "file": "Source/TurboBoost.spoon//init.lua",
+        "lineno": "108",
         "name": "notify",
         "signature": "TurboBoost.notify",
         "stripped_doc": "Turbo Boost is enabled/disabled. Default value: `true`",
@@ -279,15 +357,19 @@
         "def": "TurboBoost.reenable_on_stop",
         "desc": "Boolean to indicate whether Turbo Boost should be reenabled when",
         "doc": "Boolean to indicate whether Turbo Boost should be reenabled when\nthe Spoon stops. Default value: `true`.",
+        "file": "Source/TurboBoost.spoon//init.lua",
+        "lineno": "51",
         "name": "reenable_on_stop",
         "signature": "TurboBoost.reenable_on_stop",
         "stripped_doc": "the Spoon stops. Default value: `true`.",
         "type": "Variable"
       },
       {
-        "def": "TurboBoost:setState(state)",
-        "desc": "Sets whether Turbo Boost should be disabled (kernel extension",
-        "doc": "Sets whether Turbo Boost should be disabled (kernel extension\nloaded) or enabled (normal state, kernel extension not loaded).\n\nParameters:\n * state - A boolean, false if Turbo Boost should be disabled\n   (load kernel extension), true if it should be enabled (unload\n   kernel extension if loaded).\n * notify - Optional boolean indicating whether a notification\n   should be produced. If not given, the value of\n   TurboBoost.notify is used.\n\nReturns:\n * Boolean indicating new state",
+        "def": "TurboBoost:setState(state, notify)",
+        "desc": "Sets whether Turbo Boost should be disabled (kernel extension loaded) or enabled (normal state, kernel extension not loaded).",
+        "doc": "Sets whether Turbo Boost should be disabled (kernel extension loaded) or enabled (normal state, kernel extension not loaded).\n\nParameters:\n * state - A boolean, false if Turbo Boost should be disabled\n   (load kernel extension), true if it should be enabled (unload\n   kernel extension if loaded).\n * notify - Optional boolean indicating whether a notification\n   should be produced. If not given, the value of\n   TurboBoost.notify is used.\n\nReturns:\n * Boolean indicating new state",
+        "file": "Source/TurboBoost.spoon//init.lua",
+        "lineno": "128",
         "name": "setState",
         "parameters": [
           " * state - A boolean, false if Turbo Boost should be disabled",
@@ -300,14 +382,16 @@
         "returns": [
           " * Boolean indicating new state"
         ],
-        "signature": "TurboBoost:setState(state)",
-        "stripped_doc": "loaded) or enabled (normal state, kernel extension not loaded).",
+        "signature": "TurboBoost:setState(state, notify)",
+        "stripped_doc": "",
         "type": "Method"
       },
       {
         "def": "TurboBoost:start()",
         "desc": "Starts TurboBoost",
         "doc": "Starts TurboBoost\n\nParameters:\n * None\n\nReturns:\n * The TurboBoost object",
+        "file": "Source/TurboBoost.spoon//init.lua",
+        "lineno": "212",
         "name": "start",
         "parameters": [
           " * None"
@@ -322,8 +406,13 @@
       {
         "def": "TurboBoost:status()",
         "desc": "Check whether Turbo Boost is enabled",
-        "doc": "Check whether Turbo Boost is enabled\n\nReturns:\n * true if TurboBoost is enabled (kernel ext not loaded), false otherwise.",
+        "doc": "Check whether Turbo Boost is enabled\n\nParameters:\n * None\n\nReturns:\n * true if TurboBoost is enabled (kernel ext not loaded), false otherwise.",
+        "file": "Source/TurboBoost.spoon//init.lua",
+        "lineno": "171",
         "name": "status",
+        "parameters": [
+          " * None"
+        ],
         "returns": [
           " * true if TurboBoost is enabled (kernel ext not loaded), false otherwise."
         ],
@@ -335,6 +424,8 @@
         "def": "TurboBoost:stop()",
         "desc": "Stops TurboBoost",
         "doc": "Stops TurboBoost\n\nParameters:\n * None\n\nReturns:\n * The TurboBoost object",
+        "file": "Source/TurboBoost.spoon//init.lua",
+        "lineno": "233",
         "name": "stop",
         "parameters": [
           " * None"
@@ -349,8 +440,13 @@
       {
         "def": "TurboBoost:toggle()",
         "desc": "Toggle TurboBoost status",
-        "doc": "Toggle TurboBoost status\n\nReturns:\n * New TurboBoost status, after the toggle",
+        "doc": "Toggle TurboBoost status\n\nParameters:\n * None\n\nReturns:\n * New TurboBoost status, after the toggle",
+        "file": "Source/TurboBoost.spoon//init.lua",
+        "lineno": "186",
         "name": "toggle",
+        "parameters": [
+          " * None"
+        ],
         "returns": [
           " * New TurboBoost status, after the toggle"
         ],
@@ -362,6 +458,8 @@
         "def": "TurboBoost.unload_kext_cmd",
         "desc": "Command to execute to unload the DisableTurboBoost kernel",
         "doc": "Command to execute to unload the DisableTurboBoost kernel\nextension. This command must execute with root privileges and\neither query the user for the credentials, or be configured\n(e.g. with sudo) to run without prompting. The string \"%s\" in this\nvariable gets replaced with the value of\nTurboBoost.kext_path. Default value: `\"/usr/bin/sudo /sbin/kextunload '%s'\"`",
+        "file": "Source/TurboBoost.spoon//init.lua",
+        "lineno": "92",
         "name": "unload_kext_cmd",
         "signature": "TurboBoost.unload_kext_cmd",
         "stripped_doc": "extension. This command must execute with root privileges and\neither query the user for the credentials, or be configured\n(e.g. with sudo) to run without prompting. The string \"%s\" in this\nvariable gets replaced with the value of\nTurboBoost.kext_path. Default value: `\"/usr/bin/sudo /sbin/kextunload '%s'\"`",

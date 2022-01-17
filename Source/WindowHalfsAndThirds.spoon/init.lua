@@ -21,11 +21,11 @@ obj.logger = hs.logger.new('WindowHalfsAndThirds')
 
 --- WindowHalfsAndThirds.defaultHotkeys
 --- Variable
---- Table containing a sample set of hotkeys that can be
---- assigned to the different operations. These are not bound
---- by default - if you want to use them you have to call:
---- `spoon.WindowHalfsAndThirds:bindHotkeys(spoon.WindowHalfsAndThirds.defaultHotkeys)`
---- after loading the spoon. Value:
+--- Table containing a sample set of hotkeys that can be assigned to the different operations.
+---
+--- Notes:
+---  * These are not bound by default - if you want to use them you have to call: `spoon.WindowHalfsAndThirds:bindHotkeys(spoon.WindowHalfsAndThirds.defaultHotkeys)` after loading the spoon.
+---  * Value:
 --- ```
 ---  {
 ---     left_half   = { {"ctrl",        "cmd"}, "Left" },
@@ -268,16 +268,19 @@ end
 --- WindowHalfsAndThirds:leftHalf(win)
 --- Method
 --- Resize to the left half of the screen.
---- Also various other action methods. See WindowHalfsAndThirds:bindHotkeys for details
----   .leftHalf .rightHalf .topHalf .bottomHalf .thirdLeft .thirdRight .leftThird .middleThirdH .rightThird
----   .thirdUp .thirdDown .topThird .middleThirdV .bottomThird .topLeft .topRight .bottomLeft .bottomRight
----   .maximize
 ---
 --- Parameters:
 ---  * win - hs.window to use, defaults to hs.window.focusedWindow()
 ---
 --- Returns:
 ---  * the WindowHalfsAndThirds object
+---
+--- Notes:
+---  * Variations of this method exist for other operations. See WindowHalfsAndThirds:bindHotkeys for details:
+---    * .leftHalf .rightHalf .topHalf .bottomHalf .thirdLeft .thirdRight .leftThird .middleThirdH .rightThird
+---    * .thirdUp .thirdDown .topThird .middleThirdV .bottomThird .topLeft .topRight .bottomLeft .bottomRight
+---    * .maximize
+
 obj.leftHalf       = hs.fnutils.partial(obj.resizeCurrentWindow, "left_half")
 obj.halfLeft       = hs.fnutils.partial(obj.resizeCurrentWindow, "half_left")
 obj.rightHalf      = hs.fnutils.partial(obj.resizeCurrentWindow, "right_half")

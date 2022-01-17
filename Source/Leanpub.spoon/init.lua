@@ -17,89 +17,74 @@ obj.license  = "MIT - https://opensource.org/licenses/MIT"
 
 --- Leanpub.logger
 --- Variable
---- Logger object used within the Spoon. Can be accessed to set the
---- default log level for the messages coming from the Spoon.
+--- Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.
 obj.logger = hs.logger.new('Leanpub')
 
 --- Leanpub.watch_books
 --- Variable
---- List of books to watch (by default an empty list). Each element of
---- the list must be a table containing the following keys:
----  * slug - the web page "slug" of the book to watch. The slug of a
----    book can be set under the "Book Web Page / Web Page URL" menu
----    section in Leanpub.
----  * icon - optional icon to show in the notifications for the book,
----    as an hs.image object. If not specified, and if
----    `fetch_leanpub_covers` is `true`, then the icon is generated
----    automatically from the book cover.
----  * syncs_to_dropbox - optional boolean to indicate whether the
----    book is configured in Leanpub to sync to Dropbox (you can find
----    this option in your books "Writing mode" screen, as "Send
----    output to Dropbox". If true, the "Book generation complete"
----    notification will include a "Show" button to open the book's
----    directory in Dropbox. If you have multiple books and all of
----    them are synced to Dropbox, you can set the main
----    `Leanpub.books_sync_to_dropbox` variable instead of setting it
----    for each book. Default value: `false`
+--- List of books to watch (by default an empty list).
+---
+--- Notes:
+---  * Each element of the list must be a table containing the following keys:
+---   * slug - the web page "slug" of the book to watch. The slug of a book can be set under the "Book Web Page / Web Page URL" menu section in Leanpub.
+---   * icon - optional icon to show in the notifications for the book, as an hs.image object. If not specified, and if `fetch_leanpub_covers` is `true`, then the icon is generated automatically from the book cover.
+---   * syncs_to_dropbox - optional boolean to indicate whether the book is configured in Leanpub to sync to Dropbox (you can find this option in your books "Writing mode" screen, as "Send output to Dropbox". If true, the "Book generation complete" notification will include a "Show" button to open the book's directory in Dropbox. If you have multiple books and all of them are synced to Dropbox, you can set the main `Leanpub.books_sync_to_dropbox` variable instead of setting it for each book. Default value: `false`
 obj.watch_books = {}
 
 --- Leanpub.books_sync_to_dropbox
 --- Variable
---- Boolean that specifies whether all your books are being synced to
---- Dropbox. If true, the "Book generation complete" notification will
---- include a "Show" button to open the book's directory in
---- Dropbox. Setting this is equivalent to setting the
---- `syncs_to_dropbox` attribute for each book in
---- `watch_books`. Default value: `false`.
+--- Boolean that specifies whether all your books are being synced to Dropbox.
+---
+--- Notes:
+---  * If true, the "Book generation complete" notification will include a "Show" button to open the book's directory in Dropbox.
+---  * Setting this is equivalent to setting the `syncs_to_dropbox` attribute for each book in `watch_books`. Default value: `false`.
 obj.books_sync_to_dropbox = false
 
 --- Leanpub.api_key
 --- Variable
---- String containing the key to use for Leanpub API requests. Get it
---- from your Leanpub account under the "Author / Your API Key" menu
---- section. No default.
+--- String containing the key to use for Leanpub API requests.
+---
+--- Notes:
+---  * Get it from your Leanpub account under the "Author / Your API Key" menu section. No default.
 obj.api_key = ""
 
 --- Leanpub.check_interval
 --- Variable
---- Integer containing the interval (in seconds) at which the book
---- status is checked. Default 5.
+--- Integer containing the interval (in seconds) at which the book status is checked. Default 5.
 obj.check_interval = 5
 
 --- Leanpub.fetch_leanpub_covers
 --- Variable
---- Boolean indicating whether we should try to fetch book covers from
---- Leanpub. Default value: `true`.
+--- Boolean indicating whether we should try to fetch book covers from Leanpub.
+---
+--- Notes:
+---  * Default value: `true`.
 obj.fetch_leanpub_covers = true
 
 --- Leanpub.persistent_notification
 --- Variable
---- Table specifying the Leanpub status for which notifications should
---- not disappear automatically. The indices correspond to the values
---- of the `status` field returned by the Leanpub API. Possible values
---- are `working` and `complete`. Default `{ complete = true }` to
---- keep the "Book generation complete" messages.
+--- Table specifying the Leanpub status for which notifications should not disappear automatically.
+---
+--- Notes:
+---  * The indices correspond to the values of the `status` field returned by the Leanpub API. Possible values are `working` and `complete`. Default `{ complete = true }` to keep the "Book generation complete" messages.
 obj.persistent_notification = { complete = true, failure = true }
 
 --- Leanpub.dropbox_path
 --- Variable
---- String containing the base Dropbox path to which the books are
---- synced, if the corresponding parameters are set. If unset, the
---- path is determined automatically by reading the
---- ~/.dropbox/info.json file and choosing the path corresponding to
---- the profile specified in `Leanpub.dropbox_profile`. If for some
---- reason your synced files are somewhere else, you can store in this
---- variable the final path to use. Most users should be fine with the
---- defaults.
+--- String containing the base Dropbox path to which the books are synced, if the corresponding parameters are set.
+---
+--- Notes:
+---  * If unset, the path is determined automatically by reading the ~/.dropbox/info.json file and choosing the path corresponding to the profile specified in `Leanpub.dropbox_profile`.
+---  * If for some reason your synced files are somewhere else, you can store in this variable the final path to use. Most users should be fine with the defaults.
 obj.dropbox_path = nil
 
 --- Leanpub.dropbox_type
 --- Variable
---- String containing the name of the Dropbox account type to use for
---- determining the base path of the Dropbox directory. Valid values
---- are "personal" and "business". See
---- https://help.dropbox.com/installs-integrations/desktop/locate-dropbox-folder
---- for the details. Default value: "personal".
+--- String containing the name of the Dropbox account type to use for determining the base path of the Dropbox directory.
+---
+--- Notes:
+---  * Valid values are "personal" and "business". See https://help.dropbox.com/installs-integrations/desktop/locate-dropbox-folder for the details.
+---  * Default value: "personal".
 obj.dropbox_type = "personal"
 
 -- Internal function to get the Dropbox base path to use and store it
@@ -124,15 +109,8 @@ end
 --- Asynchronously get the status of a book given its slug.
 ---
 --- Parameters:
----  * slug - URL "slug" of the book to check. The slug of a book is
----    the part of the URL for your book after https://leanpub.com/.
----  * callback - function to which the book status will be passed
----    when the data is received. This function will be passed a
----    single argument, a table containing the fields returned by the
----    Leanpub API. If the book is not being built at the moment, an
----    empty table is passed. If an error occurs, the value passed
----    will be `nil`. Samples of the return values can be found at
----    https://leanpub.com/help/api#getting-the-job-status
+---  * slug - URL "slug" of the book to check. The slug of a book is the part of the URL for your book after https://leanpub.com/.
+---  * callback - function to which the book status will be passed when the data is received. This function will be passed a single argument, a table containing the fields returned by the Leanpub API. If the book is not being built at the moment, an empty table is passed. If an error occurs, the value passed will be `nil`. Samples of the return values can be found at https://leanpub.com/help/api#getting-the-job-status
 ---
 --- Returns:
 ---  * No return value
@@ -166,27 +144,17 @@ obj.last_status = {}
 --- Leanpub:displayBookStatus(book)
 --- Method
 --- Display a notification with the current build status of a book.
---- Only produce a notification if the current status is different
---- than the last known one (from the last time `displayBookStatus`
---- was run for the same book).
 ---
 --- Parameters:
----  * book - table containing the information of the book to
----    check. The table must contain the following fields:
----    * slug - URL "slug" of the book to check. The slug is the part
----      of the book URL after https://leanpub.com/.
----    * icon - optional icon to show in the notifications for the
----      book, as an `hs.image` object. If this field is not specified
----      but `fetch_leanpub_covers` is true (the default value), this
----      method attempts to fetch the book cover from Leanpub. If the
----      cover can be retrieved, it gets stored in the icon field so
----      it doesn't get fetched every time. You can disable cover
----      fetching for individual books by setting this field
----      explicitly to `false`
+---  * book - table containing the information of the book to check. The table must contain the following fields:
+---    * slug - URL "slug" of the book to check. The slug is the part of the book URL after https://leanpub.com/.
+---    * icon - optional icon to show in the notifications for the book, as an `hs.image` object. If this field is not specified but `fetch_leanpub_covers` is true (the default value), this method attempts to fetch the book cover from Leanpub. If the cover can be retrieved, it gets stored in the icon field so it doesn't get fetched every time. You can disable cover fetching for individual books by setting this field explicitly to `false`
 ---
 --- Returns:
----  * A Lua table containing the status (may be empty), nil if an
----    error occurred
+---  * A Lua table containing the status (may be empty), nil if an error occurred
+---
+--- Notes:
+--- * Only produce a notification if the current status is different than the last known one (from the last time `displayBookStatus` was run for the same book).
 function obj:displayBookStatus(book)
   -- Fetches and stores the cover if needed
   self:fetchBookCover(book)
@@ -326,8 +294,7 @@ obj.timer = nil
 
 --- Leanpub:start()
 --- Method
---- Start periodic check for book status, checking every
---- check_interval seconds.
+--- Start periodic check for book status, checking every check_interval seconds.
 ---
 --- Parameters:
 ---  * None
@@ -341,7 +308,6 @@ end
 --- Leanpub:stop()
 --- Method
 --- Stops periodic check for book status, if enabled.
---- check_interval seconds.
 ---
 --- Parameters:
 ---  * None

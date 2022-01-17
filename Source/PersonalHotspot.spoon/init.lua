@@ -117,16 +117,18 @@ homepage = "https://github.com/malob/PersonalHotspot.spoon"
 --- Variable
 --- A list of strings representing applications to kill/open, when `PersonalHotspot:connect()` and `PersonalHotspot:disconnect()` are called respectively.
 ---
---- Each string should be either:
----  * a bundle ID string as per `hs.application:bundleID()`, or
----  * an application name string as per `hs.application:name()`.
+--- Notes:
+---  * Each string should be either:
+---   * a bundle ID string as per `hs.application:bundleID()`, or
+---   * an application name string as per `hs.application:name()`.
 appsToKill = {}
 
 --- PersonalHotspot.hotspotName (String)
 --- Variable
 --- The name of the personal hotspot you want to connect/disconnect from, e.g., "John Appleseed’s iPhone".
 ---
---- You can see the names of available hotspots by clicking on the Wi-Fi icon in the macOS menu bar and looking for menu items under the "Personal Hotspot(s)" heading.
+--- Notes:
+---  * You can see the names of available hotspots by clicking on the Wi-Fi icon in the macOS menu bar and looking for menu items under the "Personal Hotspot(s)" heading.
 hotspotName = nil
 
 --- PersonalHotspot.timeout (Number)
@@ -138,13 +140,14 @@ timeout = 3
 --- Method
 --- Tries to connect to the personal hotspot named in `PersonalHotspot.hotspotName`. If `PersonalHotspot.hotspotName` is `nil`, the first hotspot in the Wi-Fi menu will be selected, and `PersonalHotspot.hotspotName` will be assigned to the name of that hotspot. Once connected to the hotspot, the applications specified in `PersonalHotspot.appsToKill` are killed.
 ---
---- If there are no hotspots with the name in `PersonalHotspot.hotspotName`, or if `PersonalHotspot.hotspotName` is `nil` and there are no hotspots in the Wi-Fi menu, the Wi-Fi menu will be closed after `PersonalHotspot.timeout` seconds.
----
 --- Parameters:
 ---  * None
 ---
 --- Returns:
 ---  * Self
+---
+--- Notes:
+---  * If there are no hotspots with the name in `PersonalHotspot.hotspotName`, or if `PersonalHotspot.hotspotName` is `nil` and there are no hotspots in the Wi-Fi menu, the Wi-Fi menu will be closed after `PersonalHotspot.timeout` seconds.
 function connect(self)
   local wifiMenuItemClicked = controlHotspot(hotspotName or "Personal Hotspot", timeout)
 
@@ -192,13 +195,14 @@ end
 --- Method
 --- Toggles personal hotspot connection.
 ---
---- If the current wireless network name is `PersonalHotspot.hotspotName` this method calls `PersonalHotspot:disconnect()`, otherwise this method will call `PersonalHotspot:connect()`.
----
 --- Parameters:
 ---  * None
 ---
 --- Returns:
 ---  * Self
+---
+--- Notes:
+---  * If the current wireless network name is `PersonalHotspot.hotspotName` this method calls `PersonalHotspot:disconnect()`, otherwise this method will call `PersonalHotspot:connect()`.
 function toggle(self)
   if hs.wifi.currentNetwork() == hotspotName then
     self:disconnect()

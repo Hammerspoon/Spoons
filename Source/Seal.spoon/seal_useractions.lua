@@ -12,17 +12,17 @@ obj.default_icon = hs.image.imageFromName(hs.image.systemImageNames.ActionTempla
 --- Seal.plugins.useractions.actions
 --- Variable
 ---
---- A table containing the definitions of static user-defined actions. Each entry is indexed by the name of the entry as it will be shown in the chooser. Its value is a table which can have the following keys (one of `fn` or `url` is required. If both are provided, `url` is ignored):
----  * fn - A function which will be called when the entry is selected. The function receives no arguments.
----  * url - A URL which will be opened when the entry is selected. Can also be non-HTTP URLs, such as `mailto:` or other app-specific URLs.
----  * description - (optional) A string or `hs.styledtext` object that will be shown underneath the main text of the choice.
----  * icon - (optional) An `hs.image` object that will be shown next to the entry in the chooser. If not provided, `Seal.plugins.useractions.default_icon` is used. For `url` bookmarks, it can be set to `"favicon"` to fetch and use the website's favicon.
----  * keyword - (optional) A command by which this action will be invoked, effectively turning it into a Seal command. Any arguments passed to the command will be handled as follows:
----    * For `fn` actions, passed as an argument to the function
----    * For `url` actions, substituted into the URL, taking the place of any occurrences of `${query}`.
----  * hotkey - (optional) A hotkey specification in the form `{ modifiers, key }` by which this action can be invoked.
----
---- Example configuration:
+--- Notes:
+---  * A table containing the definitions of static user-defined actions. Each entry is indexed by the name of the entry as it will be shown in the chooser. Its value is a table which can have the following keys (one of `fn` or `url` is required. If both are provided, `url` is ignored):
+---   * fn - A function which will be called when the entry is selected. The function receives no arguments.
+---   * url - A URL which will be opened when the entry is selected. Can also be non-HTTP URLs, such as `mailto:` or other app-specific URLs.
+---   * description - (optional) A string or `hs.styledtext` object that will be shown underneath the main text of the choice.
+---   * icon - (optional) An `hs.image` object that will be shown next to the entry in the chooser. If not provided, `Seal.plugins.useractions.default_icon` is used. For `url` bookmarks, it can be set to `"favicon"` to fetch and use the website's favicon.
+---   * keyword - (optional) A command by which this action will be invoked, effectively turning it into a Seal command. Any arguments passed to the command will be handled as follows:
+---     * For `fn` actions, passed as an argument to the function
+---     * For `url` actions, substituted into the URL, taking the place of any occurrences of `${query}`.
+---   * hotkey - (optional) A hotkey specification in the form `{ modifiers, key }` by which this action can be invoked.
+---  * Example configuration:
 --- ```
 --- spoon.Seal:loadPlugins({"useractions"})
 --- spoon.Seal.plugins.useractions.actions =
@@ -181,7 +181,7 @@ function obj.bareActions(query)
 end
 
 function obj.favIcon(url)
-   local query=string.format("http://www.google.com/s2/favicons?domain_url=%s", hs.http.encodeForQuery(url))
+   local query=string.format("http://www.google.com/s2/favicons?sz=64&domain_url=%s", hs.http.encodeForQuery(url))
    return hs.image.imageFromURL(query)
 end
 
@@ -275,7 +275,8 @@ function obj.completionCallback(row)
       if obj.actions[row.actionname].fn then
          obj.actions[row.actionname].fn(row.arg)
       elseif obj.actions[row.actionname].url then
-         local url = string.gsub(obj.actions[row.actionname].url, '${query}', row.arg)
+         row.arg = hs.http.encodeForQuery(row.arg)
+         local url = string.gsub(obj.actions[row.actionname].url, '${query}', row.arg:gsub("%%", "%%%%"))
          obj.openURL(url)
       end
    end

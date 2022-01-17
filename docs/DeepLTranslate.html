@@ -16,10 +16,10 @@
     <header>
       <h1><a href="./index.html">docs</a> &raquo; DeepLTranslate</h1>
       <p>Show a popup window with the translation of the currently selected text</p>
-<p>The spoon uses the <a href="https://www.deepl.com">https://www.deepl.com</a> translator page
-The selected text is copied into the source field.<br>
+<p>The spoon uses the https://www.deepl.com translator page
+The selected text is copied into the source field.<br />
 The modal hotkey cmd+alt+ctrl+O replaces the selected text with the translation</p>
-<p>Supported language codes are listed at <a href="https://www.deepl.com/translator">https://www.deepl.com/translator</a></p>
+<p>Supported language codes are listed at https://www.deepl.com/translator</p>
 <p>This is just an adaption of the Spoon PopupTranslateSelection written by Diego Zamboni
 Download: <a href="https://github.com/Hammerspoon/Spoons/raw/master/Spoons/DeepLTranslate.spoon.zip">https://github.com/Hammerspoon/Spoons/raw/master/Spoons/DeepLTranslate.spoon.zip</a></p>
 
@@ -57,8 +57,11 @@ Download: <a href="https://github.com/Hammerspoon/Spoons/raw/master/Spoons/DeepL
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.</p>
-</td>
+                <td>Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/DeepLTranslate.spoon/init.lua#L47">Source/DeepLTranslate.spoon/init.lua line 47</a></td>
               </tr>
             </table>
           </section>
@@ -76,8 +79,11 @@ Download: <a href="https://github.com/Hammerspoon/Spoons/raw/master/Spoons/DeepL
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>If true, the popup window will close after translated text is copied to pasteboard. Defaults to <code>true</code></p>
-</td>
+                <td>If true, the popup window will close after translated text is copied to pasteboard. Defaults to `true`</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/DeepLTranslate.spoon/init.lua#L41">Source/DeepLTranslate.spoon/init.lua line 41</a></td>
               </tr>
             </table>
           </section>
@@ -95,8 +101,11 @@ Download: <a href="https://github.com/Hammerspoon/Spoons/raw/master/Spoons/DeepL
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>If true, pressing ESC on the popup window will close it. Defaults to <code>true</code></p>
-</td>
+                <td>If true, pressing ESC on the popup window will close it. Defaults to `true`</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/DeepLTranslate.spoon/init.lua#L36">Source/DeepLTranslate.spoon/init.lua line 36</a></td>
               </tr>
             </table>
           </section>
@@ -114,8 +123,11 @@ Download: <a href="https://github.com/Hammerspoon/Spoons/raw/master/Spoons/DeepL
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p><code>hs.geometry</code> object representing the size to use for the translation popup window. Defaults to <code>hs.geometry.size(770, 610)</code>.</p>
-</td>
+                <td>`hs.geometry` object representing the size to use for the translation popup window. Defaults to `hs.geometry.size(770, 610)`.</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/DeepLTranslate.spoon/init.lua#L26">Source/DeepLTranslate.spoon/init.lua line 26</a></td>
               </tr>
             </table>
           </section>
@@ -133,8 +145,11 @@ Download: <a href="https://github.com/Hammerspoon/Spoons/raw/master/Spoons/DeepL
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Value representing the window style to be used for the translation popup window. This value needs to be a valid argument to <a href="http://www.hammerspoon.org/docs/hs.webview.html#windowStyle"><code>hs.webview.setStyle()</code></a> (i.e. a combination of values from <a href="http://www.hammerspoon.org/docs/hs.webview.html#windowMasks[]"><code>hs.webview.windowMasks</code></a>. Default value: <code>hs.webview.windowMasks.utility|hs.webview.windowMasks.HUD|hs.webview.windowMasks.titled|hs.webview.windowMasks.closable</code></p>
-</td>
+                <td>Value representing the window style to be used for the translation popup window. This value needs to be a valid argument to [`hs.webview.setStyle()`](http://www.hammerspoon.org/docs/hs.webview.html#windowStyle) (i.e. a combination of values from [`hs.webview.windowMasks`](http://www.hammerspoon.org/docs/hs.webview.html#windowMasks[]). Default value: `hs.webview.windowMasks.utility|hs.webview.windowMasks.HUD|hs.webview.windowMasks.titled|hs.webview.windowMasks.closable`</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/DeepLTranslate.spoon/init.lua#L31">Source/DeepLTranslate.spoon/init.lua line 31</a></td>
               </tr>
             </table>
           </section>
@@ -153,20 +168,25 @@ Download: <a href="https://github.com/Hammerspoon/Spoons/raw/master/Spoons/DeepL
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Binds hotkeys for DeepLTranslate</p>
-<p>Parameters:</p>
-<ul>
+                <td>Binds hotkeys for DeepLTranslate</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>mapping - A table containing hotkey modifier/key details for the following items:<ul>
 <li><code>translate</code> - translate the selected text without specifying source/destination languages (source defaults to auto-detect, destination defaults to your last choice or to English)</li>
 </ul>
 </li>
 </ul>
-<p>Sample value for <code>mapping</code>:</p>
-
-<pre><code> {
-    translate = { { "ctrl", "alt", "cmd" }, "E" },
- }</code></pre>
 </td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/DeepLTranslate.spoon/init.lua#L217">Source/DeepLTranslate.spoon/init.lua line 217</a></td>
               </tr>
             </table>
           </section>
@@ -184,16 +204,25 @@ Download: <a href="https://github.com/Hammerspoon/Spoons/raw/master/Spoons/DeepL
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Display a translation popup with the translation of the given text</p>
-<p>Parameters:</p>
-<ul>
+                <td>Display a translation popup with the translation of the given text</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>text - string containing the text to translate</li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li>The DeepLTranslate object</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/DeepLTranslate.spoon/init.lua#L119">Source/DeepLTranslate.spoon/init.lua line 119</a></td>
               </tr>
             </table>
           </section>
@@ -211,16 +240,25 @@ Download: <a href="https://github.com/Hammerspoon/Spoons/raw/master/Spoons/DeepL
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Get the current selected text in the frontmost window and display a translation popup with the translation between the specified languages</p>
-<p>Parameters:</p>
-<ul>
+                <td>Get the current selected text in the frontmost window and display a translation popup with the translation between the specified languages</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>None</li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li>The DeepLTranslate object</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/DeepLTranslate.spoon/init.lua#L196">Source/DeepLTranslate.spoon/init.lua line 196</a></td>
               </tr>
             </table>
           </section>

@@ -19,6 +19,9 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
+    # Only run this if we're on the official repo. This prevents forks from getting super confusing with commits. If you want to host you own Spoon repository, consider re-enabling this, but for your repo.
+    if: github.repository == 'Hammerspoon/Spoons'
+
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Check-out the Spoons PR
@@ -31,7 +34,7 @@ jobs:
         path: 'hammerspoon'
 
     # Send IRC notification for new PRs
-    - uses: Gottox/irc-message-action@v1.3.0
+    - uses: Gottox/irc-message-action@v2.1.1
       if: ${{ always() && github.event_name == 'pull_request' && github.repository == 'hammerspoon/Spoons' }}
       with:
         channel: '#hammerspoon'
@@ -55,6 +58,14 @@ jobs:
     # Show modified files, as a debug log
     - name: Show changed files
       run: cat $HOME/files.json
+
+    # Lint docstrings
+    - name: Docstrings Linter
+      run: ./gh_actions_doclint.sh
+
+    # Fail CI run if docstrings failed
+    - name: Check for docstring lint failures
+      run: ./gh_actions_doclint.sh -v
 
     # Update docs and zips
     - name: Update docs and zips

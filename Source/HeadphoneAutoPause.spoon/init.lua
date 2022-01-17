@@ -21,7 +21,10 @@ obj.logger = hs.logger.new('HeadphoneAutoPause')
 
 --- HeadphoneAutoPause.control
 --- Variable
---- Table containing one key per application, with the value indicating whether HeadphoneAutoPause should try to pause/unpause that application in response to the headphone being plugged/unplugged. The key name must ideally correspond to the name of the corresponding `hs.*` module. Default value:
+--- Table containing one key per application, with the value indicating whether HeadphoneAutoPause should try to pause/unpause that application in response to the headphone being plugged/unplugged.
+---
+--- Notes:
+---  * The key name must ideally correspond to the name of the corresponding `hs.*` module. Default value:
 --- ```
 --- {
 ---    itunes = true,
@@ -41,7 +44,8 @@ obj.control = {
 --- Variable
 --- Boolean value indicating if music should be automatically resumed when headphones are plugged in again. Only works if music was automatically paused when headphones were unplugged.
 ---
---- Default value: `true`
+--- Notes:
+---  * Default value: `true`
 obj.autoResume = true
 
 --- HeadphoneAutoPause.defaultControlFns(app)
@@ -64,13 +68,14 @@ end
 --- HeadphoneAutoPause.controlfns
 --- Variable
 --- Table containing control functions for each application to control.
---- The keys must correspond to the values in `HeadphoneAutoPause.control`, and the value is a table with the following elements:
----  * `appname` - application name (case-sensitive, as the application appears to the system)
----  * `isPlaying` - function that returns a true value if the application is playing
----  * `play` - function that starts playback in the application
----  * `pause` - function that pauses playback in the application
 ---
---- The default value includes definitions for iTunes, Spotify, Deezer and Vox, using the corresponding functions from `hs.itunes`, `hs.spotify`, `hs.deezer` and `hs.vox`, respectively.
+--- Notes:
+---  * The keys must correspond to the values in `HeadphoneAutoPause.control`, and the value is a table with the following elements:
+---   * `appname` - application name (case-sensitive, as the application appears to the system)
+---   * `isPlaying` - function that returns a true value if the application is playing
+---   * `play` - function that starts playback in the application
+---   * `pause` - function that pauses playback in the application
+---  * The default value includes definitions for iTunes, Spotify, Deezer and Vox, using the corresponding functions from `hs.itunes`, `hs.spotify`, `hs.deezer` and `hs.vox`, respectively.
 obj.controlfns = {
    itunes = obj.defaultControlFns('iTunes'),
    spotify = obj.defaultControlFns('Spotify'),

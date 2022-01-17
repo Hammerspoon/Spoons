@@ -9,22 +9,38 @@ obj.__index = obj
 
 -- Metadata
 obj.name = "BingDaily"
-obj.version = "1.0"
+obj.version = "1.1"
 obj.author = "ashfinal <ashfinal@gmail.com>"
 obj.homepage = "https://github.com/Hammerspoon/Spoons"
 obj.license = "MIT - https://opensource.org/licenses/MIT"
+
+--- BingDaily.uhd_resolution
+--- Variable
+--- If `true`, download image in UHD resolution instead of HD. Defaults to `false`.
+obj.uhd_resolution = false
+
+--- BingDaily.screens
+--- Variable
+--- Set this to a function that returns a list of screens on which to configure
+--- the desktop image, instead of hs.screen.allScreens
+obj.screens = hs.screen.allScreens
+
+--- BingDaily.runAt
+--- Variable
+--- Set this to a time at which the wallpaper should be refreshed daily, eg,
+--- `"06:00"`. If this is not set, the wallpaper will be updated every 3 hours. If
+--- this is used, you must call `spoon.BingDaily:start()` after configuring.
+obj.runAt = nil
 
 local function curl_callback(exitCode, stdOut, stdErr)
     if exitCode == 0 then
         obj.task = nil
         obj.last_pic = obj.file_name
         local localpath = os.getenv("HOME") .. "/.Trash/" .. obj.file_name
-
-        -- set wallpaper for all screens
-        allScreen = hs.screen.allScreens()
-        for _,screen in ipairs(allScreen) do
+        for _,screen in ipairs(obj.screens()) do
             screen:desktopImageURL("file://" .. localpath)
         end
+        obj.lastRun = os.time()
     else
         print(stdOut, stdErr)
     end
@@ -38,6 +54,9 @@ local function bingRequest()
             if pcall(function() hs.json.decode(body) end) then
                 local decode_data = hs.json.decode(body)
                 local pic_url = decode_data.images[1].url
+                if obj.uhd_resolution then
+                    pic_url = pic_url:gsub("1920x1080", "UHD")
+                end
                 local pic_name = "pic-temp-spoon.jpg"
                 for k, v in pairs(hs.http.urlParts(pic_url).queryItems) do
                     if v.id then
@@ -53,7 +72,7 @@ local function bingRequest()
                         obj.task = nil
                     end
                     local localpath = os.getenv("HOME") .. "/.Trash/" .. obj.file_name
-                    obj.task = hs.task.new("/usr/bin/curl", curl_callback, {"-A", user_agent_str, obj.full_url, "-o", localpath})
+                    obj.task = hs.task.new("/usr/bin/curl", curl_callback, {"-sSf", "-A", user_agent_str, obj.full_url, "-o", localpath})
                     obj.task:start()
                 end
             end
@@ -63,13 +82,73 @@ local function bingRequest()
     end)
 end
 
-function obj:init()
-    if obj.timer == nil then
-        obj.timer = hs.timer.doEvery(3*60*60, function() bingRequest() end)
-        obj.timer:setNextTrigger(5)
-    else
-        obj.timer:start()
+local function nextRunAt()
+    if obj.lastRun == nil then
+        return 0
     end
+    local runAt = hs.timer.seconds(obj.runAt)
+    local lastRun = os.date("*t", obj.lastRun)
+    local result = os.time{year=lastRun.year, month=lastRun.month, day=lastRun.day, hour=0} + runAt
+    if result < obj.lastRun then
+        result = result + 86400
+    end
+    return result
+end
+
+function obj:maybeRefresh()
+    if obj.runAt == nil then
+        return
+    end
+    if obj.lastRun == nil then
+        print("BingDaily: No last run, refreshing now")
+        bingRequest()
+        return
+    end
+    local nextRun = nextRunAt()
+    print(string.format("BingDaily: Next run is at %s", os.date("%Y-%m-%d %H:%M:%S", nextRun)))
+    if os.time() >= nextRun then
+        bingRequest()
+    end
+end
+
+function obj:start()
+    if obj.timer ~= nil then
+        obj.timer:stop()
+    end
+    if obj.networkWatcher ~= nil then
+        obj.networkWatcher:stop()
+        obj.networkWatcher = nil
+    end
+    if obj.caffeinateWatcher ~= nil then
+        obj.caffeinateWatcher:stop()
+        obj.caffeinateWatcher = nil
+    end
+    if obj.runAt ~= nil then
+        obj.timer = hs.timer.doAt(obj.runAt, "1d", bingRequest)
+        obj.networkWatcher = hs.network.reachability.internet():setCallback(function(self, flags)
+            if (flags & hs.network.reachability.flags.reachable) > 0 then
+                print("BingDaily: Internet has become reachable")
+                obj:maybeRefresh()
+            end
+        end):start()
+        obj.caffeinateWatcher = hs.caffeinate.watcher.new(function (eventType)
+            if eventType == hs.caffeinate.watcher.systemDidWake then
+                print("BingDaily: System awoke")
+                obj:maybeRefresh()
+            end
+        end):start()
+    else
+        obj.timer = hs.timer.doEvery(3*60*60, bingRequest)
+        obj.timer:setNextTrigger(5)
+    end
+end
+
+function obj:init()
+    obj:start()
+end
+
+function obj:refresh()
+    bingRequest()
 end
 
 return obj

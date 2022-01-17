@@ -16,6 +16,9 @@
     <header>
       <h1><a href="./index.html">docs</a> &raquo; MouseFollowsFocus</h1>
       <p>Set the mouse pointer to the center of the focused window whenever focus changes.</p>
+<p>Additionally, if focused window moves when no mouse buttons are pressed, set the
+mouse pointer to the new center.  This is intended to work with other utilities
+which warp the focused window.</p>
 <p>Download: <a href="https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MouseFollowsFocus.spoon.zip">https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MouseFollowsFocus.spoon.zip</a></p>
 
       </header>
@@ -49,8 +52,11 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.</p>
-</td>
+                <td>Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/MouseFollowsFocus.spoon/init.lua#L21">Source/MouseFollowsFocus.spoon/init.lua line 21</a></td>
               </tr>
             </table>
           </section>
@@ -69,12 +75,22 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Configures the spoon.  There is currently nothing to configure.</p>
-<p>Parameters:</p>
-<ul>
+                <td>Configures the spoon.  There is currently nothing to configure.</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>configuration - :</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/MouseFollowsFocus.spoon/init.lua#L26">Source/MouseFollowsFocus.spoon/init.lua line 26</a></td>
               </tr>
             </table>
           </section>
@@ -92,12 +108,22 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Starts updating the mouse position when window focus changes</p>
-<p>Parameters:</p>
-<ul>
+                <td>Starts updating the mouse position when window focus changes</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>None</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/MouseFollowsFocus.spoon/init.lua#L35">Source/MouseFollowsFocus.spoon/init.lua line 35</a></td>
               </tr>
             </table>
           </section>
@@ -115,12 +141,22 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Stops updating the mouse position when window focus changes</p>
-<p>Parameters:</p>
-<ul>
+                <td>Stops updating the mouse position when window focus changes</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>None</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/MouseFollowsFocus.spoon/init.lua#L61">Source/MouseFollowsFocus.spoon/init.lua line 61</a></td>
               </tr>
             </table>
           </section>
@@ -138,12 +174,22 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Moves the mouse to the center of the given window unless it's already inside the window</p>
-<p>Parameters:</p>
-<ul>
+                <td>Moves the mouse to the center of the given window unless it's already inside the window</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>None</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/MouseFollowsFocus.spoon/init.lua#L72">Source/MouseFollowsFocus.spoon/init.lua line 72</a></td>
               </tr>
             </table>
           </section>

@@ -11,6 +11,8 @@
         "def": "WindowHalfsAndThirds:bindHotkeys(mapping)",
         "desc": "Binds hotkeys for WindowHalfsAndThirds",
         "doc": "Binds hotkeys for WindowHalfsAndThirds\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n  * left_half, right_half, top_half, bottom_half - resize to the corresponding half of the screen\n  * third_left, third_right - resize to one horizontal-third of the screen and move left/right\n  * third_up, third_down - resize to one vertical-third of the screen and move up/down\n  * max - maximize the window\n  * max_toggle - toggle maximization\n  * left_third, middle_third_h, right_third - resize and move the window to the corresponding horizontal third of the screen\n  * top_third, middle_third_v, bottom_third - resize and move the window to the corresponding vertical third of the screen\n  * top_left, top_right, bottom_left, bottom_right - resize and move the window to the corresponding quarter of the screen\n  * undo - restore window to position before last move\n  * center - move window to center of screen\n  * larger - grow window larger than its current size\n  * smaller - shrink window smaller than its current size\n\nReturns:\n * the WindowHalfsAndThirds object",
+        "file": "Source/WindowHalfsAndThirds.spoon//init.lua",
+        "lineno": "416",
         "name": "bindHotkeys",
         "parameters": [
           " * mapping - A table containing hotkey objifier/key details for the following items:",
@@ -38,6 +40,8 @@
         "def": "WindowHalfsAndThirds:center(win)",
         "desc": "Center window on screen",
         "doc": "Center window on screen\n\nParameters:\n * win - hs.window to use, defaults to hs.window.focusedWindow()\n\nReturns:\n * the WindowHalfsAndThirds object",
+        "file": "Source/WindowHalfsAndThirds.spoon//init.lua",
+        "lineno": "350",
         "name": "center",
         "parameters": [
           " * win - hs.window to use, defaults to hs.window.focusedWindow()"
@@ -53,6 +57,8 @@
         "def": "WindowHalfsAndThirds:larger(win)",
         "desc": "Make win larger than its current size",
         "doc": "Make win larger than its current size\n\nParameters:\n * win - hs.window to use, defaults to hs.window.focusedWindow()\n\nReturns:\n * the WindowHalfsAndThirds object",
+        "file": "Source/WindowHalfsAndThirds.spoon//init.lua",
+        "lineno": "368",
         "name": "larger",
         "parameters": [
           " * win - hs.window to use, defaults to hs.window.focusedWindow()"
@@ -67,8 +73,16 @@
       {
         "def": "WindowHalfsAndThirds:leftHalf(win)",
         "desc": "Resize to the left half of the screen.",
-        "doc": "Resize to the left half of the screen.\nAlso various other action methods. See WindowHalfsAndThirds:bindHotkeys for details\n  .leftHalf .rightHalf .topHalf .bottomHalf .thirdLeft .thirdRight .leftThird .middleThirdH .rightThird\n  .thirdUp .thirdDown .topThird .middleThirdV .bottomThird .topLeft .topRight .bottomLeft .bottomRight\n  .maximize\n\nParameters:\n * win - hs.window to use, defaults to hs.window.focusedWindow()\n\nReturns:\n * the WindowHalfsAndThirds object",
+        "doc": "Resize to the left half of the screen.\n\nParameters:\n * win - hs.window to use, defaults to hs.window.focusedWindow()\n\nReturns:\n * the WindowHalfsAndThirds object\n\nNotes:\n * Variations of this method exist for other operations. See WindowHalfsAndThirds:bindHotkeys for details:\n   * .leftHalf .rightHalf .topHalf .bottomHalf .thirdLeft .thirdRight .leftThird .middleThirdH .rightThird\n   * .thirdUp .thirdDown .topThird .middleThirdV .bottomThird .topLeft .topRight .bottomLeft .bottomRight\n   * .maximize",
+        "file": "Source/WindowHalfsAndThirds.spoon//init.lua",
+        "lineno": "268",
         "name": "leftHalf",
+        "notes": [
+          " * Variations of this method exist for other operations. See WindowHalfsAndThirds:bindHotkeys for details:",
+          "   * .leftHalf .rightHalf .topHalf .bottomHalf .thirdLeft .thirdRight .leftThird .middleThirdH .rightThird",
+          "   * .thirdUp .thirdDown .topThird .middleThirdV .bottomThird .topLeft .topRight .bottomLeft .bottomRight",
+          "   * .maximize"
+        ],
         "parameters": [
           " * win - hs.window to use, defaults to hs.window.focusedWindow()"
         ],
@@ -76,13 +90,15 @@
           " * the WindowHalfsAndThirds object"
         ],
         "signature": "WindowHalfsAndThirds:leftHalf(win)",
-        "stripped_doc": "Also various other action methods. See WindowHalfsAndThirds:bindHotkeys for details\n  .leftHalf .rightHalf .topHalf .bottomHalf .thirdLeft .thirdRight .leftThird .middleThirdH .rightThird\n  .thirdUp .thirdDown .topThird .middleThirdV .bottomThird .topLeft .topRight .bottomLeft .bottomRight\n  .maximize",
+        "stripped_doc": "",
         "type": "Method"
       },
       {
         "def": "WindowHalfsAndThirds:smaller(win)",
         "desc": "Make win smaller than its current size",
         "doc": "Make win smaller than its current size\n\nParameters:\n * win - hs.window to use, defaults to hs.window.focusedWindow()\n\nReturns:\n * the WindowHalfsAndThirds object",
+        "file": "Source/WindowHalfsAndThirds.spoon//init.lua",
+        "lineno": "392",
         "name": "smaller",
         "parameters": [
           " * win - hs.window to use, defaults to hs.window.focusedWindow()"
@@ -98,6 +114,8 @@
         "def": "WindowHalfsAndThirds:toggleMaximized(win)",
         "desc": "Toggle win between its normal size, and being maximized",
         "doc": "Toggle win between its normal size, and being maximized\n\nParameters:\n * win - hs.window to use, defaults to hs.window.focusedWindow()\n\nReturns:\n * the WindowHalfsAndThirds object",
+        "file": "Source/WindowHalfsAndThirds.spoon//init.lua",
+        "lineno": "313",
         "name": "toggleMaximized",
         "parameters": [
           " * win - hs.window to use, defaults to hs.window.focusedWindow()"
@@ -113,6 +131,8 @@
         "def": "WindowHalfsAndThirds:undo(win)",
         "desc": "Undo window size changes for win if there've been any in WindowHalfsAndThirds.clear_cache_after_seconds",
         "doc": "Undo window size changes for win if there've been any in WindowHalfsAndThirds.clear_cache_after_seconds\n\nParameters:\n * win - hs.window to use, defaults to hs.window.focusedWindow()\n\nReturns:\n * the WindowHalfsAndThirds object",
+        "file": "Source/WindowHalfsAndThirds.spoon//init.lua",
+        "lineno": "336",
         "name": "undo",
         "parameters": [
           " * win - hs.window to use, defaults to hs.window.focusedWindow()"
@@ -130,6 +150,8 @@
         "def": "WindowHalfsAndThirds.clear_cache_after_seconds",
         "desc": "We don't want our undo frame cache filling all available memory. Let's clear it after it hasn't been used for a while.",
         "doc": "We don't want our undo frame cache filling all available memory. Let's clear it after it hasn't been used for a while.",
+        "file": "Source/WindowHalfsAndThirds.spoon//init.lua",
+        "lineno": "77",
         "name": "clear_cache_after_seconds",
         "signature": "WindowHalfsAndThirds.clear_cache_after_seconds",
         "stripped_doc": "",
@@ -139,6 +161,8 @@
         "def": "WindowHalfsAndThirds.defaultHotkeys",
         "desc": "Table containing a sample set of hotkeys that can be",
         "doc": "Table containing a sample set of hotkeys that can be\nassigned to the different operations. These are not bound\nby default - if you want to use them you have to call:\n`spoon.WindowHalfsAndThirds:bindHotkeys(spoon.WindowHalfsAndThirds.defaultHotkeys)`\nafter loading the spoon. Value:\n```\n {\n    left_half   = { {\"ctrl\",        \"cmd\"}, \"Left\" },\n    right_half  = { {\"ctrl\",        \"cmd\"}, \"Right\" },\n    top_half    = { {\"ctrl\",        \"cmd\"}, \"Up\" },\n    bottom_half = { {\"ctrl\",        \"cmd\"}, \"Down\" },\n    third_left  = { {\"ctrl\", \"alt\"       }, \"Left\" },\n    third_right = { {\"ctrl\", \"alt\"       }, \"Right\" },\n    third_up    = { {\"ctrl\", \"alt\"       }, \"Up\" },\n    third_down  = { {\"ctrl\", \"alt\"       }, \"Down\" },\n    top_left    = { {\"ctrl\",        \"cmd\"}, \"1\" },\n    top_right   = { {\"ctrl\",        \"cmd\"}, \"2\" },\n    bottom_left = { {\"ctrl\",        \"cmd\"}, \"3\" },\n    bottom_right= { {\"ctrl\",        \"cmd\"}, \"4\" },\n    max_toggle  = { {\"ctrl\", \"alt\", \"cmd\"}, \"f\" },\n    max         = { {\"ctrl\", \"alt\", \"cmd\"}, \"Up\" },\n    undo        = { {        \"alt\", \"cmd\"}, \"z\" },\n    center      = { {        \"alt\", \"cmd\"}, \"c\" },\n    larger      = { {        \"alt\", \"cmd\", \"shift\"}, \"Right\" },\n    smaller     = { {        \"alt\", \"cmd\", \"shift\"}, \"Left\" },\n }\n```",
+        "file": "Source/WindowHalfsAndThirds.spoon//init.lua",
+        "lineno": "22",
         "name": "defaultHotkeys",
         "signature": "WindowHalfsAndThirds.defaultHotkeys",
         "stripped_doc": "assigned to the different operations. These are not bound\nby default - if you want to use them you have to call:\n`spoon.WindowHalfsAndThirds:bindHotkeys(spoon.WindowHalfsAndThirds.defaultHotkeys)`\nafter loading the spoon. Value:\n```\n {\n    left_half   = { {\"ctrl\",        \"cmd\"}, \"Left\" },\n    right_half  = { {\"ctrl\",        \"cmd\"}, \"Right\" },\n    top_half    = { {\"ctrl\",        \"cmd\"}, \"Up\" },\n    bottom_half = { {\"ctrl\",        \"cmd\"}, \"Down\" },\n    third_left  = { {\"ctrl\", \"alt\"       }, \"Left\" },\n    third_right = { {\"ctrl\", \"alt\"       }, \"Right\" },\n    third_up    = { {\"ctrl\", \"alt\"       }, \"Up\" },\n    third_down  = { {\"ctrl\", \"alt\"       }, \"Down\" },\n    top_left    = { {\"ctrl\",        \"cmd\"}, \"1\" },\n    top_right   = { {\"ctrl\",        \"cmd\"}, \"2\" },\n    bottom_left = { {\"ctrl\",        \"cmd\"}, \"3\" },\n    bottom_right= { {\"ctrl\",        \"cmd\"}, \"4\" },\n    max_toggle  = { {\"ctrl\", \"alt\", \"cmd\"}, \"f\" },\n    max         = { {\"ctrl\", \"alt\", \"cmd\"}, \"Up\" },\n    undo        = { {        \"alt\", \"cmd\"}, \"z\" },\n    center      = { {        \"alt\", \"cmd\"}, \"c\" },\n    larger      = { {        \"alt\", \"cmd\", \"shift\"}, \"Right\" },\n    smaller     = { {        \"alt\", \"cmd\", \"shift\"}, \"Left\" },\n }\n```",
@@ -148,6 +172,8 @@
         "def": "WindowHalfsAndThirds.logger",
         "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "file": "Source/WindowHalfsAndThirds.spoon//init.lua",
+        "lineno": "17",
         "name": "logger",
         "signature": "WindowHalfsAndThirds.logger",
         "stripped_doc": "",
@@ -157,6 +183,8 @@
         "def": "WindowHalfsAndThirds.use_frame_correctness",
         "desc": "If `true`, set [setFrameCorrectness](http://www.hammerspoon.org/docs/hs.window.html#setFrameCorrectness) for some resizing operations which fail when the window extends beyonds screen boundaries. This may cause some jerkiness in the resizing, so experiment and determine if you need it. Defaults to `false`",
         "doc": "If `true`, set [setFrameCorrectness](http://www.hammerspoon.org/docs/hs.window.html#setFrameCorrectness) for some resizing operations which fail when the window extends beyonds screen boundaries. This may cause some jerkiness in the resizing, so experiment and determine if you need it. Defaults to `false`",
+        "file": "Source/WindowHalfsAndThirds.spoon//init.lua",
+        "lineno": "72",
         "name": "use_frame_correctness",
         "signature": "WindowHalfsAndThirds.use_frame_correctness",
         "stripped_doc": "",
@@ -170,6 +198,8 @@
         "def": "WindowHalfsAndThirds:bindHotkeys(mapping)",
         "desc": "Binds hotkeys for WindowHalfsAndThirds",
         "doc": "Binds hotkeys for WindowHalfsAndThirds\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n  * left_half, right_half, top_half, bottom_half - resize to the corresponding half of the screen\n  * third_left, third_right - resize to one horizontal-third of the screen and move left/right\n  * third_up, third_down - resize to one vertical-third of the screen and move up/down\n  * max - maximize the window\n  * max_toggle - toggle maximization\n  * left_third, middle_third_h, right_third - resize and move the window to the corresponding horizontal third of the screen\n  * top_third, middle_third_v, bottom_third - resize and move the window to the corresponding vertical third of the screen\n  * top_left, top_right, bottom_left, bottom_right - resize and move the window to the corresponding quarter of the screen\n  * undo - restore window to position before last move\n  * center - move window to center of screen\n  * larger - grow window larger than its current size\n  * smaller - shrink window smaller than its current size\n\nReturns:\n * the WindowHalfsAndThirds object",
+        "file": "Source/WindowHalfsAndThirds.spoon//init.lua",
+        "lineno": "416",
         "name": "bindHotkeys",
         "parameters": [
           " * mapping - A table containing hotkey objifier/key details for the following items:",
@@ -197,6 +227,8 @@
         "def": "WindowHalfsAndThirds:center(win)",
         "desc": "Center window on screen",
         "doc": "Center window on screen\n\nParameters:\n * win - hs.window to use, defaults to hs.window.focusedWindow()\n\nReturns:\n * the WindowHalfsAndThirds object",
+        "file": "Source/WindowHalfsAndThirds.spoon//init.lua",
+        "lineno": "350",
         "name": "center",
         "parameters": [
           " * win - hs.window to use, defaults to hs.window.focusedWindow()"
@@ -212,6 +244,8 @@
         "def": "WindowHalfsAndThirds.clear_cache_after_seconds",
         "desc": "We don't want our undo frame cache filling all available memory. Let's clear it after it hasn't been used for a while.",
         "doc": "We don't want our undo frame cache filling all available memory. Let's clear it after it hasn't been used for a while.",
+        "file": "Source/WindowHalfsAndThirds.spoon//init.lua",
+        "lineno": "77",
         "name": "clear_cache_after_seconds",
         "signature": "WindowHalfsAndThirds.clear_cache_after_seconds",
         "stripped_doc": "",
@@ -221,6 +255,8 @@
         "def": "WindowHalfsAndThirds.defaultHotkeys",
         "desc": "Table containing a sample set of hotkeys that can be",
         "doc": "Table containing a sample set of hotkeys that can be\nassigned to the different operations. These are not bound\nby default - if you want to use them you have to call:\n`spoon.WindowHalfsAndThirds:bindHotkeys(spoon.WindowHalfsAndThirds.defaultHotkeys)`\nafter loading the spoon. Value:\n```\n {\n    left_half   = { {\"ctrl\",        \"cmd\"}, \"Left\" },\n    right_half  = { {\"ctrl\",        \"cmd\"}, \"Right\" },\n    top_half    = { {\"ctrl\",        \"cmd\"}, \"Up\" },\n    bottom_half = { {\"ctrl\",        \"cmd\"}, \"Down\" },\n    third_left  = { {\"ctrl\", \"alt\"       }, \"Left\" },\n    third_right = { {\"ctrl\", \"alt\"       }, \"Right\" },\n    third_up    = { {\"ctrl\", \"alt\"       }, \"Up\" },\n    third_down  = { {\"ctrl\", \"alt\"       }, \"Down\" },\n    top_left    = { {\"ctrl\",        \"cmd\"}, \"1\" },\n    top_right   = { {\"ctrl\",        \"cmd\"}, \"2\" },\n    bottom_left = { {\"ctrl\",        \"cmd\"}, \"3\" },\n    bottom_right= { {\"ctrl\",        \"cmd\"}, \"4\" },\n    max_toggle  = { {\"ctrl\", \"alt\", \"cmd\"}, \"f\" },\n    max         = { {\"ctrl\", \"alt\", \"cmd\"}, \"Up\" },\n    undo        = { {        \"alt\", \"cmd\"}, \"z\" },\n    center      = { {        \"alt\", \"cmd\"}, \"c\" },\n    larger      = { {        \"alt\", \"cmd\", \"shift\"}, \"Right\" },\n    smaller     = { {        \"alt\", \"cmd\", \"shift\"}, \"Left\" },\n }\n```",
+        "file": "Source/WindowHalfsAndThirds.spoon//init.lua",
+        "lineno": "22",
         "name": "defaultHotkeys",
         "signature": "WindowHalfsAndThirds.defaultHotkeys",
         "stripped_doc": "assigned to the different operations. These are not bound\nby default - if you want to use them you have to call:\n`spoon.WindowHalfsAndThirds:bindHotkeys(spoon.WindowHalfsAndThirds.defaultHotkeys)`\nafter loading the spoon. Value:\n```\n {\n    left_half   = { {\"ctrl\",        \"cmd\"}, \"Left\" },\n    right_half  = { {\"ctrl\",        \"cmd\"}, \"Right\" },\n    top_half    = { {\"ctrl\",        \"cmd\"}, \"Up\" },\n    bottom_half = { {\"ctrl\",        \"cmd\"}, \"Down\" },\n    third_left  = { {\"ctrl\", \"alt\"       }, \"Left\" },\n    third_right = { {\"ctrl\", \"alt\"       }, \"Right\" },\n    third_up    = { {\"ctrl\", \"alt\"       }, \"Up\" },\n    third_down  = { {\"ctrl\", \"alt\"       }, \"Down\" },\n    top_left    = { {\"ctrl\",        \"cmd\"}, \"1\" },\n    top_right   = { {\"ctrl\",        \"cmd\"}, \"2\" },\n    bottom_left = { {\"ctrl\",        \"cmd\"}, \"3\" },\n    bottom_right= { {\"ctrl\",        \"cmd\"}, \"4\" },\n    max_toggle  = { {\"ctrl\", \"alt\", \"cmd\"}, \"f\" },\n    max         = { {\"ctrl\", \"alt\", \"cmd\"}, \"Up\" },\n    undo        = { {        \"alt\", \"cmd\"}, \"z\" },\n    center      = { {        \"alt\", \"cmd\"}, \"c\" },\n    larger      = { {        \"alt\", \"cmd\", \"shift\"}, \"Right\" },\n    smaller     = { {        \"alt\", \"cmd\", \"shift\"}, \"Left\" },\n }\n```",
@@ -230,6 +266,8 @@
         "def": "WindowHalfsAndThirds:larger(win)",
         "desc": "Make win larger than its current size",
         "doc": "Make win larger than its current size\n\nParameters:\n * win - hs.window to use, defaults to hs.window.focusedWindow()\n\nReturns:\n * the WindowHalfsAndThirds object",
+        "file": "Source/WindowHalfsAndThirds.spoon//init.lua",
+        "lineno": "368",
         "name": "larger",
         "parameters": [
           " * win - hs.window to use, defaults to hs.window.focusedWindow()"
@@ -244,8 +282,16 @@
       {
         "def": "WindowHalfsAndThirds:leftHalf(win)",
         "desc": "Resize to the left half of the screen.",
-        "doc": "Resize to the left half of the screen.\nAlso various other action methods. See WindowHalfsAndThirds:bindHotkeys for details\n  .leftHalf .rightHalf .topHalf .bottomHalf .thirdLeft .thirdRight .leftThird .middleThirdH .rightThird\n  .thirdUp .thirdDown .topThird .middleThirdV .bottomThird .topLeft .topRight .bottomLeft .bottomRight\n  .maximize\n\nParameters:\n * win - hs.window to use, defaults to hs.window.focusedWindow()\n\nReturns:\n * the WindowHalfsAndThirds object",
+        "doc": "Resize to the left half of the screen.\n\nParameters:\n * win - hs.window to use, defaults to hs.window.focusedWindow()\n\nReturns:\n * the WindowHalfsAndThirds object\n\nNotes:\n * Variations of this method exist for other operations. See WindowHalfsAndThirds:bindHotkeys for details:\n   * .leftHalf .rightHalf .topHalf .bottomHalf .thirdLeft .thirdRight .leftThird .middleThirdH .rightThird\n   * .thirdUp .thirdDown .topThird .middleThirdV .bottomThird .topLeft .topRight .bottomLeft .bottomRight\n   * .maximize",
+        "file": "Source/WindowHalfsAndThirds.spoon//init.lua",
+        "lineno": "268",
         "name": "leftHalf",
+        "notes": [
+          " * Variations of this method exist for other operations. See WindowHalfsAndThirds:bindHotkeys for details:",
+          "   * .leftHalf .rightHalf .topHalf .bottomHalf .thirdLeft .thirdRight .leftThird .middleThirdH .rightThird",
+          "   * .thirdUp .thirdDown .topThird .middleThirdV .bottomThird .topLeft .topRight .bottomLeft .bottomRight",
+          "   * .maximize"
+        ],
         "parameters": [
           " * win - hs.window to use, defaults to hs.window.focusedWindow()"
         ],
@@ -253,13 +299,15 @@
           " * the WindowHalfsAndThirds object"
         ],
         "signature": "WindowHalfsAndThirds:leftHalf(win)",
-        "stripped_doc": "Also various other action methods. See WindowHalfsAndThirds:bindHotkeys for details\n  .leftHalf .rightHalf .topHalf .bottomHalf .thirdLeft .thirdRight .leftThird .middleThirdH .rightThird\n  .thirdUp .thirdDown .topThird .middleThirdV .bottomThird .topLeft .topRight .bottomLeft .bottomRight\n  .maximize",
+        "stripped_doc": "",
         "type": "Method"
       },
       {
         "def": "WindowHalfsAndThirds.logger",
         "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "file": "Source/WindowHalfsAndThirds.spoon//init.lua",
+        "lineno": "17",
         "name": "logger",
         "signature": "WindowHalfsAndThirds.logger",
         "stripped_doc": "",
@@ -269,6 +317,8 @@
         "def": "WindowHalfsAndThirds:smaller(win)",
         "desc": "Make win smaller than its current size",
         "doc": "Make win smaller than its current size\n\nParameters:\n * win - hs.window to use, defaults to hs.window.focusedWindow()\n\nReturns:\n * the WindowHalfsAndThirds object",
+        "file": "Source/WindowHalfsAndThirds.spoon//init.lua",
+        "lineno": "392",
         "name": "smaller",
         "parameters": [
           " * win - hs.window to use, defaults to hs.window.focusedWindow()"
@@ -284,6 +334,8 @@
         "def": "WindowHalfsAndThirds:toggleMaximized(win)",
         "desc": "Toggle win between its normal size, and being maximized",
         "doc": "Toggle win between its normal size, and being maximized\n\nParameters:\n * win - hs.window to use, defaults to hs.window.focusedWindow()\n\nReturns:\n * the WindowHalfsAndThirds object",
+        "file": "Source/WindowHalfsAndThirds.spoon//init.lua",
+        "lineno": "313",
         "name": "toggleMaximized",
         "parameters": [
           " * win - hs.window to use, defaults to hs.window.focusedWindow()"
@@ -299,6 +351,8 @@
         "def": "WindowHalfsAndThirds:undo(win)",
         "desc": "Undo window size changes for win if there've been any in WindowHalfsAndThirds.clear_cache_after_seconds",
         "doc": "Undo window size changes for win if there've been any in WindowHalfsAndThirds.clear_cache_after_seconds\n\nParameters:\n * win - hs.window to use, defaults to hs.window.focusedWindow()\n\nReturns:\n * the WindowHalfsAndThirds object",
+        "file": "Source/WindowHalfsAndThirds.spoon//init.lua",
+        "lineno": "336",
         "name": "undo",
         "parameters": [
           " * win - hs.window to use, defaults to hs.window.focusedWindow()"
@@ -314,6 +368,8 @@
         "def": "WindowHalfsAndThirds.use_frame_correctness",
         "desc": "If `true`, set [setFrameCorrectness](http://www.hammerspoon.org/docs/hs.window.html#setFrameCorrectness) for some resizing operations which fail when the window extends beyonds screen boundaries. This may cause some jerkiness in the resizing, so experiment and determine if you need it. Defaults to `false`",
         "doc": "If `true`, set [setFrameCorrectness](http://www.hammerspoon.org/docs/hs.window.html#setFrameCorrectness) for some resizing operations which fail when the window extends beyonds screen boundaries. This may cause some jerkiness in the resizing, so experiment and determine if you need it. Defaults to `false`",
+        "file": "Source/WindowHalfsAndThirds.spoon//init.lua",
+        "lineno": "72",
         "name": "use_frame_correctness",
         "signature": "WindowHalfsAndThirds.use_frame_correctness",
         "stripped_doc": "",

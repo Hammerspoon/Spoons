@@ -16,7 +16,7 @@
     <header>
       <h1><a href="./index.html">docs</a> &raquo; Shade</h1>
       <p>Creates a semitransparent overlay to reduce screen brightness.</p>
-<p>Download: <a href="https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Shade.spoon.zip">https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Shade.spoon.zip</a></p>
+<p>Download: https://github.com/Hammerspoon/Spoons/raw/master/Spoons/Shade.spoon.zip</p>
 
       </header>
       <h3>API Overview</h3>
@@ -54,8 +54,11 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Flag for Shade status, 'false' means shade off, 'true' means on.</p>
-</td>
+                <td>Flag for Shade status, 'false' means shade off, 'true' means on.</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/Shade.spoon/init.lua#L112">Source/Shade.spoon/init.lua line 112</a></td>
               </tr>
             </table>
           </section>
@@ -73,9 +76,11 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Contains the alpha (transparency) of the overlay, from 0.0 (completely
-transparent to 1.0 (completely opaque). Default is 0.5.</p>
-</td>
+                <td>Contains the alpha (transparency) of the overlay, from 0.0 (completely transparent to 1.0 (completely opaque). Default is 0.5.</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/Shade.spoon/init.lua#L86">Source/Shade.spoon/init.lua line 86</a></td>
               </tr>
             </table>
           </section>
@@ -94,16 +99,25 @@ transparent to 1.0 (completely opaque). Default is 0.5.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Turns shade on/off</p>
-<p>Parameters:</p>
-<ul>
-<li>None</li>
-</ul>
-<p>Returns:</p>
-<ul>
+                <td>Turns shade on/off</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>None</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
+<li>None</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/Shade.spoon/init.lua#L220">Source/Shade.spoon/init.lua line 220</a></td>
               </tr>
             </table>
           </section>
@@ -122,20 +136,32 @@ transparent to 1.0 (completely opaque). Default is 0.5.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Binds hotkeys for Shade</p>
-<p>Parameters:</p>
-<ul>
+                <td>Binds hotkeys for Shade</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>map - A table containing hotkey modifier/key details for the following item:<ul>
-<li>toggleShade - This will toggle the shade on/off, and update the menubar graphic
-E.g.: { toggleShade = {"cmd","alt","ctrl"},"s" }</li>
+<li>toggleShade - This will toggle the shade on/off, and update the menubar graphic</li>
 </ul>
 </li>
 </ul>
-<p>Returns:</p>
-<ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
 <li>None</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                  <th>Examples</th>
+                  <td></td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/Shade.spoon/init.lua#L252">Source/Shade.spoon/init.lua line 252</a></td>
               </tr>
             </table>
           </section>
@@ -153,16 +179,25 @@ E.g.: { toggleShade = {"cmd","alt","ctrl"},"s" }</li>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Sets up the Spoon</p>
-<p>Parameters:</p>
-<ul>
-<li>None</li>
-</ul>
-<p>Returns:</p>
-<ul>
+                <td>Sets up the Spoon</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>None</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
+<li>None</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/Shade.spoon/init.lua#L121">Source/Shade.spoon/init.lua line 121</a></td>
               </tr>
             </table>
           </section>
@@ -180,16 +215,25 @@ E.g.: { toggleShade = {"cmd","alt","ctrl"},"s" }</li>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Turn the shade on, darkening the screen</p>
-<p>Parameters:</p>
-<ul>
-<li>None</li>
-</ul>
-<p>Returns:</p>
-<ul>
+                <td>Turn the shade on, darkening the screen</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>None</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
+<li>None</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/Shade.spoon/init.lua#L176">Source/Shade.spoon/init.lua line 176</a></td>
               </tr>
             </table>
           </section>
@@ -207,16 +251,25 @@ E.g.: { toggleShade = {"cmd","alt","ctrl"},"s" }</li>
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Turn the shade off, brightening the screen</p>
-<p>Parameters:</p>
-<ul>
-<li>None</li>
-</ul>
-<p>Returns:</p>
-<ul>
+                <td>Turn the shade off, brightening the screen</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
 <li>None</li>
 </ul>
 </td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
+<li>None</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/Shade.spoon/init.lua#L202">Source/Shade.spoon/init.lua line 202</a></td>
               </tr>
             </table>
           </section>

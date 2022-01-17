@@ -120,7 +120,8 @@ end
 ---   * `translate_from_<lang>` - translate the selected text from the given destination language. Destination language will default to your last choice, or to English.
 ---   * `translate_<from>_<to>` - translate the selected text between the given languages.
 ---
---- Sample value for `mapping`:
+--- Examples:
+---  * Sample value for `mapping`:
 --- ```
 ---  {
 ---     translate_to_en = { { "ctrl", "alt", "cmd" }, "e" },

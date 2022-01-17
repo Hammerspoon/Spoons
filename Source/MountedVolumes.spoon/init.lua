@@ -182,13 +182,13 @@ obj.unitsInSI = false
 --- Variable
 --- A table specifying the style as defined in `hs.styledtext` to display the volume name and usage details with. Defaults to:
 ---
----     {
+--- Notes:
+---  *   {
 ---         font = { name = "Menlo", size = 10 },
 ---         color = { alpha = 1.0 },
 ---         paragraphStyle = { alignment = "center" },
 ---     }
----
---- Changes will take effect when the next volume change occurs, when the next usage check occurs (see `MountedVolumes.checkInterval`), or when `MountedVolumes:show` is invoked, whichever occurs first.
+---  * Changes will take effect when the next volume change occurs, when the next usage check occurs (see `MountedVolumes.checkInterval`), or when `MountedVolumes:show` is invoked, whichever occurs first.
 obj.textStyle = {
     font = { name = "Menlo", size = 10 },
     color = { alpha = 1.0 },
@@ -199,37 +199,42 @@ obj.textStyle = {
 --- Variable
 --- A boolean, default true, indicating whether the eject button displayed next to removable volumes is enabled.
 ---
---- Changes will take effect when the next volume change occurs, when the next usage check occurs (see `MountedVolumes.checkInterval`), or when `MountedVolumes:show` is invoked, whichever occurs first.
+--- Notes:
+---  * Changes will take effect when the next volume change occurs, when the next usage check occurs (see `MountedVolumes.checkInterval`), or when `MountedVolumes:show` is invoked, whichever occurs first.
 obj.enableEjectButton = true
 
 --- MountedVolumes.capacityColor
 --- Variable
 --- A table, as defined in `hs.drawing.color`, specifying the color to use for the in use portion of the volume's capacity pie chart. Defaults to `hs.drawing.color.x11.orangered`
 ---
---- Changes will take effect when the next volume change occurs, when the next usage check occurs (see `MountedVolumes.checkInterval`), or when `MountedVolumes:show` is invoked, whichever occurs first.
+--- Notes:
+---  * Changes will take effect when the next volume change occurs, when the next usage check occurs (see `MountedVolumes.checkInterval`), or when `MountedVolumes:show` is invoked, whichever occurs first.
 obj.capacityColor  = { list = "x11", name = "orangered" }
 
 --- MountedVolumes.freeColor
 --- Variable
 --- A table, as defined in `hs.drawing.color`, specifying the color to use for the free portion of the volume's capacity pie chart. Defaults to `hs.drawing.color.x11.mediumspringgreen`
 ---
---- Changes will take effect when the next volume change occurs, when the next usage check occurs (see `MountedVolumes.checkInterval`), or when `MountedVolumes:show` is invoked, whichever occurs first.
+--- Notes:
+---  * Changes will take effect when the next volume change occurs, when the next usage check occurs (see `MountedVolumes.checkInterval`), or when `MountedVolumes:show` is invoked, whichever occurs first.
 obj.availableColor = { list = "x11", name = "mediumspringgreen" }
 
 --- MountedVolumes.location
 --- Variable
 --- A table specifying the location on the screen of the starting corner of the display. Defaults to `{ x = 20, y = 22 }`.
---- See also `MountedValues.growsDownwards`.
 ---
---- Changes will take effect when the next volume change occurs, when the next usage check occurs (see `MountedVolumes.checkInterval`), or when `MountedVolumes:show` is invoked, whichever occurs first.
+--- Notes:
+---  * See also `MountedValues.growsDownwards`.
+---  * Changes will take effect when the next volume change occurs, when the next usage check occurs (see `MountedVolumes.checkInterval`), or when `MountedVolumes:show` is invoked, whichever occurs first.
 obj.location = { x = 20, y = 22 }
 
 --- MountedVolumes.growsDownwards
 --- Variable
 --- A boolean, default true, indicating whether the displayed list grows downwards or upwards as more volumes are mounted.
---- Note that if this value is true, then `MountedVolumes.location` specifies the upper left corner of the display.  If this value is false, then `MountedVolumes.location` specifies the bottom left corner of the display.
 ---
---- Changes will take effect when the next volume change occurs, when the next usage check occurs (see `MountedVolumes.checkInterval`), or when `MountedVolumes:show` is invoked, whichever occurs first.
+--- Notes:
+---  * Note that if this value is true, then `MountedVolumes.location` specifies the upper left corner of the display.  If this value is false, then `MountedVolumes.location` specifies the bottom left corner of the display.
+---  * Changes will take effect when the next volume change occurs, when the next usage check occurs (see `MountedVolumes.checkInterval`), or when `MountedVolumes:show` is invoked, whichever occurs first.
 obj.growsDownwards = true
 
 --- MountedVolumes.checkInterval
