@@ -156,6 +156,24 @@
         "type": "Variable"
       },
       {
+        "def": "ClipboardTool.honor_ignoredWindows",
+        "desc": "If `true`, check the window title the data is copied from, and ignore entries which match those listd in `ClipboardTool.ignoredWindows`. Defaults to `true`",
+        "doc": "If `true`, check the window title the data is copied from, and ignore entries which match those listd in `ClipboardTool.ignoredWindows`. Defaults to `true`",
+        "name": "honor_ignoredWindows",
+        "signature": "ClipboardTool.honor_ignoredWindows",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "ClipboardTool.ignoredWindows",
+        "desc": "Titles of windows to ignore.",
+        "doc": "Titles of windows to ignore. Default value:\n```\n {\n    [\"1Password\"]              = true, -- Confidential : 1Password\n    [\"Bitwarden\"]              = true, -- Confidential : Bitwarden\n }\n```",
+        "name": "ignoredWindows",
+        "signature": "ClipboardTool.ignoredWindows",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
         "def": "ClipboardTool.logger",
         "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
