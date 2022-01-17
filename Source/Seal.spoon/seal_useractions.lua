@@ -16,6 +16,7 @@ obj.default_icon = hs.image.imageFromName(hs.image.systemImageNames.ActionTempla
 ---  * A table containing the definitions of static user-defined actions. Each entry is indexed by the name of the entry as it will be shown in the chooser. Its value is a table which can have the following keys (one of `fn` or `url` is required. If both are provided, `url` is ignored):
 ---   * fn - A function which will be called when the entry is selected. The function receives no arguments.
 ---   * url - A URL which will be opened when the entry is selected. Can also be non-HTTP URLs, such as `mailto:` or other app-specific URLs.
+---   * description - (optional) A string or `hs.styledtext` object that will be shown underneath the main text of the choice.
 ---   * icon - (optional) An `hs.image` object that will be shown next to the entry in the chooser. If not provided, `Seal.plugins.useractions.default_icon` is used. For `url` bookmarks, it can be set to `"favicon"` to fetch and use the website's favicon.
 ---   * keyword - (optional) A command by which this action will be invoked, effectively turning it into a Seal command. Any arguments passed to the command will be handled as follows:
 ---     * For `fn` actions, passed as an argument to the function
@@ -29,7 +30,8 @@ obj.default_icon = hs.image.imageFromName(hs.image.systemImageNames.ActionTempla
 ---       ["Hammerspoon docs webpage"] = {
 ---          url = "http://hammerspoon.org/docs/",
 ---          icon = hs.image.imageFromName(hs.image.systemImageNames.ApplicationIcon),
----          hotkey = { hyper, "h" }
+---          description = "Open Hammerspoon documentation",
+---          hotkey = { hyper, "h" },
 ---       },
 ---       ["Leave corpnet"] = {
 ---          fn = function()
@@ -150,6 +152,9 @@ function obj.buildChoice(action, v)
       choice.type = kind
       choice.plugin = obj.__name
       choice.image = icon
+      if v.description then
+         choice.subText = v.description
+      end
    end
    return choice
 end
@@ -229,7 +234,7 @@ function obj.choicesActionKeyword(action, def, query)
    end
    local choice = {
       text = def.keyword .. " " .. query,
-      subText = action,
+      subText = def.description or action,
       actionname = action,
       arg = query,
       plugin = obj.__name,
