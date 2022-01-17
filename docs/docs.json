@@ -6422,7 +6422,7 @@
         "doc": "Load new sources from `HSearch.search_path`, the search_path defaults to `~/.hammerspoon/private/hsearch_dir` and the HSearch Spoon directory. Only useful for debugging purposes.\n\nParameters:\n * None\n",
         "examples": [],
         "file": "Source/HSearch.spoon/init.lua",
-        "lineno": "169",
+        "lineno": "187",
         "name": "loadSources",
         "notes": [],
         "parameters": [
@@ -6439,7 +6439,7 @@
         "doc": "Trigger new source according to `hs.chooser`'s query string and keyword. Only useful for debugging purposes.\n\nParameters:\n * None\n",
         "examples": [],
         "file": "Source/HSearch.spoon/init.lua",
-        "lineno": "81",
+        "lineno": "99",
         "name": "switchSource",
         "notes": [],
         "parameters": [
@@ -6456,7 +6456,7 @@
         "doc": "Toggle the display of HSearch\n\nParameters:\n * None\n",
         "examples": [],
         "file": "Source/HSearch.spoon/init.lua",
-        "lineno": "225",
+        "lineno": "243",
         "name": "toggleShow",
         "notes": [],
         "parameters": [
@@ -6478,7 +6478,7 @@
         "doc": "Load new sources from `HSearch.search_path`, the search_path defaults to `~/.hammerspoon/private/hsearch_dir` and the HSearch Spoon directory. Only useful for debugging purposes.\n\nParameters:\n * None\n",
         "examples": [],
         "file": "Source/HSearch.spoon/init.lua",
-        "lineno": "169",
+        "lineno": "187",
         "name": "loadSources",
         "notes": [],
         "parameters": [
@@ -6495,7 +6495,7 @@
         "doc": "Trigger new source according to `hs.chooser`'s query string and keyword. Only useful for debugging purposes.\n\nParameters:\n * None\n",
         "examples": [],
         "file": "Source/HSearch.spoon/init.lua",
-        "lineno": "81",
+        "lineno": "99",
         "name": "switchSource",
         "notes": [],
         "parameters": [
@@ -6512,7 +6512,7 @@
         "doc": "Toggle the display of HSearch\n\nParameters:\n * None\n",
         "examples": [],
         "file": "Source/HSearch.spoon/init.lua",
-        "lineno": "225",
+        "lineno": "243",
         "name": "toggleShow",
         "notes": [],
         "parameters": [
