@@ -30,32 +30,47 @@ local log = hs.logger.new('InputSourceSwitch','debug')
 log.d('Init')
 
 -- Internal function used to get enabled input sources
-local function getEnabledInputSourcesMap()
-    local map = {}
-    local handle = io.popen(hs.configdir.."/Spoons/InputSourceSwitch.spoon/bin/InputSourceSelector list-enabled")
-    for line in handle:lines() do
-        local v, k = string.match(line, "(%S+) %((.+)%)")
-        map[k] = v
+local function isLayout(layoutName)
+    local layouts = hs.keycodes.layouts()
+    for key, value in pairs(layouts) do
+        if (value == layoutName) then
+            return true
+        end
     end
-    handle:close()
-    return map
+
+    return false
 end
 
-local function setAppInputSource(appName, sourceID, event)
-    -- hs.window.filter.windowCreated
+local function isMethod(methodName)
+    local methods = hs.keycodes.methods()
+    for key, value in pairs(methods) do
+        if (value == methodName) then
+            return true
+        end
+    end
+
+    return false
+end
+
+local function setAppInputSource(appName, sourceName, event)
     event = event or hs.window.filter.windowFocused
 
     hs.window.filter.new(appName):subscribe(event, function()
-        r = hs.keycodes.currentSourceID(sourceID)
-    end)
-end
+        local r = true
 
---- InputSourceSwitch.inputSourceMap
---- Variable
---- Mapping the input source to the source id
----
---- Default value: enabled input sources
-obj.inputSourcesMap = getEnabledInputSourcesMap()
+        if (isLayout(sourceName)) then
+            r = hs.keycodes.setLayout(sourceName)
+        elseif isMethod(sourceName) then
+            r = hs.keycodes.setMethod(sourceName)
+        else
+            hs.alert.show(string.format('sourceName: %s is not layout or method', sourceName))
+        end
+
+        if (not r) then
+            hs.alert.show(string.format('set %s to %s failure', appName, sourceName))
+        end
+        end)
+end
 
 --- InputSourceSwitch.applicationMap
 --- Variable
@@ -90,7 +105,7 @@ end
 ---  * None
 function obj:start()
     for k,v in pairs(self.applicationsMap) do
-        setAppInputSource(k, self.inputSourcesMap[v])
+        setAppInputSource(k, v)
     end
     return self
 end
