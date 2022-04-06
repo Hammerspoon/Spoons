@@ -21,27 +21,27 @@ obj.sleepWatcher = nil
 
 local function muteNonBluetoothOutputDevices(state)
     if state == hs.caffeinate.watcher.systemDidWake then
-		local devices = hs.audiodevice.allOutputDevices()
-	
-  		for _, device in ipairs(devices) do
-  			if device and device:transportType() ~= 'Bluetooth' then
-            	device:setMuted(true)
-  	  		end
-      	end
+        local devices = hs.audiodevice.allOutputDevices()
+    
+        for _, device in ipairs(devices) do
+            if device and device:transportType() ~= 'Bluetooth' then
+                device:setMuted(true)
+            end
+        end
     end
 end
 
 
 function obj:init()
-	self.sleepWatcher = hs.caffeinate.watcher.new(muteNonBluetoothOutputDevices)
+    self.sleepWatcher = hs.caffeinate.watcher.new(muteNonBluetoothOutputDevices)
 end
 
 function obj:start()
-	self.sleepWatcher:start()
+    self.sleepWatcher:start()
 end
 
 function obj:stop()
-	self.sleepWatcher:stop()
+    self.sleepWatcher:stop()
 end
 
 return obj
