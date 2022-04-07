@@ -1,17 +1,17 @@
---- === AutoMuteOnWake ===
+--- === AutoMuteOnSleep ===
 ---
 --- Automatically set to 0 the volume of all output audio devices except Bluetooth devices when Mac goes to sleep.
 --- Useful to avoid blasting sound when opening a Macbook in the public transport.
 --- Note: This is primarily intended for portable Mac devices, which have internal speakers.
 ---
---- Download: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/AutoMuteOnWake.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/AutoMuteOnWake.spoon.zip)
+--- Download: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/AutoMuteOnSleep.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/AutoMuteOnSleep.spoon.zip)
 
 
 local obj={}
 obj.__index = obj
 
 -- Metadata
-obj.name = "AutoMuteOnWake"
+obj.name = "AutoMuteOnSleep"
 obj.version = "1.0"
 obj.author = "devnoname120 <devnoname120@gmail.com"
 obj.homepage = "https://github.com/Hammerspoon/Spoons"
