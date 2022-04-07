@@ -1,6 +1,6 @@
 --- === AutoMuteOnWake ===
 ---
---- Automatically mute all output audio devices except Bluetooth devices when Mac returns from sleep.
+--- Automatically set to 0 the volume of all output audio devices except Bluetooth devices when Mac goes to sleep.
 --- Useful to avoid blasting sound when opening a Macbook in the public transport.
 --- Note: This is primarily intended for portable Mac devices, which have internal speakers.
 ---
@@ -20,12 +20,12 @@ obj.license = "MIT - https://opensource.org/licenses/MIT"
 obj.sleepWatcher = nil
 
 local function muteNonBluetoothOutputDevices(state)
-    if state == hs.caffeinate.watcher.systemDidWake then
+    if state == hs.caffeinate.watcher.systemDidWake or state == hs.caffeinate.watcher.systemWillSleep then
         local devices = hs.audiodevice.allOutputDevices()
     
         for _, device in ipairs(devices) do
             if device and device:transportType() ~= 'Bluetooth' then
-                device:setMuted(true)
+                device:setVolume(0) or device:setMuted(true)
             end
         end
     end
