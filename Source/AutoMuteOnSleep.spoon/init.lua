@@ -25,7 +25,7 @@ local function muteNonBluetoothOutputDevices(state)
     
         for _, device in ipairs(devices) do
             if device and device:transportType() ~= 'Bluetooth' then
-                device:setVolume(0) or device:setMuted(true)
+                _ = device:setVolume(0) or device:setMuted(true)
             end
         end
     end
