@@ -27,9 +27,7 @@ obj.maxQueryResults = 40
 ---  * higher value might give you more results but will give a less snappy experience
 obj.displayResultsTimeout = 0.2
 
----
 -- Variables
---- 
 obj.currentQuery = nil
 obj.currentQueryResults = {}
 obj.currentQueryResultsDisplayed = false
@@ -40,9 +38,7 @@ obj.spotlight = hs.spotlight.new()
 -- hammerspoon passes .* as empty query
 EMPTY_QUERY = ".*"
 
----
 -- Private functions
----
 
 local stopCurrentSearch = function()
     if obj.spotlight:isRunning() then
@@ -107,9 +103,7 @@ local handleSpotlightCallback = function(_, msg, info)
     end
 end
 
---- 
 -- Public methods
----
 
 function obj:commands()
     return {
