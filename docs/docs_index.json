@@ -2223,6 +2223,29 @@
     "type": "Method"
   },
   {
+    "desc": "A plugin to add file search capabilities, making Seal act as a spotlight file search",
+    "name": "Seal.plugins.filesearch",
+    "type": "Module"
+  },
+  {
+    "desc": "Maximum time to wait before displaying the results",
+    "module": "Seal.plugins.filesearch",
+    "name": "displayResultsTimeout",
+    "type": "Variable"
+  },
+  {
+    "desc": "Table containing the paths to search for files",
+    "module": "Seal.plugins.filesearch",
+    "name": "fileSearchPaths",
+    "type": "Variable"
+  },
+  {
+    "desc": "Maximum number of results to display",
+    "module": "Seal.plugins.filesearch",
+    "name": "maxResults",
+    "type": "Variable"
+  },
+  {
     "desc": "Visual, searchable pasteboard (ie clipboard) history",
     "name": "Seal.plugins.pasteboard",
     "type": "Module"

@@ -56,6 +56,13 @@ indicating current state/progress of the backup.</p>
                 <td>Image to use for the menubar icon.</td>
               </tr>
               <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>Defaults to the default macOS Time Machine menubar icon stored in <code>/System/Library/CoreServices/Menu Extras/TimeMachine.menu/Contents/Resources/TMBackingUp.pdf</code>. If this fails, it defaults to the Time Machine application icon, obtained as <code>hs.image.imageFromAppBundle('com.apple.backup.launcher'):setSize({w=18,h=18})</code>.</li>
+</ul>
+</td>
+              </tr>
+              <tr>
                 <th>Source</th>
                 <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/TimeMachineProgress.spoon/init.lua#L31">Source/TimeMachineProgress.spoon/init.lua line 31</a></td>
               </tr>

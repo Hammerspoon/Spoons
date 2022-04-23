@@ -33,7 +33,7 @@ obj.refresh_interval = 5
 --- Image to use for the menubar icon.
 ---
 --- Notes:
---   * Defaults to the default macOS Time Machine menubar icon stored in `/System/Library/CoreServices/Menu Extras/TimeMachine.menu/Contents/Resources/TMBackingUp.pdf`. If this fails, it defaults to the Time Machine application icon, obtained as `hs.image.imageFromAppBundle('com.apple.backup.launcher'):setSize({w=18,h=18})`.
+---  * Defaults to the default macOS Time Machine menubar icon stored in `/System/Library/CoreServices/Menu Extras/TimeMachine.menu/Contents/Resources/TMBackingUp.pdf`. If this fails, it defaults to the Time Machine application icon, obtained as `hs.image.imageFromAppBundle('com.apple.backup.launcher'):setSize({w=18,h=18})`.
 obj.backupIcon = hs.image.imageFromPath("/System/Library/CoreServices/Menu Extras/TimeMachine.menu/Contents/Resources/TMBackingUp.pdf") or
                  hs.image.imageFromAppBundle('com.apple.backup.launcher'):setSize({w=18,h=18})
 

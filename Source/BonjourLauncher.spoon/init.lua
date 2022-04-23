@@ -701,7 +701,7 @@ end
 --- Returns:
 ---  * the BonjourLauncher spoon object
 ---
---- Notes::
+--- Notes:
 ---  * If the chooser window is currently visible, this method will invoke [BonjourLauncher:hide](#hide); otherwise invokes [BonjourLauncher:show](#show).
 obj.toggle = function(self, st)
     -- in case called as function
