@@ -10,8 +10,16 @@
       {
         "def": "TimeMachineProgress:refresh()",
         "desc": "Update the indicator and menu according to the current backup status.",
-        "doc": "Update the indicator and menu according to the current backup status.",
+        "doc": "Update the indicator and menu according to the current backup status.\n\nParameters:\n * None",
+        "examples": [],
+        "file": "Source/TimeMachineProgress.spoon//init.lua",
+        "lineno": "95",
         "name": "refresh",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
         "signature": "TimeMachineProgress:refresh()",
         "stripped_doc": "",
         "type": "Method"
@@ -20,7 +28,11 @@
         "def": "TimeMachineProgress:start()",
         "desc": "Starts the indicator",
         "doc": "Starts the indicator\n\nParameters:\n * None\n\nReturns:\n * The TimeMachineProgress object",
+        "examples": [],
+        "file": "Source/TimeMachineProgress.spoon//init.lua",
+        "lineno": "203",
         "name": "start",
+        "notes": [],
         "parameters": [
           " * None"
         ],
@@ -35,7 +47,11 @@
         "def": "TimeMachineProgress:stop()",
         "desc": "Stops the indicator",
         "doc": "Stops the indicator\n\nParameters:\n * None\n\nReturns:\n * The TimeMachineProgress object",
+        "examples": [],
+        "file": "Source/TimeMachineProgress.spoon//init.lua",
+        "lineno": "221",
         "name": "stop",
+        "notes": [],
         "parameters": [
           " * None"
         ],
@@ -50,17 +66,24 @@
     "Variable": [
       {
         "def": "TimeMachineProgress.backupIcon",
-        "desc": "",
-        "doc": "\nImage to use for the menubar icon. Defaults to the default macOS Time\nMachine menubar icon stored in `/System/Library/CoreServices/Menu\nExtras/TimeMachine.menu/Contents/Resources/TMBackingUp.pdf`. If this fails,\nit defaults to the Time Machine application icon, obtained as\n`hs.image.imageFromAppBundle('com.apple.backup.launcher'):setSize({w=18,h=18})`.",
+        "desc": "Image to use for the menubar icon.",
+        "doc": "Image to use for the menubar icon.\n\nNotes:\n * Defaults to the default macOS Time Machine menubar icon stored in `/System/Library/CoreServices/Menu Extras/TimeMachine.menu/Contents/Resources/TMBackingUp.pdf`. If this fails, it defaults to the Time Machine application icon, obtained as `hs.image.imageFromAppBundle('com.apple.backup.launcher'):setSize({w=18,h=18})`.",
+        "file": "Source/TimeMachineProgress.spoon//init.lua",
+        "lineno": "31",
         "name": "backupIcon",
+        "notes": [
+          " * Defaults to the default macOS Time Machine menubar icon stored in `/System/Library/CoreServices/Menu Extras/TimeMachine.menu/Contents/Resources/TMBackingUp.pdf`. If this fails, it defaults to the Time Machine application icon, obtained as `hs.image.imageFromAppBundle('com.apple.backup.launcher'):setSize({w=18,h=18})`."
+        ],
         "signature": "TimeMachineProgress.backupIcon",
-        "stripped_doc": "Image to use for the menubar icon. Defaults to the default macOS Time\nMachine menubar icon stored in `/System/Library/CoreServices/Menu\nExtras/TimeMachine.menu/Contents/Resources/TMBackingUp.pdf`. If this fails,\nit defaults to the Time Machine application icon, obtained as\n`hs.image.imageFromAppBundle('com.apple.backup.launcher'):setSize({w=18,h=18})`.",
+        "stripped_doc": "",
         "type": "Variable"
       },
       {
         "def": "TimeMachineProgress.logger",
         "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "file": "Source/TimeMachineProgress.spoon//init.lua",
+        "lineno": "21",
         "name": "logger",
         "signature": "TimeMachineProgress.logger",
         "stripped_doc": "",
@@ -70,6 +93,8 @@
         "def": "TimeMachineProgress.refresh_interval",
         "desc": "Integer specifying how often the indicator should be refreshed. Defaults to 5 seconds.",
         "doc": "Integer specifying how often the indicator should be refreshed. Defaults to 5 seconds.",
+        "file": "Source/TimeMachineProgress.spoon//init.lua",
+        "lineno": "26",
         "name": "refresh_interval",
         "signature": "TimeMachineProgress.refresh_interval",
         "stripped_doc": "",
@@ -81,17 +106,24 @@
     "items": [
       {
         "def": "TimeMachineProgress.backupIcon",
-        "desc": "",
-        "doc": "\nImage to use for the menubar icon. Defaults to the default macOS Time\nMachine menubar icon stored in `/System/Library/CoreServices/Menu\nExtras/TimeMachine.menu/Contents/Resources/TMBackingUp.pdf`. If this fails,\nit defaults to the Time Machine application icon, obtained as\n`hs.image.imageFromAppBundle('com.apple.backup.launcher'):setSize({w=18,h=18})`.",
+        "desc": "Image to use for the menubar icon.",
+        "doc": "Image to use for the menubar icon.\n\nNotes:\n * Defaults to the default macOS Time Machine menubar icon stored in `/System/Library/CoreServices/Menu Extras/TimeMachine.menu/Contents/Resources/TMBackingUp.pdf`. If this fails, it defaults to the Time Machine application icon, obtained as `hs.image.imageFromAppBundle('com.apple.backup.launcher'):setSize({w=18,h=18})`.",
+        "file": "Source/TimeMachineProgress.spoon//init.lua",
+        "lineno": "31",
         "name": "backupIcon",
+        "notes": [
+          " * Defaults to the default macOS Time Machine menubar icon stored in `/System/Library/CoreServices/Menu Extras/TimeMachine.menu/Contents/Resources/TMBackingUp.pdf`. If this fails, it defaults to the Time Machine application icon, obtained as `hs.image.imageFromAppBundle('com.apple.backup.launcher'):setSize({w=18,h=18})`."
+        ],
         "signature": "TimeMachineProgress.backupIcon",
-        "stripped_doc": "Image to use for the menubar icon. Defaults to the default macOS Time\nMachine menubar icon stored in `/System/Library/CoreServices/Menu\nExtras/TimeMachine.menu/Contents/Resources/TMBackingUp.pdf`. If this fails,\nit defaults to the Time Machine application icon, obtained as\n`hs.image.imageFromAppBundle('com.apple.backup.launcher'):setSize({w=18,h=18})`.",
+        "stripped_doc": "",
         "type": "Variable"
       },
       {
         "def": "TimeMachineProgress.logger",
         "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "file": "Source/TimeMachineProgress.spoon//init.lua",
+        "lineno": "21",
         "name": "logger",
         "signature": "TimeMachineProgress.logger",
         "stripped_doc": "",
@@ -100,8 +132,16 @@
       {
         "def": "TimeMachineProgress:refresh()",
         "desc": "Update the indicator and menu according to the current backup status.",
-        "doc": "Update the indicator and menu according to the current backup status.",
+        "doc": "Update the indicator and menu according to the current backup status.\n\nParameters:\n * None",
+        "examples": [],
+        "file": "Source/TimeMachineProgress.spoon//init.lua",
+        "lineno": "95",
         "name": "refresh",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
         "signature": "TimeMachineProgress:refresh()",
         "stripped_doc": "",
         "type": "Method"
@@ -110,6 +150,8 @@
         "def": "TimeMachineProgress.refresh_interval",
         "desc": "Integer specifying how often the indicator should be refreshed. Defaults to 5 seconds.",
         "doc": "Integer specifying how often the indicator should be refreshed. Defaults to 5 seconds.",
+        "file": "Source/TimeMachineProgress.spoon//init.lua",
+        "lineno": "26",
         "name": "refresh_interval",
         "signature": "TimeMachineProgress.refresh_interval",
         "stripped_doc": "",
@@ -119,7 +161,11 @@
         "def": "TimeMachineProgress:start()",
         "desc": "Starts the indicator",
         "doc": "Starts the indicator\n\nParameters:\n * None\n\nReturns:\n * The TimeMachineProgress object",
+        "examples": [],
+        "file": "Source/TimeMachineProgress.spoon//init.lua",
+        "lineno": "203",
         "name": "start",
+        "notes": [],
         "parameters": [
           " * None"
         ],
@@ -134,7 +180,11 @@
         "def": "TimeMachineProgress:stop()",
         "desc": "Stops the indicator",
         "doc": "Stops the indicator\n\nParameters:\n * None\n\nReturns:\n * The TimeMachineProgress object",
+        "examples": [],
+        "file": "Source/TimeMachineProgress.spoon//init.lua",
+        "lineno": "221",
         "name": "stop",
+        "notes": [],
         "parameters": [
           " * None"
         ],
