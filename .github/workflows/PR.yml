@@ -34,7 +34,7 @@ jobs:
         path: 'hammerspoon'
 
     # Send IRC notification for new PRs
-    - uses: Gottox/irc-message-action@main
+    - uses: Gottox/irc-message-action@v2.1.2
       if: ${{ always() && github.event_name == 'pull_request' && github.repository == 'hammerspoon/Spoons' }}
       with:
         channel: '#hammerspoon'
