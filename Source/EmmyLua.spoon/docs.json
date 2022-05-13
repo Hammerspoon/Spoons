@@ -1,0 +1,19 @@
+[
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [],
+    "Variable": [],
+    "desc": "Thie plugin generates EmmyLua annotations for Hammerspoon and any installed Spoons",
+    "doc": "Thie plugin generates EmmyLua annotations for Hammerspoon and any installed Spoons\nunder ~/.hammerspoon/Spoons/EmmyLua.spoon/annotations.\nAnnotations will only be generated if they don't exist yet or are out of date.\n\nIn order to get auto completion in your editor, you need to have one of the following LSP servers properly configured:\n* [lua-language-server](https://github.com/sumneko/lua-language-server) (recommended)\n* [EmmyLua-LanguageServer](https://github.com/EmmyLua/EmmyLua-LanguageServer)\n\nTo start using this annotations library, add the annotations folder to your workspace.\nfor lua-languag-server:\n\n```json\n{\n  \"Lua.workspace.library\": [\"/Users/YOUR_USERNAME/.hammerspoon/Spoons/EmmyLua.spoon/annotations\"]\n}\n```\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/EmmyLua.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/EmmyLua.spoon.zip)",
+    "items": [],
+    "name": "EmmyLua",
+    "stripped_doc": "under ~/.hammerspoon/Spoons/EmmyLua.spoon/annotations.\nAnnotations will only be generated if they don't exist yet or are out of date.\n\nIn order to get auto completion in your editor, you need to have one of the following LSP servers properly configured:\n* [lua-language-server](https://github.com/sumneko/lua-language-server) (recommended)\n* [EmmyLua-LanguageServer](https://github.com/EmmyLua/EmmyLua-LanguageServer)\n\nTo start using this annotations library, add the annotations folder to your workspace.\nfor lua-languag-server:\n\n```json\n{\n  \"Lua.workspace.library\": [\"/Users/YOUR_USERNAME/.hammerspoon/Spoons/EmmyLua.spoon/annotations\"]\n}\n```\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/EmmyLua.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/EmmyLua.spoon.zip)",
+    "submodules": [],
+    "type": "Module"
+  }
+]

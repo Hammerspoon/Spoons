@@ -1,0 +1,113 @@
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hammerspoon docs: Seal.plugins.filesearch</title>
+    <style type="text/css">
+      a { text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      th { background-color: #DDDDDD; vertical-align: top; padding: 3px; }
+      td { width: 100%; background-color: #EEEEEE; vertical-align: top; padding: 3px; }
+      table { width: 100% ; border: 1px solid #0; text-align: left; }
+      section > table table td { width: 0; }
+    </style>
+    <link rel="stylesheet" href="docs.css" type="text/css" media="screen" />
+  </head>
+  <body>
+    <header>
+      <h1><a href="./index.html">docs</a> &raquo; Seal.plugins.filesearch</h1>
+      <p>A plugin to add file search capabilities, making Seal act as a spotlight file search</p>
+
+      </header>
+      <h3>API Overview</h3>
+      <ul>
+        <li>Variables - Configurable values</li>
+          <ul>
+            <li><a href="#displayResultsTimeout">displayResultsTimeout</a></li>
+            <li><a href="#fileSearchPaths">fileSearchPaths</a></li>
+            <li><a href="#maxResults">maxResults</a></li>
+          </ul>
+      </ul>
+      <h3>API Documentation</h3>
+        <h4 class="documentation-section">Variables</h4>
+          <section id="displayResultsTimeout">
+            <a name="//apple_ref/cpp/Variable/displayResultsTimeout" class="dashAnchor"></a>
+            <h5><a href="#displayResultsTimeout">displayResultsTimeout</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Seal.plugins.filesearch.displayResultsTimeout</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td>Maximum time to wait before displaying the results</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>higher value might give you more results but will give a less snappy experience</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/Seal.spoon/seal_filesearch.lua#L21">Source/Seal.spoon/seal_filesearch.lua line 21</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="fileSearchPaths">
+            <a name="//apple_ref/cpp/Variable/fileSearchPaths" class="dashAnchor"></a>
+            <h5><a href="#fileSearchPaths">fileSearchPaths</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Seal.plugins.filesearch.fileSearchPaths</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td>Table containing the paths to search for files</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>You will need to authorize hammerspoon to access the folders in this list in order for this to work.</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/Seal.spoon/seal_filesearch.lua#L8">Source/Seal.spoon/seal_filesearch.lua line 8</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="maxResults">
+            <a name="//apple_ref/cpp/Variable/maxResults" class="dashAnchor"></a>
+            <h5><a href="#maxResults">maxResults</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>Seal.plugins.filesearch.maxResults</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td>Maximum number of results to display</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/Seal.spoon/seal_filesearch.lua#L16">Source/Seal.spoon/seal_filesearch.lua line 16</a></td>
+              </tr>
+            </table>
+          </section>
+  </body>
+</html>

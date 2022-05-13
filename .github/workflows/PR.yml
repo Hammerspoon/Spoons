@@ -34,7 +34,7 @@ jobs:
         path: 'hammerspoon'
 
     # Send IRC notification for new PRs
-    - uses: Gottox/irc-message-action@v2.1.1
+    - uses: Gottox/irc-message-action@v2.1.2
       if: ${{ always() && github.event_name == 'pull_request' && github.repository == 'hammerspoon/Spoons' }}
       with:
         channel: '#hammerspoon'
@@ -63,28 +63,9 @@ jobs:
     - name: Docstrings Linter
       run: ./gh_actions_doclint.sh
 
-    # Store docstrings linter annotations as an artifact
-    - name: Upload artifacts
-      if: always()
-      uses: actions/annotate-action-cmsj-fork@v0.4.0-cmsj-alpha
-      with:
-        name: annotations.json
-        path: annotations.json
-
-    # NOTE: This will fail on third party PRs, until https://github.com/yuzutech/annotations-action/issues/23 is implemented
-    #- name: Publish Docstring Annotations
-    #  uses: yuzutech/annotations-action@v0.3.0
-    #  with:
-    #    repo-token: "${{ secrets.GITHUB_TOKEN }}"
-    #    title: "Docstrings linter"
-    #    input: annotations.json
-
     # Fail CI run if docstrings failed
     - name: Check for docstring lint failures
       run: ./gh_actions_doclint.sh -v
-
-    - name: Remove annotations file
-      run: rm annotations.json
 
     # Update docs and zips
     - name: Update docs and zips

@@ -746,6 +746,28 @@
     "Method": [],
     "Variable": [
       {
+        "def": "BingDaily.runAt",
+        "desc": "Set this to a time at which the wallpaper should be refreshed daily, eg,",
+        "doc": "Set this to a time at which the wallpaper should be refreshed daily, eg,\n`\"06:00\"`. If this is not set, the wallpaper will be updated every 3 hours. If\nthis is used, you must call `spoon.BingDaily:start()` after configuring.",
+        "file": "Source/BingDaily.spoon/init.lua",
+        "lineno": "28",
+        "name": "runAt",
+        "signature": "BingDaily.runAt",
+        "stripped_doc": "`\"06:00\"`. If this is not set, the wallpaper will be updated every 3 hours. If\nthis is used, you must call `spoon.BingDaily:start()` after configuring.",
+        "type": "Variable"
+      },
+      {
+        "def": "BingDaily.screens",
+        "desc": "Set this to a function that returns a list of screens on which to configure",
+        "doc": "Set this to a function that returns a list of screens on which to configure\nthe desktop image, instead of hs.screen.allScreens",
+        "file": "Source/BingDaily.spoon/init.lua",
+        "lineno": "22",
+        "name": "screens",
+        "signature": "BingDaily.screens",
+        "stripped_doc": "the desktop image, instead of hs.screen.allScreens",
+        "type": "Variable"
+      },
+      {
         "def": "BingDaily.uhd_resolution",
         "desc": "If `true`, download image in UHD resolution instead of HD. Defaults to `false`.",
         "doc": "If `true`, download image in UHD resolution instead of HD. Defaults to `false`.",
@@ -760,6 +782,28 @@
     "desc": "Use Bing daily picture as your wallpaper, automatically.",
     "doc": "Use Bing daily picture as your wallpaper, automatically.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/BingDaily.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/BingDaily.spoon.zip)",
     "items": [
+      {
+        "def": "BingDaily.runAt",
+        "desc": "Set this to a time at which the wallpaper should be refreshed daily, eg,",
+        "doc": "Set this to a time at which the wallpaper should be refreshed daily, eg,\n`\"06:00\"`. If this is not set, the wallpaper will be updated every 3 hours. If\nthis is used, you must call `spoon.BingDaily:start()` after configuring.",
+        "file": "Source/BingDaily.spoon/init.lua",
+        "lineno": "28",
+        "name": "runAt",
+        "signature": "BingDaily.runAt",
+        "stripped_doc": "`\"06:00\"`. If this is not set, the wallpaper will be updated every 3 hours. If\nthis is used, you must call `spoon.BingDaily:start()` after configuring.",
+        "type": "Variable"
+      },
+      {
+        "def": "BingDaily.screens",
+        "desc": "Set this to a function that returns a list of screens on which to configure",
+        "doc": "Set this to a function that returns a list of screens on which to configure\nthe desktop image, instead of hs.screen.allScreens",
+        "file": "Source/BingDaily.spoon/init.lua",
+        "lineno": "22",
+        "name": "screens",
+        "signature": "BingDaily.screens",
+        "stripped_doc": "the desktop image, instead of hs.screen.allScreens",
+        "type": "Variable"
+      },
       {
         "def": "BingDaily.uhd_resolution",
         "desc": "If `true`, download image in UHD resolution instead of HD. Defaults to `false`.",
@@ -926,12 +970,14 @@
       {
         "def": "BonjourLauncher:toggle([label]) -> self",
         "desc": "Toggles the visibility of the BonjourLauncher chooser window.",
-        "doc": "Toggles the visibility of the BonjourLauncher chooser window.\n\nParameters:\n * `label` - an optional string specifying the `label` field of a template defined in [BonjourLauncher.templates](#templates) for a specific service type to show or switch to in the chooser window, if the window is already open and the label of the service type currently on display differs.\n\nReturns:\n * the BonjourLauncher spoon object\n\nNotes::\n * If the chooser window is currently visible, this method will invoke [BonjourLauncher:hide](#hide); otherwise invokes [BonjourLauncher:show](#show).",
+        "doc": "Toggles the visibility of the BonjourLauncher chooser window.\n\nParameters:\n * `label` - an optional string specifying the `label` field of a template defined in [BonjourLauncher.templates](#templates) for a specific service type to show or switch to in the chooser window, if the window is already open and the label of the service type currently on display differs.\n\nReturns:\n * the BonjourLauncher spoon object\n\nNotes:\n * If the chooser window is currently visible, this method will invoke [BonjourLauncher:hide](#hide); otherwise invokes [BonjourLauncher:show](#show).",
         "examples": [],
         "file": "Source/BonjourLauncher.spoon/init.lua",
         "lineno": "694",
         "name": "toggle",
-        "notes": [],
+        "notes": [
+          " * If the chooser window is currently visible, this method will invoke [BonjourLauncher:hide](#hide); otherwise invokes [BonjourLauncher:show](#show)."
+        ],
         "parameters": [
           " * `label` - an optional string specifying the `label` field of a template defined in [BonjourLauncher.templates](#templates) for a specific service type to show or switch to in the chooser window, if the window is already open and the label of the service type currently on display differs."
         ],
@@ -939,7 +985,7 @@
           " * the BonjourLauncher spoon object"
         ],
         "signature": "BonjourLauncher:toggle([label]) -> self",
-        "stripped_doc": "Notes::\n * If the chooser window is currently visible, this method will invoke [BonjourLauncher:hide](#hide); otherwise invokes [BonjourLauncher:show](#show).",
+        "stripped_doc": "",
         "type": "Method"
       }
     ],
@@ -1327,12 +1373,14 @@
       {
         "def": "BonjourLauncher:toggle([label]) -> self",
         "desc": "Toggles the visibility of the BonjourLauncher chooser window.",
-        "doc": "Toggles the visibility of the BonjourLauncher chooser window.\n\nParameters:\n * `label` - an optional string specifying the `label` field of a template defined in [BonjourLauncher.templates](#templates) for a specific service type to show or switch to in the chooser window, if the window is already open and the label of the service type currently on display differs.\n\nReturns:\n * the BonjourLauncher spoon object\n\nNotes::\n * If the chooser window is currently visible, this method will invoke [BonjourLauncher:hide](#hide); otherwise invokes [BonjourLauncher:show](#show).",
+        "doc": "Toggles the visibility of the BonjourLauncher chooser window.\n\nParameters:\n * `label` - an optional string specifying the `label` field of a template defined in [BonjourLauncher.templates](#templates) for a specific service type to show or switch to in the chooser window, if the window is already open and the label of the service type currently on display differs.\n\nReturns:\n * the BonjourLauncher spoon object\n\nNotes:\n * If the chooser window is currently visible, this method will invoke [BonjourLauncher:hide](#hide); otherwise invokes [BonjourLauncher:show](#show).",
         "examples": [],
         "file": "Source/BonjourLauncher.spoon/init.lua",
         "lineno": "694",
         "name": "toggle",
-        "notes": [],
+        "notes": [
+          " * If the chooser window is currently visible, this method will invoke [BonjourLauncher:hide](#hide); otherwise invokes [BonjourLauncher:show](#show)."
+        ],
         "parameters": [
           " * `label` - an optional string specifying the `label` field of a template defined in [BonjourLauncher.templates](#templates) for a specific service type to show or switch to in the chooser window, if the window is already open and the label of the service type currently on display differs."
         ],
@@ -1340,7 +1388,7 @@
           " * the BonjourLauncher spoon object"
         ],
         "signature": "BonjourLauncher:toggle([label]) -> self",
-        "stripped_doc": "Notes::\n * If the chooser window is currently visible, this method will invoke [BonjourLauncher:hide](#hide); otherwise invokes [BonjourLauncher:show](#show).",
+        "stripped_doc": "",
         "type": "Method"
       },
       {
@@ -3747,8 +3795,15 @@
       {
         "def": "DeepLTranslate:bindHotkeys(mapping)",
         "desc": "Binds hotkeys for DeepLTranslate",
-        "doc": "Binds hotkeys for DeepLTranslate\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for the following items:\n  * `translate` - translate the selected text without specifying source/destination languages (source defaults to auto-detect, destination defaults to your last choice or to English)\n\nSample value for `mapping`:\n```\n {\n    translate = { { \"ctrl\", \"alt\", \"cmd\" }, \"E\" },\n }\n```",
-        "examples": [],
+        "doc": "Binds hotkeys for DeepLTranslate\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for the following items:\n  * `translate` - translate the selected text without specifying source/destination languages (source defaults to auto-detect, destination defaults to your last choice or to English)\n\nExamples:\n * Sample value for `mapping`:\n```\n {\n    translate = { { \"ctrl\", \"alt\", \"cmd\" }, \"E\" },\n }\n```",
+        "examples": [
+          " * Sample value for `mapping`:",
+          "```",
+          " {",
+          "    translate = { { \"ctrl\", \"alt\", \"cmd\" }, \"E\" },",
+          " }",
+          "```"
+        ],
         "file": "Source/DeepLTranslate.spoon/init.lua",
         "lineno": "217",
         "name": "bindHotkeys",
@@ -3758,7 +3813,7 @@
         ],
         "returns": [],
         "signature": "DeepLTranslate:bindHotkeys(mapping)",
-        "stripped_doc": "Sample value for `mapping`:\n```\n {\n    translate = { { \"ctrl\", \"alt\", \"cmd\" }, \"E\" },\n }\n```",
+        "stripped_doc": "",
         "type": "Method"
       },
       {
@@ -3863,8 +3918,15 @@
       {
         "def": "DeepLTranslate:bindHotkeys(mapping)",
         "desc": "Binds hotkeys for DeepLTranslate",
-        "doc": "Binds hotkeys for DeepLTranslate\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for the following items:\n  * `translate` - translate the selected text without specifying source/destination languages (source defaults to auto-detect, destination defaults to your last choice or to English)\n\nSample value for `mapping`:\n```\n {\n    translate = { { \"ctrl\", \"alt\", \"cmd\" }, \"E\" },\n }\n```",
-        "examples": [],
+        "doc": "Binds hotkeys for DeepLTranslate\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for the following items:\n  * `translate` - translate the selected text without specifying source/destination languages (source defaults to auto-detect, destination defaults to your last choice or to English)\n\nExamples:\n * Sample value for `mapping`:\n```\n {\n    translate = { { \"ctrl\", \"alt\", \"cmd\" }, \"E\" },\n }\n```",
+        "examples": [
+          " * Sample value for `mapping`:",
+          "```",
+          " {",
+          "    translate = { { \"ctrl\", \"alt\", \"cmd\" }, \"E\" },",
+          " }",
+          "```"
+        ],
         "file": "Source/DeepLTranslate.spoon/init.lua",
         "lineno": "217",
         "name": "bindHotkeys",
@@ -3874,7 +3936,7 @@
         ],
         "returns": [],
         "signature": "DeepLTranslate:bindHotkeys(mapping)",
-        "stripped_doc": "Sample value for `mapping`:\n```\n {\n    translate = { { \"ctrl\", \"alt\", \"cmd\" }, \"E\" },\n }\n```",
+        "stripped_doc": "",
         "type": "Method"
       },
       {
@@ -4379,6 +4441,23 @@
     ],
     "name": "EjectMenu",
     "stripped_doc": "individual or all non-internal disks. Ejection can also be\ntriggered on sleep, on lid close, or using a hotkey.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/EjectMenu.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/EjectMenu.spoon.zip)",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [],
+    "Variable": [],
+    "desc": "Thie plugin generates EmmyLua annotations for Hammerspoon and any installed Spoons",
+    "doc": "Thie plugin generates EmmyLua annotations for Hammerspoon and any installed Spoons\nunder ~/.hammerspoon/Spoons/EmmyLua.spoon/annotations.\nAnnotations will only be generated if they don't exist yet or are out of date.\n\nIn order to get auto completion in your editor, you need to have one of the following LSP servers properly configured:\n* [lua-language-server](https://github.com/sumneko/lua-language-server) (recommended)\n* [EmmyLua-LanguageServer](https://github.com/EmmyLua/EmmyLua-LanguageServer)\n\nTo start using this annotations library, add the annotations folder to your workspace.\nfor lua-languag-server:\n\n```json\n{\n  \"Lua.workspace.library\": [\"/Users/YOUR_USERNAME/.hammerspoon/Spoons/EmmyLua.spoon/annotations\"]\n}\n```\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/EmmyLua.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/EmmyLua.spoon.zip)",
+    "items": [],
+    "name": "EmmyLua",
+    "stripped_doc": "under ~/.hammerspoon/Spoons/EmmyLua.spoon/annotations.\nAnnotations will only be generated if they don't exist yet or are out of date.\n\nIn order to get auto completion in your editor, you need to have one of the following LSP servers properly configured:\n* [lua-language-server](https://github.com/sumneko/lua-language-server) (recommended)\n* [EmmyLua-LanguageServer](https://github.com/EmmyLua/EmmyLua-LanguageServer)\n\nTo start using this annotations library, add the annotations folder to your workspace.\nfor lua-languag-server:\n\n```json\n{\n  \"Lua.workspace.library\": [\"/Users/YOUR_USERNAME/.hammerspoon/Spoons/EmmyLua.spoon/annotations\"]\n}\n```\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/EmmyLua.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/EmmyLua.spoon.zip)",
     "submodules": [],
     "type": "Module"
   },
@@ -6361,7 +6440,7 @@
         "doc": "Load new sources from `HSearch.search_path`, the search_path defaults to `~/.hammerspoon/private/hsearch_dir` and the HSearch Spoon directory. Only useful for debugging purposes.\n\nParameters:\n * None\n",
         "examples": [],
         "file": "Source/HSearch.spoon/init.lua",
-        "lineno": "169",
+        "lineno": "187",
         "name": "loadSources",
         "notes": [],
         "parameters": [
@@ -6378,7 +6457,7 @@
         "doc": "Trigger new source according to `hs.chooser`'s query string and keyword. Only useful for debugging purposes.\n\nParameters:\n * None\n",
         "examples": [],
         "file": "Source/HSearch.spoon/init.lua",
-        "lineno": "81",
+        "lineno": "99",
         "name": "switchSource",
         "notes": [],
         "parameters": [
@@ -6395,7 +6474,7 @@
         "doc": "Toggle the display of HSearch\n\nParameters:\n * None\n",
         "examples": [],
         "file": "Source/HSearch.spoon/init.lua",
-        "lineno": "225",
+        "lineno": "243",
         "name": "toggleShow",
         "notes": [],
         "parameters": [
@@ -6417,7 +6496,7 @@
         "doc": "Load new sources from `HSearch.search_path`, the search_path defaults to `~/.hammerspoon/private/hsearch_dir` and the HSearch Spoon directory. Only useful for debugging purposes.\n\nParameters:\n * None\n",
         "examples": [],
         "file": "Source/HSearch.spoon/init.lua",
-        "lineno": "169",
+        "lineno": "187",
         "name": "loadSources",
         "notes": [],
         "parameters": [
@@ -6434,7 +6513,7 @@
         "doc": "Trigger new source according to `hs.chooser`'s query string and keyword. Only useful for debugging purposes.\n\nParameters:\n * None\n",
         "examples": [],
         "file": "Source/HSearch.spoon/init.lua",
-        "lineno": "81",
+        "lineno": "99",
         "name": "switchSource",
         "notes": [],
         "parameters": [
@@ -6451,7 +6530,7 @@
         "doc": "Toggle the display of HSearch\n\nParameters:\n * None\n",
         "examples": [],
         "file": "Source/HSearch.spoon/init.lua",
-        "lineno": "225",
+        "lineno": "243",
         "name": "toggleShow",
         "notes": [],
         "parameters": [
@@ -6907,7 +6986,7 @@
         "doc": "Check and display (if needed) the status of all the books in `watch_books`\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/Leanpub.spoon/init.lua",
-        "lineno": "281",
+        "lineno": "282",
         "name": "displayAllBookStatus",
         "notes": [],
         "parameters": [
@@ -6942,12 +7021,15 @@
       {
         "def": "Leanpub:fetchBookCover(book)",
         "desc": "Fetch the cover of a book.",
-        "doc": "Fetch the cover of a book.\n\nParameters:\n * book - table containing the book information. The icon gets\n   stored in its `icon` field when it can be fetched.\n\nReturns:\n * No return value\n\nSide effects:\n * Stores the icon in the book data structure",
+        "doc": "Fetch the cover of a book.\n\nParameters:\n * book - table containing the book information. The icon gets\n   stored in its `icon` field when it can be fetched.\n\nReturns:\n * No return value\n\nNotes:\n * Side effects:\n  * Stores the icon in the book data structure",
         "examples": [],
         "file": "Source/Leanpub.spoon/init.lua",
         "lineno": "240",
         "name": "fetchBookCover",
-        "notes": [],
+        "notes": [
+          " * Side effects:",
+          "  * Stores the icon in the book data structure"
+        ],
         "parameters": [
           " * book - table containing the book information. The icon gets stored in its `icon` field when it can be fetched."
         ],
@@ -6955,7 +7037,7 @@
           " * No return value"
         ],
         "signature": "Leanpub:fetchBookCover(book)",
-        "stripped_doc": "Side effects:\n * Stores the icon in the book data structure",
+        "stripped_doc": "",
         "type": "Method"
       },
       {
@@ -6984,7 +7066,7 @@
         "doc": "Start periodic check for book status, checking every check_interval seconds.\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/Leanpub.spoon/init.lua",
-        "lineno": "295",
+        "lineno": "296",
         "name": "start",
         "notes": [],
         "parameters": [
@@ -7001,7 +7083,7 @@
         "doc": "Stops periodic check for book status, if enabled.\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/Leanpub.spoon/init.lua",
-        "lineno": "308",
+        "lineno": "309",
         "name": "stop",
         "notes": [],
         "parameters": [
@@ -7190,7 +7272,7 @@
         "doc": "Check and display (if needed) the status of all the books in `watch_books`\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/Leanpub.spoon/init.lua",
-        "lineno": "281",
+        "lineno": "282",
         "name": "displayAllBookStatus",
         "notes": [],
         "parameters": [
@@ -7269,12 +7351,15 @@
       {
         "def": "Leanpub:fetchBookCover(book)",
         "desc": "Fetch the cover of a book.",
-        "doc": "Fetch the cover of a book.\n\nParameters:\n * book - table containing the book information. The icon gets\n   stored in its `icon` field when it can be fetched.\n\nReturns:\n * No return value\n\nSide effects:\n * Stores the icon in the book data structure",
+        "doc": "Fetch the cover of a book.\n\nParameters:\n * book - table containing the book information. The icon gets\n   stored in its `icon` field when it can be fetched.\n\nReturns:\n * No return value\n\nNotes:\n * Side effects:\n  * Stores the icon in the book data structure",
         "examples": [],
         "file": "Source/Leanpub.spoon/init.lua",
         "lineno": "240",
         "name": "fetchBookCover",
-        "notes": [],
+        "notes": [
+          " * Side effects:",
+          "  * Stores the icon in the book data structure"
+        ],
         "parameters": [
           " * book - table containing the book information. The icon gets stored in its `icon` field when it can be fetched."
         ],
@@ -7282,7 +7367,7 @@
           " * No return value"
         ],
         "signature": "Leanpub:fetchBookCover(book)",
-        "stripped_doc": "Side effects:\n * Stores the icon in the book data structure",
+        "stripped_doc": "",
         "type": "Method"
       },
       {
@@ -7336,7 +7421,7 @@
         "doc": "Start periodic check for book status, checking every check_interval seconds.\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/Leanpub.spoon/init.lua",
-        "lineno": "295",
+        "lineno": "296",
         "name": "start",
         "notes": [],
         "parameters": [
@@ -7353,7 +7438,7 @@
         "doc": "Stops periodic check for book status, if enabled.\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/Leanpub.spoon/init.lua",
-        "lineno": "308",
+        "lineno": "309",
         "name": "stop",
         "notes": [],
         "parameters": [
@@ -8893,7 +8978,7 @@
         "doc": "Configures the spoon.  There is currently nothing to configure.\n\nParameters:\n * configuration - :",
         "examples": [],
         "file": "Source/MouseFollowsFocus.spoon/init.lua",
-        "lineno": "22",
+        "lineno": "26",
         "name": "configure",
         "notes": [],
         "parameters": [
@@ -8910,7 +8995,7 @@
         "doc": "Starts updating the mouse position when window focus changes\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/MouseFollowsFocus.spoon/init.lua",
-        "lineno": "31",
+        "lineno": "35",
         "name": "start",
         "notes": [],
         "parameters": [
@@ -8927,7 +9012,7 @@
         "doc": "Stops updating the mouse position when window focus changes\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/MouseFollowsFocus.spoon/init.lua",
-        "lineno": "50",
+        "lineno": "61",
         "name": "stop",
         "notes": [],
         "parameters": [
@@ -8944,7 +9029,7 @@
         "doc": "Moves the mouse to the center of the given window unless it's already inside the window\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/MouseFollowsFocus.spoon/init.lua",
-        "lineno": "61",
+        "lineno": "72",
         "name": "updateMouse",
         "notes": [],
         "parameters": [
@@ -8962,7 +9047,7 @@
         "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "file": "Source/MouseFollowsFocus.spoon/init.lua",
-        "lineno": "17",
+        "lineno": "21",
         "name": "logger",
         "signature": "MouseFollowsFocus.logger",
         "stripped_doc": "",
@@ -8970,7 +9055,7 @@
       }
     ],
     "desc": "Set the mouse pointer to the center of the focused window whenever focus changes.",
-    "doc": "Set the mouse pointer to the center of the focused window whenever focus changes.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MouseFollowsFocus.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MouseFollowsFocus.spoon.zip)",
+    "doc": "Set the mouse pointer to the center of the focused window whenever focus changes.\n\nAdditionally, if focused window moves when no mouse buttons are pressed, set the\nmouse pointer to the new center.  This is intended to work with other utilities\nwhich warp the focused window.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MouseFollowsFocus.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MouseFollowsFocus.spoon.zip)",
     "items": [
       {
         "def": "MouseFollowsFocus:configure(configuration)",
@@ -8978,7 +9063,7 @@
         "doc": "Configures the spoon.  There is currently nothing to configure.\n\nParameters:\n * configuration - :",
         "examples": [],
         "file": "Source/MouseFollowsFocus.spoon/init.lua",
-        "lineno": "22",
+        "lineno": "26",
         "name": "configure",
         "notes": [],
         "parameters": [
@@ -8994,7 +9079,7 @@
         "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "file": "Source/MouseFollowsFocus.spoon/init.lua",
-        "lineno": "17",
+        "lineno": "21",
         "name": "logger",
         "signature": "MouseFollowsFocus.logger",
         "stripped_doc": "",
@@ -9006,7 +9091,7 @@
         "doc": "Starts updating the mouse position when window focus changes\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/MouseFollowsFocus.spoon/init.lua",
-        "lineno": "31",
+        "lineno": "35",
         "name": "start",
         "notes": [],
         "parameters": [
@@ -9023,7 +9108,7 @@
         "doc": "Stops updating the mouse position when window focus changes\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/MouseFollowsFocus.spoon/init.lua",
-        "lineno": "50",
+        "lineno": "61",
         "name": "stop",
         "notes": [],
         "parameters": [
@@ -9040,7 +9125,7 @@
         "doc": "Moves the mouse to the center of the given window unless it's already inside the window\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/MouseFollowsFocus.spoon/init.lua",
-        "lineno": "61",
+        "lineno": "72",
         "name": "updateMouse",
         "notes": [],
         "parameters": [
@@ -9053,7 +9138,7 @@
       }
     ],
     "name": "MouseFollowsFocus",
-    "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MouseFollowsFocus.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MouseFollowsFocus.spoon.zip)",
+    "stripped_doc": "\nAdditionally, if focused window moves when no mouse buttons are pressed, set the\nmouse pointer to the new center.  This is intended to work with other utilities\nwhich warp the focused window.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MouseFollowsFocus.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MouseFollowsFocus.spoon.zip)",
     "submodules": [],
     "type": "Module"
   },
@@ -11491,7 +11576,7 @@
         "doc": "Binds hotkeys for Seal\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for the following (optional) items:\n  * show - This will cause Seal's UI to be shown\n  * toggle - This will cause Seal's UI to be shown or hidden depending on its current state\n\nReturns:\n * The Seal object",
         "examples": [],
         "file": "Source/Seal.spoon/init.lua",
-        "lineno": "156",
+        "lineno": "157",
         "name": "bindHotkeys",
         "notes": [],
         "parameters": [
@@ -11510,7 +11595,7 @@
         "doc": "Loads a plugin from a given file\n\nParameters:\n * plugin_name - the name of the plugin, without \"seal_\" at the beginning or \".lua\" at the end\n * file - the file where the plugin code is stored.\n\nReturns:\n * The Seal object if the plugin was successfully loaded, `nil` otherwise\n\nNotes:\n * You should normally use `Seal:loadPlugins()`. This method allows you to load plugins\n   from non-standard locations and is mostly a development interface.\n * Some plugins may immediately begin doing background work (e.g. Spotlight searches)",
         "examples": [],
         "file": "Source/Seal.spoon/init.lua",
-        "lineno": "93",
+        "lineno": "94",
         "name": "loadPluginFromFile",
         "notes": [
           " * You should normally use `Seal:loadPlugins()`. This method allows you to load plugins",
@@ -11534,7 +11619,7 @@
         "doc": "Loads a list of Seal plugins\n\nParameters:\n * plugins - A list containing the names of plugins to load\n\nReturns:\n * The Seal object\n\nNotes:\n * The plugins live inside the Seal.spoon directory\n * The plugin names in the list, should not have `seal_` at the start, or `.lua` at the end\n * Some plugins may immediately begin doing background work (e.g. Spotlight searches)",
         "examples": [],
         "file": "Source/Seal.spoon/init.lua",
-        "lineno": "121",
+        "lineno": "122",
         "name": "loadPlugins",
         "notes": [
           " * The plugins live inside the Seal.spoon directory",
@@ -11557,7 +11642,7 @@
         "doc": "Refresh the list of commands provided by all the currently loaded plugins.\n\nParameters:\n * None\n\nReturns:\n * The Seal object\n\nNotes:\n * Most Seal plugins expose a static list of commands (if any), which are registered at the time the plugin is loaded. This method is used for plugins which expose a dynamic or changing (e.g. depending on configuration) list of commands.",
         "examples": [],
         "file": "Source/Seal.spoon/init.lua",
-        "lineno": "74",
+        "lineno": "75",
         "name": "refreshAllCommands",
         "notes": [
           " * Most Seal plugins expose a static list of commands (if any), which are registered at the time the plugin is loaded. This method is used for plugins which expose a dynamic or changing (e.g. depending on configuration) list of commands."
@@ -11578,7 +11663,7 @@
         "doc": "Refresh the list of commands provided by the given plugin.\n\nParameters:\n * plugin_name - the name of the plugin. Should be the name as passed to `loadPlugins()` or `loadPluginFromFile`.\n\nReturns:\n * The Seal object\n\nNotes:\n * Most Seal plugins expose a static list of commands (if any), which are registered at the time the plugin is loaded. This method is used for plugins which expose a dynamic or changing (e.g. depending on configuration) list of commands.",
         "examples": [],
         "file": "Source/Seal.spoon/init.lua",
-        "lineno": "49",
+        "lineno": "50",
         "name": "refreshCommandsForPlugin",
         "notes": [
           " * Most Seal plugins expose a static list of commands (if any), which are registered at the time the plugin is loaded. This method is used for plugins which expose a dynamic or changing (e.g. depending on configuration) list of commands."
@@ -11599,7 +11684,7 @@
         "doc": "Shows the Seal UI\n\nParameters:\n * query - An optional string to pre-populate the query box with\n\nReturns:\n * None\n\nNotes:\n * This may be useful if you wish to show Seal in response to something other than its hotkey",
         "examples": [],
         "file": "Source/Seal.spoon/init.lua",
-        "lineno": "233",
+        "lineno": "234",
         "name": "show",
         "notes": [
           " * This may be useful if you wish to show Seal in response to something other than its hotkey"
@@ -11620,7 +11705,7 @@
         "doc": "Starts Seal\n\nParameters:\n * None\n\nReturns:\n * The Seal object",
         "examples": [],
         "file": "Source/Seal.spoon/init.lua",
-        "lineno": "189",
+        "lineno": "190",
         "name": "start",
         "notes": [],
         "parameters": [
@@ -11639,7 +11724,7 @@
         "doc": "Stops Seal\n\nParameters:\n * None\n\nReturns:\n * The Seal object\n\nNotes:\n * Some Seal plugins will continue performing background work even after this call (e.g. Spotlight searches)",
         "examples": [],
         "file": "Source/Seal.spoon/init.lua",
-        "lineno": "209",
+        "lineno": "210",
         "name": "stop",
         "notes": [
           " * Some Seal plugins will continue performing background work even after this call (e.g. Spotlight searches)"
@@ -11660,7 +11745,7 @@
         "doc": "Shows or hides the Seal UI\n\nParameters:\n * query - An optional string to pre-populate the query box with\n\nReturns:\n * None",
         "examples": [],
         "file": "Source/Seal.spoon/init.lua",
-        "lineno": "251",
+        "lineno": "252",
         "name": "toggle",
         "notes": [],
         "parameters": [
@@ -11680,7 +11765,7 @@
         "desc": "List of directories where Seal will look for plugins. Defaults to `~/.hammerspoon/seal_plugins/` and the Seal Spoon directory.",
         "doc": "List of directories where Seal will look for plugins. Defaults to `~/.hammerspoon/seal_plugins/` and the Seal Spoon directory.",
         "file": "Source/Seal.spoon/init.lua",
-        "lineno": "44",
+        "lineno": "45",
         "name": "plugin_search_paths",
         "signature": "Seal.plugin_search_paths",
         "stripped_doc": "",
@@ -11691,7 +11776,7 @@
         "desc": "Time between the last keystroke and the start of the recalculation of the choices to display, in seconds.",
         "doc": "Time between the last keystroke and the start of the recalculation of the choices to display, in seconds.\n\nNotes:\n * Defaults to 0.02s (20ms).",
         "file": "Source/Seal.spoon/init.lua",
-        "lineno": "36",
+        "lineno": "37",
         "name": "queryChangedTimerDuration",
         "notes": [
           " * Defaults to 0.02s (20ms)."
@@ -11710,7 +11795,7 @@
         "doc": "Binds hotkeys for Seal\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for the following (optional) items:\n  * show - This will cause Seal's UI to be shown\n  * toggle - This will cause Seal's UI to be shown or hidden depending on its current state\n\nReturns:\n * The Seal object",
         "examples": [],
         "file": "Source/Seal.spoon/init.lua",
-        "lineno": "156",
+        "lineno": "157",
         "name": "bindHotkeys",
         "notes": [],
         "parameters": [
@@ -11729,7 +11814,7 @@
         "doc": "Loads a plugin from a given file\n\nParameters:\n * plugin_name - the name of the plugin, without \"seal_\" at the beginning or \".lua\" at the end\n * file - the file where the plugin code is stored.\n\nReturns:\n * The Seal object if the plugin was successfully loaded, `nil` otherwise\n\nNotes:\n * You should normally use `Seal:loadPlugins()`. This method allows you to load plugins\n   from non-standard locations and is mostly a development interface.\n * Some plugins may immediately begin doing background work (e.g. Spotlight searches)",
         "examples": [],
         "file": "Source/Seal.spoon/init.lua",
-        "lineno": "93",
+        "lineno": "94",
         "name": "loadPluginFromFile",
         "notes": [
           " * You should normally use `Seal:loadPlugins()`. This method allows you to load plugins",
@@ -11753,7 +11838,7 @@
         "doc": "Loads a list of Seal plugins\n\nParameters:\n * plugins - A list containing the names of plugins to load\n\nReturns:\n * The Seal object\n\nNotes:\n * The plugins live inside the Seal.spoon directory\n * The plugin names in the list, should not have `seal_` at the start, or `.lua` at the end\n * Some plugins may immediately begin doing background work (e.g. Spotlight searches)",
         "examples": [],
         "file": "Source/Seal.spoon/init.lua",
-        "lineno": "121",
+        "lineno": "122",
         "name": "loadPlugins",
         "notes": [
           " * The plugins live inside the Seal.spoon directory",
@@ -11775,7 +11860,7 @@
         "desc": "List of directories where Seal will look for plugins. Defaults to `~/.hammerspoon/seal_plugins/` and the Seal Spoon directory.",
         "doc": "List of directories where Seal will look for plugins. Defaults to `~/.hammerspoon/seal_plugins/` and the Seal Spoon directory.",
         "file": "Source/Seal.spoon/init.lua",
-        "lineno": "44",
+        "lineno": "45",
         "name": "plugin_search_paths",
         "signature": "Seal.plugin_search_paths",
         "stripped_doc": "",
@@ -11786,7 +11871,7 @@
         "desc": "Time between the last keystroke and the start of the recalculation of the choices to display, in seconds.",
         "doc": "Time between the last keystroke and the start of the recalculation of the choices to display, in seconds.\n\nNotes:\n * Defaults to 0.02s (20ms).",
         "file": "Source/Seal.spoon/init.lua",
-        "lineno": "36",
+        "lineno": "37",
         "name": "queryChangedTimerDuration",
         "notes": [
           " * Defaults to 0.02s (20ms)."
@@ -11801,7 +11886,7 @@
         "doc": "Refresh the list of commands provided by all the currently loaded plugins.\n\nParameters:\n * None\n\nReturns:\n * The Seal object\n\nNotes:\n * Most Seal plugins expose a static list of commands (if any), which are registered at the time the plugin is loaded. This method is used for plugins which expose a dynamic or changing (e.g. depending on configuration) list of commands.",
         "examples": [],
         "file": "Source/Seal.spoon/init.lua",
-        "lineno": "74",
+        "lineno": "75",
         "name": "refreshAllCommands",
         "notes": [
           " * Most Seal plugins expose a static list of commands (if any), which are registered at the time the plugin is loaded. This method is used for plugins which expose a dynamic or changing (e.g. depending on configuration) list of commands."
@@ -11822,7 +11907,7 @@
         "doc": "Refresh the list of commands provided by the given plugin.\n\nParameters:\n * plugin_name - the name of the plugin. Should be the name as passed to `loadPlugins()` or `loadPluginFromFile`.\n\nReturns:\n * The Seal object\n\nNotes:\n * Most Seal plugins expose a static list of commands (if any), which are registered at the time the plugin is loaded. This method is used for plugins which expose a dynamic or changing (e.g. depending on configuration) list of commands.",
         "examples": [],
         "file": "Source/Seal.spoon/init.lua",
-        "lineno": "49",
+        "lineno": "50",
         "name": "refreshCommandsForPlugin",
         "notes": [
           " * Most Seal plugins expose a static list of commands (if any), which are registered at the time the plugin is loaded. This method is used for plugins which expose a dynamic or changing (e.g. depending on configuration) list of commands."
@@ -11843,7 +11928,7 @@
         "doc": "Shows the Seal UI\n\nParameters:\n * query - An optional string to pre-populate the query box with\n\nReturns:\n * None\n\nNotes:\n * This may be useful if you wish to show Seal in response to something other than its hotkey",
         "examples": [],
         "file": "Source/Seal.spoon/init.lua",
-        "lineno": "233",
+        "lineno": "234",
         "name": "show",
         "notes": [
           " * This may be useful if you wish to show Seal in response to something other than its hotkey"
@@ -11864,7 +11949,7 @@
         "doc": "Starts Seal\n\nParameters:\n * None\n\nReturns:\n * The Seal object",
         "examples": [],
         "file": "Source/Seal.spoon/init.lua",
-        "lineno": "189",
+        "lineno": "190",
         "name": "start",
         "notes": [],
         "parameters": [
@@ -11883,7 +11968,7 @@
         "doc": "Stops Seal\n\nParameters:\n * None\n\nReturns:\n * The Seal object\n\nNotes:\n * Some Seal plugins will continue performing background work even after this call (e.g. Spotlight searches)",
         "examples": [],
         "file": "Source/Seal.spoon/init.lua",
-        "lineno": "209",
+        "lineno": "210",
         "name": "stop",
         "notes": [
           " * Some Seal plugins will continue performing background work even after this call (e.g. Spotlight searches)"
@@ -11904,7 +11989,7 @@
         "doc": "Shows or hides the Seal UI\n\nParameters:\n * query - An optional string to pre-populate the query box with\n\nReturns:\n * None",
         "examples": [],
         "file": "Source/Seal.spoon/init.lua",
-        "lineno": "251",
+        "lineno": "252",
         "name": "toggle",
         "notes": [],
         "parameters": [
@@ -11941,6 +12026,7 @@
     "stripped_doc": "",
     "submodules": [
       "apps",
+      "filesearch",
       "pasteboard",
       "safari_bookmarks",
       "screencapture",
@@ -12111,6 +12197,103 @@
       }
     ],
     "name": "Seal.plugins.apps",
+    "stripped_doc": "",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [],
+    "Variable": [
+      {
+        "def": "Seal.plugins.filesearch.displayResultsTimeout",
+        "desc": "Maximum time to wait before displaying the results",
+        "doc": "Maximum time to wait before displaying the results\nDefaults to 0.2s (200ms).\n\nNotes:\n * higher value might give you more results but will give a less snappy experience",
+        "file": "Source/Seal.spoon/seal_filesearch.lua",
+        "lineno": "21",
+        "name": "displayResultsTimeout",
+        "notes": [
+          " * higher value might give you more results but will give a less snappy experience"
+        ],
+        "signature": "Seal.plugins.filesearch.displayResultsTimeout",
+        "stripped_doc": "Defaults to 0.2s (200ms).",
+        "type": "Variable"
+      },
+      {
+        "def": "Seal.plugins.filesearch.fileSearchPaths",
+        "desc": "Table containing the paths to search for files",
+        "doc": "Table containing the paths to search for files\n\nNotes:\n * You will need to authorize hammerspoon to access the folders in this list in order for this to work.",
+        "file": "Source/Seal.spoon/seal_filesearch.lua",
+        "lineno": "8",
+        "name": "fileSearchPaths",
+        "notes": [
+          " * You will need to authorize hammerspoon to access the folders in this list in order for this to work."
+        ],
+        "signature": "Seal.plugins.filesearch.fileSearchPaths",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "Seal.plugins.filesearch.maxResults",
+        "desc": "Maximum number of results to display",
+        "doc": "Maximum number of results to display",
+        "file": "Source/Seal.spoon/seal_filesearch.lua",
+        "lineno": "16",
+        "name": "maxResults",
+        "signature": "Seal.plugins.filesearch.maxResults",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "desc": "A plugin to add file search capabilities, making Seal act as a spotlight file search",
+    "doc": "A plugin to add file search capabilities, making Seal act as a spotlight file search",
+    "items": [
+      {
+        "def": "Seal.plugins.filesearch.displayResultsTimeout",
+        "desc": "Maximum time to wait before displaying the results",
+        "doc": "Maximum time to wait before displaying the results\nDefaults to 0.2s (200ms).\n\nNotes:\n * higher value might give you more results but will give a less snappy experience",
+        "file": "Source/Seal.spoon/seal_filesearch.lua",
+        "lineno": "21",
+        "name": "displayResultsTimeout",
+        "notes": [
+          " * higher value might give you more results but will give a less snappy experience"
+        ],
+        "signature": "Seal.plugins.filesearch.displayResultsTimeout",
+        "stripped_doc": "Defaults to 0.2s (200ms).",
+        "type": "Variable"
+      },
+      {
+        "def": "Seal.plugins.filesearch.fileSearchPaths",
+        "desc": "Table containing the paths to search for files",
+        "doc": "Table containing the paths to search for files\n\nNotes:\n * You will need to authorize hammerspoon to access the folders in this list in order for this to work.",
+        "file": "Source/Seal.spoon/seal_filesearch.lua",
+        "lineno": "8",
+        "name": "fileSearchPaths",
+        "notes": [
+          " * You will need to authorize hammerspoon to access the folders in this list in order for this to work."
+        ],
+        "signature": "Seal.plugins.filesearch.fileSearchPaths",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "Seal.plugins.filesearch.maxResults",
+        "desc": "Maximum number of results to display",
+        "doc": "Maximum number of results to display",
+        "file": "Source/Seal.spoon/seal_filesearch.lua",
+        "lineno": "16",
+        "name": "maxResults",
+        "signature": "Seal.plugins.filesearch.maxResults",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "name": "Seal.plugins.filesearch",
     "stripped_doc": "",
     "submodules": [],
     "type": "Module"
@@ -12345,7 +12528,7 @@
       {
         "def": "Seal.plugins.useractions.actions",
         "desc": "",
-        "doc": "\nNotes:\n * A table containing the definitions of static user-defined actions. Each entry is indexed by the name of the entry as it will be shown in the chooser. Its value is a table which can have the following keys (one of `fn` or `url` is required. If both are provided, `url` is ignored):\n  * fn - A function which will be called when the entry is selected. The function receives no arguments.\n  * url - A URL which will be opened when the entry is selected. Can also be non-HTTP URLs, such as `mailto:` or other app-specific URLs.\n  * icon - (optional) An `hs.image` object that will be shown next to the entry in the chooser. If not provided, `Seal.plugins.useractions.default_icon` is used. For `url` bookmarks, it can be set to `\"favicon\"` to fetch and use the website's favicon.\n  * keyword - (optional) A command by which this action will be invoked, effectively turning it into a Seal command. Any arguments passed to the command will be handled as follows:\n    * For `fn` actions, passed as an argument to the function\n    * For `url` actions, substituted into the URL, taking the place of any occurrences of `${query}`.\n  * hotkey - (optional) A hotkey specification in the form `{ modifiers, key }` by which this action can be invoked.\n * Example configuration:\n```\nspoon.Seal:loadPlugins({\"useractions\"})\nspoon.Seal.plugins.useractions.actions =\n   {\n      [\"Hammerspoon docs webpage\"] = {\n         url = \"http://hammerspoon.org/docs/\",\n         icon = hs.image.imageFromName(hs.image.systemImageNames.ApplicationIcon),\n         hotkey = { hyper, \"h\" }\n      },\n      [\"Leave corpnet\"] = {\n         fn = function()\n            spoon.WiFiTransitions:processTransition('foo', 'corpnet01')\n         end,\n      },\n      [\"Arrive in corpnet\"] = {\n         fn = function()\n            spoon.WiFiTransitions:processTransition('corpnet01', 'foo')\n         end,\n      },\n      [\"Translate using Leo\"] = {\n         url = \"http://dict.leo.org/ende/index_de.html#/search=${query}\",\n         icon = 'favicon',\n         keyword = \"leo\",\n      },\n      [\"Tell me something\"] = {\n         keyword = \"tellme\",\n         fn = function(str) hs.alert.show(str) end,\n      }\n```",
+        "doc": "\nNotes:\n * A table containing the definitions of static user-defined actions. Each entry is indexed by the name of the entry as it will be shown in the chooser. Its value is a table which can have the following keys (one of `fn` or `url` is required. If both are provided, `url` is ignored):\n  * fn - A function which will be called when the entry is selected. The function receives no arguments.\n  * url - A URL which will be opened when the entry is selected. Can also be non-HTTP URLs, such as `mailto:` or other app-specific URLs.\n  * description - (optional) A string or `hs.styledtext` object that will be shown underneath the main text of the choice.\n  * icon - (optional) An `hs.image` object that will be shown next to the entry in the chooser. If not provided, `Seal.plugins.useractions.default_icon` is used. For `url` bookmarks, it can be set to `\"favicon\"` to fetch and use the website's favicon.\n  * keyword - (optional) A command by which this action will be invoked, effectively turning it into a Seal command. Any arguments passed to the command will be handled as follows:\n    * For `fn` actions, passed as an argument to the function\n    * For `url` actions, substituted into the URL, taking the place of any occurrences of `${query}`.\n  * hotkey - (optional) A hotkey specification in the form `{ modifiers, key }` by which this action can be invoked.\n * Example configuration:\n```\nspoon.Seal:loadPlugins({\"useractions\"})\nspoon.Seal.plugins.useractions.actions =\n   {\n      [\"Hammerspoon docs webpage\"] = {\n         url = \"http://hammerspoon.org/docs/\",\n         icon = hs.image.imageFromName(hs.image.systemImageNames.ApplicationIcon),\n         description = \"Open Hammerspoon documentation\",\n         hotkey = { hyper, \"h\" },\n      },\n      [\"Leave corpnet\"] = {\n         fn = function()\n            spoon.WiFiTransitions:processTransition('foo', 'corpnet01')\n         end,\n      },\n      [\"Arrive in corpnet\"] = {\n         fn = function()\n            spoon.WiFiTransitions:processTransition('corpnet01', 'foo')\n         end,\n      },\n      [\"Translate using Leo\"] = {\n         url = \"http://dict.leo.org/ende/index_de.html#/search=${query}\",\n         icon = 'favicon',\n         keyword = \"leo\",\n      },\n      [\"Tell me something\"] = {\n         keyword = \"tellme\",\n         fn = function(str) hs.alert.show(str) end,\n      }\n```",
         "file": "Source/Seal.spoon/seal_useractions.lua",
         "lineno": "12",
         "name": "actions",
@@ -12353,6 +12536,7 @@
           " * A table containing the definitions of static user-defined actions. Each entry is indexed by the name of the entry as it will be shown in the chooser. Its value is a table which can have the following keys (one of `fn` or `url` is required. If both are provided, `url` is ignored):",
           "  * fn - A function which will be called when the entry is selected. The function receives no arguments.",
           "  * url - A URL which will be opened when the entry is selected. Can also be non-HTTP URLs, such as `mailto:` or other app-specific URLs.",
+          "  * description - (optional) A string or `hs.styledtext` object that will be shown underneath the main text of the choice.",
           "  * icon - (optional) An `hs.image` object that will be shown next to the entry in the chooser. If not provided, `Seal.plugins.useractions.default_icon` is used. For `url` bookmarks, it can be set to `\"favicon\"` to fetch and use the website's favicon.",
           "  * keyword - (optional) A command by which this action will be invoked, effectively turning it into a Seal command. Any arguments passed to the command will be handled as follows:",
           "    * For `fn` actions, passed as an argument to the function",
@@ -12366,7 +12550,8 @@
           "      [\"Hammerspoon docs webpage\"] = {",
           "         url = \"http://hammerspoon.org/docs/\",",
           "         icon = hs.image.imageFromName(hs.image.systemImageNames.ApplicationIcon),",
-          "         hotkey = { hyper, \"h\" }",
+          "         description = \"Open Hammerspoon documentation\",",
+          "         hotkey = { hyper, \"h\" },",
           "      },",
           "      [\"Leave corpnet\"] = {",
           "         fn = function()",
@@ -12398,7 +12583,7 @@
         "desc": "",
         "doc": "\nIf `true`, attempt to obtain the favicon for URLs added through the `add` command, and use it in the chooser. Defaults to `true`",
         "file": "Source/Seal.spoon/seal_useractions.lua",
-        "lineno": "56",
+        "lineno": "58",
         "name": "get_favicon",
         "signature": "Seal.plugins.useractions.get_favicon",
         "stripped_doc": "If `true`, attempt to obtain the favicon for URLs added through the `add` command, and use it in the chooser. Defaults to `true`",
@@ -12411,7 +12596,7 @@
       {
         "def": "Seal.plugins.useractions.actions",
         "desc": "",
-        "doc": "\nNotes:\n * A table containing the definitions of static user-defined actions. Each entry is indexed by the name of the entry as it will be shown in the chooser. Its value is a table which can have the following keys (one of `fn` or `url` is required. If both are provided, `url` is ignored):\n  * fn - A function which will be called when the entry is selected. The function receives no arguments.\n  * url - A URL which will be opened when the entry is selected. Can also be non-HTTP URLs, such as `mailto:` or other app-specific URLs.\n  * icon - (optional) An `hs.image` object that will be shown next to the entry in the chooser. If not provided, `Seal.plugins.useractions.default_icon` is used. For `url` bookmarks, it can be set to `\"favicon\"` to fetch and use the website's favicon.\n  * keyword - (optional) A command by which this action will be invoked, effectively turning it into a Seal command. Any arguments passed to the command will be handled as follows:\n    * For `fn` actions, passed as an argument to the function\n    * For `url` actions, substituted into the URL, taking the place of any occurrences of `${query}`.\n  * hotkey - (optional) A hotkey specification in the form `{ modifiers, key }` by which this action can be invoked.\n * Example configuration:\n```\nspoon.Seal:loadPlugins({\"useractions\"})\nspoon.Seal.plugins.useractions.actions =\n   {\n      [\"Hammerspoon docs webpage\"] = {\n         url = \"http://hammerspoon.org/docs/\",\n         icon = hs.image.imageFromName(hs.image.systemImageNames.ApplicationIcon),\n         hotkey = { hyper, \"h\" }\n      },\n      [\"Leave corpnet\"] = {\n         fn = function()\n            spoon.WiFiTransitions:processTransition('foo', 'corpnet01')\n         end,\n      },\n      [\"Arrive in corpnet\"] = {\n         fn = function()\n            spoon.WiFiTransitions:processTransition('corpnet01', 'foo')\n         end,\n      },\n      [\"Translate using Leo\"] = {\n         url = \"http://dict.leo.org/ende/index_de.html#/search=${query}\",\n         icon = 'favicon',\n         keyword = \"leo\",\n      },\n      [\"Tell me something\"] = {\n         keyword = \"tellme\",\n         fn = function(str) hs.alert.show(str) end,\n      }\n```",
+        "doc": "\nNotes:\n * A table containing the definitions of static user-defined actions. Each entry is indexed by the name of the entry as it will be shown in the chooser. Its value is a table which can have the following keys (one of `fn` or `url` is required. If both are provided, `url` is ignored):\n  * fn - A function which will be called when the entry is selected. The function receives no arguments.\n  * url - A URL which will be opened when the entry is selected. Can also be non-HTTP URLs, such as `mailto:` or other app-specific URLs.\n  * description - (optional) A string or `hs.styledtext` object that will be shown underneath the main text of the choice.\n  * icon - (optional) An `hs.image` object that will be shown next to the entry in the chooser. If not provided, `Seal.plugins.useractions.default_icon` is used. For `url` bookmarks, it can be set to `\"favicon\"` to fetch and use the website's favicon.\n  * keyword - (optional) A command by which this action will be invoked, effectively turning it into a Seal command. Any arguments passed to the command will be handled as follows:\n    * For `fn` actions, passed as an argument to the function\n    * For `url` actions, substituted into the URL, taking the place of any occurrences of `${query}`.\n  * hotkey - (optional) A hotkey specification in the form `{ modifiers, key }` by which this action can be invoked.\n * Example configuration:\n```\nspoon.Seal:loadPlugins({\"useractions\"})\nspoon.Seal.plugins.useractions.actions =\n   {\n      [\"Hammerspoon docs webpage\"] = {\n         url = \"http://hammerspoon.org/docs/\",\n         icon = hs.image.imageFromName(hs.image.systemImageNames.ApplicationIcon),\n         description = \"Open Hammerspoon documentation\",\n         hotkey = { hyper, \"h\" },\n      },\n      [\"Leave corpnet\"] = {\n         fn = function()\n            spoon.WiFiTransitions:processTransition('foo', 'corpnet01')\n         end,\n      },\n      [\"Arrive in corpnet\"] = {\n         fn = function()\n            spoon.WiFiTransitions:processTransition('corpnet01', 'foo')\n         end,\n      },\n      [\"Translate using Leo\"] = {\n         url = \"http://dict.leo.org/ende/index_de.html#/search=${query}\",\n         icon = 'favicon',\n         keyword = \"leo\",\n      },\n      [\"Tell me something\"] = {\n         keyword = \"tellme\",\n         fn = function(str) hs.alert.show(str) end,\n      }\n```",
         "file": "Source/Seal.spoon/seal_useractions.lua",
         "lineno": "12",
         "name": "actions",
@@ -12419,6 +12604,7 @@
           " * A table containing the definitions of static user-defined actions. Each entry is indexed by the name of the entry as it will be shown in the chooser. Its value is a table which can have the following keys (one of `fn` or `url` is required. If both are provided, `url` is ignored):",
           "  * fn - A function which will be called when the entry is selected. The function receives no arguments.",
           "  * url - A URL which will be opened when the entry is selected. Can also be non-HTTP URLs, such as `mailto:` or other app-specific URLs.",
+          "  * description - (optional) A string or `hs.styledtext` object that will be shown underneath the main text of the choice.",
           "  * icon - (optional) An `hs.image` object that will be shown next to the entry in the chooser. If not provided, `Seal.plugins.useractions.default_icon` is used. For `url` bookmarks, it can be set to `\"favicon\"` to fetch and use the website's favicon.",
           "  * keyword - (optional) A command by which this action will be invoked, effectively turning it into a Seal command. Any arguments passed to the command will be handled as follows:",
           "    * For `fn` actions, passed as an argument to the function",
@@ -12432,7 +12618,8 @@
           "      [\"Hammerspoon docs webpage\"] = {",
           "         url = \"http://hammerspoon.org/docs/\",",
           "         icon = hs.image.imageFromName(hs.image.systemImageNames.ApplicationIcon),",
-          "         hotkey = { hyper, \"h\" }",
+          "         description = \"Open Hammerspoon documentation\",",
+          "         hotkey = { hyper, \"h\" },",
           "      },",
           "      [\"Leave corpnet\"] = {",
           "         fn = function()",
@@ -12464,7 +12651,7 @@
         "desc": "",
         "doc": "\nIf `true`, attempt to obtain the favicon for URLs added through the `add` command, and use it in the chooser. Defaults to `true`",
         "file": "Source/Seal.spoon/seal_useractions.lua",
-        "lineno": "56",
+        "lineno": "58",
         "name": "get_favicon",
         "signature": "Seal.plugins.useractions.get_favicon",
         "stripped_doc": "If `true`, attempt to obtain the favicon for URLs added through the `add` command, and use it in the chooser. Defaults to `true`",
@@ -14909,11 +15096,13 @@
       {
         "def": "TimeMachineProgress.backupIcon",
         "desc": "Image to use for the menubar icon.",
-        "doc": "Image to use for the menubar icon.\n\nNotes:",
+        "doc": "Image to use for the menubar icon.\n\nNotes:\n * Defaults to the default macOS Time Machine menubar icon stored in `/System/Library/CoreServices/Menu Extras/TimeMachine.menu/Contents/Resources/TMBackingUp.pdf`. If this fails, it defaults to the Time Machine application icon, obtained as `hs.image.imageFromAppBundle('com.apple.backup.launcher'):setSize({w=18,h=18})`.",
         "file": "Source/TimeMachineProgress.spoon/init.lua",
         "lineno": "31",
         "name": "backupIcon",
-        "notes": [],
+        "notes": [
+          " * Defaults to the default macOS Time Machine menubar icon stored in `/System/Library/CoreServices/Menu Extras/TimeMachine.menu/Contents/Resources/TMBackingUp.pdf`. If this fails, it defaults to the Time Machine application icon, obtained as `hs.image.imageFromAppBundle('com.apple.backup.launcher'):setSize({w=18,h=18})`."
+        ],
         "signature": "TimeMachineProgress.backupIcon",
         "stripped_doc": "",
         "type": "Variable"
@@ -14947,11 +15136,13 @@
       {
         "def": "TimeMachineProgress.backupIcon",
         "desc": "Image to use for the menubar icon.",
-        "doc": "Image to use for the menubar icon.\n\nNotes:",
+        "doc": "Image to use for the menubar icon.\n\nNotes:\n * Defaults to the default macOS Time Machine menubar icon stored in `/System/Library/CoreServices/Menu Extras/TimeMachine.menu/Contents/Resources/TMBackingUp.pdf`. If this fails, it defaults to the Time Machine application icon, obtained as `hs.image.imageFromAppBundle('com.apple.backup.launcher'):setSize({w=18,h=18})`.",
         "file": "Source/TimeMachineProgress.spoon/init.lua",
         "lineno": "31",
         "name": "backupIcon",
-        "notes": [],
+        "notes": [
+          " * Defaults to the default macOS Time Machine menubar icon stored in `/System/Library/CoreServices/Menu Extras/TimeMachine.menu/Contents/Resources/TMBackingUp.pdf`. If this fails, it defaults to the Time Machine application icon, obtained as `hs.image.imageFromAppBundle('com.apple.backup.launcher'):setSize({w=18,h=18})`."
+        ],
         "signature": "TimeMachineProgress.backupIcon",
         "stripped_doc": "",
         "type": "Variable"
@@ -18249,7 +18440,7 @@
         "doc": "Binds hotkeys for WindowSigils\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n  * enter - Enter the sigil mode",
         "examples": [],
         "file": "Source/WindowSigils.spoon/init.lua",
-        "lineno": "62",
+        "lineno": "99",
         "name": "bindHotkeys",
         "notes": [],
         "parameters": [
@@ -18266,7 +18457,7 @@
         "doc": "Bind an extra action to be triggered by a key in the sigil mode.\n\nParameters:\n * mods - The key modifiers\n * key - The key\n * action - A function, called with no parameters.",
         "examples": [],
         "file": "Source/WindowSigils.spoon/init.lua",
-        "lineno": "112",
+        "lineno": "149",
         "name": "bindModeKey",
         "notes": [],
         "parameters": [
@@ -18285,7 +18476,7 @@
         "doc": "Bind an action to be triggered in the sigil mode when a window's sigil key is pressed.\n\nParameters:\n * mods - The modifiers which must be held to trigger this action.\n * action - A function which takes a window object and performs this action.",
         "examples": [],
         "file": "Source/WindowSigils.spoon/init.lua",
-        "lineno": "138",
+        "lineno": "175",
         "name": "bindSigilAction",
         "notes": [],
         "parameters": [
@@ -18303,7 +18494,7 @@
         "doc": "Configures the spoon.\n\nParameters:\n * configuration - :\n   * hotkeys \n   * mode_keys - a table of key specs (e.g. {{'shift'}, 'n'}) to functions.  The keys are\n     mapped inside the sigil mode and the key is no longer used as a window sigil.\n   * sigil_actions - a table of mod specs (e.g. {'alt'}) to functions.  When the sigil is\n     used in the sigil mode with the specified modifier pressed, the function is invoked\n     with a window object.",
         "examples": [],
         "file": "Source/WindowSigils.spoon/init.lua",
-        "lineno": "83",
+        "lineno": "120",
         "name": "configure",
         "notes": [],
         "parameters": [
@@ -18320,7 +18511,7 @@
         "doc": "A list of windows, in the order sigils are assigned.\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/WindowSigils.spoon/init.lua",
-        "lineno": "211",
+        "lineno": "279",
         "name": "orderedWindows",
         "notes": [],
         "parameters": [
@@ -18337,7 +18528,7 @@
         "doc": "Rerender all window sigils.\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/WindowSigils.spoon/init.lua",
-        "lineno": "257",
+        "lineno": "411",
         "name": "refresh",
         "notes": [],
         "parameters": [
@@ -18354,7 +18545,7 @@
         "doc": "Starts rendering the sigils and handling hotkeys\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/WindowSigils.spoon/init.lua",
-        "lineno": "163",
+        "lineno": "200",
         "name": "start",
         "notes": [],
         "parameters": [
@@ -18371,7 +18562,7 @@
         "doc": "Stops rendering the sigils and handling hotkeys\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/WindowSigils.spoon/init.lua",
-        "lineno": "200",
+        "lineno": "237",
         "name": "stop",
         "notes": [],
         "parameters": [
@@ -18388,7 +18579,7 @@
         "doc": "Find the window with the given index or sigil.\n\nParameters:\n * sigil - If a number, the index of the window; if a string, the sigil of the window.\n   Can also be 'North', 'East', 'South', or 'West' to find a window related to the\n   currently focused window.",
         "examples": [],
         "file": "Source/WindowSigils.spoon/init.lua",
-        "lineno": "228",
+        "lineno": "302",
         "name": "window",
         "notes": [],
         "parameters": [
@@ -18406,15 +18597,15 @@
         "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "file": "Source/WindowSigils.spoon/init.lua",
-        "lineno": "51",
+        "lineno": "88",
         "name": "logger",
         "signature": "WindowSigils.logger",
         "stripped_doc": "",
         "type": "Variable"
       }
     ],
-    "desc": "Assign every window a sigil for quick access.",
-    "doc": "Assign every window a sigil for quick access.\n\nA letter or digit is rendered in the titlebar of every window, and actions can be bound\ninside a \"sigil\" mode with different modifiers.  For example, with no modifiers, the\nthe sigil key can focus the window.  If the 'enter' action is bound to control-w, then\n'control-w c' will focus the window with sigil 'c'.\n\nThe keys 'h', 'j', 'k', and 'l' are reserved for the window west, south, north, and\neast of the currently focused window in standard Vi-like fashion, and so are not\nassigned as sigils.\n\nBy default, two keys (other than the sigils) are bound in the mode: escape leaves the\nmode without doing anything, and '.' sends the sigil key to the focused window.  This\nallows sending 'control-w' to the underlying window by typing 'control-w .'.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WindowSigils.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WindowSigils.spoon.zip)\n\nUsage example:\n```\nsigils = hs.loadSpoon(\"WindowSigils\")\nsigils:configure({\n  hotkeys = {\n    enter = {{\"control\"}, \"W\"}\n  },\n  mode_keys = {\n    [{{'shift'}, 'i'}] = ignore_notification,\n    [{{}, 'v'}]        = paste_as_keystrokes,\n    [{{}, ','}]        = rerun_last_command,\n  },\n  sigil_actions = {\n    [{}]       = focus_window,\n    [{'ctrl'}] = swap_window,\n    [{'alt'}]  = warp_window,\n  }\n})\nsigils:start()\n```",
+    "desc": "Assign every window and empty rectangle a sigil for quick access.",
+    "doc": "Assign every window and empty rectangle a sigil for quick access.\n\nA letter or digit is rendered in the titlebar of every window (or empty space), and\nactions can be bound inside the sigil mode and triggered with different modifiers.\n\nFor example, with no modifiers, a sigil key can focus the window.  If the 'enter'\naction is bound to control-w, then 'control-w c' will focus the window with sigil 'c'.\nThe action is a function which accepts a window, or in the case of an empty space, a\nwindow-like object which reponds to 'id', 'frame', and 'setFrame'.\n\nThe keys 'h', 'j', 'k', and 'l' are reserved for the window west, south, north, and\neast of the currently focused window in standard Vi-like fashion, and so are not\nassigned as sigils.\n\nBy default, two keys (other than the sigils) are bound in the mode: escape leaves the\nmode without doing anything, and '.' sends the sigil key to the focused window.  This\nallows sending 'control-w' to the underlying window by typing 'control-w .'.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WindowSigils.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WindowSigils.spoon.zip)\n\nUsage example:\n```\nlocal function ignore_notification()\n  -- ...\nend\nlocal function paste_as_keystrokes()\n  hs.eventtap.keyStrokes(hs.pasteboard.readString())\nend\nlocal function rerun_last_command()\n  hs.execute(\"kitty @ --to unix:/Users/jfelice/.run/kitty send-text --match=title:kak_repl_window '\\x10\\x0d'\", true)\nend\n\nlocal function focus_window(window)\n  window:focus()\n  if hs.window.focusedWindow() ~= window then\n    -- Some cases with apps having windows on multiple monitors require\n    -- us to try again (?)\n    window:focus()\n  end\nend\n\nlocal function swap_window(window)\n  local focused_frame = hs.window.focusedWindow():frame()\n  local selected_frame = window:frame()\n  hs.window.focusedWindow():setFrame(selected_frame, 0)\n  window:setFrame(focused_frame, 0)\nend\n\nlocal function stack_window(window)\n  local frame = window:frame()\n  hs.window.focusedWindow():setFrame(frame, 0)\nend\n\nsigils = hs.loadSpoon(\"WindowSigils\")\nsigils:configure({\n  hotkeys = {\n    enter = {{\"control\"}, \"W\"}\n  },\n  mode_keys = {\n    [{{'shift'}, 'i'}] = ignore_notification,\n    [{{}, 'v'}]        = paste_as_keystrokes,\n    [{{}, ','}]        = rerun_last_command,\n  },\n  sigil_actions = {\n    [{}]       = focus_window,\n    [{'ctrl'}] = stack_window,\n    [{'alt'}]  = swap_window,\n  }\n})\nsigils:start()\n```",
     "items": [
       {
         "def": "WindowSigils:bindHotkeys(mapping)",
@@ -18422,7 +18613,7 @@
         "doc": "Binds hotkeys for WindowSigils\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n  * enter - Enter the sigil mode",
         "examples": [],
         "file": "Source/WindowSigils.spoon/init.lua",
-        "lineno": "62",
+        "lineno": "99",
         "name": "bindHotkeys",
         "notes": [],
         "parameters": [
@@ -18439,7 +18630,7 @@
         "doc": "Bind an extra action to be triggered by a key in the sigil mode.\n\nParameters:\n * mods - The key modifiers\n * key - The key\n * action - A function, called with no parameters.",
         "examples": [],
         "file": "Source/WindowSigils.spoon/init.lua",
-        "lineno": "112",
+        "lineno": "149",
         "name": "bindModeKey",
         "notes": [],
         "parameters": [
@@ -18458,7 +18649,7 @@
         "doc": "Bind an action to be triggered in the sigil mode when a window's sigil key is pressed.\n\nParameters:\n * mods - The modifiers which must be held to trigger this action.\n * action - A function which takes a window object and performs this action.",
         "examples": [],
         "file": "Source/WindowSigils.spoon/init.lua",
-        "lineno": "138",
+        "lineno": "175",
         "name": "bindSigilAction",
         "notes": [],
         "parameters": [
@@ -18476,7 +18667,7 @@
         "doc": "Configures the spoon.\n\nParameters:\n * configuration - :\n   * hotkeys \n   * mode_keys - a table of key specs (e.g. {{'shift'}, 'n'}) to functions.  The keys are\n     mapped inside the sigil mode and the key is no longer used as a window sigil.\n   * sigil_actions - a table of mod specs (e.g. {'alt'}) to functions.  When the sigil is\n     used in the sigil mode with the specified modifier pressed, the function is invoked\n     with a window object.",
         "examples": [],
         "file": "Source/WindowSigils.spoon/init.lua",
-        "lineno": "83",
+        "lineno": "120",
         "name": "configure",
         "notes": [],
         "parameters": [
@@ -18492,7 +18683,7 @@
         "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "file": "Source/WindowSigils.spoon/init.lua",
-        "lineno": "51",
+        "lineno": "88",
         "name": "logger",
         "signature": "WindowSigils.logger",
         "stripped_doc": "",
@@ -18504,7 +18695,7 @@
         "doc": "A list of windows, in the order sigils are assigned.\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/WindowSigils.spoon/init.lua",
-        "lineno": "211",
+        "lineno": "279",
         "name": "orderedWindows",
         "notes": [],
         "parameters": [
@@ -18521,7 +18712,7 @@
         "doc": "Rerender all window sigils.\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/WindowSigils.spoon/init.lua",
-        "lineno": "257",
+        "lineno": "411",
         "name": "refresh",
         "notes": [],
         "parameters": [
@@ -18538,7 +18729,7 @@
         "doc": "Starts rendering the sigils and handling hotkeys\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/WindowSigils.spoon/init.lua",
-        "lineno": "163",
+        "lineno": "200",
         "name": "start",
         "notes": [],
         "parameters": [
@@ -18555,7 +18746,7 @@
         "doc": "Stops rendering the sigils and handling hotkeys\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/WindowSigils.spoon/init.lua",
-        "lineno": "200",
+        "lineno": "237",
         "name": "stop",
         "notes": [],
         "parameters": [
@@ -18572,7 +18763,7 @@
         "doc": "Find the window with the given index or sigil.\n\nParameters:\n * sigil - If a number, the index of the window; if a string, the sigil of the window.\n   Can also be 'North', 'East', 'South', or 'West' to find a window related to the\n   currently focused window.",
         "examples": [],
         "file": "Source/WindowSigils.spoon/init.lua",
-        "lineno": "228",
+        "lineno": "302",
         "name": "window",
         "notes": [],
         "parameters": [
@@ -18585,7 +18776,7 @@
       }
     ],
     "name": "WindowSigils",
-    "stripped_doc": "\nA letter or digit is rendered in the titlebar of every window, and actions can be bound\ninside a \"sigil\" mode with different modifiers.  For example, with no modifiers, the\nthe sigil key can focus the window.  If the 'enter' action is bound to control-w, then\n'control-w c' will focus the window with sigil 'c'.\n\nThe keys 'h', 'j', 'k', and 'l' are reserved for the window west, south, north, and\neast of the currently focused window in standard Vi-like fashion, and so are not\nassigned as sigils.\n\nBy default, two keys (other than the sigils) are bound in the mode: escape leaves the\nmode without doing anything, and '.' sends the sigil key to the focused window.  This\nallows sending 'control-w' to the underlying window by typing 'control-w .'.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WindowSigils.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WindowSigils.spoon.zip)\n\nUsage example:\n```\nsigils = hs.loadSpoon(\"WindowSigils\")\nsigils:configure({\n  hotkeys = {\n    enter = {{\"control\"}, \"W\"}\n  },\n  mode_keys = {\n    [{{'shift'}, 'i'}] = ignore_notification,\n    [{{}, 'v'}]        = paste_as_keystrokes,\n    [{{}, ','}]        = rerun_last_command,\n  },\n  sigil_actions = {\n    [{}]       = focus_window,\n    [{'ctrl'}] = swap_window,\n    [{'alt'}]  = warp_window,\n  }\n})\nsigils:start()\n```",
+    "stripped_doc": "\nA letter or digit is rendered in the titlebar of every window (or empty space), and\nactions can be bound inside the sigil mode and triggered with different modifiers.\n\nFor example, with no modifiers, a sigil key can focus the window.  If the 'enter'\naction is bound to control-w, then 'control-w c' will focus the window with sigil 'c'.\nThe action is a function which accepts a window, or in the case of an empty space, a\nwindow-like object which reponds to 'id', 'frame', and 'setFrame'.\n\nThe keys 'h', 'j', 'k', and 'l' are reserved for the window west, south, north, and\neast of the currently focused window in standard Vi-like fashion, and so are not\nassigned as sigils.\n\nBy default, two keys (other than the sigils) are bound in the mode: escape leaves the\nmode without doing anything, and '.' sends the sigil key to the focused window.  This\nallows sending 'control-w' to the underlying window by typing 'control-w .'.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WindowSigils.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WindowSigils.spoon.zip)\n\nUsage example:\n```\nlocal function ignore_notification()\n  -- ...\nend\nlocal function paste_as_keystrokes()\n  hs.eventtap.keyStrokes(hs.pasteboard.readString())\nend\nlocal function rerun_last_command()\n  hs.execute(\"kitty @ --to unix:/Users/jfelice/.run/kitty send-text --match=title:kak_repl_window '\\x10\\x0d'\", true)\nend\n\nlocal function focus_window(window)\n  window:focus()\n  if hs.window.focusedWindow() ~= window then\n    -- Some cases with apps having windows on multiple monitors require\n    -- us to try again (?)\n    window:focus()\n  end\nend\n\nlocal function swap_window(window)\n  local focused_frame = hs.window.focusedWindow():frame()\n  local selected_frame = window:frame()\n  hs.window.focusedWindow():setFrame(selected_frame, 0)\n  window:setFrame(focused_frame, 0)\nend\n\nlocal function stack_window(window)\n  local frame = window:frame()\n  hs.window.focusedWindow():setFrame(frame, 0)\nend\n\nsigils = hs.loadSpoon(\"WindowSigils\")\nsigils:configure({\n  hotkeys = {\n    enter = {{\"control\"}, \"W\"}\n  },\n  mode_keys = {\n    [{{'shift'}, 'i'}] = ignore_notification,\n    [{{}, 'v'}]        = paste_as_keystrokes,\n    [{{}, ','}]        = rerun_last_command,\n  },\n  sigil_actions = {\n    [{}]       = focus_window,\n    [{'ctrl'}] = stack_window,\n    [{'alt'}]  = swap_window,\n  }\n})\nsigils:start()\n```",
     "submodules": [],
     "type": "Module"
   },

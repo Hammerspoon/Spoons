@@ -222,7 +222,8 @@ end
 ---  * mapping - A table containing hotkey modifier/key details for the following items:
 ---   * `translate` - translate the selected text without specifying source/destination languages (source defaults to auto-detect, destination defaults to your last choice or to English)
 ---
---- Sample value for `mapping`:
+--- Examples:
+---  * Sample value for `mapping`:
 --- ```
 ---  {
 ---     translate = { { "ctrl", "alt", "cmd" }, "E" },

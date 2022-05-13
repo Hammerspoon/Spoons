@@ -15,11 +15,13 @@
   <body>
     <header>
       <h1><a href="./index.html">docs</a> &raquo; WindowSigils</h1>
-      <p>Assign every window a sigil for quick access.</p>
-<p>A letter or digit is rendered in the titlebar of every window, and actions can be bound
-inside a &quot;sigil&quot; mode with different modifiers.  For example, with no modifiers, the
-the sigil key can focus the window.  If the 'enter' action is bound to control-w, then
-'control-w c' will focus the window with sigil 'c'.</p>
+      <p>Assign every window and empty rectangle a sigil for quick access.</p>
+<p>A letter or digit is rendered in the titlebar of every window (or empty space), and
+actions can be bound inside the sigil mode and triggered with different modifiers.</p>
+<p>For example, with no modifiers, a sigil key can focus the window.  If the 'enter'
+action is bound to control-w, then 'control-w c' will focus the window with sigil 'c'.
+The action is a function which accepts a window, or in the case of an empty space, a
+window-like object which reponds to 'id', 'frame', and 'setFrame'.</p>
 <p>The keys 'h', 'j', 'k', and 'l' are reserved for the window west, south, north, and
 east of the currently focused window in standard Vi-like fashion, and so are not
 assigned as sigils.</p>
@@ -29,7 +31,38 @@ allows sending 'control-w' to the underlying window by typing 'control-w .'.</p>
 <p>Download: <a href="https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WindowSigils.spoon.zip">https://github.com/Hammerspoon/Spoons/raw/master/Spoons/WindowSigils.spoon.zip</a></p>
 <p>Usage example:</p>
 
-<pre><code>sigils = hs.loadSpoon(&quot;WindowSigils&quot;)
+<pre><code>local function ignore_notification()
+  -- ...
+end
+local function paste_as_keystrokes()
+  hs.eventtap.keyStrokes(hs.pasteboard.readString())
+end
+local function rerun_last_command()
+  hs.execute(&quot;kitty @ --to unix:/Users/jfelice/.run/kitty send-text --match=title:kak_repl_window '\x10\x0d'&quot;, true)
+end
+
+local function focus_window(window)
+  window:focus()
+  if hs.window.focusedWindow() ~= window then
+    -- Some cases with apps having windows on multiple monitors require
+    -- us to try again (?)
+    window:focus()
+  end
+end
+
+local function swap_window(window)
+  local focused_frame = hs.window.focusedWindow():frame()
+  local selected_frame = window:frame()
+  hs.window.focusedWindow():setFrame(selected_frame, 0)
+  window:setFrame(focused_frame, 0)
+end
+
+local function stack_window(window)
+  local frame = window:frame()
+  hs.window.focusedWindow():setFrame(frame, 0)
+end
+
+sigils = hs.loadSpoon(&quot;WindowSigils&quot;)
 sigils:configure({
   hotkeys = {
     enter = {{&quot;control&quot;}, &quot;W&quot;}
@@ -41,8 +74,8 @@ sigils:configure({
   },
   sigil_actions = {
     [{}]       = focus_window,
-    [{'ctrl'}] = swap_window,
-    [{'alt'}]  = warp_window,
+    [{'ctrl'}] = stack_window,
+    [{'alt'}]  = swap_window,
   }
 })
 sigils:start()
@@ -88,7 +121,7 @@ sigils:start()
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/WindowSigils.spoon/init.lua#L51">Source/WindowSigils.spoon/init.lua line 51</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/WindowSigils.spoon/init.lua#L88">Source/WindowSigils.spoon/init.lua line 88</a></td>
               </tr>
             </table>
           </section>
@@ -125,7 +158,7 @@ sigils:start()
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/WindowSigils.spoon/init.lua#L62">Source/WindowSigils.spoon/init.lua line 62</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/WindowSigils.spoon/init.lua#L99">Source/WindowSigils.spoon/init.lua line 99</a></td>
               </tr>
             </table>
           </section>
@@ -160,7 +193,7 @@ sigils:start()
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/WindowSigils.spoon/init.lua#L112">Source/WindowSigils.spoon/init.lua line 112</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/WindowSigils.spoon/init.lua#L149">Source/WindowSigils.spoon/init.lua line 149</a></td>
               </tr>
             </table>
           </section>
@@ -194,7 +227,7 @@ sigils:start()
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/WindowSigils.spoon/init.lua#L138">Source/WindowSigils.spoon/init.lua line 138</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/WindowSigils.spoon/init.lua#L175">Source/WindowSigils.spoon/init.lua line 175</a></td>
               </tr>
             </table>
           </section>
@@ -232,7 +265,7 @@ sigils:start()
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/WindowSigils.spoon/init.lua#L83">Source/WindowSigils.spoon/init.lua line 83</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/WindowSigils.spoon/init.lua#L120">Source/WindowSigils.spoon/init.lua line 120</a></td>
               </tr>
             </table>
           </section>
@@ -265,7 +298,7 @@ sigils:start()
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/WindowSigils.spoon/init.lua#L211">Source/WindowSigils.spoon/init.lua line 211</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/WindowSigils.spoon/init.lua#L279">Source/WindowSigils.spoon/init.lua line 279</a></td>
               </tr>
             </table>
           </section>
@@ -298,7 +331,7 @@ sigils:start()
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/WindowSigils.spoon/init.lua#L257">Source/WindowSigils.spoon/init.lua line 257</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/WindowSigils.spoon/init.lua#L411">Source/WindowSigils.spoon/init.lua line 411</a></td>
               </tr>
             </table>
           </section>
@@ -331,7 +364,7 @@ sigils:start()
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/WindowSigils.spoon/init.lua#L163">Source/WindowSigils.spoon/init.lua line 163</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/WindowSigils.spoon/init.lua#L200">Source/WindowSigils.spoon/init.lua line 200</a></td>
               </tr>
             </table>
           </section>
@@ -364,7 +397,7 @@ sigils:start()
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/WindowSigils.spoon/init.lua#L200">Source/WindowSigils.spoon/init.lua line 200</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/WindowSigils.spoon/init.lua#L237">Source/WindowSigils.spoon/init.lua line 237</a></td>
               </tr>
             </table>
           </section>
@@ -397,7 +430,7 @@ sigils:start()
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/WindowSigils.spoon/init.lua#L228">Source/WindowSigils.spoon/init.lua line 228</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/WindowSigils.spoon/init.lua#L302">Source/WindowSigils.spoon/init.lua line 302</a></td>
               </tr>
             </table>
           </section>

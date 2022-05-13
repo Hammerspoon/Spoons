@@ -248,8 +248,9 @@ end
 --- Returns:
 ---  * No return value
 ---
---- Side effects:
----  * Stores the icon in the book data structure
+--- Notes:
+---  * Side effects:
+---   * Stores the icon in the book data structure
 function obj:fetchBookCover(book)
   -- If no icon is given, fetch it from Leanpub. Explicitly check
   -- against nil to allow disabling the icon by specifying its
