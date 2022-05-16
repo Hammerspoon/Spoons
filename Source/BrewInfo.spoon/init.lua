@@ -58,9 +58,7 @@ end
 
 -- Internal function to get brew bin path
 function getBrewBinPath()
-   info, st = hs.execute("/usr/bin/uname -m")
-   print(info)
-   if st and string.find(info, "arm64") then
+   if hs.processInfo.arch == "arm64" then
       return "/opt/homebrew/bin/brew"
    else
       return "/usr/local/bin/brew"
