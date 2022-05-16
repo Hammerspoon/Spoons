@@ -56,6 +56,17 @@ function leftDoubleClick(modifiers)
       :post()
 end
 
+-- Internal function to get brew bin path
+function getBrewBinPath()
+   info, st = hs.execute("/usr/bin/uname -m")
+   print(info)
+   if st and string.find(info, "arm64") then
+      return "/opt/homebrew/bin/brew"
+   else
+      return "/usr/local/bin/brew"
+   end
+end
+
 -- Internal method to get the currently selected text
 -- If `select_text_if_needed` is true and no text is selected, issue
 -- a double-click to select, then use that
@@ -95,7 +106,7 @@ function mod:showBrewInfo(pkg, subcommand)
    local info = "No package selected"
    local st = nil
    if pkg and pkg ~= "" then
-      local cmd=string.format("/usr/local/bin/brew %s info %s", subcommand or "", pkg)
+      local cmd=string.format("%s %s info %s", getBrewBinPath(), subcommand or "", pkg)
       info, st=hs.execute(cmd)
       if st == nil then
          info = "No information found about formula '" .. pkg .. "'!"
@@ -131,7 +142,7 @@ end
 function mod:openBrewURL(pkg, subcommand)
    local msg = "No package selected"
    if pkg and pkg ~= "" then
-      local j, st, t, rc=hs.execute(string.format("/usr/local/bin/brew %s cat %s",(subcommand or ""), pkg ))
+      local j, st, t, rc=hs.execute(string.format("%s %s cat %s",getBrewBinPath(), (subcommand or ""), pkg ))
       if st ~= nil then
          local url=string.match(j, "\n%s*homepage%s+['\"](.-)['\"]%s*\n")
          if url and url ~= "" then
