@@ -32,6 +32,7 @@ local options = {
   annotations = hs.spoons.resourcePath("annotations"),
   timestampsFilename = hs.spoons.resourcePath("annotations").."/timestamps.json",
   timestamps = {},
+  timestampsChanged = false,
   types = {
     bool = "boolean",
     boolean = "boolean",
@@ -208,6 +209,7 @@ function M.createWhenChanged(jsonDocs, prefix)
     M.logger.i("reading "..jsonDocs)
     M.create(jsonDocs, prefix)
     options.timestamps[jsonDocs] = mtime
+    options.timestampsChanged = true
   else
     M.logger.i("skipping "..jsonDocs)
   end
@@ -227,8 +229,9 @@ end
 function M.writeTimestamps()
 
   M.logger.d(hs.inspect(options.timestamps))
-
-  hs.json.write(options.timestamps, options.timestampsFilename, true, true)
+  if options.timestampsChanged then
+    hs.json.write(options.timestamps, options.timestampsFilename, true, true)
+  end
 end
 
 function M:init()
