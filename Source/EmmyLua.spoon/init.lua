@@ -4,6 +4,8 @@
 --- under ~/.hammerspoon/Spoons/EmmyLua.spoon/annotations.
 --- Annotations will only be generated if they don't exist yet or are out of date.
 ---
+--- Note: Load this Spoon before any pathwatchers are defined to avoid unintended behaviour (for example multiple reloads when the annotions are created).
+---
 --- In order to get auto completion in your editor, you need to have one of the following LSP servers properly configured:
 --- * [lua-language-server](https://github.com/sumneko/lua-language-server) (recommended)
 --- * [EmmyLua-LanguageServer](https://github.com/EmmyLua/EmmyLua-LanguageServer)
