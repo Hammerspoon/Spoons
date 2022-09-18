@@ -13,14 +13,16 @@ obj.__index = obj
 
 -- Metadata
 obj.name = "URLDispatcher"
-obj.version = "0.3"
+obj.version = "0.4"
 obj.author = "Diego Zamboni <diego@zzamboni.org>"
 obj.homepage = "https://github.com/Hammerspoon/Spoons"
 obj.license = "MIT - https://opensource.org/licenses/MIT"
 
 --- URLDispatcher.default_handler
 --- Variable
---- Bundle ID for default URL handler. (Defaults to `"com.apple.Safari"`)
+--- Default URL handler. Can be a string containing the Bundle ID of an
+--- application, or a function that takes one argument, and will be invoked with
+--- the URL to open (Defaults to `"com.apple.Safari"`).
 obj.default_handler = "com.apple.Safari"
 
 --- URLDispatcher.decode_slack_redir_urls
@@ -50,10 +52,10 @@ obj.url_redir_decoders = { }
 --- URL dispatch rules.
 ---
 --- Notes:
----  * A table containing a list of dispatch rules. Each rule should be its own table in the format: `{ "url pattern", "application bundle ID", "function" }`, and they are evaluated in the order they are declared.
+---  * A table containing a list of dispatch rules. Each rule should be its own table in the format: `{ "url pattern", app-bundle-ID-or-function, function }`, and they are evaluated in the order they are declared.
 ---  * Note that the patterns are [Lua patterns](https://www.lua.org/pil/20.2.html) and not regular expressions.
 ---  * Defaults to an empty table, which has the effect of having all URLs dispatched to the `default_handler`.
----  * If "application bundle ID" is specified, that application will be used to open matching URLs. If no "application bundle ID" is specified, but "function" is provided (and is a Lua function) it will be called with the URL.
+---  * If "app-bundle-ID-or-function" is specified as a string, it is interpreted as a macOS application ID, and that application will be used to open matching URLs. If it is a function pointer, or not given but "function" is provided (and is a Lua function) it is expected to be a function that accepts a single argument, and it will be called with the URL.
 obj.url_patterns = { }
 
 --- URLDispatcher.logger
@@ -128,7 +130,12 @@ function obj:dispatchURL(scheme, host, params, fullUrl)
       local func = pair[3]
       self.logger.df("  Testing URL with pattern '%s'", p)
       if string.match(url, p) then
-         id = app
+         local id = nil
+         if type(app) == "string" then
+            id = app
+         elseif type(app) == "function" then
+            func = app
+         end
          if id ~= nil then
             self.logger.df("    Match found, opening with '%s'", id)
             hs.application.launchOrFocusByBundleID(id)
@@ -142,9 +149,17 @@ function obj:dispatchURL(scheme, host, params, fullUrl)
          end
       end
    end
-   self.logger.df("No match found, opening with default handler '%s'", self.default_handler)
-   hs.application.launchOrFocusByBundleID(self.default_handler)
-   hs.urlevent.openURLWithBundle(url, self.default_handler)
+   if type(self.default_handler) == "string" then
+      self.logger.df("No match found, opening with default handler '%s'", self.default_handler)
+      hs.application.launchOrFocusByBundleID(self.default_handler)
+      hs.urlevent.openURLWithBundle(url, self.default_handler)
+   elseif type(self.default_handler) == "function" then
+      self.logger.df("No match found, opening with default handler func '%s'", self.default_handler)
+      self.default_handler(url)
+   else
+      self.logger.ef("Unknown type '%s' for default_handler '%s', must be a string or a function.",
+                     type(self.default_handler), self.default_handler)
+   end
 end
 
 --- URLDispatcher:start()
