@@ -52,10 +52,20 @@ obj.url_redir_decoders = { }
 --- URL dispatch rules.
 ---
 --- Notes:
----  * A table containing a list of dispatch rules. Each rule should be its own table in the format: `{ "url pattern", app-bundle-ID-or-function, function }`, and they are evaluated in the order they are declared.
+
+---  * A table containing a list of dispatch rules. Each rule should be its own
+---    table in the format: `{ url-patterns, app-bundle-ID-or-function, function }`,
+---    and they are evaluated in the order they are declared.
+---  * `url-patterns` can be either a single pattern as a string, or a table
+---    containing a list of strings.
 ---  * Note that the patterns are [Lua patterns](https://www.lua.org/pil/20.2.html) and not regular expressions.
+---  * If "app-bundle-ID-or-function" is specified as a string, it is
+---    interpreted as a macOS application ID, and that application will be used
+---    to open matching URLs. If it is a function pointer, or not given but
+---    "function" is provided (and is a Lua function) it is expected to be a
+---    function that accepts a single argument, and it will be called with the
+---    URL.
 ---  * Defaults to an empty table, which has the effect of having all URLs dispatched to the `default_handler`.
----  * If "app-bundle-ID-or-function" is specified as a string, it is interpreted as a macOS application ID, and that application will be used to open matching URLs. If it is a function pointer, or not given but "function" is provided (and is a Lua function) it is expected to be a function that accepts a single argument, and it will be called with the URL.
 obj.url_patterns = { }
 
 --- URLDispatcher.logger
@@ -125,27 +135,32 @@ function obj:dispatchURL(scheme, host, params, fullUrl)
    end
    self.logger.df("Final URL to open: '%s'", url)
    for i,pair in ipairs(self.url_patterns) do
-      local p = pair[1]
+      local pats = pair[1]
       local app = pair[2]
       local func = pair[3]
-      self.logger.df("  Testing URL with pattern '%s'", p)
-      if string.match(url, p) then
-         local id = nil
-         if type(app) == "string" then
-            id = app
-         elseif type(app) == "function" then
-            func = app
-         end
-         if id ~= nil then
-            self.logger.df("    Match found, opening with '%s'", id)
-            hs.application.launchOrFocusByBundleID(id)
-            hs.urlevent.openURLWithBundle(url, id)
-            return
-         end
-         if func ~= nil then
-            self.logger.df("    Match found, calling func '%s'", func)
-            func(url)
-            return
+      if type(pats) == "string" then
+         pats = { pats }
+      end
+      for i,p in ipairs(pats) do
+         self.logger.df("  Testing URL with pattern '%s'", p)
+         if string.match(url, p) then
+            local id = nil
+            if type(app) == "string" then
+               id = app
+            elseif type(app) == "function" then
+               func = app
+            end
+            if id ~= nil then
+               self.logger.df("    Match found, opening with '%s'", id)
+               hs.application.launchOrFocusByBundleID(id)
+               hs.urlevent.openURLWithBundle(url, id)
+               return
+            end
+            if func ~= nil then
+               self.logger.df("    Match found, calling func '%s'", func)
+               func(url)
+               return
+            end
          end
       end
    end
