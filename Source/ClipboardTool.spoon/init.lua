@@ -295,11 +295,13 @@ function obj:_showContextMenu(row)
 end
 
 -- Internal function - fill in the chooser options, including the control options
-function obj:_populateChooser()
+function obj:_populateChooser(query)
+   query = query:lower()
    menuData = {}
    for k,v in pairs(clipboard_history) do
-      if (v.type == "text") then
-         table.insert(menuData, { text = v.content,
+      if (v.type == "text" and (query == "" or v.content:lower():find(query))) then
+         table.insert(menuData, { text = string.sub(v.content, 0, 200),
+                                  data = v.content,
                                   type = v.type})
       elseif (v.type == "image") then
          table.insert(menuData, { text = "《Image data》",
@@ -427,7 +429,10 @@ function obj:start()
    clipboard_history = self:dedupe_and_resize(getSetting("items", {})) -- If no history is saved on the system, create an empty history
    last_change = pasteboard.changeCount() -- keeps track of how many times the pasteboard owner has changed // Indicates a new copy has been made
    self.selectorobj = hs.chooser.new(hs.fnutils.partial(self._processSelectedItem, self))
-   self.selectorobj:choices(hs.fnutils.partial(self._populateChooser, self))
+   self.selectorobj:choices(hs.fnutils.partial(self._populateChooser, self, ""))
+   self.selectorobj:queryChangedCallback(function(query)
+      self.selectorobj:choices(hs.fnutils.partial(self._populateChooser, self, query))
+   end)
    self.selectorobj:rightClickCallback(hs.fnutils.partial(self._showContextMenu, self))
    --Checks for changes on the pasteboard. Is it possible to replace with eventtap?
    self.timer = hs.timer.new(self.frequency, hs.fnutils.partial(self.checkAndStorePasteboard, self))
