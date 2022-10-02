@@ -156,7 +156,7 @@ function obj:_processSelectedItem(value)
          actions[value.action](value)
       elseif value.text then
          if value.type == "text" then
-            pasteboard.setContents(value.text)
+            pasteboard.setContents(value.data)
          elseif value.type == "image" then 
             pasteboard.writeObjects(hs.image.imageFromURL(value.data))
          end
