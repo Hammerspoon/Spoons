@@ -178,7 +178,7 @@ function obj:sendCurrentItem()
             hs.osascript.applescript(as_script)
          elseif action.fn ~= nil then
             self.logger.df("Calling function %s", action.fn)
-            hs.fnutils.partial(action.fn, self.quickentrydialog)
+            pcall(hs.fnutils.partial(action.fn, self.quickentrydialog))
          end
       end
    else
