@@ -205,7 +205,7 @@ function M.createWhenChanged(jsonDocs, prefix)
   local mtime = hs.fs.attributes(jsonDocs, "modification")
   local timestamp = options.timestamps[jsonDocs]
 
-  if(timestamp == nil or mtime > timestamp) then
+  if(timestamp == nil or mtime ~= timestamp) then
     M.logger.i("reading "..jsonDocs)
     M.create(jsonDocs, prefix)
     options.timestamps[jsonDocs] = mtime
