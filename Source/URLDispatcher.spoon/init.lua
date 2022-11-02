@@ -52,7 +52,6 @@ obj.url_redir_decoders = { }
 --- URL dispatch rules.
 ---
 --- Notes:
-
 ---  * A table containing a list of dispatch rules. Each rule should be its own
 ---    table in the format: `{ url-patterns, app-bundle-ID-or-function, function }`,
 ---    and they are evaluated in the order they are declared.
