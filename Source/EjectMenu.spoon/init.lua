@@ -3,6 +3,8 @@
 --- A much-needed eject menu for your Mac menu bar. Allows ejecting
 --- individual or all non-internal disks. Ejection can also be
 --- triggered on sleep, on lid close, or using a hotkey.
+--- Using the Command key modifier causes the menu to open
+--- the given volume in the Finder instead of ejecting it.
 ---
 --- Download: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/EjectMenu.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/EjectMenu.spoon.zip)
 
@@ -181,7 +183,7 @@ end
 -- Initializes eject menu when clicked.
 --
 -- Parameters
---  * mods: a table containing {mod = bool} for all modifiers, where bool can be be either 'true' or 'false' (unlike execMenuItem)
+--  * mods: a table containing {mod = bool} for all modifiers, where bool can be be either 'true' or 'false' (unlike execMenuItem). If a modifier is in effect, the given volume is opened in the Finder rather than ejected.
 --
 -- Returns
 --  * ejectMenuTable: a table containing entries and functions for ejectable drives.
