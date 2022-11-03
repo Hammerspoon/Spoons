@@ -102,6 +102,11 @@ obj.show_in_menubar = true
 --- String to show in the menubar if `ClipboardTool.show_in_menubar` is `true`. Defaults to `"\u{1f4cb}"`, which is the [Unicode clipboard character](https://codepoints.net/U+1F4CB)
 obj.menubar_title   = "\u{1f4cb}"
 
+--- ClipboardTool.display_max_length
+--- Variable
+--- Number of characters to which each clipboard item will be truncated, when displaying in the menu. This only truncates in display, the full content will be used for searching and for pasting.
+obj.display_max_length = 200
+
 ----------------------------------------------------------------------
 
 -- Internal variable - Chooser/menu object
@@ -300,7 +305,7 @@ function obj:_populateChooser(query)
    menuData = {}
    for k,v in pairs(clipboard_history) do
       if (v.type == "text" and (query == "" or v.content:lower():find(query))) then
-         table.insert(menuData, { text = string.sub(v.content, 0, 200),
+         table.insert(menuData, { text = string.sub(v.content, 0, obj.display_max_length),
                                   data = v.content,
                                   type = v.type})
       elseif (v.type == "image") then
