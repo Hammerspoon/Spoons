@@ -13,7 +13,7 @@ obj.__index = obj
 
 -- Metadata
 obj.name = "URLDispatcher"
-obj.version = "0.4"
+obj.version = "0.5"
 obj.author = "Diego Zamboni <diego@zzamboni.org>"
 obj.homepage = "https://github.com/Hammerspoon/Spoons"
 obj.license = "MIT - https://opensource.org/licenses/MIT"
@@ -53,29 +53,48 @@ obj.url_redir_decoders = { }
 ---
 --- Notes:
 ---  * A table containing a list of dispatch rules. Each rule should be its own
----    table in the format: `{ url-patterns, app-bundle-ID-or-function, function }`,
+---    table in the format: `{ url-patterns, app-bundle-ID-or-function, function, file }`,
 ---    and they are evaluated in the order they are declared.
----  * `url-patterns` can be either a single pattern as a string, or a table
----    containing a list of strings.
----  * Note that the patterns are [Lua patterns](https://www.lua.org/pil/20.2.html) and not regular expressions.
+---  * `url-patterns` can be: a single pattern as a string, a table containing a
+---    list of strings, or a string containing the path of a file from which the
+---    patterns will be read (if the string contains a valid filename it's used
+---    as a file, otherwise as a pattern). In this case, a watcher will be set
+---    to automatically re-read the contents of the file when it changes. If a
+---    relative path is given (not starting with a "/"), then it is considered
+---    to be relative to the Hammerspoon configuration directory.
+---  * Note that the patterns are [Lua patterns](https://www.lua.org/pil/20.2.html)
+---    and not regular expressions.
 ---  * If "app-bundle-ID-or-function" is specified as a string, it is
 ---    interpreted as a macOS application ID, and that application will be used
 ---    to open matching URLs. If it is a function pointer, or not given but
----    "function" is provided (and is a Lua function) it is expected to be a
----    function that accepts a single argument, and it will be called with the
----    URL.
----  * Defaults to an empty table, which has the effect of having all URLs dispatched to the `default_handler`.
+---    "function" is provided, it is expected to be a function that accepts a
+---    single argument, and it will be called with the URL.
+---  * Defaults to an empty table, which has the effect of having all URLs
+---    dispatched to the `default_handler`.
 obj.url_patterns = { }
 
 --- URLDispatcher.logger
 --- Variable
---- Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.
+--- Logger object used within the Spoon. Can be accessed to set the default log
+--- level for the messages coming from the Spoon.
 obj.logger = hs.logger.new('URLDispatcher')
 
 --- URLDispatcher.set_system_handler
 --- Variable
---- If true, URLDispatcher set itself as system handler for http requests. Defaults to `true`
+--- If true, URLDispatcher set itself as system handler for http requests.
+--- Defaults to `true`
 obj.set_system_handler = true
+
+--- URLDispatcher.pat_files
+--- Variable
+--- Table where the pattern lists read from files are kept indexed by file name,
+--- and automatically updated.
+obj.pat_files = {}
+
+--- URLDispatcher.pat_watchers
+--- Variable
+--- Table where the watchers for the pattern files are kept indexed by file name.
+obj.pat_watchers = {}
 
 -- Local functions to decode URLs
 function hex_to_char(x)
@@ -89,6 +108,41 @@ end
 function obj.matchapp(app, pat)
   obj.logger.df("Matching %s with %s", app, pat)
   return string.find(app, "^"..pat.."$")
+end
+
+function obj:read_and_store(patfile)
+   self.logger.df("Reading patterns from file '%s'", patfile)
+   local pats = {}
+   for line in io.lines(patfile) do
+      -- Skip empty lines and lines starting with "#" (comments)
+      if (line ~= '') and not (string.find(line, '^%s*#')) then
+         table.insert(pats, line)
+      end
+   end
+   self.pat_files[patfile] = hs.fnutils.copy(pats)
+end
+
+function obj:patfileWatcher(patfile, paths, flags)
+   -- Only trigger re-reading the file when the 'itemModified' flag is present,
+   -- otherwise the file gets read multiple times due to file manipulations done
+   -- by editors
+   if hs.fnutils.some(flags, function(f) return f['itemModified'] end) then
+      self:read_and_store(patfile)
+   end
+end
+
+function obj:setupPatfile(patfile)
+   -- If the file exists, read it and setup a watcher to update it.
+   if hs.fs.attributes(patfile) then
+      self.logger.df("File '%s' has not been loaded, reading it now.", patfile)
+      -- Read the file and set up the watcher to auto-update it.
+      self:read_and_store(patfile)
+      self.logger.df("Creating watcher for file '%s'", patfile)
+      self.pat_watchers[patfile] = hs.pathwatcher.new(patfile, hs.fnutils.partial(self.patfileWatcher, self, patfile)):start()
+      return self.pat_files[patfile]
+   else
+      return nil
+   end
 end
 
 --- URLDispatcher:dispatchURL(scheme, host, params, fullUrl)
@@ -137,9 +191,26 @@ function obj:dispatchURL(scheme, host, params, fullUrl)
       local pats = pair[1]
       local app = pair[2]
       local func = pair[3]
+
       if type(pats) == "string" then
-         pats = { pats }
+         -- A string can be a single pattern, or a filename to load
+         if self.pat_files[patfile] then
+            -- If it's already a known pattern file, use its content
+            self.logger.df("    File is already read, using its contents.")
+            pats = self.pat_files[patfile]
+         else
+            -- Else, try to load it as a file
+            local patsfile = self:setupPatfile(pats)
+            -- If this fails, we use it as a single pattern
+            if patsfile then
+               pats = patsfile
+            else
+               self.logger.df("  Single pattern given, converting to list for processing.")
+               pats = { pats }
+            end
+         end
       end
+
       for i,p in ipairs(pats) do
          self.logger.df("  Testing URL with pattern '%s'", p)
          if string.match(url, p) then
