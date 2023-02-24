@@ -20,9 +20,11 @@ obj.license = "MIT - https://opensource.org/licenses/MIT"
 
 --- URLDispatcher.default_handler
 --- Variable
---- Default URL handler. Can be a string containing the Bundle ID of an
---- application, or a function that takes one argument, and will be invoked with
---- the URL to open (Defaults to `"com.apple.Safari"`).
+--- Default URL handler (Defaults to `"com.apple.Safari"`)
+---
+--- Notes:
+--- Can be a string containing the Bundle ID of an application, or a function
+--- that takes one argument, and which will be invoked with the URL to open.
 obj.default_handler = "com.apple.Safari"
 
 --- URLDispatcher.decode_slack_redir_urls
@@ -52,23 +54,27 @@ obj.url_redir_decoders = { }
 --- URL dispatch rules.
 ---
 --- Notes:
----  * A table containing a list of dispatch rules. Each rule should be its own
----    table in the format: `{ url-patterns, app-bundle-ID-or-function, function, file }`,
----    and they are evaluated in the order they are declared.
----  * `url-patterns` can be: a single pattern as a string, a table containing a
----    list of strings, or a string containing the path of a file from which the
----    patterns will be read (if the string contains a valid filename it's used
----    as a file, otherwise as a pattern). In this case, a watcher will be set
----    to automatically re-read the contents of the file when it changes. If a
----    relative path is given (not starting with a "/"), then it is considered
----    to be relative to the Hammerspoon configuration directory.
----  * Note that the patterns are [Lua patterns](https://www.lua.org/pil/20.2.html)
----    and not regular expressions.
----  * If "app-bundle-ID-or-function" is specified as a string, it is
+---  A table containing a list of dispatch rules. Rules are evaluated in the
+---  order they are declared. Each rule is a table with the following structure:
+---  `{ url-patterns, app-bundle-ID-or-function, function, app-patterns }`
+---  * `url-patterns` can be: (a) a single pattern as a string, (b) a table
+---    containing a list of strings, or (c) a string containing the path of a
+---    file from which the patterns will be read (if the string contains a valid
+---    filename it's used as a file, otherwise as a pattern). In case (c), a
+---    watcher will be set to automatically re-read the contents of the file
+---    when it changes. If a relative path is given (not starting with a "/"),
+---    then it is considered to be relative to the Hammerspoon configuration
+---    directory.
+---  * If `app-bundle-ID-or-function` is specified as a string, it is
 ---    interpreted as a macOS application ID, and that application will be used
 ---    to open matching URLs. If it is a function pointer, or not given but
 ---    "function" is provided, it is expected to be a function that accepts a
 ---    single argument, and it will be called with the URL.
+---  * If `app-patterns` is given, it should be a table containing a list of
+---    patterns, and the `url-patterns` in the rule will only apply if the URL
+---    was opened from an application whose name matches one of those patterns.
+---  * Note that the patterns are [Lua patterns](https://www.lua.org/pil/20.2.html)
+---    and not regular expressions.
 ---  * Defaults to an empty table, which has the effect of having all URLs
 ---    dispatched to the `default_handler`.
 obj.url_patterns = { }
@@ -77,23 +83,25 @@ obj.url_patterns = { }
 --- Variable
 --- Logger object used within the Spoon. Can be accessed to set the default log
 --- level for the messages coming from the Spoon.
+---
+--- Notes:
+--- Example: `spoon.URLDispatcher.logger.setLogLevel("debug")`
 obj.logger = hs.logger.new('URLDispatcher')
 
 --- URLDispatcher.set_system_handler
 --- Variable
---- If true, URLDispatcher set itself as system handler for http requests.
+--- If true, URLDispatcher sets itself as system handler for http requests.
 --- Defaults to `true`
 obj.set_system_handler = true
 
 --- URLDispatcher.pat_files
 --- Variable
---- Table where the pattern lists read from files are kept indexed by file name,
---- and automatically updated.
+--- Internal variable containing a table where the pattern lists read from files are kept indexed by file name, and automatically updated.
 obj.pat_files = {}
 
 --- URLDispatcher.pat_watchers
 --- Variable
---- Table where the watchers for the pattern files are kept indexed by file name.
+--- Internal variable containing a table where the watchers for the pattern files are kept indexed by file name.
 obj.pat_watchers = {}
 
 -- Local functions to decode URLs
@@ -105,9 +113,18 @@ function obj.unescape(url)
    return url:gsub("%%(%x%x)", hex_to_char)
 end
 
+-- Match a single pattern against an application name.
 function obj.matchapp(app, pat)
   obj.logger.df("Matching %s with %s", app, pat)
   return string.find(app, "^"..pat.."$")
+end
+
+-- Match a pattern or a list of patterns against an application name.
+-- The pattern can also be nil, in this case it's considered a success.
+function obj.matchapps(app, pat)
+   return (pat == nil) or
+      (type(pat) == 'string' and obj.matchapp(app, pat)) or
+      (type(pat) == 'table' and hs.fnutils.some(pat, hs.fnutils.partial(obj.matchapp, app)))
 end
 
 function obj:read_and_store(patfile)
@@ -145,22 +162,26 @@ function obj:setupPatfile(patfile)
    end
 end
 
---- URLDispatcher:dispatchURL(scheme, host, params, fullUrl)
+--- URLDispatcher:dispatchURL(scheme, host, params, fullUrl, senderPid)
 --- Method
 --- Dispatch a URL to an application according to the defined `url_patterns`.
 ---
---- Parameters:
+--- Parameters are as as per [hs.urlevent.httpCallback](https://www.hammerspoon.org/docs/hs.urlevent.html#httpCallback):
 ---  * scheme - A string containing the URL scheme (i.e. "http")
 ---  * host - A string containing the host requested (e.g. "www.hammerspoon.org")
 ---  * params - A table containing the key/value pairs of all the URL parameters
 ---  * fullURL - A string containing the full, original URL. This is the only parameter used in this implementation.
+---  * senderPID - An integer containing the PID of the application that opened the URL, if available (otherwise -1)
 ---
 --- Notes:
 ---  * The parameters (follow to the [httpCallback](http://www.hammerspoon.org/docs/hs.urlevent.html#httpCallback) specification)
-function obj:dispatchURL(scheme, host, params, fullUrl)
+function obj:dispatchURL(scheme, host, params, fullUrl, senderPid)
    local url = fullUrl
-   local currentApp = hs.application.frontmostApplication():name()
-   self.logger.df("Dispatching URL '%s' from application %s", url, currentApp)
+   local currentApp = ""
+   if senderPid ~= -1 then
+      currentApp = hs.application.applicationForPID(senderPid):name()
+   end
+   self.logger.df("Dispatching URL '%s' from application '%s'", url, currentApp)
    if self.decode_slack_redir_urls then
       local newUrl = string.match(url, 'https://slack.redir.net/.*url=(.*)')
       if newUrl then
@@ -170,10 +191,7 @@ function obj:dispatchURL(scheme, host, params, fullUrl)
    end
    for i,dec in ipairs(self.url_redir_decoders) do
      self.logger.df("  Testing decoder '%s'", dec[1])
-     if (dec[5] == nil) or
-       (type(dec[5]) == 'string' and obj.matchapp(currentApp, dec[5])) or
-       (type(dec[5]) == 'table' and hs.fnutils.some(dec[5], hs.fnutils.partial(obj.matchapp, currentApp)))
-     then
+     if self.matchapps(currentApp, dec[5]) then
        if string.find(url, dec[2]) then
          self.logger.df("    Applying decoder '%s' to URL '%s'", dec[1], url)
          url = string.gsub(url, dec[2], dec[3])
@@ -191,49 +209,56 @@ function obj:dispatchURL(scheme, host, params, fullUrl)
       local pats = pair[1]
       local app = pair[2]
       local func = pair[3]
+      local app_pats = pair[4]
 
-      if type(pats) == "string" then
-         -- A string can be a single pattern, or a filename to load
-         if self.pat_files[patfile] then
-            -- If it's already a known pattern file, use its content
-            self.logger.df("    File is already read, using its contents.")
-            pats = self.pat_files[patfile]
-         else
-            -- Else, try to load it as a file
-            local patsfile = self:setupPatfile(pats)
-            -- If this fails, we use it as a single pattern
-            if patsfile then
-               pats = patsfile
+      -- If app_pats is given, then first of all check whether the source app
+      -- matches, otherwise we skip the whole thing
+      if self.matchapps(currentApp, app_pats) then
+         -- First determine how to interpret the url-patterns
+         if type(pats) == "string" then
+            -- A string can be a single pattern, or a filename to load
+            if self.pat_files[pats] then
+               -- If it's already a known pattern file, use its content
+               self.logger.df("    File '%s' is already read, using its contents.", pats)
+               pats = self.pat_files[pats]
             else
-               self.logger.df("  Single pattern given, converting to list for processing.")
-               pats = { pats }
+               -- Else, try to load it as a file
+               local patsfile = self:setupPatfile(pats)
+               -- If this fails, we use it as a single pattern
+               if patsfile then
+                  pats = patsfile
+               else
+                  self.logger.df("  Single pattern given, converting to list for processing.")
+                  pats = { pats }
+               end
             end
          end
-      end
 
-      for i,p in ipairs(pats) do
-         self.logger.df("  Testing URL with pattern '%s'", p)
-         if string.match(url, p) then
-            local id = nil
-            if type(app) == "string" then
-               id = app
-            elseif type(app) == "function" then
-               func = app
-            end
-            if id ~= nil then
-               self.logger.df("    Match found, opening with '%s'", id)
-               hs.application.launchOrFocusByBundleID(id)
-               hs.urlevent.openURLWithBundle(url, id)
-               return
-            end
-            if func ~= nil then
-               self.logger.df("    Match found, calling func '%s'", func)
-               func(url)
-               return
+         for i,p in ipairs(pats) do
+            self.logger.df("  Testing URL with pattern '%s'", p)
+            if string.match(url, p) then
+               local id = nil
+               if type(app) == "string" then
+                  id = app
+               elseif type(app) == "function" then
+                  func = app
+               end
+               if id ~= nil then
+                  self.logger.df("    Match found, opening with '%s'", id)
+                  hs.application.launchOrFocusByBundleID(id)
+                  hs.urlevent.openURLWithBundle(url, id)
+                  return
+               end
+               if func ~= nil then
+                  self.logger.df("    Match found, calling func '%s'", func)
+                  func(url)
+                  return
+               end
             end
          end
       end
    end
+   -- Fall through to the default handler
    if type(self.default_handler) == "string" then
       self.logger.df("No match found, opening with default handler '%s'", self.default_handler)
       hs.application.launchOrFocusByBundleID(self.default_handler)
