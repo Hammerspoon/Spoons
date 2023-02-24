@@ -190,19 +190,20 @@ function obj:dispatchURL(scheme, host, params, fullUrl, senderPid)
       end
    end
    for i,dec in ipairs(self.url_redir_decoders) do
-     self.logger.df("  Testing decoder '%s'", dec[1])
-     if self.matchapps(currentApp, dec[5]) then
-       if string.find(url, dec[2]) then
-         self.logger.df("    Applying decoder '%s' to URL '%s'", dec[1], url)
-         url = string.gsub(url, dec[2], dec[3])
-         self.logger.df("    Decoded URL: '%s'", url)
-         if not dec[4] then
-           self.logger.df("    Unescaping decoded URL '%s'", url)
-           url = obj.unescape(url)
-           self.logger.df("    Unescaped URL: '%s'", url)
+      self.logger.df("  Testing decoder '%s'", dec[1])
+      if self.matchapps(currentApp, dec[5]) then
+
+         if string.find(url, dec[2]) then
+            self.logger.df("    Applying decoder '%s' to URL '%s'", dec[1], url)
+            url = string.gsub(url, dec[2], dec[3])
+            self.logger.df("    Decoded URL: '%s'", url)
+            if not dec[4] then
+               self.logger.df("    Unescaping decoded URL '%s'", url)
+               url = obj.unescape(url)
+               self.logger.df("    Unescaped URL: '%s'", url)
+            end
          end
-       end
-     end
+      end
    end
    self.logger.df("Final URL to open: '%s'", url)
    for i,pair in ipairs(self.url_patterns) do
