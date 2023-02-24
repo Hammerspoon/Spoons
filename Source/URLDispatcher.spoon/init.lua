@@ -34,19 +34,36 @@ obj.decode_slack_redir_urls = true
 
 --- URLDispatcher.url_redir_decoders
 --- Variable
---- List containing optional additional redirection decoders (other
---- than the known Slack decoder, which is enabled by
---- `URLDispatcher.decode_slack_redir_urls` to apply to URLs before
---- dispatching them. Each list element must be a list itself with four
---- elements:
----   * String: a name to identify the decoder;
----   * String: a [Lua pattern](https://www.lua.org/pil/20.2.html) to match against the URL;
----   * String: a replacement pattern to apply if a match is found;
----   * (optional) Boolean: whether to skip URL-decoding of the resulting string (by default the results are always decoded);
----   * (optional) String or Table: a pattern or list of patterns to match against the name of the application from which the URL was opened. If this parameter is present, the decoder will only be applied when the application matches. Default is to apply the decoder regardless of the application.
---- The first two values are passed as arguments to
+--- URL redirection decoders. Default value: empty list
+---
+--- Notes:
+--- List containing optional redirection decoders (other than the known Slack
+--- decoder, which is enabled by `URLDispatcher.decode_slack_redir_urls` to
+--- apply to URLs before dispatching them. Each list element must be a list
+--- itself with a maximum of five elements:
+---   * `decoder-name`: (String) a name to identify the decoder;
+---   * `decoder-pattern-or-function`: (String or Function) if a string is
+---     given, it is used as a [Lua pattern](https://www.lua.org/pil/20.2.html)
+---     to match against the URL. If a function is given, it will be called with
+---     arguments `scheme`, `host`, `params`, `fullUrl`, `senderPid` (the same
+---     arguments as passed to
+---     [hs.urlevent.httpCallback](https://www.hammerspoon.org/docs/hs.urlevent.html#httpCallback)),
+---     and must return a string that contains the URL to be opened. The
+---     returned value will be URL-decoded according to the value of `skip-decode-url` (below).
+---   * `pattern-replacement`: (String) a replacement pattern to apply if a
+---     match is found when a decoder pattern (previous argument) is provided.
+---     If a decoder function is given, this argument is ignored.
+---   * `skip-decode-url`: (Boolean, optional) whether to skip URL-decoding of the
+---     resulting string (defaults to `false`, by default URLs are always decoded)
+---   * `source-application`: (String or Table, optional): a pattern or list of
+---     patterns to match against the name of the application from which the URL
+---     was opened. If this parameter is present, the decoder will only be
+---     applied when the application matches. Default is to apply the decoder
+---     regardless of the application.
+--- If given as strings, `decoder-pattern-or-function` and `pattern-replacement`
+--- are passed as arguments to
 --- [string.gsub](https://www.lua.org/manual/5.3/manual.html#pdf-string.gsub)
---- applied on the original URL.  Default value: empty list
+--- applied on the original URL.
 obj.url_redir_decoders = { }
 
 --- URLDispatcher.url_patterns
@@ -70,8 +87,8 @@ obj.url_redir_decoders = { }
 ---    to open matching URLs. If it is a function pointer, or not given but
 ---    "function" is provided, it is expected to be a function that accepts a
 ---    single argument, and it will be called with the URL.
----  * If `app-patterns` is given, it should be a table containing a list of
----    patterns, and the `url-patterns` in the rule will only apply if the URL
+---  * If `app-patterns` is given, it should be a string or a table containing a
+---    pattern/list of patterns, and the rule will only be evaluated if the URL
 ---    was opened from an application whose name matches one of those patterns.
 ---  * Note that the patterns are [Lua patterns](https://www.lua.org/pil/20.2.html)
 ---    and not regular expressions.
@@ -115,16 +132,22 @@ end
 
 -- Match a single pattern against an application name.
 function obj.matchapp(app, pat)
-  obj.logger.df("Matching %s with %s", app, pat)
-  return string.find(app, "^"..pat.."$")
+  obj.logger.df("Matching appname '%s' against pattern '%s'", app, pat)
+  return string.find(app, pat)
 end
 
 -- Match a pattern or a list of patterns against an application name.
 -- The pattern can also be nil, in this case it's considered a success.
 function obj.matchapps(app, pat)
-   return (pat == nil) or
+   local ismatch = (pat == nil) or
       (type(pat) == 'string' and obj.matchapp(app, pat)) or
       (type(pat) == 'table' and hs.fnutils.some(pat, hs.fnutils.partial(obj.matchapp, app)))
+   if ismatch then
+      obj.logger.df("  App pattern '%s' is nil or matches application name '%s' - evaluating rule.", pat, app)
+   else
+      obj.logger.df("  App pattern '%s' does not match application name '%s' - skipping rule.", pat, app)
+   end
+   return ismatch
 end
 
 function obj:read_and_store(patfile)
@@ -191,22 +214,35 @@ function obj:dispatchURL(scheme, host, params, fullUrl, senderPid)
    end
    for i,dec in ipairs(self.url_redir_decoders) do
       self.logger.df("  Testing decoder '%s'", dec[1])
+      local processed = false
       if self.matchapps(currentApp, dec[5]) then
-
-         if string.find(url, dec[2]) then
-            self.logger.df("    Applying decoder '%s' to URL '%s'", dec[1], url)
-            url = string.gsub(url, dec[2], dec[3])
-            self.logger.df("    Decoded URL: '%s'", url)
-            if not dec[4] then
-               self.logger.df("    Unescaping decoded URL '%s'", url)
-               url = obj.unescape(url)
-               self.logger.df("    Unescaped URL: '%s'", url)
+         if type(dec[2]) == "string" then
+            if string.find(url, dec[2]) then
+               self.logger.df("    Applying pattern-based decoder '%s' to URL '%s'", dec[1], url)
+               url = string.gsub(url, dec[2], dec[3])
+               self.logger.df("    Decoded URL: '%s'", url)
+               processed = true
             end
+         elseif type(dec[2]) == "function" then
+            self.logger.df("    Applying function-based decoder '%s' to URL '%s'", dec[1], url)
+            url = dec[2](scheme, host, params, fullUrl, senderPid)
+            self.logger.df("    Decoded URL: '%s'", url)
+            processed = true
+         else
+            self.logger.ef("    Decoder '%s' has an unknown second value of type '%s'", dec[1], dec[2])
          end
+         if processed and (not dec[4]) then
+            self.logger.df("    Unescaping decoded URL '%s'", url)
+            url = obj.unescape(url)
+            self.logger.df("    Unescaped URL: '%s'", url)
+         end
+
       end
    end
    self.logger.df("Final URL to open: '%s'", url)
    for i,pair in ipairs(self.url_patterns) do
+      self.logger.df("Evaluating rule %s", hs.inspect(pair))
+
       local pats = pair[1]
       local app = pair[2]
       local func = pair[3]
