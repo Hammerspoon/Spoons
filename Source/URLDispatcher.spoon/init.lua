@@ -189,7 +189,7 @@ end
 --- Method
 --- Dispatch a URL to an application according to the defined `url_patterns`.
 ---
---- Parameters are as as per [hs.urlevent.httpCallback](https://www.hammerspoon.org/docs/hs.urlevent.html#httpCallback):
+--- Parameters:
 ---  * scheme - A string containing the URL scheme (i.e. "http")
 ---  * host - A string containing the host requested (e.g. "www.hammerspoon.org")
 ---  * params - A table containing the key/value pairs of all the URL parameters
