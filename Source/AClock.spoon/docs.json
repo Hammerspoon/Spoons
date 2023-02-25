@@ -11,7 +11,11 @@
         "def": "AClock:hide()",
         "desc": "Hide AClock.",
         "doc": "Hide AClock.\n\nParameters:\n * None\n\nReturns:\n * The AClock object",
+        "examples": [],
+        "file": "Source/AClock.spoon//init.lua",
+        "lineno": "116",
         "name": "hide",
+        "notes": [],
         "parameters": [
           " * None"
         ],
@@ -26,7 +30,11 @@
         "def": "AClock:init()",
         "desc": "init.",
         "doc": "init.\n\nParameters:\n * None\n\nReturns:\n * The AClock object",
+        "examples": [],
+        "file": "Source/AClock.spoon//init.lua",
+        "lineno": "54",
         "name": "init",
+        "notes": [],
         "parameters": [
           " * None"
         ],
@@ -41,7 +49,11 @@
         "def": "AClock:show()",
         "desc": "Show AClock.",
         "doc": "Show AClock.\n\nParameters:\n * None\n\nReturns:\n * The AClock object",
+        "examples": [],
+        "file": "Source/AClock.spoon//init.lua",
+        "lineno": "97",
         "name": "show",
+        "notes": [],
         "parameters": [
           " * None"
         ],
@@ -55,8 +67,16 @@
       {
         "def": "AClock:toggleShow()",
         "desc": "Show AClock for 4 seconds. If already showing, hide it.",
-        "doc": "Show AClock for 4 seconds. If already showing, hide it.",
+        "doc": "Show AClock for 4 seconds. If already showing, hide it.\n\nParameters:\n * None",
+        "examples": [],
+        "file": "Source/AClock.spoon//init.lua",
+        "lineno": "132",
         "name": "toggleShow",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
         "signature": "AClock:toggleShow()",
         "stripped_doc": "",
         "type": "Method"
@@ -64,8 +84,16 @@
       {
         "def": "AClock:toggleShowPersistent()",
         "desc": "Show AClock. If already showing, hide it.",
-        "doc": "Show AClock. If already showing, hide it.",
+        "doc": "Show AClock. If already showing, hide it.\n\nParameters:\n * None",
+        "examples": [],
+        "file": "Source/AClock.spoon//init.lua",
+        "lineno": "154",
         "name": "toggleShowPersistent",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
         "signature": "AClock:toggleShowPersistent()",
         "stripped_doc": "",
         "type": "Method"
@@ -79,7 +107,11 @@
         "def": "AClock:hide()",
         "desc": "Hide AClock.",
         "doc": "Hide AClock.\n\nParameters:\n * None\n\nReturns:\n * The AClock object",
+        "examples": [],
+        "file": "Source/AClock.spoon//init.lua",
+        "lineno": "116",
         "name": "hide",
+        "notes": [],
         "parameters": [
           " * None"
         ],
@@ -94,7 +126,11 @@
         "def": "AClock:init()",
         "desc": "init.",
         "doc": "init.\n\nParameters:\n * None\n\nReturns:\n * The AClock object",
+        "examples": [],
+        "file": "Source/AClock.spoon//init.lua",
+        "lineno": "54",
         "name": "init",
+        "notes": [],
         "parameters": [
           " * None"
         ],
@@ -109,7 +145,11 @@
         "def": "AClock:show()",
         "desc": "Show AClock.",
         "doc": "Show AClock.\n\nParameters:\n * None\n\nReturns:\n * The AClock object",
+        "examples": [],
+        "file": "Source/AClock.spoon//init.lua",
+        "lineno": "97",
         "name": "show",
+        "notes": [],
         "parameters": [
           " * None"
         ],
@@ -123,8 +163,16 @@
       {
         "def": "AClock:toggleShow()",
         "desc": "Show AClock for 4 seconds. If already showing, hide it.",
-        "doc": "Show AClock for 4 seconds. If already showing, hide it.",
+        "doc": "Show AClock for 4 seconds. If already showing, hide it.\n\nParameters:\n * None",
+        "examples": [],
+        "file": "Source/AClock.spoon//init.lua",
+        "lineno": "132",
         "name": "toggleShow",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
         "signature": "AClock:toggleShow()",
         "stripped_doc": "",
         "type": "Method"
@@ -132,8 +180,16 @@
       {
         "def": "AClock:toggleShowPersistent()",
         "desc": "Show AClock. If already showing, hide it.",
-        "doc": "Show AClock. If already showing, hide it.",
+        "doc": "Show AClock. If already showing, hide it.\n\nParameters:\n * None",
+        "examples": [],
+        "file": "Source/AClock.spoon//init.lua",
+        "lineno": "154",
         "name": "toggleShowPersistent",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
         "signature": "AClock:toggleShowPersistent()",
         "stripped_doc": "",
         "type": "Method"
