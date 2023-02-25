@@ -29,6 +29,8 @@ in the config. If no pattern matches, <code>default_handler</code> is used.</p>
             <li><a href="#decode_slack_redir_urls">decode_slack_redir_urls</a></li>
             <li><a href="#default_handler">default_handler</a></li>
             <li><a href="#logger">logger</a></li>
+            <li><a href="#pat_files">pat_files</a></li>
+            <li><a href="#pat_watchers">pat_watchers</a></li>
             <li><a href="#set_system_handler">set_system_handler</a></li>
             <li><a href="#url_patterns">url_patterns</a></li>
             <li><a href="#url_redir_decoders">url_redir_decoders</a></li>
@@ -59,7 +61,7 @@ in the config. If no pattern matches, <code>default_handler</code> is used.</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/URLDispatcher.spoon/init.lua#L26">Source/URLDispatcher.spoon/init.lua line 26</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/URLDispatcher.spoon/init.lua#L30">Source/URLDispatcher.spoon/init.lua line 30</a></td>
               </tr>
             </table>
           </section>
@@ -77,7 +79,13 @@ in the config. If no pattern matches, <code>default_handler</code> is used.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td>Bundle ID for default URL handler. (Defaults to `"com.apple.Safari"`)</td>
+                <td>Default URL handler (Defaults to `"com.apple.Safari"`)</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><p>Can be a string containing the Bundle ID of an application, or a function
+that takes one argument, and which will be invoked with the URL to open.</p>
+</td>
               </tr>
               <tr>
                 <th>Source</th>
@@ -99,11 +107,60 @@ in the config. If no pattern matches, <code>default_handler</code> is used.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td>Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.</td>
+                <td>Logger object used within the Spoon. Can be accessed to set the default log</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><p>Example: <code>spoon.URLDispatcher.logger.setLogLevel(&quot;debug&quot;)</code></p>
+</td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/URLDispatcher.spoon/init.lua#L59">Source/URLDispatcher.spoon/init.lua line 59</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/URLDispatcher.spoon/init.lua#L99">Source/URLDispatcher.spoon/init.lua line 99</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="pat_files">
+            <a name="//apple_ref/cpp/Variable/pat_files" class="dashAnchor"></a>
+            <h5><a href="#pat_files">pat_files</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>URLDispatcher.pat_files</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td>Internal variable containing a table where the pattern lists read from files are kept indexed by file name, and automatically updated.</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/URLDispatcher.spoon/init.lua#L114">Source/URLDispatcher.spoon/init.lua line 114</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="pat_watchers">
+            <a name="//apple_ref/cpp/Variable/pat_watchers" class="dashAnchor"></a>
+            <h5><a href="#pat_watchers">pat_watchers</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>URLDispatcher.pat_watchers</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td>Internal variable containing a table where the watchers for the pattern files are kept indexed by file name.</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/URLDispatcher.spoon/init.lua#L119">Source/URLDispatcher.spoon/init.lua line 119</a></td>
               </tr>
             </table>
           </section>
@@ -121,11 +178,11 @@ in the config. If no pattern matches, <code>default_handler</code> is used.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td>If true, URLDispatcher set itself as system handler for http requests. Defaults to `true`</td>
+                <td>If true, URLDispatcher sets itself as system handler for http requests.</td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/URLDispatcher.spoon/init.lua#L64">Source/URLDispatcher.spoon/init.lua line 64</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/URLDispatcher.spoon/init.lua#L108">Source/URLDispatcher.spoon/init.lua line 108</a></td>
               </tr>
             </table>
           </section>
@@ -147,17 +204,36 @@ in the config. If no pattern matches, <code>default_handler</code> is used.</p>
               </tr>
               <tr>
                   <th>Notes</th>
-                  <td><ul>
-<li>A table containing a list of dispatch rules. Each rule should be its own table in the format: <code>{ &quot;url pattern&quot;, &quot;application bundle ID&quot;, &quot;function&quot; }</code>, and they are evaluated in the order they are declared.</li>
-<li>Note that the patterns are <a href="https://www.lua.org/pil/20.2.html">Lua patterns</a> and not regular expressions.</li>
-<li>Defaults to an empty table, which has the effect of having all URLs dispatched to the <code>default_handler</code>.</li>
-<li>If &quot;application bundle ID&quot; is specified, that application will be used to open matching URLs. If no &quot;application bundle ID&quot; is specified, but &quot;function&quot; is provided (and is a Lua function) it will be called with the URL.</li>
+                  <td><p>A table containing a list of dispatch rules. Rules are evaluated in the
+ order they are declared. Each rule is a table with the following structure:
+ <code>{ url-patterns, app-bundle-ID-or-function, function, app-patterns }</code></p>
+<ul>
+<li><code>url-patterns</code> can be: (a) a single pattern as a string, (b) a table
+containing a list of strings, or (c) a string containing the path of a
+file from which the patterns will be read (if the string contains a valid
+filename it's used as a file, otherwise as a pattern). In case (c), a
+watcher will be set to automatically re-read the contents of the file
+when it changes. If a relative path is given (not starting with a &quot;/&quot;),
+then it is considered to be relative to the Hammerspoon configuration
+directory.</li>
+<li>If <code>app-bundle-ID-or-function</code> is specified as a string, it is
+interpreted as a macOS application ID, and that application will be used
+to open matching URLs. If it is a function pointer, or not given but
+&quot;function&quot; is provided, it is expected to be a function that accepts a
+single argument, and it will be called with the URL.</li>
+<li>If <code>app-patterns</code> is given, it should be a string or a table containing a
+pattern/list of patterns, and the rule will only be evaluated if the URL
+was opened from an application whose name matches one of those patterns.</li>
+<li>Note that the patterns are <a href="https://www.lua.org/pil/20.2.html">Lua patterns</a>
+and not regular expressions.</li>
+<li>Defaults to an empty table, which has the effect of having all URLs
+dispatched to the <code>default_handler</code>.</li>
 </ul>
 </td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/URLDispatcher.spoon/init.lua#L48">Source/URLDispatcher.spoon/init.lua line 48</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/URLDispatcher.spoon/init.lua#L69">Source/URLDispatcher.spoon/init.lua line 69</a></td>
               </tr>
             </table>
           </section>
@@ -175,11 +251,44 @@ in the config. If no pattern matches, <code>default_handler</code> is used.</p>
               </tr>
               <tr>
                 <th>Description</th>
-                <td>List containing optional additional redirection decoders (other</td>
+                <td>URL redirection decoders. Default value: empty list</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><p>List containing optional redirection decoders (other than the known Slack
+decoder, which is enabled by <code>URLDispatcher.decode_slack_redir_urls</code> to
+apply to URLs before dispatching them. Each list element must be a list
+itself with a maximum of five elements:</p>
+<ul>
+<li><code>decoder-name</code>: (String) a name to identify the decoder;</li>
+<li><code>decoder-pattern-or-function</code>: (String or Function) if a string is
+given, it is used as a <a href="https://www.lua.org/pil/20.2.html">Lua pattern</a>
+to match against the URL. If a function is given, it will be called with
+arguments <code>scheme</code>, <code>host</code>, <code>params</code>, <code>fullUrl</code>, <code>senderPid</code> (the same
+arguments as passed to
+<a href="https://www.hammerspoon.org/docs/hs.urlevent.html#httpCallback">hs.urlevent.httpCallback</a>),
+and must return a string that contains the URL to be opened. The
+returned value will be URL-decoded according to the value of <code>skip-decode-url</code> (below).</li>
+<li><code>pattern-replacement</code>: (String) a replacement pattern to apply if a
+match is found when a decoder pattern (previous argument) is provided.
+If a decoder function is given, this argument is ignored.</li>
+<li><code>skip-decode-url</code>: (Boolean, optional) whether to skip URL-decoding of the
+resulting string (defaults to <code>false</code>, by default URLs are always decoded)</li>
+<li><code>source-application</code>: (String or Table, optional): a pattern or list of
+patterns to match against the name of the application from which the URL
+was opened. If this parameter is present, the decoder will only be
+applied when the application matches. Default is to apply the decoder
+regardless of the application.</li>
+</ul>
+<p>If given as strings, <code>decoder-pattern-or-function</code> and <code>pattern-replacement</code>
+are passed as arguments to
+<a href="https://www.lua.org/manual/5.3/manual.html#pdf-string.gsub">string.gsub</a>
+applied on the original URL.</p>
+</td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/URLDispatcher.spoon/init.lua#L31">Source/URLDispatcher.spoon/init.lua line 31</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/URLDispatcher.spoon/init.lua#L35">Source/URLDispatcher.spoon/init.lua line 35</a></td>
               </tr>
             </table>
           </section>
@@ -190,7 +299,7 @@ in the config. If no pattern matches, <code>default_handler</code> is used.</p>
             <table>
               <tr>
                 <th>Signature</th>
-                <td><code>URLDispatcher:dispatchURL(scheme, host, params, fullUrl)</code></td>
+                <td><code>URLDispatcher:dispatchURL(scheme, host, params, fullUrl, senderPid)</code></td>
               </tr>
               <tr>
                 <th>Type</th>
@@ -207,6 +316,7 @@ in the config. If no pattern matches, <code>default_handler</code> is used.</p>
 <li>host - A string containing the host requested (e.g. &quot;www.hammerspoon.org&quot;)</li>
 <li>params - A table containing the key/value pairs of all the URL parameters</li>
 <li>fullURL - A string containing the full, original URL. This is the only parameter used in this implementation.</li>
+<li>senderPID - An integer containing the PID of the application that opened the URL, if available (otherwise -1)</li>
 </ul>
 </td>
               </tr>
@@ -223,7 +333,7 @@ in the config. If no pattern matches, <code>default_handler</code> is used.</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/URLDispatcher.spoon/init.lua#L83">Source/URLDispatcher.spoon/init.lua line 83</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/URLDispatcher.spoon/init.lua#L188">Source/URLDispatcher.spoon/init.lua line 188</a></td>
               </tr>
             </table>
           </section>
@@ -256,7 +366,7 @@ in the config. If no pattern matches, <code>default_handler</code> is used.</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/URLDispatcher.spoon/init.lua#L150">Source/URLDispatcher.spoon/init.lua line 150</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/URLDispatcher.spoon/init.lua#L312">Source/URLDispatcher.spoon/init.lua line 312</a></td>
               </tr>
             </table>
           </section>

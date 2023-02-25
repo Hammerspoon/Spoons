@@ -3112,19 +3112,31 @@
     "type": "Variable"
   },
   {
-    "desc": "Bundle ID for default URL handler. (Defaults to `\"com.apple.Safari\"`)",
+    "desc": "Default URL handler (Defaults to `\"com.apple.Safari\"`)",
     "module": "URLDispatcher",
     "name": "default_handler",
     "type": "Variable"
   },
   {
-    "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+    "desc": "Logger object used within the Spoon. Can be accessed to set the default log",
     "module": "URLDispatcher",
     "name": "logger",
     "type": "Variable"
   },
   {
-    "desc": "If true, URLDispatcher set itself as system handler for http requests. Defaults to `true`",
+    "desc": "Internal variable containing a table where the pattern lists read from files are kept indexed by file name, and automatically updated.",
+    "module": "URLDispatcher",
+    "name": "pat_files",
+    "type": "Variable"
+  },
+  {
+    "desc": "Internal variable containing a table where the watchers for the pattern files are kept indexed by file name.",
+    "module": "URLDispatcher",
+    "name": "pat_watchers",
+    "type": "Variable"
+  },
+  {
+    "desc": "If true, URLDispatcher sets itself as system handler for http requests.",
     "module": "URLDispatcher",
     "name": "set_system_handler",
     "type": "Variable"
@@ -3136,7 +3148,7 @@
     "type": "Variable"
   },
   {
-    "desc": "List containing optional additional redirection decoders (other",
+    "desc": "URL redirection decoders. Default value: empty list",
     "module": "URLDispatcher",
     "name": "url_redir_decoders",
     "type": "Variable"
