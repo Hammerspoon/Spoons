@@ -3,6 +3,8 @@
 --- macOS application aware, keyboard driven window switcher. Spoon 
 --- on top of Hammerspoon.
 ---
+--- Download: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/AppWindowSwitcher.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/AppWindowSwitcher.spoon.zip)
+---
 --- Switches windows by focusing and raising them. All windows matching a 
 --- bundelID, a list of bundleID's, an application name matchtext, 
 --- or a list of application name matchtexts are switched by cycling 
