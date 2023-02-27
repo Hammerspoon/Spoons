@@ -2527,7 +2527,7 @@
         "doc": "Binds hotkeys for ClipboardTool\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n  * show_clipboard - Display the clipboard history chooser\n  * toggle_clipboard - Show/hide the clipboard history chooser",
         "examples": [],
         "file": "Source/ClipboardTool.spoon/init.lua",
-        "lineno": "472",
+        "lineno": "482",
         "name": "bindHotkeys",
         "notes": [],
         "parameters": [
@@ -2544,7 +2544,7 @@
         "doc": "If the pasteboard has changed, we add the current item to our history and update the counter\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/ClipboardTool.spoon/init.lua",
-        "lineno": "375",
+        "lineno": "382",
         "name": "checkAndStorePasteboard",
         "notes": [],
         "parameters": [
@@ -2561,7 +2561,7 @@
         "doc": "Clears the clipboard and history\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/ClipboardTool.spoon/init.lua",
-        "lineno": "172",
+        "lineno": "177",
         "name": "clearAll",
         "notes": [],
         "parameters": [
@@ -2578,7 +2578,7 @@
         "doc": "Clears the last added to the history\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/ClipboardTool.spoon/init.lua",
-        "lineno": "185",
+        "lineno": "190",
         "name": "clearLastItem",
         "notes": [],
         "parameters": [
@@ -2595,7 +2595,7 @@
         "doc": "Add the given string to the history\n\nParameters:\n * item - string to add to the clipboard history\n\nReturns:\n * None",
         "examples": [],
         "file": "Source/ClipboardTool.spoon/init.lua",
-        "lineno": "213",
+        "lineno": "218",
         "name": "pasteboardToClipboard",
         "notes": [],
         "parameters": [
@@ -2614,7 +2614,7 @@
         "doc": "Verify whether the pasteboard contents matches one of the values in `ClipboardTool.ignoredIdentifiers`\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/ClipboardTool.spoon/init.lua",
-        "lineno": "335",
+        "lineno": "342",
         "name": "shouldBeStored",
         "notes": [],
         "parameters": [
@@ -2631,7 +2631,7 @@
         "doc": "Display the current clipboard list in a chooser\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/ClipboardTool.spoon/init.lua",
-        "lineno": "442",
+        "lineno": "452",
         "name": "showClipboard",
         "notes": [],
         "parameters": [
@@ -2648,7 +2648,7 @@
         "doc": "Start the clipboard history collector\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/ClipboardTool.spoon/init.lua",
-        "lineno": "419",
+        "lineno": "426",
         "name": "start",
         "notes": [],
         "parameters": [
@@ -2665,7 +2665,7 @@
         "doc": "Show/hide the clipboard list, depending on its current state\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/ClipboardTool.spoon/init.lua",
-        "lineno": "458",
+        "lineno": "468",
         "name": "toggleClipboard",
         "notes": [],
         "parameters": [
@@ -2682,7 +2682,7 @@
         "doc": "Toggle the value of `ClipboardTool.paste_on_select`\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/ClipboardTool.spoon/init.lua",
-        "lineno": "127",
+        "lineno": "132",
         "name": "togglePasteOnSelect",
         "notes": [],
         "parameters": [
@@ -2703,6 +2703,17 @@
         "lineno": "90",
         "name": "deduplicate",
         "signature": "ClipboardTool.deduplicate",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "ClipboardTool.display_max_length",
+        "desc": "Number of characters to which each clipboard item will be truncated, when displaying in the menu. This only truncates in display, the full content will be used for searching and for pasting.",
+        "doc": "Number of characters to which each clipboard item will be truncated, when displaying in the menu. This only truncates in display, the full content will be used for searching and for pasting.",
+        "file": "Source/ClipboardTool.spoon/init.lua",
+        "lineno": "105",
+        "name": "display_max_length",
+        "signature": "ClipboardTool.display_max_length",
         "stripped_doc": "",
         "type": "Variable"
       },
@@ -2851,7 +2862,7 @@
         "doc": "Binds hotkeys for ClipboardTool\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n  * show_clipboard - Display the clipboard history chooser\n  * toggle_clipboard - Show/hide the clipboard history chooser",
         "examples": [],
         "file": "Source/ClipboardTool.spoon/init.lua",
-        "lineno": "472",
+        "lineno": "482",
         "name": "bindHotkeys",
         "notes": [],
         "parameters": [
@@ -2868,7 +2879,7 @@
         "doc": "If the pasteboard has changed, we add the current item to our history and update the counter\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/ClipboardTool.spoon/init.lua",
-        "lineno": "375",
+        "lineno": "382",
         "name": "checkAndStorePasteboard",
         "notes": [],
         "parameters": [
@@ -2885,7 +2896,7 @@
         "doc": "Clears the clipboard and history\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/ClipboardTool.spoon/init.lua",
-        "lineno": "172",
+        "lineno": "177",
         "name": "clearAll",
         "notes": [],
         "parameters": [
@@ -2902,7 +2913,7 @@
         "doc": "Clears the last added to the history\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/ClipboardTool.spoon/init.lua",
-        "lineno": "185",
+        "lineno": "190",
         "name": "clearLastItem",
         "notes": [],
         "parameters": [
@@ -2921,6 +2932,17 @@
         "lineno": "90",
         "name": "deduplicate",
         "signature": "ClipboardTool.deduplicate",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "ClipboardTool.display_max_length",
+        "desc": "Number of characters to which each clipboard item will be truncated, when displaying in the menu. This only truncates in display, the full content will be used for searching and for pasting.",
+        "doc": "Number of characters to which each clipboard item will be truncated, when displaying in the menu. This only truncates in display, the full content will be used for searching and for pasting.",
+        "file": "Source/ClipboardTool.spoon/init.lua",
+        "lineno": "105",
+        "name": "display_max_length",
+        "signature": "ClipboardTool.display_max_length",
         "stripped_doc": "",
         "type": "Variable"
       },
@@ -3043,7 +3065,7 @@
         "doc": "Add the given string to the history\n\nParameters:\n * item - string to add to the clipboard history\n\nReturns:\n * None",
         "examples": [],
         "file": "Source/ClipboardTool.spoon/init.lua",
-        "lineno": "213",
+        "lineno": "218",
         "name": "pasteboardToClipboard",
         "notes": [],
         "parameters": [
@@ -3062,7 +3084,7 @@
         "doc": "Verify whether the pasteboard contents matches one of the values in `ClipboardTool.ignoredIdentifiers`\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/ClipboardTool.spoon/init.lua",
-        "lineno": "335",
+        "lineno": "342",
         "name": "shouldBeStored",
         "notes": [],
         "parameters": [
@@ -3101,7 +3123,7 @@
         "doc": "Display the current clipboard list in a chooser\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/ClipboardTool.spoon/init.lua",
-        "lineno": "442",
+        "lineno": "452",
         "name": "showClipboard",
         "notes": [],
         "parameters": [
@@ -3118,7 +3140,7 @@
         "doc": "Start the clipboard history collector\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/ClipboardTool.spoon/init.lua",
-        "lineno": "419",
+        "lineno": "426",
         "name": "start",
         "notes": [],
         "parameters": [
@@ -3135,7 +3157,7 @@
         "doc": "Show/hide the clipboard list, depending on its current state\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/ClipboardTool.spoon/init.lua",
-        "lineno": "458",
+        "lineno": "468",
         "name": "toggleClipboard",
         "notes": [],
         "parameters": [
@@ -3152,7 +3174,7 @@
         "doc": "Toggle the value of `ClipboardTool.paste_on_select`\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/ClipboardTool.spoon/init.lua",
-        "lineno": "127",
+        "lineno": "132",
         "name": "togglePasteOnSelect",
         "notes": [],
         "parameters": [

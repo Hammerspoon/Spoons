@@ -435,6 +435,12 @@
     "type": "Variable"
   },
   {
+    "desc": "Number of characters to which each clipboard item will be truncated, when displaying in the menu. This only truncates in display, the full content will be used for searching and for pasting.",
+    "module": "ClipboardTool",
+    "name": "display_max_length",
+    "type": "Variable"
+  },
+  {
     "desc": "Speed in seconds to check for clipboard changes. If you check too frequently, you will degrade performance, if you check sparsely you will loose copies. Defaults to 0.8.",
     "module": "ClipboardTool",
     "name": "frequency",
