@@ -11,12 +11,15 @@
         "def": "ClipboardTool:bindHotkeys(mapping)",
         "desc": "Binds hotkeys for ClipboardTool",
         "doc": "Binds hotkeys for ClipboardTool\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n  * show_clipboard - Display the clipboard history chooser\n  * toggle_clipboard - Show/hide the clipboard history chooser",
+        "examples": [],
+        "file": "Source/ClipboardTool.spoon//init.lua",
+        "lineno": "482",
         "name": "bindHotkeys",
+        "notes": [],
         "parameters": [
-          " * mapping - A table containing hotkey objifier/key details for the following items:",
-          "  * show_clipboard - Display the clipboard history chooser",
-          "  * toggle_clipboard - Show/hide the clipboard history chooser"
+          " * mapping - A table containing hotkey objifier/key details for the following items:\n   * show_clipboard - Display the clipboard history chooser\n   * toggle_clipboard - Show/hide the clipboard history chooser"
         ],
+        "returns": [],
         "signature": "ClipboardTool:bindHotkeys(mapping)",
         "stripped_doc": "",
         "type": "Method"
@@ -24,8 +27,16 @@
       {
         "def": "ClipboardTool:checkAndStorePasteboard()",
         "desc": "If the pasteboard has changed, we add the current item to our history and update the counter",
-        "doc": "If the pasteboard has changed, we add the current item to our history and update the counter",
+        "doc": "If the pasteboard has changed, we add the current item to our history and update the counter\n\nParameters:\n * None",
+        "examples": [],
+        "file": "Source/ClipboardTool.spoon//init.lua",
+        "lineno": "382",
         "name": "checkAndStorePasteboard",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
         "signature": "ClipboardTool:checkAndStorePasteboard()",
         "stripped_doc": "",
         "type": "Method"
@@ -33,8 +44,16 @@
       {
         "def": "ClipboardTool:clearAll()",
         "desc": "Clears the clipboard and history",
-        "doc": "Clears the clipboard and history",
+        "doc": "Clears the clipboard and history\n\nParameters:\n * None",
+        "examples": [],
+        "file": "Source/ClipboardTool.spoon//init.lua",
+        "lineno": "177",
         "name": "clearAll",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
         "signature": "ClipboardTool:clearAll()",
         "stripped_doc": "",
         "type": "Method"
@@ -42,8 +61,16 @@
       {
         "def": "ClipboardTool:clearLastItem()",
         "desc": "Clears the last added to the history",
-        "doc": "Clears the last added to the history",
+        "doc": "Clears the last added to the history\n\nParameters:\n * None",
+        "examples": [],
+        "file": "Source/ClipboardTool.spoon//init.lua",
+        "lineno": "190",
         "name": "clearLastItem",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
         "signature": "ClipboardTool:clearLastItem()",
         "stripped_doc": "",
         "type": "Method"
@@ -52,7 +79,11 @@
         "def": "ClipboardTool:pasteboardToClipboard(item)",
         "desc": "Add the given string to the history",
         "doc": "Add the given string to the history\n\nParameters:\n * item - string to add to the clipboard history\n\nReturns:\n * None",
+        "examples": [],
+        "file": "Source/ClipboardTool.spoon//init.lua",
+        "lineno": "218",
         "name": "pasteboardToClipboard",
+        "notes": [],
         "parameters": [
           " * item - string to add to the clipboard history"
         ],
@@ -66,8 +97,16 @@
       {
         "def": "ClipboardTool:shouldBeStored()",
         "desc": "Verify whether the pasteboard contents matches one of the values in `ClipboardTool.ignoredIdentifiers`",
-        "doc": "Verify whether the pasteboard contents matches one of the values in `ClipboardTool.ignoredIdentifiers`",
+        "doc": "Verify whether the pasteboard contents matches one of the values in `ClipboardTool.ignoredIdentifiers`\n\nParameters:\n * None",
+        "examples": [],
+        "file": "Source/ClipboardTool.spoon//init.lua",
+        "lineno": "342",
         "name": "shouldBeStored",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
         "signature": "ClipboardTool:shouldBeStored()",
         "stripped_doc": "",
         "type": "Method"
@@ -75,8 +114,16 @@
       {
         "def": "ClipboardTool:showClipboard()",
         "desc": "Display the current clipboard list in a chooser",
-        "doc": "Display the current clipboard list in a chooser",
+        "doc": "Display the current clipboard list in a chooser\n\nParameters:\n * None",
+        "examples": [],
+        "file": "Source/ClipboardTool.spoon//init.lua",
+        "lineno": "452",
         "name": "showClipboard",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
         "signature": "ClipboardTool:showClipboard()",
         "stripped_doc": "",
         "type": "Method"
@@ -84,8 +131,16 @@
       {
         "def": "ClipboardTool:start()",
         "desc": "Start the clipboard history collector",
-        "doc": "Start the clipboard history collector",
+        "doc": "Start the clipboard history collector\n\nParameters:\n * None",
+        "examples": [],
+        "file": "Source/ClipboardTool.spoon//init.lua",
+        "lineno": "426",
         "name": "start",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
         "signature": "ClipboardTool:start()",
         "stripped_doc": "",
         "type": "Method"
@@ -93,8 +148,16 @@
       {
         "def": "ClipboardTool:toggleClipboard()",
         "desc": "Show/hide the clipboard list, depending on its current state",
-        "doc": "Show/hide the clipboard list, depending on its current state",
+        "doc": "Show/hide the clipboard list, depending on its current state\n\nParameters:\n * None",
+        "examples": [],
+        "file": "Source/ClipboardTool.spoon//init.lua",
+        "lineno": "468",
         "name": "toggleClipboard",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
         "signature": "ClipboardTool:toggleClipboard()",
         "stripped_doc": "",
         "type": "Method"
@@ -102,8 +165,16 @@
       {
         "def": "ClipboardTool:togglePasteOnSelect()",
         "desc": "Toggle the value of `ClipboardTool.paste_on_select`",
-        "doc": "Toggle the value of `ClipboardTool.paste_on_select`",
+        "doc": "Toggle the value of `ClipboardTool.paste_on_select`\n\nParameters:\n * None",
+        "examples": [],
+        "file": "Source/ClipboardTool.spoon//init.lua",
+        "lineno": "132",
         "name": "togglePasteOnSelect",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
         "signature": "ClipboardTool:togglePasteOnSelect()",
         "stripped_doc": "",
         "type": "Method"
@@ -114,8 +185,21 @@
         "def": "ClipboardTool.deduplicate",
         "desc": "Whether to remove duplicates from the list, keeping only the latest one. Defaults to `true`.",
         "doc": "Whether to remove duplicates from the list, keeping only the latest one. Defaults to `true`.",
+        "file": "Source/ClipboardTool.spoon//init.lua",
+        "lineno": "90",
         "name": "deduplicate",
         "signature": "ClipboardTool.deduplicate",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "ClipboardTool.display_max_length",
+        "desc": "Number of characters to which each clipboard item will be truncated, when displaying in the menu. This only truncates in display, the full content will be used for searching and for pasting.",
+        "doc": "Number of characters to which each clipboard item will be truncated, when displaying in the menu. This only truncates in display, the full content will be used for searching and for pasting.",
+        "file": "Source/ClipboardTool.spoon//init.lua",
+        "lineno": "105",
+        "name": "display_max_length",
+        "signature": "ClipboardTool.display_max_length",
         "stripped_doc": "",
         "type": "Variable"
       },
@@ -123,6 +207,8 @@
         "def": "ClipboardTool.frequency",
         "desc": "Speed in seconds to check for clipboard changes. If you check too frequently, you will degrade performance, if you check sparsely you will loose copies. Defaults to 0.8.",
         "doc": "Speed in seconds to check for clipboard changes. If you check too frequently, you will degrade performance, if you check sparsely you will loose copies. Defaults to 0.8.",
+        "file": "Source/ClipboardTool.spoon//init.lua",
+        "lineno": "23",
         "name": "frequency",
         "signature": "ClipboardTool.frequency",
         "stripped_doc": "",
@@ -132,6 +218,8 @@
         "def": "ClipboardTool.hist_size",
         "desc": "How many items to keep on history. Defaults to 100",
         "doc": "How many items to keep on history. Defaults to 100",
+        "file": "Source/ClipboardTool.spoon//init.lua",
+        "lineno": "28",
         "name": "hist_size",
         "signature": "ClipboardTool.hist_size",
         "stripped_doc": "",
@@ -141,6 +229,8 @@
         "def": "ClipboardTool.honor_ignoredidentifiers",
         "desc": "If `true`, check the data identifiers set in the pasteboard and ignore entries which match those listed in `ClipboardTool.ignoredIdentifiers`. The list of identifiers comes from http://nspasteboard.org. Defaults to `true`",
         "doc": "If `true`, check the data identifiers set in the pasteboard and ignore entries which match those listed in `ClipboardTool.ignoredIdentifiers`. The list of identifiers comes from http://nspasteboard.org. Defaults to `true`",
+        "file": "Source/ClipboardTool.spoon//init.lua",
+        "lineno": "48",
         "name": "honor_ignoredidentifiers",
         "signature": "ClipboardTool.honor_ignoredidentifiers",
         "stripped_doc": "",
@@ -148,17 +238,35 @@
       },
       {
         "def": "ClipboardTool.ignoredIdentifiers",
-        "desc": "Types of clipboard entries to ignore, see http://nspasteboard.org. Code from https://github.com/asmagill/hammerspoon-config/blob/master/utils/_menus/newClipper.lua. Default value (don't modify unless you know what you are doing):",
-        "doc": "Types of clipboard entries to ignore, see http://nspasteboard.org. Code from https://github.com/asmagill/hammerspoon-config/blob/master/utils/_menus/newClipper.lua. Default value (don't modify unless you know what you are doing):\n```\n {\n    [\"de.petermaurer.TransientPasteboardType\"] = true, -- Transient : Textpander, TextExpander, Butler\n    [\"com.typeit4me.clipping\"]                 = true, -- Transient : TypeIt4Me\n    [\"Pasteboard generator type\"]              = true, -- Transient : Typinator\n    [\"com.agilebits.onepassword\"]              = true, -- Confidential : 1Password\n    [\"org.nspasteboard.TransientType\"]         = true, -- Universal, Transient\n    [\"org.nspasteboard.ConcealedType\"]         = true, -- Universal, Concealed\n    [\"org.nspasteboard.AutoGeneratedType\"]     = true, -- Universal, Automatic\n }\n```",
+        "desc": "Types of clipboard entries to ignore, see http://nspasteboard.org. Code from https://github.com/asmagill/hammerspoon-config/blob/master/utils/_menus/newClipper.lua.",
+        "doc": "Types of clipboard entries to ignore, see http://nspasteboard.org. Code from https://github.com/asmagill/hammerspoon-config/blob/master/utils/_menus/newClipper.lua.\n\nNotes:\n * Default value (don't modify unless you know what you are doing):\n```\n {\n    [\"de.petermaurer.TransientPasteboardType\"] = true, -- Transient : Textpander, TextExpander, Butler\n    [\"com.typeit4me.clipping\"]                 = true, -- Transient : TypeIt4Me\n    [\"Pasteboard generator type\"]              = true, -- Transient : Typinator\n    [\"com.agilebits.onepassword\"]              = true, -- Confidential : 1Password\n    [\"org.nspasteboard.TransientType\"]         = true, -- Universal, Transient\n    [\"org.nspasteboard.ConcealedType\"]         = true, -- Universal, Concealed\n    [\"org.nspasteboard.AutoGeneratedType\"]     = true, -- Universal, Automatic\n }\n```",
+        "file": "Source/ClipboardTool.spoon//init.lua",
+        "lineno": "63",
         "name": "ignoredIdentifiers",
+        "notes": [
+          " * Default value (don't modify unless you know what you are doing):",
+          "```",
+          " {",
+          "    [\"de.petermaurer.TransientPasteboardType\"] = true, -- Transient : Textpander, TextExpander, Butler",
+          "    [\"com.typeit4me.clipping\"]                 = true, -- Transient : TypeIt4Me",
+          "    [\"Pasteboard generator type\"]              = true, -- Transient : Typinator",
+          "    [\"com.agilebits.onepassword\"]              = true, -- Confidential : 1Password",
+          "    [\"org.nspasteboard.TransientType\"]         = true, -- Universal, Transient",
+          "    [\"org.nspasteboard.ConcealedType\"]         = true, -- Universal, Concealed",
+          "    [\"org.nspasteboard.AutoGeneratedType\"]     = true, -- Universal, Automatic",
+          " }",
+          "```"
+        ],
         "signature": "ClipboardTool.ignoredIdentifiers",
-        "stripped_doc": "```\n {\n    [\"de.petermaurer.TransientPasteboardType\"] = true, -- Transient : Textpander, TextExpander, Butler\n    [\"com.typeit4me.clipping\"]                 = true, -- Transient : TypeIt4Me\n    [\"Pasteboard generator type\"]              = true, -- Transient : Typinator\n    [\"com.agilebits.onepassword\"]              = true, -- Confidential : 1Password\n    [\"org.nspasteboard.TransientType\"]         = true, -- Universal, Transient\n    [\"org.nspasteboard.ConcealedType\"]         = true, -- Universal, Concealed\n    [\"org.nspasteboard.AutoGeneratedType\"]     = true, -- Universal, Automatic\n }\n```",
+        "stripped_doc": "",
         "type": "Variable"
       },
       {
         "def": "ClipboardTool.logger",
         "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "file": "Source/ClipboardTool.spoon//init.lua",
+        "lineno": "58",
         "name": "logger",
         "signature": "ClipboardTool.logger",
         "stripped_doc": "",
@@ -168,6 +276,8 @@
         "def": "ClipboardTool.max_entry_size",
         "desc": "maximum size of a text entry",
         "doc": "maximum size of a text entry",
+        "file": "Source/ClipboardTool.spoon//init.lua",
+        "lineno": "33",
         "name": "max_entry_size",
         "signature": "ClipboardTool.max_entry_size",
         "stripped_doc": "",
@@ -177,6 +287,8 @@
         "def": "ClipboardTool.max_size",
         "desc": "Whether to check the maximum size of an entry. Defaults to `false`.",
         "doc": "Whether to check the maximum size of an entry. Defaults to `false`.",
+        "file": "Source/ClipboardTool.spoon//init.lua",
+        "lineno": "38",
         "name": "max_size",
         "signature": "ClipboardTool.max_size",
         "stripped_doc": "",
@@ -186,6 +298,8 @@
         "def": "ClipboardTool.menubar_title",
         "desc": "String to show in the menubar if `ClipboardTool.show_in_menubar` is `true`. Defaults to `\"\\u{1f4cb}\"`, which is the [Unicode clipboard character](https://codepoints.net/U+1F4CB)",
         "doc": "String to show in the menubar if `ClipboardTool.show_in_menubar` is `true`. Defaults to `\"\\u{1f4cb}\"`, which is the [Unicode clipboard character](https://codepoints.net/U+1F4CB)",
+        "file": "Source/ClipboardTool.spoon//init.lua",
+        "lineno": "100",
         "name": "menubar_title",
         "signature": "ClipboardTool.menubar_title",
         "stripped_doc": "",
@@ -195,6 +309,8 @@
         "def": "ClipboardTool.paste_on_select",
         "desc": "Whether to auto-type the item when selecting it from the menu. Can be toggled on the fly from the chooser. Defaults to `false`.",
         "doc": "Whether to auto-type the item when selecting it from the menu. Can be toggled on the fly from the chooser. Defaults to `false`.",
+        "file": "Source/ClipboardTool.spoon//init.lua",
+        "lineno": "53",
         "name": "paste_on_select",
         "signature": "ClipboardTool.paste_on_select",
         "stripped_doc": "",
@@ -204,6 +320,8 @@
         "def": "ClipboardTool.show_copied_alert",
         "desc": "If `true`, show an alert when a new item is added to the history, i.e. has been copied.",
         "doc": "If `true`, show an alert when a new item is added to the history, i.e. has been copied.",
+        "file": "Source/ClipboardTool.spoon//init.lua",
+        "lineno": "43",
         "name": "show_copied_alert",
         "signature": "ClipboardTool.show_copied_alert",
         "stripped_doc": "",
@@ -213,6 +331,8 @@
         "def": "ClipboardTool.show_in_menubar",
         "desc": "Whether to show a menubar item to open the clipboard history. Defaults to `true`",
         "doc": "Whether to show a menubar item to open the clipboard history. Defaults to `true`",
+        "file": "Source/ClipboardTool.spoon//init.lua",
+        "lineno": "95",
         "name": "show_in_menubar",
         "signature": "ClipboardTool.show_in_menubar",
         "stripped_doc": "",
@@ -226,12 +346,15 @@
         "def": "ClipboardTool:bindHotkeys(mapping)",
         "desc": "Binds hotkeys for ClipboardTool",
         "doc": "Binds hotkeys for ClipboardTool\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n  * show_clipboard - Display the clipboard history chooser\n  * toggle_clipboard - Show/hide the clipboard history chooser",
+        "examples": [],
+        "file": "Source/ClipboardTool.spoon//init.lua",
+        "lineno": "482",
         "name": "bindHotkeys",
+        "notes": [],
         "parameters": [
-          " * mapping - A table containing hotkey objifier/key details for the following items:",
-          "  * show_clipboard - Display the clipboard history chooser",
-          "  * toggle_clipboard - Show/hide the clipboard history chooser"
+          " * mapping - A table containing hotkey objifier/key details for the following items:\n   * show_clipboard - Display the clipboard history chooser\n   * toggle_clipboard - Show/hide the clipboard history chooser"
         ],
+        "returns": [],
         "signature": "ClipboardTool:bindHotkeys(mapping)",
         "stripped_doc": "",
         "type": "Method"
@@ -239,8 +362,16 @@
       {
         "def": "ClipboardTool:checkAndStorePasteboard()",
         "desc": "If the pasteboard has changed, we add the current item to our history and update the counter",
-        "doc": "If the pasteboard has changed, we add the current item to our history and update the counter",
+        "doc": "If the pasteboard has changed, we add the current item to our history and update the counter\n\nParameters:\n * None",
+        "examples": [],
+        "file": "Source/ClipboardTool.spoon//init.lua",
+        "lineno": "382",
         "name": "checkAndStorePasteboard",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
         "signature": "ClipboardTool:checkAndStorePasteboard()",
         "stripped_doc": "",
         "type": "Method"
@@ -248,8 +379,16 @@
       {
         "def": "ClipboardTool:clearAll()",
         "desc": "Clears the clipboard and history",
-        "doc": "Clears the clipboard and history",
+        "doc": "Clears the clipboard and history\n\nParameters:\n * None",
+        "examples": [],
+        "file": "Source/ClipboardTool.spoon//init.lua",
+        "lineno": "177",
         "name": "clearAll",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
         "signature": "ClipboardTool:clearAll()",
         "stripped_doc": "",
         "type": "Method"
@@ -257,8 +396,16 @@
       {
         "def": "ClipboardTool:clearLastItem()",
         "desc": "Clears the last added to the history",
-        "doc": "Clears the last added to the history",
+        "doc": "Clears the last added to the history\n\nParameters:\n * None",
+        "examples": [],
+        "file": "Source/ClipboardTool.spoon//init.lua",
+        "lineno": "190",
         "name": "clearLastItem",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
         "signature": "ClipboardTool:clearLastItem()",
         "stripped_doc": "",
         "type": "Method"
@@ -267,8 +414,21 @@
         "def": "ClipboardTool.deduplicate",
         "desc": "Whether to remove duplicates from the list, keeping only the latest one. Defaults to `true`.",
         "doc": "Whether to remove duplicates from the list, keeping only the latest one. Defaults to `true`.",
+        "file": "Source/ClipboardTool.spoon//init.lua",
+        "lineno": "90",
         "name": "deduplicate",
         "signature": "ClipboardTool.deduplicate",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "ClipboardTool.display_max_length",
+        "desc": "Number of characters to which each clipboard item will be truncated, when displaying in the menu. This only truncates in display, the full content will be used for searching and for pasting.",
+        "doc": "Number of characters to which each clipboard item will be truncated, when displaying in the menu. This only truncates in display, the full content will be used for searching and for pasting.",
+        "file": "Source/ClipboardTool.spoon//init.lua",
+        "lineno": "105",
+        "name": "display_max_length",
+        "signature": "ClipboardTool.display_max_length",
         "stripped_doc": "",
         "type": "Variable"
       },
@@ -276,6 +436,8 @@
         "def": "ClipboardTool.frequency",
         "desc": "Speed in seconds to check for clipboard changes. If you check too frequently, you will degrade performance, if you check sparsely you will loose copies. Defaults to 0.8.",
         "doc": "Speed in seconds to check for clipboard changes. If you check too frequently, you will degrade performance, if you check sparsely you will loose copies. Defaults to 0.8.",
+        "file": "Source/ClipboardTool.spoon//init.lua",
+        "lineno": "23",
         "name": "frequency",
         "signature": "ClipboardTool.frequency",
         "stripped_doc": "",
@@ -285,6 +447,8 @@
         "def": "ClipboardTool.hist_size",
         "desc": "How many items to keep on history. Defaults to 100",
         "doc": "How many items to keep on history. Defaults to 100",
+        "file": "Source/ClipboardTool.spoon//init.lua",
+        "lineno": "28",
         "name": "hist_size",
         "signature": "ClipboardTool.hist_size",
         "stripped_doc": "",
@@ -294,6 +458,8 @@
         "def": "ClipboardTool.honor_ignoredidentifiers",
         "desc": "If `true`, check the data identifiers set in the pasteboard and ignore entries which match those listed in `ClipboardTool.ignoredIdentifiers`. The list of identifiers comes from http://nspasteboard.org. Defaults to `true`",
         "doc": "If `true`, check the data identifiers set in the pasteboard and ignore entries which match those listed in `ClipboardTool.ignoredIdentifiers`. The list of identifiers comes from http://nspasteboard.org. Defaults to `true`",
+        "file": "Source/ClipboardTool.spoon//init.lua",
+        "lineno": "48",
         "name": "honor_ignoredidentifiers",
         "signature": "ClipboardTool.honor_ignoredidentifiers",
         "stripped_doc": "",
@@ -301,17 +467,35 @@
       },
       {
         "def": "ClipboardTool.ignoredIdentifiers",
-        "desc": "Types of clipboard entries to ignore, see http://nspasteboard.org. Code from https://github.com/asmagill/hammerspoon-config/blob/master/utils/_menus/newClipper.lua. Default value (don't modify unless you know what you are doing):",
-        "doc": "Types of clipboard entries to ignore, see http://nspasteboard.org. Code from https://github.com/asmagill/hammerspoon-config/blob/master/utils/_menus/newClipper.lua. Default value (don't modify unless you know what you are doing):\n```\n {\n    [\"de.petermaurer.TransientPasteboardType\"] = true, -- Transient : Textpander, TextExpander, Butler\n    [\"com.typeit4me.clipping\"]                 = true, -- Transient : TypeIt4Me\n    [\"Pasteboard generator type\"]              = true, -- Transient : Typinator\n    [\"com.agilebits.onepassword\"]              = true, -- Confidential : 1Password\n    [\"org.nspasteboard.TransientType\"]         = true, -- Universal, Transient\n    [\"org.nspasteboard.ConcealedType\"]         = true, -- Universal, Concealed\n    [\"org.nspasteboard.AutoGeneratedType\"]     = true, -- Universal, Automatic\n }\n```",
+        "desc": "Types of clipboard entries to ignore, see http://nspasteboard.org. Code from https://github.com/asmagill/hammerspoon-config/blob/master/utils/_menus/newClipper.lua.",
+        "doc": "Types of clipboard entries to ignore, see http://nspasteboard.org. Code from https://github.com/asmagill/hammerspoon-config/blob/master/utils/_menus/newClipper.lua.\n\nNotes:\n * Default value (don't modify unless you know what you are doing):\n```\n {\n    [\"de.petermaurer.TransientPasteboardType\"] = true, -- Transient : Textpander, TextExpander, Butler\n    [\"com.typeit4me.clipping\"]                 = true, -- Transient : TypeIt4Me\n    [\"Pasteboard generator type\"]              = true, -- Transient : Typinator\n    [\"com.agilebits.onepassword\"]              = true, -- Confidential : 1Password\n    [\"org.nspasteboard.TransientType\"]         = true, -- Universal, Transient\n    [\"org.nspasteboard.ConcealedType\"]         = true, -- Universal, Concealed\n    [\"org.nspasteboard.AutoGeneratedType\"]     = true, -- Universal, Automatic\n }\n```",
+        "file": "Source/ClipboardTool.spoon//init.lua",
+        "lineno": "63",
         "name": "ignoredIdentifiers",
+        "notes": [
+          " * Default value (don't modify unless you know what you are doing):",
+          "```",
+          " {",
+          "    [\"de.petermaurer.TransientPasteboardType\"] = true, -- Transient : Textpander, TextExpander, Butler",
+          "    [\"com.typeit4me.clipping\"]                 = true, -- Transient : TypeIt4Me",
+          "    [\"Pasteboard generator type\"]              = true, -- Transient : Typinator",
+          "    [\"com.agilebits.onepassword\"]              = true, -- Confidential : 1Password",
+          "    [\"org.nspasteboard.TransientType\"]         = true, -- Universal, Transient",
+          "    [\"org.nspasteboard.ConcealedType\"]         = true, -- Universal, Concealed",
+          "    [\"org.nspasteboard.AutoGeneratedType\"]     = true, -- Universal, Automatic",
+          " }",
+          "```"
+        ],
         "signature": "ClipboardTool.ignoredIdentifiers",
-        "stripped_doc": "```\n {\n    [\"de.petermaurer.TransientPasteboardType\"] = true, -- Transient : Textpander, TextExpander, Butler\n    [\"com.typeit4me.clipping\"]                 = true, -- Transient : TypeIt4Me\n    [\"Pasteboard generator type\"]              = true, -- Transient : Typinator\n    [\"com.agilebits.onepassword\"]              = true, -- Confidential : 1Password\n    [\"org.nspasteboard.TransientType\"]         = true, -- Universal, Transient\n    [\"org.nspasteboard.ConcealedType\"]         = true, -- Universal, Concealed\n    [\"org.nspasteboard.AutoGeneratedType\"]     = true, -- Universal, Automatic\n }\n```",
+        "stripped_doc": "",
         "type": "Variable"
       },
       {
         "def": "ClipboardTool.logger",
         "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "file": "Source/ClipboardTool.spoon//init.lua",
+        "lineno": "58",
         "name": "logger",
         "signature": "ClipboardTool.logger",
         "stripped_doc": "",
@@ -321,6 +505,8 @@
         "def": "ClipboardTool.max_entry_size",
         "desc": "maximum size of a text entry",
         "doc": "maximum size of a text entry",
+        "file": "Source/ClipboardTool.spoon//init.lua",
+        "lineno": "33",
         "name": "max_entry_size",
         "signature": "ClipboardTool.max_entry_size",
         "stripped_doc": "",
@@ -330,6 +516,8 @@
         "def": "ClipboardTool.max_size",
         "desc": "Whether to check the maximum size of an entry. Defaults to `false`.",
         "doc": "Whether to check the maximum size of an entry. Defaults to `false`.",
+        "file": "Source/ClipboardTool.spoon//init.lua",
+        "lineno": "38",
         "name": "max_size",
         "signature": "ClipboardTool.max_size",
         "stripped_doc": "",
@@ -339,6 +527,8 @@
         "def": "ClipboardTool.menubar_title",
         "desc": "String to show in the menubar if `ClipboardTool.show_in_menubar` is `true`. Defaults to `\"\\u{1f4cb}\"`, which is the [Unicode clipboard character](https://codepoints.net/U+1F4CB)",
         "doc": "String to show in the menubar if `ClipboardTool.show_in_menubar` is `true`. Defaults to `\"\\u{1f4cb}\"`, which is the [Unicode clipboard character](https://codepoints.net/U+1F4CB)",
+        "file": "Source/ClipboardTool.spoon//init.lua",
+        "lineno": "100",
         "name": "menubar_title",
         "signature": "ClipboardTool.menubar_title",
         "stripped_doc": "",
@@ -348,6 +538,8 @@
         "def": "ClipboardTool.paste_on_select",
         "desc": "Whether to auto-type the item when selecting it from the menu. Can be toggled on the fly from the chooser. Defaults to `false`.",
         "doc": "Whether to auto-type the item when selecting it from the menu. Can be toggled on the fly from the chooser. Defaults to `false`.",
+        "file": "Source/ClipboardTool.spoon//init.lua",
+        "lineno": "53",
         "name": "paste_on_select",
         "signature": "ClipboardTool.paste_on_select",
         "stripped_doc": "",
@@ -357,7 +549,11 @@
         "def": "ClipboardTool:pasteboardToClipboard(item)",
         "desc": "Add the given string to the history",
         "doc": "Add the given string to the history\n\nParameters:\n * item - string to add to the clipboard history\n\nReturns:\n * None",
+        "examples": [],
+        "file": "Source/ClipboardTool.spoon//init.lua",
+        "lineno": "218",
         "name": "pasteboardToClipboard",
+        "notes": [],
         "parameters": [
           " * item - string to add to the clipboard history"
         ],
@@ -371,8 +567,16 @@
       {
         "def": "ClipboardTool:shouldBeStored()",
         "desc": "Verify whether the pasteboard contents matches one of the values in `ClipboardTool.ignoredIdentifiers`",
-        "doc": "Verify whether the pasteboard contents matches one of the values in `ClipboardTool.ignoredIdentifiers`",
+        "doc": "Verify whether the pasteboard contents matches one of the values in `ClipboardTool.ignoredIdentifiers`\n\nParameters:\n * None",
+        "examples": [],
+        "file": "Source/ClipboardTool.spoon//init.lua",
+        "lineno": "342",
         "name": "shouldBeStored",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
         "signature": "ClipboardTool:shouldBeStored()",
         "stripped_doc": "",
         "type": "Method"
@@ -381,6 +585,8 @@
         "def": "ClipboardTool.show_copied_alert",
         "desc": "If `true`, show an alert when a new item is added to the history, i.e. has been copied.",
         "doc": "If `true`, show an alert when a new item is added to the history, i.e. has been copied.",
+        "file": "Source/ClipboardTool.spoon//init.lua",
+        "lineno": "43",
         "name": "show_copied_alert",
         "signature": "ClipboardTool.show_copied_alert",
         "stripped_doc": "",
@@ -390,6 +596,8 @@
         "def": "ClipboardTool.show_in_menubar",
         "desc": "Whether to show a menubar item to open the clipboard history. Defaults to `true`",
         "doc": "Whether to show a menubar item to open the clipboard history. Defaults to `true`",
+        "file": "Source/ClipboardTool.spoon//init.lua",
+        "lineno": "95",
         "name": "show_in_menubar",
         "signature": "ClipboardTool.show_in_menubar",
         "stripped_doc": "",
@@ -398,8 +606,16 @@
       {
         "def": "ClipboardTool:showClipboard()",
         "desc": "Display the current clipboard list in a chooser",
-        "doc": "Display the current clipboard list in a chooser",
+        "doc": "Display the current clipboard list in a chooser\n\nParameters:\n * None",
+        "examples": [],
+        "file": "Source/ClipboardTool.spoon//init.lua",
+        "lineno": "452",
         "name": "showClipboard",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
         "signature": "ClipboardTool:showClipboard()",
         "stripped_doc": "",
         "type": "Method"
@@ -407,8 +623,16 @@
       {
         "def": "ClipboardTool:start()",
         "desc": "Start the clipboard history collector",
-        "doc": "Start the clipboard history collector",
+        "doc": "Start the clipboard history collector\n\nParameters:\n * None",
+        "examples": [],
+        "file": "Source/ClipboardTool.spoon//init.lua",
+        "lineno": "426",
         "name": "start",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
         "signature": "ClipboardTool:start()",
         "stripped_doc": "",
         "type": "Method"
@@ -416,8 +640,16 @@
       {
         "def": "ClipboardTool:toggleClipboard()",
         "desc": "Show/hide the clipboard list, depending on its current state",
-        "doc": "Show/hide the clipboard list, depending on its current state",
+        "doc": "Show/hide the clipboard list, depending on its current state\n\nParameters:\n * None",
+        "examples": [],
+        "file": "Source/ClipboardTool.spoon//init.lua",
+        "lineno": "468",
         "name": "toggleClipboard",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
         "signature": "ClipboardTool:toggleClipboard()",
         "stripped_doc": "",
         "type": "Method"
@@ -425,8 +657,16 @@
       {
         "def": "ClipboardTool:togglePasteOnSelect()",
         "desc": "Toggle the value of `ClipboardTool.paste_on_select`",
-        "doc": "Toggle the value of `ClipboardTool.paste_on_select`",
+        "doc": "Toggle the value of `ClipboardTool.paste_on_select`\n\nParameters:\n * None",
+        "examples": [],
+        "file": "Source/ClipboardTool.spoon//init.lua",
+        "lineno": "132",
         "name": "togglePasteOnSelect",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
         "signature": "ClipboardTool:togglePasteOnSelect()",
         "stripped_doc": "",
         "type": "Method"
