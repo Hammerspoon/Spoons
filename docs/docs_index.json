@@ -57,6 +57,23 @@
     "type": "Method"
   },
   {
+    "desc": "macOS application aware, keyboard driven window switcher. Spoon ",
+    "name": "AppWindowSwitcher",
+    "type": "Module"
+  },
+  {
+    "desc": "Binds hotkeys for AppWindowSwitcher",
+    "module": "AppWindowSwitcher",
+    "name": "bindHotkeys",
+    "type": "Method"
+  },
+  {
+    "desc": "Set the log level of the spoon logger.",
+    "module": "AppWindowSwitcher",
+    "name": "setLogLevel",
+    "type": "Method"
+  },
+  {
     "desc": "Easily create, save, and use desktop arrangements.",
     "name": "ArrangeDesktop",
     "type": "Module"

@@ -1,0 +1,157 @@
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hammerspoon docs: AppWindowSwitcher</title>
+    <style type="text/css">
+      a { text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      th { background-color: #DDDDDD; vertical-align: top; padding: 3px; }
+      td { width: 100%; background-color: #EEEEEE; vertical-align: top; padding: 3px; }
+      table { width: 100% ; border: 1px solid #0; text-align: left; }
+      section > table table td { width: 0; }
+    </style>
+    <link rel="stylesheet" href="docs.css" type="text/css" media="screen" />
+  </head>
+  <body>
+    <header>
+      <h1><a href="./index.html">docs</a> &raquo; AppWindowSwitcher</h1>
+      <p>macOS application aware, keyboard driven window switcher. Spoon 
+on top of Hammerspoon.</p>
+<p>Switches windows by focusing and raising them. All windows matching a 
+bundelID, a list of bundleID's, an application name matchtext, 
+or a list of application name matchtexts are switched by cycling 
+them. Cycling applies to visible windows of currently focused space 
+only. The spoon does not launch applications, it operates on open 
+windows of running applications.</p>
+<p>Example <code>~/.hammerspoon/init.lua</code> configuration:</p>
+
+<pre><code>hs.loadSpoon(&quot;AppWindowSwitcher&quot;)
+    -- :setLogLevel(&quot;debug&quot;) -- uncomment for console debug log
+    :bindHotkeys({
+        [&quot;com.apple.Terminal&quot;]        = {hyper, &quot;t&quot;},
+        [{&quot;com.apple.Safari&quot;,
+          &quot;com.google.Chrome&quot;,
+          &quot;com.kagi.kagimacOS&quot;,
+          &quot;com.microsoft.edgemac&quot;, 
+          &quot;org.mozilla.firefox&quot;}]     = {hyper, &quot;q&quot;},
+        [&quot;Hammerspoon&quot;]               = {hyper, &quot;h&quot;},
+        [{&quot;O&quot;, &quot;o&quot;}]                  = {hyper, &quot;o&quot;},
+    })
+</code></pre>
+<p>In this example,</p>
+<ul>
+<li><code>hyper-t</code> cycles all terminal windows (matching a single bundleID),</li>
+<li><code>hyper-q</code> cycles all windows of the five browsers (matching either 
+of the bundleIDs)</li>
+<li><code>hyper-h</code> brings the Hammerspoon console forward (matching the 
+application title),</li>
+<li><code>hyper-o</code> cycles all windows whose application title starts 
+with &quot;O&quot; or &quot;o&quot;.</li>
+</ul>
+<p>The cycling logic works as follows:</p>
+<ul>
+<li>If the focused window is part of the application matching a hotkey,
+then the last window (in terms of macOS windows stacking) of the matching 
+application(s) will be brought forward and focused.</li>
+<li>If the focused window is not part of the application matching a
+hotkey, then the first window (in terms of macOS windows stacking) i
+of the matching applications will be brought forward and focused.</li>
+</ul>
+
+      </header>
+      <h3>API Overview</h3>
+      <ul>
+        <li>Methods - API calls which can only be made on an object returned by a constructor</li>
+          <ul>
+            <li><a href="#bindHotkeys">bindHotkeys</a></li>
+            <li><a href="#setLogLevel">setLogLevel</a></li>
+          </ul>
+      </ul>
+      <h3>API Documentation</h3>
+        <h4 class="documentation-section">Methods</h4>
+          <section id="bindHotkeys">
+            <a name="//apple_ref/cpp/Method/bindHotkeys" class="dashAnchor"></a>
+            <h5><a href="#bindHotkeys">bindHotkeys</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>AppWindowSwitcher:bindHotkeys(mapping) -&gt; self</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td>Binds hotkeys for AppWindowSwitcher</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>mapping - A table containing hotkey modifier/key details for each application to manage</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
+<li>The AppWindowSwitcher object</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><p>The mapping table accepts these formats per table element:</p>
+<ul>
+<li>A single text to match:
+<code>[&quot;&lt;matchtext&gt;&quot;] = {mods, key}</code></li>
+<li>A list of texts, to assign multiple applications to one hotkey:
+<code>[{&quot;&lt;matchtext&gt;&quot;, &quot;&lt;matchtext&gt;&quot;, ...}] = {mods, key}</code></li>
+<li><code>&lt;matchtext&gt;</code> can be either a bundleID, or a text which is substring matched against a windows application title start.</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/AppWindowSwitcher.spoon/init.lua#L92">Source/AppWindowSwitcher.spoon/init.lua line 92</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="setLogLevel">
+            <a name="//apple_ref/cpp/Method/setLogLevel" class="dashAnchor"></a>
+            <h5><a href="#setLogLevel">setLogLevel</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>AppWindowSwitcher:setLogLevel(level) -&gt; self</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td>Set the log level of the spoon logger.</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>Log level - <code>&quot;debug&quot;</code> to enable console debug output</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
+<li>The AppWindowSwitcher object</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/AppWindowSwitcher.spoon/init.lua#L151">Source/AppWindowSwitcher.spoon/init.lua line 151</a></td>
+              </tr>
+            </table>
+          </section>
+  </body>
+</html>
