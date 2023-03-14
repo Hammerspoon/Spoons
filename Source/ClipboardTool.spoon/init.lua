@@ -102,6 +102,11 @@ obj.show_in_menubar = true
 --- String to show in the menubar if `ClipboardTool.show_in_menubar` is `true`. Defaults to `"\u{1f4cb}"`, which is the [Unicode clipboard character](https://codepoints.net/U+1F4CB)
 obj.menubar_title   = "\u{1f4cb}"
 
+--- ClipboardTool.display_max_length
+--- Variable
+--- Number of characters to which each clipboard item will be truncated, when displaying in the menu. This only truncates in display, the full content will be used for searching and for pasting.
+obj.display_max_length = 200
+
 ----------------------------------------------------------------------
 
 -- Internal variable - Chooser/menu object
@@ -156,7 +161,7 @@ function obj:_processSelectedItem(value)
          actions[value.action](value)
       elseif value.text then
          if value.type == "text" then
-            pasteboard.setContents(value.text)
+            pasteboard.setContents(value.data)
          elseif value.type == "image" then 
             pasteboard.writeObjects(hs.image.imageFromURL(value.data))
          end
@@ -295,11 +300,13 @@ function obj:_showContextMenu(row)
 end
 
 -- Internal function - fill in the chooser options, including the control options
-function obj:_populateChooser()
+function obj:_populateChooser(query)
+   query = query:lower()
    menuData = {}
    for k,v in pairs(clipboard_history) do
-      if (v.type == "text") then
-         table.insert(menuData, { text = v.content,
+      if (v.type == "text" and (query == "" or v.content:lower():find(query))) then
+         table.insert(menuData, { text = string.sub(v.content, 0, obj.display_max_length),
+                                  data = v.content,
                                   type = v.type})
       elseif (v.type == "image") then
          table.insert(menuData, { text = "《Image data》",
@@ -427,7 +434,10 @@ function obj:start()
    clipboard_history = self:dedupe_and_resize(getSetting("items", {})) -- If no history is saved on the system, create an empty history
    last_change = pasteboard.changeCount() -- keeps track of how many times the pasteboard owner has changed // Indicates a new copy has been made
    self.selectorobj = hs.chooser.new(hs.fnutils.partial(self._processSelectedItem, self))
-   self.selectorobj:choices(hs.fnutils.partial(self._populateChooser, self))
+   self.selectorobj:choices(hs.fnutils.partial(self._populateChooser, self, ""))
+   self.selectorobj:queryChangedCallback(function(query)
+      self.selectorobj:choices(hs.fnutils.partial(self._populateChooser, self, query))
+   end)
    self.selectorobj:rightClickCallback(hs.fnutils.partial(self._showContextMenu, self))
    --Checks for changes on the pasteboard. Is it possible to replace with eventtap?
    self.timer = hs.timer.new(self.frequency, hs.fnutils.partial(self.checkAndStorePasteboard, self))
