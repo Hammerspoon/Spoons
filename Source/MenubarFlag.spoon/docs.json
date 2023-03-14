@@ -182,7 +182,7 @@
       }
     ],
     "desc": "Color the menubar according to the current keyboard layout",
-    "doc": "Color the menubar according to the current keyboard layout\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MenubarFlag.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MenubarFlag.spoon.zip)\n\nFunctionality inspired by [ShowyEdge](https://pqrs.org/osx/ShowyEdge/index.html.en)",
+    "doc": "Color the menubar according to the current keyboard layout\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MenubarFlag.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MenubarFlag.spoon.zip)\n\nFunctionality inspired by [ShowyEdge](https://showyedge.pqrs.org/)",
     "items": [
       {
         "def": "MenubarFlag.allScreens",
@@ -357,7 +357,7 @@
       }
     ],
     "name": "MenubarFlag",
-    "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MenubarFlag.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MenubarFlag.spoon.zip)\n\nFunctionality inspired by [ShowyEdge](https://pqrs.org/osx/ShowyEdge/index.html.en)",
+    "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MenubarFlag.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MenubarFlag.spoon.zip)\n\nFunctionality inspired by [ShowyEdge](https://showyedge.pqrs.org/)",
     "submodules": [],
     "type": "Module"
   }
