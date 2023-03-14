@@ -1,0 +1,573 @@
+[
+  {
+    "Command": [],
+    "Constant": [
+      {
+        "def": "OBS.eventSubscriptionValues",
+        "desc": "A table of the possible values for the `eventSubscriptions` parameter to [OBS:init()](#init)",
+        "doc": "A table of the possible values for the `eventSubscriptions` parameter to [OBS:init()](#init)\n\nNotes:\n * The keys are:\n   * `None` - No events\n   * `General` - General events\n   * `Config` - Configuration events\n   * `Scenes` - Scene events\n   * `Inputs` - Input events\n   * `Transitions` - Transition events\n   * `Filters` - Filter events\n   * `Outputs` - Output events\n   * `SceneItems` - Scene item events\n   * `MediaInputs` - Media input events\n   * `Vendors` - Vendor events\n   * `UI` - UI events\n   * `All` - All of the above events\n   * `InputVolumeMeters` - Input volume meter events\n   * `InputActiveStateChanged` - Input active state changed events\n   * `InputShowStateChanged` - Input show state changed events\n   * `SceneItemTransformChanged` - Scene item transform changed events\n * For more information about these event categories and the events they contain, see the [obs-websocket documentation](https://github.com/obsproject/obs-websocket/blob/master/docs/generated/protocol.md#events)\n * To combine these as a bitmask, use boolean operators, e.g. `OBS.eventSubscriptionValues.General | OBS.eventSubscriptionValues.Scenes`\n * The final four values are considered \"high volume\" events, so are not included in `OBS.eventSubscriptionValues.All` by default",
+        "file": "Source/OBS.spoon//init.lua",
+        "lineno": "58",
+        "name": "eventSubscriptionValues",
+        "notes": [
+          " * The keys are:",
+          "   * `None` - No events",
+          "   * `General` - General events",
+          "   * `Config` - Configuration events",
+          "   * `Scenes` - Scene events",
+          "   * `Inputs` - Input events",
+          "   * `Transitions` - Transition events",
+          "   * `Filters` - Filter events",
+          "   * `Outputs` - Output events",
+          "   * `SceneItems` - Scene item events",
+          "   * `MediaInputs` - Media input events",
+          "   * `Vendors` - Vendor events",
+          "   * `UI` - UI events",
+          "   * `All` - All of the above events",
+          "   * `InputVolumeMeters` - Input volume meter events",
+          "   * `InputActiveStateChanged` - Input active state changed events",
+          "   * `InputShowStateChanged` - Input show state changed events",
+          "   * `SceneItemTransformChanged` - Scene item transform changed events",
+          " * For more information about these event categories and the events they contain, see the [obs-websocket documentation](https://github.com/obsproject/obs-websocket/blob/master/docs/generated/protocol.md#events)",
+          " * To combine these as a bitmask, use boolean operators, e.g. `OBS.eventSubscriptionValues.General | OBS.eventSubscriptionValues.Scenes`",
+          " * The final four values are considered \"high volume\" events, so are not included in `OBS.eventSubscriptionValues.All` by default"
+        ],
+        "signature": "OBS.eventSubscriptionValues",
+        "stripped_doc": "",
+        "type": "Constant"
+      }
+    ],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
+        "def": "OBS:addEventSubsciption(event)",
+        "desc": "Adds an event subscription",
+        "doc": "Adds an event subscription\n\nParameters:\n * `event` - The event to subscribe to, see [OBS.eventSubscriptionValues](#eventSubscriptionValues)\n\nReturns:\n * None\n\nNotes:\n * If you wish to add multiple event subscriptions you can use the `|` operator to combine them, e.g. `spoon.OBS:addEventSubscription(spoon.OBS.eventSubscriptionValues.Config | spoon.OBS.eventSubscriptionValues.Scenes)`",
+        "examples": [],
+        "file": "Source/OBS.spoon//init.lua",
+        "lineno": "309",
+        "name": "addEventSubsciption",
+        "notes": [
+          " * If you wish to add multiple event subscriptions you can use the `|` operator to combine them, e.g. `spoon.OBS:addEventSubscription(spoon.OBS.eventSubscriptionValues.Config | spoon.OBS.eventSubscriptionValues.Scenes)`"
+        ],
+        "parameters": [
+          " * `event` - The event to subscribe to, see [OBS.eventSubscriptionValues](#eventSubscriptionValues)"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "OBS:addEventSubsciption(event)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "OBS:init(eventCallback, host, port[, password, eventSubscriptions])",
+        "desc": "Initialisation method",
+        "doc": "Initialisation method\n\nParameters:\n * `eventCallback` - A function to be called when an event is received from OBS. The function will be passed a table containing the event data. The keys of the table are:\n   * `eventType` - The type of event, e.g. `StudioModeStateChanged`\n   * `eventIntent` - The event subscription value that caused this event to be sent, e.g. `OBS.eventSubscriptionValues.General`\n   * `eventData` - A table containing the event data, e.g. `{ \"studioModeEnabled\": true }`\n * `host` - The hostname or IP address of the machine running OBS\n * `port` - The port number that obs-websocket is listening on\n * `password` - An optional password string that obs-websocket is configured to use\n * `eventSubscriptions` - An optional number containing the bitmask of the events to subscribe to, see [OBS.eventSubscriptionValues](#eventSubscriptionValues)\n\nReturns:\n * None\n\nNotes:\n * This method does not connect to OBS, it just sets up the connection parameters for later use\n * By default, no events are subscribed to, so you will need to set `eventSubscriptions` to something useful if you want to receive events\n * If you do not wish to supply an `eventCallback`, pass `nil` instead\n * The events that OBS can produce are documented in the [obs-websocket documentation](https://github.com/obsproject/obs-websocket/blob/master/docs/generated/protocol.md#events)\n * There are some additional values for `eventType`, specific to this Spoon:\n   * `SpoonOBSConnected` - This event is sent when the websocket connection to OBS is established. All other fields will be `nil`.\n   * `SpoonOBSDisconnected` - This event is sent when the websocket connection to OBS is lost. All other fields will be nil. Return false to inhibit automatic reconnection.\n   * `SpoonRequestResponse` - This event is sent to pass replies to requests made via [OBS:request()](#request). Its `eventIntent` will be nil and the format of its `eventData` table will be:\n     * `requestId` - The ID of the request that this is a reply to\n     * `requestType` - The request type that was made\n     * `requestStatus` - A table containing:\n       * `result` - A bool, `true` if the request succeeded, otherwise `false`\n       * `code` - A number containing the response code\n       * `comment` - An optional string that may contain additional information about the response\n     * `responseData` - An table that contains the response data, if any\n   * `SpoonBatchRequestResponse` - This event is sent to pass replies to batch requests made via [OBS:requestBatch()](#requestBatch). Its `eventIntent` will be nil and the format of its `eventData` table will be:\n     * `requestId` - The ID of the request batch that this is a reply to\n     * `results` - A table containing the results of each request in the batch. Each entry in the table will be a table with the same format as `SpoonRequestResponse`",
+        "examples": [],
+        "file": "Source/OBS.spoon//init.lua",
+        "lineno": "117",
+        "name": "init",
+        "notes": [
+          " * This method does not connect to OBS, it just sets up the connection parameters for later use",
+          " * By default, no events are subscribed to, so you will need to set `eventSubscriptions` to something useful if you want to receive events",
+          " * If you do not wish to supply an `eventCallback`, pass `nil` instead",
+          " * The events that OBS can produce are documented in the [obs-websocket documentation](https://github.com/obsproject/obs-websocket/blob/master/docs/generated/protocol.md#events)",
+          " * There are some additional values for `eventType`, specific to this Spoon:",
+          "   * `SpoonOBSConnected` - This event is sent when the websocket connection to OBS is established. All other fields will be `nil`.",
+          "   * `SpoonOBSDisconnected` - This event is sent when the websocket connection to OBS is lost. All other fields will be nil. Return false to inhibit automatic reconnection.",
+          "   * `SpoonRequestResponse` - This event is sent to pass replies to requests made via [OBS:request()](#request). Its `eventIntent` will be nil and the format of its `eventData` table will be:",
+          "     * `requestId` - The ID of the request that this is a reply to",
+          "     * `requestType` - The request type that was made",
+          "     * `requestStatus` - A table containing:",
+          "       * `result` - A bool, `true` if the request succeeded, otherwise `false`",
+          "       * `code` - A number containing the response code",
+          "       * `comment` - An optional string that may contain additional information about the response",
+          "     * `responseData` - An table that contains the response data, if any",
+          "   * `SpoonBatchRequestResponse` - This event is sent to pass replies to batch requests made via [OBS:requestBatch()](#requestBatch). Its `eventIntent` will be nil and the format of its `eventData` table will be:",
+          "     * `requestId` - The ID of the request batch that this is a reply to",
+          "     * `results` - A table containing the results of each request in the batch. Each entry in the table will be a table with the same format as `SpoonRequestResponse`"
+        ],
+        "parameters": [
+          " * `eventCallback` - A function to be called when an event is received from OBS. The function will be passed a table containing the event data. The keys of the table are:\n   * `eventType` - The type of event, e.g. `StudioModeStateChanged`\n   * `eventIntent` - The event subscription value that caused this event to be sent, e.g. `OBS.eventSubscriptionValues.General`\n   * `eventData` - A table containing the event data, e.g. `{ \"studioModeEnabled\": true }`",
+          " * `host` - The hostname or IP address of the machine running OBS",
+          " * `port` - The port number that obs-websocket is listening on",
+          " * `password` - An optional password string that obs-websocket is configured to use",
+          " * `eventSubscriptions` - An optional number containing the bitmask of the events to subscribe to, see [OBS.eventSubscriptionValues](#eventSubscriptionValues)"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "OBS:init(eventCallback, host, port[, password, eventSubscriptions])",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "OBS:removeEventSubsciption(event)",
+        "desc": "Removes an event subscription",
+        "doc": "Removes an event subscription\n\nParameters:\n * `event` - The event to unsubscribe from, see [OBS.eventSubscriptionValues](#eventSubscriptionValues)\n\nReturns:\n * None\n\nNotes:\n * If you wish to remove multiple event subscriptions you can use the `&` operator to combine them, e.g. `spoon.OBS:removeEventSubscription(spoon.OBS.eventSubscriptionValues.Config | spoon.OBS.eventSubscriptionValues.Scenes)`",
+        "examples": [],
+        "file": "Source/OBS.spoon//init.lua",
+        "lineno": "326",
+        "name": "removeEventSubsciption",
+        "notes": [
+          " * If you wish to remove multiple event subscriptions you can use the `&` operator to combine them, e.g. `spoon.OBS:removeEventSubscription(spoon.OBS.eventSubscriptionValues.Config | spoon.OBS.eventSubscriptionValues.Scenes)`"
+        ],
+        "parameters": [
+          " * `event` - The event to unsubscribe from, see [OBS.eventSubscriptionValues](#eventSubscriptionValues)"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "OBS:removeEventSubsciption(event)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "OBS:request(requestType[, requestData[, requestId]])",
+        "desc": "Sends a request to OBS",
+        "doc": "Sends a request to OBS\n\nParameters:\n * `requestType` - A string containing the type of request to send\n * `requestData` - An optional table containing the data to send with the request, or nil\n * `requestId` - An optional string containing the ID of the request\n\nReturns:\n * The `requestId` that was sent\n\nNotes:\n * If `requestId` is not specified then a random UUID will be generated.\n * The `requestId` will be passed to your event callback (provided to [OBS:init()](#init)) when the response is received.\n * Values for `requestType` can be found in the [obs-websocket documentation](https://github.com/obsproject/obs-websocket/blob/master/docs/generated/protocol.md#requests)",
+        "examples": [],
+        "file": "Source/OBS.spoon//init.lua",
+        "lineno": "343",
+        "name": "request",
+        "notes": [
+          " * If `requestId` is not specified then a random UUID will be generated.",
+          " * The `requestId` will be passed to your event callback (provided to [OBS:init()](#init)) when the response is received.",
+          " * Values for `requestType` can be found in the [obs-websocket documentation](https://github.com/obsproject/obs-websocket/blob/master/docs/generated/protocol.md#requests)"
+        ],
+        "parameters": [
+          " * `requestType` - A string containing the type of request to send",
+          " * `requestData` - An optional table containing the data to send with the request, or nil",
+          " * `requestId` - An optional string containing the ID of the request"
+        ],
+        "returns": [
+          " * The `requestId` that was sent"
+        ],
+        "signature": "OBS:request(requestType[, requestData[, requestId]])",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "OBS:requestBatch(requests[, haltOnFailure])",
+        "desc": "Sends a batch of requests to OBS",
+        "doc": "Sends a batch of requests to OBS\n\nParameters:\n * `requests` - A table containing the requests to send\n * `haltOnFailure` - An optional boolean indicating whether to halt the batch if a request fails, defaults to false\n\nReturns:\n * The `requestId` that was sent for the batch\n\nNotes:\n * Each request should be a table with the keys:\n   * `requestType` - A string containing the type of request to send, see [OBS:request()](#request)\n   * `requestData` - An optional table containing the data to send with the request, or `nil`\n   * `requestId` - An optional string containing a unique ID for the request\n * Unlike [OBS:request()](#request) the `requestId` is an auto-generated UUID\n\nExample:\n```lua\nspoon.OBS:requestBatch({\n {[\"requestType\"] = \"StartVirtualCam\"},\n {[\"requestType\"] = \"SetCurrentProgramScene\", [\"requestData\"] = { [\"sceneName\"] = \"FancyScene\" }}\n})\n```",
+        "examples": [],
+        "file": "Source/OBS.spoon//init.lua",
+        "lineno": "377",
+        "name": "requestBatch",
+        "notes": [
+          " * Each request should be a table with the keys:",
+          "   * `requestType` - A string containing the type of request to send, see [OBS:request()](#request)",
+          "   * `requestData` - An optional table containing the data to send with the request, or `nil`",
+          "   * `requestId` - An optional string containing a unique ID for the request",
+          " * Unlike [OBS:request()](#request) the `requestId` is an auto-generated UUID",
+          "",
+          "Example:",
+          "```lua",
+          "spoon.OBS:requestBatch({",
+          " {[\"requestType\"] = \"StartVirtualCam\"},",
+          " {[\"requestType\"] = \"SetCurrentProgramScene\", [\"requestData\"] = { [\"sceneName\"] = \"FancyScene\" }}",
+          "})",
+          "```"
+        ],
+        "parameters": [
+          " * `requests` - A table containing the requests to send",
+          " * `haltOnFailure` - An optional boolean indicating whether to halt the batch if a request fails, defaults to false"
+        ],
+        "returns": [
+          " * The `requestId` that was sent for the batch"
+        ],
+        "signature": "OBS:requestBatch(requests[, haltOnFailure])",
+        "stripped_doc": "Example:\n```lua\nspoon.OBS:requestBatch({\n {[\"requestType\"] = \"StartVirtualCam\"},\n {[\"requestType\"] = \"SetCurrentProgramScene\", [\"requestData\"] = { [\"sceneName\"] = \"FancyScene\" }}\n})\n```",
+        "type": "Method"
+      },
+      {
+        "def": "OBS:setLogLevel(level)",
+        "desc": "Sets the logging level for the OBS Spoon",
+        "doc": "Sets the logging level for the OBS Spoon\n\nParameters:\n * `level` - A string containing the logging level to use, see [hs.logger.setLogLevel](https://www.hammerspoon.org/docs/hs.logger.html#setLogLevel) for possible values\n\nReturns:\n * None",
+        "examples": [],
+        "file": "Source/OBS.spoon//init.lua",
+        "lineno": "419",
+        "name": "setLogLevel",
+        "notes": [],
+        "parameters": [
+          " * `level` - A string containing the logging level to use, see [hs.logger.setLogLevel](https://www.hammerspoon.org/docs/hs.logger.html#setLogLevel) for possible values"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "OBS:setLogLevel(level)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "OBS:start()",
+        "desc": "Connects to OBS",
+        "doc": "Connects to OBS\n\nParameters:\n * None\n\nReturns:\n * None",
+        "examples": [],
+        "file": "Source/OBS.spoon//init.lua",
+        "lineno": "161",
+        "name": "start",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "OBS:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "OBS:stop()",
+        "desc": "Disconnects from OBS",
+        "doc": "Disconnects from OBS\n\nParameters:\n * None\n\nReturns:\n * None",
+        "examples": [],
+        "file": "Source/OBS.spoon//init.lua",
+        "lineno": "274",
+        "name": "stop",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "OBS:stop()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "OBS:updateEventSubscriptions(eventSubscriptions)",
+        "desc": "Updates the event subscriptions",
+        "doc": "Updates the event subscriptions\n\nParameters:\n * `eventSubscriptions` - A bitmask of the events to subscribe to, see [OBS.eventSubscriptionValues](#eventSubscriptionValues)\n\nReturns:\n * None",
+        "examples": [],
+        "file": "Source/OBS.spoon//init.lua",
+        "lineno": "289",
+        "name": "updateEventSubscriptions",
+        "notes": [],
+        "parameters": [
+          " * `eventSubscriptions` - A bitmask of the events to subscribe to, see [OBS.eventSubscriptionValues](#eventSubscriptionValues)"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "OBS:updateEventSubscriptions(eventSubscriptions)",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [
+      {
+        "def": "OBS:reconnectDelay",
+        "desc": "Controls how long to wait, in seconds, before attempting to reconnect to OBS. Defaults to `5`",
+        "doc": "Controls how long to wait, in seconds, before attempting to reconnect to OBS. Defaults to `5`",
+        "file": "Source/OBS.spoon//init.lua",
+        "lineno": "112",
+        "name": "reconnectDelay",
+        "signature": "OBS:reconnectDelay",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "OBS:shouldReconnect",
+        "desc": "Controls whether the websocket connection should be re-established if it is lost. Defaults to `true`",
+        "doc": "Controls whether the websocket connection should be re-established if it is lost. Defaults to `true`",
+        "file": "Source/OBS.spoon//init.lua",
+        "lineno": "105",
+        "name": "shouldReconnect",
+        "signature": "OBS:shouldReconnect",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "desc": "Control OBS and react to its events, via the obs-websocket plugin.",
+    "doc": "Control OBS and react to its events, via the obs-websocket plugin.\n\nInstall and configure the obs-websocket plugin first from [their project](https://github.com/obsproject/obs-websocket/releases)\n\nNote: This Spoon will only work with Hammerspoon 0.9.100 or later.\n\nNote: This Spoon will only work with obs-websocket 5.0.1 or later, which also requires OBS Studio v27 or later.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/OBS.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/OBS.spoon.zip)\n\nExample:\n```\n-- This example will start OBS, connect to it, and then start streaming once connected\nobs = hs.loadSpoon(\"OBS\")\nobsCallback = function(eventType, eventIntent, eventData)\n  print(eventType)\n  print(eventIntent)\n  print(hs.inspect(eventData))\n\n  if eventType == \"SpoonOBSConnected\" then\n    obs:request(\"StartStream\")\n  end\nend\nobs:init(obsCallback, \"localhost\", 4444, \"password\")\nobs:start()\n```",
+    "items": [
+      {
+        "def": "OBS:addEventSubsciption(event)",
+        "desc": "Adds an event subscription",
+        "doc": "Adds an event subscription\n\nParameters:\n * `event` - The event to subscribe to, see [OBS.eventSubscriptionValues](#eventSubscriptionValues)\n\nReturns:\n * None\n\nNotes:\n * If you wish to add multiple event subscriptions you can use the `|` operator to combine them, e.g. `spoon.OBS:addEventSubscription(spoon.OBS.eventSubscriptionValues.Config | spoon.OBS.eventSubscriptionValues.Scenes)`",
+        "examples": [],
+        "file": "Source/OBS.spoon//init.lua",
+        "lineno": "309",
+        "name": "addEventSubsciption",
+        "notes": [
+          " * If you wish to add multiple event subscriptions you can use the `|` operator to combine them, e.g. `spoon.OBS:addEventSubscription(spoon.OBS.eventSubscriptionValues.Config | spoon.OBS.eventSubscriptionValues.Scenes)`"
+        ],
+        "parameters": [
+          " * `event` - The event to subscribe to, see [OBS.eventSubscriptionValues](#eventSubscriptionValues)"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "OBS:addEventSubsciption(event)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "OBS.eventSubscriptionValues",
+        "desc": "A table of the possible values for the `eventSubscriptions` parameter to [OBS:init()](#init)",
+        "doc": "A table of the possible values for the `eventSubscriptions` parameter to [OBS:init()](#init)\n\nNotes:\n * The keys are:\n   * `None` - No events\n   * `General` - General events\n   * `Config` - Configuration events\n   * `Scenes` - Scene events\n   * `Inputs` - Input events\n   * `Transitions` - Transition events\n   * `Filters` - Filter events\n   * `Outputs` - Output events\n   * `SceneItems` - Scene item events\n   * `MediaInputs` - Media input events\n   * `Vendors` - Vendor events\n   * `UI` - UI events\n   * `All` - All of the above events\n   * `InputVolumeMeters` - Input volume meter events\n   * `InputActiveStateChanged` - Input active state changed events\n   * `InputShowStateChanged` - Input show state changed events\n   * `SceneItemTransformChanged` - Scene item transform changed events\n * For more information about these event categories and the events they contain, see the [obs-websocket documentation](https://github.com/obsproject/obs-websocket/blob/master/docs/generated/protocol.md#events)\n * To combine these as a bitmask, use boolean operators, e.g. `OBS.eventSubscriptionValues.General | OBS.eventSubscriptionValues.Scenes`\n * The final four values are considered \"high volume\" events, so are not included in `OBS.eventSubscriptionValues.All` by default",
+        "file": "Source/OBS.spoon//init.lua",
+        "lineno": "58",
+        "name": "eventSubscriptionValues",
+        "notes": [
+          " * The keys are:",
+          "   * `None` - No events",
+          "   * `General` - General events",
+          "   * `Config` - Configuration events",
+          "   * `Scenes` - Scene events",
+          "   * `Inputs` - Input events",
+          "   * `Transitions` - Transition events",
+          "   * `Filters` - Filter events",
+          "   * `Outputs` - Output events",
+          "   * `SceneItems` - Scene item events",
+          "   * `MediaInputs` - Media input events",
+          "   * `Vendors` - Vendor events",
+          "   * `UI` - UI events",
+          "   * `All` - All of the above events",
+          "   * `InputVolumeMeters` - Input volume meter events",
+          "   * `InputActiveStateChanged` - Input active state changed events",
+          "   * `InputShowStateChanged` - Input show state changed events",
+          "   * `SceneItemTransformChanged` - Scene item transform changed events",
+          " * For more information about these event categories and the events they contain, see the [obs-websocket documentation](https://github.com/obsproject/obs-websocket/blob/master/docs/generated/protocol.md#events)",
+          " * To combine these as a bitmask, use boolean operators, e.g. `OBS.eventSubscriptionValues.General | OBS.eventSubscriptionValues.Scenes`",
+          " * The final four values are considered \"high volume\" events, so are not included in `OBS.eventSubscriptionValues.All` by default"
+        ],
+        "signature": "OBS.eventSubscriptionValues",
+        "stripped_doc": "",
+        "type": "Constant"
+      },
+      {
+        "def": "OBS:init(eventCallback, host, port[, password, eventSubscriptions])",
+        "desc": "Initialisation method",
+        "doc": "Initialisation method\n\nParameters:\n * `eventCallback` - A function to be called when an event is received from OBS. The function will be passed a table containing the event data. The keys of the table are:\n   * `eventType` - The type of event, e.g. `StudioModeStateChanged`\n   * `eventIntent` - The event subscription value that caused this event to be sent, e.g. `OBS.eventSubscriptionValues.General`\n   * `eventData` - A table containing the event data, e.g. `{ \"studioModeEnabled\": true }`\n * `host` - The hostname or IP address of the machine running OBS\n * `port` - The port number that obs-websocket is listening on\n * `password` - An optional password string that obs-websocket is configured to use\n * `eventSubscriptions` - An optional number containing the bitmask of the events to subscribe to, see [OBS.eventSubscriptionValues](#eventSubscriptionValues)\n\nReturns:\n * None\n\nNotes:\n * This method does not connect to OBS, it just sets up the connection parameters for later use\n * By default, no events are subscribed to, so you will need to set `eventSubscriptions` to something useful if you want to receive events\n * If you do not wish to supply an `eventCallback`, pass `nil` instead\n * The events that OBS can produce are documented in the [obs-websocket documentation](https://github.com/obsproject/obs-websocket/blob/master/docs/generated/protocol.md#events)\n * There are some additional values for `eventType`, specific to this Spoon:\n   * `SpoonOBSConnected` - This event is sent when the websocket connection to OBS is established. All other fields will be `nil`.\n   * `SpoonOBSDisconnected` - This event is sent when the websocket connection to OBS is lost. All other fields will be nil. Return false to inhibit automatic reconnection.\n   * `SpoonRequestResponse` - This event is sent to pass replies to requests made via [OBS:request()](#request). Its `eventIntent` will be nil and the format of its `eventData` table will be:\n     * `requestId` - The ID of the request that this is a reply to\n     * `requestType` - The request type that was made\n     * `requestStatus` - A table containing:\n       * `result` - A bool, `true` if the request succeeded, otherwise `false`\n       * `code` - A number containing the response code\n       * `comment` - An optional string that may contain additional information about the response\n     * `responseData` - An table that contains the response data, if any\n   * `SpoonBatchRequestResponse` - This event is sent to pass replies to batch requests made via [OBS:requestBatch()](#requestBatch). Its `eventIntent` will be nil and the format of its `eventData` table will be:\n     * `requestId` - The ID of the request batch that this is a reply to\n     * `results` - A table containing the results of each request in the batch. Each entry in the table will be a table with the same format as `SpoonRequestResponse`",
+        "examples": [],
+        "file": "Source/OBS.spoon//init.lua",
+        "lineno": "117",
+        "name": "init",
+        "notes": [
+          " * This method does not connect to OBS, it just sets up the connection parameters for later use",
+          " * By default, no events are subscribed to, so you will need to set `eventSubscriptions` to something useful if you want to receive events",
+          " * If you do not wish to supply an `eventCallback`, pass `nil` instead",
+          " * The events that OBS can produce are documented in the [obs-websocket documentation](https://github.com/obsproject/obs-websocket/blob/master/docs/generated/protocol.md#events)",
+          " * There are some additional values for `eventType`, specific to this Spoon:",
+          "   * `SpoonOBSConnected` - This event is sent when the websocket connection to OBS is established. All other fields will be `nil`.",
+          "   * `SpoonOBSDisconnected` - This event is sent when the websocket connection to OBS is lost. All other fields will be nil. Return false to inhibit automatic reconnection.",
+          "   * `SpoonRequestResponse` - This event is sent to pass replies to requests made via [OBS:request()](#request). Its `eventIntent` will be nil and the format of its `eventData` table will be:",
+          "     * `requestId` - The ID of the request that this is a reply to",
+          "     * `requestType` - The request type that was made",
+          "     * `requestStatus` - A table containing:",
+          "       * `result` - A bool, `true` if the request succeeded, otherwise `false`",
+          "       * `code` - A number containing the response code",
+          "       * `comment` - An optional string that may contain additional information about the response",
+          "     * `responseData` - An table that contains the response data, if any",
+          "   * `SpoonBatchRequestResponse` - This event is sent to pass replies to batch requests made via [OBS:requestBatch()](#requestBatch). Its `eventIntent` will be nil and the format of its `eventData` table will be:",
+          "     * `requestId` - The ID of the request batch that this is a reply to",
+          "     * `results` - A table containing the results of each request in the batch. Each entry in the table will be a table with the same format as `SpoonRequestResponse`"
+        ],
+        "parameters": [
+          " * `eventCallback` - A function to be called when an event is received from OBS. The function will be passed a table containing the event data. The keys of the table are:\n   * `eventType` - The type of event, e.g. `StudioModeStateChanged`\n   * `eventIntent` - The event subscription value that caused this event to be sent, e.g. `OBS.eventSubscriptionValues.General`\n   * `eventData` - A table containing the event data, e.g. `{ \"studioModeEnabled\": true }`",
+          " * `host` - The hostname or IP address of the machine running OBS",
+          " * `port` - The port number that obs-websocket is listening on",
+          " * `password` - An optional password string that obs-websocket is configured to use",
+          " * `eventSubscriptions` - An optional number containing the bitmask of the events to subscribe to, see [OBS.eventSubscriptionValues](#eventSubscriptionValues)"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "OBS:init(eventCallback, host, port[, password, eventSubscriptions])",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "OBS:reconnectDelay",
+        "desc": "Controls how long to wait, in seconds, before attempting to reconnect to OBS. Defaults to `5`",
+        "doc": "Controls how long to wait, in seconds, before attempting to reconnect to OBS. Defaults to `5`",
+        "file": "Source/OBS.spoon//init.lua",
+        "lineno": "112",
+        "name": "reconnectDelay",
+        "signature": "OBS:reconnectDelay",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "OBS:removeEventSubsciption(event)",
+        "desc": "Removes an event subscription",
+        "doc": "Removes an event subscription\n\nParameters:\n * `event` - The event to unsubscribe from, see [OBS.eventSubscriptionValues](#eventSubscriptionValues)\n\nReturns:\n * None\n\nNotes:\n * If you wish to remove multiple event subscriptions you can use the `&` operator to combine them, e.g. `spoon.OBS:removeEventSubscription(spoon.OBS.eventSubscriptionValues.Config | spoon.OBS.eventSubscriptionValues.Scenes)`",
+        "examples": [],
+        "file": "Source/OBS.spoon//init.lua",
+        "lineno": "326",
+        "name": "removeEventSubsciption",
+        "notes": [
+          " * If you wish to remove multiple event subscriptions you can use the `&` operator to combine them, e.g. `spoon.OBS:removeEventSubscription(spoon.OBS.eventSubscriptionValues.Config | spoon.OBS.eventSubscriptionValues.Scenes)`"
+        ],
+        "parameters": [
+          " * `event` - The event to unsubscribe from, see [OBS.eventSubscriptionValues](#eventSubscriptionValues)"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "OBS:removeEventSubsciption(event)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "OBS:request(requestType[, requestData[, requestId]])",
+        "desc": "Sends a request to OBS",
+        "doc": "Sends a request to OBS\n\nParameters:\n * `requestType` - A string containing the type of request to send\n * `requestData` - An optional table containing the data to send with the request, or nil\n * `requestId` - An optional string containing the ID of the request\n\nReturns:\n * The `requestId` that was sent\n\nNotes:\n * If `requestId` is not specified then a random UUID will be generated.\n * The `requestId` will be passed to your event callback (provided to [OBS:init()](#init)) when the response is received.\n * Values for `requestType` can be found in the [obs-websocket documentation](https://github.com/obsproject/obs-websocket/blob/master/docs/generated/protocol.md#requests)",
+        "examples": [],
+        "file": "Source/OBS.spoon//init.lua",
+        "lineno": "343",
+        "name": "request",
+        "notes": [
+          " * If `requestId` is not specified then a random UUID will be generated.",
+          " * The `requestId` will be passed to your event callback (provided to [OBS:init()](#init)) when the response is received.",
+          " * Values for `requestType` can be found in the [obs-websocket documentation](https://github.com/obsproject/obs-websocket/blob/master/docs/generated/protocol.md#requests)"
+        ],
+        "parameters": [
+          " * `requestType` - A string containing the type of request to send",
+          " * `requestData` - An optional table containing the data to send with the request, or nil",
+          " * `requestId` - An optional string containing the ID of the request"
+        ],
+        "returns": [
+          " * The `requestId` that was sent"
+        ],
+        "signature": "OBS:request(requestType[, requestData[, requestId]])",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "OBS:requestBatch(requests[, haltOnFailure])",
+        "desc": "Sends a batch of requests to OBS",
+        "doc": "Sends a batch of requests to OBS\n\nParameters:\n * `requests` - A table containing the requests to send\n * `haltOnFailure` - An optional boolean indicating whether to halt the batch if a request fails, defaults to false\n\nReturns:\n * The `requestId` that was sent for the batch\n\nNotes:\n * Each request should be a table with the keys:\n   * `requestType` - A string containing the type of request to send, see [OBS:request()](#request)\n   * `requestData` - An optional table containing the data to send with the request, or `nil`\n   * `requestId` - An optional string containing a unique ID for the request\n * Unlike [OBS:request()](#request) the `requestId` is an auto-generated UUID\n\nExample:\n```lua\nspoon.OBS:requestBatch({\n {[\"requestType\"] = \"StartVirtualCam\"},\n {[\"requestType\"] = \"SetCurrentProgramScene\", [\"requestData\"] = { [\"sceneName\"] = \"FancyScene\" }}\n})\n```",
+        "examples": [],
+        "file": "Source/OBS.spoon//init.lua",
+        "lineno": "377",
+        "name": "requestBatch",
+        "notes": [
+          " * Each request should be a table with the keys:",
+          "   * `requestType` - A string containing the type of request to send, see [OBS:request()](#request)",
+          "   * `requestData` - An optional table containing the data to send with the request, or `nil`",
+          "   * `requestId` - An optional string containing a unique ID for the request",
+          " * Unlike [OBS:request()](#request) the `requestId` is an auto-generated UUID",
+          "",
+          "Example:",
+          "```lua",
+          "spoon.OBS:requestBatch({",
+          " {[\"requestType\"] = \"StartVirtualCam\"},",
+          " {[\"requestType\"] = \"SetCurrentProgramScene\", [\"requestData\"] = { [\"sceneName\"] = \"FancyScene\" }}",
+          "})",
+          "```"
+        ],
+        "parameters": [
+          " * `requests` - A table containing the requests to send",
+          " * `haltOnFailure` - An optional boolean indicating whether to halt the batch if a request fails, defaults to false"
+        ],
+        "returns": [
+          " * The `requestId` that was sent for the batch"
+        ],
+        "signature": "OBS:requestBatch(requests[, haltOnFailure])",
+        "stripped_doc": "Example:\n```lua\nspoon.OBS:requestBatch({\n {[\"requestType\"] = \"StartVirtualCam\"},\n {[\"requestType\"] = \"SetCurrentProgramScene\", [\"requestData\"] = { [\"sceneName\"] = \"FancyScene\" }}\n})\n```",
+        "type": "Method"
+      },
+      {
+        "def": "OBS:setLogLevel(level)",
+        "desc": "Sets the logging level for the OBS Spoon",
+        "doc": "Sets the logging level for the OBS Spoon\n\nParameters:\n * `level` - A string containing the logging level to use, see [hs.logger.setLogLevel](https://www.hammerspoon.org/docs/hs.logger.html#setLogLevel) for possible values\n\nReturns:\n * None",
+        "examples": [],
+        "file": "Source/OBS.spoon//init.lua",
+        "lineno": "419",
+        "name": "setLogLevel",
+        "notes": [],
+        "parameters": [
+          " * `level` - A string containing the logging level to use, see [hs.logger.setLogLevel](https://www.hammerspoon.org/docs/hs.logger.html#setLogLevel) for possible values"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "OBS:setLogLevel(level)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "OBS:shouldReconnect",
+        "desc": "Controls whether the websocket connection should be re-established if it is lost. Defaults to `true`",
+        "doc": "Controls whether the websocket connection should be re-established if it is lost. Defaults to `true`",
+        "file": "Source/OBS.spoon//init.lua",
+        "lineno": "105",
+        "name": "shouldReconnect",
+        "signature": "OBS:shouldReconnect",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "OBS:start()",
+        "desc": "Connects to OBS",
+        "doc": "Connects to OBS\n\nParameters:\n * None\n\nReturns:\n * None",
+        "examples": [],
+        "file": "Source/OBS.spoon//init.lua",
+        "lineno": "161",
+        "name": "start",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "OBS:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "OBS:stop()",
+        "desc": "Disconnects from OBS",
+        "doc": "Disconnects from OBS\n\nParameters:\n * None\n\nReturns:\n * None",
+        "examples": [],
+        "file": "Source/OBS.spoon//init.lua",
+        "lineno": "274",
+        "name": "stop",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "OBS:stop()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "OBS:updateEventSubscriptions(eventSubscriptions)",
+        "desc": "Updates the event subscriptions",
+        "doc": "Updates the event subscriptions\n\nParameters:\n * `eventSubscriptions` - A bitmask of the events to subscribe to, see [OBS.eventSubscriptionValues](#eventSubscriptionValues)\n\nReturns:\n * None",
+        "examples": [],
+        "file": "Source/OBS.spoon//init.lua",
+        "lineno": "289",
+        "name": "updateEventSubscriptions",
+        "notes": [],
+        "parameters": [
+          " * `eventSubscriptions` - A bitmask of the events to subscribe to, see [OBS.eventSubscriptionValues](#eventSubscriptionValues)"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "OBS:updateEventSubscriptions(eventSubscriptions)",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "name": "OBS",
+    "stripped_doc": "\nInstall and configure the obs-websocket plugin first from [their project](https://github.com/obsproject/obs-websocket/releases)\n\nNote: This Spoon will only work with Hammerspoon 0.9.100 or later.\n\nNote: This Spoon will only work with obs-websocket 5.0.1 or later, which also requires OBS Studio v27 or later.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/OBS.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/OBS.spoon.zip)\n\nExample:\n```\n-- This example will start OBS, connect to it, and then start streaming once connected\nobs = hs.loadSpoon(\"OBS\")\nobsCallback = function(eventType, eventIntent, eventData)\n  print(eventType)\n  print(eventIntent)\n  print(hs.inspect(eventData))\n\n  if eventType == \"SpoonOBSConnected\" then\n    obs:request(\"StartStream\")\n  end\nend\nobs:init(obsCallback, \"localhost\", 4444, \"password\")\nobs:start()\n```",
+    "submodules": [],
+    "type": "Module"
+  }
+]
