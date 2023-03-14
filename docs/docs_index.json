@@ -1783,6 +1783,83 @@
     "type": "Method"
   },
   {
+    "desc": "Control OBS and react to its events, via the obs-websocket plugin.",
+    "name": "OBS",
+    "type": "Module"
+  },
+  {
+    "desc": "A table of the possible values for the `eventSubscriptions` parameter to [OBS:init()](#init)",
+    "module": "OBS",
+    "name": "eventSubscriptionValues",
+    "type": "Constant"
+  },
+  {
+    "desc": "Controls how long to wait, in seconds, before attempting to reconnect to OBS. Defaults to `5`",
+    "module": "OBS",
+    "name": "reconnectDelay",
+    "type": "Variable"
+  },
+  {
+    "desc": "Controls whether the websocket connection should be re-established if it is lost. Defaults to `true`",
+    "module": "OBS",
+    "name": "shouldReconnect",
+    "type": "Variable"
+  },
+  {
+    "desc": "Adds an event subscription",
+    "module": "OBS",
+    "name": "addEventSubsciption",
+    "type": "Method"
+  },
+  {
+    "desc": "Initialisation method",
+    "module": "OBS",
+    "name": "init",
+    "type": "Method"
+  },
+  {
+    "desc": "Removes an event subscription",
+    "module": "OBS",
+    "name": "removeEventSubsciption",
+    "type": "Method"
+  },
+  {
+    "desc": "Sends a request to OBS",
+    "module": "OBS",
+    "name": "request",
+    "type": "Method"
+  },
+  {
+    "desc": "Sends a batch of requests to OBS",
+    "module": "OBS",
+    "name": "requestBatch",
+    "type": "Method"
+  },
+  {
+    "desc": "Sets the logging level for the OBS Spoon",
+    "module": "OBS",
+    "name": "setLogLevel",
+    "type": "Method"
+  },
+  {
+    "desc": "Connects to OBS",
+    "module": "OBS",
+    "name": "start",
+    "type": "Method"
+  },
+  {
+    "desc": "Disconnects from OBS",
+    "module": "OBS",
+    "name": "stop",
+    "type": "Method"
+  },
+  {
+    "desc": "Updates the event subscriptions",
+    "module": "OBS",
+    "name": "updateEventSubscriptions",
+    "type": "Method"
+  },
+  {
     "desc": "Generate a password and copy to the clipboard.",
     "name": "PasswordGenerator",
     "type": "Module"
