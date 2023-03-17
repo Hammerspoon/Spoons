@@ -1,6 +1,6 @@
 --- === CountDown ===
 ---
---- Countdown with visual indicator, based on the Spoon Countdown, from https://github.com/Hammerspoon/Spoons/
+--- Countdown with visual indicator
 ---
 
 local obj = {}
@@ -55,6 +55,9 @@ obj.iconStop = "🛑"
 obj.lenMin = nil
 -- percentage of advance for the time
 obj.progress = 0
+
+-- moment the timer is paused
+obj.pausedAt = nil
 
 function obj:init()
    self.menu = hs.menubar.new(obj.alwaysShow)
@@ -199,7 +202,7 @@ function obj:create_bar_timer(minutes)
 end
 
 function obj:time_absolute_seconds()
-   -- return hs.timer.absoluteTime() in minutes
+   -- return hs.timer.absoluteTime() in seconds
    local timeNow = hs.timer.absoluteTime()
    return math.floor(timeNow / 1e9)
 end
@@ -258,14 +261,22 @@ end
 ---  * None
 
 function obj:pauseOrResume()
+   -- if the timer is paused, we need to offset
+   -- the starting time for as long as the timer is paused
+
    if obj.timer and obj.timerBar then
       if obj.timer:running() then
+         obj.pausedAt = obj:time_absolute_seconds()
          obj.timer:stop()
          obj.timerBar:stop()
 
          obj:menu_items(true)
 
       else
+         -- offset the starting time by as many seconds as we were paused
+         local pausedSeconds = obj:time_absolute_seconds() - obj.pausedAt
+         obj.startTime = obj.startTime + pausedSeconds
+         obj.pausedAt = nil
          obj.timer:start()
          obj.timerBar:start()
 
