@@ -4,7 +4,8 @@
 ---
 --- Download: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MenubarFlag.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MenubarFlag.spoon.zip)
 ---
---- Functionality inspired by [ShowyEdge](https://pqrs.org/osx/ShowyEdge/index.html.en)
+--- Functionality inspired by [ShowyEdge](https://showyedge.pqrs.org/)
+
 
 local obj={}
 obj.__index = obj
