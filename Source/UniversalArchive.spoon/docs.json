@@ -11,14 +11,15 @@
         "def": "UniversalArchive:bindHotkeys(mapping)",
         "desc": "Binds hotkeys for UniversalArchive",
         "doc": "Binds hotkeys for UniversalArchive\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for the following items:\n  * `archive` - hotkey for trigger the `universalArchive()` method, to archive the current item on the current application.\n  * `<app>_<dest>` - if an application handler supports multiple destinations, you can specify hotkeys for specific destinations using this format. For example, to assign a hotkey that files the current note in Evernote to the \"MyProject\" notebook using Ctrl-Alt-Cmd-M, you would specify `Evernote_MyProject = { { \"ctrl\", \"alt\", \"cmd\" }, \"m\" }` as one of the elements of `mapping`. Keep in mind that the application name must appear exactly as the system sees it (including upper/lowercase), and that if either the application or the destination name contain spaces or other non-alphanumeric characters, you need to use the Lua table notation. For example: `[\"Evernote_Some Long Notebook Name\"] = { keybinding }`. At the moment only the Evernote handler supports multiple destinations.",
+        "examples": [],
         "file": "Source/UniversalArchive.spoon//init.lua",
-        "lineno": "182",
+        "lineno": "183",
         "name": "bindHotkeys",
+        "notes": [],
         "parameters": [
-          " * mapping - A table containing hotkey modifier/key details for the following items:",
-          "  * `archive` - hotkey for trigger the `universalArchive()` method, to archive the current item on the current application.",
-          "  * `<app>_<dest>` - if an application handler supports multiple destinations, you can specify hotkeys for specific destinations using this format. For example, to assign a hotkey that files the current note in Evernote to the \"MyProject\" notebook using Ctrl-Alt-Cmd-M, you would specify `Evernote_MyProject = { { \"ctrl\", \"alt\", \"cmd\" }, \"m\" }` as one of the elements of `mapping`. Keep in mind that the application name must appear exactly as the system sees it (including upper/lowercase), and that if either the application or the destination name contain spaces or other non-alphanumeric characters, you need to use the Lua table notation. For example: `[\"Evernote_Some Long Notebook Name\"] = { keybinding }`. At the moment only the Evernote handler supports multiple destinations."
+          " * mapping - A table containing hotkey modifier/key details for the following items:\n   * `archive` - hotkey for trigger the `universalArchive()` method, to archive the current item on the current application.\n   * `<app>_<dest>` - if an application handler supports multiple destinations, you can specify hotkeys for specific destinations using this format. For example, to assign a hotkey that files the current note in Evernote to the \"MyProject\" notebook using Ctrl-Alt-Cmd-M, you would specify `Evernote_MyProject = { { \"ctrl\", \"alt\", \"cmd\" }, \"m\" }` as one of the elements of `mapping`. Keep in mind that the application name must appear exactly as the system sees it (including upper/lowercase), and that if either the application or the destination name contain spaces or other non-alphanumeric characters, you need to use the Lua table notation. For example: `[\"Evernote_Some Long Notebook Name\"] = { keybinding }`. At the moment only the Evernote handler supports multiple destinations."
         ],
+        "returns": [],
         "signature": "UniversalArchive:bindHotkeys(mapping)",
         "stripped_doc": "",
         "type": "Method"
@@ -27,12 +28,15 @@
         "def": "UniversalArchive:evernoteArchive(where)",
         "desc": "Archive current note in Evernote.",
         "doc": "Archive current note in Evernote.\n\nParameters:\n * where - destination notebook. Defaults to the value of `UniversalArchive.evernote_archive_notebook`.",
+        "examples": [],
         "file": "Source/UniversalArchive.spoon//init.lua",
-        "lineno": "60",
+        "lineno": "61",
         "name": "evernoteArchive",
+        "notes": [],
         "parameters": [
           " * where - destination notebook. Defaults to the value of `UniversalArchive.evernote_archive_notebook`."
         ],
+        "returns": [],
         "signature": "UniversalArchive:evernoteArchive(where)",
         "stripped_doc": "",
         "type": "Method"
@@ -41,12 +45,15 @@
         "def": "UniversalArchive:mailArchive()",
         "desc": "Archive current message in Mail using the built-in Archive functionality",
         "doc": "Archive current message in Mail using the built-in Archive functionality\n\nParameters:\n * none",
+        "examples": [],
         "file": "Source/UniversalArchive.spoon//init.lua",
-        "lineno": "84",
+        "lineno": "85",
         "name": "mailArchive",
+        "notes": [],
         "parameters": [
           " * none"
         ],
+        "returns": [],
         "signature": "UniversalArchive:mailArchive()",
         "stripped_doc": "",
         "type": "Method"
@@ -55,8 +62,9 @@
         "def": "UniversalArchive:outlookArchive()",
         "desc": "Archive current message in Outlook using one of two methods:",
         "doc": "Archive current message in Outlook using one of two methods:\n\nParameters:\n * none\n\nNotes:\n * If the \"Message -> Archive\" menu item exists, it is used (this has been added in recent versions of Outlook)\n * Otherwise, the message gets manually moved to the folder specified in `UniversalArchive.outlook_archive_folder`. The folder has to appear in the Message -> Move submenu for this to work. Since this submenu only lists the last few destination folders, you have to move a message by hand the first time (or periodically if you don't archive very often).",
+        "examples": [],
         "file": "Source/UniversalArchive.spoon//init.lua",
-        "lineno": "120",
+        "lineno": "121",
         "name": "outlookArchive",
         "notes": [
           " * If the \"Message -> Archive\" menu item exists, it is used (this has been added in recent versions of Outlook)",
@@ -65,6 +73,7 @@
         "parameters": [
           " * none"
         ],
+        "returns": [],
         "signature": "UniversalArchive:outlookArchive()",
         "stripped_doc": "",
         "type": "Method"
@@ -73,15 +82,16 @@
         "def": "UniversalArchive:registerApplication(appname, fn)",
         "desc": "Register a handler function for an application.",
         "doc": "Register a handler function for an application.\n\nParameters:\n * appname - string containing the name of the application. If the application already has a handler, it will be replaced with the new one.\n * fn - handler function (to remove the handler for an application, use `nil`). The function receives the following arguments:\n   * self - the UniversalArchive object, so the handler can make use of all the object methods and variables.\n   * where - optional \"destination\" for the archive operation. Handlers must provide a default destination when `where == nil`. Destination doesn't make sense for all applications, so the implementation of this is optional and depending on the handler.",
+        "examples": [],
         "file": "Source/UniversalArchive.spoon//init.lua",
-        "lineno": "165",
+        "lineno": "166",
         "name": "registerApplication",
+        "notes": [],
         "parameters": [
           " * appname - string containing the name of the application. If the application already has a handler, it will be replaced with the new one.",
-          " * fn - handler function (to remove the handler for an application, use `nil`). The function receives the following arguments:",
-          "   * self - the UniversalArchive object, so the handler can make use of all the object methods and variables.",
-          "   * where - optional \"destination\" for the archive operation. Handlers must provide a default destination when `where == nil`. Destination doesn't make sense for all applications, so the implementation of this is optional and depending on the handler."
+          " * fn - handler function (to remove the handler for an application, use `nil`). The function receives the following arguments:\n   * self - the UniversalArchive object, so the handler can make use of all the object methods and variables.\n   * where - optional \"destination\" for the archive operation. Handlers must provide a default destination when `where == nil`. Destination doesn't make sense for all applications, so the implementation of this is optional and depending on the handler."
         ],
+        "returns": [],
         "signature": "UniversalArchive:registerApplication(appname, fn)",
         "stripped_doc": "",
         "type": "Method"
@@ -90,12 +100,15 @@
         "def": "UniversalArchive:sparkArchive()",
         "desc": "Archive current message in Spark using the built-in Archive functionality",
         "doc": "Archive current message in Spark using the built-in Archive functionality\n\nParameters:\n * none",
+        "examples": [],
         "file": "Source/UniversalArchive.spoon//init.lua",
-        "lineno": "102",
+        "lineno": "103",
         "name": "sparkArchive",
+        "notes": [],
         "parameters": [
           " * none"
         ],
+        "returns": [],
         "signature": "UniversalArchive:sparkArchive()",
         "stripped_doc": "",
         "type": "Method"
@@ -104,8 +117,9 @@
         "def": "UniversalArchive:universalArchive(where)",
         "desc": "Main entry point for archiving an item.",
         "doc": "Main entry point for archiving an item.\n\nParameters:\n * None\n\nNotes:\n * If a handler function is defined for the current application, it is called with the `UniversalArchive` object as its first argument, and the archive destination (if provided) as the second.\n * Handlers must have a \"default destination\" that gets used when no destination is provided. Not all handlers support specifying a destination. New handlers can be registered using the `registerApplication()` method.",
+        "examples": [],
         "file": "Source/UniversalArchive.spoon//init.lua",
-        "lineno": "142",
+        "lineno": "143",
         "name": "universalArchive",
         "notes": [
           " * If a handler function is defined for the current application, it is called with the `UniversalArchive` object as its first argument, and the archive destination (if provided) as the second.",
@@ -114,6 +128,7 @@
         "parameters": [
           " * None"
         ],
+        "returns": [],
         "signature": "UniversalArchive:universalArchive(where)",
         "stripped_doc": "",
         "type": "Method"
@@ -144,13 +159,18 @@
       },
       {
         "def": "UniversalArchive.evernote_delay_before_typing",
-        "desc": "In Evernote, archive is done by selectin \"Move note\" and then",
-        "doc": "In Evernote, archive is done by selectin \"Move note\" and then\nsimulating typing of the notebook name. A short pause in between\nmakes it more reliable for Evernote to recognize the notebook name\ncorrectly. This variable controls how much to wait, in seconds.\nDo not change this unless you know what you are doing",
+        "desc": "A short pause to make typing into Evernote more reliable",
+        "doc": "A short pause to make typing into Evernote more reliable\n\nNotes:\n * In Evernote, archive is done by selectin \"Move note\" and then simulating typing of the notebook name. A short pause in between makes it more reliable for Evernote to recognize the notebook name correctly.\n * This variable controls how much to wait, in seconds.\n * Do not change this unless you know what you are doing",
         "file": "Source/UniversalArchive.spoon//init.lua",
         "lineno": "51",
         "name": "evernote_delay_before_typing",
+        "notes": [
+          " * In Evernote, archive is done by selectin \"Move note\" and then simulating typing of the notebook name. A short pause in between makes it more reliable for Evernote to recognize the notebook name correctly.",
+          " * This variable controls how much to wait, in seconds.",
+          " * Do not change this unless you know what you are doing"
+        ],
         "signature": "UniversalArchive.evernote_delay_before_typing",
-        "stripped_doc": "simulating typing of the notebook name. A short pause in between\nmakes it more reliable for Evernote to recognize the notebook name\ncorrectly. This variable controls how much to wait, in seconds.\nDo not change this unless you know what you are doing",
+        "stripped_doc": "",
         "type": "Variable"
       },
       {
@@ -194,14 +214,15 @@
         "def": "UniversalArchive:bindHotkeys(mapping)",
         "desc": "Binds hotkeys for UniversalArchive",
         "doc": "Binds hotkeys for UniversalArchive\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for the following items:\n  * `archive` - hotkey for trigger the `universalArchive()` method, to archive the current item on the current application.\n  * `<app>_<dest>` - if an application handler supports multiple destinations, you can specify hotkeys for specific destinations using this format. For example, to assign a hotkey that files the current note in Evernote to the \"MyProject\" notebook using Ctrl-Alt-Cmd-M, you would specify `Evernote_MyProject = { { \"ctrl\", \"alt\", \"cmd\" }, \"m\" }` as one of the elements of `mapping`. Keep in mind that the application name must appear exactly as the system sees it (including upper/lowercase), and that if either the application or the destination name contain spaces or other non-alphanumeric characters, you need to use the Lua table notation. For example: `[\"Evernote_Some Long Notebook Name\"] = { keybinding }`. At the moment only the Evernote handler supports multiple destinations.",
+        "examples": [],
         "file": "Source/UniversalArchive.spoon//init.lua",
-        "lineno": "182",
+        "lineno": "183",
         "name": "bindHotkeys",
+        "notes": [],
         "parameters": [
-          " * mapping - A table containing hotkey modifier/key details for the following items:",
-          "  * `archive` - hotkey for trigger the `universalArchive()` method, to archive the current item on the current application.",
-          "  * `<app>_<dest>` - if an application handler supports multiple destinations, you can specify hotkeys for specific destinations using this format. For example, to assign a hotkey that files the current note in Evernote to the \"MyProject\" notebook using Ctrl-Alt-Cmd-M, you would specify `Evernote_MyProject = { { \"ctrl\", \"alt\", \"cmd\" }, \"m\" }` as one of the elements of `mapping`. Keep in mind that the application name must appear exactly as the system sees it (including upper/lowercase), and that if either the application or the destination name contain spaces or other non-alphanumeric characters, you need to use the Lua table notation. For example: `[\"Evernote_Some Long Notebook Name\"] = { keybinding }`. At the moment only the Evernote handler supports multiple destinations."
+          " * mapping - A table containing hotkey modifier/key details for the following items:\n   * `archive` - hotkey for trigger the `universalArchive()` method, to archive the current item on the current application.\n   * `<app>_<dest>` - if an application handler supports multiple destinations, you can specify hotkeys for specific destinations using this format. For example, to assign a hotkey that files the current note in Evernote to the \"MyProject\" notebook using Ctrl-Alt-Cmd-M, you would specify `Evernote_MyProject = { { \"ctrl\", \"alt\", \"cmd\" }, \"m\" }` as one of the elements of `mapping`. Keep in mind that the application name must appear exactly as the system sees it (including upper/lowercase), and that if either the application or the destination name contain spaces or other non-alphanumeric characters, you need to use the Lua table notation. For example: `[\"Evernote_Some Long Notebook Name\"] = { keybinding }`. At the moment only the Evernote handler supports multiple destinations."
         ],
+        "returns": [],
         "signature": "UniversalArchive:bindHotkeys(mapping)",
         "stripped_doc": "",
         "type": "Method"
@@ -219,25 +240,33 @@
       },
       {
         "def": "UniversalArchive.evernote_delay_before_typing",
-        "desc": "In Evernote, archive is done by selectin \"Move note\" and then",
-        "doc": "In Evernote, archive is done by selectin \"Move note\" and then\nsimulating typing of the notebook name. A short pause in between\nmakes it more reliable for Evernote to recognize the notebook name\ncorrectly. This variable controls how much to wait, in seconds.\nDo not change this unless you know what you are doing",
+        "desc": "A short pause to make typing into Evernote more reliable",
+        "doc": "A short pause to make typing into Evernote more reliable\n\nNotes:\n * In Evernote, archive is done by selectin \"Move note\" and then simulating typing of the notebook name. A short pause in between makes it more reliable for Evernote to recognize the notebook name correctly.\n * This variable controls how much to wait, in seconds.\n * Do not change this unless you know what you are doing",
         "file": "Source/UniversalArchive.spoon//init.lua",
         "lineno": "51",
         "name": "evernote_delay_before_typing",
+        "notes": [
+          " * In Evernote, archive is done by selectin \"Move note\" and then simulating typing of the notebook name. A short pause in between makes it more reliable for Evernote to recognize the notebook name correctly.",
+          " * This variable controls how much to wait, in seconds.",
+          " * Do not change this unless you know what you are doing"
+        ],
         "signature": "UniversalArchive.evernote_delay_before_typing",
-        "stripped_doc": "simulating typing of the notebook name. A short pause in between\nmakes it more reliable for Evernote to recognize the notebook name\ncorrectly. This variable controls how much to wait, in seconds.\nDo not change this unless you know what you are doing",
+        "stripped_doc": "",
         "type": "Variable"
       },
       {
         "def": "UniversalArchive:evernoteArchive(where)",
         "desc": "Archive current note in Evernote.",
         "doc": "Archive current note in Evernote.\n\nParameters:\n * where - destination notebook. Defaults to the value of `UniversalArchive.evernote_archive_notebook`.",
+        "examples": [],
         "file": "Source/UniversalArchive.spoon//init.lua",
-        "lineno": "60",
+        "lineno": "61",
         "name": "evernoteArchive",
+        "notes": [],
         "parameters": [
           " * where - destination notebook. Defaults to the value of `UniversalArchive.evernote_archive_notebook`."
         ],
+        "returns": [],
         "signature": "UniversalArchive:evernoteArchive(where)",
         "stripped_doc": "",
         "type": "Method"
@@ -257,12 +286,15 @@
         "def": "UniversalArchive:mailArchive()",
         "desc": "Archive current message in Mail using the built-in Archive functionality",
         "doc": "Archive current message in Mail using the built-in Archive functionality\n\nParameters:\n * none",
+        "examples": [],
         "file": "Source/UniversalArchive.spoon//init.lua",
-        "lineno": "84",
+        "lineno": "85",
         "name": "mailArchive",
+        "notes": [],
         "parameters": [
           " * none"
         ],
+        "returns": [],
         "signature": "UniversalArchive:mailArchive()",
         "stripped_doc": "",
         "type": "Method"
@@ -282,8 +314,9 @@
         "def": "UniversalArchive:outlookArchive()",
         "desc": "Archive current message in Outlook using one of two methods:",
         "doc": "Archive current message in Outlook using one of two methods:\n\nParameters:\n * none\n\nNotes:\n * If the \"Message -> Archive\" menu item exists, it is used (this has been added in recent versions of Outlook)\n * Otherwise, the message gets manually moved to the folder specified in `UniversalArchive.outlook_archive_folder`. The folder has to appear in the Message -> Move submenu for this to work. Since this submenu only lists the last few destination folders, you have to move a message by hand the first time (or periodically if you don't archive very often).",
+        "examples": [],
         "file": "Source/UniversalArchive.spoon//init.lua",
-        "lineno": "120",
+        "lineno": "121",
         "name": "outlookArchive",
         "notes": [
           " * If the \"Message -> Archive\" menu item exists, it is used (this has been added in recent versions of Outlook)",
@@ -292,6 +325,7 @@
         "parameters": [
           " * none"
         ],
+        "returns": [],
         "signature": "UniversalArchive:outlookArchive()",
         "stripped_doc": "",
         "type": "Method"
@@ -300,15 +334,16 @@
         "def": "UniversalArchive:registerApplication(appname, fn)",
         "desc": "Register a handler function for an application.",
         "doc": "Register a handler function for an application.\n\nParameters:\n * appname - string containing the name of the application. If the application already has a handler, it will be replaced with the new one.\n * fn - handler function (to remove the handler for an application, use `nil`). The function receives the following arguments:\n   * self - the UniversalArchive object, so the handler can make use of all the object methods and variables.\n   * where - optional \"destination\" for the archive operation. Handlers must provide a default destination when `where == nil`. Destination doesn't make sense for all applications, so the implementation of this is optional and depending on the handler.",
+        "examples": [],
         "file": "Source/UniversalArchive.spoon//init.lua",
-        "lineno": "165",
+        "lineno": "166",
         "name": "registerApplication",
+        "notes": [],
         "parameters": [
           " * appname - string containing the name of the application. If the application already has a handler, it will be replaced with the new one.",
-          " * fn - handler function (to remove the handler for an application, use `nil`). The function receives the following arguments:",
-          "   * self - the UniversalArchive object, so the handler can make use of all the object methods and variables.",
-          "   * where - optional \"destination\" for the archive operation. Handlers must provide a default destination when `where == nil`. Destination doesn't make sense for all applications, so the implementation of this is optional and depending on the handler."
+          " * fn - handler function (to remove the handler for an application, use `nil`). The function receives the following arguments:\n   * self - the UniversalArchive object, so the handler can make use of all the object methods and variables.\n   * where - optional \"destination\" for the archive operation. Handlers must provide a default destination when `where == nil`. Destination doesn't make sense for all applications, so the implementation of this is optional and depending on the handler."
         ],
+        "returns": [],
         "signature": "UniversalArchive:registerApplication(appname, fn)",
         "stripped_doc": "",
         "type": "Method"
@@ -317,12 +352,15 @@
         "def": "UniversalArchive:sparkArchive()",
         "desc": "Archive current message in Spark using the built-in Archive functionality",
         "doc": "Archive current message in Spark using the built-in Archive functionality\n\nParameters:\n * none",
+        "examples": [],
         "file": "Source/UniversalArchive.spoon//init.lua",
-        "lineno": "102",
+        "lineno": "103",
         "name": "sparkArchive",
+        "notes": [],
         "parameters": [
           " * none"
         ],
+        "returns": [],
         "signature": "UniversalArchive:sparkArchive()",
         "stripped_doc": "",
         "type": "Method"
@@ -331,8 +369,9 @@
         "def": "UniversalArchive:universalArchive(where)",
         "desc": "Main entry point for archiving an item.",
         "doc": "Main entry point for archiving an item.\n\nParameters:\n * None\n\nNotes:\n * If a handler function is defined for the current application, it is called with the `UniversalArchive` object as its first argument, and the archive destination (if provided) as the second.\n * Handlers must have a \"default destination\" that gets used when no destination is provided. Not all handlers support specifying a destination. New handlers can be registered using the `registerApplication()` method.",
+        "examples": [],
         "file": "Source/UniversalArchive.spoon//init.lua",
-        "lineno": "142",
+        "lineno": "143",
         "name": "universalArchive",
         "notes": [
           " * If a handler function is defined for the current application, it is called with the `UniversalArchive` object as its first argument, and the archive destination (if provided) as the second.",
@@ -341,6 +380,7 @@
         "parameters": [
           " * None"
         ],
+        "returns": [],
         "signature": "UniversalArchive:universalArchive(where)",
         "stripped_doc": "",
         "type": "Method"
