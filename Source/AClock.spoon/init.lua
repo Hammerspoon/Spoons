@@ -82,8 +82,12 @@ function obj:init()
   return self
 end
 
+function obj:update_clock_text()
+  self.canvas[1].text = os.date(self.format)
+end
+
 function obj:tick_timer_fn()
-  return hs.timer.doEvery(1, function() self.canvas[1].text = os.date(self.format) end)
+  return hs.timer.doEvery(1, function() self:update_clock_text() end)
 end
 
 function obj:isShowing()
@@ -100,6 +104,7 @@ end
 --- Returns:
 ---  * The AClock object
 function obj:show()
+  self:update_clock_text()
   self.canvas:show()
   self.tick_timer = self:tick_timer_fn()
   if self.hotkey then

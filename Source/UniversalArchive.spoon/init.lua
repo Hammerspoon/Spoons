@@ -128,7 +128,7 @@ end
 --- Notes:
 ---  * If the "Message -> Archive" menu item exists, it is used (this has been added in recent versions of Outlook)
 ---  * Otherwise, the message gets manually moved to the folder specified in `UniversalArchive.outlook_archive_folder`. The folder has to appear in the Message -> Move submenu for this to work. Since this submenu only lists the last few destination folders, you have to move a message by hand the first time (or periodically if you don't archive very often).
--function obj:outlookArchive()
+function obj:outlookArchive()
    local outlook = hs.appfinder.appFromName("Microsoft Outlook")
    if outlook:selectMenuItem({"Message", "Archive"}) or outlook:selectMenuItem({"Message", "Move", self.outlook_archive_folder}) then
       if self.archive_notifications then

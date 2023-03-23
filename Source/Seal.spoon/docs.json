@@ -463,6 +463,7 @@
     "stripped_doc": "",
     "submodules": [
       "apps",
+      "filesearch",
       "pasteboard",
       "safari_bookmarks",
       "screencapture",
@@ -633,6 +634,103 @@
       }
     ],
     "name": "Seal.plugins.apps",
+    "stripped_doc": "",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [],
+    "Variable": [
+      {
+        "def": "Seal.plugins.filesearch.displayResultsTimeout",
+        "desc": "Maximum time to wait before displaying the results",
+        "doc": "Maximum time to wait before displaying the results\nDefaults to 0.2s (200ms).\n\nNotes:\n * higher value might give you more results but will give a less snappy experience",
+        "file": "Source/Seal.spoon//seal_filesearch.lua",
+        "lineno": "21",
+        "name": "displayResultsTimeout",
+        "notes": [
+          " * higher value might give you more results but will give a less snappy experience"
+        ],
+        "signature": "Seal.plugins.filesearch.displayResultsTimeout",
+        "stripped_doc": "Defaults to 0.2s (200ms).",
+        "type": "Variable"
+      },
+      {
+        "def": "Seal.plugins.filesearch.fileSearchPaths",
+        "desc": "Table containing the paths to search for files",
+        "doc": "Table containing the paths to search for files\n\nNotes:\n * You will need to authorize hammerspoon to access the folders in this list in order for this to work.",
+        "file": "Source/Seal.spoon//seal_filesearch.lua",
+        "lineno": "8",
+        "name": "fileSearchPaths",
+        "notes": [
+          " * You will need to authorize hammerspoon to access the folders in this list in order for this to work."
+        ],
+        "signature": "Seal.plugins.filesearch.fileSearchPaths",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "Seal.plugins.filesearch.maxResults",
+        "desc": "Maximum number of results to display",
+        "doc": "Maximum number of results to display",
+        "file": "Source/Seal.spoon//seal_filesearch.lua",
+        "lineno": "16",
+        "name": "maxResults",
+        "signature": "Seal.plugins.filesearch.maxResults",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "desc": "A plugin to add file search capabilities, making Seal act as a spotlight file search",
+    "doc": "A plugin to add file search capabilities, making Seal act as a spotlight file search",
+    "items": [
+      {
+        "def": "Seal.plugins.filesearch.displayResultsTimeout",
+        "desc": "Maximum time to wait before displaying the results",
+        "doc": "Maximum time to wait before displaying the results\nDefaults to 0.2s (200ms).\n\nNotes:\n * higher value might give you more results but will give a less snappy experience",
+        "file": "Source/Seal.spoon//seal_filesearch.lua",
+        "lineno": "21",
+        "name": "displayResultsTimeout",
+        "notes": [
+          " * higher value might give you more results but will give a less snappy experience"
+        ],
+        "signature": "Seal.plugins.filesearch.displayResultsTimeout",
+        "stripped_doc": "Defaults to 0.2s (200ms).",
+        "type": "Variable"
+      },
+      {
+        "def": "Seal.plugins.filesearch.fileSearchPaths",
+        "desc": "Table containing the paths to search for files",
+        "doc": "Table containing the paths to search for files\n\nNotes:\n * You will need to authorize hammerspoon to access the folders in this list in order for this to work.",
+        "file": "Source/Seal.spoon//seal_filesearch.lua",
+        "lineno": "8",
+        "name": "fileSearchPaths",
+        "notes": [
+          " * You will need to authorize hammerspoon to access the folders in this list in order for this to work."
+        ],
+        "signature": "Seal.plugins.filesearch.fileSearchPaths",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "Seal.plugins.filesearch.maxResults",
+        "desc": "Maximum number of results to display",
+        "doc": "Maximum number of results to display",
+        "file": "Source/Seal.spoon//seal_filesearch.lua",
+        "lineno": "16",
+        "name": "maxResults",
+        "signature": "Seal.plugins.filesearch.maxResults",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "name": "Seal.plugins.filesearch",
     "stripped_doc": "",
     "submodules": [],
     "type": "Module"

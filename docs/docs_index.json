@@ -57,6 +57,23 @@
     "type": "Method"
   },
   {
+    "desc": "macOS application aware, keyboard driven window switcher. Spoon ",
+    "name": "AppWindowSwitcher",
+    "type": "Module"
+  },
+  {
+    "desc": "Binds hotkeys for AppWindowSwitcher",
+    "module": "AppWindowSwitcher",
+    "name": "bindHotkeys",
+    "type": "Method"
+  },
+  {
+    "desc": "Set the log level of the spoon logger.",
+    "module": "AppWindowSwitcher",
+    "name": "setLogLevel",
+    "type": "Method"
+  },
+  {
     "desc": "Easily create, save, and use desktop arrangements.",
     "name": "ArrangeDesktop",
     "type": "Module"
@@ -415,6 +432,12 @@
     "desc": "Whether to remove duplicates from the list, keeping only the latest one. Defaults to `true`.",
     "module": "ClipboardTool",
     "name": "deduplicate",
+    "type": "Variable"
+  },
+  {
+    "desc": "Number of characters to which each clipboard item will be truncated, when displaying in the menu. This only truncates in display, the full content will be used for searching and for pasting.",
+    "module": "ClipboardTool",
+    "name": "display_max_length",
     "type": "Variable"
   },
   {
@@ -1757,6 +1780,83 @@
     "desc": "Stops the hs.eventtap that powers this Spoon",
     "module": "MusicAppMediaFix",
     "name": "stop",
+    "type": "Method"
+  },
+  {
+    "desc": "Control OBS and react to its events, via the obs-websocket plugin.",
+    "name": "OBS",
+    "type": "Module"
+  },
+  {
+    "desc": "A table of the possible values for the `eventSubscriptions` parameter to [OBS:init()](#init)",
+    "module": "OBS",
+    "name": "eventSubscriptionValues",
+    "type": "Constant"
+  },
+  {
+    "desc": "Controls how long to wait, in seconds, before attempting to reconnect to OBS. Defaults to `5`",
+    "module": "OBS",
+    "name": "reconnectDelay",
+    "type": "Variable"
+  },
+  {
+    "desc": "Controls whether the websocket connection should be re-established if it is lost. Defaults to `true`",
+    "module": "OBS",
+    "name": "shouldReconnect",
+    "type": "Variable"
+  },
+  {
+    "desc": "Adds an event subscription",
+    "module": "OBS",
+    "name": "addEventSubsciption",
+    "type": "Method"
+  },
+  {
+    "desc": "Initialisation method",
+    "module": "OBS",
+    "name": "init",
+    "type": "Method"
+  },
+  {
+    "desc": "Removes an event subscription",
+    "module": "OBS",
+    "name": "removeEventSubsciption",
+    "type": "Method"
+  },
+  {
+    "desc": "Sends a request to OBS",
+    "module": "OBS",
+    "name": "request",
+    "type": "Method"
+  },
+  {
+    "desc": "Sends a batch of requests to OBS",
+    "module": "OBS",
+    "name": "requestBatch",
+    "type": "Method"
+  },
+  {
+    "desc": "Sets the logging level for the OBS Spoon",
+    "module": "OBS",
+    "name": "setLogLevel",
+    "type": "Method"
+  },
+  {
+    "desc": "Connects to OBS",
+    "module": "OBS",
+    "name": "start",
+    "type": "Method"
+  },
+  {
+    "desc": "Disconnects from OBS",
+    "module": "OBS",
+    "name": "stop",
+    "type": "Method"
+  },
+  {
+    "desc": "Updates the event subscriptions",
+    "module": "OBS",
+    "name": "updateEventSubscriptions",
     "type": "Method"
   },
   {
@@ -3112,19 +3212,31 @@
     "type": "Variable"
   },
   {
-    "desc": "Bundle ID for default URL handler. (Defaults to `\"com.apple.Safari\"`)",
+    "desc": "Default URL handler (Defaults to `\"com.apple.Safari\"`)",
     "module": "URLDispatcher",
     "name": "default_handler",
     "type": "Variable"
   },
   {
-    "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+    "desc": "Logger object used within the Spoon. Can be accessed to set the default log",
     "module": "URLDispatcher",
     "name": "logger",
     "type": "Variable"
   },
   {
-    "desc": "If true, URLDispatcher set itself as system handler for http requests. Defaults to `true`",
+    "desc": "Internal variable containing a table where the pattern lists read from files are kept indexed by file name, and automatically updated.",
+    "module": "URLDispatcher",
+    "name": "pat_files",
+    "type": "Variable"
+  },
+  {
+    "desc": "Internal variable containing a table where the watchers for the pattern files are kept indexed by file name.",
+    "module": "URLDispatcher",
+    "name": "pat_watchers",
+    "type": "Variable"
+  },
+  {
+    "desc": "If true, URLDispatcher sets itself as system handler for http requests.",
     "module": "URLDispatcher",
     "name": "set_system_handler",
     "type": "Variable"
@@ -3136,7 +3248,7 @@
     "type": "Variable"
   },
   {
-    "desc": "List containing optional additional redirection decoders (other",
+    "desc": "URL redirection decoders. Default value: empty list",
     "module": "URLDispatcher",
     "name": "url_redir_decoders",
     "type": "Variable"

@@ -1,0 +1,111 @@
+[
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
+        "def": "AppWindowSwitcher:bindHotkeys(mapping) -> self",
+        "desc": "Binds hotkeys for AppWindowSwitcher",
+        "doc": "Binds hotkeys for AppWindowSwitcher\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for each application to manage \n\nNotes:\nThe mapping table accepts these formats per table element:\n* A single text to match:\n  `[\"<matchtext>\"] = {mods, key}` \n* A list of texts, to assign multiple applications to one hotkey:\n  `[{\"<matchtext>\", \"<matchtext>\", ...}] = {mods, key}`\n* `<matchtext>` can be either a bundleID, or a text which is substring matched against a windows application title start. \n\nReturns:\n * The AppWindowSwitcher object",
+        "examples": [],
+        "file": "Source/AppWindowSwitcher.spoon//init.lua",
+        "lineno": "94",
+        "name": "bindHotkeys",
+        "notes": [
+          "The mapping table accepts these formats per table element:",
+          "* A single text to match:",
+          "  `[\"<matchtext>\"] = {mods, key}` ",
+          "* A list of texts, to assign multiple applications to one hotkey:",
+          "  `[{\"<matchtext>\", \"<matchtext>\", ...}] = {mods, key}`",
+          "* `<matchtext>` can be either a bundleID, or a text which is substring matched against a windows application title start. "
+        ],
+        "parameters": [
+          " * mapping - A table containing hotkey modifier/key details for each application to manage"
+        ],
+        "returns": [
+          " * The AppWindowSwitcher object"
+        ],
+        "signature": "AppWindowSwitcher:bindHotkeys(mapping) -> self",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "AppWindowSwitcher:setLogLevel(level) -> self",
+        "desc": "Set the log level of the spoon logger.",
+        "doc": "Set the log level of the spoon logger.\n\nParameters:\n * Log level - `\"debug\"` to enable console debug output\n\nReturns:\n * The AppWindowSwitcher object",
+        "examples": [],
+        "file": "Source/AppWindowSwitcher.spoon//init.lua",
+        "lineno": "153",
+        "name": "setLogLevel",
+        "notes": [],
+        "parameters": [
+          " * Log level - `\"debug\"` to enable console debug output"
+        ],
+        "returns": [
+          " * The AppWindowSwitcher object"
+        ],
+        "signature": "AppWindowSwitcher:setLogLevel(level) -> self",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [],
+    "desc": "macOS application aware, keyboard driven window switcher. Spoon ",
+    "doc": "macOS application aware, keyboard driven window switcher. Spoon \non top of Hammerspoon.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/AppWindowSwitcher.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/AppWindowSwitcher.spoon.zip)\n\nSwitches windows by focusing and raising them. All windows matching a \nbundelID, a list of bundleID's, an application name matchtext, \nor a list of application name matchtexts are switched by cycling \nthem. Cycling applies to visible windows of currently focused space \nonly. The spoon does not launch applications, it operates on open \nwindows of running applications.\n\nExample `~/.hammerspoon/init.lua` configuration:\n\n```\nhs.loadSpoon(\"AppWindowSwitcher\")\n    -- :setLogLevel(\"debug\") -- uncomment for console debug log\n    :bindHotkeys({\n        [\"com.apple.Terminal\"]        = {hyper, \"t\"},\n        [{\"com.apple.Safari\",\n          \"com.google.Chrome\",\n          \"com.kagi.kagimacOS\",\n          \"com.microsoft.edgemac\", \n          \"org.mozilla.firefox\"}]     = {hyper, \"q\"},\n        [\"Hammerspoon\"]               = {hyper, \"h\"},\n        [{\"O\", \"o\"}]                  = {hyper, \"o\"},\n    })\n```\nIn this example, \n* `hyper-t` cycles all terminal windows (matching a single bundleID),\n* `hyper-q` cycles all windows of the five browsers (matching either \n  of the bundleIDs)\n* `hyper-h` brings the Hammerspoon console forward (matching the \n  application title),\n* `hyper-o` cycles all windows whose application title starts \n  with \"O\" or \"o\".\n\nThe cycling logic works as follows:\n* If the focused window is part of the application matching a hotkey,\n  then the last window (in terms of macOS windows stacking) of the matching \n  application(s) will be brought forward and focused.\n* If the focused window is not part of the application matching a\n  hotkey, then the first window (in terms of macOS windows stacking) i\n  of the matching applications will be brought forward and focused.",
+    "items": [
+      {
+        "def": "AppWindowSwitcher:bindHotkeys(mapping) -> self",
+        "desc": "Binds hotkeys for AppWindowSwitcher",
+        "doc": "Binds hotkeys for AppWindowSwitcher\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for each application to manage \n\nNotes:\nThe mapping table accepts these formats per table element:\n* A single text to match:\n  `[\"<matchtext>\"] = {mods, key}` \n* A list of texts, to assign multiple applications to one hotkey:\n  `[{\"<matchtext>\", \"<matchtext>\", ...}] = {mods, key}`\n* `<matchtext>` can be either a bundleID, or a text which is substring matched against a windows application title start. \n\nReturns:\n * The AppWindowSwitcher object",
+        "examples": [],
+        "file": "Source/AppWindowSwitcher.spoon//init.lua",
+        "lineno": "94",
+        "name": "bindHotkeys",
+        "notes": [
+          "The mapping table accepts these formats per table element:",
+          "* A single text to match:",
+          "  `[\"<matchtext>\"] = {mods, key}` ",
+          "* A list of texts, to assign multiple applications to one hotkey:",
+          "  `[{\"<matchtext>\", \"<matchtext>\", ...}] = {mods, key}`",
+          "* `<matchtext>` can be either a bundleID, or a text which is substring matched against a windows application title start. "
+        ],
+        "parameters": [
+          " * mapping - A table containing hotkey modifier/key details for each application to manage"
+        ],
+        "returns": [
+          " * The AppWindowSwitcher object"
+        ],
+        "signature": "AppWindowSwitcher:bindHotkeys(mapping) -> self",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "AppWindowSwitcher:setLogLevel(level) -> self",
+        "desc": "Set the log level of the spoon logger.",
+        "doc": "Set the log level of the spoon logger.\n\nParameters:\n * Log level - `\"debug\"` to enable console debug output\n\nReturns:\n * The AppWindowSwitcher object",
+        "examples": [],
+        "file": "Source/AppWindowSwitcher.spoon//init.lua",
+        "lineno": "153",
+        "name": "setLogLevel",
+        "notes": [],
+        "parameters": [
+          " * Log level - `\"debug\"` to enable console debug output"
+        ],
+        "returns": [
+          " * The AppWindowSwitcher object"
+        ],
+        "signature": "AppWindowSwitcher:setLogLevel(level) -> self",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "name": "AppWindowSwitcher",
+    "stripped_doc": "on top of Hammerspoon.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/AppWindowSwitcher.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/AppWindowSwitcher.spoon.zip)\n\nSwitches windows by focusing and raising them. All windows matching a \nbundelID, a list of bundleID's, an application name matchtext, \nor a list of application name matchtexts are switched by cycling \nthem. Cycling applies to visible windows of currently focused space \nonly. The spoon does not launch applications, it operates on open \nwindows of running applications.\n\nExample `~/.hammerspoon/init.lua` configuration:\n\n```\nhs.loadSpoon(\"AppWindowSwitcher\")\n    -- :setLogLevel(\"debug\") -- uncomment for console debug log\n    :bindHotkeys({\n        [\"com.apple.Terminal\"]        = {hyper, \"t\"},\n        [{\"com.apple.Safari\",\n          \"com.google.Chrome\",\n          \"com.kagi.kagimacOS\",\n          \"com.microsoft.edgemac\", \n          \"org.mozilla.firefox\"}]     = {hyper, \"q\"},\n        [\"Hammerspoon\"]               = {hyper, \"h\"},\n        [{\"O\", \"o\"}]                  = {hyper, \"o\"},\n    })\n```\nIn this example, \n* `hyper-t` cycles all terminal windows (matching a single bundleID),\n* `hyper-q` cycles all windows of the five browsers (matching either \n  of the bundleIDs)\n* `hyper-h` brings the Hammerspoon console forward (matching the \n  application title),\n* `hyper-o` cycles all windows whose application title starts \n  with \"O\" or \"o\".\n\nThe cycling logic works as follows:\n* If the focused window is part of the application matching a hotkey,\n  then the last window (in terms of macOS windows stacking) of the matching \n  application(s) will be brought forward and focused.\n* If the focused window is not part of the application matching a\n  hotkey, then the first window (in terms of macOS windows stacking) i\n  of the matching applications will be brought forward and focused.",
+    "submodules": [],
+    "type": "Module"
+  }
+]

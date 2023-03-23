@@ -13,7 +13,7 @@
         "doc": "Hide AClock.\n\nParameters:\n * None\n\nReturns:\n * The AClock object",
         "examples": [],
         "file": "Source/AClock.spoon/init.lua",
-        "lineno": "111",
+        "lineno": "116",
         "name": "hide",
         "notes": [],
         "parameters": [
@@ -51,7 +51,7 @@
         "doc": "Show AClock.\n\nParameters:\n * None\n\nReturns:\n * The AClock object",
         "examples": [],
         "file": "Source/AClock.spoon/init.lua",
-        "lineno": "93",
+        "lineno": "97",
         "name": "show",
         "notes": [],
         "parameters": [
@@ -70,7 +70,7 @@
         "doc": "Show AClock for 4 seconds. If already showing, hide it.\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/AClock.spoon/init.lua",
-        "lineno": "127",
+        "lineno": "132",
         "name": "toggleShow",
         "notes": [],
         "parameters": [
@@ -87,7 +87,7 @@
         "doc": "Show AClock. If already showing, hide it.\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/AClock.spoon/init.lua",
-        "lineno": "149",
+        "lineno": "154",
         "name": "toggleShowPersistent",
         "notes": [],
         "parameters": [
@@ -109,7 +109,7 @@
         "doc": "Hide AClock.\n\nParameters:\n * None\n\nReturns:\n * The AClock object",
         "examples": [],
         "file": "Source/AClock.spoon/init.lua",
-        "lineno": "111",
+        "lineno": "116",
         "name": "hide",
         "notes": [],
         "parameters": [
@@ -147,7 +147,7 @@
         "doc": "Show AClock.\n\nParameters:\n * None\n\nReturns:\n * The AClock object",
         "examples": [],
         "file": "Source/AClock.spoon/init.lua",
-        "lineno": "93",
+        "lineno": "97",
         "name": "show",
         "notes": [],
         "parameters": [
@@ -166,7 +166,7 @@
         "doc": "Show AClock for 4 seconds. If already showing, hide it.\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/AClock.spoon/init.lua",
-        "lineno": "127",
+        "lineno": "132",
         "name": "toggleShow",
         "notes": [],
         "parameters": [
@@ -183,7 +183,7 @@
         "doc": "Show AClock. If already showing, hide it.\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/AClock.spoon/init.lua",
-        "lineno": "149",
+        "lineno": "154",
         "name": "toggleShowPersistent",
         "notes": [],
         "parameters": [
@@ -296,6 +296,115 @@
     ],
     "name": "AppLauncher",
     "stripped_doc": "\nExample configuration using SpoonInstall.spoon:\n```\nspoon.SpoonInstall:andUse(\"AppLauncher\", {\n  hotkeys = {\n    c = \"Calendar\",\n    d = \"Discord\",\n    f = \"Firefox Developer Edition\",\n    n = \"Notes\",\n    p = \"1Password 7\",\n    r = \"Reeder\",\n    t = \"Kitty\",\n    z = \"Zoom.us\",\n  }\n})\n```\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/AppLauncher.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/AppLauncher.spoon.zip)",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
+        "def": "AppWindowSwitcher:bindHotkeys(mapping) -> self",
+        "desc": "Binds hotkeys for AppWindowSwitcher",
+        "doc": "Binds hotkeys for AppWindowSwitcher\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for each application to manage \n\nNotes:\nThe mapping table accepts these formats per table element:\n* A single text to match:\n  `[\"<matchtext>\"] = {mods, key}` \n* A list of texts, to assign multiple applications to one hotkey:\n  `[{\"<matchtext>\", \"<matchtext>\", ...}] = {mods, key}`\n* `<matchtext>` can be either a bundleID, or a text which is substring matched against a windows application title start. \n\nReturns:\n * The AppWindowSwitcher object",
+        "examples": [],
+        "file": "Source/AppWindowSwitcher.spoon/init.lua",
+        "lineno": "94",
+        "name": "bindHotkeys",
+        "notes": [
+          "The mapping table accepts these formats per table element:",
+          "* A single text to match:",
+          "  `[\"<matchtext>\"] = {mods, key}` ",
+          "* A list of texts, to assign multiple applications to one hotkey:",
+          "  `[{\"<matchtext>\", \"<matchtext>\", ...}] = {mods, key}`",
+          "* `<matchtext>` can be either a bundleID, or a text which is substring matched against a windows application title start. "
+        ],
+        "parameters": [
+          " * mapping - A table containing hotkey modifier/key details for each application to manage"
+        ],
+        "returns": [
+          " * The AppWindowSwitcher object"
+        ],
+        "signature": "AppWindowSwitcher:bindHotkeys(mapping) -> self",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "AppWindowSwitcher:setLogLevel(level) -> self",
+        "desc": "Set the log level of the spoon logger.",
+        "doc": "Set the log level of the spoon logger.\n\nParameters:\n * Log level - `\"debug\"` to enable console debug output\n\nReturns:\n * The AppWindowSwitcher object",
+        "examples": [],
+        "file": "Source/AppWindowSwitcher.spoon/init.lua",
+        "lineno": "153",
+        "name": "setLogLevel",
+        "notes": [],
+        "parameters": [
+          " * Log level - `\"debug\"` to enable console debug output"
+        ],
+        "returns": [
+          " * The AppWindowSwitcher object"
+        ],
+        "signature": "AppWindowSwitcher:setLogLevel(level) -> self",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [],
+    "desc": "macOS application aware, keyboard driven window switcher. Spoon ",
+    "doc": "macOS application aware, keyboard driven window switcher. Spoon \non top of Hammerspoon.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/AppWindowSwitcher.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/AppWindowSwitcher.spoon.zip)\n\nSwitches windows by focusing and raising them. All windows matching a \nbundelID, a list of bundleID's, an application name matchtext, \nor a list of application name matchtexts are switched by cycling \nthem. Cycling applies to visible windows of currently focused space \nonly. The spoon does not launch applications, it operates on open \nwindows of running applications.\n\nExample `~/.hammerspoon/init.lua` configuration:\n\n```\nhs.loadSpoon(\"AppWindowSwitcher\")\n    -- :setLogLevel(\"debug\") -- uncomment for console debug log\n    :bindHotkeys({\n        [\"com.apple.Terminal\"]        = {hyper, \"t\"},\n        [{\"com.apple.Safari\",\n          \"com.google.Chrome\",\n          \"com.kagi.kagimacOS\",\n          \"com.microsoft.edgemac\", \n          \"org.mozilla.firefox\"}]     = {hyper, \"q\"},\n        [\"Hammerspoon\"]               = {hyper, \"h\"},\n        [{\"O\", \"o\"}]                  = {hyper, \"o\"},\n    })\n```\nIn this example, \n* `hyper-t` cycles all terminal windows (matching a single bundleID),\n* `hyper-q` cycles all windows of the five browsers (matching either \n  of the bundleIDs)\n* `hyper-h` brings the Hammerspoon console forward (matching the \n  application title),\n* `hyper-o` cycles all windows whose application title starts \n  with \"O\" or \"o\".\n\nThe cycling logic works as follows:\n* If the focused window is part of the application matching a hotkey,\n  then the last window (in terms of macOS windows stacking) of the matching \n  application(s) will be brought forward and focused.\n* If the focused window is not part of the application matching a\n  hotkey, then the first window (in terms of macOS windows stacking) i\n  of the matching applications will be brought forward and focused.",
+    "items": [
+      {
+        "def": "AppWindowSwitcher:bindHotkeys(mapping) -> self",
+        "desc": "Binds hotkeys for AppWindowSwitcher",
+        "doc": "Binds hotkeys for AppWindowSwitcher\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for each application to manage \n\nNotes:\nThe mapping table accepts these formats per table element:\n* A single text to match:\n  `[\"<matchtext>\"] = {mods, key}` \n* A list of texts, to assign multiple applications to one hotkey:\n  `[{\"<matchtext>\", \"<matchtext>\", ...}] = {mods, key}`\n* `<matchtext>` can be either a bundleID, or a text which is substring matched against a windows application title start. \n\nReturns:\n * The AppWindowSwitcher object",
+        "examples": [],
+        "file": "Source/AppWindowSwitcher.spoon/init.lua",
+        "lineno": "94",
+        "name": "bindHotkeys",
+        "notes": [
+          "The mapping table accepts these formats per table element:",
+          "* A single text to match:",
+          "  `[\"<matchtext>\"] = {mods, key}` ",
+          "* A list of texts, to assign multiple applications to one hotkey:",
+          "  `[{\"<matchtext>\", \"<matchtext>\", ...}] = {mods, key}`",
+          "* `<matchtext>` can be either a bundleID, or a text which is substring matched against a windows application title start. "
+        ],
+        "parameters": [
+          " * mapping - A table containing hotkey modifier/key details for each application to manage"
+        ],
+        "returns": [
+          " * The AppWindowSwitcher object"
+        ],
+        "signature": "AppWindowSwitcher:bindHotkeys(mapping) -> self",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "AppWindowSwitcher:setLogLevel(level) -> self",
+        "desc": "Set the log level of the spoon logger.",
+        "doc": "Set the log level of the spoon logger.\n\nParameters:\n * Log level - `\"debug\"` to enable console debug output\n\nReturns:\n * The AppWindowSwitcher object",
+        "examples": [],
+        "file": "Source/AppWindowSwitcher.spoon/init.lua",
+        "lineno": "153",
+        "name": "setLogLevel",
+        "notes": [],
+        "parameters": [
+          " * Log level - `\"debug\"` to enable console debug output"
+        ],
+        "returns": [
+          " * The AppWindowSwitcher object"
+        ],
+        "signature": "AppWindowSwitcher:setLogLevel(level) -> self",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "name": "AppWindowSwitcher",
+    "stripped_doc": "on top of Hammerspoon.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/AppWindowSwitcher.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/AppWindowSwitcher.spoon.zip)\n\nSwitches windows by focusing and raising them. All windows matching a \nbundelID, a list of bundleID's, an application name matchtext, \nor a list of application name matchtexts are switched by cycling \nthem. Cycling applies to visible windows of currently focused space \nonly. The spoon does not launch applications, it operates on open \nwindows of running applications.\n\nExample `~/.hammerspoon/init.lua` configuration:\n\n```\nhs.loadSpoon(\"AppWindowSwitcher\")\n    -- :setLogLevel(\"debug\") -- uncomment for console debug log\n    :bindHotkeys({\n        [\"com.apple.Terminal\"]        = {hyper, \"t\"},\n        [{\"com.apple.Safari\",\n          \"com.google.Chrome\",\n          \"com.kagi.kagimacOS\",\n          \"com.microsoft.edgemac\", \n          \"org.mozilla.firefox\"}]     = {hyper, \"q\"},\n        [\"Hammerspoon\"]               = {hyper, \"h\"},\n        [{\"O\", \"o\"}]                  = {hyper, \"o\"},\n    })\n```\nIn this example, \n* `hyper-t` cycles all terminal windows (matching a single bundleID),\n* `hyper-q` cycles all windows of the five browsers (matching either \n  of the bundleIDs)\n* `hyper-h` brings the Hammerspoon console forward (matching the \n  application title),\n* `hyper-o` cycles all windows whose application title starts \n  with \"O\" or \"o\".\n\nThe cycling logic works as follows:\n* If the focused window is part of the application matching a hotkey,\n  then the last window (in terms of macOS windows stacking) of the matching \n  application(s) will be brought forward and focused.\n* If the focused window is not part of the application matching a\n  hotkey, then the first window (in terms of macOS windows stacking) i\n  of the matching applications will be brought forward and focused.",
     "submodules": [],
     "type": "Module"
   },
@@ -2418,7 +2527,7 @@
         "doc": "Binds hotkeys for ClipboardTool\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n  * show_clipboard - Display the clipboard history chooser\n  * toggle_clipboard - Show/hide the clipboard history chooser",
         "examples": [],
         "file": "Source/ClipboardTool.spoon/init.lua",
-        "lineno": "472",
+        "lineno": "482",
         "name": "bindHotkeys",
         "notes": [],
         "parameters": [
@@ -2435,7 +2544,7 @@
         "doc": "If the pasteboard has changed, we add the current item to our history and update the counter\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/ClipboardTool.spoon/init.lua",
-        "lineno": "375",
+        "lineno": "382",
         "name": "checkAndStorePasteboard",
         "notes": [],
         "parameters": [
@@ -2452,7 +2561,7 @@
         "doc": "Clears the clipboard and history\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/ClipboardTool.spoon/init.lua",
-        "lineno": "172",
+        "lineno": "177",
         "name": "clearAll",
         "notes": [],
         "parameters": [
@@ -2469,7 +2578,7 @@
         "doc": "Clears the last added to the history\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/ClipboardTool.spoon/init.lua",
-        "lineno": "185",
+        "lineno": "190",
         "name": "clearLastItem",
         "notes": [],
         "parameters": [
@@ -2486,7 +2595,7 @@
         "doc": "Add the given string to the history\n\nParameters:\n * item - string to add to the clipboard history\n\nReturns:\n * None",
         "examples": [],
         "file": "Source/ClipboardTool.spoon/init.lua",
-        "lineno": "213",
+        "lineno": "218",
         "name": "pasteboardToClipboard",
         "notes": [],
         "parameters": [
@@ -2505,7 +2614,7 @@
         "doc": "Verify whether the pasteboard contents matches one of the values in `ClipboardTool.ignoredIdentifiers`\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/ClipboardTool.spoon/init.lua",
-        "lineno": "335",
+        "lineno": "342",
         "name": "shouldBeStored",
         "notes": [],
         "parameters": [
@@ -2522,7 +2631,7 @@
         "doc": "Display the current clipboard list in a chooser\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/ClipboardTool.spoon/init.lua",
-        "lineno": "442",
+        "lineno": "452",
         "name": "showClipboard",
         "notes": [],
         "parameters": [
@@ -2539,7 +2648,7 @@
         "doc": "Start the clipboard history collector\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/ClipboardTool.spoon/init.lua",
-        "lineno": "419",
+        "lineno": "426",
         "name": "start",
         "notes": [],
         "parameters": [
@@ -2556,7 +2665,7 @@
         "doc": "Show/hide the clipboard list, depending on its current state\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/ClipboardTool.spoon/init.lua",
-        "lineno": "458",
+        "lineno": "468",
         "name": "toggleClipboard",
         "notes": [],
         "parameters": [
@@ -2573,7 +2682,7 @@
         "doc": "Toggle the value of `ClipboardTool.paste_on_select`\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/ClipboardTool.spoon/init.lua",
-        "lineno": "127",
+        "lineno": "132",
         "name": "togglePasteOnSelect",
         "notes": [],
         "parameters": [
@@ -2594,6 +2703,17 @@
         "lineno": "90",
         "name": "deduplicate",
         "signature": "ClipboardTool.deduplicate",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "ClipboardTool.display_max_length",
+        "desc": "Number of characters to which each clipboard item will be truncated, when displaying in the menu. This only truncates in display, the full content will be used for searching and for pasting.",
+        "doc": "Number of characters to which each clipboard item will be truncated, when displaying in the menu. This only truncates in display, the full content will be used for searching and for pasting.",
+        "file": "Source/ClipboardTool.spoon/init.lua",
+        "lineno": "105",
+        "name": "display_max_length",
+        "signature": "ClipboardTool.display_max_length",
         "stripped_doc": "",
         "type": "Variable"
       },
@@ -2742,7 +2862,7 @@
         "doc": "Binds hotkeys for ClipboardTool\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n  * show_clipboard - Display the clipboard history chooser\n  * toggle_clipboard - Show/hide the clipboard history chooser",
         "examples": [],
         "file": "Source/ClipboardTool.spoon/init.lua",
-        "lineno": "472",
+        "lineno": "482",
         "name": "bindHotkeys",
         "notes": [],
         "parameters": [
@@ -2759,7 +2879,7 @@
         "doc": "If the pasteboard has changed, we add the current item to our history and update the counter\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/ClipboardTool.spoon/init.lua",
-        "lineno": "375",
+        "lineno": "382",
         "name": "checkAndStorePasteboard",
         "notes": [],
         "parameters": [
@@ -2776,7 +2896,7 @@
         "doc": "Clears the clipboard and history\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/ClipboardTool.spoon/init.lua",
-        "lineno": "172",
+        "lineno": "177",
         "name": "clearAll",
         "notes": [],
         "parameters": [
@@ -2793,7 +2913,7 @@
         "doc": "Clears the last added to the history\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/ClipboardTool.spoon/init.lua",
-        "lineno": "185",
+        "lineno": "190",
         "name": "clearLastItem",
         "notes": [],
         "parameters": [
@@ -2812,6 +2932,17 @@
         "lineno": "90",
         "name": "deduplicate",
         "signature": "ClipboardTool.deduplicate",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "ClipboardTool.display_max_length",
+        "desc": "Number of characters to which each clipboard item will be truncated, when displaying in the menu. This only truncates in display, the full content will be used for searching and for pasting.",
+        "doc": "Number of characters to which each clipboard item will be truncated, when displaying in the menu. This only truncates in display, the full content will be used for searching and for pasting.",
+        "file": "Source/ClipboardTool.spoon/init.lua",
+        "lineno": "105",
+        "name": "display_max_length",
+        "signature": "ClipboardTool.display_max_length",
         "stripped_doc": "",
         "type": "Variable"
       },
@@ -2934,7 +3065,7 @@
         "doc": "Add the given string to the history\n\nParameters:\n * item - string to add to the clipboard history\n\nReturns:\n * None",
         "examples": [],
         "file": "Source/ClipboardTool.spoon/init.lua",
-        "lineno": "213",
+        "lineno": "218",
         "name": "pasteboardToClipboard",
         "notes": [],
         "parameters": [
@@ -2953,7 +3084,7 @@
         "doc": "Verify whether the pasteboard contents matches one of the values in `ClipboardTool.ignoredIdentifiers`\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/ClipboardTool.spoon/init.lua",
-        "lineno": "335",
+        "lineno": "342",
         "name": "shouldBeStored",
         "notes": [],
         "parameters": [
@@ -2992,7 +3123,7 @@
         "doc": "Display the current clipboard list in a chooser\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/ClipboardTool.spoon/init.lua",
-        "lineno": "442",
+        "lineno": "452",
         "name": "showClipboard",
         "notes": [],
         "parameters": [
@@ -3009,7 +3140,7 @@
         "doc": "Start the clipboard history collector\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/ClipboardTool.spoon/init.lua",
-        "lineno": "419",
+        "lineno": "426",
         "name": "start",
         "notes": [],
         "parameters": [
@@ -3026,7 +3157,7 @@
         "doc": "Show/hide the clipboard list, depending on its current state\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/ClipboardTool.spoon/init.lua",
-        "lineno": "458",
+        "lineno": "468",
         "name": "toggleClipboard",
         "notes": [],
         "parameters": [
@@ -3043,7 +3174,7 @@
         "doc": "Toggle the value of `ClipboardTool.paste_on_select`\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/ClipboardTool.spoon/init.lua",
-        "lineno": "127",
+        "lineno": "132",
         "name": "togglePasteOnSelect",
         "notes": [],
         "parameters": [
@@ -4052,7 +4183,7 @@
         "doc": "Binds hotkeys for EjectMenu\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n * ejectAll - eject all volumes.",
         "examples": [],
         "file": "Source/EjectMenu.spoon/init.lua",
-        "lineno": "215",
+        "lineno": "217",
         "name": "bindHotkeys",
         "notes": [],
         "parameters": [
@@ -4070,7 +4201,7 @@
         "doc": "Eject all volumes\n\nParameters:\n * persistent_notifs: a boolean indicating whether notifications (if shown) should be persistent.",
         "examples": [],
         "file": "Source/EjectMenu.spoon/init.lua",
-        "lineno": "123",
+        "lineno": "125",
         "name": "ejectVolumes",
         "notes": [],
         "parameters": [
@@ -4087,7 +4218,7 @@
         "doc": "Determine if a volume should be ejected.\n\nParameters:\n * path - the mount path of the volume.\n * info - a table containing a data structure as returned by `hs.fs.volume.allVolumes()`.\n\nReturns:\n * A boolean indicating whether the volume should be ejected.",
         "examples": [],
         "file": "Source/EjectMenu.spoon/init.lua",
-        "lineno": "70",
+        "lineno": "72",
         "name": "shouldEject",
         "notes": [],
         "parameters": [
@@ -4107,7 +4238,7 @@
         "doc": "Start the watchers for power events and screen changes, to trigger volume ejection.\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/EjectMenu.spoon/init.lua",
-        "lineno": "241",
+        "lineno": "243",
         "name": "start",
         "notes": [],
         "parameters": [
@@ -4124,7 +4255,7 @@
         "doc": "Stop the watchers\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/EjectMenu.spoon/init.lua",
-        "lineno": "283",
+        "lineno": "285",
         "name": "stop",
         "notes": [],
         "parameters": [
@@ -4141,7 +4272,7 @@
         "doc": "Return table of volumes to be ejected when \"Eject All\" is invoked.\n\nParameters:\n * None\n\nReturns:\n * A table in the same format as returned by `hs.fs.volume.allVolumes()` but containing only those volumes for which `EjectMenu:shouldEject()` returns `true`.\n * An integer indicating how many volumes are in the table.",
         "examples": [],
         "file": "Source/EjectMenu.spoon/init.lua",
-        "lineno": "85",
+        "lineno": "87",
         "name": "volumesToEject",
         "notes": [],
         "parameters": [
@@ -4162,7 +4293,7 @@
         "desc": "Boolean, whether to eject volumes when the laptop lid is closed with an external display connected.",
         "doc": "Boolean, whether to eject volumes when the laptop lid is closed with an external display connected.\n\nNotes:\n * There is no \"lid close\" event, so we detect when the internal display gets disabled.\n * This method is somewhat unreliable (e.g. it also triggers when the internal display goes to sleep due to inactivity), so its default value is `false`",
         "file": "Source/EjectMenu.spoon/init.lua",
-        "lineno": "48",
+        "lineno": "50",
         "name": "eject_on_lid_close",
         "notes": [
           " * There is no \"lid close\" event, so we detect when the internal display gets disabled.",
@@ -4177,7 +4308,7 @@
         "desc": "Boolean, whether to eject volumes before the system goes to sleep. Default value: true",
         "doc": "Boolean, whether to eject volumes before the system goes to sleep. Default value: true",
         "file": "Source/EjectMenu.spoon/init.lua",
-        "lineno": "43",
+        "lineno": "45",
         "name": "eject_on_sleep",
         "signature": "EjectMenu.eject_on_sleep",
         "stripped_doc": "",
@@ -4188,7 +4319,7 @@
         "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "file": "Source/EjectMenu.spoon/init.lua",
-        "lineno": "28",
+        "lineno": "30",
         "name": "logger",
         "signature": "EjectMenu.logger",
         "stripped_doc": "",
@@ -4199,7 +4330,7 @@
         "desc": "List containing volume paths that should never be ejected. Default value: empty list",
         "doc": "List containing volume paths that should never be ejected. Default value: empty list",
         "file": "Source/EjectMenu.spoon/init.lua",
-        "lineno": "33",
+        "lineno": "35",
         "name": "never_eject",
         "signature": "EjectMenu.never_eject",
         "stripped_doc": "",
@@ -4210,7 +4341,7 @@
         "desc": "Boolean, whether to produce a notification about the volumes that get ejected. Default value: `false`",
         "doc": "Boolean, whether to produce a notification about the volumes that get ejected. Default value: `false`",
         "file": "Source/EjectMenu.spoon/init.lua",
-        "lineno": "38",
+        "lineno": "40",
         "name": "notify",
         "signature": "EjectMenu.notify",
         "stripped_doc": "",
@@ -4221,7 +4352,7 @@
         "desc": "List of additional system events on which the volumes should be ejected.",
         "doc": "List of additional system events on which the volumes should be ejected.\n\nNotes:\n * The values must be [http://www.hammerspoon.org/docs/hs.caffeinate.watcher.html](`hs.caffeinate.watcher`) constant values. Default value: empty list",
         "file": "Source/EjectMenu.spoon/init.lua",
-        "lineno": "62",
+        "lineno": "64",
         "name": "other_eject_events",
         "notes": [
           " * The values must be [http://www.hammerspoon.org/docs/hs.caffeinate.watcher.html](`hs.caffeinate.watcher`) constant values. Default value: empty list"
@@ -4235,7 +4366,7 @@
         "desc": "Boolean, whether to show a menubar button to eject all drives. Default value: true",
         "doc": "Boolean, whether to show a menubar button to eject all drives. Default value: true",
         "file": "Source/EjectMenu.spoon/init.lua",
-        "lineno": "57",
+        "lineno": "59",
         "name": "show_in_menubar",
         "signature": "EjectMenu.show_in_menubar",
         "stripped_doc": "",
@@ -4243,7 +4374,7 @@
       }
     ],
     "desc": "A much-needed eject menu for your Mac menu bar. Allows ejecting",
-    "doc": "A much-needed eject menu for your Mac menu bar. Allows ejecting\nindividual or all non-internal disks. Ejection can also be\ntriggered on sleep, on lid close, or using a hotkey.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/EjectMenu.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/EjectMenu.spoon.zip)",
+    "doc": "A much-needed eject menu for your Mac menu bar. Allows ejecting\nindividual or all non-internal disks. Ejection can also be\ntriggered on sleep, on lid close, or using a hotkey.\nUsing the Command key modifier causes the menu to open\nthe given volume in the Finder instead of ejecting it.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/EjectMenu.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/EjectMenu.spoon.zip)",
     "items": [
       {
         "def": "EjectMenu:bindHotkeys(mapping, ejectAll)",
@@ -4251,7 +4382,7 @@
         "doc": "Binds hotkeys for EjectMenu\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n * ejectAll - eject all volumes.",
         "examples": [],
         "file": "Source/EjectMenu.spoon/init.lua",
-        "lineno": "215",
+        "lineno": "217",
         "name": "bindHotkeys",
         "notes": [],
         "parameters": [
@@ -4268,7 +4399,7 @@
         "desc": "Boolean, whether to eject volumes when the laptop lid is closed with an external display connected.",
         "doc": "Boolean, whether to eject volumes when the laptop lid is closed with an external display connected.\n\nNotes:\n * There is no \"lid close\" event, so we detect when the internal display gets disabled.\n * This method is somewhat unreliable (e.g. it also triggers when the internal display goes to sleep due to inactivity), so its default value is `false`",
         "file": "Source/EjectMenu.spoon/init.lua",
-        "lineno": "48",
+        "lineno": "50",
         "name": "eject_on_lid_close",
         "notes": [
           " * There is no \"lid close\" event, so we detect when the internal display gets disabled.",
@@ -4283,7 +4414,7 @@
         "desc": "Boolean, whether to eject volumes before the system goes to sleep. Default value: true",
         "doc": "Boolean, whether to eject volumes before the system goes to sleep. Default value: true",
         "file": "Source/EjectMenu.spoon/init.lua",
-        "lineno": "43",
+        "lineno": "45",
         "name": "eject_on_sleep",
         "signature": "EjectMenu.eject_on_sleep",
         "stripped_doc": "",
@@ -4295,7 +4426,7 @@
         "doc": "Eject all volumes\n\nParameters:\n * persistent_notifs: a boolean indicating whether notifications (if shown) should be persistent.",
         "examples": [],
         "file": "Source/EjectMenu.spoon/init.lua",
-        "lineno": "123",
+        "lineno": "125",
         "name": "ejectVolumes",
         "notes": [],
         "parameters": [
@@ -4311,7 +4442,7 @@
         "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "file": "Source/EjectMenu.spoon/init.lua",
-        "lineno": "28",
+        "lineno": "30",
         "name": "logger",
         "signature": "EjectMenu.logger",
         "stripped_doc": "",
@@ -4322,7 +4453,7 @@
         "desc": "List containing volume paths that should never be ejected. Default value: empty list",
         "doc": "List containing volume paths that should never be ejected. Default value: empty list",
         "file": "Source/EjectMenu.spoon/init.lua",
-        "lineno": "33",
+        "lineno": "35",
         "name": "never_eject",
         "signature": "EjectMenu.never_eject",
         "stripped_doc": "",
@@ -4333,7 +4464,7 @@
         "desc": "Boolean, whether to produce a notification about the volumes that get ejected. Default value: `false`",
         "doc": "Boolean, whether to produce a notification about the volumes that get ejected. Default value: `false`",
         "file": "Source/EjectMenu.spoon/init.lua",
-        "lineno": "38",
+        "lineno": "40",
         "name": "notify",
         "signature": "EjectMenu.notify",
         "stripped_doc": "",
@@ -4344,7 +4475,7 @@
         "desc": "List of additional system events on which the volumes should be ejected.",
         "doc": "List of additional system events on which the volumes should be ejected.\n\nNotes:\n * The values must be [http://www.hammerspoon.org/docs/hs.caffeinate.watcher.html](`hs.caffeinate.watcher`) constant values. Default value: empty list",
         "file": "Source/EjectMenu.spoon/init.lua",
-        "lineno": "62",
+        "lineno": "64",
         "name": "other_eject_events",
         "notes": [
           " * The values must be [http://www.hammerspoon.org/docs/hs.caffeinate.watcher.html](`hs.caffeinate.watcher`) constant values. Default value: empty list"
@@ -4359,7 +4490,7 @@
         "doc": "Determine if a volume should be ejected.\n\nParameters:\n * path - the mount path of the volume.\n * info - a table containing a data structure as returned by `hs.fs.volume.allVolumes()`.\n\nReturns:\n * A boolean indicating whether the volume should be ejected.",
         "examples": [],
         "file": "Source/EjectMenu.spoon/init.lua",
-        "lineno": "70",
+        "lineno": "72",
         "name": "shouldEject",
         "notes": [],
         "parameters": [
@@ -4378,7 +4509,7 @@
         "desc": "Boolean, whether to show a menubar button to eject all drives. Default value: true",
         "doc": "Boolean, whether to show a menubar button to eject all drives. Default value: true",
         "file": "Source/EjectMenu.spoon/init.lua",
-        "lineno": "57",
+        "lineno": "59",
         "name": "show_in_menubar",
         "signature": "EjectMenu.show_in_menubar",
         "stripped_doc": "",
@@ -4390,7 +4521,7 @@
         "doc": "Start the watchers for power events and screen changes, to trigger volume ejection.\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/EjectMenu.spoon/init.lua",
-        "lineno": "241",
+        "lineno": "243",
         "name": "start",
         "notes": [],
         "parameters": [
@@ -4407,7 +4538,7 @@
         "doc": "Stop the watchers\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/EjectMenu.spoon/init.lua",
-        "lineno": "283",
+        "lineno": "285",
         "name": "stop",
         "notes": [],
         "parameters": [
@@ -4424,7 +4555,7 @@
         "doc": "Return table of volumes to be ejected when \"Eject All\" is invoked.\n\nParameters:\n * None\n\nReturns:\n * A table in the same format as returned by `hs.fs.volume.allVolumes()` but containing only those volumes for which `EjectMenu:shouldEject()` returns `true`.\n * An integer indicating how many volumes are in the table.",
         "examples": [],
         "file": "Source/EjectMenu.spoon/init.lua",
-        "lineno": "85",
+        "lineno": "87",
         "name": "volumesToEject",
         "notes": [],
         "parameters": [
@@ -4440,7 +4571,7 @@
       }
     ],
     "name": "EjectMenu",
-    "stripped_doc": "individual or all non-internal disks. Ejection can also be\ntriggered on sleep, on lid close, or using a hotkey.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/EjectMenu.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/EjectMenu.spoon.zip)",
+    "stripped_doc": "individual or all non-internal disks. Ejection can also be\ntriggered on sleep, on lid close, or using a hotkey.\nUsing the Command key modifier causes the menu to open\nthe given volume in the Finder instead of ejecting it.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/EjectMenu.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/EjectMenu.spoon.zip)",
     "submodules": [],
     "type": "Module"
   },
@@ -4454,10 +4585,10 @@
     "Method": [],
     "Variable": [],
     "desc": "Thie plugin generates EmmyLua annotations for Hammerspoon and any installed Spoons",
-    "doc": "Thie plugin generates EmmyLua annotations for Hammerspoon and any installed Spoons\nunder ~/.hammerspoon/Spoons/EmmyLua.spoon/annotations.\nAnnotations will only be generated if they don't exist yet or are out of date.\n\nIn order to get auto completion in your editor, you need to have one of the following LSP servers properly configured:\n* [lua-language-server](https://github.com/sumneko/lua-language-server) (recommended)\n* [EmmyLua-LanguageServer](https://github.com/EmmyLua/EmmyLua-LanguageServer)\n\nTo start using this annotations library, add the annotations folder to your workspace.\nfor lua-languag-server:\n\n```json\n{\n  \"Lua.workspace.library\": [\"/Users/YOUR_USERNAME/.hammerspoon/Spoons/EmmyLua.spoon/annotations\"]\n}\n```\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/EmmyLua.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/EmmyLua.spoon.zip)",
+    "doc": "Thie plugin generates EmmyLua annotations for Hammerspoon and any installed Spoons\nunder ~/.hammerspoon/Spoons/EmmyLua.spoon/annotations.\nAnnotations will only be generated if they don't exist yet or are out of date.\n\nNote: Load this Spoon before any pathwatchers are defined to avoid unintended behaviour (for example multiple reloads when the annotions are created).\n\nIn order to get auto completion in your editor, you need to have one of the following LSP servers properly configured:\n* [lua-language-server](https://github.com/sumneko/lua-language-server) (recommended)\n* [EmmyLua-LanguageServer](https://github.com/EmmyLua/EmmyLua-LanguageServer)\n\nTo start using this annotations library, add the annotations folder to your workspace.\nfor lua-languag-server:\n\n```json\n{\n  \"Lua.workspace.library\": [\"/Users/YOUR_USERNAME/.hammerspoon/Spoons/EmmyLua.spoon/annotations\"]\n}\n```\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/EmmyLua.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/EmmyLua.spoon.zip)",
     "items": [],
     "name": "EmmyLua",
-    "stripped_doc": "under ~/.hammerspoon/Spoons/EmmyLua.spoon/annotations.\nAnnotations will only be generated if they don't exist yet or are out of date.\n\nIn order to get auto completion in your editor, you need to have one of the following LSP servers properly configured:\n* [lua-language-server](https://github.com/sumneko/lua-language-server) (recommended)\n* [EmmyLua-LanguageServer](https://github.com/EmmyLua/EmmyLua-LanguageServer)\n\nTo start using this annotations library, add the annotations folder to your workspace.\nfor lua-languag-server:\n\n```json\n{\n  \"Lua.workspace.library\": [\"/Users/YOUR_USERNAME/.hammerspoon/Spoons/EmmyLua.spoon/annotations\"]\n}\n```\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/EmmyLua.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/EmmyLua.spoon.zip)",
+    "stripped_doc": "under ~/.hammerspoon/Spoons/EmmyLua.spoon/annotations.\nAnnotations will only be generated if they don't exist yet or are out of date.\n\nNote: Load this Spoon before any pathwatchers are defined to avoid unintended behaviour (for example multiple reloads when the annotions are created).\n\nIn order to get auto completion in your editor, you need to have one of the following LSP servers properly configured:\n* [lua-language-server](https://github.com/sumneko/lua-language-server) (recommended)\n* [EmmyLua-LanguageServer](https://github.com/EmmyLua/EmmyLua-LanguageServer)\n\nTo start using this annotations library, add the annotations folder to your workspace.\nfor lua-languag-server:\n\n```json\n{\n  \"Lua.workspace.library\": [\"/Users/YOUR_USERNAME/.hammerspoon/Spoons/EmmyLua.spoon/annotations\"]\n}\n```\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/EmmyLua.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/EmmyLua.spoon.zip)",
     "submodules": [],
     "type": "Module"
   },
@@ -9251,6 +9382,577 @@
     ],
     "name": "MusicAppMediaFix",
     "stripped_doc": "",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [
+      {
+        "def": "OBS.eventSubscriptionValues",
+        "desc": "A table of the possible values for the `eventSubscriptions` parameter to [OBS:init()](#init)",
+        "doc": "A table of the possible values for the `eventSubscriptions` parameter to [OBS:init()](#init)\n\nNotes:\n * The keys are:\n   * `None` - No events\n   * `General` - General events\n   * `Config` - Configuration events\n   * `Scenes` - Scene events\n   * `Inputs` - Input events\n   * `Transitions` - Transition events\n   * `Filters` - Filter events\n   * `Outputs` - Output events\n   * `SceneItems` - Scene item events\n   * `MediaInputs` - Media input events\n   * `Vendors` - Vendor events\n   * `UI` - UI events\n   * `All` - All of the above events\n   * `InputVolumeMeters` - Input volume meter events\n   * `InputActiveStateChanged` - Input active state changed events\n   * `InputShowStateChanged` - Input show state changed events\n   * `SceneItemTransformChanged` - Scene item transform changed events\n * For more information about these event categories and the events they contain, see the [obs-websocket documentation](https://github.com/obsproject/obs-websocket/blob/master/docs/generated/protocol.md#events)\n * To combine these as a bitmask, use boolean operators, e.g. `OBS.eventSubscriptionValues.General | OBS.eventSubscriptionValues.Scenes`\n * The final four values are considered \"high volume\" events, so are not included in `OBS.eventSubscriptionValues.All` by default",
+        "file": "Source/OBS.spoon/init.lua",
+        "lineno": "58",
+        "name": "eventSubscriptionValues",
+        "notes": [
+          " * The keys are:",
+          "   * `None` - No events",
+          "   * `General` - General events",
+          "   * `Config` - Configuration events",
+          "   * `Scenes` - Scene events",
+          "   * `Inputs` - Input events",
+          "   * `Transitions` - Transition events",
+          "   * `Filters` - Filter events",
+          "   * `Outputs` - Output events",
+          "   * `SceneItems` - Scene item events",
+          "   * `MediaInputs` - Media input events",
+          "   * `Vendors` - Vendor events",
+          "   * `UI` - UI events",
+          "   * `All` - All of the above events",
+          "   * `InputVolumeMeters` - Input volume meter events",
+          "   * `InputActiveStateChanged` - Input active state changed events",
+          "   * `InputShowStateChanged` - Input show state changed events",
+          "   * `SceneItemTransformChanged` - Scene item transform changed events",
+          " * For more information about these event categories and the events they contain, see the [obs-websocket documentation](https://github.com/obsproject/obs-websocket/blob/master/docs/generated/protocol.md#events)",
+          " * To combine these as a bitmask, use boolean operators, e.g. `OBS.eventSubscriptionValues.General | OBS.eventSubscriptionValues.Scenes`",
+          " * The final four values are considered \"high volume\" events, so are not included in `OBS.eventSubscriptionValues.All` by default"
+        ],
+        "signature": "OBS.eventSubscriptionValues",
+        "stripped_doc": "",
+        "type": "Constant"
+      }
+    ],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
+        "def": "OBS:addEventSubsciption(event)",
+        "desc": "Adds an event subscription",
+        "doc": "Adds an event subscription\n\nParameters:\n * `event` - The event to subscribe to, see [OBS.eventSubscriptionValues](#eventSubscriptionValues)\n\nReturns:\n * None\n\nNotes:\n * If you wish to add multiple event subscriptions you can use the `|` operator to combine them, e.g. `spoon.OBS:addEventSubscription(spoon.OBS.eventSubscriptionValues.Config | spoon.OBS.eventSubscriptionValues.Scenes)`",
+        "examples": [],
+        "file": "Source/OBS.spoon/init.lua",
+        "lineno": "309",
+        "name": "addEventSubsciption",
+        "notes": [
+          " * If you wish to add multiple event subscriptions you can use the `|` operator to combine them, e.g. `spoon.OBS:addEventSubscription(spoon.OBS.eventSubscriptionValues.Config | spoon.OBS.eventSubscriptionValues.Scenes)`"
+        ],
+        "parameters": [
+          " * `event` - The event to subscribe to, see [OBS.eventSubscriptionValues](#eventSubscriptionValues)"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "OBS:addEventSubsciption(event)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "OBS:init(eventCallback, host, port[, password, eventSubscriptions])",
+        "desc": "Initialisation method",
+        "doc": "Initialisation method\n\nParameters:\n * `eventCallback` - A function to be called when an event is received from OBS. The function will be passed a table containing the event data. The keys of the table are:\n   * `eventType` - The type of event, e.g. `StudioModeStateChanged`\n   * `eventIntent` - The event subscription value that caused this event to be sent, e.g. `OBS.eventSubscriptionValues.General`\n   * `eventData` - A table containing the event data, e.g. `{ \"studioModeEnabled\": true }`\n * `host` - The hostname or IP address of the machine running OBS\n * `port` - The port number that obs-websocket is listening on\n * `password` - An optional password string that obs-websocket is configured to use\n * `eventSubscriptions` - An optional number containing the bitmask of the events to subscribe to, see [OBS.eventSubscriptionValues](#eventSubscriptionValues)\n\nReturns:\n * None\n\nNotes:\n * This method does not connect to OBS, it just sets up the connection parameters for later use\n * By default, no events are subscribed to, so you will need to set `eventSubscriptions` to something useful if you want to receive events\n * If you do not wish to supply an `eventCallback`, pass `nil` instead\n * The events that OBS can produce are documented in the [obs-websocket documentation](https://github.com/obsproject/obs-websocket/blob/master/docs/generated/protocol.md#events)\n * There are some additional values for `eventType`, specific to this Spoon:\n   * `SpoonOBSConnected` - This event is sent when the websocket connection to OBS is established. All other fields will be `nil`.\n   * `SpoonOBSDisconnected` - This event is sent when the websocket connection to OBS is lost. All other fields will be nil. Return false to inhibit automatic reconnection.\n   * `SpoonRequestResponse` - This event is sent to pass replies to requests made via [OBS:request()](#request). Its `eventIntent` will be nil and the format of its `eventData` table will be:\n     * `requestId` - The ID of the request that this is a reply to\n     * `requestType` - The request type that was made\n     * `requestStatus` - A table containing:\n       * `result` - A bool, `true` if the request succeeded, otherwise `false`\n       * `code` - A number containing the response code\n       * `comment` - An optional string that may contain additional information about the response\n     * `responseData` - An table that contains the response data, if any\n   * `SpoonBatchRequestResponse` - This event is sent to pass replies to batch requests made via [OBS:requestBatch()](#requestBatch). Its `eventIntent` will be nil and the format of its `eventData` table will be:\n     * `requestId` - The ID of the request batch that this is a reply to\n     * `results` - A table containing the results of each request in the batch. Each entry in the table will be a table with the same format as `SpoonRequestResponse`",
+        "examples": [],
+        "file": "Source/OBS.spoon/init.lua",
+        "lineno": "117",
+        "name": "init",
+        "notes": [
+          " * This method does not connect to OBS, it just sets up the connection parameters for later use",
+          " * By default, no events are subscribed to, so you will need to set `eventSubscriptions` to something useful if you want to receive events",
+          " * If you do not wish to supply an `eventCallback`, pass `nil` instead",
+          " * The events that OBS can produce are documented in the [obs-websocket documentation](https://github.com/obsproject/obs-websocket/blob/master/docs/generated/protocol.md#events)",
+          " * There are some additional values for `eventType`, specific to this Spoon:",
+          "   * `SpoonOBSConnected` - This event is sent when the websocket connection to OBS is established. All other fields will be `nil`.",
+          "   * `SpoonOBSDisconnected` - This event is sent when the websocket connection to OBS is lost. All other fields will be nil. Return false to inhibit automatic reconnection.",
+          "   * `SpoonRequestResponse` - This event is sent to pass replies to requests made via [OBS:request()](#request). Its `eventIntent` will be nil and the format of its `eventData` table will be:",
+          "     * `requestId` - The ID of the request that this is a reply to",
+          "     * `requestType` - The request type that was made",
+          "     * `requestStatus` - A table containing:",
+          "       * `result` - A bool, `true` if the request succeeded, otherwise `false`",
+          "       * `code` - A number containing the response code",
+          "       * `comment` - An optional string that may contain additional information about the response",
+          "     * `responseData` - An table that contains the response data, if any",
+          "   * `SpoonBatchRequestResponse` - This event is sent to pass replies to batch requests made via [OBS:requestBatch()](#requestBatch). Its `eventIntent` will be nil and the format of its `eventData` table will be:",
+          "     * `requestId` - The ID of the request batch that this is a reply to",
+          "     * `results` - A table containing the results of each request in the batch. Each entry in the table will be a table with the same format as `SpoonRequestResponse`"
+        ],
+        "parameters": [
+          " * `eventCallback` - A function to be called when an event is received from OBS. The function will be passed a table containing the event data. The keys of the table are:\n   * `eventType` - The type of event, e.g. `StudioModeStateChanged`\n   * `eventIntent` - The event subscription value that caused this event to be sent, e.g. `OBS.eventSubscriptionValues.General`\n   * `eventData` - A table containing the event data, e.g. `{ \"studioModeEnabled\": true }`",
+          " * `host` - The hostname or IP address of the machine running OBS",
+          " * `port` - The port number that obs-websocket is listening on",
+          " * `password` - An optional password string that obs-websocket is configured to use",
+          " * `eventSubscriptions` - An optional number containing the bitmask of the events to subscribe to, see [OBS.eventSubscriptionValues](#eventSubscriptionValues)"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "OBS:init(eventCallback, host, port[, password, eventSubscriptions])",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "OBS:removeEventSubsciption(event)",
+        "desc": "Removes an event subscription",
+        "doc": "Removes an event subscription\n\nParameters:\n * `event` - The event to unsubscribe from, see [OBS.eventSubscriptionValues](#eventSubscriptionValues)\n\nReturns:\n * None\n\nNotes:\n * If you wish to remove multiple event subscriptions you can use the `&` operator to combine them, e.g. `spoon.OBS:removeEventSubscription(spoon.OBS.eventSubscriptionValues.Config | spoon.OBS.eventSubscriptionValues.Scenes)`",
+        "examples": [],
+        "file": "Source/OBS.spoon/init.lua",
+        "lineno": "326",
+        "name": "removeEventSubsciption",
+        "notes": [
+          " * If you wish to remove multiple event subscriptions you can use the `&` operator to combine them, e.g. `spoon.OBS:removeEventSubscription(spoon.OBS.eventSubscriptionValues.Config | spoon.OBS.eventSubscriptionValues.Scenes)`"
+        ],
+        "parameters": [
+          " * `event` - The event to unsubscribe from, see [OBS.eventSubscriptionValues](#eventSubscriptionValues)"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "OBS:removeEventSubsciption(event)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "OBS:request(requestType[, requestData[, requestId]])",
+        "desc": "Sends a request to OBS",
+        "doc": "Sends a request to OBS\n\nParameters:\n * `requestType` - A string containing the type of request to send\n * `requestData` - An optional table containing the data to send with the request, or nil\n * `requestId` - An optional string containing the ID of the request\n\nReturns:\n * The `requestId` that was sent\n\nNotes:\n * If `requestId` is not specified then a random UUID will be generated.\n * The `requestId` will be passed to your event callback (provided to [OBS:init()](#init)) when the response is received.\n * Values for `requestType` can be found in the [obs-websocket documentation](https://github.com/obsproject/obs-websocket/blob/master/docs/generated/protocol.md#requests)",
+        "examples": [],
+        "file": "Source/OBS.spoon/init.lua",
+        "lineno": "343",
+        "name": "request",
+        "notes": [
+          " * If `requestId` is not specified then a random UUID will be generated.",
+          " * The `requestId` will be passed to your event callback (provided to [OBS:init()](#init)) when the response is received.",
+          " * Values for `requestType` can be found in the [obs-websocket documentation](https://github.com/obsproject/obs-websocket/blob/master/docs/generated/protocol.md#requests)"
+        ],
+        "parameters": [
+          " * `requestType` - A string containing the type of request to send",
+          " * `requestData` - An optional table containing the data to send with the request, or nil",
+          " * `requestId` - An optional string containing the ID of the request"
+        ],
+        "returns": [
+          " * The `requestId` that was sent"
+        ],
+        "signature": "OBS:request(requestType[, requestData[, requestId]])",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "OBS:requestBatch(requests[, haltOnFailure])",
+        "desc": "Sends a batch of requests to OBS",
+        "doc": "Sends a batch of requests to OBS\n\nParameters:\n * `requests` - A table containing the requests to send\n * `haltOnFailure` - An optional boolean indicating whether to halt the batch if a request fails, defaults to false\n\nReturns:\n * The `requestId` that was sent for the batch\n\nNotes:\n * Each request should be a table with the keys:\n   * `requestType` - A string containing the type of request to send, see [OBS:request()](#request)\n   * `requestData` - An optional table containing the data to send with the request, or `nil`\n   * `requestId` - An optional string containing a unique ID for the request\n * Unlike [OBS:request()](#request) the `requestId` is an auto-generated UUID\n\nExample:\n```lua\nspoon.OBS:requestBatch({\n {[\"requestType\"] = \"StartVirtualCam\"},\n {[\"requestType\"] = \"SetCurrentProgramScene\", [\"requestData\"] = { [\"sceneName\"] = \"FancyScene\" }}\n})\n```",
+        "examples": [],
+        "file": "Source/OBS.spoon/init.lua",
+        "lineno": "377",
+        "name": "requestBatch",
+        "notes": [
+          " * Each request should be a table with the keys:",
+          "   * `requestType` - A string containing the type of request to send, see [OBS:request()](#request)",
+          "   * `requestData` - An optional table containing the data to send with the request, or `nil`",
+          "   * `requestId` - An optional string containing a unique ID for the request",
+          " * Unlike [OBS:request()](#request) the `requestId` is an auto-generated UUID",
+          "",
+          "Example:",
+          "```lua",
+          "spoon.OBS:requestBatch({",
+          " {[\"requestType\"] = \"StartVirtualCam\"},",
+          " {[\"requestType\"] = \"SetCurrentProgramScene\", [\"requestData\"] = { [\"sceneName\"] = \"FancyScene\" }}",
+          "})",
+          "```"
+        ],
+        "parameters": [
+          " * `requests` - A table containing the requests to send",
+          " * `haltOnFailure` - An optional boolean indicating whether to halt the batch if a request fails, defaults to false"
+        ],
+        "returns": [
+          " * The `requestId` that was sent for the batch"
+        ],
+        "signature": "OBS:requestBatch(requests[, haltOnFailure])",
+        "stripped_doc": "Example:\n```lua\nspoon.OBS:requestBatch({\n {[\"requestType\"] = \"StartVirtualCam\"},\n {[\"requestType\"] = \"SetCurrentProgramScene\", [\"requestData\"] = { [\"sceneName\"] = \"FancyScene\" }}\n})\n```",
+        "type": "Method"
+      },
+      {
+        "def": "OBS:setLogLevel(level)",
+        "desc": "Sets the logging level for the OBS Spoon",
+        "doc": "Sets the logging level for the OBS Spoon\n\nParameters:\n * `level` - A string containing the logging level to use, see [hs.logger.setLogLevel](https://www.hammerspoon.org/docs/hs.logger.html#setLogLevel) for possible values\n\nReturns:\n * None",
+        "examples": [],
+        "file": "Source/OBS.spoon/init.lua",
+        "lineno": "419",
+        "name": "setLogLevel",
+        "notes": [],
+        "parameters": [
+          " * `level` - A string containing the logging level to use, see [hs.logger.setLogLevel](https://www.hammerspoon.org/docs/hs.logger.html#setLogLevel) for possible values"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "OBS:setLogLevel(level)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "OBS:start()",
+        "desc": "Connects to OBS",
+        "doc": "Connects to OBS\n\nParameters:\n * None\n\nReturns:\n * None",
+        "examples": [],
+        "file": "Source/OBS.spoon/init.lua",
+        "lineno": "161",
+        "name": "start",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "OBS:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "OBS:stop()",
+        "desc": "Disconnects from OBS",
+        "doc": "Disconnects from OBS\n\nParameters:\n * None\n\nReturns:\n * None",
+        "examples": [],
+        "file": "Source/OBS.spoon/init.lua",
+        "lineno": "274",
+        "name": "stop",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "OBS:stop()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "OBS:updateEventSubscriptions(eventSubscriptions)",
+        "desc": "Updates the event subscriptions",
+        "doc": "Updates the event subscriptions\n\nParameters:\n * `eventSubscriptions` - A bitmask of the events to subscribe to, see [OBS.eventSubscriptionValues](#eventSubscriptionValues)\n\nReturns:\n * None",
+        "examples": [],
+        "file": "Source/OBS.spoon/init.lua",
+        "lineno": "289",
+        "name": "updateEventSubscriptions",
+        "notes": [],
+        "parameters": [
+          " * `eventSubscriptions` - A bitmask of the events to subscribe to, see [OBS.eventSubscriptionValues](#eventSubscriptionValues)"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "OBS:updateEventSubscriptions(eventSubscriptions)",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [
+      {
+        "def": "OBS:reconnectDelay",
+        "desc": "Controls how long to wait, in seconds, before attempting to reconnect to OBS. Defaults to `5`",
+        "doc": "Controls how long to wait, in seconds, before attempting to reconnect to OBS. Defaults to `5`",
+        "file": "Source/OBS.spoon/init.lua",
+        "lineno": "112",
+        "name": "reconnectDelay",
+        "signature": "OBS:reconnectDelay",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "OBS:shouldReconnect",
+        "desc": "Controls whether the websocket connection should be re-established if it is lost. Defaults to `true`",
+        "doc": "Controls whether the websocket connection should be re-established if it is lost. Defaults to `true`",
+        "file": "Source/OBS.spoon/init.lua",
+        "lineno": "105",
+        "name": "shouldReconnect",
+        "signature": "OBS:shouldReconnect",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "desc": "Control OBS and react to its events, via the obs-websocket plugin.",
+    "doc": "Control OBS and react to its events, via the obs-websocket plugin.\n\nInstall and configure the obs-websocket plugin first from [their project](https://github.com/obsproject/obs-websocket/releases)\n\nNote: This Spoon will only work with Hammerspoon 0.9.100 or later.\n\nNote: This Spoon will only work with obs-websocket 5.0.1 or later, which also requires OBS Studio v27 or later.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/OBS.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/OBS.spoon.zip)\n\nExample:\n```\n-- This example will start OBS, connect to it, and then start streaming once connected\nobs = hs.loadSpoon(\"OBS\")\nobsCallback = function(eventType, eventIntent, eventData)\n  print(eventType)\n  print(eventIntent)\n  print(hs.inspect(eventData))\n\n  if eventType == \"SpoonOBSConnected\" then\n    obs:request(\"StartStream\")\n  end\nend\nobs:init(obsCallback, \"localhost\", 4444, \"password\")\nobs:start()\n```",
+    "items": [
+      {
+        "def": "OBS:addEventSubsciption(event)",
+        "desc": "Adds an event subscription",
+        "doc": "Adds an event subscription\n\nParameters:\n * `event` - The event to subscribe to, see [OBS.eventSubscriptionValues](#eventSubscriptionValues)\n\nReturns:\n * None\n\nNotes:\n * If you wish to add multiple event subscriptions you can use the `|` operator to combine them, e.g. `spoon.OBS:addEventSubscription(spoon.OBS.eventSubscriptionValues.Config | spoon.OBS.eventSubscriptionValues.Scenes)`",
+        "examples": [],
+        "file": "Source/OBS.spoon/init.lua",
+        "lineno": "309",
+        "name": "addEventSubsciption",
+        "notes": [
+          " * If you wish to add multiple event subscriptions you can use the `|` operator to combine them, e.g. `spoon.OBS:addEventSubscription(spoon.OBS.eventSubscriptionValues.Config | spoon.OBS.eventSubscriptionValues.Scenes)`"
+        ],
+        "parameters": [
+          " * `event` - The event to subscribe to, see [OBS.eventSubscriptionValues](#eventSubscriptionValues)"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "OBS:addEventSubsciption(event)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "OBS.eventSubscriptionValues",
+        "desc": "A table of the possible values for the `eventSubscriptions` parameter to [OBS:init()](#init)",
+        "doc": "A table of the possible values for the `eventSubscriptions` parameter to [OBS:init()](#init)\n\nNotes:\n * The keys are:\n   * `None` - No events\n   * `General` - General events\n   * `Config` - Configuration events\n   * `Scenes` - Scene events\n   * `Inputs` - Input events\n   * `Transitions` - Transition events\n   * `Filters` - Filter events\n   * `Outputs` - Output events\n   * `SceneItems` - Scene item events\n   * `MediaInputs` - Media input events\n   * `Vendors` - Vendor events\n   * `UI` - UI events\n   * `All` - All of the above events\n   * `InputVolumeMeters` - Input volume meter events\n   * `InputActiveStateChanged` - Input active state changed events\n   * `InputShowStateChanged` - Input show state changed events\n   * `SceneItemTransformChanged` - Scene item transform changed events\n * For more information about these event categories and the events they contain, see the [obs-websocket documentation](https://github.com/obsproject/obs-websocket/blob/master/docs/generated/protocol.md#events)\n * To combine these as a bitmask, use boolean operators, e.g. `OBS.eventSubscriptionValues.General | OBS.eventSubscriptionValues.Scenes`\n * The final four values are considered \"high volume\" events, so are not included in `OBS.eventSubscriptionValues.All` by default",
+        "file": "Source/OBS.spoon/init.lua",
+        "lineno": "58",
+        "name": "eventSubscriptionValues",
+        "notes": [
+          " * The keys are:",
+          "   * `None` - No events",
+          "   * `General` - General events",
+          "   * `Config` - Configuration events",
+          "   * `Scenes` - Scene events",
+          "   * `Inputs` - Input events",
+          "   * `Transitions` - Transition events",
+          "   * `Filters` - Filter events",
+          "   * `Outputs` - Output events",
+          "   * `SceneItems` - Scene item events",
+          "   * `MediaInputs` - Media input events",
+          "   * `Vendors` - Vendor events",
+          "   * `UI` - UI events",
+          "   * `All` - All of the above events",
+          "   * `InputVolumeMeters` - Input volume meter events",
+          "   * `InputActiveStateChanged` - Input active state changed events",
+          "   * `InputShowStateChanged` - Input show state changed events",
+          "   * `SceneItemTransformChanged` - Scene item transform changed events",
+          " * For more information about these event categories and the events they contain, see the [obs-websocket documentation](https://github.com/obsproject/obs-websocket/blob/master/docs/generated/protocol.md#events)",
+          " * To combine these as a bitmask, use boolean operators, e.g. `OBS.eventSubscriptionValues.General | OBS.eventSubscriptionValues.Scenes`",
+          " * The final four values are considered \"high volume\" events, so are not included in `OBS.eventSubscriptionValues.All` by default"
+        ],
+        "signature": "OBS.eventSubscriptionValues",
+        "stripped_doc": "",
+        "type": "Constant"
+      },
+      {
+        "def": "OBS:init(eventCallback, host, port[, password, eventSubscriptions])",
+        "desc": "Initialisation method",
+        "doc": "Initialisation method\n\nParameters:\n * `eventCallback` - A function to be called when an event is received from OBS. The function will be passed a table containing the event data. The keys of the table are:\n   * `eventType` - The type of event, e.g. `StudioModeStateChanged`\n   * `eventIntent` - The event subscription value that caused this event to be sent, e.g. `OBS.eventSubscriptionValues.General`\n   * `eventData` - A table containing the event data, e.g. `{ \"studioModeEnabled\": true }`\n * `host` - The hostname or IP address of the machine running OBS\n * `port` - The port number that obs-websocket is listening on\n * `password` - An optional password string that obs-websocket is configured to use\n * `eventSubscriptions` - An optional number containing the bitmask of the events to subscribe to, see [OBS.eventSubscriptionValues](#eventSubscriptionValues)\n\nReturns:\n * None\n\nNotes:\n * This method does not connect to OBS, it just sets up the connection parameters for later use\n * By default, no events are subscribed to, so you will need to set `eventSubscriptions` to something useful if you want to receive events\n * If you do not wish to supply an `eventCallback`, pass `nil` instead\n * The events that OBS can produce are documented in the [obs-websocket documentation](https://github.com/obsproject/obs-websocket/blob/master/docs/generated/protocol.md#events)\n * There are some additional values for `eventType`, specific to this Spoon:\n   * `SpoonOBSConnected` - This event is sent when the websocket connection to OBS is established. All other fields will be `nil`.\n   * `SpoonOBSDisconnected` - This event is sent when the websocket connection to OBS is lost. All other fields will be nil. Return false to inhibit automatic reconnection.\n   * `SpoonRequestResponse` - This event is sent to pass replies to requests made via [OBS:request()](#request). Its `eventIntent` will be nil and the format of its `eventData` table will be:\n     * `requestId` - The ID of the request that this is a reply to\n     * `requestType` - The request type that was made\n     * `requestStatus` - A table containing:\n       * `result` - A bool, `true` if the request succeeded, otherwise `false`\n       * `code` - A number containing the response code\n       * `comment` - An optional string that may contain additional information about the response\n     * `responseData` - An table that contains the response data, if any\n   * `SpoonBatchRequestResponse` - This event is sent to pass replies to batch requests made via [OBS:requestBatch()](#requestBatch). Its `eventIntent` will be nil and the format of its `eventData` table will be:\n     * `requestId` - The ID of the request batch that this is a reply to\n     * `results` - A table containing the results of each request in the batch. Each entry in the table will be a table with the same format as `SpoonRequestResponse`",
+        "examples": [],
+        "file": "Source/OBS.spoon/init.lua",
+        "lineno": "117",
+        "name": "init",
+        "notes": [
+          " * This method does not connect to OBS, it just sets up the connection parameters for later use",
+          " * By default, no events are subscribed to, so you will need to set `eventSubscriptions` to something useful if you want to receive events",
+          " * If you do not wish to supply an `eventCallback`, pass `nil` instead",
+          " * The events that OBS can produce are documented in the [obs-websocket documentation](https://github.com/obsproject/obs-websocket/blob/master/docs/generated/protocol.md#events)",
+          " * There are some additional values for `eventType`, specific to this Spoon:",
+          "   * `SpoonOBSConnected` - This event is sent when the websocket connection to OBS is established. All other fields will be `nil`.",
+          "   * `SpoonOBSDisconnected` - This event is sent when the websocket connection to OBS is lost. All other fields will be nil. Return false to inhibit automatic reconnection.",
+          "   * `SpoonRequestResponse` - This event is sent to pass replies to requests made via [OBS:request()](#request). Its `eventIntent` will be nil and the format of its `eventData` table will be:",
+          "     * `requestId` - The ID of the request that this is a reply to",
+          "     * `requestType` - The request type that was made",
+          "     * `requestStatus` - A table containing:",
+          "       * `result` - A bool, `true` if the request succeeded, otherwise `false`",
+          "       * `code` - A number containing the response code",
+          "       * `comment` - An optional string that may contain additional information about the response",
+          "     * `responseData` - An table that contains the response data, if any",
+          "   * `SpoonBatchRequestResponse` - This event is sent to pass replies to batch requests made via [OBS:requestBatch()](#requestBatch). Its `eventIntent` will be nil and the format of its `eventData` table will be:",
+          "     * `requestId` - The ID of the request batch that this is a reply to",
+          "     * `results` - A table containing the results of each request in the batch. Each entry in the table will be a table with the same format as `SpoonRequestResponse`"
+        ],
+        "parameters": [
+          " * `eventCallback` - A function to be called when an event is received from OBS. The function will be passed a table containing the event data. The keys of the table are:\n   * `eventType` - The type of event, e.g. `StudioModeStateChanged`\n   * `eventIntent` - The event subscription value that caused this event to be sent, e.g. `OBS.eventSubscriptionValues.General`\n   * `eventData` - A table containing the event data, e.g. `{ \"studioModeEnabled\": true }`",
+          " * `host` - The hostname or IP address of the machine running OBS",
+          " * `port` - The port number that obs-websocket is listening on",
+          " * `password` - An optional password string that obs-websocket is configured to use",
+          " * `eventSubscriptions` - An optional number containing the bitmask of the events to subscribe to, see [OBS.eventSubscriptionValues](#eventSubscriptionValues)"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "OBS:init(eventCallback, host, port[, password, eventSubscriptions])",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "OBS:reconnectDelay",
+        "desc": "Controls how long to wait, in seconds, before attempting to reconnect to OBS. Defaults to `5`",
+        "doc": "Controls how long to wait, in seconds, before attempting to reconnect to OBS. Defaults to `5`",
+        "file": "Source/OBS.spoon/init.lua",
+        "lineno": "112",
+        "name": "reconnectDelay",
+        "signature": "OBS:reconnectDelay",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "OBS:removeEventSubsciption(event)",
+        "desc": "Removes an event subscription",
+        "doc": "Removes an event subscription\n\nParameters:\n * `event` - The event to unsubscribe from, see [OBS.eventSubscriptionValues](#eventSubscriptionValues)\n\nReturns:\n * None\n\nNotes:\n * If you wish to remove multiple event subscriptions you can use the `&` operator to combine them, e.g. `spoon.OBS:removeEventSubscription(spoon.OBS.eventSubscriptionValues.Config | spoon.OBS.eventSubscriptionValues.Scenes)`",
+        "examples": [],
+        "file": "Source/OBS.spoon/init.lua",
+        "lineno": "326",
+        "name": "removeEventSubsciption",
+        "notes": [
+          " * If you wish to remove multiple event subscriptions you can use the `&` operator to combine them, e.g. `spoon.OBS:removeEventSubscription(spoon.OBS.eventSubscriptionValues.Config | spoon.OBS.eventSubscriptionValues.Scenes)`"
+        ],
+        "parameters": [
+          " * `event` - The event to unsubscribe from, see [OBS.eventSubscriptionValues](#eventSubscriptionValues)"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "OBS:removeEventSubsciption(event)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "OBS:request(requestType[, requestData[, requestId]])",
+        "desc": "Sends a request to OBS",
+        "doc": "Sends a request to OBS\n\nParameters:\n * `requestType` - A string containing the type of request to send\n * `requestData` - An optional table containing the data to send with the request, or nil\n * `requestId` - An optional string containing the ID of the request\n\nReturns:\n * The `requestId` that was sent\n\nNotes:\n * If `requestId` is not specified then a random UUID will be generated.\n * The `requestId` will be passed to your event callback (provided to [OBS:init()](#init)) when the response is received.\n * Values for `requestType` can be found in the [obs-websocket documentation](https://github.com/obsproject/obs-websocket/blob/master/docs/generated/protocol.md#requests)",
+        "examples": [],
+        "file": "Source/OBS.spoon/init.lua",
+        "lineno": "343",
+        "name": "request",
+        "notes": [
+          " * If `requestId` is not specified then a random UUID will be generated.",
+          " * The `requestId` will be passed to your event callback (provided to [OBS:init()](#init)) when the response is received.",
+          " * Values for `requestType` can be found in the [obs-websocket documentation](https://github.com/obsproject/obs-websocket/blob/master/docs/generated/protocol.md#requests)"
+        ],
+        "parameters": [
+          " * `requestType` - A string containing the type of request to send",
+          " * `requestData` - An optional table containing the data to send with the request, or nil",
+          " * `requestId` - An optional string containing the ID of the request"
+        ],
+        "returns": [
+          " * The `requestId` that was sent"
+        ],
+        "signature": "OBS:request(requestType[, requestData[, requestId]])",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "OBS:requestBatch(requests[, haltOnFailure])",
+        "desc": "Sends a batch of requests to OBS",
+        "doc": "Sends a batch of requests to OBS\n\nParameters:\n * `requests` - A table containing the requests to send\n * `haltOnFailure` - An optional boolean indicating whether to halt the batch if a request fails, defaults to false\n\nReturns:\n * The `requestId` that was sent for the batch\n\nNotes:\n * Each request should be a table with the keys:\n   * `requestType` - A string containing the type of request to send, see [OBS:request()](#request)\n   * `requestData` - An optional table containing the data to send with the request, or `nil`\n   * `requestId` - An optional string containing a unique ID for the request\n * Unlike [OBS:request()](#request) the `requestId` is an auto-generated UUID\n\nExample:\n```lua\nspoon.OBS:requestBatch({\n {[\"requestType\"] = \"StartVirtualCam\"},\n {[\"requestType\"] = \"SetCurrentProgramScene\", [\"requestData\"] = { [\"sceneName\"] = \"FancyScene\" }}\n})\n```",
+        "examples": [],
+        "file": "Source/OBS.spoon/init.lua",
+        "lineno": "377",
+        "name": "requestBatch",
+        "notes": [
+          " * Each request should be a table with the keys:",
+          "   * `requestType` - A string containing the type of request to send, see [OBS:request()](#request)",
+          "   * `requestData` - An optional table containing the data to send with the request, or `nil`",
+          "   * `requestId` - An optional string containing a unique ID for the request",
+          " * Unlike [OBS:request()](#request) the `requestId` is an auto-generated UUID",
+          "",
+          "Example:",
+          "```lua",
+          "spoon.OBS:requestBatch({",
+          " {[\"requestType\"] = \"StartVirtualCam\"},",
+          " {[\"requestType\"] = \"SetCurrentProgramScene\", [\"requestData\"] = { [\"sceneName\"] = \"FancyScene\" }}",
+          "})",
+          "```"
+        ],
+        "parameters": [
+          " * `requests` - A table containing the requests to send",
+          " * `haltOnFailure` - An optional boolean indicating whether to halt the batch if a request fails, defaults to false"
+        ],
+        "returns": [
+          " * The `requestId` that was sent for the batch"
+        ],
+        "signature": "OBS:requestBatch(requests[, haltOnFailure])",
+        "stripped_doc": "Example:\n```lua\nspoon.OBS:requestBatch({\n {[\"requestType\"] = \"StartVirtualCam\"},\n {[\"requestType\"] = \"SetCurrentProgramScene\", [\"requestData\"] = { [\"sceneName\"] = \"FancyScene\" }}\n})\n```",
+        "type": "Method"
+      },
+      {
+        "def": "OBS:setLogLevel(level)",
+        "desc": "Sets the logging level for the OBS Spoon",
+        "doc": "Sets the logging level for the OBS Spoon\n\nParameters:\n * `level` - A string containing the logging level to use, see [hs.logger.setLogLevel](https://www.hammerspoon.org/docs/hs.logger.html#setLogLevel) for possible values\n\nReturns:\n * None",
+        "examples": [],
+        "file": "Source/OBS.spoon/init.lua",
+        "lineno": "419",
+        "name": "setLogLevel",
+        "notes": [],
+        "parameters": [
+          " * `level` - A string containing the logging level to use, see [hs.logger.setLogLevel](https://www.hammerspoon.org/docs/hs.logger.html#setLogLevel) for possible values"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "OBS:setLogLevel(level)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "OBS:shouldReconnect",
+        "desc": "Controls whether the websocket connection should be re-established if it is lost. Defaults to `true`",
+        "doc": "Controls whether the websocket connection should be re-established if it is lost. Defaults to `true`",
+        "file": "Source/OBS.spoon/init.lua",
+        "lineno": "105",
+        "name": "shouldReconnect",
+        "signature": "OBS:shouldReconnect",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "OBS:start()",
+        "desc": "Connects to OBS",
+        "doc": "Connects to OBS\n\nParameters:\n * None\n\nReturns:\n * None",
+        "examples": [],
+        "file": "Source/OBS.spoon/init.lua",
+        "lineno": "161",
+        "name": "start",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "OBS:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "OBS:stop()",
+        "desc": "Disconnects from OBS",
+        "doc": "Disconnects from OBS\n\nParameters:\n * None\n\nReturns:\n * None",
+        "examples": [],
+        "file": "Source/OBS.spoon/init.lua",
+        "lineno": "274",
+        "name": "stop",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "OBS:stop()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "OBS:updateEventSubscriptions(eventSubscriptions)",
+        "desc": "Updates the event subscriptions",
+        "doc": "Updates the event subscriptions\n\nParameters:\n * `eventSubscriptions` - A bitmask of the events to subscribe to, see [OBS.eventSubscriptionValues](#eventSubscriptionValues)\n\nReturns:\n * None",
+        "examples": [],
+        "file": "Source/OBS.spoon/init.lua",
+        "lineno": "289",
+        "name": "updateEventSubscriptions",
+        "notes": [],
+        "parameters": [
+          " * `eventSubscriptions` - A bitmask of the events to subscribe to, see [OBS.eventSubscriptionValues](#eventSubscriptionValues)"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "OBS:updateEventSubscriptions(eventSubscriptions)",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "name": "OBS",
+    "stripped_doc": "\nInstall and configure the obs-websocket plugin first from [their project](https://github.com/obsproject/obs-websocket/releases)\n\nNote: This Spoon will only work with Hammerspoon 0.9.100 or later.\n\nNote: This Spoon will only work with obs-websocket 5.0.1 or later, which also requires OBS Studio v27 or later.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/OBS.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/OBS.spoon.zip)\n\nExample:\n```\n-- This example will start OBS, connect to it, and then start streaming once connected\nobs = hs.loadSpoon(\"OBS\")\nobsCallback = function(eventType, eventIntent, eventData)\n  print(eventType)\n  print(eventIntent)\n  print(hs.inspect(eventData))\n\n  if eventType == \"SpoonOBSConnected\" then\n    obs:request(\"StartStream\")\n  end\nend\nobs:init(obsCallback, \"localhost\", 4444, \"password\")\nobs:start()\n```",
     "submodules": [],
     "type": "Module"
   },
@@ -16769,12 +17471,12 @@
     "Function": [],
     "Method": [
       {
-        "def": "URLDispatcher:dispatchURL(scheme, host, params, fullUrl)",
+        "def": "URLDispatcher:dispatchURL(scheme, host, params, fullUrl, senderPid)",
         "desc": "Dispatch a URL to an application according to the defined `url_patterns`.",
-        "doc": "Dispatch a URL to an application according to the defined `url_patterns`.\n\nParameters:\n * scheme - A string containing the URL scheme (i.e. \"http\")\n * host - A string containing the host requested (e.g. \"www.hammerspoon.org\")\n * params - A table containing the key/value pairs of all the URL parameters\n * fullURL - A string containing the full, original URL. This is the only parameter used in this implementation.\n\nNotes:\n * The parameters (follow to the [httpCallback](http://www.hammerspoon.org/docs/hs.urlevent.html#httpCallback) specification)",
+        "doc": "Dispatch a URL to an application according to the defined `url_patterns`.\n\nParameters:\n * scheme - A string containing the URL scheme (i.e. \"http\")\n * host - A string containing the host requested (e.g. \"www.hammerspoon.org\")\n * params - A table containing the key/value pairs of all the URL parameters\n * fullURL - A string containing the full, original URL. This is the only parameter used in this implementation.\n * senderPID - An integer containing the PID of the application that opened the URL, if available (otherwise -1)\n\nNotes:\n * The parameters (follow to the [httpCallback](http://www.hammerspoon.org/docs/hs.urlevent.html#httpCallback) specification)",
         "examples": [],
         "file": "Source/URLDispatcher.spoon/init.lua",
-        "lineno": "83",
+        "lineno": "188",
         "name": "dispatchURL",
         "notes": [
           " * The parameters (follow to the [httpCallback](http://www.hammerspoon.org/docs/hs.urlevent.html#httpCallback) specification)"
@@ -16783,10 +17485,11 @@
           " * scheme - A string containing the URL scheme (i.e. \"http\")",
           " * host - A string containing the host requested (e.g. \"www.hammerspoon.org\")",
           " * params - A table containing the key/value pairs of all the URL parameters",
-          " * fullURL - A string containing the full, original URL. This is the only parameter used in this implementation."
+          " * fullURL - A string containing the full, original URL. This is the only parameter used in this implementation.",
+          " * senderPID - An integer containing the PID of the application that opened the URL, if available (otherwise -1)"
         ],
         "returns": [],
-        "signature": "URLDispatcher:dispatchURL(scheme, host, params, fullUrl)",
+        "signature": "URLDispatcher:dispatchURL(scheme, host, params, fullUrl, senderPid)",
         "stripped_doc": "",
         "type": "Method"
       },
@@ -16796,7 +17499,7 @@
         "doc": "Start dispatching URLs according to the rules\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/URLDispatcher.spoon/init.lua",
-        "lineno": "150",
+        "lineno": "312",
         "name": "start",
         "notes": [],
         "parameters": [
@@ -16814,7 +17517,7 @@
         "desc": "If true, handle Slack-redir URLs to apply the rule on the destination URL. Defaults to `true`",
         "doc": "If true, handle Slack-redir URLs to apply the rule on the destination URL. Defaults to `true`",
         "file": "Source/URLDispatcher.spoon/init.lua",
-        "lineno": "26",
+        "lineno": "30",
         "name": "decode_slack_redir_urls",
         "signature": "URLDispatcher.decode_slack_redir_urls",
         "stripped_doc": "",
@@ -16822,49 +17525,97 @@
       },
       {
         "def": "URLDispatcher.default_handler",
-        "desc": "Bundle ID for default URL handler. (Defaults to `\"com.apple.Safari\"`)",
-        "doc": "Bundle ID for default URL handler. (Defaults to `\"com.apple.Safari\"`)",
+        "desc": "Default URL handler (Defaults to `\"com.apple.Safari\"`)",
+        "doc": "Default URL handler (Defaults to `\"com.apple.Safari\"`)\n\nNotes:\nCan be a string containing the Bundle ID of an application, or a function\nthat takes one argument, and which will be invoked with the URL to open.",
         "file": "Source/URLDispatcher.spoon/init.lua",
         "lineno": "21",
         "name": "default_handler",
+        "notes": [
+          "Can be a string containing the Bundle ID of an application, or a function",
+          "that takes one argument, and which will be invoked with the URL to open."
+        ],
         "signature": "URLDispatcher.default_handler",
         "stripped_doc": "",
         "type": "Variable"
       },
       {
         "def": "URLDispatcher.logger",
-        "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
-        "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log\nlevel for the messages coming from the Spoon.\n\nNotes:\nExample: `spoon.URLDispatcher.logger.setLogLevel(\"debug\")`",
         "file": "Source/URLDispatcher.spoon/init.lua",
-        "lineno": "59",
+        "lineno": "99",
         "name": "logger",
+        "notes": [
+          "Example: `spoon.URLDispatcher.logger.setLogLevel(\"debug\")`"
+        ],
         "signature": "URLDispatcher.logger",
+        "stripped_doc": "level for the messages coming from the Spoon.",
+        "type": "Variable"
+      },
+      {
+        "def": "URLDispatcher.pat_files",
+        "desc": "Internal variable containing a table where the pattern lists read from files are kept indexed by file name, and automatically updated.",
+        "doc": "Internal variable containing a table where the pattern lists read from files are kept indexed by file name, and automatically updated.",
+        "file": "Source/URLDispatcher.spoon/init.lua",
+        "lineno": "114",
+        "name": "pat_files",
+        "signature": "URLDispatcher.pat_files",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "URLDispatcher.pat_watchers",
+        "desc": "Internal variable containing a table where the watchers for the pattern files are kept indexed by file name.",
+        "doc": "Internal variable containing a table where the watchers for the pattern files are kept indexed by file name.",
+        "file": "Source/URLDispatcher.spoon/init.lua",
+        "lineno": "119",
+        "name": "pat_watchers",
+        "signature": "URLDispatcher.pat_watchers",
         "stripped_doc": "",
         "type": "Variable"
       },
       {
         "def": "URLDispatcher.set_system_handler",
-        "desc": "If true, URLDispatcher set itself as system handler for http requests. Defaults to `true`",
-        "doc": "If true, URLDispatcher set itself as system handler for http requests. Defaults to `true`",
+        "desc": "If true, URLDispatcher sets itself as system handler for http requests.",
+        "doc": "If true, URLDispatcher sets itself as system handler for http requests.\nDefaults to `true`",
         "file": "Source/URLDispatcher.spoon/init.lua",
-        "lineno": "64",
+        "lineno": "108",
         "name": "set_system_handler",
         "signature": "URLDispatcher.set_system_handler",
-        "stripped_doc": "",
+        "stripped_doc": "Defaults to `true`",
         "type": "Variable"
       },
       {
         "def": "URLDispatcher.url_patterns",
         "desc": "URL dispatch rules.",
-        "doc": "URL dispatch rules.\n\nNotes:\n * A table containing a list of dispatch rules. Each rule should be its own table in the format: `{ \"url pattern\", \"application bundle ID\", \"function\" }`, and they are evaluated in the order they are declared.\n * Note that the patterns are [Lua patterns](https://www.lua.org/pil/20.2.html) and not regular expressions.\n * Defaults to an empty table, which has the effect of having all URLs dispatched to the `default_handler`.\n * If \"application bundle ID\" is specified, that application will be used to open matching URLs. If no \"application bundle ID\" is specified, but \"function\" is provided (and is a Lua function) it will be called with the URL.",
+        "doc": "URL dispatch rules.\n\nNotes:\n A table containing a list of dispatch rules. Rules are evaluated in the\n order they are declared. Each rule is a table with the following structure:\n `{ url-patterns, app-bundle-ID-or-function, function, app-patterns }`\n * `url-patterns` can be: (a) a single pattern as a string, (b) a table\n   containing a list of strings, or (c) a string containing the path of a\n   file from which the patterns will be read (if the string contains a valid\n   filename it's used as a file, otherwise as a pattern). In case (c), a\n   watcher will be set to automatically re-read the contents of the file\n   when it changes. If a relative path is given (not starting with a \"/\"),\n   then it is considered to be relative to the Hammerspoon configuration\n   directory.\n * If `app-bundle-ID-or-function` is specified as a string, it is\n   interpreted as a macOS application ID, and that application will be used\n   to open matching URLs. If it is a function pointer, or not given but\n   \"function\" is provided, it is expected to be a function that accepts a\n   single argument, and it will be called with the URL.\n * If `app-patterns` is given, it should be a string or a table containing a\n   pattern/list of patterns, and the rule will only be evaluated if the URL\n   was opened from an application whose name matches one of those patterns.\n * Note that the patterns are [Lua patterns](https://www.lua.org/pil/20.2.html)\n   and not regular expressions.\n * Defaults to an empty table, which has the effect of having all URLs\n   dispatched to the `default_handler`.",
         "file": "Source/URLDispatcher.spoon/init.lua",
-        "lineno": "48",
+        "lineno": "69",
         "name": "url_patterns",
         "notes": [
-          " * A table containing a list of dispatch rules. Each rule should be its own table in the format: `{ \"url pattern\", \"application bundle ID\", \"function\" }`, and they are evaluated in the order they are declared.",
-          " * Note that the patterns are [Lua patterns](https://www.lua.org/pil/20.2.html) and not regular expressions.",
-          " * Defaults to an empty table, which has the effect of having all URLs dispatched to the `default_handler`.",
-          " * If \"application bundle ID\" is specified, that application will be used to open matching URLs. If no \"application bundle ID\" is specified, but \"function\" is provided (and is a Lua function) it will be called with the URL."
+          " A table containing a list of dispatch rules. Rules are evaluated in the",
+          " order they are declared. Each rule is a table with the following structure:",
+          " `{ url-patterns, app-bundle-ID-or-function, function, app-patterns }`",
+          " * `url-patterns` can be: (a) a single pattern as a string, (b) a table",
+          "   containing a list of strings, or (c) a string containing the path of a",
+          "   file from which the patterns will be read (if the string contains a valid",
+          "   filename it's used as a file, otherwise as a pattern). In case (c), a",
+          "   watcher will be set to automatically re-read the contents of the file",
+          "   when it changes. If a relative path is given (not starting with a \"/\"),",
+          "   then it is considered to be relative to the Hammerspoon configuration",
+          "   directory.",
+          " * If `app-bundle-ID-or-function` is specified as a string, it is",
+          "   interpreted as a macOS application ID, and that application will be used",
+          "   to open matching URLs. If it is a function pointer, or not given but",
+          "   \"function\" is provided, it is expected to be a function that accepts a",
+          "   single argument, and it will be called with the URL.",
+          " * If `app-patterns` is given, it should be a string or a table containing a",
+          "   pattern/list of patterns, and the rule will only be evaluated if the URL",
+          "   was opened from an application whose name matches one of those patterns.",
+          " * Note that the patterns are [Lua patterns](https://www.lua.org/pil/20.2.html)",
+          "   and not regular expressions.",
+          " * Defaults to an empty table, which has the effect of having all URLs",
+          "   dispatched to the `default_handler`."
         ],
         "signature": "URLDispatcher.url_patterns",
         "stripped_doc": "",
@@ -16872,13 +17623,42 @@
       },
       {
         "def": "URLDispatcher.url_redir_decoders",
-        "desc": "List containing optional additional redirection decoders (other",
-        "doc": "List containing optional additional redirection decoders (other\nthan the known Slack decoder, which is enabled by\n`URLDispatcher.decode_slack_redir_urls` to apply to URLs before\ndispatching them. Each list element must be a list itself with four\nelements:\n  * String: a name to identify the decoder;\n  * String: a [Lua pattern](https://www.lua.org/pil/20.2.html) to match against the URL;\n  * String: a replacement pattern to apply if a match is found;\n  * (optional) Boolean: whether to skip URL-decoding of the resulting string (by default the results are always decoded);\n  * (optional) String or Table: a pattern or list of patterns to match against the name of the application from which the URL was opened. If this parameter is present, the decoder will only be applied when the application matches. Default is to apply the decoder regardless of the application.\nThe first two values are passed as arguments to\n[string.gsub](https://www.lua.org/manual/5.3/manual.html#pdf-string.gsub)\napplied on the original URL.  Default value: empty list",
+        "desc": "URL redirection decoders. Default value: empty list",
+        "doc": "URL redirection decoders. Default value: empty list\n\nNotes:\nList containing optional redirection decoders (other than the known Slack\ndecoder, which is enabled by `URLDispatcher.decode_slack_redir_urls` to\napply to URLs before dispatching them. Each list element must be a list\nitself with a maximum of five elements:\n  * `decoder-name`: (String) a name to identify the decoder;\n  * `decoder-pattern-or-function`: (String or Function) if a string is\n    given, it is used as a [Lua pattern](https://www.lua.org/pil/20.2.html)\n    to match against the URL. If a function is given, it will be called with\n    arguments `scheme`, `host`, `params`, `fullUrl`, `senderPid` (the same\n    arguments as passed to\n    [hs.urlevent.httpCallback](https://www.hammerspoon.org/docs/hs.urlevent.html#httpCallback)),\n    and must return a string that contains the URL to be opened. The\n    returned value will be URL-decoded according to the value of `skip-decode-url` (below).\n  * `pattern-replacement`: (String) a replacement pattern to apply if a\n    match is found when a decoder pattern (previous argument) is provided.\n    If a decoder function is given, this argument is ignored.\n  * `skip-decode-url`: (Boolean, optional) whether to skip URL-decoding of the\n    resulting string (defaults to `false`, by default URLs are always decoded)\n  * `source-application`: (String or Table, optional): a pattern or list of\n    patterns to match against the name of the application from which the URL\n    was opened. If this parameter is present, the decoder will only be\n    applied when the application matches. Default is to apply the decoder\n    regardless of the application.\nIf given as strings, `decoder-pattern-or-function` and `pattern-replacement`\nare passed as arguments to\n[string.gsub](https://www.lua.org/manual/5.3/manual.html#pdf-string.gsub)\napplied on the original URL.",
         "file": "Source/URLDispatcher.spoon/init.lua",
-        "lineno": "31",
+        "lineno": "35",
         "name": "url_redir_decoders",
+        "notes": [
+          "List containing optional redirection decoders (other than the known Slack",
+          "decoder, which is enabled by `URLDispatcher.decode_slack_redir_urls` to",
+          "apply to URLs before dispatching them. Each list element must be a list",
+          "itself with a maximum of five elements:",
+          "  * `decoder-name`: (String) a name to identify the decoder;",
+          "  * `decoder-pattern-or-function`: (String or Function) if a string is",
+          "    given, it is used as a [Lua pattern](https://www.lua.org/pil/20.2.html)",
+          "    to match against the URL. If a function is given, it will be called with",
+          "    arguments `scheme`, `host`, `params`, `fullUrl`, `senderPid` (the same",
+          "    arguments as passed to",
+          "    [hs.urlevent.httpCallback](https://www.hammerspoon.org/docs/hs.urlevent.html#httpCallback)),",
+          "    and must return a string that contains the URL to be opened. The",
+          "    returned value will be URL-decoded according to the value of `skip-decode-url` (below).",
+          "  * `pattern-replacement`: (String) a replacement pattern to apply if a",
+          "    match is found when a decoder pattern (previous argument) is provided.",
+          "    If a decoder function is given, this argument is ignored.",
+          "  * `skip-decode-url`: (Boolean, optional) whether to skip URL-decoding of the",
+          "    resulting string (defaults to `false`, by default URLs are always decoded)",
+          "  * `source-application`: (String or Table, optional): a pattern or list of",
+          "    patterns to match against the name of the application from which the URL",
+          "    was opened. If this parameter is present, the decoder will only be",
+          "    applied when the application matches. Default is to apply the decoder",
+          "    regardless of the application.",
+          "If given as strings, `decoder-pattern-or-function` and `pattern-replacement`",
+          "are passed as arguments to",
+          "[string.gsub](https://www.lua.org/manual/5.3/manual.html#pdf-string.gsub)",
+          "applied on the original URL."
+        ],
         "signature": "URLDispatcher.url_redir_decoders",
-        "stripped_doc": "than the known Slack decoder, which is enabled by\n`URLDispatcher.decode_slack_redir_urls` to apply to URLs before\ndispatching them. Each list element must be a list itself with four\nelements:\n  * String: a name to identify the decoder;\n  * String: a [Lua pattern](https://www.lua.org/pil/20.2.html) to match against the URL;\n  * String: a replacement pattern to apply if a match is found;\n  * (optional) Boolean: whether to skip URL-decoding of the resulting string (by default the results are always decoded);\n  * (optional) String or Table: a pattern or list of patterns to match against the name of the application from which the URL was opened. If this parameter is present, the decoder will only be applied when the application matches. Default is to apply the decoder regardless of the application.\nThe first two values are passed as arguments to\n[string.gsub](https://www.lua.org/manual/5.3/manual.html#pdf-string.gsub)\napplied on the original URL.  Default value: empty list",
+        "stripped_doc": "",
         "type": "Variable"
       }
     ],
@@ -16890,7 +17670,7 @@
         "desc": "If true, handle Slack-redir URLs to apply the rule on the destination URL. Defaults to `true`",
         "doc": "If true, handle Slack-redir URLs to apply the rule on the destination URL. Defaults to `true`",
         "file": "Source/URLDispatcher.spoon/init.lua",
-        "lineno": "26",
+        "lineno": "30",
         "name": "decode_slack_redir_urls",
         "signature": "URLDispatcher.decode_slack_redir_urls",
         "stripped_doc": "",
@@ -16898,22 +17678,26 @@
       },
       {
         "def": "URLDispatcher.default_handler",
-        "desc": "Bundle ID for default URL handler. (Defaults to `\"com.apple.Safari\"`)",
-        "doc": "Bundle ID for default URL handler. (Defaults to `\"com.apple.Safari\"`)",
+        "desc": "Default URL handler (Defaults to `\"com.apple.Safari\"`)",
+        "doc": "Default URL handler (Defaults to `\"com.apple.Safari\"`)\n\nNotes:\nCan be a string containing the Bundle ID of an application, or a function\nthat takes one argument, and which will be invoked with the URL to open.",
         "file": "Source/URLDispatcher.spoon/init.lua",
         "lineno": "21",
         "name": "default_handler",
+        "notes": [
+          "Can be a string containing the Bundle ID of an application, or a function",
+          "that takes one argument, and which will be invoked with the URL to open."
+        ],
         "signature": "URLDispatcher.default_handler",
         "stripped_doc": "",
         "type": "Variable"
       },
       {
-        "def": "URLDispatcher:dispatchURL(scheme, host, params, fullUrl)",
+        "def": "URLDispatcher:dispatchURL(scheme, host, params, fullUrl, senderPid)",
         "desc": "Dispatch a URL to an application according to the defined `url_patterns`.",
-        "doc": "Dispatch a URL to an application according to the defined `url_patterns`.\n\nParameters:\n * scheme - A string containing the URL scheme (i.e. \"http\")\n * host - A string containing the host requested (e.g. \"www.hammerspoon.org\")\n * params - A table containing the key/value pairs of all the URL parameters\n * fullURL - A string containing the full, original URL. This is the only parameter used in this implementation.\n\nNotes:\n * The parameters (follow to the [httpCallback](http://www.hammerspoon.org/docs/hs.urlevent.html#httpCallback) specification)",
+        "doc": "Dispatch a URL to an application according to the defined `url_patterns`.\n\nParameters:\n * scheme - A string containing the URL scheme (i.e. \"http\")\n * host - A string containing the host requested (e.g. \"www.hammerspoon.org\")\n * params - A table containing the key/value pairs of all the URL parameters\n * fullURL - A string containing the full, original URL. This is the only parameter used in this implementation.\n * senderPID - An integer containing the PID of the application that opened the URL, if available (otherwise -1)\n\nNotes:\n * The parameters (follow to the [httpCallback](http://www.hammerspoon.org/docs/hs.urlevent.html#httpCallback) specification)",
         "examples": [],
         "file": "Source/URLDispatcher.spoon/init.lua",
-        "lineno": "83",
+        "lineno": "188",
         "name": "dispatchURL",
         "notes": [
           " * The parameters (follow to the [httpCallback](http://www.hammerspoon.org/docs/hs.urlevent.html#httpCallback) specification)"
@@ -16922,33 +17706,59 @@
           " * scheme - A string containing the URL scheme (i.e. \"http\")",
           " * host - A string containing the host requested (e.g. \"www.hammerspoon.org\")",
           " * params - A table containing the key/value pairs of all the URL parameters",
-          " * fullURL - A string containing the full, original URL. This is the only parameter used in this implementation."
+          " * fullURL - A string containing the full, original URL. This is the only parameter used in this implementation.",
+          " * senderPID - An integer containing the PID of the application that opened the URL, if available (otherwise -1)"
         ],
         "returns": [],
-        "signature": "URLDispatcher:dispatchURL(scheme, host, params, fullUrl)",
+        "signature": "URLDispatcher:dispatchURL(scheme, host, params, fullUrl, senderPid)",
         "stripped_doc": "",
         "type": "Method"
       },
       {
         "def": "URLDispatcher.logger",
-        "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
-        "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "desc": "Logger object used within the Spoon. Can be accessed to set the default log",
+        "doc": "Logger object used within the Spoon. Can be accessed to set the default log\nlevel for the messages coming from the Spoon.\n\nNotes:\nExample: `spoon.URLDispatcher.logger.setLogLevel(\"debug\")`",
         "file": "Source/URLDispatcher.spoon/init.lua",
-        "lineno": "59",
+        "lineno": "99",
         "name": "logger",
+        "notes": [
+          "Example: `spoon.URLDispatcher.logger.setLogLevel(\"debug\")`"
+        ],
         "signature": "URLDispatcher.logger",
+        "stripped_doc": "level for the messages coming from the Spoon.",
+        "type": "Variable"
+      },
+      {
+        "def": "URLDispatcher.pat_files",
+        "desc": "Internal variable containing a table where the pattern lists read from files are kept indexed by file name, and automatically updated.",
+        "doc": "Internal variable containing a table where the pattern lists read from files are kept indexed by file name, and automatically updated.",
+        "file": "Source/URLDispatcher.spoon/init.lua",
+        "lineno": "114",
+        "name": "pat_files",
+        "signature": "URLDispatcher.pat_files",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "URLDispatcher.pat_watchers",
+        "desc": "Internal variable containing a table where the watchers for the pattern files are kept indexed by file name.",
+        "doc": "Internal variable containing a table where the watchers for the pattern files are kept indexed by file name.",
+        "file": "Source/URLDispatcher.spoon/init.lua",
+        "lineno": "119",
+        "name": "pat_watchers",
+        "signature": "URLDispatcher.pat_watchers",
         "stripped_doc": "",
         "type": "Variable"
       },
       {
         "def": "URLDispatcher.set_system_handler",
-        "desc": "If true, URLDispatcher set itself as system handler for http requests. Defaults to `true`",
-        "doc": "If true, URLDispatcher set itself as system handler for http requests. Defaults to `true`",
+        "desc": "If true, URLDispatcher sets itself as system handler for http requests.",
+        "doc": "If true, URLDispatcher sets itself as system handler for http requests.\nDefaults to `true`",
         "file": "Source/URLDispatcher.spoon/init.lua",
-        "lineno": "64",
+        "lineno": "108",
         "name": "set_system_handler",
         "signature": "URLDispatcher.set_system_handler",
-        "stripped_doc": "",
+        "stripped_doc": "Defaults to `true`",
         "type": "Variable"
       },
       {
@@ -16957,7 +17767,7 @@
         "doc": "Start dispatching URLs according to the rules\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/URLDispatcher.spoon/init.lua",
-        "lineno": "150",
+        "lineno": "312",
         "name": "start",
         "notes": [],
         "parameters": [
@@ -16971,15 +17781,34 @@
       {
         "def": "URLDispatcher.url_patterns",
         "desc": "URL dispatch rules.",
-        "doc": "URL dispatch rules.\n\nNotes:\n * A table containing a list of dispatch rules. Each rule should be its own table in the format: `{ \"url pattern\", \"application bundle ID\", \"function\" }`, and they are evaluated in the order they are declared.\n * Note that the patterns are [Lua patterns](https://www.lua.org/pil/20.2.html) and not regular expressions.\n * Defaults to an empty table, which has the effect of having all URLs dispatched to the `default_handler`.\n * If \"application bundle ID\" is specified, that application will be used to open matching URLs. If no \"application bundle ID\" is specified, but \"function\" is provided (and is a Lua function) it will be called with the URL.",
+        "doc": "URL dispatch rules.\n\nNotes:\n A table containing a list of dispatch rules. Rules are evaluated in the\n order they are declared. Each rule is a table with the following structure:\n `{ url-patterns, app-bundle-ID-or-function, function, app-patterns }`\n * `url-patterns` can be: (a) a single pattern as a string, (b) a table\n   containing a list of strings, or (c) a string containing the path of a\n   file from which the patterns will be read (if the string contains a valid\n   filename it's used as a file, otherwise as a pattern). In case (c), a\n   watcher will be set to automatically re-read the contents of the file\n   when it changes. If a relative path is given (not starting with a \"/\"),\n   then it is considered to be relative to the Hammerspoon configuration\n   directory.\n * If `app-bundle-ID-or-function` is specified as a string, it is\n   interpreted as a macOS application ID, and that application will be used\n   to open matching URLs. If it is a function pointer, or not given but\n   \"function\" is provided, it is expected to be a function that accepts a\n   single argument, and it will be called with the URL.\n * If `app-patterns` is given, it should be a string or a table containing a\n   pattern/list of patterns, and the rule will only be evaluated if the URL\n   was opened from an application whose name matches one of those patterns.\n * Note that the patterns are [Lua patterns](https://www.lua.org/pil/20.2.html)\n   and not regular expressions.\n * Defaults to an empty table, which has the effect of having all URLs\n   dispatched to the `default_handler`.",
         "file": "Source/URLDispatcher.spoon/init.lua",
-        "lineno": "48",
+        "lineno": "69",
         "name": "url_patterns",
         "notes": [
-          " * A table containing a list of dispatch rules. Each rule should be its own table in the format: `{ \"url pattern\", \"application bundle ID\", \"function\" }`, and they are evaluated in the order they are declared.",
-          " * Note that the patterns are [Lua patterns](https://www.lua.org/pil/20.2.html) and not regular expressions.",
-          " * Defaults to an empty table, which has the effect of having all URLs dispatched to the `default_handler`.",
-          " * If \"application bundle ID\" is specified, that application will be used to open matching URLs. If no \"application bundle ID\" is specified, but \"function\" is provided (and is a Lua function) it will be called with the URL."
+          " A table containing a list of dispatch rules. Rules are evaluated in the",
+          " order they are declared. Each rule is a table with the following structure:",
+          " `{ url-patterns, app-bundle-ID-or-function, function, app-patterns }`",
+          " * `url-patterns` can be: (a) a single pattern as a string, (b) a table",
+          "   containing a list of strings, or (c) a string containing the path of a",
+          "   file from which the patterns will be read (if the string contains a valid",
+          "   filename it's used as a file, otherwise as a pattern). In case (c), a",
+          "   watcher will be set to automatically re-read the contents of the file",
+          "   when it changes. If a relative path is given (not starting with a \"/\"),",
+          "   then it is considered to be relative to the Hammerspoon configuration",
+          "   directory.",
+          " * If `app-bundle-ID-or-function` is specified as a string, it is",
+          "   interpreted as a macOS application ID, and that application will be used",
+          "   to open matching URLs. If it is a function pointer, or not given but",
+          "   \"function\" is provided, it is expected to be a function that accepts a",
+          "   single argument, and it will be called with the URL.",
+          " * If `app-patterns` is given, it should be a string or a table containing a",
+          "   pattern/list of patterns, and the rule will only be evaluated if the URL",
+          "   was opened from an application whose name matches one of those patterns.",
+          " * Note that the patterns are [Lua patterns](https://www.lua.org/pil/20.2.html)",
+          "   and not regular expressions.",
+          " * Defaults to an empty table, which has the effect of having all URLs",
+          "   dispatched to the `default_handler`."
         ],
         "signature": "URLDispatcher.url_patterns",
         "stripped_doc": "",
@@ -16987,13 +17816,42 @@
       },
       {
         "def": "URLDispatcher.url_redir_decoders",
-        "desc": "List containing optional additional redirection decoders (other",
-        "doc": "List containing optional additional redirection decoders (other\nthan the known Slack decoder, which is enabled by\n`URLDispatcher.decode_slack_redir_urls` to apply to URLs before\ndispatching them. Each list element must be a list itself with four\nelements:\n  * String: a name to identify the decoder;\n  * String: a [Lua pattern](https://www.lua.org/pil/20.2.html) to match against the URL;\n  * String: a replacement pattern to apply if a match is found;\n  * (optional) Boolean: whether to skip URL-decoding of the resulting string (by default the results are always decoded);\n  * (optional) String or Table: a pattern or list of patterns to match against the name of the application from which the URL was opened. If this parameter is present, the decoder will only be applied when the application matches. Default is to apply the decoder regardless of the application.\nThe first two values are passed as arguments to\n[string.gsub](https://www.lua.org/manual/5.3/manual.html#pdf-string.gsub)\napplied on the original URL.  Default value: empty list",
+        "desc": "URL redirection decoders. Default value: empty list",
+        "doc": "URL redirection decoders. Default value: empty list\n\nNotes:\nList containing optional redirection decoders (other than the known Slack\ndecoder, which is enabled by `URLDispatcher.decode_slack_redir_urls` to\napply to URLs before dispatching them. Each list element must be a list\nitself with a maximum of five elements:\n  * `decoder-name`: (String) a name to identify the decoder;\n  * `decoder-pattern-or-function`: (String or Function) if a string is\n    given, it is used as a [Lua pattern](https://www.lua.org/pil/20.2.html)\n    to match against the URL. If a function is given, it will be called with\n    arguments `scheme`, `host`, `params`, `fullUrl`, `senderPid` (the same\n    arguments as passed to\n    [hs.urlevent.httpCallback](https://www.hammerspoon.org/docs/hs.urlevent.html#httpCallback)),\n    and must return a string that contains the URL to be opened. The\n    returned value will be URL-decoded according to the value of `skip-decode-url` (below).\n  * `pattern-replacement`: (String) a replacement pattern to apply if a\n    match is found when a decoder pattern (previous argument) is provided.\n    If a decoder function is given, this argument is ignored.\n  * `skip-decode-url`: (Boolean, optional) whether to skip URL-decoding of the\n    resulting string (defaults to `false`, by default URLs are always decoded)\n  * `source-application`: (String or Table, optional): a pattern or list of\n    patterns to match against the name of the application from which the URL\n    was opened. If this parameter is present, the decoder will only be\n    applied when the application matches. Default is to apply the decoder\n    regardless of the application.\nIf given as strings, `decoder-pattern-or-function` and `pattern-replacement`\nare passed as arguments to\n[string.gsub](https://www.lua.org/manual/5.3/manual.html#pdf-string.gsub)\napplied on the original URL.",
         "file": "Source/URLDispatcher.spoon/init.lua",
-        "lineno": "31",
+        "lineno": "35",
         "name": "url_redir_decoders",
+        "notes": [
+          "List containing optional redirection decoders (other than the known Slack",
+          "decoder, which is enabled by `URLDispatcher.decode_slack_redir_urls` to",
+          "apply to URLs before dispatching them. Each list element must be a list",
+          "itself with a maximum of five elements:",
+          "  * `decoder-name`: (String) a name to identify the decoder;",
+          "  * `decoder-pattern-or-function`: (String or Function) if a string is",
+          "    given, it is used as a [Lua pattern](https://www.lua.org/pil/20.2.html)",
+          "    to match against the URL. If a function is given, it will be called with",
+          "    arguments `scheme`, `host`, `params`, `fullUrl`, `senderPid` (the same",
+          "    arguments as passed to",
+          "    [hs.urlevent.httpCallback](https://www.hammerspoon.org/docs/hs.urlevent.html#httpCallback)),",
+          "    and must return a string that contains the URL to be opened. The",
+          "    returned value will be URL-decoded according to the value of `skip-decode-url` (below).",
+          "  * `pattern-replacement`: (String) a replacement pattern to apply if a",
+          "    match is found when a decoder pattern (previous argument) is provided.",
+          "    If a decoder function is given, this argument is ignored.",
+          "  * `skip-decode-url`: (Boolean, optional) whether to skip URL-decoding of the",
+          "    resulting string (defaults to `false`, by default URLs are always decoded)",
+          "  * `source-application`: (String or Table, optional): a pattern or list of",
+          "    patterns to match against the name of the application from which the URL",
+          "    was opened. If this parameter is present, the decoder will only be",
+          "    applied when the application matches. Default is to apply the decoder",
+          "    regardless of the application.",
+          "If given as strings, `decoder-pattern-or-function` and `pattern-replacement`",
+          "are passed as arguments to",
+          "[string.gsub](https://www.lua.org/manual/5.3/manual.html#pdf-string.gsub)",
+          "applied on the original URL."
+        ],
         "signature": "URLDispatcher.url_redir_decoders",
-        "stripped_doc": "than the known Slack decoder, which is enabled by\n`URLDispatcher.decode_slack_redir_urls` to apply to URLs before\ndispatching them. Each list element must be a list itself with four\nelements:\n  * String: a name to identify the decoder;\n  * String: a [Lua pattern](https://www.lua.org/pil/20.2.html) to match against the URL;\n  * String: a replacement pattern to apply if a match is found;\n  * (optional) Boolean: whether to skip URL-decoding of the resulting string (by default the results are always decoded);\n  * (optional) String or Table: a pattern or list of patterns to match against the name of the application from which the URL was opened. If this parameter is present, the decoder will only be applied when the application matches. Default is to apply the decoder regardless of the application.\nThe first two values are passed as arguments to\n[string.gsub](https://www.lua.org/manual/5.3/manual.html#pdf-string.gsub)\napplied on the original URL.  Default value: empty list",
+        "stripped_doc": "",
         "type": "Variable"
       }
     ],

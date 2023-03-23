@@ -33,17 +33,6 @@ jobs:
         repository: 'Hammerspoon/hammerspoon'
         path: 'hammerspoon'
 
-    # Send IRC notification for new PRs
-    - uses: Gottox/irc-message-action@v2.1.2
-      if: ${{ always() && github.event_name == 'pull_request' && github.repository == 'hammerspoon/Spoons' }}
-      with:
-        channel: '#hammerspoon'
-        nickname: 'HSGHA'
-        message: |
-          Spoon PR: ${{ github.event.pull_request.title }}
-            * ${{ github.actor }}
-            * ${{ github.event.pull_request.html_url }}
-
     # Install doc-building dependencies
     - name: Install docs dependencies
       run: |
