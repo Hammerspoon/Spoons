@@ -127,6 +127,7 @@ function obj:hide()
   -- hotkey first, if anything goes wrong we don't want the hotkey stuck
   self.canvas:hide()
   if self.tick_timer then self.tick_timer:stop(); self.tick_timer = nil end
+  if self.show_timer then self.show_timer:stop(); self.show_timer = nil end
 end
 
 --- AClock:toggleShow()
@@ -146,7 +147,6 @@ function obj:toggleShow()
     self:show()
     self.show_timer = hs.timer.doAfter(self.showDuration, function()
       self:hide()
-      self.show_timer = nil
     end)
   end
 end
