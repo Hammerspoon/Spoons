@@ -70,7 +70,7 @@
         "doc": "Show AClock for 4 seconds. If already showing, hide it.\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/AClock.spoon/init.lua",
-        "lineno": "132",
+        "lineno": "133",
         "name": "toggleShow",
         "notes": [],
         "parameters": [
@@ -166,7 +166,7 @@
         "doc": "Show AClock for 4 seconds. If already showing, hide it.\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/AClock.spoon/init.lua",
-        "lineno": "132",
+        "lineno": "133",
         "name": "toggleShow",
         "notes": [],
         "parameters": [
