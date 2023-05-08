@@ -146,27 +146,36 @@ function MiddleClickDragScroll:handleMouseDown()
       if hs.fnutils.some(self.excludedUrls, function(u) return url:match(u) end) then return end
     end
   
-    self.position = event:location()
+    self.startPos = event:location()
+
+    return true
   end
 end
 
 function MiddleClickDragScroll:handleMouseDragged()
   return function(event)
-    if event:getProperty(hs.eventtap.event.properties.mouseEventButtonNumber) ~= 2 or self.position == nil or self.isScrolling then
+    if event:getProperty(hs.eventtap.event.properties.mouseEventButtonNumber) ~= 2 or self.startPos == nil then
       return
     end
   
     local loc = event:location()
-    if loc == nil then return end
+    if loc == nil then
+      return true
+    end
+
+    self.currPos = loc
+
+    if self.isScrolling then
+      return true
+    end
   
-    if (loc.x - self.position.x) ^ 2 + (loc.y - self.position.y) ^ 2 > self.startDistance ^ 2 then
+    if (loc.x - self.startPos.x) ^ 2 + (loc.y - self.startPos.y) ^ 2 > self.startDistance ^ 2 then
       self.isScrolling = true
       local frame = self.canvas:frame()
-      self.canvas:topLeft{ x = self.position.x - frame.w / 2, y = self.position.y - frame.h / 2 }:show()
+      self.canvas:topLeft{ x = self.startPos.x - frame.w / 2, y = self.startPos.y - frame.h / 2 }:show()
       self.timer = hs.timer.doEvery(self.scrollFrequency, function(t)
-        local loc = hs.mouse.absolutePosition()
-        local xDiff = self.position.x - loc.x
-        local yDiff = self.position.y - loc.y
+        local xDiff = self.startPos.x - self.currPos.x
+        local yDiff = self.startPos.y - self.currPos.y
         hs.eventtap.scrollWheel(
           {
             math.floor(self:scrollSpeedFn(xDiff)) * signum(xDiff),
@@ -177,21 +186,34 @@ function MiddleClickDragScroll:handleMouseDragged()
         )
       end)
     end
+
+    return true
   end
 end
 
 function MiddleClickDragScroll:handleMouseUp()
   return function(event)
-    if event:getProperty(hs.eventtap.event.properties.mouseEventButtonNumber) ~= 2 then
+    if event:getProperty(hs.eventtap.event.properties.mouseEventButtonNumber) ~= 2 or self.startPos == nil then
       return
     end
-  
+
     if self.timer ~= nil then
       self.timer:stop()
       self.timer = nil
     end
-    self.position = nil
+
+    self.startPos = nil
     self.canvas:hide()
+
+    if not self.isScrolling then
+      self.middleMouseDownEventTap:stop()
+      self.middleMouseUpEventTap:stop()
+      hs.eventtap.middleClick(event:location(), 1)
+      self.middleMouseUpEventTap:start()
+      self.middleMouseDownEventTap:start()
+    end
+
+    return true
   end
 end
 
@@ -230,6 +252,10 @@ function MiddleClickDragScroll:stop()
   self.middleMouseDraggedEventTap:stop()
   self.middleMouseUpEventTap:stop()
   return self
+end
+
+function MiddleClickDragScroll:isEnabled()
+  return self.middleMouseDownEventTap:isEnabled()
 end
 
 return MiddleClickDragScroll
