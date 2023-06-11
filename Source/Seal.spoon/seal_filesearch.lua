@@ -56,6 +56,29 @@ EMPTY_QUERY = ".*"
 local log = hs.logger.new('seal_filesearch', 'info')
 
 ---
+-- Generic helper functions
+---
+
+local imapWithIndex = function(t, mapFn)
+    local mappedTable = {}
+    for i, v in ipairs(t) do
+        mappedTable[#mappedTable + 1] = mapFn(v, i)
+    end
+    return mappedTable
+end
+
+local containsWholeWord = function(s, word)
+    local pattern = "%f[%w]" .. string.lower(word) .. "%f[%W]"
+    return string.find(string.lower(s), pattern)
+end
+
+local containsCamelCaseWholeWord = function(s, word)
+    local camelCaseWord = word:sub(1, 1):upper() .. word:sub(2):lower()
+    local pattern = "%f[%u]" .. camelCaseWord .. "(%f[%u%z])"
+    return string.find(s, pattern)
+end
+
+---
 -- Spotlight Helper class
 ---
 SpotlightFileSearch = {}
@@ -151,7 +174,7 @@ end
 -- Private functions
 ---
 
-local convertSpotlightResultToQueryResult = function(item)
+local convertSpotlightResultToQueryResult = function(item, index)
     local icon = hs.image.iconForFile(item.kMDItemPath)
     local bundleID = item.kMDItemCFBundleIdentifier
     if (not icon) and (bundleID) then
@@ -164,13 +187,43 @@ local convertSpotlightResultToQueryResult = function(item)
         uuid = obj.__name .. "__" .. (bundleID or item.kMDItemDisplayName),
         plugin = obj.__name,
         type = "open",
-        image = icon
+        image = icon,
+        index = index
     }
+end
+
+-- This function returns a sort function suitable for table.sort
+-- that will boost the search results that:
+--   * contains the whole word (not part of another word)
+--   * contains the word in CamelCase
+local buildBoostResultsSortForQuery = function(query)
+    local queryWords = hs.fnutils.split(query, "%s+")
+    local scoreItem = function(item)
+        local score = 0
+        for _, word in ipairs(queryWords) do
+            if containsWholeWord(item.text, word) or containsCamelCaseWholeWord(item.text, word) then
+                score = score + 1
+            end
+        end
+        return score
+    end
+
+    return function(itemA, itemB)
+        local scoreA = scoreItem(itemA)
+        local scoreB = scoreItem(itemB)
+        if scoreA ~= scoreB then
+            return scoreA > scoreB
+        else
+            -- we just preserve the existing order otherwise
+            return itemA.index < itemB.index
+        end
+    end
 end
 
 local handleFileSearchResults = function(query, searchResults)
     if query == obj.currentQuery then
-        obj.currentQueryResults = hs.fnutils.map(searchResults, convertSpotlightResultToQueryResult)
+        obj.currentQueryResults = imapWithIndex(searchResults, convertSpotlightResultToQueryResult)
+        table.sort(obj.currentQueryResults, buildBoostResultsSortForQuery(query))
         obj.seal.chooser:refreshChoicesCallback()
     end
 end
