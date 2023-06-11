@@ -128,7 +128,9 @@ end
 function SpotlightFileSearch:buildSpotlightQuery()
     local queryWords = hs.fnutils.split(self.query, "%s+")
     local searchFilters = hs.fnutils.map(queryWords, function(word)
-        return [[kMDItemFSName like[c] "*]] .. word .. [[*"]]
+        -- [c] means case-insensitive
+        -- [d] means don't care about accents (diacritic)
+        return [[kMDItemFSName like[cd] "*]] .. word .. [[*"]]
     end)
     local spotlightQuery = table.concat(searchFilters, [[ && ]])
     return spotlightQuery
