@@ -27,45 +27,119 @@ obj.maxQueryResults = 40
 ---  * higher value might give you more results but will give a less snappy experience
 obj.displayResultsTimeout = 0.2
 
--- Variables
+---
+-- Private variables
+---
+obj.fileSearchOptions = {
+    searchPaths = obj.fileSearchPaths,
+    searchTimeout = obj.displayResultsTimeout,
+    maxSearchResults = obj.maxQueryResults
+}
+obj.currentFileSearch = nil
+obj.displayedQueryResults = {}
 obj.currentQuery = nil
-obj.currentQueryResults = {}
-obj.currentQueryResultsDisplayed = false
-obj.showQueryResultsTimer = nil
-
-obj.spotlight = hs.spotlight.new()
+obj.currentQueryResults = nil
 
 -- hammerspoon passes .* as empty query
 EMPTY_QUERY = ".*"
 
--- Private functions
+local log = hs.logger.new('seal_filesearch', 'info')
 
-local stopCurrentSearch = function()
-    if obj.spotlight:isRunning() then
-        obj.spotlight:stop()
-    end
-    if obj.showQueryResultsTimer ~= nil and obj.showQueryResultsTimer:running() then
-        obj.showQueryResultsTimer:stop()
-    end
+---
+-- Spotlight Helper class
+---
+SpotlightFileSearch = {}
+
+function SpotlightFileSearch:new(query, callback, options)
+    object = {}
+    setmetatable(object, self)
+    self.__index = self
+    self.query = query
+    self.callback = callback
+    self.searchPaths = options.searchPaths
+    self.searchTimeout = options.searchTimeout
+    self.maxSearchResults = options.maxSearchResults
+    self.searchResults = {}
+    self.running = false
+    return object
 end
 
-local displayQueryResults = function()
-    stopCurrentSearch()
-    if not obj.currentQueryResultsDisplayed then
-        obj.currentQueryResultsDisplayed = true
-        -- we force seal to refresh the choices so we can serve the real query results
-        obj.seal.chooser:refreshChoicesCallback()
-    end
+function SpotlightFileSearch:start()
+    log.d("starting spotlight filesearch for query " .. self.query)
+    self.spotlight = hs.spotlight.new()
+    self.spotlight:searchScopes(self.searchPaths)
+    self.spotlight:callbackMessages("inProgress", "didFinish")
+    self.spotlight:setCallback(hs.fnutils.partial(self.handleSpotlightCallback, self))
+    self.spotlight:queryString(self:buildSpotlightQuery())
+    self.searchTimer = hs.timer.doAfter(self.searchTimeout, hs.fnutils.partial(self.runCallback, self))
+    self.spotlight:start()
+    self.running = true
 end
 
-local buildSpotlightQuery = function(query)
-    local queryWords = hs.fnutils.split(query, "%s+")
+function SpotlightFileSearch:stop()
+    log.d("stopping spotlight filesearch for query " .. self.query)
+    if not self.running then
+        return
+    end
+    if self.spotlight:isRunning() then
+        self.spotlight:stop()
+    end
+    if self.searchTimer ~= nil and self.searchTimer:running() then
+        self.searchTimer:stop()
+    end
+    self.running = false
+end
+
+--
+
+function SpotlightFileSearch:buildSpotlightQuery()
+    local queryWords = hs.fnutils.split(self.query, "%s+")
     local searchFilters = hs.fnutils.map(queryWords, function(word)
         return [[kMDItemFSName like[c] "*]] .. word .. [[*"]]
     end)
-    local spotligthQuery = table.concat(searchFilters, [[ && ]])
-    return spotligthQuery
+    local spotlightQuery = table.concat(searchFilters, [[ && ]])
+    return spotlightQuery
 end
+
+function SpotlightFileSearch:handleSpotlightCallback(_, msg, info)
+    log.d("received spotlight callback " .. msg .. " for query " .. self.query)
+    if not self.running then
+        log.d("ignoring spotlight callback for non-running query " .. self.query)
+        return
+    end
+    if msg == "inProgress" and info.kMDQueryUpdateAddedItems ~= nil then
+        self:updateSearchResults(info.kMDQueryUpdateAddedItems)
+    end
+
+    if msg == "didFinish" or #self.searchResults >= self.maxSearchResults then
+        self:runCallback()
+    end
+
+end
+
+function SpotlightFileSearch:updateSearchResults(results)
+    log.d("received " .. #results .. " spotlight results for query " .. self.query)
+    for _, item in ipairs(results) do
+        if #self.searchResults >= self.maxSearchResults then
+            break
+        end
+        table.insert(self.searchResults, item)
+    end
+end
+
+function SpotlightFileSearch:runCallback()
+    log.d("calling spotlight filesearch callback with " .. #self.searchResults .. " results for query .. " .. self.query)
+    if not self.running then
+        log.d("skipping calling spotlight filesearch callback for non-running query " .. self.query)
+        return
+    end
+    self:stop()
+    self.callback(self.query, self.searchResults)
+end
+
+---
+-- Private functions
+---
 
 local convertSpotlightResultToQueryResult = function(item)
     local icon = hs.image.iconForFile(item.kMDItemPath)
@@ -84,26 +158,16 @@ local convertSpotlightResultToQueryResult = function(item)
     }
 end
 
-local updateQueryResults = function(items)
-    for _, item in ipairs(items) do
-        if #obj.currentQueryResults >= obj.maxQueryResults then
-            break
-        end
-        table.insert(obj.currentQueryResults, convertSpotlightResultToQueryResult(item))
+local handleFileSearchResults = function(query, searchResults)
+    if query == obj.currentQuery then
+        obj.currentQueryResults = hs.fnutils.map(searchResults, convertSpotlightResultToQueryResult)
+        obj.seal.chooser:refreshChoicesCallback()
     end
 end
 
-local handleSpotlightCallback = function(_, msg, info)
-    if msg == "inProgress" and info.kMDQueryUpdateAddedItems ~= nil then
-        updateQueryResults(info.kMDQueryUpdateAddedItems)
-    end
-
-    if msg == "didFinish" or #obj.currentQueryResults >= obj.maxQueryResults then
-        displayQueryResults()
-    end
-end
-
+---
 -- Public methods
+---
 
 function obj:commands()
     return {
@@ -132,37 +196,35 @@ function obj.completionCallback(rowInfo)
 end
 
 function obj.fileSearch(query)
-    stopCurrentSearch()
-
-    if query == EMPTY_QUERY then
-        obj.currentQuery = ""
-        obj.currentQueryResults = {}
-        return {}
-    end
-
     if query ~= obj.currentQuery then
-        -- Seal want the results synchronously, but spotlight will return then asynchronously
-        -- to workaround that, we launch the spotlight search in the background and
-        -- return the previous results (so that Seal doesn't change the current results list)
-        -- We force a refresh later once we have the results
-        local previousResults = obj.currentQueryResults
-        obj.currentQuery = query
-        obj.currentQueryResults = {}
-        obj.currentQueryResultsDisplayed = false
+        if obj.currentFileSearch ~= nil then
+            obj.currentFileSearch:stop()
+            obj.currentFileSearch = nil
+        end
 
-        obj.spotlight:queryString(buildSpotlightQuery(query)):start()
-        obj.showQueryResultsTimer = hs.timer.doAfter(obj.displayResultsTimeout, displayQueryResults)
+        if query == EMPTY_QUERY then
+            obj.currentQuery = ""
+            obj.currentQueryResults = {}
+            obj.displayedQueryResults = {}
+        else
+            -- Seal want the results synchronously, but spotlight will return then asynchronously
+            -- to workaround that, we launch the spotlight search in the background and
+            -- return the currently displayed results (so that Seal doesn't change the current results list)
+            -- We force a refresh later once we have the results
+            obj.currentQuery = query
+            obj.currentQueryResults = nil
+            obj.currentFileSearch = SpotlightFileSearch:new(query, handleFileSearchResults, obj.fileSearchOptions)
+            obj.currentFileSearch:start()
+        end
 
-        return previousResults
-    else
+    elseif obj.currentQueryResults ~= nil then
         -- If we are here, it's mean the force refreshed has been triggered after receving spotlight results
         -- we just return the results we accumulated from spotlight
-        return obj.currentQueryResults
+        obj.displayedQueryResults = obj.currentQueryResults
     end
 
-end
+    return obj.displayedQueryResults
 
-obj.spotlight:searchScopes(obj.fileSearchPaths):callbackMessages("inProgress", "didFinish"):setCallback(
-    handleSpotlightCallback)
+end
 
 return obj
