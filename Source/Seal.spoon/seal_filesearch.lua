@@ -20,12 +20,21 @@ obj.maxQueryResults = 40
 
 --- Seal.plugins.filesearch.displayResultsTimeout
 --- Variable
---- Maximum time to wait before displaying the results
---- Defaults to 0.2s (200ms).
+--- Maximum time to wait before displaying the results. Defaults to 0.2s (200ms).
 ---
 --- Notes:
 ---  * higher value might give you more results but will give a less snappy experience
 obj.displayResultsTimeout = 0.2
+
+--- Seal.plugins.filesearch.queryChangedTimerDuration
+--- Variable
+--- Maximum delay after typing a query before initiating a file search. Defaults to 0.1s (100ms).
+---
+--- Notes: This plugin uses its own parameter, separate from the Seal one, as each query
+---        initiates a new spotlight search that is more resource-intensive than other plugins.
+---        To prevent impacting interface responsiveness, a value higher than the default Seal
+---        one is typically desired.
+obj.queryChangedTimerDuration = 0.1
 
 ---
 -- Private variables
@@ -39,6 +48,7 @@ obj.currentFileSearch = nil
 obj.displayedQueryResults = {}
 obj.currentQuery = nil
 obj.currentQueryResults = nil
+obj.delayedFileSearchTimer = nil
 
 -- hammerspoon passes .* as empty query
 EMPTY_QUERY = ".*"
@@ -165,6 +175,21 @@ local handleFileSearchResults = function(query, searchResults)
     end
 end
 
+local triggerFileSearch = function(query)
+    if query == obj.currentQuery then
+        obj.currentFileSearch = SpotlightFileSearch:new(query, handleFileSearchResults, obj.fileSearchOptions)
+        obj.currentFileSearch:start()
+    end
+end
+
+local triggerFileSearchAfterDelay = function(query, delay)
+    if obj.delayedFileSearchTimer ~= nil then
+        obj.delayedFileSearchTimer:stop()
+    end
+    obj.delayedFileSearchTimer = hs.timer.doAfter(delay, hs.fnutils.partial(triggerFileSearch, query))
+    obj.delayedFileSearchTimer:start()
+end
+
 ---
 -- Public methods
 ---
@@ -213,8 +238,11 @@ function obj.fileSearch(query)
             -- We force a refresh later once we have the results
             obj.currentQuery = query
             obj.currentQueryResults = nil
-            obj.currentFileSearch = SpotlightFileSearch:new(query, handleFileSearchResults, obj.fileSearchOptions)
-            obj.currentFileSearch:start()
+            if obj.queryChangedTimerDuration == 0 then
+                triggerFileSearch(query)
+            else
+                triggerFileSearchAfterDelay(query, obj.queryChangedTimerDuration)
+            end
         end
 
     elseif obj.currentQueryResults ~= nil then
