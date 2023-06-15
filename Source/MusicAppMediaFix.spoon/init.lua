@@ -44,6 +44,11 @@ function obj.mediaKeyCallback(event)
 
     -- handle action
     if data["down"] == false or data["repeat"] == true then
+        for i, app in pairs(obj.mediaApps) do
+          if app ~= obj.currentApp then
+              hs.osascript.applescript('tell application "' .. app .. '" to pause')
+          end
+        end
         if data["key"] == "PLAY" then
             hs.applescript('tell application "' .. obj.currentApp .. '" to playpause')
         elseif data["key"] == "FAST" then
