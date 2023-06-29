@@ -216,7 +216,6 @@ function M.createWhenChanged(jsonDocs, prefix)
 end
 
 function M.readTimestamps()
-
   timestamps = hs.json.read(options.timestampsFilename)
 
   if timestamps then
@@ -227,7 +226,6 @@ function M.readTimestamps()
 end
 
 function M.writeTimestamps()
-
   M.logger.d(hs.inspect(options.timestamps))
   if options.timestampsChanged then
     hs.json.write(options.timestamps, options.timestampsFilename, true, true)
