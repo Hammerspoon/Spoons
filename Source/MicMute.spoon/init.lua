@@ -9,7 +9,7 @@ obj.__index = obj
 
 -- Metadata
 obj.name = "MicMute"
-obj.version = "1.0"
+obj.version = "1.1"
 obj.author = "dctucker <dctucker@github.com>"
 obj.homepage = "https://dctucker.com"
 obj.license = "MIT - https://opensource.org/licenses/MIT"
