@@ -70,7 +70,7 @@
         "doc": "Show AClock for 4 seconds. If already showing, hide it.\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/AClock.spoon/init.lua",
-        "lineno": "132",
+        "lineno": "133",
         "name": "toggleShow",
         "notes": [],
         "parameters": [
@@ -166,7 +166,7 @@
         "doc": "Show AClock for 4 seconds. If already showing, hide it.\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/AClock.spoon/init.lua",
-        "lineno": "132",
+        "lineno": "133",
         "name": "toggleShow",
         "notes": [],
         "parameters": [
@@ -8111,7 +8111,7 @@
         "doc": "Binds hotkeys for MicMute\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for the following items:\n  * toggle - This will cause the microphone mute status to be toggled. Hold for momentary, press quickly for toggle.\n * latch_timeout - Time in seconds to hold the hotkey before momentary mode takes over, in which the mute will be toggled again when hotkey is released. Latch if released before this time. 0.75 for 750 milliseconds is a good value.",
         "examples": [],
         "file": "Source/MicMute.spoon/init.lua",
-        "lineno": "61",
+        "lineno": "78",
         "name": "bindHotkeys",
         "notes": [],
         "parameters": [
@@ -8151,7 +8151,7 @@
         "doc": "Binds hotkeys for MicMute\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for the following items:\n  * toggle - This will cause the microphone mute status to be toggled. Hold for momentary, press quickly for toggle.\n * latch_timeout - Time in seconds to hold the hotkey before momentary mode takes over, in which the mute will be toggled again when hotkey is released. Latch if released before this time. 0.75 for 750 milliseconds is a good value.",
         "examples": [],
         "file": "Source/MicMute.spoon/init.lua",
-        "lineno": "61",
+        "lineno": "78",
         "name": "bindHotkeys",
         "notes": [],
         "parameters": [
