@@ -36,7 +36,7 @@ WatchForMeeting.__index = WatchForMeeting
 
 -- Metadata
 WatchForMeeting.name = "WatchForMeeting"
-WatchForMeeting.version = "2.0.0"
+WatchForMeeting.version = "2.0.1"
 WatchForMeeting.author = "Andrew Parnell <aparnell@gmail.com>"
 WatchForMeeting.homepage = "https://github.com/asp55/WatchForMeeting"
 WatchForMeeting.license = "MIT - https://opensource.org/licenses/MIT"
@@ -297,12 +297,16 @@ _internal.running = false
    _internal.lastMeetingState = nil;
 
 
+   --- WatchForMeeting.faking
+   --- Variable
+   --- (Read-only) Boolean representing if the meeting is real or faked
+
 
    -- MetaMethods
    WatchForMeeting = setmetatable(WatchForMeeting, {
       --GET
       __index = function (table, key)
-         if(key=="zoom" or key=="meetingState" or key=="menubar" or key=="mode" or key=="sharing" or key=="lastMeetingState") then
+         if(key=="zoom" or key=="meetingState" or key=="faking" or key=="menubar" or key=="mode" or key=="sharing") then
             return _internal[key]
          else
             return rawget( table, key )
@@ -310,7 +314,7 @@ _internal.running = false
       end,
       --SET
       __newindex = function (table, key, value)
-         if(key=="zoom" or key=="meetingState" or key=="lastMeetingState") then
+         if(key=="zoom" or key=="meetingState" or key=="faking") then
             --skip writing zoom or meeting state to watchformeeting as they are read-only fields
          elseif(key=="menubar") then
             _internal.menubar = setmetatable(value, {__index=_internal.menubarDefaults, __newindex=_internal.menubar__newIndex})
