@@ -102,34 +102,34 @@
         <script type="text/javascript">
 
         function startWebsocket() {
-        var ws = new WebSocket('%websocketpath%')
+                var ws = new WebSocket('%websocketpath%')
 
-        ws.onopen = () => {
-                console.log("WebSocket is open now.");
-                ws.send('Connected');
-        }
+                ws.onopen = () => {
+                        console.log("WebSocket is open now.");
+                        ws.send('Connected');
+                }
 
-        ws.onerror = (error) => {
-            console.log(`WebSocket error: ${error}`)
-        }
+                ws.onerror = (error) => {
+                        console.log(`WebSocket error: ${error}`)
+                }
 
-        ws.onclose = (event) => {
-                console.log("WebSocket is closed now. Reconnecting in 0.5s");
-                offlinePanel();
-                // connection closed, discard old websocket and create a new one in 0.5s
-                ws = null
-                setTimeout(startWebsocket, 500)
-        };
+                ws.onclose = (event) => {
+                        console.log("WebSocket is closed now. Reconnecting in 0.5s");
+                        offlinePanel();
+                        // connection closed, discard old websocket and create a new one in 0.5s
+                        ws = null
+                        setTimeout(startWebsocket, 500)
+                };
 
-        ws.onmessage = (e) => {
-            console.log(e.data)
-            var json = JSON.parse(e.data);
-            if(json.action === "update") {
-                updatePanel(json.inMeeting);
-            }
-        }
+                ws.onmessage = (e) => {
+                        console.log(e.data)
+                        var json = JSON.parse(e.data);
+                        if(json.action === "update") {
+                                updatePanel(json.inMeeting);
+                        }
+                }
 
-        return ws;
+                return ws;
         }
 
 

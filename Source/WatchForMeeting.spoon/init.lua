@@ -27,6 +27,7 @@
 
 local _internal = {}
 
+
 -- create a namespace
 
 local WatchForMeeting={}
@@ -35,11 +36,29 @@ WatchForMeeting.__index = WatchForMeeting
 
 -- Metadata
 WatchForMeeting.name = "WatchForMeeting"
-WatchForMeeting.version = "1.0.0"
+WatchForMeeting.version = "1.0.2"
 WatchForMeeting.author = "Andrew Parnell <aparnell@gmail.com>"
 WatchForMeeting.homepage = "https://github.com/asp55/WatchForMeeting"
 WatchForMeeting.license = "MIT - https://opensource.org/licenses/MIT"
 
+-- Event callbacks
+local events = {
+   meetingChange=true,
+   meetingStarted=true,
+   meetingStopped=true,
+   micChange=true,
+   micOn=true,
+   micOff=true,
+   videoChange=true,
+   videoOn=true,
+   videoOff=true,
+   screensharingChange=true,
+   screensharingOn=true,
+   screensharingOff=true,
+
+}
+_internal.events = {}
+for k in pairs(events) do WatchForMeeting[k]=k end
 
 
 -------------------------------------------
@@ -51,8 +70,6 @@ WatchForMeeting.license = "MIT - https://opensource.org/licenses/MIT"
 --- Variable
 --- hs.logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.
 WatchForMeeting.logger = hs.logger.new('WatchMeeting')
-
-
 
 
 -- private variable to track if spoon is already running or not. (Makes it easier to find local variables)
@@ -277,21 +294,24 @@ _internal.running = false
    --- | `false`                                                                 | Available    | 
    --- | `{mic_open = [Boolean],  video_on = [Boolean], sharing = [Boolean] }`   | Busy         |
    _internal.meetingState = false
+   _internal.lastMeetingState = nil;
 
 
 
    -- MetaMethods
    WatchForMeeting = setmetatable(WatchForMeeting, {
+      --GET
       __index = function (table, key)
-         if(key=="zoom" or key=="meetingState" or key=="menubar" or key=="mode" or key=="sharing") then
+         if(key=="zoom" or key=="meetingState" or key=="menubar" or key=="mode" or key=="sharing" or key=="lastMeetingState") then
             return _internal[key]
          else
             return rawget( table, key )
          end
       end,
+      --SET
       __newindex = function (table, key, value)
-         if(key=="zoom" or key=="meetingState") then
-            --skip writing zoom or meeting state to watchformeeting
+         if(key=="zoom" or key=="meetingState" or key=="lastMeetingState") then
+            --skip writing zoom or meeting state to watchformeeting as they are read-only fields
          elseif(key=="menubar") then
             _internal.menubar = setmetatable(value, {__index=_internal.menubarDefaults, __newindex=_internal.menubar__newIndex})
             if(_internal.menubar.enabled) then 
@@ -397,7 +417,77 @@ end
 -- Zoom Monitor
 -------------------------------------------
 
+
+local function emit(event)
+   local fns=_internal.events[event]
+   if fns then
+      for fn in pairs(fns) do fn() end
+   end
+ end
+
+local function updateCallbacks()
+   if(_internal.server and _internal.websocketStatus == "open") then _internal.server:send(composeJsonUpdate(_internal.meetingState)) end
+   
+   -- Emit appropriate events
+   if type(_internal.meetingState)~=type(_internal.lastMeetingState) then
+      emit(WatchForMeeting.meetingChange)
+      if _internal.meetingState==false then
+         if type(_internal.lastMeetingState)=="table" then
+            emit(WatchForMeeting.micChange)
+            emit(WatchForMeeting.videoChange)
+            emit(WatchForMeeting.screensharingChange)
+            if _internal.lastMeetingState.mic_open then
+               emit(WatchForMeeting.micOff)
+            end
+            if _internal.lastMeetingState.video_on then
+               emit(WatchForMeeting.videoOff)
+            end
+            if _internal.lastMeetingState.sharing then
+               emit(WatchForMeeting.screensharingOff)
+            end
+         end
+
+         emit(WatchForMeeting.meetingStopped)
+      else
+         emit(WatchForMeeting.meetingStarted)
+      end
+   end
+
+   if type(_internal.meetingState)=="table" then
+      if _internal.lastMeetingState==false or _internal.lastMeetingState.mic_open~=_internal.meetingState.mic_open then
+         emit(WatchForMeeting.micChange)
+         if _internal.meetingState.mic_open then
+            emit(WatchForMeeting.micOn)
+         else
+            emit(WatchForMeeting.micOff)
+         end
+      end
+
+      if _internal.lastMeetingState==false or _internal.lastMeetingState.video_on~=_internal.meetingState.video_on then
+         emit(WatchForMeeting.videoChange)
+         if _internal.meetingState.video_on then
+            emit(WatchForMeeting.videoOn)
+         else
+            emit(WatchForMeeting.videoOff)
+         end
+      end
+
+      if _internal.lastMeetingState==false or _internal.lastMeetingState.sharing~=_internal.meetingState.sharing then
+         emit(WatchForMeeting.screensharingChange)
+         if _internal.meetingState.sharing then
+            emit(WatchForMeeting.screensharingOn)
+         else
+            emit(WatchForMeeting.screensharingOff)
+         end
+      end
+   end
+   
+   _internal.lastMeetingState = _internal.meetingState
+
+end
+
 local function currentlyInMeeting()
+   --If zoom is running and the second menu in zoom's menu bar is "Meeting" then we're in a meeting
    local inMeetingState = (_internal.zoom ~= nil and _internal.zoom:getMenuItems()[2].AXTitle == "Meeting")
    return inMeetingState
 end
@@ -407,13 +497,12 @@ local startStopWatchMeeting = function() end
 
 local watchMeeting = hs.timer.new(0.5, function()
 
-   -- If the second menu isn't called "Meeting" then zoom is no longer in a meeting
     if(currentlyInMeeting() == false) then
       _internal.updateMenuIcon(false)
       -- No longer in a meeting, stop watching the meeting
       startStopWatchMeeting()
       
-      if(_internal.server and _internal.websocketStatus == "open") then _internal.server:send(composeJsonUpdate(_internal.meetingState)) end
+      updateCallbacks()
       return
     else 
       _internal.updateMenuIcon(_internal.meetingState, _internal.faking)
@@ -424,7 +513,7 @@ local watchMeeting = hs.timer.new(0.5, function()
       if((_internal.meetingState.mic_open ~= _mic_open) or (_internal.meetingState.video_on ~= _video_on) or (_internal.meetingState.sharing ~= _sharing)) then
          _internal.meetingState = {mic_open = _mic_open, video_on = _video_on, sharing = _sharing}
          WatchForMeeting.logger.d("In Meeting: ", (_internal.meetingState and true)," Open Mic: ",_internal.meetingState.mic_open," Video-ing:",_internal.meetingState.video_on," Sharing",_internal.meetingState.sharing)
-         if(_internal.server and _internal.websocketStatus == "open") then _internal.server:send(composeJsonUpdate(_internal.meetingState)) end
+         updateCallbacks()
       end
    end
 end)
@@ -442,9 +531,10 @@ startStopWatchMeeting = function()
          WatchForMeeting.logger.d("End Meeting")
          watchMeeting:stop()
          _internal.meetingState = false
-         if(_internal.server and _internal.websocketStatus == "open") then _internal.server:send(composeJsonUpdate(_internal.meetingState)) end
+         updateCallbacks()
       end
    else
+      --If we're faking the meeting we don't need watchMeeting to be regularly checking the status of the meeting elements
       watchMeeting:stop()
    end
 end
@@ -622,6 +712,8 @@ end
 function WatchForMeeting:stop()
    _internal.running = false
    stopConnection()
+
+   _internal.lastMeetingState = nil
  
    _internal.meetingMenuBar:removeFromMenuBar()
    _internal.zoomWindowFilter:pause()
@@ -670,7 +762,7 @@ function WatchForMeeting:auto()
    
       --Update everything
       _internal.updateMenuIcon(_internal.meetingState, _internal.faking)
-      if(_internal.server and _internal.websocketStatus == "open") then _internal.server:send(composeJsonUpdate(_internal.meetingState)) end
+      updateCallbacks()
    
       --turn on the zoom window monitor
       _internal.zoomWindowFilter:resume()
@@ -724,12 +816,78 @@ function WatchForMeeting:fake(_mic_open, _video_on, _sharing)
    
       _internal.zoomWindowFilter:pause()
    
-      if(_internal.server and _internal.websocketStatus == "open") then _internal.server:send(composeJsonUpdate(_internal.meetingState)) end
+      updateCallbacks()
       _internal.updateMenuIcon(_internal.meetingState, _internal.faking)
    end
  
    return self
 end
+
+
+
+--- WatchForMeeting:subscribe(event, fn)
+--- Method
+--- Subscribe to one event with one or more functions
+---
+--- Parameters:
+---  * event - string of the event to subscribe to (see the `spoon.WatchForMeeting` constants)
+---  * fn - function or list of functions, the callback(s) to add for the event(s); 
+---
+--- Returns:
+---  * The `spoon.WatchForMeeting` object for method chaining
+
+function WatchForMeeting:subscribe(event, fns)
+   if not events[event] then error('invalid event: '..event,3) end
+   if type(fns)=='function' then fns = {fns} end
+   if type(fns)~='table' then error('fn must be a function or table of functions',3) end
+   for _,fn in pairs(fns) do
+      if type(fn)~='function' then error('fn must be a function or table of functions',3) end
+      if not _internal.events[event] then _internal.events[event]={} end
+      if not _internal.events[event][fn] then
+      _internal.events[event][fn]=true
+      WatchForMeeting.logger.df('added callback for event %s',event)
+      end
+   end
+   return self
+end
+
+--- WatchForMeeting:unsubscribe(event, fn) -> hs.window.filter object
+--- Method
+--- Removes one or more event subscriptions
+---
+--- Parameters:
+---  * event - string of the event to unsubscribe;
+---  * fn - function or list of functions, the callback(s) to remove; if omitted, all callbacks will be unsubscribed from `event`(s)
+---
+--- Returns:
+---  * The `spoon.WatchForMeeting` object for method chaining
+---
+function WatchForMeeting:unsubscribe(event,fn)
+   if _internal.events[event] and _internal.events[event][fn] then
+      WatchForMeeting.logger.df('removed callback for event %s',event)
+      _internal.events[event][fn]=nil
+      if not next(_internal.events[event]) then
+         WatchForMeeting.logger.df('no more callbacks for event %s',event)
+         _internal.events[event]=nil
+      end
+   end
+end
+
+--- WatchForMeeting:unsubscribeEvent(event) -> hs.window.filter object
+--- Method
+--- Removes all subscriptions from one event
+---
+--- Parameters:
+---  * event - string of the event to unsubscribe; ;
+---
+--- Returns:
+---  * The `spoon.WatchForMeeting` object for method chaining
+---
+function WatchForMeeting:unsubscribeEvent(event)
+   if not events[event] then error('invalid event: '..event,3) end
+   if _internal.events[event] then WatchForMeeting.logger.df('removed all callbacks for event %s',event) end
+   _internal.events[event]=nil
+ end
 
 
 -------------------------------------------
