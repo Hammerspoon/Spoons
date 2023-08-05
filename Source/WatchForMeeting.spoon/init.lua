@@ -36,7 +36,7 @@ WatchForMeeting.__index = WatchForMeeting
 
 -- Metadata
 WatchForMeeting.name = "WatchForMeeting"
-WatchForMeeting.version = "2.0.1"
+WatchForMeeting.version = "2.0.2"
 WatchForMeeting.author = "Andrew Parnell <aparnell@gmail.com>"
 WatchForMeeting.homepage = "https://github.com/asp55/WatchForMeeting"
 WatchForMeeting.license = "MIT - https://opensource.org/licenses/MIT"
@@ -458,7 +458,8 @@ local function updateCallbacks()
    end
 
    if type(_internal.meetingState)=="table" then
-      if _internal.lastMeetingState==false or _internal.lastMeetingState.mic_open~=_internal.meetingState.mic_open then
+
+      if not _internal.lastMeetingState or _internal.lastMeetingState.mic_open~=_internal.meetingState.mic_open then
          emit(WatchForMeeting.micChange)
          if _internal.meetingState.mic_open then
             emit(WatchForMeeting.micOn)
@@ -467,7 +468,7 @@ local function updateCallbacks()
          end
       end
 
-      if _internal.lastMeetingState==false or _internal.lastMeetingState.video_on~=_internal.meetingState.video_on then
+      if not _internal.lastMeetingState or _internal.lastMeetingState.video_on~=_internal.meetingState.video_on then
          emit(WatchForMeeting.videoChange)
          if _internal.meetingState.video_on then
             emit(WatchForMeeting.videoOn)
@@ -476,7 +477,7 @@ local function updateCallbacks()
          end
       end
 
-      if _internal.lastMeetingState==false or _internal.lastMeetingState.sharing~=_internal.meetingState.sharing then
+      if not _internal.lastMeetingState or _internal.lastMeetingState.sharing~=_internal.meetingState.sharing then
          emit(WatchForMeeting.screensharingChange)
          if _internal.meetingState.sharing then
             emit(WatchForMeeting.screensharingOn)
