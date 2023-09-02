@@ -13,7 +13,7 @@ obj.__index = obj
 
 -- Metadata
 obj.name = "TimeMachineProgress"
-obj.version = "0.1"
+obj.version = "0.2"
 obj.author = "Diego Zamboni <diego@zzamboni.org>"
 obj.homepage = "https://github.com/Hammerspoon/Spoons"
 obj.license = "MIT - https://opensource.org/licenses/MIT"
@@ -132,7 +132,7 @@ function obj:refresh()
 
     -- Identify special states: preparing backup and stopping backup.
     local stopping = (data['Stopping'] == '1')
-    local preparing = (not stopping) and (data['Percent'] == '-1' or data['Percent'] == '0')
+    local preparing = (not stopping) and (data['Percent'] == '-1' or data['Percent'] == '0' or not data['Progress'])
 
     -- Depending on macOS version the 'Progress' data may be stored in a
     -- subitem, we promote it to the top level
@@ -148,7 +148,11 @@ function obj:refresh()
       topmenu = tooltip
     elseif preparing then
       title = "(prep)"
-      tooltip = "Preparing Backup…"
+      if (data['BackupPhase']) then
+        tooltip = data['BackupPhase']:gsub("(%l)(%u)", "%1 %2")
+      else
+        tooltip = "Preparing Backup…"
+      end
       topmenu = tooltip
     else
       title = string.format("%.2f%%", tonumber(data['Percent'])*100)
