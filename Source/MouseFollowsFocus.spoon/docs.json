@@ -65,11 +65,11 @@
     "items": [
       {
         "def": "MouseFollowsFocus:configure(configuration)",
-        "desc": "Configures the spoon.  There is currently nothing to configure.",
-        "doc": "Configures the spoon.  There is currently nothing to configure.\n\nParameters:\n  * configuration - :",
+        "desc": "Configures the spoon.",
+        "doc": "Configures the spoon.\n\nParameters:\n  * configuration - a table containing the settings for onWindowMoved or onChangeOfScreenOnly:",
         "name": "configure",
         "parameters": [
-          "  * configuration - :"
+          "  * configuration - a table containing the settings for onWindowMoved or onChangeOfScreenOnly:"
         ],
         "signature": "MouseFollowsFocus:configure(configuration)",
         "stripped_doc": "",
