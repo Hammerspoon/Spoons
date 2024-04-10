@@ -100,7 +100,7 @@ function obj:getItem(options)
 
     for key, value in pairs(keyTocmd) do
       if options[key] ~= nil then
-        cmd = cmd .. " " .. value .. " " .. options[key]
+        cmd = cmd .. " " .. value .. " '" .. options[key] .. "'"
       end
     end
 
@@ -156,11 +156,11 @@ function obj:addPassword(options)
 
   for key, value in pairs(keyTocmd) do
     if options[key] ~= nil then
-      cmd = cmd .. " " .. value .. " " .. options[key]
+      cmd = cmd .. " " .. value .. " '" .. options[key] .. "'"
     end
   end
 
-  cmd = cmd .. "-w " .. options.password 
+  cmd = cmd .. "-w '" .. options.password .. "'"
   local handle = io.popen(cmd)
   local result = handle:read("*a")
  
