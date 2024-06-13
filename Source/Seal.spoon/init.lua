@@ -301,9 +301,9 @@ function obj.choicesCallback()
     end
     query_words = table.concat(query_words, " ")
     -- First get any direct command matches
-    for command,cmdInfo in pairs(obj.commands) do
+    for _,cmdInfo in pairs(obj.commands) do
         cmd_fn = cmdInfo["fn"]
-        if cmd:lower() == command:lower() then
+        if cmd:lower() == cmdInfo["cmd"]:lower() then
             if (query_words or "") == "" then
                 query_words = ".*"
             end
