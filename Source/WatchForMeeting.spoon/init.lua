@@ -512,9 +512,9 @@ local watchMeeting = hs.timer.new(0.5, function()
     else 
       _internal.updateMenuIcon(_internal.meetingState, _internal.faking)
       --Watch for zoom menu items
-      local _mic_open = _internal.zoom:findMenuItem({"Meeting", "Unmute Audio"})==nil
-      local _video_on = _internal.zoom:findMenuItem({"Meeting", "Start Video"})==nil
-      local _sharing = _internal.zoom:findMenuItem({"Meeting", "Start Share"})==nil
+      local _mic_open = _internal.zoom:findMenuItem({"Meeting", "Unmute audio"})==nil
+      local _video_on = _internal.zoom:findMenuItem({"Meeting", "Start video"})==nil
+      local _sharing = _internal.zoom:findMenuItem({"Meeting", "Start share"})==nil
       if((_internal.meetingState.mic_open ~= _mic_open) or (_internal.meetingState.video_on ~= _video_on) or (_internal.meetingState.sharing ~= _sharing)) then
          _internal.meetingState = {mic_open = _mic_open, video_on = _video_on, sharing = _sharing}
          WatchForMeeting.logger.d("In Meeting: ", (_internal.meetingState and true)," Open Mic: ",_internal.meetingState.mic_open," Video-ing:",_internal.meetingState.video_on," Sharing",_internal.meetingState.sharing)
