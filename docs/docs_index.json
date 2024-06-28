@@ -1445,6 +1445,47 @@
     "type": "Method"
   },
   {
+    "desc": "This spoon addresses a limitation within the [hs.hotkey](hs.hotkey.html) module that allows the creation of hotkeys bound to specific left or right keyboard modifiers while leaving the other side free.",
+    "name": "LeftRightHotkey",
+    "type": "Module"
+  },
+  {
+    "desc": "Create and enable a new hotkey with the specified left/right specific modifiers.",
+    "module": "LeftRightHotkey",
+    "name": "bind",
+    "type": "Method"
+  },
+  {
+    "desc": "Deletes all previously set callbacks for a given keyboard combination",
+    "module": "LeftRightHotkey",
+    "name": "deleteAll",
+    "type": "Method"
+  },
+  {
+    "desc": "Disables all previously set callbacks for a given keyboard combination",
+    "module": "LeftRightHotkey",
+    "name": "disableAll",
+    "type": "Method"
+  },
+  {
+    "desc": "Create a new hotkey with the specified left/right specific modifiers.",
+    "module": "LeftRightHotkey",
+    "name": "new",
+    "type": "Method"
+  },
+  {
+    "desc": "Starts watching for flag (modifier key) change events that can determine if the right or left modifiers have been pressed.",
+    "module": "LeftRightHotkey",
+    "name": "start",
+    "type": "Method"
+  },
+  {
+    "desc": "Stops watching for flag (modifier key) change events that can determine if the right or left modifiers have been pressed.",
+    "module": "LeftRightHotkey",
+    "name": "stop",
+    "type": "Method"
+  },
+  {
     "desc": "Show a popup window with the currently selected word in lexicon, notes, online help",
     "name": "LookupSelection",
     "type": "Module"
