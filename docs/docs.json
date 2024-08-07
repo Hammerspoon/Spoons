@@ -8759,7 +8759,7 @@
         "doc": "Activate all modal environment in `idList`.\n\nParameters:\n * idList - An table specifying IDs of modal environments\n * trayColor - An optional string (e.g. #000000) specifying the color of modalTray, defaults to `nil`.\n * showKeys - A optional boolean value to show all available keybindings, defaults to `nil`.",
         "examples": [],
         "file": "Source/ModalMgr.spoon/init.lua",
-        "lineno": "129",
+        "lineno": "174",
         "name": "activate",
         "notes": [],
         "parameters": [
@@ -8778,7 +8778,7 @@
         "doc": "Deactivate modal environments in `idList`.\n\nParameters:\n * idList - An table specifying IDs of modal environments",
         "examples": [],
         "file": "Source/ModalMgr.spoon/init.lua",
-        "lineno": "160",
+        "lineno": "205",
         "name": "deactivate",
         "notes": [],
         "parameters": [
@@ -8795,7 +8795,7 @@
         "doc": "Deactivate all active modal environments.\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/ModalMgr.spoon/init.lua",
-        "lineno": "179",
+        "lineno": "224",
         "name": "deactivateAll",
         "notes": [],
         "parameters": [
@@ -8812,7 +8812,7 @@
         "doc": "Create a new modal keybindings environment\n\nParameters:\n * id - A string specifying ID of new modal keybindings",
         "examples": [],
         "file": "Source/ModalMgr.spoon/init.lua",
-        "lineno": "46",
+        "lineno": "57",
         "name": "new",
         "notes": [],
         "parameters": [
@@ -8829,7 +8829,7 @@
         "doc": "Toggle the cheatsheet display of current modal environments's keybindings.\n\nParameters:\n * iterList - An table specifying IDs of modal environments or active_list. Optional, defaults to all active environments.\n * force - A optional boolean value to force show cheatsheet, defaults to `nil` (automatically).",
         "examples": [],
         "file": "Source/ModalMgr.spoon/init.lua",
-        "lineno": "57",
+        "lineno": "126",
         "name": "toggleCheatsheet",
         "notes": [],
         "parameters": [
@@ -8852,7 +8852,7 @@
         "doc": "Activate all modal environment in `idList`.\n\nParameters:\n * idList - An table specifying IDs of modal environments\n * trayColor - An optional string (e.g. #000000) specifying the color of modalTray, defaults to `nil`.\n * showKeys - A optional boolean value to show all available keybindings, defaults to `nil`.",
         "examples": [],
         "file": "Source/ModalMgr.spoon/init.lua",
-        "lineno": "129",
+        "lineno": "174",
         "name": "activate",
         "notes": [],
         "parameters": [
@@ -8871,7 +8871,7 @@
         "doc": "Deactivate modal environments in `idList`.\n\nParameters:\n * idList - An table specifying IDs of modal environments",
         "examples": [],
         "file": "Source/ModalMgr.spoon/init.lua",
-        "lineno": "160",
+        "lineno": "205",
         "name": "deactivate",
         "notes": [],
         "parameters": [
@@ -8888,7 +8888,7 @@
         "doc": "Deactivate all active modal environments.\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/ModalMgr.spoon/init.lua",
-        "lineno": "179",
+        "lineno": "224",
         "name": "deactivateAll",
         "notes": [],
         "parameters": [
@@ -8905,7 +8905,7 @@
         "doc": "Create a new modal keybindings environment\n\nParameters:\n * id - A string specifying ID of new modal keybindings",
         "examples": [],
         "file": "Source/ModalMgr.spoon/init.lua",
-        "lineno": "46",
+        "lineno": "57",
         "name": "new",
         "notes": [],
         "parameters": [
@@ -8922,7 +8922,7 @@
         "doc": "Toggle the cheatsheet display of current modal environments's keybindings.\n\nParameters:\n * iterList - An table specifying IDs of modal environments or active_list. Optional, defaults to all active environments.\n * force - A optional boolean value to force show cheatsheet, defaults to `nil` (automatically).",
         "examples": [],
         "file": "Source/ModalMgr.spoon/init.lua",
-        "lineno": "57",
+        "lineno": "126",
         "name": "toggleCheatsheet",
         "notes": [],
         "parameters": [
