@@ -1286,6 +1286,29 @@
     "type": "Method"
   },
   {
+    "desc": "Automatically switch the input source when switching applications.",
+    "name": "InputSourceSwitch",
+    "type": "Module"
+  },
+  {
+    "desc": "Mapping the application name to the input source",
+    "module": "InputSourceSwitch",
+    "name": "applicationMap",
+    "type": "Variable"
+  },
+  {
+    "desc": "Set that mapping the application name to the input source",
+    "module": "InputSourceSwitch",
+    "name": "setApplications",
+    "type": "Method"
+  },
+  {
+    "desc": "Start InputSourceSwitch",
+    "module": "InputSourceSwitch",
+    "name": "start",
+    "type": "Method"
+  },
+  {
     "desc": "Get and Add items from Keychain. Provides no hotkeys and maintains no state",
     "name": "Keychain",
     "type": "Module"
