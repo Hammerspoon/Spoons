@@ -150,7 +150,7 @@ end
 ---   * comment - comment 
 ---   * label - label (defaults to service name)
 ---   * service - service name (required)
-function obj:addPassword(options)
+function obj:addItem(options)
   
   local cmd="/usr/bin/security add-generic-password"
 
@@ -160,7 +160,6 @@ function obj:addPassword(options)
     end
   end
 
-  cmd = cmd .. "-w '" .. options.password .. "'"
   local handle = io.popen(cmd)
   local result = handle:read("*a")
  

@@ -25,10 +25,10 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
     # Check-out the Spoons PR
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
 
     # Check-out the Hammerspoon repository we need for doc building
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
       with:
         repository: 'Hammerspoon/hammerspoon'
         path: 'hammerspoon'
@@ -40,7 +40,7 @@ jobs:
         /usr/bin/python3 -m pip install -r requirements.txt
 
     # Find files modified by this PR
-    - uses: lots0logs/gh-action-get-changed-files@2.1.4
+    - uses: lots0logs/gh-action-get-changed-files@2.2.2
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
 
