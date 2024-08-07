@@ -13,7 +13,7 @@
         "doc": "Hide AClock.\n\nParameters:\n * None\n\nReturns:\n * The AClock object",
         "examples": [],
         "file": "Source/AClock.spoon/init.lua",
-        "lineno": "116",
+        "lineno": "130",
         "name": "hide",
         "notes": [],
         "parameters": [
@@ -51,7 +51,7 @@
         "doc": "Show AClock.\n\nParameters:\n * None\n\nReturns:\n * The AClock object",
         "examples": [],
         "file": "Source/AClock.spoon/init.lua",
-        "lineno": "97",
+        "lineno": "111",
         "name": "show",
         "notes": [],
         "parameters": [
@@ -70,7 +70,7 @@
         "doc": "Show AClock for 4 seconds. If already showing, hide it.\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/AClock.spoon/init.lua",
-        "lineno": "133",
+        "lineno": "147",
         "name": "toggleShow",
         "notes": [],
         "parameters": [
@@ -87,7 +87,7 @@
         "doc": "Show AClock. If already showing, hide it.\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/AClock.spoon/init.lua",
-        "lineno": "154",
+        "lineno": "168",
         "name": "toggleShowPersistent",
         "notes": [],
         "parameters": [
@@ -109,7 +109,7 @@
         "doc": "Hide AClock.\n\nParameters:\n * None\n\nReturns:\n * The AClock object",
         "examples": [],
         "file": "Source/AClock.spoon/init.lua",
-        "lineno": "116",
+        "lineno": "130",
         "name": "hide",
         "notes": [],
         "parameters": [
@@ -147,7 +147,7 @@
         "doc": "Show AClock.\n\nParameters:\n * None\n\nReturns:\n * The AClock object",
         "examples": [],
         "file": "Source/AClock.spoon/init.lua",
-        "lineno": "97",
+        "lineno": "111",
         "name": "show",
         "notes": [],
         "parameters": [
@@ -166,7 +166,7 @@
         "doc": "Show AClock for 4 seconds. If already showing, hide it.\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/AClock.spoon/init.lua",
-        "lineno": "133",
+        "lineno": "147",
         "name": "toggleShow",
         "notes": [],
         "parameters": [
@@ -183,7 +183,7 @@
         "doc": "Show AClock. If already showing, hide it.\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/AClock.spoon/init.lua",
-        "lineno": "154",
+        "lineno": "168",
         "name": "toggleShowPersistent",
         "notes": [],
         "parameters": [
