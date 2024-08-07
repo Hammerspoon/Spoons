@@ -1291,6 +1291,29 @@
     "type": "Method"
   },
   {
+    "desc": "Show input method indicator in the current mouse position.",
+    "name": "InputMethodIndicator",
+    "type": "Module"
+  },
+  {
+    "desc": "init.",
+    "module": "InputMethodIndicator",
+    "name": "init",
+    "type": "Method"
+  },
+  {
+    "desc": "Start InputMethodIndicator.",
+    "module": "InputMethodIndicator",
+    "name": "start",
+    "type": "Method"
+  },
+  {
+    "desc": "Stop InputMethodIndicator.",
+    "module": "InputMethodIndicator",
+    "name": "stop",
+    "type": "Method"
+  },
+  {
     "desc": "Automatically switch the input source when switching applications.",
     "name": "InputSourceSwitch",
     "type": "Module"
