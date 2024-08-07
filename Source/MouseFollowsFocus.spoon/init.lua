@@ -17,6 +17,9 @@ obj.version = "0.1"
 obj.author = "Jason Felice <jason.m.felice@gmail.com>"
 obj.homepage = "https://github.com/Hammerspoon/Spoons"
 obj.license = "MIT - https://opensource.org/licenses/MIT"
+obj.onChangeOfScreenOnly = false
+obj.onWindowMoved = false
+obj.currentWindowScreen = nil
 
 --- MouseFollowsFocus.logger
 --- Variable
@@ -25,11 +28,17 @@ obj.logger = hs.logger.new('MouseFollowsFocus')
 
 --- MouseFollowsFocus:configure(configuration)
 --- Method
---- Configures the spoon.  There is currently nothing to configure.
+--- Configures the spoon.
 ---
 --- Parameters:
----  * configuration - :
+---  * configuration - a table containing the settings for onWindowMoved or onChangeOfScreenOnly:
 function obj:configure(configuration)
+  if configuration['onChangeOfScreenOnly'] then
+    self.onChangeOfScreenOnly = configuration['onChangeOfScreenOnly']
+  end
+  if configuration['onWindowMoved'] then
+    self.onWindowMoved = configuration['onWindowMoved']
+  end
 end
 
 --- MouseFollowsFocus:start()
@@ -46,12 +55,15 @@ function obj:start()
   })
   self.window_filter:subscribe({
     hs.window.filter.windowFocused
-  }, function(window)
-    self:updateMouse(window)
+  }, function(window) 
+      if self.onChangeOfScreenOnly and self.currentWindowScreen and self.currentWindowScreen:id() == window:screen():id() then return end
+      self:updateMouse(window)
+      self.currentWindowScreen = window:screen()
   end)
   self.window_filter:subscribe({
     hs.window.filter.windowMoved
   }, function(window)
+    if not self.onWindowMoved then return end
     if window ~= hs.window.focusedWindow() then return end
     if #hs.mouse.getButtons() ~= 0 then return end
     self:updateMouse(window)
