@@ -779,8 +779,7 @@ end
 
 --- WatchForMeeting:fake(mic_open, video_on, sharing)
 --- Method
---- Disables monitoring and reports as being in a meeting. 
---- Useful when meeting type is not supported (currently any platform that isn't zoom.)
+--- Disables monitoring and reports as being in a meeting. Useful when meeting type is not supported (currently any platform that isn't zoom.)
 ---
 --- Parameters:
 ---  * mic_open - A boolean indicating if the mic is open
