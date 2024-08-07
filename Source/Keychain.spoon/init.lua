@@ -100,7 +100,7 @@ function obj:getItem(options)
 
     for key, value in pairs(keyTocmd) do
       if options[key] ~= nil then
-        cmd = cmd .. " " .. value .. " " .. options[key]
+        cmd = cmd .. " " .. value .. " '" .. options[key] .. "'"
       end
     end
 
@@ -156,7 +156,7 @@ function obj:addItem(options)
 
   for key, value in pairs(keyTocmd) do
     if options[key] ~= nil then
-      cmd = cmd .. " " .. value .. " " .. options[key]
+      cmd = cmd .. " " .. value .. " '" .. options[key] .. "'"
     end
   end
 
