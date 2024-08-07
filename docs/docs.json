@@ -853,6 +853,23 @@
     "Field": [],
     "Function": [],
     "Method": [],
+    "Variable": [],
+    "desc": "Automatically set to 0 the volume of all output audio devices except Bluetooth devices when Mac goes to sleep.",
+    "doc": "Automatically set to 0 the volume of all output audio devices except Bluetooth devices when Mac goes to sleep.\nUseful to avoid blasting sound when opening a Macbook in the public transport.\nNote: This is primarily intended for portable Mac devices, which have internal speakers.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/AutoMuteOnSleep.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/AutoMuteOnSleep.spoon.zip)",
+    "items": [],
+    "name": "AutoMuteOnSleep",
+    "stripped_doc": "Useful to avoid blasting sound when opening a Macbook in the public transport.\nNote: This is primarily intended for portable Mac devices, which have internal speakers.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/AutoMuteOnSleep.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/AutoMuteOnSleep.spoon.zip)",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [],
     "Variable": [
       {
         "def": "BingDaily.runAt",

@@ -156,6 +156,11 @@
     "type": "Method"
   },
   {
+    "desc": "Automatically set to 0 the volume of all output audio devices except Bluetooth devices when Mac goes to sleep.",
+    "name": "AutoMuteOnSleep",
+    "type": "Module"
+  },
+  {
     "desc": "Use Bing daily picture as your wallpaper, automatically.",
     "name": "BingDaily",
     "type": "Module"
