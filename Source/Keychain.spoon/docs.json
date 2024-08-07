@@ -29,20 +29,15 @@
         "def": "Keychain:addItem(options)",
         "desc": "Add generic password to keychain.",
         "doc": "Add generic password to keychain.\n\nParameters:\n * options is a table with values for what keys to try locate with.\n  * password - the password\n  * account - account name (required)\n  * creator - creator, must be 4 characters\n  * type - type, must be 4 characters\n  * kind - kind of item\n  * comment - comment \n  * label - label (defaults to service name)\n  * service - service name (required)",
+        "examples": [],
         "file": "Source/Keychain.spoon//init.lua",
         "lineno": "139",
         "name": "addItem",
+        "notes": [],
         "parameters": [
-          " * options is a table with values for what keys to try locate with.",
-          "  * password - the password",
-          "  * account - account name (required)",
-          "  * creator - creator, must be 4 characters",
-          "  * type - type, must be 4 characters",
-          "  * kind - kind of item",
-          "  * comment - comment ",
-          "  * label - label (defaults to service name)",
-          "  * service - service name (required)"
+          " * options is a table with values for what keys to try locate with.\n   * password - the password\n   * account - account name (required)\n   * creator - creator, must be 4 characters\n   * type - type, must be 4 characters\n   * kind - kind of item\n   * comment - comment\n   * label - label (defaults to service name)\n   * service - service name (required)"
         ],
+        "returns": [],
         "signature": "Keychain:addItem(options)",
         "stripped_doc": "",
         "type": "Method"
@@ -51,6 +46,7 @@
         "def": "Keychain:getItem(options)",
         "desc": "Retrieve an item from the Login Keychain. Return nil if not found and otherwise a table with found data.",
         "doc": "Retrieve an item from the Login Keychain. Return nil if not found and otherwise a table with found data.\n\nParameters:\n * options is a table with values for what keys to try locate with.\n  * account - account name\n  * creator - creator, must be 4 characters\n  * type - type, must be 4 characters\n  * kind - kind of item\n  * comment - comment \n  * label - label (defaults to service name)\n  * service - service name\n\nNotes:\n * If multiple possibles matches just the first one is found.",
+        "examples": [],
         "file": "Source/Keychain.spoon//init.lua",
         "lineno": "82",
         "name": "getItem",
@@ -58,15 +54,9 @@
           " * If multiple possibles matches just the first one is found."
         ],
         "parameters": [
-          " * options is a table with values for what keys to try locate with.",
-          "  * account - account name",
-          "  * creator - creator, must be 4 characters",
-          "  * type - type, must be 4 characters",
-          "  * kind - kind of item",
-          "  * comment - comment ",
-          "  * label - label (defaults to service name)",
-          "  * service - service name"
+          " * options is a table with values for what keys to try locate with.\n   * account - account name\n   * creator - creator, must be 4 characters\n   * type - type, must be 4 characters\n   * kind - kind of item\n   * comment - comment\n   * label - label (defaults to service name)\n   * service - service name"
         ],
+        "returns": [],
         "signature": "Keychain:getItem(options)",
         "stripped_doc": "",
         "type": "Method"
@@ -92,20 +82,15 @@
         "def": "Keychain:addItem(options)",
         "desc": "Add generic password to keychain.",
         "doc": "Add generic password to keychain.\n\nParameters:\n * options is a table with values for what keys to try locate with.\n  * password - the password\n  * account - account name (required)\n  * creator - creator, must be 4 characters\n  * type - type, must be 4 characters\n  * kind - kind of item\n  * comment - comment \n  * label - label (defaults to service name)\n  * service - service name (required)",
+        "examples": [],
         "file": "Source/Keychain.spoon//init.lua",
         "lineno": "139",
         "name": "addItem",
+        "notes": [],
         "parameters": [
-          " * options is a table with values for what keys to try locate with.",
-          "  * password - the password",
-          "  * account - account name (required)",
-          "  * creator - creator, must be 4 characters",
-          "  * type - type, must be 4 characters",
-          "  * kind - kind of item",
-          "  * comment - comment ",
-          "  * label - label (defaults to service name)",
-          "  * service - service name (required)"
+          " * options is a table with values for what keys to try locate with.\n   * password - the password\n   * account - account name (required)\n   * creator - creator, must be 4 characters\n   * type - type, must be 4 characters\n   * kind - kind of item\n   * comment - comment\n   * label - label (defaults to service name)\n   * service - service name (required)"
         ],
+        "returns": [],
         "signature": "Keychain:addItem(options)",
         "stripped_doc": "",
         "type": "Method"
@@ -114,6 +99,7 @@
         "def": "Keychain:getItem(options)",
         "desc": "Retrieve an item from the Login Keychain. Return nil if not found and otherwise a table with found data.",
         "doc": "Retrieve an item from the Login Keychain. Return nil if not found and otherwise a table with found data.\n\nParameters:\n * options is a table with values for what keys to try locate with.\n  * account - account name\n  * creator - creator, must be 4 characters\n  * type - type, must be 4 characters\n  * kind - kind of item\n  * comment - comment \n  * label - label (defaults to service name)\n  * service - service name\n\nNotes:\n * If multiple possibles matches just the first one is found.",
+        "examples": [],
         "file": "Source/Keychain.spoon//init.lua",
         "lineno": "82",
         "name": "getItem",
@@ -121,15 +107,9 @@
           " * If multiple possibles matches just the first one is found."
         ],
         "parameters": [
-          " * options is a table with values for what keys to try locate with.",
-          "  * account - account name",
-          "  * creator - creator, must be 4 characters",
-          "  * type - type, must be 4 characters",
-          "  * kind - kind of item",
-          "  * comment - comment ",
-          "  * label - label (defaults to service name)",
-          "  * service - service name"
+          " * options is a table with values for what keys to try locate with.\n   * account - account name\n   * creator - creator, must be 4 characters\n   * type - type, must be 4 characters\n   * kind - kind of item\n   * comment - comment\n   * label - label (defaults to service name)\n   * service - service name"
         ],
+        "returns": [],
         "signature": "Keychain:getItem(options)",
         "stripped_doc": "",
         "type": "Method"
