@@ -1,0 +1,112 @@
+[
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
+        "def": "InputSourceSwitch:setApplications()",
+        "desc": "Set that mapping the application name to the input source",
+        "doc": "Set that mapping the application name to the input source\n\nParameters:\n * applications - A table containing that mapping the application name to the input source\n    key is the application name and value is the input source name\n    example:\n```\n{\n    [\"WeChat\"] = \"Pinyin - Simplified\",\n    [\"Mail\"] = \"ABC\"\n}\n```",
+        "examples": [],
+        "file": "Source/InputSourceSwitch.spoon//init.lua",
+        "lineno": "80",
+        "name": "setApplications",
+        "notes": [],
+        "parameters": [
+          " * applications - A table containing that mapping the application name to the input source key is the application name and value is the input source name example: ``` { [\"WeChat\"] = \"Pinyin - Simplified\", [\"Mail\"] = \"ABC\" } ```"
+        ],
+        "returns": [],
+        "signature": "InputSourceSwitch:setApplications()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "InputSourceSwitch:start()",
+        "desc": "Start InputSourceSwitch",
+        "doc": "Start InputSourceSwitch\n\nParameters:\n * None",
+        "examples": [],
+        "file": "Source/InputSourceSwitch.spoon//init.lua",
+        "lineno": "100",
+        "name": "start",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
+        "signature": "InputSourceSwitch:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [
+      {
+        "def": "InputSourceSwitch.applicationMap",
+        "desc": "Mapping the application name to the input source",
+        "doc": "Mapping the application name to the input source",
+        "file": "Source/InputSourceSwitch.spoon//init.lua",
+        "lineno": "75",
+        "name": "applicationMap",
+        "signature": "InputSourceSwitch.applicationMap",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "desc": "Automatically switch the input source when switching applications.",
+    "doc": "Automatically switch the input source when switching applications.\n\nExample:\n```\nhs.loadSpoon(\"InputSourceSwitch\")\n\nspoon.InputSourceSwitch:setApplications({\n    [\"WeChat\"] = \"Pinyin - Simplified\",\n    [\"Mail\"] = \"ABC\"\n})\n\nspoon.InputSourceSwitch:start()\n```\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/InputSourceSwitch.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/InputSourceSwitch.spoon.zip)",
+    "items": [
+      {
+        "def": "InputSourceSwitch.applicationMap",
+        "desc": "Mapping the application name to the input source",
+        "doc": "Mapping the application name to the input source",
+        "file": "Source/InputSourceSwitch.spoon//init.lua",
+        "lineno": "75",
+        "name": "applicationMap",
+        "signature": "InputSourceSwitch.applicationMap",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "InputSourceSwitch:setApplications()",
+        "desc": "Set that mapping the application name to the input source",
+        "doc": "Set that mapping the application name to the input source\n\nParameters:\n * applications - A table containing that mapping the application name to the input source\n    key is the application name and value is the input source name\n    example:\n```\n{\n    [\"WeChat\"] = \"Pinyin - Simplified\",\n    [\"Mail\"] = \"ABC\"\n}\n```",
+        "examples": [],
+        "file": "Source/InputSourceSwitch.spoon//init.lua",
+        "lineno": "80",
+        "name": "setApplications",
+        "notes": [],
+        "parameters": [
+          " * applications - A table containing that mapping the application name to the input source key is the application name and value is the input source name example: ``` { [\"WeChat\"] = \"Pinyin - Simplified\", [\"Mail\"] = \"ABC\" } ```"
+        ],
+        "returns": [],
+        "signature": "InputSourceSwitch:setApplications()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "InputSourceSwitch:start()",
+        "desc": "Start InputSourceSwitch",
+        "doc": "Start InputSourceSwitch\n\nParameters:\n * None",
+        "examples": [],
+        "file": "Source/InputSourceSwitch.spoon//init.lua",
+        "lineno": "100",
+        "name": "start",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
+        "signature": "InputSourceSwitch:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "name": "InputSourceSwitch",
+    "stripped_doc": "\nExample:\n```\nhs.loadSpoon(\"InputSourceSwitch\")\n\nspoon.InputSourceSwitch:setApplications({\n    [\"WeChat\"] = \"Pinyin - Simplified\",\n    [\"Mail\"] = \"ABC\"\n})\n\nspoon.InputSourceSwitch:start()\n```\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/InputSourceSwitch.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/InputSourceSwitch.spoon.zip)",
+    "submodules": [],
+    "type": "Module"
+  }
+]

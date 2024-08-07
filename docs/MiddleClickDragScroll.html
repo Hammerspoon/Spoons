@@ -1,0 +1,68 @@
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hammerspoon docs: MiddleClickDragScroll</title>
+    <style type="text/css">
+      a { text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      th { background-color: #DDDDDD; vertical-align: top; padding: 3px; }
+      td { width: 100%; background-color: #EEEEEE; vertical-align: top; padding: 3px; }
+      table { width: 100% ; border: 1px solid #0; text-align: left; }
+      section > table table td { width: 0; }
+    </style>
+    <link rel="stylesheet" href="docs.css" type="text/css" media="screen" />
+  </head>
+  <body>
+    <header>
+      <h1><a href="./index.html">docs</a> &raquo; MiddleClickDragScroll</h1>
+      <p>Allows scrolling by holding down the middle mouse button and dragging it, the same as it works on Windows.
+Especially useful to quickly scroll to the top or bottom of a page, if you don't have a Magic Mouse.</p>
+<p>Note: Due to OS limitations, it always scrolls the window currently below the mouse, not the window below the position
+where the dragging started, like it works on Windows. You therefore need to take some care to stay inside the window.</p>
+<p>== Usage ==</p>
+<div class="highlight"><pre><span></span><span class="kd">local</span> <span class="n">MiddleClickDragScroll</span> <span class="o">=</span> <span class="n">hs</span><span class="p">.</span><span class="n">loadSpoon</span><span class="p">(</span><span class="s2">&quot;MiddleClickDragScroll&quot;</span><span class="p">):</span><span class="n">start</span><span class="p">()</span>
+</pre></div>
+<p>You can temporarily stop the spoon by calling <code>MiddleClickDragScroll:stop()</code> and then restart it by calling <code>MiddleClickDragScroll:start()</code> again.</p>
+<p>== Configuration ==</p>
+<div class="highlight"><pre><span></span><span class="kd">local</span> <span class="n">MiddleClickDragScroll</span> <span class="o">=</span> <span class="n">hs</span><span class="p">.</span><span class="n">loadSpoon</span><span class="p">(</span><span class="s2">&quot;MiddleClickDragScroll&quot;</span><span class="p">):</span><span class="n">configure</span><span class="p">{</span>
+  <span class="n">excludedApps</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Some App&quot;</span><span class="p">,</span> <span class="s2">&quot;Other app&quot;</span><span class="p">},</span>         <span class="c1">-- Don&#39;t activate scrolling in apps with these names</span>
+  <span class="n">excludedWindows</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;^Some Window Title$&quot;</span><span class="p">},</span>        <span class="c1">-- Don&#39;t activate scrolling in windows with these names (supports regex, for exact match, use &quot;^title$&quot;)</span>
+  <span class="n">excludedUrls</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;^https://geogebra.calculator$&quot;</span><span class="p">},</span> <span class="c1">-- Don&#39;t activate scrolling when the active window is on these URLs (supports regex, only works in Chrome and Safari, asks for extra permissions on first trigger)</span>
+  <span class="n">indicatorSize</span> <span class="o">=</span> <span class="mi">25</span><span class="p">,</span>   <span class="c1">-- Size of the scrolling indicator in pixels</span>
+  <span class="n">indicatorAttributes</span> <span class="o">=</span> <span class="c1">-- Attributes of the scrolling indicator. Takes any specified on https://www.hammerspoon.org/docs/hs.canvas.html#attributes. Alternatively, you can pass a custom canvas, see the explenation below.</span>
+  <span class="p">{</span>
+    <span class="nb">type</span> <span class="o">=</span> <span class="s2">&quot;circle&quot;</span><span class="p">,</span>
+    <span class="n">fillColor</span> <span class="o">=</span> <span class="p">{</span> <span class="n">red</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">green</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">blue</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.3</span> <span class="p">},</span>
+    <span class="n">strokeColor</span> <span class="o">=</span> <span class="p">{</span> <span class="n">red</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">green</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">blue</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="p">},</span>
+  <span class="p">},</span>
+  <span class="n">startDistance</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span>       <span class="c1">-- Minimal distance to drag the mouse before scrolling is triggered.</span>
+  <span class="n">scrollMode</span> <span class="o">=</span> <span class="s2">&quot;pixel&quot;</span><span class="p">,</span>     <span class="c1">-- Whether the scroll speed is in &quot;line&quot;s or &quot;pixel&quot;s. Scrolling by lines has smooting in some applications</span>
+                            <span class="c1">-- and therefore works with reduced frequency but it offers much less precise control.</span>
+  <span class="n">scrollFrequency</span> <span class="o">=</span> <span class="mf">0.01</span><span class="p">,</span>   <span class="c1">-- How often to trigger scrolling (in seconds)</span>
+  <span class="n">scrollAccelaration</span> <span class="o">=</span> <span class="mi">30</span><span class="p">,</span>  <span class="c1">-- How fast scrolling accelerates based on the mouse distance from the initial location. Larger is faster.</span>
+  <span class="n">scrollSpeedFn</span> <span class="o">=</span>           <span class="c1">-- How scrolling accelerates based on the mouse distance from the initial location.</span>
+                            <span class="c1">-- The default is dist^2 / scrollAcceleration^2. You can pass a custom function that recieves `self` as the first argument</span>
+                            <span class="c1">-- and the absolute distance as the second and returns the resulting speed (in pixels or lines, depending on the scrollMode setting).</span>
+  <span class="kr">function</span><span class="p">(</span><span class="n">self</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+    <span class="kr">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">^</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">self</span><span class="p">.</span><span class="n">scrollAccelaration</span> <span class="o">^</span> <span class="mi">2</span><span class="p">)</span>
+  <span class="kr">end</span>
+<span class="p">}:</span><span class="n">start</span><span class="p">()</span>
+</pre></div>
+<p>Unspecified keys are unchanged. You can call <code>configure</code> multiple times to dynamically change it but changing <code>indicatorAttributes</code> and <code>indicatorSize</code> only works when <code>MiddleClickDragScroll</code> is stopped.</p>
+<p>Instead of <code>indicatorSize</code> and <code>indicatorAttributes</code>, you can also pass a custom canvas to <code>configure</code> or set it directly to have more control over the indicator style:</p>
+<div class="highlight"><pre><span></span><span class="n">MiddleClickDragScroll</span><span class="p">.</span><span class="n">canvas</span> <span class="o">=</span> <span class="n">hs</span><span class="p">.</span><span class="n">canvas</span><span class="p">.</span><span class="n">new</span><span class="p">{</span> <span class="n">w</span> <span class="o">=</span> <span class="mi">25</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="mi">25</span><span class="p">}:</span><span class="n">insertElement</span><span class="p">{</span>
+    <span class="nb">type</span> <span class="o">=</span> <span class="s2">&quot;circle&quot;</span><span class="p">,</span>
+    <span class="n">fillColor</span> <span class="o">=</span> <span class="p">{</span> <span class="n">red</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">green</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">blue</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.3</span> <span class="p">},</span>
+    <span class="n">strokeColor</span> <span class="o">=</span> <span class="p">{</span> <span class="n">red</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">green</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">blue</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="p">},</span>
+  <span class="p">}</span>
+</pre></div>
+<p>For more details, see: https://www.hammerspoon.org/docs/hs.canvas.html</p>
+<p>Download: <a href="https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MiddleClickDragScroll.spoon.zip">https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MiddleClickDragScroll.spoon.zip</a></p>
+
+      </header>
+      <h3>API Overview</h3>
+      <ul>
+      </ul>
+      <h3>API Documentation</h3>
+  </body>
+</html>

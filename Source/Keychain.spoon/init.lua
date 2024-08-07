@@ -100,7 +100,7 @@ function obj:getItem(options)
 
     for key, value in pairs(keyTocmd) do
       if options[key] ~= nil then
-        cmd = cmd .. " " .. value .. " " .. options[key]
+        cmd = cmd .. " " .. value .. " '" .. options[key] .. "'"
       end
     end
 
@@ -150,17 +150,16 @@ end
 ---   * comment - comment 
 ---   * label - label (defaults to service name)
 ---   * service - service name (required)
-function obj:addPassword(options)
+function obj:addItem(options)
   
   local cmd="/usr/bin/security add-generic-password"
 
   for key, value in pairs(keyTocmd) do
     if options[key] ~= nil then
-      cmd = cmd .. " " .. value .. " " .. options[key]
+      cmd = cmd .. " " .. value .. " '" .. options[key] .. "'"
     end
   end
 
-  cmd = cmd .. "-w " .. options.password 
   local handle = io.popen(cmd)
   local result = handle:read("*a")
  

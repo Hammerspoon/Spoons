@@ -1,0 +1,909 @@
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hammerspoon docs: PaperWM</title>
+    <style type="text/css">
+      a { text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      th { background-color: #DDDDDD; vertical-align: top; padding: 3px; }
+      td { width: 100%; background-color: #EEEEEE; vertical-align: top; padding: 3px; }
+      table { width: 100% ; border: 1px solid #0; text-align: left; }
+      section > table table td { width: 0; }
+    </style>
+    <link rel="stylesheet" href="docs.css" type="text/css" media="screen" />
+  </head>
+  <body>
+    <header>
+      <h1><a href="./index.html">docs</a> &raquo; PaperWM</h1>
+      <p>A scrolling window manager. Inspired by PaperWM Gnome extension.</p>
+<h1>Usage</h1>
+<p><code>PaperWM:start()</code> will begin automatically tiling new and existing windows.
+<code>PaperWM:stop()</code> will release control over windows.
+<code>PaperWM::bindHotkeys()</code> will move / resize windows using keyboard shortcuts.</p>
+<p>Here is an example Hammerspoon config:</p>
+
+<pre><code>PaperWM = hs.loadSpoon(&quot;PaperWM&quot;)
+PaperWM:bindHotkeys({
+    -- switch to a new focused window in tiled grid
+    focus_left  = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;}, &quot;left&quot;},
+    focus_right = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;}, &quot;right&quot;},
+    focus_up    = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;}, &quot;up&quot;},
+    focus_down  = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;}, &quot;down&quot;},
+
+    -- move windows around in tiled grid
+    swap_left  = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;, &quot;shift&quot;}, &quot;left&quot;},
+    swap_right = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;, &quot;shift&quot;}, &quot;right&quot;},
+    swap_up    = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;, &quot;shift&quot;}, &quot;up&quot;},
+    swap_down  = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;, &quot;shift&quot;}, &quot;down&quot;},
+
+    -- position and resize focused window
+    center_window = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;}, &quot;c&quot;},
+    full_width    = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;}, &quot;f&quot;},
+    cycle_width   = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;}, &quot;r&quot;},
+    cycle_height  = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;, &quot;shift&quot;}, &quot;r&quot;},
+
+    -- move focused window into / out of a column
+    slurp_in = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;}, &quot;i&quot;},
+    barf_out = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;}, &quot;o&quot;},
+
+    -- switch to a new Mission Control space
+    switch_space_1 = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;}, &quot;1&quot;},
+    switch_space_2 = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;}, &quot;2&quot;},
+    switch_space_3 = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;}, &quot;3&quot;},
+    switch_space_4 = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;}, &quot;4&quot;},
+    switch_space_5 = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;}, &quot;5&quot;},
+    switch_space_6 = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;}, &quot;6&quot;},
+    switch_space_7 = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;}, &quot;7&quot;},
+    switch_space_8 = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;}, &quot;8&quot;},
+    switch_space_9 = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;}, &quot;9&quot;},
+
+    -- move focused window to a new space and tile
+    move_window_1 = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;, &quot;shift&quot;}, &quot;1&quot;},
+    move_window_2 = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;, &quot;shift&quot;}, &quot;2&quot;},
+    move_window_3 = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;, &quot;shift&quot;}, &quot;3&quot;},
+    move_window_4 = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;, &quot;shift&quot;}, &quot;4&quot;},
+    move_window_5 = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;, &quot;shift&quot;}, &quot;5&quot;},
+    move_window_6 = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;, &quot;shift&quot;}, &quot;6&quot;},
+    move_window_7 = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;, &quot;shift&quot;}, &quot;7&quot;},
+    move_window_8 = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;, &quot;shift&quot;}, &quot;8&quot;},
+    move_window_9 = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;, &quot;shift&quot;}, &quot;9&quot;}
+})
+PaperWM:start()
+</code></pre>
+<p>Use <code>PaperWM:bindHotkeys(PaperWM.default_hotkeys)</code> for defaults.</p>
+<p>Set <code>PaperWM.window_gap</code> to the number of pixels to space between windows and
+the top and bottom screen edges.</p>
+<p>Overwrite <code>PaperWM.window_filter</code> to ignore specific applications. For example:</p>
+
+<pre><code>PaperWM.window_filter = PaperWM.window_filter:setAppFilter(&quot;Finder&quot;, false)
+PaperWM:start() -- restart for new window filter to take effect
+</code></pre>
+<h1>Limitations</h1>
+<p>Under System Preferences -&gt; Mission Control, unselect &quot;Automatically
+rearrange Spaces based on most recent use&quot; and select &quot;Displays have separate
+Spaces&quot;.</p>
+<p>MacOS does not allow a window to be moved fully off-screen. Windows that would
+be tiled off-screen are placed in a margin on the left and right edge of the
+screen. They are still visible and clickable.</p>
+<p>It's difficult to detect when a window is dragged from one space or screen to
+another. Use the move_window_N commands to move windows between spaces and
+screens.</p>
+<p>Arrange screens vertically to prevent windows from bleeding into other screens.</p>
+<p>Download: <a href="https://github.com/mogenson/PaperWM.spoon">https://github.com/mogenson/PaperWM.spoon</a></p>
+
+      </header>
+      <h3>API Overview</h3>
+      <ul>
+        <li>Variables - Configurable values</li>
+          <ul>
+            <li><a href="#default_hotkeys">default_hotkeys</a></li>
+            <li><a href="#logger">logger</a></li>
+            <li><a href="#window_filter">window_filter</a></li>
+            <li><a href="#window_gap">window_gap</a></li>
+          </ul>
+        <li>Methods - API calls which can only be made on an object returned by a constructor</li>
+          <ul>
+            <li><a href="#addWindow">addWindow</a></li>
+            <li><a href="#barfWindow">barfWindow</a></li>
+            <li><a href="#bindHotkeys">bindHotkeys</a></li>
+            <li><a href="#centerWindow">centerWindow</a></li>
+            <li><a href="#cycleWindowSize">cycleWindowSize</a></li>
+            <li><a href="#focusWindow">focusWindow</a></li>
+            <li><a href="#moveWindow">moveWindow</a></li>
+            <li><a href="#moveWindowToSpace">moveWindowToSpace</a></li>
+            <li><a href="#refreshWindows">refreshWindows</a></li>
+            <li><a href="#remove_window">remove_window</a></li>
+            <li><a href="#setWindowFullWidth">setWindowFullWidth</a></li>
+            <li><a href="#slurpWindow">slurpWindow</a></li>
+            <li><a href="#start">start</a></li>
+            <li><a href="#stop">stop</a></li>
+            <li><a href="#swapWindows">swapWindows</a></li>
+            <li><a href="#switchToSpace">switchToSpace</a></li>
+            <li><a href="#tileColumn">tileColumn</a></li>
+            <li><a href="#tileSpace">tileSpace</a></li>
+          </ul>
+      </ul>
+      <h3>API Documentation</h3>
+        <h4 class="documentation-section">Variables</h4>
+          <section id="default_hotkeys">
+            <a name="//apple_ref/cpp/Variable/default_hotkeys" class="dashAnchor"></a>
+            <h5><a href="#default_hotkeys">default_hotkeys</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>PaperWM.default_hotkeys</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Default hotkeys for moving / resizing windows</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L111">Source/PaperWM.spoon/init.lua line 111</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="logger">
+            <a name="//apple_ref/cpp/Variable/logger" class="dashAnchor"></a>
+            <h5><a href="#logger">logger</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>PaperWM.logger</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Logger object. Can be accessed to set default log level.</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L165">Source/PaperWM.spoon/init.lua line 165</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="window_filter">
+            <a name="//apple_ref/cpp/Variable/window_filter" class="dashAnchor"></a>
+            <h5><a href="#window_filter">window_filter</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>PaperWM.window_filter</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Windows captured by this filter are automatically tiled and managed</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L150">Source/PaperWM.spoon/init.lua line 150</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="window_gap">
+            <a name="//apple_ref/cpp/Variable/window_gap" class="dashAnchor"></a>
+            <h5><a href="#window_gap">window_gap</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>PaperWM.window_gap</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Number of pixels between tiled windows</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L160">Source/PaperWM.spoon/init.lua line 160</a></td>
+              </tr>
+            </table>
+          </section>
+        <h4 class="documentation-section">Methods</h4>
+          <section id="addWindow">
+            <a name="//apple_ref/cpp/Method/addWindow" class="dashAnchor"></a>
+            <h5><a href="#addWindow">addWindow</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>PaperWM:addWindow(add_window)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Adds a window to layout and tiles.</p>
+</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>add_window - An hs.window</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
+<li>The hs.spaces space for added window or nil if window not added.</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L594">Source/PaperWM.spoon/init.lua line 594</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="barfWindow">
+            <a name="//apple_ref/cpp/Method/barfWindow" class="dashAnchor"></a>
+            <h5><a href="#barfWindow">barfWindow</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>PaperWM:barfWindow()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Removes current window from column and places it to the right</p>
+</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>None</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L1026">Source/PaperWM.spoon/init.lua line 1026</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="bindHotkeys">
+            <a name="//apple_ref/cpp/Method/bindHotkeys" class="dashAnchor"></a>
+            <h5><a href="#bindHotkeys">bindHotkeys</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>PaperWM.bindHotkeys(mapping)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Binds hotkeys for PaperWM</p>
+</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>mapping - A table containing hotkey modifer/key details for the following items:<ul>
+<li>stop_events - Stop automatic tiling</li>
+<li>focus_left - Focus window to left of current window</li>
+<li>focus_right - Focus window to right of current window</li>
+<li>focus_up - Focus window to up of current window</li>
+<li>focus_down - Focus window to down of current window</li>
+<li>swap_left - Swap positions of window to the left and current window</li>
+<li>swap_right - Swap positions of window to the right and current window</li>
+<li>swap_up - Swap positions of window above and current window</li>
+<li>swap_down - Swap positions of window below and current window</li>
+<li>center_window - Move current window to center of screen</li>
+<li>full_width - Resize width of current window to width of screen</li>
+<li>cycle_width - Toggle through preset window widths</li>
+<li>cycle_height - Toggle through preset window heights</li>
+<li>slurp_in - Move current window into column to the left</li>
+<li>barf_out - Remove current window from column and place to the right</li>
+<li>switch_space_1 - Switch to Mission Control space 1</li>
+<li>switch_space_2 - Switch to Mission Control space 2</li>
+<li>switch_space_3 - Switch to Mission Control space 3</li>
+<li>switch_space_4 - Switch to Mission Control space 4</li>
+<li>switch_space_5 - Switch to Mission Control space 5</li>
+<li>switch_space_6 - Switch to Mission Control space 6</li>
+<li>switch_space_7 - Switch to Mission Control space 7</li>
+<li>switch_space_8 - Switch to Mission Control space 8</li>
+<li>switch_space_9 - Switch to Mission Control space 9</li>
+<li>move_window_1 - Move current window to Mission Control space 1</li>
+<li>move_window_2 - Move current window to Mission Control space 2</li>
+<li>move_window_3 - Move current window to Mission Control space 3</li>
+<li>move_window_4 - Move current window to Mission Control space 4</li>
+<li>move_window_5 - Move current window to Mission Control space 5</li>
+<li>move_window_6 - Move current window to Mission Control space 6</li>
+<li>move_window_7 - Move current window to Mission Control space 7</li>
+<li>move_window_8 - Move current window to Mission Control space 8</li>
+<li>move_window_9 - Move current window to Mission Control space 9</li>
+</ul>
+</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L275">Source/PaperWM.spoon/init.lua line 275</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="centerWindow">
+            <a name="//apple_ref/cpp/Method/centerWindow" class="dashAnchor"></a>
+            <h5><a href="#centerWindow">centerWindow</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>PaperWM:centerWindow()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Moves current window to center of screen, without resizing.</p>
+</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>None</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L860">Source/PaperWM.spoon/init.lua line 860</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="cycleWindowSize">
+            <a name="//apple_ref/cpp/Method/cycleWindowSize" class="dashAnchor"></a>
+            <h5><a href="#cycleWindowSize">cycleWindowSize</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>PaperWM:cycleWindowSize(direction)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Resizes current window by cycling through width or height ratios.</p>
+</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>direction - One of Direction { WIDTH, HEIGHT }</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L907">Source/PaperWM.spoon/init.lua line 907</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="focusWindow">
+            <a name="//apple_ref/cpp/Method/focusWindow" class="dashAnchor"></a>
+            <h5><a href="#focusWindow">focusWindow</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>PaperWM:focusWindow(direction, focused_index)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Change focus to a nearby window</p>
+</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>direction - One of Direction { LEFT, RIGHT, DOWN, UP }</li>
+<li>focused_index - The coordinates of the current window in the tiling layout</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
+<li>A boolean. True if a new window was focused. False if no nearby window
+was found in that direction.</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L699">Source/PaperWM.spoon/init.lua line 699</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="moveWindow">
+            <a name="//apple_ref/cpp/Method/moveWindow" class="dashAnchor"></a>
+            <h5><a href="#moveWindow">moveWindow</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>PaperWM::moveWindow(window, frame)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Resizes a window without triggering a windowMoved event</p>
+</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>window - An hs.window</li>
+<li>frame - An hs.geometry.rect for the windows new frame size.</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L1147">Source/PaperWM.spoon/init.lua line 1147</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="moveWindowToSpace">
+            <a name="//apple_ref/cpp/Method/moveWindowToSpace" class="dashAnchor"></a>
+            <h5><a href="#moveWindowToSpace">moveWindowToSpace</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>PaperWM:moveWindowToSpace(index)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Moves the current window to a new Mission Control space</p>
+</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>index - The space number</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L1096">Source/PaperWM.spoon/init.lua line 1096</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="refreshWindows">
+            <a name="//apple_ref/cpp/Method/refreshWindows" class="dashAnchor"></a>
+            <h5><a href="#refreshWindows">refreshWindows</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>PaperWM:refreshWindows()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Searches for all windows that match window filter.</p>
+</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>None</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
+<li>A boolean, true if the layout needs to be re-tiled, false if no change.</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L563">Source/PaperWM.spoon/init.lua line 563</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="remove_window">
+            <a name="//apple_ref/cpp/Method/remove_window" class="dashAnchor"></a>
+            <h5><a href="#remove_window">remove_window</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>PaperWM:remove_window(remove_window, skip_new_window_focus)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Remove window from tiling layout</p>
+</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>remove_window - A hs.window to remove from tiling layout</li>
+<li>skip_new_window_focus - A boolean. True if a nearby window should not be focused after current window is removed.</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
+<li>The hs.spaces space for removed window.</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L652">Source/PaperWM.spoon/init.lua line 652</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="setWindowFullWidth">
+            <a name="//apple_ref/cpp/Method/setWindowFullWidth" class="dashAnchor"></a>
+            <h5><a href="#setWindowFullWidth">setWindowFullWidth</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>PaperWM:setWindowFullWidth()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Resizes current window's width to width of screen, without adjusting height.</p>
+</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>None</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L885">Source/PaperWM.spoon/init.lua line 885</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="slurpWindow">
+            <a name="//apple_ref/cpp/Method/slurpWindow" class="dashAnchor"></a>
+            <h5><a href="#slurpWindow">slurpWindow</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>PaperWM:slurpWindow()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Moves current window into column of windows to the left</p>
+</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>None</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L961">Source/PaperWM.spoon/init.lua line 961</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="start">
+            <a name="//apple_ref/cpp/Method/start" class="dashAnchor"></a>
+            <h5><a href="#start">start</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>PaperWM:start()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Start automatic tiling of windows</p>
+</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>None</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
+<li>The PaperWM object</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L354">Source/PaperWM.spoon/init.lua line 354</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="stop">
+            <a name="//apple_ref/cpp/Method/stop" class="dashAnchor"></a>
+            <h5><a href="#stop">stop</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>PaperWM:stop()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Stop automatic tiling of windows</p>
+</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>None</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
+<li>The PaperWM object</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L391">Source/PaperWM.spoon/init.lua line 391</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="swapWindows">
+            <a name="//apple_ref/cpp/Method/swapWindows" class="dashAnchor"></a>
+            <h5><a href="#swapWindows">swapWindows</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>PaperWM:swapWindows(direction)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Swaps window postions between current window and window in specified direction.</p>
+</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>direction - One of Direction { LEFT, RIGHT, DOWN, UP }</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L749">Source/PaperWM.spoon/init.lua line 749</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="switchToSpace">
+            <a name="//apple_ref/cpp/Method/switchToSpace" class="dashAnchor"></a>
+            <h5><a href="#switchToSpace">switchToSpace</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>PaperWM:switchToSpace(index)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Switch to a Mission Control space</p>
+</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>index - The space number</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L1080">Source/PaperWM.spoon/init.lua line 1080</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="tileColumn">
+            <a name="//apple_ref/cpp/Method/tileColumn" class="dashAnchor"></a>
+            <h5><a href="#tileColumn">tileColumn</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>PaperWM:tileColumn(windows, bounds, h, w, id, h4id)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Tile a column of windows</p>
+</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>windows - A list of hs.windows.</li>
+<li>bounds - An hs.geometry.rect. The area for this column to fill.</li>
+<li>h - The height for each window in column.</li>
+<li>w - The width for each window in column.</li>
+<li>id - A hs.window.id() for a specific window in column.</li>
+<li>h4id - The height for a window matching id in column.</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
+<li>The width of the column</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>The h, w, id, and h4id parameters are optional. The height and width of
+all windows will be calculated and set to fill column bounds.</li>
+<li>If bounds width is not specified, all windows in column will be resized
+to width of first window.</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L408">Source/PaperWM.spoon/init.lua line 408</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="tileSpace">
+            <a name="//apple_ref/cpp/Method/tileSpace" class="dashAnchor"></a>
+            <h5><a href="#tileSpace">tileSpace</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>PaperWM:tileSpace(space)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Tile all windows within a space</p>
+</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>space - A hs.spaces space.</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L460">Source/PaperWM.spoon/init.lua line 460</a></td>
+              </tr>
+            </table>
+          </section>
+  </body>
+</html>

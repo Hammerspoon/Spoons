@@ -27,9 +27,14 @@ M.name = "EmmyLua"
 M.version = "1.0"
 M.author = "http://github.com/folke"
 M.license = "MIT - https://opensource.org/licenses/MIT"
+M.logger = hs.logger.new("EmmyLua")
+
 
 local options = {
   annotations = hs.spoons.resourcePath("annotations"),
+  timestampsFilename = hs.spoons.resourcePath("annotations").."/timestamps.json",
+  timestamps = {},
+  timestampsChanged = false,
   types = {
     bool = "boolean",
     boolean = "boolean",
@@ -185,28 +190,69 @@ function M.create(jsonDocs, prefix)
     module.name = prefix .. module.name
     local fname = options.annotations .. "/" .. module.name .. ".lua"
     local fmtime = hs.fs.attributes(fname, "modification")
+
     if fmtime == nil or mtime > fmtime then
-      -- print("creating " .. fname)
+      M.logger.i("creating " .. fname)
       local fd = io.open(fname, "w+")
       io.output(fd)
       M.processModule(module)
       io.close(fd)
+    else
+      M.logger.i("skipping " .. fname)
     end
   end
 end
 
+function M.createWhenChanged(jsonDocs, prefix)
+  local mtime = hs.fs.attributes(jsonDocs, "modification")
+  local timestamp = options.timestamps[jsonDocs]
+
+  if(timestamp == nil or mtime ~= timestamp) then
+    M.logger.i("reading "..jsonDocs)
+    M.create(jsonDocs, prefix)
+    options.timestamps[jsonDocs] = mtime
+    options.timestampsChanged = true
+  else
+    M.logger.i("skipping "..jsonDocs)
+  end
+end
+
+function M.readTimestamps()
+  timestamps = hs.json.read(options.timestampsFilename)
+
+  if timestamps then
+    options.timestamps = timestamps
+  end
+
+  M.logger.d(hs.inspect(options.timestamps))
+end
+
+function M.writeTimestamps()
+  M.logger.d(hs.inspect(options.timestamps))
+  if options.timestampsChanged then
+    hs.json.write(options.timestamps, options.timestampsFilename, true, true)
+  end
+end
+
 function M:init()
+
   hs.fs.mkdir(options.annotations)
+
+  M.readTimestamps()
+
   -- Load hammerspoon docs
-  M.create(hs.docstrings_json_file)
+  M.createWhenChanged(hs.docstrings_json_file)
 
   -- Load Spoons
   for _, spoon in ipairs(hs.spoons.list()) do
     local doc = hs.configdir .. "/Spoons/" .. spoon.name .. ".spoon/docs.json"
     if hs.fs.attributes(doc, "modification") then
-      M.create(doc, "spoon.")
+      M.createWhenChanged(doc, "spoon.")
     end
   end
+
+  M.writeTimestamps()
+
 end
 
 return M

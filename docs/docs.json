@@ -13,7 +13,7 @@
         "doc": "Hide AClock.\n\nParameters:\n * None\n\nReturns:\n * The AClock object",
         "examples": [],
         "file": "Source/AClock.spoon/init.lua",
-        "lineno": "116",
+        "lineno": "130",
         "name": "hide",
         "notes": [],
         "parameters": [
@@ -51,7 +51,7 @@
         "doc": "Show AClock.\n\nParameters:\n * None\n\nReturns:\n * The AClock object",
         "examples": [],
         "file": "Source/AClock.spoon/init.lua",
-        "lineno": "97",
+        "lineno": "111",
         "name": "show",
         "notes": [],
         "parameters": [
@@ -70,7 +70,7 @@
         "doc": "Show AClock for 4 seconds. If already showing, hide it.\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/AClock.spoon/init.lua",
-        "lineno": "133",
+        "lineno": "147",
         "name": "toggleShow",
         "notes": [],
         "parameters": [
@@ -87,7 +87,7 @@
         "doc": "Show AClock. If already showing, hide it.\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/AClock.spoon/init.lua",
-        "lineno": "154",
+        "lineno": "168",
         "name": "toggleShowPersistent",
         "notes": [],
         "parameters": [
@@ -109,7 +109,7 @@
         "doc": "Hide AClock.\n\nParameters:\n * None\n\nReturns:\n * The AClock object",
         "examples": [],
         "file": "Source/AClock.spoon/init.lua",
-        "lineno": "116",
+        "lineno": "130",
         "name": "hide",
         "notes": [],
         "parameters": [
@@ -147,7 +147,7 @@
         "doc": "Show AClock.\n\nParameters:\n * None\n\nReturns:\n * The AClock object",
         "examples": [],
         "file": "Source/AClock.spoon/init.lua",
-        "lineno": "97",
+        "lineno": "111",
         "name": "show",
         "notes": [],
         "parameters": [
@@ -166,7 +166,7 @@
         "doc": "Show AClock for 4 seconds. If already showing, hide it.\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/AClock.spoon/init.lua",
-        "lineno": "133",
+        "lineno": "147",
         "name": "toggleShow",
         "notes": [],
         "parameters": [
@@ -183,7 +183,7 @@
         "doc": "Show AClock. If already showing, hide it.\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/AClock.spoon/init.lua",
-        "lineno": "154",
+        "lineno": "168",
         "name": "toggleShowPersistent",
         "notes": [],
         "parameters": [
@@ -842,6 +842,23 @@
     ],
     "name": "Asana",
     "stripped_doc": "\nExample configuration (using SpoonInstall.spoon and Seal.spoon):\n```\n-- Load configuration constants used throughout the code\nconsts = require \"configConsts\" -- just a table\n\n-- Load Asana spoon and configure it with API key\nspoon.SpoonInstall:andUse(\"Asana\", { config = { apiKey = consts.asanaApiKey } })\n\n-- Load Seal and setup user actions to add task to Asana workspaces\nspoon.SpoonInstall:andUse(\n  \"Seal\",\n  {\n    fn = function(x)\n      x:loadPlugins({\"apps\", \"calc\", \"useractions\", \"rot13\"})\n      x.plugins.useractions.actions = {\n        [\"New Asana task in \" .. consts.asanaWorkWorkspaceName] = {\n          fn = function(y) spoon.Asana:createTask(y, consts.asanaWorkWorkspaceName) end,\n          keyword = \"awork\"\n        },\n        [\"New Asana task in \" .. consts.asanaPersonalWorkspaceName] = {\n          fn = function(y) spoon.Asana:createTask(y, consts.asanaPersonalWorkspaceName) end,\n          keyword = \"ahome\"\n        }\n      }\n      x:refreshAllCommands()\n    end,\n    start = true,\n    hotkeys = { toggle = { \"cmd\", \"space\" } }\n  }\n)\n```\n\nWith this setup, adding a new task to Asana is as easy pressing `Command + Space` to launch Seal and entering, e.g., \"awork Do that thing I forgot to do\".",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [],
+    "Variable": [],
+    "desc": "Automatically set to 0 the volume of all output audio devices except Bluetooth devices when Mac goes to sleep.",
+    "doc": "Automatically set to 0 the volume of all output audio devices except Bluetooth devices when Mac goes to sleep.\nUseful to avoid blasting sound when opening a Macbook in the public transport.\nNote: This is primarily intended for portable Mac devices, which have internal speakers.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/AutoMuteOnSleep.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/AutoMuteOnSleep.spoon.zip)",
+    "items": [],
+    "name": "AutoMuteOnSleep",
+    "stripped_doc": "Useful to avoid blasting sound when opening a Macbook in the public transport.\nNote: This is primarily intended for portable Mac devices, which have internal speakers.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/AutoMuteOnSleep.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/AutoMuteOnSleep.spoon.zip)",
     "submodules": [],
     "type": "Module"
   },
@@ -6769,6 +6786,241 @@
     "Command": [],
     "Constant": [],
     "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
+        "def": "InputMethodIndicator:init()",
+        "desc": "init.",
+        "doc": "init.\n\nParameters:\n * None\n\nReturns:\n * The InputMethodIndicator object",
+        "examples": [],
+        "file": "Source/InputMethodIndicator.spoon/init.lua",
+        "lineno": "67",
+        "name": "init",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * The InputMethodIndicator object"
+        ],
+        "signature": "InputMethodIndicator:init()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "InputMethodIndicator:start(config)",
+        "desc": "Start InputMethodIndicator.",
+        "doc": "Start InputMethodIndicator.\n\nParameters:\n * config - A table contains config options for the module\n   * ABCColor - the dot color when the input method is ABC\n   * LocalLanguageColor - the dot color when the input method is not ABC\n   * mode - the mode of the indicator\n   * showOnChangeDuration - seconds to show the indicator when the input method is changed\n   * checkInterval - seconds to check the input method\n   * dotSize - the size of the dot\n   * deltaY - the distance between the dot and the center of the selection or mouse",
+        "examples": [],
+        "file": "Source/InputMethodIndicator.spoon/init.lua",
+        "lineno": "200",
+        "name": "start",
+        "notes": [],
+        "parameters": [
+          " * config - A table contains config options for the module\n   * ABCColor - the dot color when the input method is ABC\n   * LocalLanguageColor - the dot color when the input method is not ABC\n   * mode - the mode of the indicator\n   * showOnChangeDuration - seconds to show the indicator when the input method is changed\n   * checkInterval - seconds to check the input method\n   * dotSize - the size of the dot\n   * deltaY - the distance between the dot and the center of the selection or mouse"
+        ],
+        "returns": [],
+        "signature": "InputMethodIndicator:start(config)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "InputMethodIndicator:stop()",
+        "desc": "Stop InputMethodIndicator.",
+        "doc": "Stop InputMethodIndicator.\n\nParameters:\n * None",
+        "examples": [],
+        "file": "Source/InputMethodIndicator.spoon/init.lua",
+        "lineno": "245",
+        "name": "stop",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
+        "signature": "InputMethodIndicator:stop()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [],
+    "desc": "Show input method indicator in the current mouse position.",
+    "doc": "Show input method indicator in the current mouse position.\nIt is a small but noticable dot near the cursor.\nIt can be very useful when you are using a non-ABC input method and often needs to switch between ABC and the non-ABC input method.\nYou can use it as follows in the init.lua:\nhs.loadSpoon(\"InputMethodIndicator\")\nspoon.InputMethodIndicator:start(nil)\nnote: config parameter is a table, pass nil to use the default config\nthe default config is as follows:\n{\n    ABCColor = \"#62C555\",  -- the dot color when the input method is ABC\n    LocalLanguageColor = \"#ED6A5E\", -- the dot color when the input method is not ABC\n    mode = \"nearMouse\", -- the mode of the indicator\n    showOnChangeDuration = 3, -- seconds to show the indicator when the input method is changed\n    checkInterval = .01, -- seconds to check the input method\n    dotSize = 6, -- the size of the dot\n    deltaY=7, -- the distance between the dot and the center of the selection or mouse\n}\nthe mode can be \"nearMouse\",\"onChange\",\"adaptive\", the default mode is \"adaptive\"\n\"nearMouse\" means the indicator will always show near the mouse\n\"onChange\" means the indicator will show when the input method is changed and hide after showOnChangeDuration seconds\n\"adaptive\" means the indicator will show near the textarea when typing, otherwise it will show near the mouse\nNote: the \"adaptive\" mode is not perfect, it may not work in some apps because of the limitation of the accessibility API",
+    "items": [
+      {
+        "def": "InputMethodIndicator:init()",
+        "desc": "init.",
+        "doc": "init.\n\nParameters:\n * None\n\nReturns:\n * The InputMethodIndicator object",
+        "examples": [],
+        "file": "Source/InputMethodIndicator.spoon/init.lua",
+        "lineno": "67",
+        "name": "init",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * The InputMethodIndicator object"
+        ],
+        "signature": "InputMethodIndicator:init()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "InputMethodIndicator:start(config)",
+        "desc": "Start InputMethodIndicator.",
+        "doc": "Start InputMethodIndicator.\n\nParameters:\n * config - A table contains config options for the module\n   * ABCColor - the dot color when the input method is ABC\n   * LocalLanguageColor - the dot color when the input method is not ABC\n   * mode - the mode of the indicator\n   * showOnChangeDuration - seconds to show the indicator when the input method is changed\n   * checkInterval - seconds to check the input method\n   * dotSize - the size of the dot\n   * deltaY - the distance between the dot and the center of the selection or mouse",
+        "examples": [],
+        "file": "Source/InputMethodIndicator.spoon/init.lua",
+        "lineno": "200",
+        "name": "start",
+        "notes": [],
+        "parameters": [
+          " * config - A table contains config options for the module\n   * ABCColor - the dot color when the input method is ABC\n   * LocalLanguageColor - the dot color when the input method is not ABC\n   * mode - the mode of the indicator\n   * showOnChangeDuration - seconds to show the indicator when the input method is changed\n   * checkInterval - seconds to check the input method\n   * dotSize - the size of the dot\n   * deltaY - the distance between the dot and the center of the selection or mouse"
+        ],
+        "returns": [],
+        "signature": "InputMethodIndicator:start(config)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "InputMethodIndicator:stop()",
+        "desc": "Stop InputMethodIndicator.",
+        "doc": "Stop InputMethodIndicator.\n\nParameters:\n * None",
+        "examples": [],
+        "file": "Source/InputMethodIndicator.spoon/init.lua",
+        "lineno": "245",
+        "name": "stop",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
+        "signature": "InputMethodIndicator:stop()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "name": "InputMethodIndicator",
+    "stripped_doc": "It is a small but noticable dot near the cursor.\nIt can be very useful when you are using a non-ABC input method and often needs to switch between ABC and the non-ABC input method.\nYou can use it as follows in the init.lua:\nhs.loadSpoon(\"InputMethodIndicator\")\nspoon.InputMethodIndicator:start(nil)\nnote: config parameter is a table, pass nil to use the default config\nthe default config is as follows:\n{\n    ABCColor = \"#62C555\",  -- the dot color when the input method is ABC\n    LocalLanguageColor = \"#ED6A5E\", -- the dot color when the input method is not ABC\n    mode = \"nearMouse\", -- the mode of the indicator\n    showOnChangeDuration = 3, -- seconds to show the indicator when the input method is changed\n    checkInterval = .01, -- seconds to check the input method\n    dotSize = 6, -- the size of the dot\n    deltaY=7, -- the distance between the dot and the center of the selection or mouse\n}\nthe mode can be \"nearMouse\",\"onChange\",\"adaptive\", the default mode is \"adaptive\"\n\"nearMouse\" means the indicator will always show near the mouse\n\"onChange\" means the indicator will show when the input method is changed and hide after showOnChangeDuration seconds\n\"adaptive\" means the indicator will show near the textarea when typing, otherwise it will show near the mouse\nNote: the \"adaptive\" mode is not perfect, it may not work in some apps because of the limitation of the accessibility API",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
+        "def": "InputSourceSwitch:setApplications()",
+        "desc": "Set that mapping the application name to the input source",
+        "doc": "Set that mapping the application name to the input source\n\nParameters:\n * applications - A table containing that mapping the application name to the input source\n    key is the application name and value is the input source name\n    example:\n```\n{\n    [\"WeChat\"] = \"Pinyin - Simplified\",\n    [\"Mail\"] = \"ABC\"\n}\n```",
+        "examples": [],
+        "file": "Source/InputSourceSwitch.spoon/init.lua",
+        "lineno": "80",
+        "name": "setApplications",
+        "notes": [],
+        "parameters": [
+          " * applications - A table containing that mapping the application name to the input source key is the application name and value is the input source name example: ``` { [\"WeChat\"] = \"Pinyin - Simplified\", [\"Mail\"] = \"ABC\" } ```"
+        ],
+        "returns": [],
+        "signature": "InputSourceSwitch:setApplications()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "InputSourceSwitch:start()",
+        "desc": "Start InputSourceSwitch",
+        "doc": "Start InputSourceSwitch\n\nParameters:\n * None",
+        "examples": [],
+        "file": "Source/InputSourceSwitch.spoon/init.lua",
+        "lineno": "100",
+        "name": "start",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
+        "signature": "InputSourceSwitch:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [
+      {
+        "def": "InputSourceSwitch.applicationMap",
+        "desc": "Mapping the application name to the input source",
+        "doc": "Mapping the application name to the input source",
+        "file": "Source/InputSourceSwitch.spoon/init.lua",
+        "lineno": "75",
+        "name": "applicationMap",
+        "signature": "InputSourceSwitch.applicationMap",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "desc": "Automatically switch the input source when switching applications.",
+    "doc": "Automatically switch the input source when switching applications.\n\nExample:\n```\nhs.loadSpoon(\"InputSourceSwitch\")\n\nspoon.InputSourceSwitch:setApplications({\n    [\"WeChat\"] = \"Pinyin - Simplified\",\n    [\"Mail\"] = \"ABC\"\n})\n\nspoon.InputSourceSwitch:start()\n```\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/InputSourceSwitch.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/InputSourceSwitch.spoon.zip)",
+    "items": [
+      {
+        "def": "InputSourceSwitch.applicationMap",
+        "desc": "Mapping the application name to the input source",
+        "doc": "Mapping the application name to the input source",
+        "file": "Source/InputSourceSwitch.spoon/init.lua",
+        "lineno": "75",
+        "name": "applicationMap",
+        "signature": "InputSourceSwitch.applicationMap",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "InputSourceSwitch:setApplications()",
+        "desc": "Set that mapping the application name to the input source",
+        "doc": "Set that mapping the application name to the input source\n\nParameters:\n * applications - A table containing that mapping the application name to the input source\n    key is the application name and value is the input source name\n    example:\n```\n{\n    [\"WeChat\"] = \"Pinyin - Simplified\",\n    [\"Mail\"] = \"ABC\"\n}\n```",
+        "examples": [],
+        "file": "Source/InputSourceSwitch.spoon/init.lua",
+        "lineno": "80",
+        "name": "setApplications",
+        "notes": [],
+        "parameters": [
+          " * applications - A table containing that mapping the application name to the input source key is the application name and value is the input source name example: ``` { [\"WeChat\"] = \"Pinyin - Simplified\", [\"Mail\"] = \"ABC\" } ```"
+        ],
+        "returns": [],
+        "signature": "InputSourceSwitch:setApplications()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "InputSourceSwitch:start()",
+        "desc": "Start InputSourceSwitch",
+        "doc": "Start InputSourceSwitch\n\nParameters:\n * None",
+        "examples": [],
+        "file": "Source/InputSourceSwitch.spoon/init.lua",
+        "lineno": "100",
+        "name": "start",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
+        "signature": "InputSourceSwitch:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "name": "InputSourceSwitch",
+    "stripped_doc": "\nExample:\n```\nhs.loadSpoon(\"InputSourceSwitch\")\n\nspoon.InputSourceSwitch:setApplications({\n    [\"WeChat\"] = \"Pinyin - Simplified\",\n    [\"Mail\"] = \"ABC\"\n})\n\nspoon.InputSourceSwitch:start()\n```\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/InputSourceSwitch.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/InputSourceSwitch.spoon.zip)",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
     "Deprecated": [
       {
         "def": "Keychain:login_keychain(name)",
@@ -8482,6 +8734,23 @@
     "Deprecated": [],
     "Field": [],
     "Function": [],
+    "Method": [],
+    "Variable": [],
+    "desc": "Allows scrolling by holding down the middle mouse button and dragging it, the same as it works on Windows.",
+    "doc": "Allows scrolling by holding down the middle mouse button and dragging it, the same as it works on Windows.\nEspecially useful to quickly scroll to the top or bottom of a page, if you don't have a Magic Mouse.\n\nNote: Due to OS limitations, it always scrolls the window currently below the mouse, not the window below the position\nwhere the dragging started, like it works on Windows. You therefore need to take some care to stay inside the window.\n\n== Usage ==\n\n```lua\nlocal MiddleClickDragScroll = hs.loadSpoon(\"MiddleClickDragScroll\"):start()\n```\n\nYou can temporarily stop the spoon by calling `MiddleClickDragScroll:stop()` and then restart it by calling `MiddleClickDragScroll:start()` again.\n\n== Configuration ==\n\n```lua\nlocal MiddleClickDragScroll = hs.loadSpoon(\"MiddleClickDragScroll\"):configure{\n  excludedApps = {\"Some App\", \"Other app\"},         -- Don't activate scrolling in apps with these names\n  excludedWindows = {\"^Some Window Title$\"},        -- Don't activate scrolling in windows with these names (supports regex, for exact match, use \"^title$\")\n  excludedUrls = {\"^https://geogebra.calculator$\"}, -- Don't activate scrolling when the active window is on these URLs (supports regex, only works in Chrome and Safari, asks for extra permissions on first trigger)\n  indicatorSize = 25,   -- Size of the scrolling indicator in pixels\n  indicatorAttributes = -- Attributes of the scrolling indicator. Takes any specified on https://www.hammerspoon.org/docs/hs.canvas.html#attributes. Alternatively, you can pass a custom canvas, see the explenation below.\n  {\n    type = \"circle\",\n    fillColor = { red = 0, green = 0, blue = 0, alpha = 0.3 },\n    strokeColor = { red = 1, green = 1, blue = 1, alpha = 0.5 },\n  },\n  startDistance = 15,       -- Minimal distance to drag the mouse before scrolling is triggered.\n  scrollMode = \"pixel\",     -- Whether the scroll speed is in \"line\"s or \"pixel\"s. Scrolling by lines has smooting in some applications\n                            -- and therefore works with reduced frequency but it offers much less precise control.\n  scrollFrequency = 0.01,   -- How often to trigger scrolling (in seconds)\n  scrollAccelaration = 30,  -- How fast scrolling accelerates based on the mouse distance from the initial location. Larger is faster.\n  scrollSpeedFn =           -- How scrolling accelerates based on the mouse distance from the initial location.\n                            -- The default is dist^2 / scrollAcceleration^2. You can pass a custom function that recieves `self` as the first argument\n                            -- and the absolute distance as the second and returns the resulting speed (in pixels or lines, depending on the scrollMode setting).\n  function(self, x)\n    return (x ^ 2) / (self.scrollAccelaration ^ 2)\n  end\n}:start()\n```\n\nUnspecified keys are unchanged. You can call `configure` multiple times to dynamically change it but changing `indicatorAttributes` and `indicatorSize` only works when `MiddleClickDragScroll` is stopped.\n\nInstead of `indicatorSize` and `indicatorAttributes`, you can also pass a custom canvas to `configure` or set it directly to have more control over the indicator style:\n\n```lua\n  MiddleClickDragScroll.canvas = hs.canvas.new{ w = 25, h = 25}:insertElement{\n    type = \"circle\",\n    fillColor = { red = 0, green = 0, blue = 0, alpha = 0.3 },\n    strokeColor = { red = 1, green = 1, blue = 1, alpha = 0.5 },\n  }\n```\n\nFor more details, see: https://www.hammerspoon.org/docs/hs.canvas.html\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MiddleClickDragScroll.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MiddleClickDragScroll.spoon.zip)",
+    "items": [],
+    "name": "MiddleClickDragScroll",
+    "stripped_doc": "Especially useful to quickly scroll to the top or bottom of a page, if you don't have a Magic Mouse.\n\nNote: Due to OS limitations, it always scrolls the window currently below the mouse, not the window below the position\nwhere the dragging started, like it works on Windows. You therefore need to take some care to stay inside the window.\n\n== Usage ==\n\n```lua\nlocal MiddleClickDragScroll = hs.loadSpoon(\"MiddleClickDragScroll\"):start()\n```\n\nYou can temporarily stop the spoon by calling `MiddleClickDragScroll:stop()` and then restart it by calling `MiddleClickDragScroll:start()` again.\n\n== Configuration ==\n\n```lua\nlocal MiddleClickDragScroll = hs.loadSpoon(\"MiddleClickDragScroll\"):configure{\n  excludedApps = {\"Some App\", \"Other app\"},         -- Don't activate scrolling in apps with these names\n  excludedWindows = {\"^Some Window Title$\"},        -- Don't activate scrolling in windows with these names (supports regex, for exact match, use \"^title$\")\n  excludedUrls = {\"^https://geogebra.calculator$\"}, -- Don't activate scrolling when the active window is on these URLs (supports regex, only works in Chrome and Safari, asks for extra permissions on first trigger)\n  indicatorSize = 25,   -- Size of the scrolling indicator in pixels\n  indicatorAttributes = -- Attributes of the scrolling indicator. Takes any specified on https://www.hammerspoon.org/docs/hs.canvas.html#attributes. Alternatively, you can pass a custom canvas, see the explenation below.\n  {\n    type = \"circle\",\n    fillColor = { red = 0, green = 0, blue = 0, alpha = 0.3 },\n    strokeColor = { red = 1, green = 1, blue = 1, alpha = 0.5 },\n  },\n  startDistance = 15,       -- Minimal distance to drag the mouse before scrolling is triggered.\n  scrollMode = \"pixel\",     -- Whether the scroll speed is in \"line\"s or \"pixel\"s. Scrolling by lines has smooting in some applications\n                            -- and therefore works with reduced frequency but it offers much less precise control.\n  scrollFrequency = 0.01,   -- How often to trigger scrolling (in seconds)\n  scrollAccelaration = 30,  -- How fast scrolling accelerates based on the mouse distance from the initial location. Larger is faster.\n  scrollSpeedFn =           -- How scrolling accelerates based on the mouse distance from the initial location.\n                            -- The default is dist^2 / scrollAcceleration^2. You can pass a custom function that recieves `self` as the first argument\n                            -- and the absolute distance as the second and returns the resulting speed (in pixels or lines, depending on the scrollMode setting).\n  function(self, x)\n    return (x ^ 2) / (self.scrollAccelaration ^ 2)\n  end\n}:start()\n```\n\nUnspecified keys are unchanged. You can call `configure` multiple times to dynamically change it but changing `indicatorAttributes` and `indicatorSize` only works when `MiddleClickDragScroll` is stopped.\n\nInstead of `indicatorSize` and `indicatorAttributes`, you can also pass a custom canvas to `configure` or set it directly to have more control over the indicator style:\n\n```lua\n  MiddleClickDragScroll.canvas = hs.canvas.new{ w = 25, h = 25}:insertElement{\n    type = \"circle\",\n    fillColor = { red = 0, green = 0, blue = 0, alpha = 0.3 },\n    strokeColor = { red = 1, green = 1, blue = 1, alpha = 0.5 },\n  }\n```\n\nFor more details, see: https://www.hammerspoon.org/docs/hs.canvas.html\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MiddleClickDragScroll.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MiddleClickDragScroll.spoon.zip)",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
     "Method": [
       {
         "def": "MiroWindowsManager:bindHotkeys()",
@@ -8649,7 +8918,7 @@
         "doc": "Activate all modal environment in `idList`.\n\nParameters:\n * idList - An table specifying IDs of modal environments\n * trayColor - An optional string (e.g. #000000) specifying the color of modalTray, defaults to `nil`.\n * showKeys - A optional boolean value to show all available keybindings, defaults to `nil`.",
         "examples": [],
         "file": "Source/ModalMgr.spoon/init.lua",
-        "lineno": "129",
+        "lineno": "174",
         "name": "activate",
         "notes": [],
         "parameters": [
@@ -8668,7 +8937,7 @@
         "doc": "Deactivate modal environments in `idList`.\n\nParameters:\n * idList - An table specifying IDs of modal environments",
         "examples": [],
         "file": "Source/ModalMgr.spoon/init.lua",
-        "lineno": "160",
+        "lineno": "205",
         "name": "deactivate",
         "notes": [],
         "parameters": [
@@ -8685,7 +8954,7 @@
         "doc": "Deactivate all active modal environments.\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/ModalMgr.spoon/init.lua",
-        "lineno": "179",
+        "lineno": "224",
         "name": "deactivateAll",
         "notes": [],
         "parameters": [
@@ -8702,7 +8971,7 @@
         "doc": "Create a new modal keybindings environment\n\nParameters:\n * id - A string specifying ID of new modal keybindings",
         "examples": [],
         "file": "Source/ModalMgr.spoon/init.lua",
-        "lineno": "46",
+        "lineno": "57",
         "name": "new",
         "notes": [],
         "parameters": [
@@ -8719,7 +8988,7 @@
         "doc": "Toggle the cheatsheet display of current modal environments's keybindings.\n\nParameters:\n * iterList - An table specifying IDs of modal environments or active_list. Optional, defaults to all active environments.\n * force - A optional boolean value to force show cheatsheet, defaults to `nil` (automatically).",
         "examples": [],
         "file": "Source/ModalMgr.spoon/init.lua",
-        "lineno": "57",
+        "lineno": "126",
         "name": "toggleCheatsheet",
         "notes": [],
         "parameters": [
@@ -8742,7 +9011,7 @@
         "doc": "Activate all modal environment in `idList`.\n\nParameters:\n * idList - An table specifying IDs of modal environments\n * trayColor - An optional string (e.g. #000000) specifying the color of modalTray, defaults to `nil`.\n * showKeys - A optional boolean value to show all available keybindings, defaults to `nil`.",
         "examples": [],
         "file": "Source/ModalMgr.spoon/init.lua",
-        "lineno": "129",
+        "lineno": "174",
         "name": "activate",
         "notes": [],
         "parameters": [
@@ -8761,7 +9030,7 @@
         "doc": "Deactivate modal environments in `idList`.\n\nParameters:\n * idList - An table specifying IDs of modal environments",
         "examples": [],
         "file": "Source/ModalMgr.spoon/init.lua",
-        "lineno": "160",
+        "lineno": "205",
         "name": "deactivate",
         "notes": [],
         "parameters": [
@@ -8778,7 +9047,7 @@
         "doc": "Deactivate all active modal environments.\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/ModalMgr.spoon/init.lua",
-        "lineno": "179",
+        "lineno": "224",
         "name": "deactivateAll",
         "notes": [],
         "parameters": [
@@ -8795,7 +9064,7 @@
         "doc": "Create a new modal keybindings environment\n\nParameters:\n * id - A string specifying ID of new modal keybindings",
         "examples": [],
         "file": "Source/ModalMgr.spoon/init.lua",
-        "lineno": "46",
+        "lineno": "57",
         "name": "new",
         "notes": [],
         "parameters": [
@@ -8812,7 +9081,7 @@
         "doc": "Toggle the cheatsheet display of current modal environments's keybindings.\n\nParameters:\n * iterList - An table specifying IDs of modal environments or active_list. Optional, defaults to all active environments.\n * force - A optional boolean value to force show cheatsheet, defaults to `nil` (automatically).",
         "examples": [],
         "file": "Source/ModalMgr.spoon/init.lua",
-        "lineno": "57",
+        "lineno": "126",
         "name": "toggleCheatsheet",
         "notes": [],
         "parameters": [
@@ -9394,15 +9663,15 @@
     "Method": [
       {
         "def": "MouseFollowsFocus:configure(configuration)",
-        "desc": "Configures the spoon.  There is currently nothing to configure.",
-        "doc": "Configures the spoon.  There is currently nothing to configure.\n\nParameters:\n * configuration - :",
+        "desc": "Configures the spoon.",
+        "doc": "Configures the spoon.\n\nParameters:\n * configuration - a table containing the settings for onWindowMoved or onChangeOfScreenOnly:",
         "examples": [],
         "file": "Source/MouseFollowsFocus.spoon/init.lua",
-        "lineno": "26",
+        "lineno": "29",
         "name": "configure",
         "notes": [],
         "parameters": [
-          " * configuration - :"
+          " * configuration - a table containing the settings for onWindowMoved or onChangeOfScreenOnly:"
         ],
         "returns": [],
         "signature": "MouseFollowsFocus:configure(configuration)",
@@ -9415,7 +9684,7 @@
         "doc": "Starts updating the mouse position when window focus changes\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/MouseFollowsFocus.spoon/init.lua",
-        "lineno": "35",
+        "lineno": "44",
         "name": "start",
         "notes": [],
         "parameters": [
@@ -9432,7 +9701,7 @@
         "doc": "Stops updating the mouse position when window focus changes\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/MouseFollowsFocus.spoon/init.lua",
-        "lineno": "61",
+        "lineno": "73",
         "name": "stop",
         "notes": [],
         "parameters": [
@@ -9449,7 +9718,7 @@
         "doc": "Moves the mouse to the center of the given window unless it's already inside the window\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/MouseFollowsFocus.spoon/init.lua",
-        "lineno": "72",
+        "lineno": "84",
         "name": "updateMouse",
         "notes": [],
         "parameters": [
@@ -9467,7 +9736,7 @@
         "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "file": "Source/MouseFollowsFocus.spoon/init.lua",
-        "lineno": "21",
+        "lineno": "24",
         "name": "logger",
         "signature": "MouseFollowsFocus.logger",
         "stripped_doc": "",
@@ -9479,15 +9748,15 @@
     "items": [
       {
         "def": "MouseFollowsFocus:configure(configuration)",
-        "desc": "Configures the spoon.  There is currently nothing to configure.",
-        "doc": "Configures the spoon.  There is currently nothing to configure.\n\nParameters:\n * configuration - :",
+        "desc": "Configures the spoon.",
+        "doc": "Configures the spoon.\n\nParameters:\n * configuration - a table containing the settings for onWindowMoved or onChangeOfScreenOnly:",
         "examples": [],
         "file": "Source/MouseFollowsFocus.spoon/init.lua",
-        "lineno": "26",
+        "lineno": "29",
         "name": "configure",
         "notes": [],
         "parameters": [
-          " * configuration - :"
+          " * configuration - a table containing the settings for onWindowMoved or onChangeOfScreenOnly:"
         ],
         "returns": [],
         "signature": "MouseFollowsFocus:configure(configuration)",
@@ -9499,7 +9768,7 @@
         "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "file": "Source/MouseFollowsFocus.spoon/init.lua",
-        "lineno": "21",
+        "lineno": "24",
         "name": "logger",
         "signature": "MouseFollowsFocus.logger",
         "stripped_doc": "",
@@ -9511,7 +9780,7 @@
         "doc": "Starts updating the mouse position when window focus changes\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/MouseFollowsFocus.spoon/init.lua",
-        "lineno": "35",
+        "lineno": "44",
         "name": "start",
         "notes": [],
         "parameters": [
@@ -9528,7 +9797,7 @@
         "doc": "Stops updating the mouse position when window focus changes\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/MouseFollowsFocus.spoon/init.lua",
-        "lineno": "61",
+        "lineno": "73",
         "name": "stop",
         "notes": [],
         "parameters": [
@@ -9545,7 +9814,7 @@
         "doc": "Moves the mouse to the center of the given window unless it's already inside the window\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/MouseFollowsFocus.spoon/init.lua",
-        "lineno": "72",
+        "lineno": "84",
         "name": "updateMouse",
         "notes": [],
         "parameters": [
@@ -10242,6 +10511,782 @@
     ],
     "name": "OBS",
     "stripped_doc": "\nInstall and configure the obs-websocket plugin first from [their project](https://github.com/obsproject/obs-websocket/releases)\n\nNote: This Spoon will only work with Hammerspoon 0.9.100 or later.\n\nNote: This Spoon will only work with obs-websocket 5.0.1 or later, which also requires OBS Studio v27 or later.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/OBS.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/OBS.spoon.zip)\n\nExample:\n```\n-- This example will start OBS, connect to it, and then start streaming once connected\nobs = hs.loadSpoon(\"OBS\")\nobsCallback = function(eventType, eventIntent, eventData)\n  print(eventType)\n  print(eventIntent)\n  print(hs.inspect(eventData))\n\n  if eventType == \"SpoonOBSConnected\" then\n    obs:request(\"StartStream\")\n  end\nend\nobs:init(obsCallback, \"localhost\", 4444, \"password\")\nobs:start()\n```",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
+        "def": "PaperWM:addWindow(add_window)",
+        "desc": "Adds a window to layout and tiles.",
+        "doc": "Adds a window to layout and tiles.\n\nParameters:\n * add_window - An hs.window\n\nReturns:\n * The hs.spaces space for added window or nil if window not added.",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "594",
+        "name": "addWindow",
+        "notes": [],
+        "parameters": [
+          " * add_window - An hs.window"
+        ],
+        "returns": [
+          " * The hs.spaces space for added window or nil if window not added."
+        ],
+        "signature": "PaperWM:addWindow(add_window)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM:barfWindow()",
+        "desc": "Removes current window from column and places it to the right",
+        "doc": "Removes current window from column and places it to the right\n\nParameters:\n * None",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "1026",
+        "name": "barfWindow",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
+        "signature": "PaperWM:barfWindow()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM.bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for PaperWM",
+        "doc": "Binds hotkeys for PaperWM\n\nParameters:\n * mapping - A table containing hotkey modifer/key details for the following items:\n  * stop_events - Stop automatic tiling\n  * focus_left - Focus window to left of current window\n  * focus_right - Focus window to right of current window\n  * focus_up - Focus window to up of current window\n  * focus_down - Focus window to down of current window\n  * swap_left - Swap positions of window to the left and current window\n  * swap_right - Swap positions of window to the right and current window\n  * swap_up - Swap positions of window above and current window\n  * swap_down - Swap positions of window below and current window\n  * center_window - Move current window to center of screen\n  * full_width - Resize width of current window to width of screen\n  * cycle_width - Toggle through preset window widths\n  * cycle_height - Toggle through preset window heights\n  * slurp_in - Move current window into column to the left\n  * barf_out - Remove current window from column and place to the right\n  * switch_space_1 - Switch to Mission Control space 1\n  * switch_space_2 - Switch to Mission Control space 2\n  * switch_space_3 - Switch to Mission Control space 3\n  * switch_space_4 - Switch to Mission Control space 4\n  * switch_space_5 - Switch to Mission Control space 5\n  * switch_space_6 - Switch to Mission Control space 6\n  * switch_space_7 - Switch to Mission Control space 7\n  * switch_space_8 - Switch to Mission Control space 8\n  * switch_space_9 - Switch to Mission Control space 9\n  * move_window_1 - Move current window to Mission Control space 1\n  * move_window_2 - Move current window to Mission Control space 2\n  * move_window_3 - Move current window to Mission Control space 3\n  * move_window_4 - Move current window to Mission Control space 4\n  * move_window_5 - Move current window to Mission Control space 5\n  * move_window_6 - Move current window to Mission Control space 6\n  * move_window_7 - Move current window to Mission Control space 7\n  * move_window_8 - Move current window to Mission Control space 8\n  * move_window_9 - Move current window to Mission Control space 9",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "275",
+        "name": "bindHotkeys",
+        "notes": [],
+        "parameters": [
+          " * mapping - A table containing hotkey modifer/key details for the following items:\n   * stop_events - Stop automatic tiling\n   * focus_left - Focus window to left of current window\n   * focus_right - Focus window to right of current window\n   * focus_up - Focus window to up of current window\n   * focus_down - Focus window to down of current window\n   * swap_left - Swap positions of window to the left and current window\n   * swap_right - Swap positions of window to the right and current window\n   * swap_up - Swap positions of window above and current window\n   * swap_down - Swap positions of window below and current window\n   * center_window - Move current window to center of screen\n   * full_width - Resize width of current window to width of screen\n   * cycle_width - Toggle through preset window widths\n   * cycle_height - Toggle through preset window heights\n   * slurp_in - Move current window into column to the left\n   * barf_out - Remove current window from column and place to the right\n   * switch_space_1 - Switch to Mission Control space 1\n   * switch_space_2 - Switch to Mission Control space 2\n   * switch_space_3 - Switch to Mission Control space 3\n   * switch_space_4 - Switch to Mission Control space 4\n   * switch_space_5 - Switch to Mission Control space 5\n   * switch_space_6 - Switch to Mission Control space 6\n   * switch_space_7 - Switch to Mission Control space 7\n   * switch_space_8 - Switch to Mission Control space 8\n   * switch_space_9 - Switch to Mission Control space 9\n   * move_window_1 - Move current window to Mission Control space 1\n   * move_window_2 - Move current window to Mission Control space 2\n   * move_window_3 - Move current window to Mission Control space 3\n   * move_window_4 - Move current window to Mission Control space 4\n   * move_window_5 - Move current window to Mission Control space 5\n   * move_window_6 - Move current window to Mission Control space 6\n   * move_window_7 - Move current window to Mission Control space 7\n   * move_window_8 - Move current window to Mission Control space 8\n   * move_window_9 - Move current window to Mission Control space 9"
+        ],
+        "returns": [],
+        "signature": "PaperWM.bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM:centerWindow()",
+        "desc": "Moves current window to center of screen, without resizing.",
+        "doc": "Moves current window to center of screen, without resizing.\n\nParameters:\n * None",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "860",
+        "name": "centerWindow",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
+        "signature": "PaperWM:centerWindow()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM:cycleWindowSize(direction)",
+        "desc": "Resizes current window by cycling through width or height ratios.",
+        "doc": "Resizes current window by cycling through width or height ratios.\n\nParameters:\n * direction - One of Direction { WIDTH, HEIGHT }",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "907",
+        "name": "cycleWindowSize",
+        "notes": [],
+        "parameters": [
+          " * direction - One of Direction { WIDTH, HEIGHT }"
+        ],
+        "returns": [],
+        "signature": "PaperWM:cycleWindowSize(direction)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM:focusWindow(direction, focused_index)",
+        "desc": "Change focus to a nearby window",
+        "doc": "Change focus to a nearby window\n\nParameters:\n * direction - One of Direction { LEFT, RIGHT, DOWN, UP }\n * focused_index - The coordinates of the current window in the tiling layout\n\nReturns:\n * A boolean. True if a new window was focused. False if no nearby window\n   was found in that direction.",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "699",
+        "name": "focusWindow",
+        "notes": [],
+        "parameters": [
+          " * direction - One of Direction { LEFT, RIGHT, DOWN, UP }",
+          " * focused_index - The coordinates of the current window in the tiling layout"
+        ],
+        "returns": [
+          " * A boolean. True if a new window was focused. False if no nearby window",
+          "   was found in that direction."
+        ],
+        "signature": "PaperWM:focusWindow(direction, focused_index)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM::moveWindow(window, frame)",
+        "desc": "Resizes a window without triggering a windowMoved event",
+        "doc": "Resizes a window without triggering a windowMoved event\n\nParameters:\n * window - An hs.window\n * frame - An hs.geometry.rect for the windows new frame size.",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "1147",
+        "name": "moveWindow",
+        "notes": [],
+        "parameters": [
+          " * window - An hs.window",
+          " * frame - An hs.geometry.rect for the windows new frame size."
+        ],
+        "returns": [],
+        "signature": "PaperWM::moveWindow(window, frame)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM:moveWindowToSpace(index)",
+        "desc": "Moves the current window to a new Mission Control space",
+        "doc": "Moves the current window to a new Mission Control space\n\nParameters:\n * index - The space number",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "1096",
+        "name": "moveWindowToSpace",
+        "notes": [],
+        "parameters": [
+          " * index - The space number"
+        ],
+        "returns": [],
+        "signature": "PaperWM:moveWindowToSpace(index)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM:refreshWindows()",
+        "desc": "Searches for all windows that match window filter.",
+        "doc": "Searches for all windows that match window filter.\n\nParameters:\n * None\n\nReturns:\n * A boolean, true if the layout needs to be re-tiled, false if no change.",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "563",
+        "name": "refreshWindows",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * A boolean, true if the layout needs to be re-tiled, false if no change."
+        ],
+        "signature": "PaperWM:refreshWindows()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM:remove_window(remove_window, skip_new_window_focus)",
+        "desc": "Remove window from tiling layout",
+        "doc": "Remove window from tiling layout\n\nParameters:\n * remove_window - A hs.window to remove from tiling layout\n * skip_new_window_focus - A boolean. True if a nearby window should not be\n                           focused after current window is removed.\n\nReturns:\n * The hs.spaces space for removed window.",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "652",
+        "name": "remove_window",
+        "notes": [],
+        "parameters": [
+          " * remove_window - A hs.window to remove from tiling layout",
+          " * skip_new_window_focus - A boolean. True if a nearby window should not be focused after current window is removed."
+        ],
+        "returns": [
+          " * The hs.spaces space for removed window."
+        ],
+        "signature": "PaperWM:remove_window(remove_window, skip_new_window_focus)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM:setWindowFullWidth()",
+        "desc": "Resizes current window's width to width of screen, without adjusting height.",
+        "doc": "Resizes current window's width to width of screen, without adjusting height.\n\nParameters:\n * None",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "885",
+        "name": "setWindowFullWidth",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
+        "signature": "PaperWM:setWindowFullWidth()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM:slurpWindow()",
+        "desc": "Moves current window into column of windows to the left",
+        "doc": "Moves current window into column of windows to the left\n\nParameters:\n * None",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "961",
+        "name": "slurpWindow",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
+        "signature": "PaperWM:slurpWindow()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM:start()",
+        "desc": "Start automatic tiling of windows",
+        "doc": "Start automatic tiling of windows\n\nParameters:\n * None\n\nReturns:\n * The PaperWM object",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "354",
+        "name": "start",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * The PaperWM object"
+        ],
+        "signature": "PaperWM:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM:stop()",
+        "desc": "Stop automatic tiling of windows",
+        "doc": "Stop automatic tiling of windows\n\nParameters:\n * None\n\nReturns:\n * The PaperWM object",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "391",
+        "name": "stop",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * The PaperWM object"
+        ],
+        "signature": "PaperWM:stop()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM:swapWindows(direction)",
+        "desc": "Swaps window postions between current window and window in specified direction.",
+        "doc": "Swaps window postions between current window and window in specified direction.\n\nParameters:\n * direction - One of Direction { LEFT, RIGHT, DOWN, UP }",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "749",
+        "name": "swapWindows",
+        "notes": [],
+        "parameters": [
+          " * direction - One of Direction { LEFT, RIGHT, DOWN, UP }"
+        ],
+        "returns": [],
+        "signature": "PaperWM:swapWindows(direction)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM:switchToSpace(index)",
+        "desc": "Switch to a Mission Control space",
+        "doc": "Switch to a Mission Control space\n\nParameters:\n * index - The space number",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "1080",
+        "name": "switchToSpace",
+        "notes": [],
+        "parameters": [
+          " * index - The space number"
+        ],
+        "returns": [],
+        "signature": "PaperWM:switchToSpace(index)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM:tileColumn(windows, bounds, h, w, id, h4id)",
+        "desc": "Tile a column of windows",
+        "doc": "Tile a column of windows\n\nParameters:\n * windows - A list of hs.windows.\n * bounds - An hs.geometry.rect. The area for this column to fill.\n * h - The height for each window in column.\n * w - The width for each window in column.\n * id - A hs.window.id() for a specific window in column.\n * h4id - The height for a window matching id in column.\n\nNotes:\n * The h, w, id, and h4id parameters are optional. The height and width of\n   all windows will be calculated and set to fill column bounds.\n * If bounds width is not specified, all windows in column will be resized\n   to width of first window.\n\nReturns:\n * The width of the column",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "408",
+        "name": "tileColumn",
+        "notes": [
+          " * The h, w, id, and h4id parameters are optional. The height and width of",
+          "   all windows will be calculated and set to fill column bounds.",
+          " * If bounds width is not specified, all windows in column will be resized",
+          "   to width of first window."
+        ],
+        "parameters": [
+          " * windows - A list of hs.windows.",
+          " * bounds - An hs.geometry.rect. The area for this column to fill.",
+          " * h - The height for each window in column.",
+          " * w - The width for each window in column.",
+          " * id - A hs.window.id() for a specific window in column.",
+          " * h4id - The height for a window matching id in column."
+        ],
+        "returns": [
+          " * The width of the column"
+        ],
+        "signature": "PaperWM:tileColumn(windows, bounds, h, w, id, h4id)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM:tileSpace(space)",
+        "desc": "Tile all windows within a space",
+        "doc": "Tile all windows within a space\n\nParameters:\n * space - A hs.spaces space.",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "460",
+        "name": "tileSpace",
+        "notes": [],
+        "parameters": [
+          " * space - A hs.spaces space."
+        ],
+        "returns": [],
+        "signature": "PaperWM:tileSpace(space)",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [
+      {
+        "def": "PaperWM.default_hotkeys",
+        "desc": "Default hotkeys for moving / resizing windows",
+        "doc": "Default hotkeys for moving / resizing windows",
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "111",
+        "name": "default_hotkeys",
+        "signature": "PaperWM.default_hotkeys",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "PaperWM.logger",
+        "desc": "Logger object. Can be accessed to set default log level.",
+        "doc": "Logger object. Can be accessed to set default log level.",
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "165",
+        "name": "logger",
+        "signature": "PaperWM.logger",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "PaperWM.window_filter",
+        "desc": "Windows captured by this filter are automatically tiled and managed",
+        "doc": "Windows captured by this filter are automatically tiled and managed",
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "150",
+        "name": "window_filter",
+        "signature": "PaperWM.window_filter",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "PaperWM.window_gap",
+        "desc": "Number of pixels between tiled windows",
+        "doc": "Number of pixels between tiled windows",
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "160",
+        "name": "window_gap",
+        "signature": "PaperWM.window_gap",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "desc": "A scrolling window manager. Inspired by PaperWM Gnome extension.",
+    "doc": "A scrolling window manager. Inspired by PaperWM Gnome extension.\n\n# Usage\n\n`PaperWM:start()` will begin automatically tiling new and existing windows.\n`PaperWM:stop()` will release control over windows.\n`PaperWM::bindHotkeys()` will move / resize windows using keyboard shortcuts.\n\nHere is an example Hammerspoon config:\n\n```\nPaperWM = hs.loadSpoon(\"PaperWM\")\nPaperWM:bindHotkeys({\n    -- switch to a new focused window in tiled grid\n    focus_left  = {{\"ctrl\", \"alt\", \"cmd\"}, \"left\"},\n    focus_right = {{\"ctrl\", \"alt\", \"cmd\"}, \"right\"},\n    focus_up    = {{\"ctrl\", \"alt\", \"cmd\"}, \"up\"},\n    focus_down  = {{\"ctrl\", \"alt\", \"cmd\"}, \"down\"},\n\n    -- move windows around in tiled grid\n    swap_left  = {{\"ctrl\", \"alt\", \"cmd\", \"shift\"}, \"left\"},\n    swap_right = {{\"ctrl\", \"alt\", \"cmd\", \"shift\"}, \"right\"},\n    swap_up    = {{\"ctrl\", \"alt\", \"cmd\", \"shift\"}, \"up\"},\n    swap_down  = {{\"ctrl\", \"alt\", \"cmd\", \"shift\"}, \"down\"},\n\n    -- position and resize focused window\n    center_window = {{\"ctrl\", \"alt\", \"cmd\"}, \"c\"},\n    full_width    = {{\"ctrl\", \"alt\", \"cmd\"}, \"f\"},\n    cycle_width   = {{\"ctrl\", \"alt\", \"cmd\"}, \"r\"},\n    cycle_height  = {{\"ctrl\", \"alt\", \"cmd\", \"shift\"}, \"r\"},\n\n    -- move focused window into / out of a column\n    slurp_in = {{\"ctrl\", \"alt\", \"cmd\"}, \"i\"},\n    barf_out = {{\"ctrl\", \"alt\", \"cmd\"}, \"o\"},\n\n    -- switch to a new Mission Control space\n    switch_space_1 = {{\"ctrl\", \"alt\", \"cmd\"}, \"1\"},\n    switch_space_2 = {{\"ctrl\", \"alt\", \"cmd\"}, \"2\"},\n    switch_space_3 = {{\"ctrl\", \"alt\", \"cmd\"}, \"3\"},\n    switch_space_4 = {{\"ctrl\", \"alt\", \"cmd\"}, \"4\"},\n    switch_space_5 = {{\"ctrl\", \"alt\", \"cmd\"}, \"5\"},\n    switch_space_6 = {{\"ctrl\", \"alt\", \"cmd\"}, \"6\"},\n    switch_space_7 = {{\"ctrl\", \"alt\", \"cmd\"}, \"7\"},\n    switch_space_8 = {{\"ctrl\", \"alt\", \"cmd\"}, \"8\"},\n    switch_space_9 = {{\"ctrl\", \"alt\", \"cmd\"}, \"9\"},\n\n    -- move focused window to a new space and tile\n    move_window_1 = {{\"ctrl\", \"alt\", \"cmd\", \"shift\"}, \"1\"},\n    move_window_2 = {{\"ctrl\", \"alt\", \"cmd\", \"shift\"}, \"2\"},\n    move_window_3 = {{\"ctrl\", \"alt\", \"cmd\", \"shift\"}, \"3\"},\n    move_window_4 = {{\"ctrl\", \"alt\", \"cmd\", \"shift\"}, \"4\"},\n    move_window_5 = {{\"ctrl\", \"alt\", \"cmd\", \"shift\"}, \"5\"},\n    move_window_6 = {{\"ctrl\", \"alt\", \"cmd\", \"shift\"}, \"6\"},\n    move_window_7 = {{\"ctrl\", \"alt\", \"cmd\", \"shift\"}, \"7\"},\n    move_window_8 = {{\"ctrl\", \"alt\", \"cmd\", \"shift\"}, \"8\"},\n    move_window_9 = {{\"ctrl\", \"alt\", \"cmd\", \"shift\"}, \"9\"}\n})\nPaperWM:start()\n```\n\nUse `PaperWM:bindHotkeys(PaperWM.default_hotkeys)` for defaults.\n\nSet `PaperWM.window_gap` to the number of pixels to space between windows and\nthe top and bottom screen edges.\n\nOverwrite `PaperWM.window_filter` to ignore specific applications. For example:\n\n```\nPaperWM.window_filter = PaperWM.window_filter:setAppFilter(\"Finder\", false)\nPaperWM:start() -- restart for new window filter to take effect\n```\n\n# Limitations\n\nUnder System Preferences -> Mission Control, unselect \"Automatically\nrearrange Spaces based on most recent use\" and select \"Displays have separate\nSpaces\".\n\nMacOS does not allow a window to be moved fully off-screen. Windows that would\nbe tiled off-screen are placed in a margin on the left and right edge of the\nscreen. They are still visible and clickable.\n\nIt's difficult to detect when a window is dragged from one space or screen to\nanother. Use the move_window_N commands to move windows between spaces and\nscreens.\n\nArrange screens vertically to prevent windows from bleeding into other screens.\n\n\nDownload: [https://github.com/mogenson/PaperWM.spoon](https://github.com/mogenson/PaperWM.spoon)",
+    "items": [
+      {
+        "def": "PaperWM:addWindow(add_window)",
+        "desc": "Adds a window to layout and tiles.",
+        "doc": "Adds a window to layout and tiles.\n\nParameters:\n * add_window - An hs.window\n\nReturns:\n * The hs.spaces space for added window or nil if window not added.",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "594",
+        "name": "addWindow",
+        "notes": [],
+        "parameters": [
+          " * add_window - An hs.window"
+        ],
+        "returns": [
+          " * The hs.spaces space for added window or nil if window not added."
+        ],
+        "signature": "PaperWM:addWindow(add_window)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM:barfWindow()",
+        "desc": "Removes current window from column and places it to the right",
+        "doc": "Removes current window from column and places it to the right\n\nParameters:\n * None",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "1026",
+        "name": "barfWindow",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
+        "signature": "PaperWM:barfWindow()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM.bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for PaperWM",
+        "doc": "Binds hotkeys for PaperWM\n\nParameters:\n * mapping - A table containing hotkey modifer/key details for the following items:\n  * stop_events - Stop automatic tiling\n  * focus_left - Focus window to left of current window\n  * focus_right - Focus window to right of current window\n  * focus_up - Focus window to up of current window\n  * focus_down - Focus window to down of current window\n  * swap_left - Swap positions of window to the left and current window\n  * swap_right - Swap positions of window to the right and current window\n  * swap_up - Swap positions of window above and current window\n  * swap_down - Swap positions of window below and current window\n  * center_window - Move current window to center of screen\n  * full_width - Resize width of current window to width of screen\n  * cycle_width - Toggle through preset window widths\n  * cycle_height - Toggle through preset window heights\n  * slurp_in - Move current window into column to the left\n  * barf_out - Remove current window from column and place to the right\n  * switch_space_1 - Switch to Mission Control space 1\n  * switch_space_2 - Switch to Mission Control space 2\n  * switch_space_3 - Switch to Mission Control space 3\n  * switch_space_4 - Switch to Mission Control space 4\n  * switch_space_5 - Switch to Mission Control space 5\n  * switch_space_6 - Switch to Mission Control space 6\n  * switch_space_7 - Switch to Mission Control space 7\n  * switch_space_8 - Switch to Mission Control space 8\n  * switch_space_9 - Switch to Mission Control space 9\n  * move_window_1 - Move current window to Mission Control space 1\n  * move_window_2 - Move current window to Mission Control space 2\n  * move_window_3 - Move current window to Mission Control space 3\n  * move_window_4 - Move current window to Mission Control space 4\n  * move_window_5 - Move current window to Mission Control space 5\n  * move_window_6 - Move current window to Mission Control space 6\n  * move_window_7 - Move current window to Mission Control space 7\n  * move_window_8 - Move current window to Mission Control space 8\n  * move_window_9 - Move current window to Mission Control space 9",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "275",
+        "name": "bindHotkeys",
+        "notes": [],
+        "parameters": [
+          " * mapping - A table containing hotkey modifer/key details for the following items:\n   * stop_events - Stop automatic tiling\n   * focus_left - Focus window to left of current window\n   * focus_right - Focus window to right of current window\n   * focus_up - Focus window to up of current window\n   * focus_down - Focus window to down of current window\n   * swap_left - Swap positions of window to the left and current window\n   * swap_right - Swap positions of window to the right and current window\n   * swap_up - Swap positions of window above and current window\n   * swap_down - Swap positions of window below and current window\n   * center_window - Move current window to center of screen\n   * full_width - Resize width of current window to width of screen\n   * cycle_width - Toggle through preset window widths\n   * cycle_height - Toggle through preset window heights\n   * slurp_in - Move current window into column to the left\n   * barf_out - Remove current window from column and place to the right\n   * switch_space_1 - Switch to Mission Control space 1\n   * switch_space_2 - Switch to Mission Control space 2\n   * switch_space_3 - Switch to Mission Control space 3\n   * switch_space_4 - Switch to Mission Control space 4\n   * switch_space_5 - Switch to Mission Control space 5\n   * switch_space_6 - Switch to Mission Control space 6\n   * switch_space_7 - Switch to Mission Control space 7\n   * switch_space_8 - Switch to Mission Control space 8\n   * switch_space_9 - Switch to Mission Control space 9\n   * move_window_1 - Move current window to Mission Control space 1\n   * move_window_2 - Move current window to Mission Control space 2\n   * move_window_3 - Move current window to Mission Control space 3\n   * move_window_4 - Move current window to Mission Control space 4\n   * move_window_5 - Move current window to Mission Control space 5\n   * move_window_6 - Move current window to Mission Control space 6\n   * move_window_7 - Move current window to Mission Control space 7\n   * move_window_8 - Move current window to Mission Control space 8\n   * move_window_9 - Move current window to Mission Control space 9"
+        ],
+        "returns": [],
+        "signature": "PaperWM.bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM:centerWindow()",
+        "desc": "Moves current window to center of screen, without resizing.",
+        "doc": "Moves current window to center of screen, without resizing.\n\nParameters:\n * None",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "860",
+        "name": "centerWindow",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
+        "signature": "PaperWM:centerWindow()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM:cycleWindowSize(direction)",
+        "desc": "Resizes current window by cycling through width or height ratios.",
+        "doc": "Resizes current window by cycling through width or height ratios.\n\nParameters:\n * direction - One of Direction { WIDTH, HEIGHT }",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "907",
+        "name": "cycleWindowSize",
+        "notes": [],
+        "parameters": [
+          " * direction - One of Direction { WIDTH, HEIGHT }"
+        ],
+        "returns": [],
+        "signature": "PaperWM:cycleWindowSize(direction)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM.default_hotkeys",
+        "desc": "Default hotkeys for moving / resizing windows",
+        "doc": "Default hotkeys for moving / resizing windows",
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "111",
+        "name": "default_hotkeys",
+        "signature": "PaperWM.default_hotkeys",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "PaperWM:focusWindow(direction, focused_index)",
+        "desc": "Change focus to a nearby window",
+        "doc": "Change focus to a nearby window\n\nParameters:\n * direction - One of Direction { LEFT, RIGHT, DOWN, UP }\n * focused_index - The coordinates of the current window in the tiling layout\n\nReturns:\n * A boolean. True if a new window was focused. False if no nearby window\n   was found in that direction.",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "699",
+        "name": "focusWindow",
+        "notes": [],
+        "parameters": [
+          " * direction - One of Direction { LEFT, RIGHT, DOWN, UP }",
+          " * focused_index - The coordinates of the current window in the tiling layout"
+        ],
+        "returns": [
+          " * A boolean. True if a new window was focused. False if no nearby window",
+          "   was found in that direction."
+        ],
+        "signature": "PaperWM:focusWindow(direction, focused_index)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM.logger",
+        "desc": "Logger object. Can be accessed to set default log level.",
+        "doc": "Logger object. Can be accessed to set default log level.",
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "165",
+        "name": "logger",
+        "signature": "PaperWM.logger",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "PaperWM::moveWindow(window, frame)",
+        "desc": "Resizes a window without triggering a windowMoved event",
+        "doc": "Resizes a window without triggering a windowMoved event\n\nParameters:\n * window - An hs.window\n * frame - An hs.geometry.rect for the windows new frame size.",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "1147",
+        "name": "moveWindow",
+        "notes": [],
+        "parameters": [
+          " * window - An hs.window",
+          " * frame - An hs.geometry.rect for the windows new frame size."
+        ],
+        "returns": [],
+        "signature": "PaperWM::moveWindow(window, frame)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM:moveWindowToSpace(index)",
+        "desc": "Moves the current window to a new Mission Control space",
+        "doc": "Moves the current window to a new Mission Control space\n\nParameters:\n * index - The space number",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "1096",
+        "name": "moveWindowToSpace",
+        "notes": [],
+        "parameters": [
+          " * index - The space number"
+        ],
+        "returns": [],
+        "signature": "PaperWM:moveWindowToSpace(index)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM:refreshWindows()",
+        "desc": "Searches for all windows that match window filter.",
+        "doc": "Searches for all windows that match window filter.\n\nParameters:\n * None\n\nReturns:\n * A boolean, true if the layout needs to be re-tiled, false if no change.",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "563",
+        "name": "refreshWindows",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * A boolean, true if the layout needs to be re-tiled, false if no change."
+        ],
+        "signature": "PaperWM:refreshWindows()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM:remove_window(remove_window, skip_new_window_focus)",
+        "desc": "Remove window from tiling layout",
+        "doc": "Remove window from tiling layout\n\nParameters:\n * remove_window - A hs.window to remove from tiling layout\n * skip_new_window_focus - A boolean. True if a nearby window should not be\n                           focused after current window is removed.\n\nReturns:\n * The hs.spaces space for removed window.",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "652",
+        "name": "remove_window",
+        "notes": [],
+        "parameters": [
+          " * remove_window - A hs.window to remove from tiling layout",
+          " * skip_new_window_focus - A boolean. True if a nearby window should not be focused after current window is removed."
+        ],
+        "returns": [
+          " * The hs.spaces space for removed window."
+        ],
+        "signature": "PaperWM:remove_window(remove_window, skip_new_window_focus)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM:setWindowFullWidth()",
+        "desc": "Resizes current window's width to width of screen, without adjusting height.",
+        "doc": "Resizes current window's width to width of screen, without adjusting height.\n\nParameters:\n * None",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "885",
+        "name": "setWindowFullWidth",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
+        "signature": "PaperWM:setWindowFullWidth()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM:slurpWindow()",
+        "desc": "Moves current window into column of windows to the left",
+        "doc": "Moves current window into column of windows to the left\n\nParameters:\n * None",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "961",
+        "name": "slurpWindow",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
+        "signature": "PaperWM:slurpWindow()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM:start()",
+        "desc": "Start automatic tiling of windows",
+        "doc": "Start automatic tiling of windows\n\nParameters:\n * None\n\nReturns:\n * The PaperWM object",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "354",
+        "name": "start",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * The PaperWM object"
+        ],
+        "signature": "PaperWM:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM:stop()",
+        "desc": "Stop automatic tiling of windows",
+        "doc": "Stop automatic tiling of windows\n\nParameters:\n * None\n\nReturns:\n * The PaperWM object",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "391",
+        "name": "stop",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * The PaperWM object"
+        ],
+        "signature": "PaperWM:stop()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM:swapWindows(direction)",
+        "desc": "Swaps window postions between current window and window in specified direction.",
+        "doc": "Swaps window postions between current window and window in specified direction.\n\nParameters:\n * direction - One of Direction { LEFT, RIGHT, DOWN, UP }",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "749",
+        "name": "swapWindows",
+        "notes": [],
+        "parameters": [
+          " * direction - One of Direction { LEFT, RIGHT, DOWN, UP }"
+        ],
+        "returns": [],
+        "signature": "PaperWM:swapWindows(direction)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM:switchToSpace(index)",
+        "desc": "Switch to a Mission Control space",
+        "doc": "Switch to a Mission Control space\n\nParameters:\n * index - The space number",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "1080",
+        "name": "switchToSpace",
+        "notes": [],
+        "parameters": [
+          " * index - The space number"
+        ],
+        "returns": [],
+        "signature": "PaperWM:switchToSpace(index)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM:tileColumn(windows, bounds, h, w, id, h4id)",
+        "desc": "Tile a column of windows",
+        "doc": "Tile a column of windows\n\nParameters:\n * windows - A list of hs.windows.\n * bounds - An hs.geometry.rect. The area for this column to fill.\n * h - The height for each window in column.\n * w - The width for each window in column.\n * id - A hs.window.id() for a specific window in column.\n * h4id - The height for a window matching id in column.\n\nNotes:\n * The h, w, id, and h4id parameters are optional. The height and width of\n   all windows will be calculated and set to fill column bounds.\n * If bounds width is not specified, all windows in column will be resized\n   to width of first window.\n\nReturns:\n * The width of the column",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "408",
+        "name": "tileColumn",
+        "notes": [
+          " * The h, w, id, and h4id parameters are optional. The height and width of",
+          "   all windows will be calculated and set to fill column bounds.",
+          " * If bounds width is not specified, all windows in column will be resized",
+          "   to width of first window."
+        ],
+        "parameters": [
+          " * windows - A list of hs.windows.",
+          " * bounds - An hs.geometry.rect. The area for this column to fill.",
+          " * h - The height for each window in column.",
+          " * w - The width for each window in column.",
+          " * id - A hs.window.id() for a specific window in column.",
+          " * h4id - The height for a window matching id in column."
+        ],
+        "returns": [
+          " * The width of the column"
+        ],
+        "signature": "PaperWM:tileColumn(windows, bounds, h, w, id, h4id)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM:tileSpace(space)",
+        "desc": "Tile all windows within a space",
+        "doc": "Tile all windows within a space\n\nParameters:\n * space - A hs.spaces space.",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "460",
+        "name": "tileSpace",
+        "notes": [],
+        "parameters": [
+          " * space - A hs.spaces space."
+        ],
+        "returns": [],
+        "signature": "PaperWM:tileSpace(space)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM.window_filter",
+        "desc": "Windows captured by this filter are automatically tiled and managed",
+        "doc": "Windows captured by this filter are automatically tiled and managed",
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "150",
+        "name": "window_filter",
+        "signature": "PaperWM.window_filter",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "PaperWM.window_gap",
+        "desc": "Number of pixels between tiled windows",
+        "doc": "Number of pixels between tiled windows",
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "160",
+        "name": "window_gap",
+        "signature": "PaperWM.window_gap",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "name": "PaperWM",
+    "stripped_doc": "\n# Usage\n\n`PaperWM:start()` will begin automatically tiling new and existing windows.\n`PaperWM:stop()` will release control over windows.\n`PaperWM::bindHotkeys()` will move / resize windows using keyboard shortcuts.\n\nHere is an example Hammerspoon config:\n\n```\nPaperWM = hs.loadSpoon(\"PaperWM\")\nPaperWM:bindHotkeys({\n    -- switch to a new focused window in tiled grid\n    focus_left  = {{\"ctrl\", \"alt\", \"cmd\"}, \"left\"},\n    focus_right = {{\"ctrl\", \"alt\", \"cmd\"}, \"right\"},\n    focus_up    = {{\"ctrl\", \"alt\", \"cmd\"}, \"up\"},\n    focus_down  = {{\"ctrl\", \"alt\", \"cmd\"}, \"down\"},\n\n    -- move windows around in tiled grid\n    swap_left  = {{\"ctrl\", \"alt\", \"cmd\", \"shift\"}, \"left\"},\n    swap_right = {{\"ctrl\", \"alt\", \"cmd\", \"shift\"}, \"right\"},\n    swap_up    = {{\"ctrl\", \"alt\", \"cmd\", \"shift\"}, \"up\"},\n    swap_down  = {{\"ctrl\", \"alt\", \"cmd\", \"shift\"}, \"down\"},\n\n    -- position and resize focused window\n    center_window = {{\"ctrl\", \"alt\", \"cmd\"}, \"c\"},\n    full_width    = {{\"ctrl\", \"alt\", \"cmd\"}, \"f\"},\n    cycle_width   = {{\"ctrl\", \"alt\", \"cmd\"}, \"r\"},\n    cycle_height  = {{\"ctrl\", \"alt\", \"cmd\", \"shift\"}, \"r\"},\n\n    -- move focused window into / out of a column\n    slurp_in = {{\"ctrl\", \"alt\", \"cmd\"}, \"i\"},\n    barf_out = {{\"ctrl\", \"alt\", \"cmd\"}, \"o\"},\n\n    -- switch to a new Mission Control space\n    switch_space_1 = {{\"ctrl\", \"alt\", \"cmd\"}, \"1\"},\n    switch_space_2 = {{\"ctrl\", \"alt\", \"cmd\"}, \"2\"},\n    switch_space_3 = {{\"ctrl\", \"alt\", \"cmd\"}, \"3\"},\n    switch_space_4 = {{\"ctrl\", \"alt\", \"cmd\"}, \"4\"},\n    switch_space_5 = {{\"ctrl\", \"alt\", \"cmd\"}, \"5\"},\n    switch_space_6 = {{\"ctrl\", \"alt\", \"cmd\"}, \"6\"},\n    switch_space_7 = {{\"ctrl\", \"alt\", \"cmd\"}, \"7\"},\n    switch_space_8 = {{\"ctrl\", \"alt\", \"cmd\"}, \"8\"},\n    switch_space_9 = {{\"ctrl\", \"alt\", \"cmd\"}, \"9\"},\n\n    -- move focused window to a new space and tile\n    move_window_1 = {{\"ctrl\", \"alt\", \"cmd\", \"shift\"}, \"1\"},\n    move_window_2 = {{\"ctrl\", \"alt\", \"cmd\", \"shift\"}, \"2\"},\n    move_window_3 = {{\"ctrl\", \"alt\", \"cmd\", \"shift\"}, \"3\"},\n    move_window_4 = {{\"ctrl\", \"alt\", \"cmd\", \"shift\"}, \"4\"},\n    move_window_5 = {{\"ctrl\", \"alt\", \"cmd\", \"shift\"}, \"5\"},\n    move_window_6 = {{\"ctrl\", \"alt\", \"cmd\", \"shift\"}, \"6\"},\n    move_window_7 = {{\"ctrl\", \"alt\", \"cmd\", \"shift\"}, \"7\"},\n    move_window_8 = {{\"ctrl\", \"alt\", \"cmd\", \"shift\"}, \"8\"},\n    move_window_9 = {{\"ctrl\", \"alt\", \"cmd\", \"shift\"}, \"9\"}\n})\nPaperWM:start()\n```\n\nUse `PaperWM:bindHotkeys(PaperWM.default_hotkeys)` for defaults.\n\nSet `PaperWM.window_gap` to the number of pixels to space between windows and\nthe top and bottom screen edges.\n\nOverwrite `PaperWM.window_filter` to ignore specific applications. For example:\n\n```\nPaperWM.window_filter = PaperWM.window_filter:setAppFilter(\"Finder\", false)\nPaperWM:start() -- restart for new window filter to take effect\n```\n\n# Limitations\n\nUnder System Preferences -> Mission Control, unselect \"Automatically\nrearrange Spaces based on most recent use\" and select \"Displays have separate\nSpaces\".\n\nMacOS does not allow a window to be moved fully off-screen. Windows that would\nbe tiled off-screen are placed in a margin on the left and right edge of the\nscreen. They are still visible and clickable.\n\nIt's difficult to detect when a window is dragged from one space or screen to\nanother. Use the move_window_N commands to move windows between spaces and\nscreens.\n\nArrange screens vertically to prevent windows from bleeding into other screens.\n\n\nDownload: [https://github.com/mogenson/PaperWM.spoon](https://github.com/mogenson/PaperWM.spoon)",
     "submodules": [],
     "type": "Module"
   },
@@ -16050,7 +17095,7 @@
         "doc": "Starts the indicator\n\nParameters:\n * None\n\nReturns:\n * The TimeMachineProgress object",
         "examples": [],
         "file": "Source/TimeMachineProgress.spoon/init.lua",
-        "lineno": "203",
+        "lineno": "207",
         "name": "start",
         "notes": [],
         "parameters": [
@@ -16069,7 +17114,7 @@
         "doc": "Stops the indicator\n\nParameters:\n * None\n\nReturns:\n * The TimeMachineProgress object",
         "examples": [],
         "file": "Source/TimeMachineProgress.spoon/init.lua",
-        "lineno": "221",
+        "lineno": "225",
         "name": "stop",
         "notes": [],
         "parameters": [
@@ -16183,7 +17228,7 @@
         "doc": "Starts the indicator\n\nParameters:\n * None\n\nReturns:\n * The TimeMachineProgress object",
         "examples": [],
         "file": "Source/TimeMachineProgress.spoon/init.lua",
-        "lineno": "203",
+        "lineno": "207",
         "name": "start",
         "notes": [],
         "parameters": [
@@ -16202,7 +17247,7 @@
         "doc": "Stops the indicator\n\nParameters:\n * None\n\nReturns:\n * The TimeMachineProgress object",
         "examples": [],
         "file": "Source/TimeMachineProgress.spoon/init.lua",
-        "lineno": "221",
+        "lineno": "225",
         "name": "stop",
         "notes": [],
         "parameters": [
