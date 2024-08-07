@@ -1934,6 +1934,143 @@
     "type": "Method"
   },
   {
+    "desc": "A scrolling window manager. Inspired by PaperWM Gnome extension.",
+    "name": "PaperWM",
+    "type": "Module"
+  },
+  {
+    "desc": "Default hotkeys for moving / resizing windows",
+    "module": "PaperWM",
+    "name": "default_hotkeys",
+    "type": "Variable"
+  },
+  {
+    "desc": "Logger object. Can be accessed to set default log level.",
+    "module": "PaperWM",
+    "name": "logger",
+    "type": "Variable"
+  },
+  {
+    "desc": "Windows captured by this filter are automatically tiled and managed",
+    "module": "PaperWM",
+    "name": "window_filter",
+    "type": "Variable"
+  },
+  {
+    "desc": "Number of pixels between tiled windows",
+    "module": "PaperWM",
+    "name": "window_gap",
+    "type": "Variable"
+  },
+  {
+    "desc": "Adds a window to layout and tiles.",
+    "module": "PaperWM",
+    "name": "addWindow",
+    "type": "Method"
+  },
+  {
+    "desc": "Removes current window from column and places it to the right",
+    "module": "PaperWM",
+    "name": "barfWindow",
+    "type": "Method"
+  },
+  {
+    "desc": "Binds hotkeys for PaperWM",
+    "module": "PaperWM",
+    "name": "bindHotkeys",
+    "type": "Method"
+  },
+  {
+    "desc": "Moves current window to center of screen, without resizing.",
+    "module": "PaperWM",
+    "name": "centerWindow",
+    "type": "Method"
+  },
+  {
+    "desc": "Resizes current window by cycling through width or height ratios.",
+    "module": "PaperWM",
+    "name": "cycleWindowSize",
+    "type": "Method"
+  },
+  {
+    "desc": "Change focus to a nearby window",
+    "module": "PaperWM",
+    "name": "focusWindow",
+    "type": "Method"
+  },
+  {
+    "desc": "Resizes a window without triggering a windowMoved event",
+    "module": "PaperWM",
+    "name": "moveWindow",
+    "type": "Method"
+  },
+  {
+    "desc": "Moves the current window to a new Mission Control space",
+    "module": "PaperWM",
+    "name": "moveWindowToSpace",
+    "type": "Method"
+  },
+  {
+    "desc": "Searches for all windows that match window filter.",
+    "module": "PaperWM",
+    "name": "refreshWindows",
+    "type": "Method"
+  },
+  {
+    "desc": "Remove window from tiling layout",
+    "module": "PaperWM",
+    "name": "remove_window",
+    "type": "Method"
+  },
+  {
+    "desc": "Resizes current window's width to width of screen, without adjusting height.",
+    "module": "PaperWM",
+    "name": "setWindowFullWidth",
+    "type": "Method"
+  },
+  {
+    "desc": "Moves current window into column of windows to the left",
+    "module": "PaperWM",
+    "name": "slurpWindow",
+    "type": "Method"
+  },
+  {
+    "desc": "Start automatic tiling of windows",
+    "module": "PaperWM",
+    "name": "start",
+    "type": "Method"
+  },
+  {
+    "desc": "Stop automatic tiling of windows",
+    "module": "PaperWM",
+    "name": "stop",
+    "type": "Method"
+  },
+  {
+    "desc": "Swaps window postions between current window and window in specified direction.",
+    "module": "PaperWM",
+    "name": "swapWindows",
+    "type": "Method"
+  },
+  {
+    "desc": "Switch to a Mission Control space",
+    "module": "PaperWM",
+    "name": "switchToSpace",
+    "type": "Method"
+  },
+  {
+    "desc": "Tile a column of windows",
+    "module": "PaperWM",
+    "name": "tileColumn",
+    "type": "Method"
+  },
+  {
+    "desc": "Tile all windows within a space",
+    "module": "PaperWM",
+    "name": "tileSpace",
+    "type": "Method"
+  },
+  {
     "desc": "Generate a password and copy to the clipboard.",
     "name": "PasswordGenerator",
     "type": "Module"

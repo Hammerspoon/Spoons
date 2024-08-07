@@ -10398,6 +10398,782 @@
     "Function": [],
     "Method": [
       {
+        "def": "PaperWM:addWindow(add_window)",
+        "desc": "Adds a window to layout and tiles.",
+        "doc": "Adds a window to layout and tiles.\n\nParameters:\n * add_window - An hs.window\n\nReturns:\n * The hs.spaces space for added window or nil if window not added.",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "594",
+        "name": "addWindow",
+        "notes": [],
+        "parameters": [
+          " * add_window - An hs.window"
+        ],
+        "returns": [
+          " * The hs.spaces space for added window or nil if window not added."
+        ],
+        "signature": "PaperWM:addWindow(add_window)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM:barfWindow()",
+        "desc": "Removes current window from column and places it to the right",
+        "doc": "Removes current window from column and places it to the right\n\nParameters:\n * None",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "1026",
+        "name": "barfWindow",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
+        "signature": "PaperWM:barfWindow()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM.bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for PaperWM",
+        "doc": "Binds hotkeys for PaperWM\n\nParameters:\n * mapping - A table containing hotkey modifer/key details for the following items:\n  * stop_events - Stop automatic tiling\n  * focus_left - Focus window to left of current window\n  * focus_right - Focus window to right of current window\n  * focus_up - Focus window to up of current window\n  * focus_down - Focus window to down of current window\n  * swap_left - Swap positions of window to the left and current window\n  * swap_right - Swap positions of window to the right and current window\n  * swap_up - Swap positions of window above and current window\n  * swap_down - Swap positions of window below and current window\n  * center_window - Move current window to center of screen\n  * full_width - Resize width of current window to width of screen\n  * cycle_width - Toggle through preset window widths\n  * cycle_height - Toggle through preset window heights\n  * slurp_in - Move current window into column to the left\n  * barf_out - Remove current window from column and place to the right\n  * switch_space_1 - Switch to Mission Control space 1\n  * switch_space_2 - Switch to Mission Control space 2\n  * switch_space_3 - Switch to Mission Control space 3\n  * switch_space_4 - Switch to Mission Control space 4\n  * switch_space_5 - Switch to Mission Control space 5\n  * switch_space_6 - Switch to Mission Control space 6\n  * switch_space_7 - Switch to Mission Control space 7\n  * switch_space_8 - Switch to Mission Control space 8\n  * switch_space_9 - Switch to Mission Control space 9\n  * move_window_1 - Move current window to Mission Control space 1\n  * move_window_2 - Move current window to Mission Control space 2\n  * move_window_3 - Move current window to Mission Control space 3\n  * move_window_4 - Move current window to Mission Control space 4\n  * move_window_5 - Move current window to Mission Control space 5\n  * move_window_6 - Move current window to Mission Control space 6\n  * move_window_7 - Move current window to Mission Control space 7\n  * move_window_8 - Move current window to Mission Control space 8\n  * move_window_9 - Move current window to Mission Control space 9",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "275",
+        "name": "bindHotkeys",
+        "notes": [],
+        "parameters": [
+          " * mapping - A table containing hotkey modifer/key details for the following items:\n   * stop_events - Stop automatic tiling\n   * focus_left - Focus window to left of current window\n   * focus_right - Focus window to right of current window\n   * focus_up - Focus window to up of current window\n   * focus_down - Focus window to down of current window\n   * swap_left - Swap positions of window to the left and current window\n   * swap_right - Swap positions of window to the right and current window\n   * swap_up - Swap positions of window above and current window\n   * swap_down - Swap positions of window below and current window\n   * center_window - Move current window to center of screen\n   * full_width - Resize width of current window to width of screen\n   * cycle_width - Toggle through preset window widths\n   * cycle_height - Toggle through preset window heights\n   * slurp_in - Move current window into column to the left\n   * barf_out - Remove current window from column and place to the right\n   * switch_space_1 - Switch to Mission Control space 1\n   * switch_space_2 - Switch to Mission Control space 2\n   * switch_space_3 - Switch to Mission Control space 3\n   * switch_space_4 - Switch to Mission Control space 4\n   * switch_space_5 - Switch to Mission Control space 5\n   * switch_space_6 - Switch to Mission Control space 6\n   * switch_space_7 - Switch to Mission Control space 7\n   * switch_space_8 - Switch to Mission Control space 8\n   * switch_space_9 - Switch to Mission Control space 9\n   * move_window_1 - Move current window to Mission Control space 1\n   * move_window_2 - Move current window to Mission Control space 2\n   * move_window_3 - Move current window to Mission Control space 3\n   * move_window_4 - Move current window to Mission Control space 4\n   * move_window_5 - Move current window to Mission Control space 5\n   * move_window_6 - Move current window to Mission Control space 6\n   * move_window_7 - Move current window to Mission Control space 7\n   * move_window_8 - Move current window to Mission Control space 8\n   * move_window_9 - Move current window to Mission Control space 9"
+        ],
+        "returns": [],
+        "signature": "PaperWM.bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM:centerWindow()",
+        "desc": "Moves current window to center of screen, without resizing.",
+        "doc": "Moves current window to center of screen, without resizing.\n\nParameters:\n * None",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "860",
+        "name": "centerWindow",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
+        "signature": "PaperWM:centerWindow()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM:cycleWindowSize(direction)",
+        "desc": "Resizes current window by cycling through width or height ratios.",
+        "doc": "Resizes current window by cycling through width or height ratios.\n\nParameters:\n * direction - One of Direction { WIDTH, HEIGHT }",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "907",
+        "name": "cycleWindowSize",
+        "notes": [],
+        "parameters": [
+          " * direction - One of Direction { WIDTH, HEIGHT }"
+        ],
+        "returns": [],
+        "signature": "PaperWM:cycleWindowSize(direction)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM:focusWindow(direction, focused_index)",
+        "desc": "Change focus to a nearby window",
+        "doc": "Change focus to a nearby window\n\nParameters:\n * direction - One of Direction { LEFT, RIGHT, DOWN, UP }\n * focused_index - The coordinates of the current window in the tiling layout\n\nReturns:\n * A boolean. True if a new window was focused. False if no nearby window\n   was found in that direction.",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "699",
+        "name": "focusWindow",
+        "notes": [],
+        "parameters": [
+          " * direction - One of Direction { LEFT, RIGHT, DOWN, UP }",
+          " * focused_index - The coordinates of the current window in the tiling layout"
+        ],
+        "returns": [
+          " * A boolean. True if a new window was focused. False if no nearby window",
+          "   was found in that direction."
+        ],
+        "signature": "PaperWM:focusWindow(direction, focused_index)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM::moveWindow(window, frame)",
+        "desc": "Resizes a window without triggering a windowMoved event",
+        "doc": "Resizes a window without triggering a windowMoved event\n\nParameters:\n * window - An hs.window\n * frame - An hs.geometry.rect for the windows new frame size.",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "1147",
+        "name": "moveWindow",
+        "notes": [],
+        "parameters": [
+          " * window - An hs.window",
+          " * frame - An hs.geometry.rect for the windows new frame size."
+        ],
+        "returns": [],
+        "signature": "PaperWM::moveWindow(window, frame)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM:moveWindowToSpace(index)",
+        "desc": "Moves the current window to a new Mission Control space",
+        "doc": "Moves the current window to a new Mission Control space\n\nParameters:\n * index - The space number",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "1096",
+        "name": "moveWindowToSpace",
+        "notes": [],
+        "parameters": [
+          " * index - The space number"
+        ],
+        "returns": [],
+        "signature": "PaperWM:moveWindowToSpace(index)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM:refreshWindows()",
+        "desc": "Searches for all windows that match window filter.",
+        "doc": "Searches for all windows that match window filter.\n\nParameters:\n * None\n\nReturns:\n * A boolean, true if the layout needs to be re-tiled, false if no change.",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "563",
+        "name": "refreshWindows",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * A boolean, true if the layout needs to be re-tiled, false if no change."
+        ],
+        "signature": "PaperWM:refreshWindows()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM:remove_window(remove_window, skip_new_window_focus)",
+        "desc": "Remove window from tiling layout",
+        "doc": "Remove window from tiling layout\n\nParameters:\n * remove_window - A hs.window to remove from tiling layout\n * skip_new_window_focus - A boolean. True if a nearby window should not be\n                           focused after current window is removed.\n\nReturns:\n * The hs.spaces space for removed window.",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "652",
+        "name": "remove_window",
+        "notes": [],
+        "parameters": [
+          " * remove_window - A hs.window to remove from tiling layout",
+          " * skip_new_window_focus - A boolean. True if a nearby window should not be focused after current window is removed."
+        ],
+        "returns": [
+          " * The hs.spaces space for removed window."
+        ],
+        "signature": "PaperWM:remove_window(remove_window, skip_new_window_focus)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM:setWindowFullWidth()",
+        "desc": "Resizes current window's width to width of screen, without adjusting height.",
+        "doc": "Resizes current window's width to width of screen, without adjusting height.\n\nParameters:\n * None",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "885",
+        "name": "setWindowFullWidth",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
+        "signature": "PaperWM:setWindowFullWidth()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM:slurpWindow()",
+        "desc": "Moves current window into column of windows to the left",
+        "doc": "Moves current window into column of windows to the left\n\nParameters:\n * None",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "961",
+        "name": "slurpWindow",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
+        "signature": "PaperWM:slurpWindow()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM:start()",
+        "desc": "Start automatic tiling of windows",
+        "doc": "Start automatic tiling of windows\n\nParameters:\n * None\n\nReturns:\n * The PaperWM object",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "354",
+        "name": "start",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * The PaperWM object"
+        ],
+        "signature": "PaperWM:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM:stop()",
+        "desc": "Stop automatic tiling of windows",
+        "doc": "Stop automatic tiling of windows\n\nParameters:\n * None\n\nReturns:\n * The PaperWM object",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "391",
+        "name": "stop",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * The PaperWM object"
+        ],
+        "signature": "PaperWM:stop()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM:swapWindows(direction)",
+        "desc": "Swaps window postions between current window and window in specified direction.",
+        "doc": "Swaps window postions between current window and window in specified direction.\n\nParameters:\n * direction - One of Direction { LEFT, RIGHT, DOWN, UP }",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "749",
+        "name": "swapWindows",
+        "notes": [],
+        "parameters": [
+          " * direction - One of Direction { LEFT, RIGHT, DOWN, UP }"
+        ],
+        "returns": [],
+        "signature": "PaperWM:swapWindows(direction)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM:switchToSpace(index)",
+        "desc": "Switch to a Mission Control space",
+        "doc": "Switch to a Mission Control space\n\nParameters:\n * index - The space number",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "1080",
+        "name": "switchToSpace",
+        "notes": [],
+        "parameters": [
+          " * index - The space number"
+        ],
+        "returns": [],
+        "signature": "PaperWM:switchToSpace(index)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM:tileColumn(windows, bounds, h, w, id, h4id)",
+        "desc": "Tile a column of windows",
+        "doc": "Tile a column of windows\n\nParameters:\n * windows - A list of hs.windows.\n * bounds - An hs.geometry.rect. The area for this column to fill.\n * h - The height for each window in column.\n * w - The width for each window in column.\n * id - A hs.window.id() for a specific window in column.\n * h4id - The height for a window matching id in column.\n\nNotes:\n * The h, w, id, and h4id parameters are optional. The height and width of\n   all windows will be calculated and set to fill column bounds.\n * If bounds width is not specified, all windows in column will be resized\n   to width of first window.\n\nReturns:\n * The width of the column",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "408",
+        "name": "tileColumn",
+        "notes": [
+          " * The h, w, id, and h4id parameters are optional. The height and width of",
+          "   all windows will be calculated and set to fill column bounds.",
+          " * If bounds width is not specified, all windows in column will be resized",
+          "   to width of first window."
+        ],
+        "parameters": [
+          " * windows - A list of hs.windows.",
+          " * bounds - An hs.geometry.rect. The area for this column to fill.",
+          " * h - The height for each window in column.",
+          " * w - The width for each window in column.",
+          " * id - A hs.window.id() for a specific window in column.",
+          " * h4id - The height for a window matching id in column."
+        ],
+        "returns": [
+          " * The width of the column"
+        ],
+        "signature": "PaperWM:tileColumn(windows, bounds, h, w, id, h4id)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM:tileSpace(space)",
+        "desc": "Tile all windows within a space",
+        "doc": "Tile all windows within a space\n\nParameters:\n * space - A hs.spaces space.",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "460",
+        "name": "tileSpace",
+        "notes": [],
+        "parameters": [
+          " * space - A hs.spaces space."
+        ],
+        "returns": [],
+        "signature": "PaperWM:tileSpace(space)",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [
+      {
+        "def": "PaperWM.default_hotkeys",
+        "desc": "Default hotkeys for moving / resizing windows",
+        "doc": "Default hotkeys for moving / resizing windows",
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "111",
+        "name": "default_hotkeys",
+        "signature": "PaperWM.default_hotkeys",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "PaperWM.logger",
+        "desc": "Logger object. Can be accessed to set default log level.",
+        "doc": "Logger object. Can be accessed to set default log level.",
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "165",
+        "name": "logger",
+        "signature": "PaperWM.logger",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "PaperWM.window_filter",
+        "desc": "Windows captured by this filter are automatically tiled and managed",
+        "doc": "Windows captured by this filter are automatically tiled and managed",
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "150",
+        "name": "window_filter",
+        "signature": "PaperWM.window_filter",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "PaperWM.window_gap",
+        "desc": "Number of pixels between tiled windows",
+        "doc": "Number of pixels between tiled windows",
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "160",
+        "name": "window_gap",
+        "signature": "PaperWM.window_gap",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "desc": "A scrolling window manager. Inspired by PaperWM Gnome extension.",
+    "doc": "A scrolling window manager. Inspired by PaperWM Gnome extension.\n\n# Usage\n\n`PaperWM:start()` will begin automatically tiling new and existing windows.\n`PaperWM:stop()` will release control over windows.\n`PaperWM::bindHotkeys()` will move / resize windows using keyboard shortcuts.\n\nHere is an example Hammerspoon config:\n\n```\nPaperWM = hs.loadSpoon(\"PaperWM\")\nPaperWM:bindHotkeys({\n    -- switch to a new focused window in tiled grid\n    focus_left  = {{\"ctrl\", \"alt\", \"cmd\"}, \"left\"},\n    focus_right = {{\"ctrl\", \"alt\", \"cmd\"}, \"right\"},\n    focus_up    = {{\"ctrl\", \"alt\", \"cmd\"}, \"up\"},\n    focus_down  = {{\"ctrl\", \"alt\", \"cmd\"}, \"down\"},\n\n    -- move windows around in tiled grid\n    swap_left  = {{\"ctrl\", \"alt\", \"cmd\", \"shift\"}, \"left\"},\n    swap_right = {{\"ctrl\", \"alt\", \"cmd\", \"shift\"}, \"right\"},\n    swap_up    = {{\"ctrl\", \"alt\", \"cmd\", \"shift\"}, \"up\"},\n    swap_down  = {{\"ctrl\", \"alt\", \"cmd\", \"shift\"}, \"down\"},\n\n    -- position and resize focused window\n    center_window = {{\"ctrl\", \"alt\", \"cmd\"}, \"c\"},\n    full_width    = {{\"ctrl\", \"alt\", \"cmd\"}, \"f\"},\n    cycle_width   = {{\"ctrl\", \"alt\", \"cmd\"}, \"r\"},\n    cycle_height  = {{\"ctrl\", \"alt\", \"cmd\", \"shift\"}, \"r\"},\n\n    -- move focused window into / out of a column\n    slurp_in = {{\"ctrl\", \"alt\", \"cmd\"}, \"i\"},\n    barf_out = {{\"ctrl\", \"alt\", \"cmd\"}, \"o\"},\n\n    -- switch to a new Mission Control space\n    switch_space_1 = {{\"ctrl\", \"alt\", \"cmd\"}, \"1\"},\n    switch_space_2 = {{\"ctrl\", \"alt\", \"cmd\"}, \"2\"},\n    switch_space_3 = {{\"ctrl\", \"alt\", \"cmd\"}, \"3\"},\n    switch_space_4 = {{\"ctrl\", \"alt\", \"cmd\"}, \"4\"},\n    switch_space_5 = {{\"ctrl\", \"alt\", \"cmd\"}, \"5\"},\n    switch_space_6 = {{\"ctrl\", \"alt\", \"cmd\"}, \"6\"},\n    switch_space_7 = {{\"ctrl\", \"alt\", \"cmd\"}, \"7\"},\n    switch_space_8 = {{\"ctrl\", \"alt\", \"cmd\"}, \"8\"},\n    switch_space_9 = {{\"ctrl\", \"alt\", \"cmd\"}, \"9\"},\n\n    -- move focused window to a new space and tile\n    move_window_1 = {{\"ctrl\", \"alt\", \"cmd\", \"shift\"}, \"1\"},\n    move_window_2 = {{\"ctrl\", \"alt\", \"cmd\", \"shift\"}, \"2\"},\n    move_window_3 = {{\"ctrl\", \"alt\", \"cmd\", \"shift\"}, \"3\"},\n    move_window_4 = {{\"ctrl\", \"alt\", \"cmd\", \"shift\"}, \"4\"},\n    move_window_5 = {{\"ctrl\", \"alt\", \"cmd\", \"shift\"}, \"5\"},\n    move_window_6 = {{\"ctrl\", \"alt\", \"cmd\", \"shift\"}, \"6\"},\n    move_window_7 = {{\"ctrl\", \"alt\", \"cmd\", \"shift\"}, \"7\"},\n    move_window_8 = {{\"ctrl\", \"alt\", \"cmd\", \"shift\"}, \"8\"},\n    move_window_9 = {{\"ctrl\", \"alt\", \"cmd\", \"shift\"}, \"9\"}\n})\nPaperWM:start()\n```\n\nUse `PaperWM:bindHotkeys(PaperWM.default_hotkeys)` for defaults.\n\nSet `PaperWM.window_gap` to the number of pixels to space between windows and\nthe top and bottom screen edges.\n\nOverwrite `PaperWM.window_filter` to ignore specific applications. For example:\n\n```\nPaperWM.window_filter = PaperWM.window_filter:setAppFilter(\"Finder\", false)\nPaperWM:start() -- restart for new window filter to take effect\n```\n\n# Limitations\n\nUnder System Preferences -> Mission Control, unselect \"Automatically\nrearrange Spaces based on most recent use\" and select \"Displays have separate\nSpaces\".\n\nMacOS does not allow a window to be moved fully off-screen. Windows that would\nbe tiled off-screen are placed in a margin on the left and right edge of the\nscreen. They are still visible and clickable.\n\nIt's difficult to detect when a window is dragged from one space or screen to\nanother. Use the move_window_N commands to move windows between spaces and\nscreens.\n\nArrange screens vertically to prevent windows from bleeding into other screens.\n\n\nDownload: [https://github.com/mogenson/PaperWM.spoon](https://github.com/mogenson/PaperWM.spoon)",
+    "items": [
+      {
+        "def": "PaperWM:addWindow(add_window)",
+        "desc": "Adds a window to layout and tiles.",
+        "doc": "Adds a window to layout and tiles.\n\nParameters:\n * add_window - An hs.window\n\nReturns:\n * The hs.spaces space for added window or nil if window not added.",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "594",
+        "name": "addWindow",
+        "notes": [],
+        "parameters": [
+          " * add_window - An hs.window"
+        ],
+        "returns": [
+          " * The hs.spaces space for added window or nil if window not added."
+        ],
+        "signature": "PaperWM:addWindow(add_window)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM:barfWindow()",
+        "desc": "Removes current window from column and places it to the right",
+        "doc": "Removes current window from column and places it to the right\n\nParameters:\n * None",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "1026",
+        "name": "barfWindow",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
+        "signature": "PaperWM:barfWindow()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM.bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for PaperWM",
+        "doc": "Binds hotkeys for PaperWM\n\nParameters:\n * mapping - A table containing hotkey modifer/key details for the following items:\n  * stop_events - Stop automatic tiling\n  * focus_left - Focus window to left of current window\n  * focus_right - Focus window to right of current window\n  * focus_up - Focus window to up of current window\n  * focus_down - Focus window to down of current window\n  * swap_left - Swap positions of window to the left and current window\n  * swap_right - Swap positions of window to the right and current window\n  * swap_up - Swap positions of window above and current window\n  * swap_down - Swap positions of window below and current window\n  * center_window - Move current window to center of screen\n  * full_width - Resize width of current window to width of screen\n  * cycle_width - Toggle through preset window widths\n  * cycle_height - Toggle through preset window heights\n  * slurp_in - Move current window into column to the left\n  * barf_out - Remove current window from column and place to the right\n  * switch_space_1 - Switch to Mission Control space 1\n  * switch_space_2 - Switch to Mission Control space 2\n  * switch_space_3 - Switch to Mission Control space 3\n  * switch_space_4 - Switch to Mission Control space 4\n  * switch_space_5 - Switch to Mission Control space 5\n  * switch_space_6 - Switch to Mission Control space 6\n  * switch_space_7 - Switch to Mission Control space 7\n  * switch_space_8 - Switch to Mission Control space 8\n  * switch_space_9 - Switch to Mission Control space 9\n  * move_window_1 - Move current window to Mission Control space 1\n  * move_window_2 - Move current window to Mission Control space 2\n  * move_window_3 - Move current window to Mission Control space 3\n  * move_window_4 - Move current window to Mission Control space 4\n  * move_window_5 - Move current window to Mission Control space 5\n  * move_window_6 - Move current window to Mission Control space 6\n  * move_window_7 - Move current window to Mission Control space 7\n  * move_window_8 - Move current window to Mission Control space 8\n  * move_window_9 - Move current window to Mission Control space 9",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "275",
+        "name": "bindHotkeys",
+        "notes": [],
+        "parameters": [
+          " * mapping - A table containing hotkey modifer/key details for the following items:\n   * stop_events - Stop automatic tiling\n   * focus_left - Focus window to left of current window\n   * focus_right - Focus window to right of current window\n   * focus_up - Focus window to up of current window\n   * focus_down - Focus window to down of current window\n   * swap_left - Swap positions of window to the left and current window\n   * swap_right - Swap positions of window to the right and current window\n   * swap_up - Swap positions of window above and current window\n   * swap_down - Swap positions of window below and current window\n   * center_window - Move current window to center of screen\n   * full_width - Resize width of current window to width of screen\n   * cycle_width - Toggle through preset window widths\n   * cycle_height - Toggle through preset window heights\n   * slurp_in - Move current window into column to the left\n   * barf_out - Remove current window from column and place to the right\n   * switch_space_1 - Switch to Mission Control space 1\n   * switch_space_2 - Switch to Mission Control space 2\n   * switch_space_3 - Switch to Mission Control space 3\n   * switch_space_4 - Switch to Mission Control space 4\n   * switch_space_5 - Switch to Mission Control space 5\n   * switch_space_6 - Switch to Mission Control space 6\n   * switch_space_7 - Switch to Mission Control space 7\n   * switch_space_8 - Switch to Mission Control space 8\n   * switch_space_9 - Switch to Mission Control space 9\n   * move_window_1 - Move current window to Mission Control space 1\n   * move_window_2 - Move current window to Mission Control space 2\n   * move_window_3 - Move current window to Mission Control space 3\n   * move_window_4 - Move current window to Mission Control space 4\n   * move_window_5 - Move current window to Mission Control space 5\n   * move_window_6 - Move current window to Mission Control space 6\n   * move_window_7 - Move current window to Mission Control space 7\n   * move_window_8 - Move current window to Mission Control space 8\n   * move_window_9 - Move current window to Mission Control space 9"
+        ],
+        "returns": [],
+        "signature": "PaperWM.bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM:centerWindow()",
+        "desc": "Moves current window to center of screen, without resizing.",
+        "doc": "Moves current window to center of screen, without resizing.\n\nParameters:\n * None",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "860",
+        "name": "centerWindow",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
+        "signature": "PaperWM:centerWindow()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM:cycleWindowSize(direction)",
+        "desc": "Resizes current window by cycling through width or height ratios.",
+        "doc": "Resizes current window by cycling through width or height ratios.\n\nParameters:\n * direction - One of Direction { WIDTH, HEIGHT }",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "907",
+        "name": "cycleWindowSize",
+        "notes": [],
+        "parameters": [
+          " * direction - One of Direction { WIDTH, HEIGHT }"
+        ],
+        "returns": [],
+        "signature": "PaperWM:cycleWindowSize(direction)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM.default_hotkeys",
+        "desc": "Default hotkeys for moving / resizing windows",
+        "doc": "Default hotkeys for moving / resizing windows",
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "111",
+        "name": "default_hotkeys",
+        "signature": "PaperWM.default_hotkeys",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "PaperWM:focusWindow(direction, focused_index)",
+        "desc": "Change focus to a nearby window",
+        "doc": "Change focus to a nearby window\n\nParameters:\n * direction - One of Direction { LEFT, RIGHT, DOWN, UP }\n * focused_index - The coordinates of the current window in the tiling layout\n\nReturns:\n * A boolean. True if a new window was focused. False if no nearby window\n   was found in that direction.",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "699",
+        "name": "focusWindow",
+        "notes": [],
+        "parameters": [
+          " * direction - One of Direction { LEFT, RIGHT, DOWN, UP }",
+          " * focused_index - The coordinates of the current window in the tiling layout"
+        ],
+        "returns": [
+          " * A boolean. True if a new window was focused. False if no nearby window",
+          "   was found in that direction."
+        ],
+        "signature": "PaperWM:focusWindow(direction, focused_index)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM.logger",
+        "desc": "Logger object. Can be accessed to set default log level.",
+        "doc": "Logger object. Can be accessed to set default log level.",
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "165",
+        "name": "logger",
+        "signature": "PaperWM.logger",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "PaperWM::moveWindow(window, frame)",
+        "desc": "Resizes a window without triggering a windowMoved event",
+        "doc": "Resizes a window without triggering a windowMoved event\n\nParameters:\n * window - An hs.window\n * frame - An hs.geometry.rect for the windows new frame size.",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "1147",
+        "name": "moveWindow",
+        "notes": [],
+        "parameters": [
+          " * window - An hs.window",
+          " * frame - An hs.geometry.rect for the windows new frame size."
+        ],
+        "returns": [],
+        "signature": "PaperWM::moveWindow(window, frame)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM:moveWindowToSpace(index)",
+        "desc": "Moves the current window to a new Mission Control space",
+        "doc": "Moves the current window to a new Mission Control space\n\nParameters:\n * index - The space number",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "1096",
+        "name": "moveWindowToSpace",
+        "notes": [],
+        "parameters": [
+          " * index - The space number"
+        ],
+        "returns": [],
+        "signature": "PaperWM:moveWindowToSpace(index)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM:refreshWindows()",
+        "desc": "Searches for all windows that match window filter.",
+        "doc": "Searches for all windows that match window filter.\n\nParameters:\n * None\n\nReturns:\n * A boolean, true if the layout needs to be re-tiled, false if no change.",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "563",
+        "name": "refreshWindows",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * A boolean, true if the layout needs to be re-tiled, false if no change."
+        ],
+        "signature": "PaperWM:refreshWindows()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM:remove_window(remove_window, skip_new_window_focus)",
+        "desc": "Remove window from tiling layout",
+        "doc": "Remove window from tiling layout\n\nParameters:\n * remove_window - A hs.window to remove from tiling layout\n * skip_new_window_focus - A boolean. True if a nearby window should not be\n                           focused after current window is removed.\n\nReturns:\n * The hs.spaces space for removed window.",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "652",
+        "name": "remove_window",
+        "notes": [],
+        "parameters": [
+          " * remove_window - A hs.window to remove from tiling layout",
+          " * skip_new_window_focus - A boolean. True if a nearby window should not be focused after current window is removed."
+        ],
+        "returns": [
+          " * The hs.spaces space for removed window."
+        ],
+        "signature": "PaperWM:remove_window(remove_window, skip_new_window_focus)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM:setWindowFullWidth()",
+        "desc": "Resizes current window's width to width of screen, without adjusting height.",
+        "doc": "Resizes current window's width to width of screen, without adjusting height.\n\nParameters:\n * None",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "885",
+        "name": "setWindowFullWidth",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
+        "signature": "PaperWM:setWindowFullWidth()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM:slurpWindow()",
+        "desc": "Moves current window into column of windows to the left",
+        "doc": "Moves current window into column of windows to the left\n\nParameters:\n * None",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "961",
+        "name": "slurpWindow",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
+        "signature": "PaperWM:slurpWindow()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM:start()",
+        "desc": "Start automatic tiling of windows",
+        "doc": "Start automatic tiling of windows\n\nParameters:\n * None\n\nReturns:\n * The PaperWM object",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "354",
+        "name": "start",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * The PaperWM object"
+        ],
+        "signature": "PaperWM:start()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM:stop()",
+        "desc": "Stop automatic tiling of windows",
+        "doc": "Stop automatic tiling of windows\n\nParameters:\n * None\n\nReturns:\n * The PaperWM object",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "391",
+        "name": "stop",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * The PaperWM object"
+        ],
+        "signature": "PaperWM:stop()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM:swapWindows(direction)",
+        "desc": "Swaps window postions between current window and window in specified direction.",
+        "doc": "Swaps window postions between current window and window in specified direction.\n\nParameters:\n * direction - One of Direction { LEFT, RIGHT, DOWN, UP }",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "749",
+        "name": "swapWindows",
+        "notes": [],
+        "parameters": [
+          " * direction - One of Direction { LEFT, RIGHT, DOWN, UP }"
+        ],
+        "returns": [],
+        "signature": "PaperWM:swapWindows(direction)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM:switchToSpace(index)",
+        "desc": "Switch to a Mission Control space",
+        "doc": "Switch to a Mission Control space\n\nParameters:\n * index - The space number",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "1080",
+        "name": "switchToSpace",
+        "notes": [],
+        "parameters": [
+          " * index - The space number"
+        ],
+        "returns": [],
+        "signature": "PaperWM:switchToSpace(index)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM:tileColumn(windows, bounds, h, w, id, h4id)",
+        "desc": "Tile a column of windows",
+        "doc": "Tile a column of windows\n\nParameters:\n * windows - A list of hs.windows.\n * bounds - An hs.geometry.rect. The area for this column to fill.\n * h - The height for each window in column.\n * w - The width for each window in column.\n * id - A hs.window.id() for a specific window in column.\n * h4id - The height for a window matching id in column.\n\nNotes:\n * The h, w, id, and h4id parameters are optional. The height and width of\n   all windows will be calculated and set to fill column bounds.\n * If bounds width is not specified, all windows in column will be resized\n   to width of first window.\n\nReturns:\n * The width of the column",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "408",
+        "name": "tileColumn",
+        "notes": [
+          " * The h, w, id, and h4id parameters are optional. The height and width of",
+          "   all windows will be calculated and set to fill column bounds.",
+          " * If bounds width is not specified, all windows in column will be resized",
+          "   to width of first window."
+        ],
+        "parameters": [
+          " * windows - A list of hs.windows.",
+          " * bounds - An hs.geometry.rect. The area for this column to fill.",
+          " * h - The height for each window in column.",
+          " * w - The width for each window in column.",
+          " * id - A hs.window.id() for a specific window in column.",
+          " * h4id - The height for a window matching id in column."
+        ],
+        "returns": [
+          " * The width of the column"
+        ],
+        "signature": "PaperWM:tileColumn(windows, bounds, h, w, id, h4id)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM:tileSpace(space)",
+        "desc": "Tile all windows within a space",
+        "doc": "Tile all windows within a space\n\nParameters:\n * space - A hs.spaces space.",
+        "examples": [],
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "460",
+        "name": "tileSpace",
+        "notes": [],
+        "parameters": [
+          " * space - A hs.spaces space."
+        ],
+        "returns": [],
+        "signature": "PaperWM:tileSpace(space)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "PaperWM.window_filter",
+        "desc": "Windows captured by this filter are automatically tiled and managed",
+        "doc": "Windows captured by this filter are automatically tiled and managed",
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "150",
+        "name": "window_filter",
+        "signature": "PaperWM.window_filter",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "PaperWM.window_gap",
+        "desc": "Number of pixels between tiled windows",
+        "doc": "Number of pixels between tiled windows",
+        "file": "Source/PaperWM.spoon/init.lua",
+        "lineno": "160",
+        "name": "window_gap",
+        "signature": "PaperWM.window_gap",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "name": "PaperWM",
+    "stripped_doc": "\n# Usage\n\n`PaperWM:start()` will begin automatically tiling new and existing windows.\n`PaperWM:stop()` will release control over windows.\n`PaperWM::bindHotkeys()` will move / resize windows using keyboard shortcuts.\n\nHere is an example Hammerspoon config:\n\n```\nPaperWM = hs.loadSpoon(\"PaperWM\")\nPaperWM:bindHotkeys({\n    -- switch to a new focused window in tiled grid\n    focus_left  = {{\"ctrl\", \"alt\", \"cmd\"}, \"left\"},\n    focus_right = {{\"ctrl\", \"alt\", \"cmd\"}, \"right\"},\n    focus_up    = {{\"ctrl\", \"alt\", \"cmd\"}, \"up\"},\n    focus_down  = {{\"ctrl\", \"alt\", \"cmd\"}, \"down\"},\n\n    -- move windows around in tiled grid\n    swap_left  = {{\"ctrl\", \"alt\", \"cmd\", \"shift\"}, \"left\"},\n    swap_right = {{\"ctrl\", \"alt\", \"cmd\", \"shift\"}, \"right\"},\n    swap_up    = {{\"ctrl\", \"alt\", \"cmd\", \"shift\"}, \"up\"},\n    swap_down  = {{\"ctrl\", \"alt\", \"cmd\", \"shift\"}, \"down\"},\n\n    -- position and resize focused window\n    center_window = {{\"ctrl\", \"alt\", \"cmd\"}, \"c\"},\n    full_width    = {{\"ctrl\", \"alt\", \"cmd\"}, \"f\"},\n    cycle_width   = {{\"ctrl\", \"alt\", \"cmd\"}, \"r\"},\n    cycle_height  = {{\"ctrl\", \"alt\", \"cmd\", \"shift\"}, \"r\"},\n\n    -- move focused window into / out of a column\n    slurp_in = {{\"ctrl\", \"alt\", \"cmd\"}, \"i\"},\n    barf_out = {{\"ctrl\", \"alt\", \"cmd\"}, \"o\"},\n\n    -- switch to a new Mission Control space\n    switch_space_1 = {{\"ctrl\", \"alt\", \"cmd\"}, \"1\"},\n    switch_space_2 = {{\"ctrl\", \"alt\", \"cmd\"}, \"2\"},\n    switch_space_3 = {{\"ctrl\", \"alt\", \"cmd\"}, \"3\"},\n    switch_space_4 = {{\"ctrl\", \"alt\", \"cmd\"}, \"4\"},\n    switch_space_5 = {{\"ctrl\", \"alt\", \"cmd\"}, \"5\"},\n    switch_space_6 = {{\"ctrl\", \"alt\", \"cmd\"}, \"6\"},\n    switch_space_7 = {{\"ctrl\", \"alt\", \"cmd\"}, \"7\"},\n    switch_space_8 = {{\"ctrl\", \"alt\", \"cmd\"}, \"8\"},\n    switch_space_9 = {{\"ctrl\", \"alt\", \"cmd\"}, \"9\"},\n\n    -- move focused window to a new space and tile\n    move_window_1 = {{\"ctrl\", \"alt\", \"cmd\", \"shift\"}, \"1\"},\n    move_window_2 = {{\"ctrl\", \"alt\", \"cmd\", \"shift\"}, \"2\"},\n    move_window_3 = {{\"ctrl\", \"alt\", \"cmd\", \"shift\"}, \"3\"},\n    move_window_4 = {{\"ctrl\", \"alt\", \"cmd\", \"shift\"}, \"4\"},\n    move_window_5 = {{\"ctrl\", \"alt\", \"cmd\", \"shift\"}, \"5\"},\n    move_window_6 = {{\"ctrl\", \"alt\", \"cmd\", \"shift\"}, \"6\"},\n    move_window_7 = {{\"ctrl\", \"alt\", \"cmd\", \"shift\"}, \"7\"},\n    move_window_8 = {{\"ctrl\", \"alt\", \"cmd\", \"shift\"}, \"8\"},\n    move_window_9 = {{\"ctrl\", \"alt\", \"cmd\", \"shift\"}, \"9\"}\n})\nPaperWM:start()\n```\n\nUse `PaperWM:bindHotkeys(PaperWM.default_hotkeys)` for defaults.\n\nSet `PaperWM.window_gap` to the number of pixels to space between windows and\nthe top and bottom screen edges.\n\nOverwrite `PaperWM.window_filter` to ignore specific applications. For example:\n\n```\nPaperWM.window_filter = PaperWM.window_filter:setAppFilter(\"Finder\", false)\nPaperWM:start() -- restart for new window filter to take effect\n```\n\n# Limitations\n\nUnder System Preferences -> Mission Control, unselect \"Automatically\nrearrange Spaces based on most recent use\" and select \"Displays have separate\nSpaces\".\n\nMacOS does not allow a window to be moved fully off-screen. Windows that would\nbe tiled off-screen are placed in a margin on the left and right edge of the\nscreen. They are still visible and clickable.\n\nIt's difficult to detect when a window is dragged from one space or screen to\nanother. Use the move_window_N commands to move windows between spaces and\nscreens.\n\nArrange screens vertically to prevent windows from bleeding into other screens.\n\n\nDownload: [https://github.com/mogenson/PaperWM.spoon](https://github.com/mogenson/PaperWM.spoon)",
+    "submodules": [],
+    "type": "Module"
+  },
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
         "def": "PasswordGenerator:bindHotkeys(mapping)",
         "desc": "Binds hotkeys for PasswordGenerator",
         "doc": "Binds hotkeys for PasswordGenerator\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n  * copy - Generate password and copy to clipboard\n  * paste - Generate password and paste",
