@@ -1,0 +1,177 @@
+[
+  {
+    "Constant" : [
+
+    ],
+    "submodules" : [
+
+    ],
+    "Function" : [
+
+    ],
+    "Variable" : [
+
+    ],
+    "stripped_doc" : [
+
+    ],
+    "desc" : "Show input method indicator in the current mouse position.",
+    "Deprecated" : [
+
+    ],
+    "type" : "Module",
+    "Constructor" : [
+
+    ],
+    "Field" : [
+
+    ],
+    "Method" : [
+      {
+        "doc" : "init.\n\nParameters:\n * None\n\nReturns:\n * The InputMethodIndicator object",
+        "stripped_doc" : [
+          "init.",
+          ""
+        ],
+        "def" : "InputMethodIndicator:init()",
+        "parameters" : [
+          " * None",
+          ""
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "InputMethodIndicator:init()",
+        "type" : "Method",
+        "returns" : [
+          " * The InputMethodIndicator object"
+        ],
+        "desc" : "init.",
+        "name" : "init"
+      },
+      {
+        "doc" : "Start InputMethodIndicator.\nParameters:\n * config - A table contains config options for the module\n   * ABCColor - the dot color when the input method is ABC\n   * LocalLanguageColor - the dot color when the input method is not ABC\n   * mode - the mode of the indicator\n   * showOnChangeDuration - seconds to show the indicator when the input method is changed\n   * checkInterval - seconds to check the input method\n   * dotSize - the size of the dot\n   * deltaY - the distance between the dot and the center of the selection or mouse",
+        "stripped_doc" : [
+          "Start InputMethodIndicator."
+        ],
+        "def" : "InputMethodIndicator:start(config)",
+        "parameters" : [
+          " * config - A table contains config options for the module",
+          "   * ABCColor - the dot color when the input method is ABC",
+          "   * LocalLanguageColor - the dot color when the input method is not ABC",
+          "   * mode - the mode of the indicator",
+          "   * showOnChangeDuration - seconds to show the indicator when the input method is changed",
+          "   * checkInterval - seconds to check the input method",
+          "   * dotSize - the size of the dot",
+          "   * deltaY - the distance between the dot and the center of the selection or mouse"
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "InputMethodIndicator:start(config)",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "desc" : "Start InputMethodIndicator.",
+        "name" : "start"
+      },
+      {
+        "doc" : "Stop InputMethodIndicator.\nParameters:\n * None",
+        "stripped_doc" : [
+          "Stop InputMethodIndicator."
+        ],
+        "def" : "InputMethodIndicator:stop()",
+        "parameters" : [
+          " * None"
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "InputMethodIndicator:stop()",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "desc" : "Stop InputMethodIndicator.",
+        "name" : "stop"
+      }
+    ],
+    "Command" : [
+
+    ],
+    "doc" : "Show input method indicator in the current mouse position.\nIt is a small but noticable dot near the cursor.\nIt can be very useful when you are using a non-ABC input method and often needs to switch between ABC and the non-ABC input method.\nYou can use it as follows in the init.lua:\nhs.loadSpoon(\"InputMethodIndicator\")\nspoon.InputMethodIndicator:start(nil)\nnote: config parameter is a table, pass nil to use the default config\nthe default config is as follows:\n{\n    ABCColor = \"#62C555\",  -- the dot color when the input method is ABC\n    LocalLanguageColor = \"#ED6A5E\", -- the dot color when the input method is not ABC\n    mode = \"nearMouse\", -- the mode of the indicator\n    showOnChangeDuration = 3, -- seconds to show the indicator when the input method is changed\n    checkInterval = .01, -- seconds to check the input method\n    dotSize = 6, -- the size of the dot\n    deltaY=7, -- the distance between the dot and the center of the selection or mouse\n}\nthe mode can be \"nearMouse\",\"onChange\",\"adaptive\", the default mode is \"adaptive\"\n\"nearMouse\" means the indicator will always show near the mouse\n\"onChange\" means the indicator will show when the input method is changed and hide after showOnChangeDuration seconds\n\"adaptive\" means the indicator will show near the textarea when typing, otherwise it will show near the mouse\nNote: the \"adaptive\" mode is not perfect, it may not work in some apps because of the limitation of the accessibility API",
+    "items" : [
+      {
+        "doc" : "init.\n\nParameters:\n * None\n\nReturns:\n * The InputMethodIndicator object",
+        "stripped_doc" : [
+          "init.",
+          ""
+        ],
+        "def" : "InputMethodIndicator:init()",
+        "parameters" : [
+          " * None",
+          ""
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "InputMethodIndicator:init()",
+        "type" : "Method",
+        "returns" : [
+          " * The InputMethodIndicator object"
+        ],
+        "desc" : "init.",
+        "name" : "init"
+      },
+      {
+        "doc" : "Start InputMethodIndicator.\nParameters:\n * config - A table contains config options for the module\n   * ABCColor - the dot color when the input method is ABC\n   * LocalLanguageColor - the dot color when the input method is not ABC\n   * mode - the mode of the indicator\n   * showOnChangeDuration - seconds to show the indicator when the input method is changed\n   * checkInterval - seconds to check the input method\n   * dotSize - the size of the dot\n   * deltaY - the distance between the dot and the center of the selection or mouse",
+        "stripped_doc" : [
+          "Start InputMethodIndicator."
+        ],
+        "def" : "InputMethodIndicator:start(config)",
+        "parameters" : [
+          " * config - A table contains config options for the module",
+          "   * ABCColor - the dot color when the input method is ABC",
+          "   * LocalLanguageColor - the dot color when the input method is not ABC",
+          "   * mode - the mode of the indicator",
+          "   * showOnChangeDuration - seconds to show the indicator when the input method is changed",
+          "   * checkInterval - seconds to check the input method",
+          "   * dotSize - the size of the dot",
+          "   * deltaY - the distance between the dot and the center of the selection or mouse"
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "InputMethodIndicator:start(config)",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "desc" : "Start InputMethodIndicator.",
+        "name" : "start"
+      },
+      {
+        "doc" : "Stop InputMethodIndicator.\nParameters:\n * None",
+        "stripped_doc" : [
+          "Stop InputMethodIndicator."
+        ],
+        "def" : "InputMethodIndicator:stop()",
+        "parameters" : [
+          " * None"
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "InputMethodIndicator:stop()",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "desc" : "Stop InputMethodIndicator.",
+        "name" : "stop"
+      }
+    ],
+    "name" : "InputMethodIndicator"
+  }
+]
