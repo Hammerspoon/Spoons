@@ -1834,7 +1834,7 @@
     "type": "Variable"
   },
   {
-    "desc": "Configures the spoon.  There is currently nothing to configure.",
+    "desc": "Configures the spoon.",
     "module": "MouseFollowsFocus",
     "name": "configure",
     "type": "Method"

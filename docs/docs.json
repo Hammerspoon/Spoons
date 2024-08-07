@@ -9663,15 +9663,15 @@
     "Method": [
       {
         "def": "MouseFollowsFocus:configure(configuration)",
-        "desc": "Configures the spoon.  There is currently nothing to configure.",
-        "doc": "Configures the spoon.  There is currently nothing to configure.\n\nParameters:\n * configuration - :",
+        "desc": "Configures the spoon.",
+        "doc": "Configures the spoon.\n\nParameters:\n * configuration - a table containing the settings for onWindowMoved or onChangeOfScreenOnly:",
         "examples": [],
         "file": "Source/MouseFollowsFocus.spoon/init.lua",
-        "lineno": "26",
+        "lineno": "29",
         "name": "configure",
         "notes": [],
         "parameters": [
-          " * configuration - :"
+          " * configuration - a table containing the settings for onWindowMoved or onChangeOfScreenOnly:"
         ],
         "returns": [],
         "signature": "MouseFollowsFocus:configure(configuration)",
@@ -9684,7 +9684,7 @@
         "doc": "Starts updating the mouse position when window focus changes\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/MouseFollowsFocus.spoon/init.lua",
-        "lineno": "35",
+        "lineno": "44",
         "name": "start",
         "notes": [],
         "parameters": [
@@ -9701,7 +9701,7 @@
         "doc": "Stops updating the mouse position when window focus changes\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/MouseFollowsFocus.spoon/init.lua",
-        "lineno": "61",
+        "lineno": "73",
         "name": "stop",
         "notes": [],
         "parameters": [
@@ -9718,7 +9718,7 @@
         "doc": "Moves the mouse to the center of the given window unless it's already inside the window\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/MouseFollowsFocus.spoon/init.lua",
-        "lineno": "72",
+        "lineno": "84",
         "name": "updateMouse",
         "notes": [],
         "parameters": [
@@ -9736,7 +9736,7 @@
         "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "file": "Source/MouseFollowsFocus.spoon/init.lua",
-        "lineno": "21",
+        "lineno": "24",
         "name": "logger",
         "signature": "MouseFollowsFocus.logger",
         "stripped_doc": "",
@@ -9748,15 +9748,15 @@
     "items": [
       {
         "def": "MouseFollowsFocus:configure(configuration)",
-        "desc": "Configures the spoon.  There is currently nothing to configure.",
-        "doc": "Configures the spoon.  There is currently nothing to configure.\n\nParameters:\n * configuration - :",
+        "desc": "Configures the spoon.",
+        "doc": "Configures the spoon.\n\nParameters:\n * configuration - a table containing the settings for onWindowMoved or onChangeOfScreenOnly:",
         "examples": [],
         "file": "Source/MouseFollowsFocus.spoon/init.lua",
-        "lineno": "26",
+        "lineno": "29",
         "name": "configure",
         "notes": [],
         "parameters": [
-          " * configuration - :"
+          " * configuration - a table containing the settings for onWindowMoved or onChangeOfScreenOnly:"
         ],
         "returns": [],
         "signature": "MouseFollowsFocus:configure(configuration)",
@@ -9768,7 +9768,7 @@
         "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "file": "Source/MouseFollowsFocus.spoon/init.lua",
-        "lineno": "21",
+        "lineno": "24",
         "name": "logger",
         "signature": "MouseFollowsFocus.logger",
         "stripped_doc": "",
@@ -9780,7 +9780,7 @@
         "doc": "Starts updating the mouse position when window focus changes\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/MouseFollowsFocus.spoon/init.lua",
-        "lineno": "35",
+        "lineno": "44",
         "name": "start",
         "notes": [],
         "parameters": [
@@ -9797,7 +9797,7 @@
         "doc": "Stops updating the mouse position when window focus changes\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/MouseFollowsFocus.spoon/init.lua",
-        "lineno": "61",
+        "lineno": "73",
         "name": "stop",
         "notes": [],
         "parameters": [
@@ -9814,7 +9814,7 @@
         "doc": "Moves the mouse to the center of the given window unless it's already inside the window\n\nParameters:\n * None",
         "examples": [],
         "file": "Source/MouseFollowsFocus.spoon/init.lua",
-        "lineno": "72",
+        "lineno": "84",
         "name": "updateMouse",
         "notes": [],
         "parameters": [
