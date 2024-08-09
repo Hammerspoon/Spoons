@@ -8,79 +8,724 @@
     "Function": [],
     "Method": [
       {
+        "def": "CountDown:bindHotkeys(mapping)",
+        "desc": "Bind hotkeys for this spoon",
+        "doc": "Bind hotkeys for this spoon\n\nParameters:\n * mapping: a table with the callbacks\nReturns:\n * None",
+        "examples": [],
+        "file": "Source/CountDown.spoon//init.lua",
+        "lineno": "734",
+        "name": "bindHotkeys",
+        "notes": [],
+        "parameters": [
+          " * mapping: a table with the callbacks"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "CountDown:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "CountDown:cancel()",
+        "desc": " Reset the timer",
+        "doc": " Reset the timer\n\nParameters:\n * None\nReturns:\n * None",
+        "examples": [],
+        "file": "Source/CountDown.spoon//init.lua",
+        "lineno": "685",
+        "name": "cancel",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "CountDown:cancel()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
         "def": "CountDown:pauseOrResume()",
         "desc": "Pause or resume the existing countdown.",
-        "doc": "Pause or resume the existing countdown.\n",
+        "doc": "Pause or resume the existing countdown.\n\nParameters:\n * None\nReturns:\n * None",
+        "examples": [],
+        "file": "Source/CountDown.spoon//init.lua",
+        "lineno": "642",
         "name": "pauseOrResume",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * None"
+        ],
         "signature": "CountDown:pauseOrResume()",
         "stripped_doc": "",
         "type": "Method"
       },
       {
         "def": "CountDown:setProgress(progress)",
-        "desc": "Set the progress of visual indicator to `progress`.",
-        "doc": "Set the progress of visual indicator to `progress`.\n\nParameters:\n * progress - an number specifying the value of progress (0.0 - 1.0)",
+        "desc": " Set the progress of visual indicator to progress.",
+        "doc": " Set the progress of visual indicator to progress.\n\nParameters:\n * progress\n   a relative number specifying the new progress (0.0 - 1.0)\nReturns:\n * None",
+        "examples": [],
+        "file": "Source/CountDown.spoon//init.lua",
+        "lineno": "707",
         "name": "setProgress",
+        "notes": [],
         "parameters": [
-          " * progress - an number specifying the value of progress (0.0 - 1.0)"
+          " * progress a relative number specifying the new progress (0.0 - 1.0)"
+        ],
+        "returns": [
+          " * None"
         ],
         "signature": "CountDown:setProgress(progress)",
         "stripped_doc": "",
         "type": "Method"
       },
       {
-        "def": "CountDown:startFor(minutes)",
+        "def": "CountDown:startFor(minutes, callback)",
         "desc": "Start a countdown for `minutes` minutes immediately. Calling this method again will kill the existing countdown instance.",
-        "doc": "Start a countdown for `minutes` minutes immediately. Calling this method again will kill the existing countdown instance.\n\nParameters:\n * minutes - How many minutes",
+        "doc": "Start a countdown for `minutes` minutes immediately. Calling this method again will kill the existing countdown instance.\n\nParameters:\n * minutes - How many minutes\n             Defaults to obj.defaultLenMinutes\n * callback: optional: a function to call when the timer \n           is up. it takes one parameters (minutes)\n           the minutes that were requested.\n           The callback is not called if timer is cancelled\nReturns:\n * None",
+        "examples": [],
+        "file": "Source/CountDown.spoon//init.lua",
+        "lineno": "512",
         "name": "startFor",
+        "notes": [],
         "parameters": [
-          " * minutes - How many minutes"
+          " * minutes - How many minutes Defaults to obj.defaultLenMinutes",
+          " * callback: optional: a function to call when the timer is up. it takes one parameters (minutes) the minutes that were requested. The callback is not called if timer is cancelled"
         ],
-        "signature": "CountDown:startFor(minutes)",
+        "returns": [
+          " * None"
+        ],
+        "signature": "CountDown:startFor(minutes, callback)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "CountDown:startUntil(time)",
+        "desc": "Start a countdown until time indicated in parameter.",
+        "doc": "Start a countdown until time indicated in parameter.\n\nParameters:\n * callback: optional: a function to call when the timer \n           is up. it takes one parameters (minutes)\n           the minutes that were requested. ",
+        "examples": [],
+        "file": "Source/CountDown.spoon//init.lua",
+        "lineno": "604",
+        "name": "startUntil",
+        "notes": [],
+        "parameters": [
+          " * callback: optional: a function to call when the timer is up. it takes one parameters (minutes) the minutes that were requested."
+        ],
+        "returns": [],
+        "signature": "CountDown:startUntil(time)",
         "stripped_doc": "",
         "type": "Method"
       }
     ],
-    "Variable": [],
-    "desc": "Tiny countdown with visual indicator",
-    "doc": "Tiny countdown with visual indicator\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/CountDown.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/CountDown.spoon.zip)",
+    "Variable": [
+      {
+        "def": "CountDown.alertAttributes",
+        "desc": "  how to display timer is up notification",
+        "doc": "  how to display timer is up notification",
+        "file": "Source/CountDown.spoon//init.lua",
+        "lineno": "98",
+        "name": "alertAttributes",
+        "signature": "CountDown.alertAttributes",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "CountDown.alertLen",
+        "desc": "  time to show the end-of-time alert. 0 implies do not show",
+        "doc": "  time to show the end-of-time alert. 0 implies do not show",
+        "file": "Source/CountDown.spoon//init.lua",
+        "lineno": "88",
+        "name": "alertLen",
+        "signature": "CountDown.alertLen",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "CountDown.alertSound",
+        "desc": "  Sounds to play when time is up. No sound if nil",
+        "doc": "  Sounds to play when time is up. No sound if nil",
+        "file": "Source/CountDown.spoon//init.lua",
+        "lineno": "93",
+        "name": "alertSound",
+        "signature": "CountDown.alertSound",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "CountDown.barCanvasHeight",
+        "desc": "indicator bar at the bottom of the screen",
+        "doc": "indicator bar at the bottom of the screen",
+        "file": "Source/CountDown.spoon//init.lua",
+        "lineno": "66",
+        "name": "barCanvasHeight",
+        "signature": "CountDown.barCanvasHeight",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "CountDown.barFillColorPassed",
+        "desc": "Color for time passed in progress bar",
+        "doc": "Color for time passed in progress bar",
+        "file": "Source/CountDown.spoon//init.lua",
+        "lineno": "76",
+        "name": "barFillColorPassed",
+        "signature": "CountDown.barFillColorPassed",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "CountDown.barFillColorToPass",
+        "desc": "Color for time to pass in progress bar",
+        "doc": "Color for time to pass in progress bar",
+        "file": "Source/CountDown.spoon//init.lua",
+        "lineno": "81",
+        "name": "barFillColorToPass",
+        "signature": "CountDown.barFillColorToPass",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "CountDown.barTransparency",
+        "desc": "Transparency for progress bar",
+        "doc": "Transparency for progress bar",
+        "file": "Source/CountDown.spoon//init.lua",
+        "lineno": "71",
+        "name": "barTransparency",
+        "signature": "CountDown.barTransparency",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "CountDown.defaultKeyBindings",
+        "desc": "default key bindings",
+        "doc": "default key bindings",
+        "file": "Source/CountDown.spoon//init.lua",
+        "lineno": "44",
+        "name": "defaultKeyBindings",
+        "signature": "CountDown.defaultKeyBindings",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "CountDown.defaultLenMinutes",
+        "desc": "Default timer in minutes. ",
+        "doc": "Default timer in minutes. ",
+        "file": "Source/CountDown.spoon//init.lua",
+        "lineno": "29",
+        "name": "defaultLenMinutes",
+        "signature": "CountDown.defaultLenMinutes",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "CountDown.menuBarAlwaysShow",
+        "desc": "If true, always show the menu bar icon.",
+        "doc": "If true, always show the menu bar icon.\n  if false, only show when timer active\n  (shows pause, cancel toggle)",
+        "file": "Source/CountDown.spoon//init.lua",
+        "lineno": "125",
+        "name": "menuBarAlwaysShow",
+        "signature": "CountDown.menuBarAlwaysShow",
+        "stripped_doc": "  if false, only show when timer active\n  (shows pause, cancel toggle)",
+        "type": "Variable"
+      },
+      {
+        "def": "CountDown.menuBarIconActive",
+        "desc": "  icon to show in menu bar when active",
+        "doc": "  icon to show in menu bar when active",
+        "file": "Source/CountDown.spoon//init.lua",
+        "lineno": "136",
+        "name": "menuBarIconActive",
+        "signature": "CountDown.menuBarIconActive",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "CountDown.menuBarIconIdle",
+        "desc": "  icon to show in menu bar when idle",
+        "doc": "  icon to show in menu bar when idle",
+        "file": "Source/CountDown.spoon//init.lua",
+        "lineno": "132",
+        "name": "menuBarIconIdle",
+        "signature": "CountDown.menuBarIconIdle",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "CountDown.menuBarIconPause",
+        "desc": "  icon for pause playing in menu bar submenu",
+        "doc": "  icon for pause playing in menu bar submenu",
+        "file": "Source/CountDown.spoon//init.lua",
+        "lineno": "144",
+        "name": "menuBarIconPause",
+        "signature": "CountDown.menuBarIconPause",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "CountDown.menuBarIconPlay",
+        "desc": "  icon for resume playing in menu bar submenu",
+        "doc": "  icon for resume playing in menu bar submenu",
+        "file": "Source/CountDown.spoon//init.lua",
+        "lineno": "140",
+        "name": "menuBarIconPlay",
+        "signature": "CountDown.menuBarIconPlay",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "CountDown.menuBarIconStop",
+        "desc": "  icon for cancelling timer in menu bar submenu",
+        "doc": "  icon for cancelling timer in menu bar submenu",
+        "file": "Source/CountDown.spoon//init.lua",
+        "lineno": "148",
+        "name": "menuBarIconStop",
+        "signature": "CountDown.menuBarIconStop",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "CountDown.messageAttributes",
+        "desc": "Properties of progress message ",
+        "doc": "Properties of progress message ",
+        "file": "Source/CountDown.spoon//init.lua",
+        "lineno": "59",
+        "name": "messageAttributes",
+        "signature": "CountDown.messageAttributes",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "CountDown.messageDuration",
+        "desc": "Duration of notification messages",
+        "doc": "Duration of notification messages",
+        "file": "Source/CountDown.spoon//init.lua",
+        "lineno": "54",
+        "name": "messageDuration",
+        "signature": "CountDown.messageDuration",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "CountDown.nofity",
+        "desc": "set to nil to turn off notification when time's up or provide a hs.notify notification",
+        "doc": "set to nil to turn off notification when time's up or provide a hs.notify notification",
+        "file": "Source/CountDown.spoon//init.lua",
+        "lineno": "39",
+        "name": "nofity",
+        "signature": "CountDown.nofity",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "CountDown.useLastTimerAsDefault",
+        "desc": "if true, make defaultLenMinutes the last time length used ",
+        "doc": "if true, make defaultLenMinutes the last time length used ",
+        "file": "Source/CountDown.spoon//init.lua",
+        "lineno": "34",
+        "name": "useLastTimerAsDefault",
+        "signature": "CountDown.useLastTimerAsDefault",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "CountDown.warningFormat",
+        "desc": "  Format to display the warning.",
+        "doc": "  Format to display the warning.\n  It takes two integers: hours and minutes",
+        "file": "Source/CountDown.spoon//init.lua",
+        "lineno": "112",
+        "name": "warningFormat",
+        "signature": "CountDown.warningFormat",
+        "stripped_doc": "  It takes two integers: hours and minutes",
+        "type": "Variable"
+      },
+      {
+        "def": "CountDown.warningShow",
+        "desc": " Do we show progress warnings. A progress warning happens",
+        "doc": " Do we show progress warnings. A progress warning happens\n at logarithmic intervals: 1, 2, 4, 8, 16... minutes\n before timer expiration",
+        "file": "Source/CountDown.spoon//init.lua",
+        "lineno": "105",
+        "name": "warningShow",
+        "signature": "CountDown.warningShow",
+        "stripped_doc": " at logarithmic intervals: 1, 2, 4, 8, 16... minutes\n before timer expiration",
+        "type": "Variable"
+      },
+      {
+        "def": "CountDown.warningshowDuration",
+        "desc": "for how many seconds to show the warning",
+        "doc": "for how many seconds to show the warning",
+        "file": "Source/CountDown.spoon//init.lua",
+        "lineno": "118",
+        "name": "warningshowDuration",
+        "signature": "CountDown.warningshowDuration",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "desc": "Countdown with visual indicator",
+    "doc": "Countdown with visual indicator\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/CountDown.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/CountDown.spoon.zip)\n",
     "items": [
+      {
+        "def": "CountDown.alertAttributes",
+        "desc": "  how to display timer is up notification",
+        "doc": "  how to display timer is up notification",
+        "file": "Source/CountDown.spoon//init.lua",
+        "lineno": "98",
+        "name": "alertAttributes",
+        "signature": "CountDown.alertAttributes",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "CountDown.alertLen",
+        "desc": "  time to show the end-of-time alert. 0 implies do not show",
+        "doc": "  time to show the end-of-time alert. 0 implies do not show",
+        "file": "Source/CountDown.spoon//init.lua",
+        "lineno": "88",
+        "name": "alertLen",
+        "signature": "CountDown.alertLen",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "CountDown.alertSound",
+        "desc": "  Sounds to play when time is up. No sound if nil",
+        "doc": "  Sounds to play when time is up. No sound if nil",
+        "file": "Source/CountDown.spoon//init.lua",
+        "lineno": "93",
+        "name": "alertSound",
+        "signature": "CountDown.alertSound",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "CountDown.barCanvasHeight",
+        "desc": "indicator bar at the bottom of the screen",
+        "doc": "indicator bar at the bottom of the screen",
+        "file": "Source/CountDown.spoon//init.lua",
+        "lineno": "66",
+        "name": "barCanvasHeight",
+        "signature": "CountDown.barCanvasHeight",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "CountDown.barFillColorPassed",
+        "desc": "Color for time passed in progress bar",
+        "doc": "Color for time passed in progress bar",
+        "file": "Source/CountDown.spoon//init.lua",
+        "lineno": "76",
+        "name": "barFillColorPassed",
+        "signature": "CountDown.barFillColorPassed",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "CountDown.barFillColorToPass",
+        "desc": "Color for time to pass in progress bar",
+        "doc": "Color for time to pass in progress bar",
+        "file": "Source/CountDown.spoon//init.lua",
+        "lineno": "81",
+        "name": "barFillColorToPass",
+        "signature": "CountDown.barFillColorToPass",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "CountDown.barTransparency",
+        "desc": "Transparency for progress bar",
+        "doc": "Transparency for progress bar",
+        "file": "Source/CountDown.spoon//init.lua",
+        "lineno": "71",
+        "name": "barTransparency",
+        "signature": "CountDown.barTransparency",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "CountDown:bindHotkeys(mapping)",
+        "desc": "Bind hotkeys for this spoon",
+        "doc": "Bind hotkeys for this spoon\n\nParameters:\n * mapping: a table with the callbacks\nReturns:\n * None",
+        "examples": [],
+        "file": "Source/CountDown.spoon//init.lua",
+        "lineno": "734",
+        "name": "bindHotkeys",
+        "notes": [],
+        "parameters": [
+          " * mapping: a table with the callbacks"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "CountDown:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "CountDown:cancel()",
+        "desc": " Reset the timer",
+        "doc": " Reset the timer\n\nParameters:\n * None\nReturns:\n * None",
+        "examples": [],
+        "file": "Source/CountDown.spoon//init.lua",
+        "lineno": "685",
+        "name": "cancel",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * None"
+        ],
+        "signature": "CountDown:cancel()",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "CountDown.defaultKeyBindings",
+        "desc": "default key bindings",
+        "doc": "default key bindings",
+        "file": "Source/CountDown.spoon//init.lua",
+        "lineno": "44",
+        "name": "defaultKeyBindings",
+        "signature": "CountDown.defaultKeyBindings",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "CountDown.defaultLenMinutes",
+        "desc": "Default timer in minutes. ",
+        "doc": "Default timer in minutes. ",
+        "file": "Source/CountDown.spoon//init.lua",
+        "lineno": "29",
+        "name": "defaultLenMinutes",
+        "signature": "CountDown.defaultLenMinutes",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "CountDown.menuBarAlwaysShow",
+        "desc": "If true, always show the menu bar icon.",
+        "doc": "If true, always show the menu bar icon.\n  if false, only show when timer active\n  (shows pause, cancel toggle)",
+        "file": "Source/CountDown.spoon//init.lua",
+        "lineno": "125",
+        "name": "menuBarAlwaysShow",
+        "signature": "CountDown.menuBarAlwaysShow",
+        "stripped_doc": "  if false, only show when timer active\n  (shows pause, cancel toggle)",
+        "type": "Variable"
+      },
+      {
+        "def": "CountDown.menuBarIconActive",
+        "desc": "  icon to show in menu bar when active",
+        "doc": "  icon to show in menu bar when active",
+        "file": "Source/CountDown.spoon//init.lua",
+        "lineno": "136",
+        "name": "menuBarIconActive",
+        "signature": "CountDown.menuBarIconActive",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "CountDown.menuBarIconIdle",
+        "desc": "  icon to show in menu bar when idle",
+        "doc": "  icon to show in menu bar when idle",
+        "file": "Source/CountDown.spoon//init.lua",
+        "lineno": "132",
+        "name": "menuBarIconIdle",
+        "signature": "CountDown.menuBarIconIdle",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "CountDown.menuBarIconPause",
+        "desc": "  icon for pause playing in menu bar submenu",
+        "doc": "  icon for pause playing in menu bar submenu",
+        "file": "Source/CountDown.spoon//init.lua",
+        "lineno": "144",
+        "name": "menuBarIconPause",
+        "signature": "CountDown.menuBarIconPause",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "CountDown.menuBarIconPlay",
+        "desc": "  icon for resume playing in menu bar submenu",
+        "doc": "  icon for resume playing in menu bar submenu",
+        "file": "Source/CountDown.spoon//init.lua",
+        "lineno": "140",
+        "name": "menuBarIconPlay",
+        "signature": "CountDown.menuBarIconPlay",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "CountDown.menuBarIconStop",
+        "desc": "  icon for cancelling timer in menu bar submenu",
+        "doc": "  icon for cancelling timer in menu bar submenu",
+        "file": "Source/CountDown.spoon//init.lua",
+        "lineno": "148",
+        "name": "menuBarIconStop",
+        "signature": "CountDown.menuBarIconStop",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "CountDown.messageAttributes",
+        "desc": "Properties of progress message ",
+        "doc": "Properties of progress message ",
+        "file": "Source/CountDown.spoon//init.lua",
+        "lineno": "59",
+        "name": "messageAttributes",
+        "signature": "CountDown.messageAttributes",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "CountDown.messageDuration",
+        "desc": "Duration of notification messages",
+        "doc": "Duration of notification messages",
+        "file": "Source/CountDown.spoon//init.lua",
+        "lineno": "54",
+        "name": "messageDuration",
+        "signature": "CountDown.messageDuration",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "CountDown.nofity",
+        "desc": "set to nil to turn off notification when time's up or provide a hs.notify notification",
+        "doc": "set to nil to turn off notification when time's up or provide a hs.notify notification",
+        "file": "Source/CountDown.spoon//init.lua",
+        "lineno": "39",
+        "name": "nofity",
+        "signature": "CountDown.nofity",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
       {
         "def": "CountDown:pauseOrResume()",
         "desc": "Pause or resume the existing countdown.",
-        "doc": "Pause or resume the existing countdown.\n",
+        "doc": "Pause or resume the existing countdown.\n\nParameters:\n * None\nReturns:\n * None",
+        "examples": [],
+        "file": "Source/CountDown.spoon//init.lua",
+        "lineno": "642",
         "name": "pauseOrResume",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * None"
+        ],
         "signature": "CountDown:pauseOrResume()",
         "stripped_doc": "",
         "type": "Method"
       },
       {
         "def": "CountDown:setProgress(progress)",
-        "desc": "Set the progress of visual indicator to `progress`.",
-        "doc": "Set the progress of visual indicator to `progress`.\n\nParameters:\n * progress - an number specifying the value of progress (0.0 - 1.0)",
+        "desc": " Set the progress of visual indicator to progress.",
+        "doc": " Set the progress of visual indicator to progress.\n\nParameters:\n * progress\n   a relative number specifying the new progress (0.0 - 1.0)\nReturns:\n * None",
+        "examples": [],
+        "file": "Source/CountDown.spoon//init.lua",
+        "lineno": "707",
         "name": "setProgress",
+        "notes": [],
         "parameters": [
-          " * progress - an number specifying the value of progress (0.0 - 1.0)"
+          " * progress a relative number specifying the new progress (0.0 - 1.0)"
+        ],
+        "returns": [
+          " * None"
         ],
         "signature": "CountDown:setProgress(progress)",
         "stripped_doc": "",
         "type": "Method"
       },
       {
-        "def": "CountDown:startFor(minutes)",
+        "def": "CountDown:startFor(minutes, callback)",
         "desc": "Start a countdown for `minutes` minutes immediately. Calling this method again will kill the existing countdown instance.",
-        "doc": "Start a countdown for `minutes` minutes immediately. Calling this method again will kill the existing countdown instance.\n\nParameters:\n * minutes - How many minutes",
+        "doc": "Start a countdown for `minutes` minutes immediately. Calling this method again will kill the existing countdown instance.\n\nParameters:\n * minutes - How many minutes\n             Defaults to obj.defaultLenMinutes\n * callback: optional: a function to call when the timer \n           is up. it takes one parameters (minutes)\n           the minutes that were requested.\n           The callback is not called if timer is cancelled\nReturns:\n * None",
+        "examples": [],
+        "file": "Source/CountDown.spoon//init.lua",
+        "lineno": "512",
         "name": "startFor",
+        "notes": [],
         "parameters": [
-          " * minutes - How many minutes"
+          " * minutes - How many minutes Defaults to obj.defaultLenMinutes",
+          " * callback: optional: a function to call when the timer is up. it takes one parameters (minutes) the minutes that were requested. The callback is not called if timer is cancelled"
         ],
-        "signature": "CountDown:startFor(minutes)",
+        "returns": [
+          " * None"
+        ],
+        "signature": "CountDown:startFor(minutes, callback)",
         "stripped_doc": "",
         "type": "Method"
+      },
+      {
+        "def": "CountDown:startUntil(time)",
+        "desc": "Start a countdown until time indicated in parameter.",
+        "doc": "Start a countdown until time indicated in parameter.\n\nParameters:\n * callback: optional: a function to call when the timer \n           is up. it takes one parameters (minutes)\n           the minutes that were requested. ",
+        "examples": [],
+        "file": "Source/CountDown.spoon//init.lua",
+        "lineno": "604",
+        "name": "startUntil",
+        "notes": [],
+        "parameters": [
+          " * callback: optional: a function to call when the timer is up. it takes one parameters (minutes) the minutes that were requested."
+        ],
+        "returns": [],
+        "signature": "CountDown:startUntil(time)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "CountDown.useLastTimerAsDefault",
+        "desc": "if true, make defaultLenMinutes the last time length used ",
+        "doc": "if true, make defaultLenMinutes the last time length used ",
+        "file": "Source/CountDown.spoon//init.lua",
+        "lineno": "34",
+        "name": "useLastTimerAsDefault",
+        "signature": "CountDown.useLastTimerAsDefault",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "CountDown.warningFormat",
+        "desc": "  Format to display the warning.",
+        "doc": "  Format to display the warning.\n  It takes two integers: hours and minutes",
+        "file": "Source/CountDown.spoon//init.lua",
+        "lineno": "112",
+        "name": "warningFormat",
+        "signature": "CountDown.warningFormat",
+        "stripped_doc": "  It takes two integers: hours and minutes",
+        "type": "Variable"
+      },
+      {
+        "def": "CountDown.warningShow",
+        "desc": " Do we show progress warnings. A progress warning happens",
+        "doc": " Do we show progress warnings. A progress warning happens\n at logarithmic intervals: 1, 2, 4, 8, 16... minutes\n before timer expiration",
+        "file": "Source/CountDown.spoon//init.lua",
+        "lineno": "105",
+        "name": "warningShow",
+        "signature": "CountDown.warningShow",
+        "stripped_doc": " at logarithmic intervals: 1, 2, 4, 8, 16... minutes\n before timer expiration",
+        "type": "Variable"
+      },
+      {
+        "def": "CountDown.warningshowDuration",
+        "desc": "for how many seconds to show the warning",
+        "doc": "for how many seconds to show the warning",
+        "file": "Source/CountDown.spoon//init.lua",
+        "lineno": "118",
+        "name": "warningshowDuration",
+        "signature": "CountDown.warningshowDuration",
+        "stripped_doc": "",
+        "type": "Variable"
       }
     ],
     "name": "CountDown",
-    "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/CountDown.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/CountDown.spoon.zip)",
+    "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/CountDown.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/CountDown.spoon.zip)\n",
     "submodules": [],
     "type": "Module"
   }
