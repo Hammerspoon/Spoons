@@ -186,6 +186,7 @@ obj.timerEventPause = "paused"
 obj.timerEventReset = "cancelled"
 obj.timerEventStart = "started"
 obj.timerEventEnd   = "ended"
+obj.timerEventSetProgress   = "setProgress"
 
 
 function obj:init()
@@ -702,6 +703,33 @@ function obj:cancel()
       obj:show_message("Error. Timer not running ")
    end
 end
+
+--- CountDown:setProgress(progress)
+--- Method
+---  Set the progress of visual indicator to progress.
+---
+--- Parameters:
+---  * progress
+---    a relative number specifying the new progress (0.0 - 1.0)
+--- Returns:
+---  * None
+function obj:setProgress(progress)
+   if obj.timerRunning then
+      -- obj.endingTime containts ending time in seconds
+      -- timerLenMinutes starting time
+      local newMinutesLeft = obj.timerLenMinutes * (1- progress)
+      obj.endingTime = obj:time_absolute_seconds() + newMinutesLeft *60
+      obj:show_message(
+         string.format("Timer reset to %.1f%% (%.1f minutes left)",
+            progress*100, newMinutesLeft))
+      if obj.callback then
+         obj.callback(obj.timerEventSetProgress, newMinutesLeft)
+      end
+   else
+      obj:show_message("Error. Timer not running ")
+   end
+end
+
 
 --- CountDown:bindHotkeys(mapping)
 --- Method
