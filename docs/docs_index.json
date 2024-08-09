@@ -695,9 +695,153 @@
     "type": "Function"
   },
   {
-    "desc": "Tiny countdown with visual indicator",
+    "desc": "Countdown with visual indicator",
     "name": "CountDown",
     "type": "Module"
+  },
+  {
+    "desc": "  how to display timer is up notification",
+    "module": "CountDown",
+    "name": "alertAttributes",
+    "type": "Variable"
+  },
+  {
+    "desc": "  time to show the end-of-time alert. 0 implies do not show",
+    "module": "CountDown",
+    "name": "alertLen",
+    "type": "Variable"
+  },
+  {
+    "desc": "  Sounds to play when time is up. No sound if nil",
+    "module": "CountDown",
+    "name": "alertSound",
+    "type": "Variable"
+  },
+  {
+    "desc": "indicator bar at the bottom of the screen",
+    "module": "CountDown",
+    "name": "barCanvasHeight",
+    "type": "Variable"
+  },
+  {
+    "desc": "Color for time passed in progress bar",
+    "module": "CountDown",
+    "name": "barFillColorPassed",
+    "type": "Variable"
+  },
+  {
+    "desc": "Color for time to pass in progress bar",
+    "module": "CountDown",
+    "name": "barFillColorToPass",
+    "type": "Variable"
+  },
+  {
+    "desc": "Transparency for progress bar",
+    "module": "CountDown",
+    "name": "barTransparency",
+    "type": "Variable"
+  },
+  {
+    "desc": "default key bindings",
+    "module": "CountDown",
+    "name": "defaultKeyBindings",
+    "type": "Variable"
+  },
+  {
+    "desc": "Default timer in minutes. ",
+    "module": "CountDown",
+    "name": "defaultLenMinutes",
+    "type": "Variable"
+  },
+  {
+    "desc": "If true, always show the menu bar icon.",
+    "module": "CountDown",
+    "name": "menuBarAlwaysShow",
+    "type": "Variable"
+  },
+  {
+    "desc": "  icon to show in menu bar when active",
+    "module": "CountDown",
+    "name": "menuBarIconActive",
+    "type": "Variable"
+  },
+  {
+    "desc": "  icon to show in menu bar when idle",
+    "module": "CountDown",
+    "name": "menuBarIconIdle",
+    "type": "Variable"
+  },
+  {
+    "desc": "  icon for pause playing in menu bar submenu",
+    "module": "CountDown",
+    "name": "menuBarIconPause",
+    "type": "Variable"
+  },
+  {
+    "desc": "  icon for resume playing in menu bar submenu",
+    "module": "CountDown",
+    "name": "menuBarIconPlay",
+    "type": "Variable"
+  },
+  {
+    "desc": "  icon for cancelling timer in menu bar submenu",
+    "module": "CountDown",
+    "name": "menuBarIconStop",
+    "type": "Variable"
+  },
+  {
+    "desc": "Properties of progress message ",
+    "module": "CountDown",
+    "name": "messageAttributes",
+    "type": "Variable"
+  },
+  {
+    "desc": "Duration of notification messages",
+    "module": "CountDown",
+    "name": "messageDuration",
+    "type": "Variable"
+  },
+  {
+    "desc": "set to nil to turn off notification when time's up or provide a hs.notify notification",
+    "module": "CountDown",
+    "name": "nofity",
+    "type": "Variable"
+  },
+  {
+    "desc": "if true, make defaultLenMinutes the last time length used ",
+    "module": "CountDown",
+    "name": "useLastTimerAsDefault",
+    "type": "Variable"
+  },
+  {
+    "desc": "  Format to display the warning.",
+    "module": "CountDown",
+    "name": "warningFormat",
+    "type": "Variable"
+  },
+  {
+    "desc": " Do we show progress warnings. A progress warning happens",
+    "module": "CountDown",
+    "name": "warningShow",
+    "type": "Variable"
+  },
+  {
+    "desc": "for how many seconds to show the warning",
+    "module": "CountDown",
+    "name": "warningshowDuration",
+    "type": "Variable"
+  },
+  {
+    "desc": "Bind hotkeys for this spoon",
+    "module": "CountDown",
+    "name": "bindHotkeys",
+    "type": "Method"
+  },
+  {
+    "desc": " Reset the timer",
+    "module": "CountDown",
+    "name": "cancel",
+    "type": "Method"
   },
   {
     "desc": "Pause or resume the existing countdown.",
@@ -706,7 +850,7 @@
     "type": "Method"
   },
   {
-    "desc": "Set the progress of visual indicator to `progress`.",
+    "desc": " Set the progress of visual indicator to progress.",
     "module": "CountDown",
     "name": "setProgress",
     "type": "Method"
@@ -715,6 +859,12 @@
     "desc": "Start a countdown for `minutes` minutes immediately. Calling this method again will kill the existing countdown instance.",
     "module": "CountDown",
     "name": "startFor",
+    "type": "Method"
+  },
+  {
+    "desc": "Start a countdown until time indicated in parameter.",
+    "module": "CountDown",
+    "name": "startUntil",
     "type": "Method"
   },
   {
