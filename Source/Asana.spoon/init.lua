@@ -40,13 +40,16 @@
 -- Setup Environment --
 -----------------------
 -- Create locals for all needed globals so we have access to them
+local pairs,ipairs,type,require = pairs,ipairs,type,require
 
 local stringFormat = string.format
 local hs = {
   fnutils = hs.fnutils,
   http    = hs.http,
   json    = hs.json,
-  notify  = hs.notify
+  notify  = hs.notify,
+  logger  = hs.logger,
+  inspect = hs.inspect
 }
 
 -- Empty environment in this scope, this prevents module from polluting global scope
@@ -67,15 +70,14 @@ local function fetchRequiredIds()
 
   local _, res = hs.http.get(baseUrl .. "/users/me", reqHeader)
   res = hs.json.decode(res)
-  userId = res.data.id
+  userId = res.data.gid
   hs.fnutils.each(
     res.data.workspaces,
     function(x)
-      workspaceIds[x.name] = x.id
+      workspaceIds[x.name] = x.gid
     end
   )
 end
-
 
 ------------
 -- Public --
@@ -84,7 +86,7 @@ end
 
 -- Spoon metadata
 name     = "Asana"
-version  = "0.1" -- obj.version = "0.1"
+version  = "0.2" -- obj.version = "0.1"
 author   = "Malo Bourgon"
 license  = "MIT - https://opensource.org/licenses/MIT"
 homepage = "https://github.com/malob/Asana.spoon"
@@ -95,6 +97,29 @@ homepage = "https://github.com/malob/Asana.spoon"
 --- A "personal access token" for Asana. You can create one here: https://app.asana.com/0/developer-console
 apiKey = ""
 
+
+-- Thanks to mnz
+function tableCopy(tabl)
+   local t = {}
+   for k,v in pairs(tabl) do
+      t[k] = type(v)=="table" and tableCopy(v) or v
+   end
+   return t
+end
+
+-- Thanks to mnz
+function tableMerge(tbl1,tbl2)
+   local t = {}
+   for k,v in pairs(tbl1) do t[k] = type(v)=="table" and tableCopy(v) or v end
+   for k,v in pairs(tbl2) do t[k] = type(v)=="table" and tableCopy(v) or v end
+   return t
+end
+
+function getTaskBody(tbl1,tbl2)
+   s = stringFormat('{"data": %s}', hs.json.encode(tableMerge(tbl1,tbl2), false))
+   return s
+end
+
 --- Asana:createTask(taskName, workspaceName) -> Self
 --- Method
 --- Creates a new task named `taskName` in the workspace `workspaceName`.
@@ -102,6 +127,10 @@ apiKey = ""
 --- Parameters:
 ---  * taskName (String)      - The title of the Asana task.
 ---  * WorkspaceName (String) - The name of the workspace in which to create the task.
+---  * taskParameters (Table) - This is what will be sent as the `data` field of the POST body.
+---
+---  taskParmeters can be defined in the `configConsts.lua` or be rendered direcly in the
+---  hammerspoon `init.lua` file where the task is registered.
 ---
 --- Returns:
 ---  * Self
@@ -110,26 +139,33 @@ apiKey = ""
 ---  ```
 ---  spoon.Asana.createTask("Do that thing I forgot about", "My Company Workspace")
 ---  ```
-function createTask(self, taskName, workspaceName)
+function createTask(self, taskName, workspaceName, taskParameters)
   if workspaceIds == {} or userId == "" then fetchRequiredIds() end
 
+  log = hs.logger.new('Asana', 'info')
+
+  local endPoint = baseUrl .. "/tasks"
+  local body = getTaskBody({
+     workspace = workspaceIds[workspaceName], name = taskName
+  }, taskParameters)
+
+  -- Add content type so the server will know how to read the body
+  reqHeader = tableMerge(reqHeader, {['Content-Type'] = "application/json; charset=UTF8"})
+
   hs.http.asyncPost(
-    stringFormat(
-      "%s/tasks?assignee=%i&workspace=%i&name=%s",
-      baseUrl,
-      userId,
-      workspaceIds[workspaceName],
-      hs.http.encodeForQuery(taskName)
-    ),
-    "", -- requires empty body
-    reqHeader,
-    function(code)
-      if code == 201 then
+  endPoint,
+  body,
+  reqHeader,
+  function(code, responseBody)
+     if code == 201 then
         hs.notify.show("Asana", "", "New task added to workspace: " .. workspaceName)
-      else
-        hs.notify.show("Asana", "", "Error adding task")
-      end
-    end
+     else
+        local errorStr = stringFormat("%i: Error adding task.", code)
+        hs.notify.show("Asana", "", errorStr)
+        log.e(errorStr)
+        log.e("responseBody = " .. responseBody)
+     end
+  end
   )
   return self
 end
