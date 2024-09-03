@@ -69,7 +69,7 @@ for k in pairs(events) do WatchForMeeting[k]=k end
 --- WatchForMeeting.logger
 --- Variable
 --- hs.logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.
-WatchForMeeting.logger = hs.logger.new('WatchMeeting')
+WatchForMeeting.logger = hs.logger.new('WatchForMeeting')
 
 
 -- private variable to track if spoon is already running or not. (Makes it easier to find local variables)
