@@ -15,21 +15,630 @@
   <body>
     <header>
       <h1><a href="./index.html">docs</a> &raquo; CountDown</h1>
-      <p>Tiny countdown with visual indicator</p>
+      <p>Countdown with visual indicator</p>
 <p>Download: <a href="https://github.com/Hammerspoon/Spoons/raw/master/Spoons/CountDown.spoon.zip">https://github.com/Hammerspoon/Spoons/raw/master/Spoons/CountDown.spoon.zip</a></p>
 
       </header>
       <h3>API Overview</h3>
       <ul>
+        <li>Variables - Configurable values</li>
+          <ul>
+            <li><a href="#alertAttributes">alertAttributes</a></li>
+            <li><a href="#alertLen">alertLen</a></li>
+            <li><a href="#alertSound">alertSound</a></li>
+            <li><a href="#barCanvasHeight">barCanvasHeight</a></li>
+            <li><a href="#barFillColorPassed">barFillColorPassed</a></li>
+            <li><a href="#barFillColorToPass">barFillColorToPass</a></li>
+            <li><a href="#barTransparency">barTransparency</a></li>
+            <li><a href="#defaultKeyBindings">defaultKeyBindings</a></li>
+            <li><a href="#defaultLenMinutes">defaultLenMinutes</a></li>
+            <li><a href="#menuBarAlwaysShow">menuBarAlwaysShow</a></li>
+            <li><a href="#menuBarIconActive">menuBarIconActive</a></li>
+            <li><a href="#menuBarIconIdle">menuBarIconIdle</a></li>
+            <li><a href="#menuBarIconPause">menuBarIconPause</a></li>
+            <li><a href="#menuBarIconPlay">menuBarIconPlay</a></li>
+            <li><a href="#menuBarIconStop">menuBarIconStop</a></li>
+            <li><a href="#messageAttributes">messageAttributes</a></li>
+            <li><a href="#messageDuration">messageDuration</a></li>
+            <li><a href="#nofity">nofity</a></li>
+            <li><a href="#useLastTimerAsDefault">useLastTimerAsDefault</a></li>
+            <li><a href="#warningFormat">warningFormat</a></li>
+            <li><a href="#warningShow">warningShow</a></li>
+            <li><a href="#warningshowDuration">warningshowDuration</a></li>
+          </ul>
         <li>Methods - API calls which can only be made on an object returned by a constructor</li>
           <ul>
+            <li><a href="#bindHotkeys">bindHotkeys</a></li>
+            <li><a href="#cancel">cancel</a></li>
             <li><a href="#pauseOrResume">pauseOrResume</a></li>
             <li><a href="#setProgress">setProgress</a></li>
             <li><a href="#startFor">startFor</a></li>
+            <li><a href="#startUntil">startUntil</a></li>
           </ul>
       </ul>
       <h3>API Documentation</h3>
+        <h4 class="documentation-section">Variables</h4>
+          <section id="alertAttributes">
+            <a name="//apple_ref/cpp/Variable/alertAttributes" class="dashAnchor"></a>
+            <h5><a href="#alertAttributes">alertAttributes</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>CountDown.alertAttributes</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>how to display timer is up notification</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/CountDown.spoon/init.lua#L98">Source/CountDown.spoon/init.lua line 98</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="alertLen">
+            <a name="//apple_ref/cpp/Variable/alertLen" class="dashAnchor"></a>
+            <h5><a href="#alertLen">alertLen</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>CountDown.alertLen</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>time to show the end-of-time alert. 0 implies do not show</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/CountDown.spoon/init.lua#L88">Source/CountDown.spoon/init.lua line 88</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="alertSound">
+            <a name="//apple_ref/cpp/Variable/alertSound" class="dashAnchor"></a>
+            <h5><a href="#alertSound">alertSound</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>CountDown.alertSound</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Sounds to play when time is up. No sound if nil</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/CountDown.spoon/init.lua#L93">Source/CountDown.spoon/init.lua line 93</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="barCanvasHeight">
+            <a name="//apple_ref/cpp/Variable/barCanvasHeight" class="dashAnchor"></a>
+            <h5><a href="#barCanvasHeight">barCanvasHeight</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>CountDown.barCanvasHeight</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>indicator bar at the bottom of the screen</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/CountDown.spoon/init.lua#L66">Source/CountDown.spoon/init.lua line 66</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="barFillColorPassed">
+            <a name="//apple_ref/cpp/Variable/barFillColorPassed" class="dashAnchor"></a>
+            <h5><a href="#barFillColorPassed">barFillColorPassed</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>CountDown.barFillColorPassed</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Color for time passed in progress bar</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/CountDown.spoon/init.lua#L76">Source/CountDown.spoon/init.lua line 76</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="barFillColorToPass">
+            <a name="//apple_ref/cpp/Variable/barFillColorToPass" class="dashAnchor"></a>
+            <h5><a href="#barFillColorToPass">barFillColorToPass</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>CountDown.barFillColorToPass</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Color for time to pass in progress bar</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/CountDown.spoon/init.lua#L81">Source/CountDown.spoon/init.lua line 81</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="barTransparency">
+            <a name="//apple_ref/cpp/Variable/barTransparency" class="dashAnchor"></a>
+            <h5><a href="#barTransparency">barTransparency</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>CountDown.barTransparency</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Transparency for progress bar</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/CountDown.spoon/init.lua#L71">Source/CountDown.spoon/init.lua line 71</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="defaultKeyBindings">
+            <a name="//apple_ref/cpp/Variable/defaultKeyBindings" class="dashAnchor"></a>
+            <h5><a href="#defaultKeyBindings">defaultKeyBindings</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>CountDown.defaultKeyBindings</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>default key bindings</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/CountDown.spoon/init.lua#L44">Source/CountDown.spoon/init.lua line 44</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="defaultLenMinutes">
+            <a name="//apple_ref/cpp/Variable/defaultLenMinutes" class="dashAnchor"></a>
+            <h5><a href="#defaultLenMinutes">defaultLenMinutes</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>CountDown.defaultLenMinutes</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Default timer in minutes.</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/CountDown.spoon/init.lua#L29">Source/CountDown.spoon/init.lua line 29</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="menuBarAlwaysShow">
+            <a name="//apple_ref/cpp/Variable/menuBarAlwaysShow" class="dashAnchor"></a>
+            <h5><a href="#menuBarAlwaysShow">menuBarAlwaysShow</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>CountDown.menuBarAlwaysShow</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>If true, always show the menu bar icon.</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/CountDown.spoon/init.lua#L125">Source/CountDown.spoon/init.lua line 125</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="menuBarIconActive">
+            <a name="//apple_ref/cpp/Variable/menuBarIconActive" class="dashAnchor"></a>
+            <h5><a href="#menuBarIconActive">menuBarIconActive</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>CountDown.menuBarIconActive</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>icon to show in menu bar when active</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/CountDown.spoon/init.lua#L136">Source/CountDown.spoon/init.lua line 136</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="menuBarIconIdle">
+            <a name="//apple_ref/cpp/Variable/menuBarIconIdle" class="dashAnchor"></a>
+            <h5><a href="#menuBarIconIdle">menuBarIconIdle</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>CountDown.menuBarIconIdle</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>icon to show in menu bar when idle</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/CountDown.spoon/init.lua#L132">Source/CountDown.spoon/init.lua line 132</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="menuBarIconPause">
+            <a name="//apple_ref/cpp/Variable/menuBarIconPause" class="dashAnchor"></a>
+            <h5><a href="#menuBarIconPause">menuBarIconPause</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>CountDown.menuBarIconPause</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>icon for pause playing in menu bar submenu</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/CountDown.spoon/init.lua#L144">Source/CountDown.spoon/init.lua line 144</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="menuBarIconPlay">
+            <a name="//apple_ref/cpp/Variable/menuBarIconPlay" class="dashAnchor"></a>
+            <h5><a href="#menuBarIconPlay">menuBarIconPlay</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>CountDown.menuBarIconPlay</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>icon for resume playing in menu bar submenu</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/CountDown.spoon/init.lua#L140">Source/CountDown.spoon/init.lua line 140</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="menuBarIconStop">
+            <a name="//apple_ref/cpp/Variable/menuBarIconStop" class="dashAnchor"></a>
+            <h5><a href="#menuBarIconStop">menuBarIconStop</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>CountDown.menuBarIconStop</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>icon for cancelling timer in menu bar submenu</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/CountDown.spoon/init.lua#L148">Source/CountDown.spoon/init.lua line 148</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="messageAttributes">
+            <a name="//apple_ref/cpp/Variable/messageAttributes" class="dashAnchor"></a>
+            <h5><a href="#messageAttributes">messageAttributes</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>CountDown.messageAttributes</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Properties of progress message</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/CountDown.spoon/init.lua#L59">Source/CountDown.spoon/init.lua line 59</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="messageDuration">
+            <a name="//apple_ref/cpp/Variable/messageDuration" class="dashAnchor"></a>
+            <h5><a href="#messageDuration">messageDuration</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>CountDown.messageDuration</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Duration of notification messages</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/CountDown.spoon/init.lua#L54">Source/CountDown.spoon/init.lua line 54</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="nofity">
+            <a name="//apple_ref/cpp/Variable/nofity" class="dashAnchor"></a>
+            <h5><a href="#nofity">nofity</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>CountDown.nofity</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>set to nil to turn off notification when time's up or provide a hs.notify notification</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/CountDown.spoon/init.lua#L39">Source/CountDown.spoon/init.lua line 39</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="useLastTimerAsDefault">
+            <a name="//apple_ref/cpp/Variable/useLastTimerAsDefault" class="dashAnchor"></a>
+            <h5><a href="#useLastTimerAsDefault">useLastTimerAsDefault</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>CountDown.useLastTimerAsDefault</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>if true, make defaultLenMinutes the last time length used</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/CountDown.spoon/init.lua#L34">Source/CountDown.spoon/init.lua line 34</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="warningFormat">
+            <a name="//apple_ref/cpp/Variable/warningFormat" class="dashAnchor"></a>
+            <h5><a href="#warningFormat">warningFormat</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>CountDown.warningFormat</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Format to display the warning.</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/CountDown.spoon/init.lua#L112">Source/CountDown.spoon/init.lua line 112</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="warningShow">
+            <a name="//apple_ref/cpp/Variable/warningShow" class="dashAnchor"></a>
+            <h5><a href="#warningShow">warningShow</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>CountDown.warningShow</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Do we show progress warnings. A progress warning happens</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/CountDown.spoon/init.lua#L105">Source/CountDown.spoon/init.lua line 105</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="warningshowDuration">
+            <a name="//apple_ref/cpp/Variable/warningshowDuration" class="dashAnchor"></a>
+            <h5><a href="#warningshowDuration">warningshowDuration</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>CountDown.warningshowDuration</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>for how many seconds to show the warning</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/CountDown.spoon/init.lua#L118">Source/CountDown.spoon/init.lua line 118</a></td>
+              </tr>
+            </table>
+          </section>
         <h4 class="documentation-section">Methods</h4>
+          <section id="bindHotkeys">
+            <a name="//apple_ref/cpp/Method/bindHotkeys" class="dashAnchor"></a>
+            <h5><a href="#bindHotkeys">bindHotkeys</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>CountDown:bindHotkeys(mapping)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Bind hotkeys for this spoon</p>
+</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>mapping: a table with the callbacks</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
+<li>None</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/CountDown.spoon/init.lua#L734">Source/CountDown.spoon/init.lua line 734</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="cancel">
+            <a name="//apple_ref/cpp/Method/cancel" class="dashAnchor"></a>
+            <h5><a href="#cancel">cancel</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>CountDown:cancel()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Reset the timer</p>
+</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>None</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
+<li>None</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/CountDown.spoon/init.lua#L685">Source/CountDown.spoon/init.lua line 685</a></td>
+              </tr>
+            </table>
+          </section>
           <section id="pauseOrResume">
             <a name="//apple_ref/cpp/Method/pauseOrResume" class="dashAnchor"></a>
             <h5><a href="#pauseOrResume">pauseOrResume</a></h5>
@@ -56,11 +665,14 @@
               </tr>
               <tr>
                   <th>Returns</th>
-                  <td></td>
+                  <td><ul>
+<li>None</li>
+</ul>
+</td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/CountDown.spoon/init.lua#L85">Source/CountDown.spoon/init.lua line 85</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/CountDown.spoon/init.lua#L642">Source/CountDown.spoon/init.lua line 642</a></td>
               </tr>
             </table>
           </section>
@@ -78,23 +690,26 @@
               </tr>
               <tr>
                 <th>Description</th>
-                <td><p>Set the progress of visual indicator to <code>progress</code>.</p>
+                <td><p>Set the progress of visual indicator to progress.</p>
 </td>
               </tr>
               <tr>
                   <th>Parameters</th>
                   <td><ul>
-<li>progress - an number specifying the value of progress (0.0 - 1.0)</li>
+<li>progress a relative number specifying the new progress (0.0 - 1.0)</li>
 </ul>
 </td>
               </tr>
               <tr>
                   <th>Returns</th>
-                  <td></td>
+                  <td><ul>
+<li>None</li>
+</ul>
+</td>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/CountDown.spoon/init.lua#L102">Source/CountDown.spoon/init.lua line 102</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/CountDown.spoon/init.lua#L707">Source/CountDown.spoon/init.lua line 707</a></td>
               </tr>
             </table>
           </section>
@@ -104,7 +719,7 @@
             <table>
               <tr>
                 <th>Signature</th>
-                <td><code>CountDown:startFor(minutes)</code></td>
+                <td><code>CountDown:startFor(minutes, callback)</code></td>
               </tr>
               <tr>
                 <th>Type</th>
@@ -118,7 +733,45 @@
               <tr>
                   <th>Parameters</th>
                   <td><ul>
-<li>minutes - How many minutes</li>
+<li>minutes - How many minutes Defaults to obj.defaultLenMinutes</li>
+<li>callback: optional: a function to call when the timer is up. it takes one parameters (minutes) the minutes that were requested. The callback is not called if timer is cancelled</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
+<li>None</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/CountDown.spoon/init.lua#L512">Source/CountDown.spoon/init.lua line 512</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="startUntil">
+            <a name="//apple_ref/cpp/Method/startUntil" class="dashAnchor"></a>
+            <h5><a href="#startUntil">startUntil</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>CountDown:startUntil(time)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Start a countdown until time indicated in parameter.</p>
+</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>callback: optional: a function to call when the timer is up. it takes one parameters (minutes) the minutes that were requested.</li>
 </ul>
 </td>
               </tr>
@@ -128,7 +781,7 @@
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/CountDown.spoon/init.lua#L39">Source/CountDown.spoon/init.lua line 39</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/CountDown.spoon/init.lua#L604">Source/CountDown.spoon/init.lua line 604</a></td>
               </tr>
             </table>
           </section>

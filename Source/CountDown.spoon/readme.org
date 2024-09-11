@@ -1,0 +1,162 @@
+
+
+* CountDown spoon
+
+This spoon is intended to be a simple timer. The user indicates how long (in minutes) the timer will run.
+
+- During the timer, a horizontal progress bar is displayed at the bottom of the screen
+- Optionally, every few minutes, a warning is displayed with the remaining time  
+- A menu bar item displays the current progress and allows the user to pause/continue and reset the timer.
+
+When the time expires, a notification is issued and a message is displayed.
+
+Only one timer can be active.
+
+* Simple usage
+
+#+begin_src lua   :exports both
+countDown=hs.loadSpoon("CountDown")
+if countDown then
+-- configure status bar
+   countDown.barCanvasHeight = 8
+   countDown.barTrasparency = 0.9
+-- number of minutes of default timer
+   countDown.defaultDuration = 25
+-- configure some bindings
+   countDown:bindHotkeys({
+      startFor = {{"cmd", "ctrl", "alt"}, "P"},
+      startInteractive = {{"cmd", "ctrl", "alt", "shift"}, "P"},
+      cancel = {{"cmd", "ctrl", "alt", "shift"}, "K"},
+   })
+end
+#+end_src
+
+
+
+* Functions
+
+There are three main methods in this Spoon:
+
+** startFor(minutes, callback)
+
+  Starts a timer for specified /minutes/. /callback/ is a  function (optional).
+
+  The callback takes two parameters: event (string), and minutesLeft (float). See callback below
+
+#+begin_src lua   :exports both
+-- start timer for 25 minutes
+countDown=hs.loadSpoon("CountDown")
+countDown:startFor(25)
+#+end_src
+
+
+** startUntil(time, callback)
+
+Starts a timer that will end at given time. Time is a string of the form "[0-9]+:[0-9]+:" (24 hrs time)
+
+This time is converted to minutes from now and the corresponding timer started. If the given time is after current time,
+it assumes the time is in the next day.
+
+#+begin_src lua   :exports both
+countDown=hs.loadSpoon("CountDown")
+countDown:startUntil(12:45)
+#+end_src
+
+
+** startForInteractive(callback)
+
+Prompt the user for a time for the timer (response can be a time of the day, or minutes).
+
+#+begin_src lua   :exports both
+countDown=hs.loadSpoon("CountDown")
+countDown:startForInteractive()
+#+end_src
+
+
+** pauseOrResume()
+
+Pause or resume the timer.
+
+#+begin_src lua   :exports both
+countDown=hs.loadSpoon("CountDown")
+countDown:pause()
+#+end_src
+
+
+** cancel()
+
+Cancel the timer.
+
+#+begin_src lua   :exports both
+countDown=hs.loadSpoon("CountDown")
+countDown:cancel()
+#+end_src
+
+* bindHotkeys(bindings)
+
+Configure bindings. It defines 4 events, each for their corresponding
+functions.
+
+The default values are (the no parameter is passed):
+
+#+begin_src lua   :exports both
+obj.defaultKeyBindings = {
+   startFor         = {{"cmd", "ctrl", "alt"}, "T"},
+   startInteractive = {{"cmd", "ctrl", "alt", "shift"}, "T"},
+   pauseOrResume    = {{"cmd", "ctrl", "alt"}, "P"},
+   cancel           = {{"cmd", "ctrl", "alt"}, "C"},
+}
+#+end_src
+
+
+
+* Configuration
+
+The Spoon can be configured in many ways. I recommend you look at the API for all the configuration variables.
+
+Some configurations require further discussion:
+
+By default, 3 types of notifications are enabled:
+
+1. The horizontal bar at the bottom of the main screen. It visually shows the timer advancing. It cannot be disabled.
+
+2. A notification warning. This warning displays the minutes left. It does it in increments of power of 2 of the
+   remaining time. For instance it will be displayed 1, 2, 4, 8, 16, 32, 64.. etc minutes before the timer is up.
+   Disable by setting /warningShow/ to false
+
+3. Menu Bar: an item is added to the  menu bar. When the timer is active, this item displays the time left.
+   If /menuBarAlwaysShow/ is false do not display the item when the timer is not active (the menu item is always displayed
+   when the timer is up)
+
+3. Timer is up notification. There are three different notifications.
+
+   1. A timer alert (its duration is controlled by the variable alertLet, if zero, it is not displayed).
+   2. A sound. It can be configured using /alertSound/
+   3. A MacOS dialog alert. It steals focus but returns to previous app when selecting "OK". Disable by setting
+      /notify/ to false
+
+* callback
+
+The callback is a function that takes two parameters: event (string), and minutesLeft(float).
+There are four events:
+
+1. *started*: Timer is started
+2. *ended*:    Timer is up
+3. *paused*: the timer was paused
+4. *resumed*: the timer was resumed
+5. *cancelled*: the timer was reset
+
+Example: The following timer is started for 2 minutes, and will print the event and time left.
+
+#+begin_src lua   :exports both
+countDown=hs.loadSpoon("CountDown")
+
+countDown:startFor(2,
+   function (event, min) print(string.format("> Timer callback: event [%s] time [%f]", event, min))
+end)
+#+end_src
+
+
+
+
+
