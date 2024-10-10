@@ -25,48 +25,53 @@
 <pre><code>PaperWM = hs.loadSpoon(&quot;PaperWM&quot;)
 PaperWM:bindHotkeys({
     -- switch to a new focused window in tiled grid
-    focus_left  = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;}, &quot;left&quot;},
-    focus_right = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;}, &quot;right&quot;},
-    focus_up    = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;}, &quot;up&quot;},
-    focus_down  = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;}, &quot;down&quot;},
+    focus_left  = {{&quot;alt&quot;, &quot;cmd&quot;}, &quot;left&quot;},
+    focus_right = {{&quot;alt&quot;, &quot;cmd&quot;}, &quot;right&quot;},
+    focus_up    = {{&quot;alt&quot;, &quot;cmd&quot;}, &quot;up&quot;},
+    focus_down  = {{&quot;alt&quot;, &quot;cmd&quot;}, &quot;down&quot;},
 
     -- move windows around in tiled grid
-    swap_left  = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;, &quot;shift&quot;}, &quot;left&quot;},
-    swap_right = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;, &quot;shift&quot;}, &quot;right&quot;},
-    swap_up    = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;, &quot;shift&quot;}, &quot;up&quot;},
-    swap_down  = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;, &quot;shift&quot;}, &quot;down&quot;},
+    swap_left  = {{&quot;alt&quot;, &quot;cmd&quot;, &quot;shift&quot;}, &quot;left&quot;},
+    swap_right = {{&quot;alt&quot;, &quot;cmd&quot;, &quot;shift&quot;}, &quot;right&quot;},
+    swap_up    = {{&quot;alt&quot;, &quot;cmd&quot;, &quot;shift&quot;}, &quot;up&quot;},
+    swap_down  = {{&quot;alt&quot;, &quot;cmd&quot;, &quot;shift&quot;}, &quot;down&quot;},
 
     -- position and resize focused window
-    center_window = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;}, &quot;c&quot;},
-    full_width    = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;}, &quot;f&quot;},
-    cycle_width   = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;}, &quot;r&quot;},
-    cycle_height  = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;, &quot;shift&quot;}, &quot;r&quot;},
+    center_window       = {{&quot;alt&quot;, &quot;cmd&quot;}, &quot;c&quot;},
+    full_width          = {{&quot;alt&quot;, &quot;cmd&quot;}, &quot;f&quot;},
+    cycle_width         = {{&quot;alt&quot;, &quot;cmd&quot;}, &quot;r&quot;},
+    reverse_cycle_width = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;}, &quot;r&quot;},
+    cycle_height        = {{&quot;alt&quot;, &quot;cmd&quot;, &quot;shift&quot;}, &quot;r&quot;},
+   reverse_cycle_height = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;, &quot;shift&quot;}, &quot;r&quot;},
 
     -- move focused window into / out of a column
-    slurp_in = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;}, &quot;i&quot;},
-    barf_out = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;}, &quot;o&quot;},
+    slurp_in = {{&quot;alt&quot;, &quot;cmd&quot;}, &quot;i&quot;},
+    barf_out = {{&quot;alt&quot;, &quot;cmd&quot;}, &quot;o&quot;},
+
+    --- move the focused window into / out of the tiling layer
+    toggle_floating = {{&quot;alt&quot;, &quot;cmd&quot;, &quot;shift&quot;}, &quot;escape&quot;},
 
     -- switch to a new Mission Control space
-    switch_space_1 = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;}, &quot;1&quot;},
-    switch_space_2 = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;}, &quot;2&quot;},
-    switch_space_3 = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;}, &quot;3&quot;},
-    switch_space_4 = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;}, &quot;4&quot;},
-    switch_space_5 = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;}, &quot;5&quot;},
-    switch_space_6 = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;}, &quot;6&quot;},
-    switch_space_7 = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;}, &quot;7&quot;},
-    switch_space_8 = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;}, &quot;8&quot;},
-    switch_space_9 = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;}, &quot;9&quot;},
+    switch_space_1 = {{&quot;alt&quot;, &quot;cmd&quot;}, &quot;1&quot;},
+    switch_space_2 = {{&quot;alt&quot;, &quot;cmd&quot;}, &quot;2&quot;},
+    switch_space_3 = {{&quot;alt&quot;, &quot;cmd&quot;}, &quot;3&quot;},
+    switch_space_4 = {{&quot;alt&quot;, &quot;cmd&quot;}, &quot;4&quot;},
+    switch_space_5 = {{&quot;alt&quot;, &quot;cmd&quot;}, &quot;5&quot;},
+    switch_space_6 = {{&quot;alt&quot;, &quot;cmd&quot;}, &quot;6&quot;},
+    switch_space_7 = {{&quot;alt&quot;, &quot;cmd&quot;}, &quot;7&quot;},
+    switch_space_8 = {{&quot;alt&quot;, &quot;cmd&quot;}, &quot;8&quot;},
+    switch_space_9 = {{&quot;alt&quot;, &quot;cmd&quot;}, &quot;9&quot;},
 
     -- move focused window to a new space and tile
-    move_window_1 = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;, &quot;shift&quot;}, &quot;1&quot;},
-    move_window_2 = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;, &quot;shift&quot;}, &quot;2&quot;},
-    move_window_3 = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;, &quot;shift&quot;}, &quot;3&quot;},
-    move_window_4 = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;, &quot;shift&quot;}, &quot;4&quot;},
-    move_window_5 = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;, &quot;shift&quot;}, &quot;5&quot;},
-    move_window_6 = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;, &quot;shift&quot;}, &quot;6&quot;},
-    move_window_7 = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;, &quot;shift&quot;}, &quot;7&quot;},
-    move_window_8 = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;, &quot;shift&quot;}, &quot;8&quot;},
-    move_window_9 = {{&quot;ctrl&quot;, &quot;alt&quot;, &quot;cmd&quot;, &quot;shift&quot;}, &quot;9&quot;}
+    move_window_1 = {{&quot;alt&quot;, &quot;cmd&quot;, &quot;shift&quot;}, &quot;1&quot;},
+    move_window_2 = {{&quot;alt&quot;, &quot;cmd&quot;, &quot;shift&quot;}, &quot;2&quot;},
+    move_window_3 = {{&quot;alt&quot;, &quot;cmd&quot;, &quot;shift&quot;}, &quot;3&quot;},
+    move_window_4 = {{&quot;alt&quot;, &quot;cmd&quot;, &quot;shift&quot;}, &quot;4&quot;},
+    move_window_5 = {{&quot;alt&quot;, &quot;cmd&quot;, &quot;shift&quot;}, &quot;5&quot;},
+    move_window_6 = {{&quot;alt&quot;, &quot;cmd&quot;, &quot;shift&quot;}, &quot;6&quot;},
+    move_window_7 = {{&quot;alt&quot;, &quot;cmd&quot;, &quot;shift&quot;}, &quot;7&quot;},
+    move_window_8 = {{&quot;alt&quot;, &quot;cmd&quot;, &quot;shift&quot;}, &quot;8&quot;},
+    move_window_9 = {{&quot;alt&quot;, &quot;cmd&quot;, &quot;shift&quot;}, &quot;9&quot;}
 })
 PaperWM:start()
 </code></pre>
@@ -77,6 +82,11 @@ the top and bottom screen edges.</p>
 
 <pre><code>PaperWM.window_filter = PaperWM.window_filter:setAppFilter(&quot;Finder&quot;, false)
 PaperWM:start() -- restart for new window filter to take effect
+</code></pre>
+<p>Set <code>PaperWM.window_ratios</code> to the ratios to cycle window widths and heights
+through. For example:</p>
+
+<pre><code>PaperWM.window_ratios = { 1/3, 1/2, 2/3 }
 </code></pre>
 <h1>Limitations</h1>
 <p>Under System Preferences -&gt; Mission Control, unselect &quot;Automatically
@@ -100,6 +110,7 @@ screens.</p>
             <li><a href="#logger">logger</a></li>
             <li><a href="#window_filter">window_filter</a></li>
             <li><a href="#window_gap">window_gap</a></li>
+            <li><a href="#window_ratios">window_ratios</a></li>
           </ul>
         <li>Methods - API calls which can only be made on an object returned by a constructor</li>
           <ul>
@@ -109,6 +120,7 @@ screens.</p>
             <li><a href="#centerWindow">centerWindow</a></li>
             <li><a href="#cycleWindowSize">cycleWindowSize</a></li>
             <li><a href="#focusWindow">focusWindow</a></li>
+            <li><a href="#incrementSpace">incrementSpace</a></li>
             <li><a href="#moveWindow">moveWindow</a></li>
             <li><a href="#moveWindowToSpace">moveWindowToSpace</a></li>
             <li><a href="#refreshWindows">refreshWindows</a></li>
@@ -121,6 +133,7 @@ screens.</p>
             <li><a href="#switchToSpace">switchToSpace</a></li>
             <li><a href="#tileColumn">tileColumn</a></li>
             <li><a href="#tileSpace">tileSpace</a></li>
+            <li><a href="#toggleFloating">toggleFloating</a></li>
           </ul>
       </ul>
       <h3>API Documentation</h3>
@@ -144,7 +157,7 @@ screens.</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L111">Source/PaperWM.spoon/init.lua line 111</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L132">Source/PaperWM.spoon/init.lua line 132</a></td>
               </tr>
             </table>
           </section>
@@ -167,7 +180,7 @@ screens.</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L165">Source/PaperWM.spoon/init.lua line 165</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L202">Source/PaperWM.spoon/init.lua line 202</a></td>
               </tr>
             </table>
           </section>
@@ -190,7 +203,7 @@ screens.</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L150">Source/PaperWM.spoon/init.lua line 150</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L177">Source/PaperWM.spoon/init.lua line 177</a></td>
               </tr>
             </table>
           </section>
@@ -213,7 +226,30 @@ screens.</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L160">Source/PaperWM.spoon/init.lua line 160</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L187">Source/PaperWM.spoon/init.lua line 187</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="window_ratios">
+            <a name="//apple_ref/cpp/Variable/window_ratios" class="dashAnchor"></a>
+            <h5><a href="#window_ratios">window_ratios</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>PaperWM.window_ratios</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Size of the on-screen margin to place off-screen windows</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L197">Source/PaperWM.spoon/init.lua line 197</a></td>
               </tr>
             </table>
           </section>
@@ -251,7 +287,7 @@ screens.</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L594">Source/PaperWM.spoon/init.lua line 594</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L652">Source/PaperWM.spoon/init.lua line 652</a></td>
               </tr>
             </table>
           </section>
@@ -285,7 +321,7 @@ screens.</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L1026">Source/PaperWM.spoon/init.lua line 1026</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L1135">Source/PaperWM.spoon/init.lua line 1135</a></td>
               </tr>
             </table>
           </section>
@@ -311,6 +347,8 @@ screens.</p>
                   <td><ul>
 <li>mapping - A table containing hotkey modifer/key details for the following items:<ul>
 <li>stop_events - Stop automatic tiling</li>
+<li>refresh_windows - Refresh windows from window filter list</li>
+<li>toggle_floating - Add or remove window from floating layer</li>
 <li>focus_left - Focus window to left of current window</li>
 <li>focus_right - Focus window to right of current window</li>
 <li>focus_up - Focus window to up of current window</li>
@@ -323,8 +361,12 @@ screens.</p>
 <li>full_width - Resize width of current window to width of screen</li>
 <li>cycle_width - Toggle through preset window widths</li>
 <li>cycle_height - Toggle through preset window heights</li>
+<li>reverse_cycle_width - Toggle through preset window widths</li>
+<li>reverse_cycle_height - Toggle through preset window heights</li>
 <li>slurp_in - Move current window into column to the left</li>
 <li>barf_out - Remove current window from column and place to the right</li>
+<li>switch_space_l - Switch to Mission Control space to the left</li>
+<li>switch_space_r - Switch to Mission Control space to the right</li>
 <li>switch_space_1 - Switch to Mission Control space 1</li>
 <li>switch_space_2 - Switch to Mission Control space 2</li>
 <li>switch_space_3 - Switch to Mission Control space 3</li>
@@ -354,7 +396,7 @@ screens.</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L275">Source/PaperWM.spoon/init.lua line 275</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L1455">Source/PaperWM.spoon/init.lua line 1455</a></td>
               </tr>
             </table>
           </section>
@@ -388,7 +430,7 @@ screens.</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L860">Source/PaperWM.spoon/init.lua line 860</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L937">Source/PaperWM.spoon/init.lua line 937</a></td>
               </tr>
             </table>
           </section>
@@ -398,7 +440,7 @@ screens.</p>
             <table>
               <tr>
                 <th>Signature</th>
-                <td><code>PaperWM:cycleWindowSize(direction)</code></td>
+                <td><code>PaperWM:cycleWindowSize(direction, cycle_direction)</code></td>
               </tr>
               <tr>
                 <th>Type</th>
@@ -413,6 +455,7 @@ screens.</p>
                   <th>Parameters</th>
                   <td><ul>
 <li>direction - One of Direction { WIDTH, HEIGHT }</li>
+<li>cycle_direction - One of Direction { ASCENDING, DESCENDING }</li>
 </ul>
 </td>
               </tr>
@@ -422,7 +465,7 @@ screens.</p>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L907">Source/PaperWM.spoon/init.lua line 907</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L990">Source/PaperWM.spoon/init.lua line 990</a></td>
               </tr>
             </table>
           </section>
@@ -461,7 +504,41 @@ was found in that direction.</li>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L699">Source/PaperWM.spoon/init.lua line 699</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L771">Source/PaperWM.spoon/init.lua line 771</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="incrementSpace">
+            <a name="//apple_ref/cpp/Method/incrementSpace" class="dashAnchor"></a>
+            <h5><a href="#incrementSpace">incrementSpace</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>PaperWM:incrementSpace(direction)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Switch to a Mission Control space to the left or right of current space</p>
+</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>direction - One of Direction { LEFT, RIGHT }</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L1209">Source/PaperWM.spoon/init.lua line 1209</a></td>
               </tr>
             </table>
           </section>
@@ -496,7 +573,7 @@ was found in that direction.</li>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L1147">Source/PaperWM.spoon/init.lua line 1147</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L1351">Source/PaperWM.spoon/init.lua line 1351</a></td>
               </tr>
             </table>
           </section>
@@ -506,7 +583,7 @@ was found in that direction.</li>
             <table>
               <tr>
                 <th>Signature</th>
-                <td><code>PaperWM:moveWindowToSpace(index)</code></td>
+                <td><code>PaperWM:moveWindowToSpace(index, window)</code></td>
               </tr>
               <tr>
                 <th>Type</th>
@@ -521,6 +598,7 @@ was found in that direction.</li>
                   <th>Parameters</th>
                   <td><ul>
 <li>index - The space number</li>
+<li>window - Optional window to move</li>
 </ul>
 </td>
               </tr>
@@ -530,7 +608,7 @@ was found in that direction.</li>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L1096">Source/PaperWM.spoon/init.lua line 1096</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L1243">Source/PaperWM.spoon/init.lua line 1243</a></td>
               </tr>
             </table>
           </section>
@@ -567,7 +645,7 @@ was found in that direction.</li>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L563">Source/PaperWM.spoon/init.lua line 563</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L618">Source/PaperWM.spoon/init.lua line 618</a></td>
               </tr>
             </table>
           </section>
@@ -605,7 +683,7 @@ was found in that direction.</li>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L652">Source/PaperWM.spoon/init.lua line 652</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L720">Source/PaperWM.spoon/init.lua line 720</a></td>
               </tr>
             </table>
           </section>
@@ -639,7 +717,7 @@ was found in that direction.</li>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L885">Source/PaperWM.spoon/init.lua line 885</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L965">Source/PaperWM.spoon/init.lua line 965</a></td>
               </tr>
             </table>
           </section>
@@ -673,7 +751,7 @@ was found in that direction.</li>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L961">Source/PaperWM.spoon/init.lua line 961</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L1067">Source/PaperWM.spoon/init.lua line 1067</a></td>
               </tr>
             </table>
           </section>
@@ -710,7 +788,7 @@ was found in that direction.</li>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L354">Source/PaperWM.spoon/init.lua line 354</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L396">Source/PaperWM.spoon/init.lua line 396</a></td>
               </tr>
             </table>
           </section>
@@ -747,7 +825,7 @@ was found in that direction.</li>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L391">Source/PaperWM.spoon/init.lua line 391</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L447">Source/PaperWM.spoon/init.lua line 447</a></td>
               </tr>
             </table>
           </section>
@@ -781,7 +859,7 @@ was found in that direction.</li>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L749">Source/PaperWM.spoon/init.lua line 749</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L824">Source/PaperWM.spoon/init.lua line 824</a></td>
               </tr>
             </table>
           </section>
@@ -815,7 +893,7 @@ was found in that direction.</li>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L1080">Source/PaperWM.spoon/init.lua line 1080</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L1192">Source/PaperWM.spoon/init.lua line 1192</a></td>
               </tr>
             </table>
           </section>
@@ -867,7 +945,7 @@ to width of first window.</li>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L408">Source/PaperWM.spoon/init.lua line 408</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L470">Source/PaperWM.spoon/init.lua line 470</a></td>
               </tr>
             </table>
           </section>
@@ -901,7 +979,41 @@ to width of first window.</li>
               </tr>
               <tr>
                 <th>Source</th>
-                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L460">Source/PaperWM.spoon/init.lua line 460</a></td>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L522">Source/PaperWM.spoon/init.lua line 522</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="toggleFloating">
+            <a name="//apple_ref/cpp/Method/toggleFloating" class="dashAnchor"></a>
+            <h5><a href="#toggleFloating">toggleFloating</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>PaperWM:toggleFloating()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Add or remove focused window from the floating layer and retile the space</p>
+</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>None</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/PaperWM.spoon/init.lua#L1380">Source/PaperWM.spoon/init.lua line 1380</a></td>
               </tr>
             </table>
           </section>

@@ -2136,6 +2136,12 @@
     "type": "Variable"
   },
   {
+    "desc": "Size of the on-screen margin to place off-screen windows",
+    "module": "PaperWM",
+    "name": "window_ratios",
+    "type": "Variable"
+  },
+  {
     "desc": "Adds a window to layout and tiles.",
     "module": "PaperWM",
     "name": "addWindow",
@@ -2169,6 +2175,12 @@
     "desc": "Change focus to a nearby window",
     "module": "PaperWM",
     "name": "focusWindow",
+    "type": "Method"
+  },
+  {
+    "desc": "Switch to a Mission Control space to the left or right of current space",
+    "module": "PaperWM",
+    "name": "incrementSpace",
     "type": "Method"
   },
   {
@@ -2241,6 +2253,12 @@
     "desc": "Tile all windows within a space",
     "module": "PaperWM",
     "name": "tileSpace",
+    "type": "Method"
+  },
+  {
+    "desc": "Add or remove focused window from the floating layer and retile the space",
+    "module": "PaperWM",
+    "name": "toggleFloating",
     "type": "Method"
   },
   {
