@@ -5,7 +5,7 @@
 --- The way of Commander to generate it command list is
 --- it goes to each spoon and extract all public functions inside the spoon table.
 --- for each function the name is set to "spoonName.functionName".
---- if the spoon has a table called `commandderCommandTable`, Commander will
+--- if the spoon has a table called `commanderCommandList`, Commander will
 --- ignore everything else and take whatever is in the table.
 --- In this case the naming convention is the same.
 --- Then Commander grabs all the functions in global table.
