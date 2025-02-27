@@ -1,217 +1,173 @@
 [
   {
-    "Constant" : [
-
-    ],
-    "submodules" : [
-
-    ],
-    "Function" : [
-
-    ],
-    "Variable" : [
-
-    ],
-    "stripped_doc" : [
-
-    ],
-    "type" : "Module",
-    "Deprecated" : [
-
-    ],
-    "desc" : "Display UTC time in the menu bar",
-    "Constructor" : [
-
-    ],
-    "Field" : [
-
-    ],
-    "Method" : [
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
       {
-        "doc" : "Initial setup for ZeroOffset\n\nParameters:\n * None\n\nReturns:\n * The ZeroOffset object",
-        "desc" : "Initial setup for ZeroOffset",
-        "def" : "ZeroOffset:init()",
-        "stripped_doc" : [
-          "Initial setup for ZeroOffset",
-          ""
+        "def": "ZeroOffset:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for ZeroOffset",
+        "doc": "Binds hotkeys for ZeroOffset\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n  * toggle - This will toggle the display of the UTC time in menubar\n\nReturns:\n * The ZeroOffset object",
+        "examples": [],
+        "file": "Source/ZeroOffset.spoon//init.lua",
+        "lineno": "80",
+        "name": "bindHotkeys",
+        "notes": [],
+        "parameters": [
+          " * mapping - A table containing hotkey objifier/key details for the following items:\n   * toggle - This will toggle the display of the UTC time in menubar"
         ],
-        "notes" : [
-
-        ],
-        "signature" : "ZeroOffset:init()",
-        "type" : "Method",
-        "returns" : [
+        "returns": [
           " * The ZeroOffset object"
         ],
-        "name" : "init",
-        "parameters" : [
-          " * None",
-          ""
-        ]
+        "signature": "ZeroOffset:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
       },
       {
-        "doc" : "Starts ZeroOffset\n\nParameters:\n * None\n\nReturns:\n * The ZeroOffset object",
-        "desc" : "Starts ZeroOffset",
-        "def" : "ZeroOffset:start()",
-        "stripped_doc" : [
-          "Starts ZeroOffset",
-          ""
+        "def": "ZeroOffset:init()",
+        "desc": "Initial setup for ZeroOffset",
+        "doc": "Initial setup for ZeroOffset\n\nParameters:\n * None\n\nReturns:\n * The ZeroOffset object",
+        "examples": [],
+        "file": "Source/ZeroOffset.spoon//init.lua",
+        "lineno": "19",
+        "name": "init",
+        "notes": [],
+        "parameters": [
+          " * None"
         ],
-        "notes" : [
-
-        ],
-        "signature" : "ZeroOffset:start()",
-        "type" : "Method",
-        "returns" : [
+        "returns": [
           " * The ZeroOffset object"
         ],
-        "name" : "start",
-        "parameters" : [
-          " * None",
-          ""
-        ]
+        "signature": "ZeroOffset:init()",
+        "stripped_doc": "",
+        "type": "Method"
       },
       {
-        "doc" : "Stops ZeroOffset\n\nParameters:\n * None\n\nReturns:\n * The ZeroOffset object",
-        "desc" : "Stops ZeroOffset",
-        "def" : "ZeroOffset:stop()",
-        "stripped_doc" : [
-          "Stops ZeroOffset",
-          ""
+        "def": "ZeroOffset:start()",
+        "desc": "Starts ZeroOffset",
+        "doc": "Starts ZeroOffset\n\nParameters:\n * None\n\nReturns:\n * The ZeroOffset object",
+        "examples": [],
+        "file": "Source/ZeroOffset.spoon//init.lua",
+        "lineno": "36",
+        "name": "start",
+        "notes": [],
+        "parameters": [
+          " * None"
         ],
-        "notes" : [
-
-        ],
-        "signature" : "ZeroOffset:stop()",
-        "type" : "Method",
-        "returns" : [
+        "returns": [
           " * The ZeroOffset object"
         ],
-        "name" : "stop",
-        "parameters" : [
-          " * None",
-          ""
-        ]
+        "signature": "ZeroOffset:start()",
+        "stripped_doc": "",
+        "type": "Method"
       },
       {
-        "doc" : "Binds hotkeys for ZeroOffset\n\nParameters:\n * mapping - A table containing hotkey objifier\/key details for the following items:\n  * toggle - This will toggle the display of the UTC time in menubar\n\nReturns:\n * The ZeroOffset object",
-        "desc" : "Binds hotkeys for ZeroOffset",
-        "def" : "ZeroOffset:bindHotkeys(mapping)",
-        "stripped_doc" : [
-          "Binds hotkeys for ZeroOffset",
-          ""
+        "def": "ZeroOffset:stop()",
+        "desc": "Stops ZeroOffset",
+        "doc": "Stops ZeroOffset\n\nParameters:\n * None\n\nReturns:\n * The ZeroOffset object",
+        "examples": [],
+        "file": "Source/ZeroOffset.spoon//init.lua",
+        "lineno": "56",
+        "name": "stop",
+        "notes": [],
+        "parameters": [
+          " * None"
         ],
-        "notes" : [
-
-        ],
-        "signature" : "ZeroOffset:bindHotkeys(mapping)",
-        "type" : "Method",
-        "returns" : [
+        "returns": [
           " * The ZeroOffset object"
         ],
-        "name" : "bindHotkeys",
-        "parameters" : [
-          " * mapping - A table containing hotkey objifier\/key details for the following items:",
-          "  * toggle - This will toggle the display of the UTC time in menubar",
-          ""
-        ]
+        "signature": "ZeroOffset:stop()",
+        "stripped_doc": "",
+        "type": "Method"
       }
     ],
-    "Command" : [
-
-    ],
-    "items" : [
+    "Variable": [],
+    "desc": "Display UTC time in the menu bar",
+    "doc": "Display UTC time in the menu bar\n\nDownload: [https://github.com/gavinest/ZeroOffset/blob/main/Spoons/ZeroOffset.spoon.zip](https://github.com/gavinest/ZeroOffset/blob/main/Spoons/ZeroOffset.spoon.zip)",
+    "items": [
       {
-        "doc" : "Binds hotkeys for ZeroOffset\n\nParameters:\n * mapping - A table containing hotkey objifier\/key details for the following items:\n  * toggle - This will toggle the display of the UTC time in menubar\n\nReturns:\n * The ZeroOffset object",
-        "desc" : "Binds hotkeys for ZeroOffset",
-        "def" : "ZeroOffset:bindHotkeys(mapping)",
-        "stripped_doc" : [
-          "Binds hotkeys for ZeroOffset",
-          ""
+        "def": "ZeroOffset:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for ZeroOffset",
+        "doc": "Binds hotkeys for ZeroOffset\n\nParameters:\n * mapping - A table containing hotkey objifier/key details for the following items:\n  * toggle - This will toggle the display of the UTC time in menubar\n\nReturns:\n * The ZeroOffset object",
+        "examples": [],
+        "file": "Source/ZeroOffset.spoon//init.lua",
+        "lineno": "80",
+        "name": "bindHotkeys",
+        "notes": [],
+        "parameters": [
+          " * mapping - A table containing hotkey objifier/key details for the following items:\n   * toggle - This will toggle the display of the UTC time in menubar"
         ],
-        "notes" : [
-
-        ],
-        "signature" : "ZeroOffset:bindHotkeys(mapping)",
-        "type" : "Method",
-        "returns" : [
+        "returns": [
           " * The ZeroOffset object"
         ],
-        "name" : "bindHotkeys",
-        "parameters" : [
-          " * mapping - A table containing hotkey objifier\/key details for the following items:",
-          "  * toggle - This will toggle the display of the UTC time in menubar",
-          ""
-        ]
+        "signature": "ZeroOffset:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
       },
       {
-        "doc" : "Initial setup for ZeroOffset\n\nParameters:\n * None\n\nReturns:\n * The ZeroOffset object",
-        "desc" : "Initial setup for ZeroOffset",
-        "def" : "ZeroOffset:init()",
-        "stripped_doc" : [
-          "Initial setup for ZeroOffset",
-          ""
+        "def": "ZeroOffset:init()",
+        "desc": "Initial setup for ZeroOffset",
+        "doc": "Initial setup for ZeroOffset\n\nParameters:\n * None\n\nReturns:\n * The ZeroOffset object",
+        "examples": [],
+        "file": "Source/ZeroOffset.spoon//init.lua",
+        "lineno": "19",
+        "name": "init",
+        "notes": [],
+        "parameters": [
+          " * None"
         ],
-        "notes" : [
-
-        ],
-        "signature" : "ZeroOffset:init()",
-        "type" : "Method",
-        "returns" : [
+        "returns": [
           " * The ZeroOffset object"
         ],
-        "name" : "init",
-        "parameters" : [
-          " * None",
-          ""
-        ]
+        "signature": "ZeroOffset:init()",
+        "stripped_doc": "",
+        "type": "Method"
       },
       {
-        "doc" : "Starts ZeroOffset\n\nParameters:\n * None\n\nReturns:\n * The ZeroOffset object",
-        "desc" : "Starts ZeroOffset",
-        "def" : "ZeroOffset:start()",
-        "stripped_doc" : [
-          "Starts ZeroOffset",
-          ""
+        "def": "ZeroOffset:start()",
+        "desc": "Starts ZeroOffset",
+        "doc": "Starts ZeroOffset\n\nParameters:\n * None\n\nReturns:\n * The ZeroOffset object",
+        "examples": [],
+        "file": "Source/ZeroOffset.spoon//init.lua",
+        "lineno": "36",
+        "name": "start",
+        "notes": [],
+        "parameters": [
+          " * None"
         ],
-        "notes" : [
-
-        ],
-        "signature" : "ZeroOffset:start()",
-        "type" : "Method",
-        "returns" : [
+        "returns": [
           " * The ZeroOffset object"
         ],
-        "name" : "start",
-        "parameters" : [
-          " * None",
-          ""
-        ]
+        "signature": "ZeroOffset:start()",
+        "stripped_doc": "",
+        "type": "Method"
       },
       {
-        "doc" : "Stops ZeroOffset\n\nParameters:\n * None\n\nReturns:\n * The ZeroOffset object",
-        "desc" : "Stops ZeroOffset",
-        "def" : "ZeroOffset:stop()",
-        "stripped_doc" : [
-          "Stops ZeroOffset",
-          ""
+        "def": "ZeroOffset:stop()",
+        "desc": "Stops ZeroOffset",
+        "doc": "Stops ZeroOffset\n\nParameters:\n * None\n\nReturns:\n * The ZeroOffset object",
+        "examples": [],
+        "file": "Source/ZeroOffset.spoon//init.lua",
+        "lineno": "56",
+        "name": "stop",
+        "notes": [],
+        "parameters": [
+          " * None"
         ],
-        "notes" : [
-
-        ],
-        "signature" : "ZeroOffset:stop()",
-        "type" : "Method",
-        "returns" : [
+        "returns": [
           " * The ZeroOffset object"
         ],
-        "name" : "stop",
-        "parameters" : [
-          " * None",
-          ""
-        ]
+        "signature": "ZeroOffset:stop()",
+        "stripped_doc": "",
+        "type": "Method"
       }
     ],
-    "doc" : "Display UTC time in the menu bar\n\nDownload: [https:\/\/github.com\/gavinest\/ZeroOffset\/blob\/main\/Spoons\/ZeroOffset.spoon.zip](https:\/\/github.com\/gavinest\/ZeroOffset\/blob\/main\/Spoons\/ZeroOffset.spoon.zip)",
-    "name" : "ZeroOffset"
+    "name": "ZeroOffset",
+    "stripped_doc": "\nDownload: [https://github.com/gavinest/ZeroOffset/blob/main/Spoons/ZeroOffset.spoon.zip](https://github.com/gavinest/ZeroOffset/blob/main/Spoons/ZeroOffset.spoon.zip)",
+    "submodules": [],
+    "type": "Module"
   }
 ]
