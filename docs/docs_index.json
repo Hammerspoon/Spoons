@@ -4035,5 +4035,34 @@
     "module": "WinWin",
     "name": "undo",
     "type": "Method"
+  },
+  {
+    "desc": "Display UTC time in the menu bar",
+    "name": "ZeroOffset",
+    "type": "Module"
+  },
+  {
+    "desc": "Binds hotkeys for ZeroOffset",
+    "module": "ZeroOffset",
+    "name": "bindHotkeys",
+    "type": "Method"
+  },
+  {
+    "desc": "Initial setup for ZeroOffset",
+    "module": "ZeroOffset",
+    "name": "init",
+    "type": "Method"
+  },
+  {
+    "desc": "Starts ZeroOffset",
+    "module": "ZeroOffset",
+    "name": "start",
+    "type": "Method"
+  },
+  {
+    "desc": "Stops ZeroOffset",
+    "module": "ZeroOffset",
+    "name": "stop",
+    "type": "Method"
   }
 ]
