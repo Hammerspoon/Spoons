@@ -21,12 +21,18 @@ obj.eventtap = nil
 obj.brightness = nil
 obj.steps = 17
 
+--- spoon.AllBrightness.referenceScreen
+--- Variable
+--- An hs.screen object to use as a reference for brightness changes. Defaults to `hs.screen.allScreens()[1]`
+obj.referenceScreen = hs.screen.allScreens()[1]
+
 function obj:init()
     self.eventtap = hs.eventtap.new({hs.eventtap.event.types.systemDefined},
         function(mainEvent)
             local event = mainEvent:systemKey()
             local consumed = false
             --print(event['key'])
+--            print("Window: ", mainEvent:getProperty(hs.eventtap.event.properties['mouseEventWindowUnderMousePointer']))
             if (not event or next(event) == nil) then
                 -- This isn't an event we care about, quit now and let it propagate
                 return false
@@ -36,7 +42,7 @@ function obj:init()
                 return false
             end
 
-            obj.brightness = hs.screen.allScreens()[1]:getBrightness()
+            obj.brightness = obj.referenceScreen:getBrightness()
             local newBrightness = obj.brightness
 
             if (event['key'] == "BRIGHTNESS_UP") then
@@ -60,12 +66,12 @@ function obj:init()
             end
 
             for _,screen in pairs(hs.screen.allScreens()) do
-                --print("  set "..newBrightness.. " on: "..screen:name())
+                print("  set "..newBrightness.. " on: "..screen:name())
                 screen:setBrightness(newBrightness)
                 consumed = true
             end
 
-            obj.brightness = hs.screen.allScreens()[1]:getBrightness()
+            obj.brightness = obj.referenceScreen:getBrightness()
 
             return consumed
         end)
@@ -73,7 +79,7 @@ end
 
 function obj:start()
     --print("Starting AllBrightness")
-    self.brightness = hs.screen.allScreens()[1]:getBrightness()
+    self.brightness = obj.referenceScreen:getBrightness()
     self.eventtap:start()
 end
 
