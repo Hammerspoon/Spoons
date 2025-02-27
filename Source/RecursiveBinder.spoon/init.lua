@@ -200,7 +200,6 @@ local function showHelper(keyFuncNameTable)
    local lastLine = ''
    local count = 0
    for keyName, funcName in pairs(keyFuncNameTable) do
-      count = count + 1
       local newEntry = keyName..' → '..funcName
       -- make sure each entry is of the same length
       if string.len(newEntry) > obj.helperEntryLengthInChar then
@@ -209,16 +208,16 @@ local function showHelper(keyFuncNameTable)
          newEntry = newEntry..string.rep(' ', obj.helperEntryLengthInChar - string.len(newEntry))
       end
       -- create new line for every helperEntryEachLine entries
-      if count % (obj.helperEntryEachLine + 1) == 0 then
-         separator = '\n '
-      elseif count == 1 then
-         separator = ' '
+      if count == 0 then
+         separator = ''
+      elseif count % obj.helperEntryEachLine == 0 then
+         separator = '\n'
       else
          separator = '  '
       end
       helper = helper..separator..newEntry
+      count = count + 1
    end
-   helper = string.match(helper, '[^\n].+$')
    previousHelperID = hs.alert.show(helper, obj.helperFormat, true)
 end
 
