@@ -270,12 +270,42 @@
     "Field": [],
     "Function": [],
     "Method": [],
-    "Variable": [],
+    "Variable": [
+      {
+        "def": "AllBrightness.referenceScreen",
+        "def_gfm": "AllBrightness.referenceScreen",
+        "desc": "An hs.screen object to use as a reference for brightness changes. Defaults to `hs.screen.allScreens()[1]`",
+        "desc_gfm": "<p>An hs.screen object to use as a reference for brightness changes. Defaults to <code>hs.screen.allScreens()[1]</code></p>\n",
+        "doc": "An hs.screen object to use as a reference for brightness changes. Defaults to `hs.screen.allScreens()[1]`",
+        "doc_gfm": "<p>An hs.screen object to use as a reference for brightness changes. Defaults to <code>hs.screen.allScreens()[1]</code></p>\n",
+        "file": "Source/AllBrightness.spoon/init.lua",
+        "lineno": "24",
+        "name": "referenceScreen",
+        "signature": "AllBrightness.referenceScreen",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
     "desc": "Listens for keyboard brightness keypresses and alters brightness on all supported displays.",
     "desc_gfm": "<p>Listens for keyboard brightness keypresses and alters brightness on all supported displays.</p>\n",
     "doc": "Listens for keyboard brightness keypresses and alters brightness on all supported displays.\nNote: This is primarily intended for Macs with no internal display, but should work for those with an internal display.\nNote: External displays will only respond to brightness change requests if they were either made by Apple, or are LG UltraFine displays (which were designed by Apple).\nNote: If your keyboard brightness keys aren't triggering this Spoon, use Karabiner Elements to set them to `display_brightness_decrement` and `display_brightness_increment`.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/AllBrightness.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/AllBrightness.spoon.zip)",
     "doc_gfm": "<p>Listens for keyboard brightness keypresses and alters brightness on all supported displays.\nNote: This is primarily intended for Macs with no internal display, but should work for those with an internal display.\nNote: External displays will only respond to brightness change requests if they were either made by Apple, or are LG UltraFine displays (which were designed by Apple).\nNote: If your keyboard brightness keys aren't triggering this Spoon, use Karabiner Elements to set them to <code>display_brightness_decrement</code> and <code>display_brightness_increment</code>.</p>\n<p>Download: <a href=\"https://github.com/Hammerspoon/Spoons/raw/master/Spoons/AllBrightness.spoon.zip\">https://github.com/Hammerspoon/Spoons/raw/master/Spoons/AllBrightness.spoon.zip</a></p>\n",
-    "items": [],
+    "items": [
+      {
+        "def": "AllBrightness.referenceScreen",
+        "def_gfm": "AllBrightness.referenceScreen",
+        "desc": "An hs.screen object to use as a reference for brightness changes. Defaults to `hs.screen.allScreens()[1]`",
+        "desc_gfm": "<p>An hs.screen object to use as a reference for brightness changes. Defaults to <code>hs.screen.allScreens()[1]</code></p>\n",
+        "doc": "An hs.screen object to use as a reference for brightness changes. Defaults to `hs.screen.allScreens()[1]`",
+        "doc_gfm": "<p>An hs.screen object to use as a reference for brightness changes. Defaults to <code>hs.screen.allScreens()[1]</code></p>\n",
+        "file": "Source/AllBrightness.spoon/init.lua",
+        "lineno": "24",
+        "name": "referenceScreen",
+        "signature": "AllBrightness.referenceScreen",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
     "name": "AllBrightness",
     "stripped_doc": "Note: This is primarily intended for Macs with no internal display, but should work for those with an internal display.\nNote: External displays will only respond to brightness change requests if they were either made by Apple, or are LG UltraFine displays (which were designed by Apple).\nNote: If your keyboard brightness keys aren't triggering this Spoon, use Karabiner Elements to set them to `display_brightness_decrement` and `display_brightness_increment`.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/AllBrightness.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/AllBrightness.spoon.zip)",
     "submodules": [],

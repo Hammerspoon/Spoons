@@ -40,6 +40,12 @@
     "type": "Module"
   },
   {
+    "desc": "An hs.screen object to use as a reference for brightness changes. Defaults to `hs.screen.allScreens()[1]`",
+    "module": "AllBrightness",
+    "name": "referenceScreen",
+    "type": "Variable"
+  },
+  {
     "desc": "Simple spoon for launching apps with single letter hotkeys.",
     "name": "AppLauncher",
     "type": "Module"
