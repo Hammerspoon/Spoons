@@ -21,7 +21,7 @@ obj.eventtap = nil
 obj.brightness = nil
 obj.steps = 17
 
---- spoon.AllBrightness.referenceScreen
+--- AllBrightness.referenceScreen
 --- Variable
 --- An hs.screen object to use as a reference for brightness changes. Defaults to `hs.screen.allScreens()[1]`
 obj.referenceScreen = hs.screen.allScreens()[1]
