@@ -3807,7 +3807,7 @@
       }
     ],
     "name": "Commander",
-    "stripped_doc": "\nThe way of Commander to generate it command list is\nit goes to each spoon and extract all public functions inside the spoon table.\nfor each function the name is set to \"spoonName.functionName\".\nif the spoon has a table called `commandderCommandTable`, Commander will\nignore everything else and take whatever is in the table.\nIn this case the naming convention is the same.\nThen Commander grabs all the functions in global table.\nfunctions are tested against `Commander.ignoredCommandList`,\nexcept when spoon author provides a `commanderCommandList`.\n\nCommander.chooser is the chooser, you can set background color, rows, etc, to it.",
+    "stripped_doc": "\nThe way of Commander to generate it command list is\nit goes to each spoon and extract all public functions inside the spoon table.\nfor each function the name is set to \"spoonName.functionName\".\nif the spoon has a table called `commanderCommandList`, Commander will\nignore everything else and take whatever is in the table.\nIn this case the naming convention is the same.\nThen Commander grabs all the functions in global table.\nfunctions are tested against `Commander.ignoredCommandList`,\nexcept when spoon author provides a `commanderCommandList`.\n\nCommander.chooser is the chooser, you can set background color, rows, etc, to it.",
     "submodules": [],
     "type": "Module"
   },
