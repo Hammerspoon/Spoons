@@ -257,11 +257,15 @@ function obj.recursiveBind(keymap)
       local func = obj.recursiveBind(map)
       -- key[1] is modifiers, i.e. {'shift'}, key[2] is key, i.e. 'f' 
       modal:bind(key[1], key[2], function() modal:exit() killHelper() func() end)
-      modal:bind(obj.escapeKey[1], obj.escapeKey[2], function() modal:exit() killHelper() end)
+    
+      -- Repeated binding, resulting in slowdown
+      -- modal:bind(obj.escapeKey[1], obj.escapeKey[2], function() modal:exit() killHelper() end)
       if #key >= 3 then
          keyFuncNameTable[createKeyName(key)] = key[3]
       end
    end
+   -- fix repeat bind 
+   modal:bind(obj.escapeKey[1], obj.escapeKey[2], function() modal:exit() killHelper() end)
    return function()
       modal:enter()
       killHelper()
