@@ -224,7 +224,6 @@ function obj:show_message(msg, duration)
    if not duration  then
       duration = obj.messageDuration
    end
-   print(">>>>>>>>>>>>>>>>", duration)
    hs.alert.show(msg, obj.messageAttributes, nil, duration)
 end
 
@@ -379,21 +378,17 @@ function obj:bar_create_timer()
   local secCount = math.ceil(60*minutes)
   obj.currentIcon = obj.menuBarIconActive
   obj.loopCount = 0
-  
-  if mainRes.w/secCount >= minimumStep then
-    -- do every second
-    barTimer = hs.timer.doEvery(1, function()
-        obj:bar_updateProgress()
-    end)
-  else
-    -- we need few seconds to advance two pixels
-    local interval = 2/(mainRes.w/secCount)
-    barTimer = hs.timer.doEvery(interval,
-      function()
-        obj:barSetProgresspercentage(obj.barProgress)
-      end
-    )
+
+  local interval = 1
+
+  if mainRes.w/secCount < minimumStep then
+    interval = 2/(mainRes.w/secCount)
   end
+  barTimer = hs.timer.doEvery(interval,
+    function()
+      obj:bar_updateProgress()
+    end
+  )
 end
 
 ---- warning related functions
