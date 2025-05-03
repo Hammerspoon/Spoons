@@ -1,7 +1,7 @@
 --- === MusicAppMediaFix ===
 ---
 --- Override macOS behaviour and send all media keys (play/prev/next) to
---- the last active of a specified list of apps in MusicAppMediaFix.mediaApps
+--- the last active of a specified list of apps
 local obj = { __gc = true }
 --obj.__index = obj
 setmetatable(obj, obj)
@@ -16,9 +16,13 @@ obj.author = "Matheus Salmi <mathsalmi@gmail.com>, Chris Jones <cmsj@tenshu.net>
 obj.homepage = "https://github.com/Hammerspoon/Spoons"
 obj.license = "MIT - https://opensource.org/licenses/MIT"
 
+--- MusicAppMediaFix.mediaApps
+--- Variable
+--- List of applications to control with the media keys
+obj.mediaApps = { "Music" }
+
 obj.eventtap = nil
 obj.appWatcher = nil
-obj.mediaApps = {"Music"}
 obj.currentApp = nil
 
 -- Internal function used to find our location, so we know where to load files from
