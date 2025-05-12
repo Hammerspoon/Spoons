@@ -3849,7 +3849,7 @@
         "doc": "Bind hotkeys for this spoon\n\nParameters:\n * mapping: a table with the callbacks\nReturns:\n * None",
         "examples": [],
         "file": "Source/CountDown.spoon/init.lua",
-        "lineno": "734",
+        "lineno": "729",
         "name": "bindHotkeys",
         "notes": [],
         "parameters": [
@@ -3868,7 +3868,7 @@
         "doc": " Reset the timer\n\nParameters:\n * None\nReturns:\n * None",
         "examples": [],
         "file": "Source/CountDown.spoon/init.lua",
-        "lineno": "685",
+        "lineno": "680",
         "name": "cancel",
         "notes": [],
         "parameters": [
@@ -3887,7 +3887,7 @@
         "doc": "Pause or resume the existing countdown.\n\nParameters:\n * None\nReturns:\n * None",
         "examples": [],
         "file": "Source/CountDown.spoon/init.lua",
-        "lineno": "642",
+        "lineno": "637",
         "name": "pauseOrResume",
         "notes": [],
         "parameters": [
@@ -3906,7 +3906,7 @@
         "doc": " Set the progress of visual indicator to progress.\n\nParameters:\n * progress\n   a relative number specifying the new progress (0.0 - 1.0)\nReturns:\n * None",
         "examples": [],
         "file": "Source/CountDown.spoon/init.lua",
-        "lineno": "707",
+        "lineno": "702",
         "name": "setProgress",
         "notes": [],
         "parameters": [
@@ -3925,7 +3925,7 @@
         "doc": "Start a countdown for `minutes` minutes immediately. Calling this method again will kill the existing countdown instance.\n\nParameters:\n * minutes - How many minutes\n             Defaults to obj.defaultLenMinutes\n * callback: optional: a function to call when the timer \n           is up. it takes one parameters (minutes)\n           the minutes that were requested.\n           The callback is not called if timer is cancelled\nReturns:\n * None",
         "examples": [],
         "file": "Source/CountDown.spoon/init.lua",
-        "lineno": "512",
+        "lineno": "507",
         "name": "startFor",
         "notes": [],
         "parameters": [
@@ -3945,7 +3945,7 @@
         "doc": "Start a countdown until time indicated in parameter.\n\nParameters:\n * callback: optional: a function to call when the timer \n           is up. it takes one parameters (minutes)\n           the minutes that were requested. ",
         "examples": [],
         "file": "Source/CountDown.spoon/init.lua",
-        "lineno": "604",
+        "lineno": "599",
         "name": "startUntil",
         "notes": [],
         "parameters": [
@@ -4287,7 +4287,7 @@
         "doc": "Bind hotkeys for this spoon\n\nParameters:\n * mapping: a table with the callbacks\nReturns:\n * None",
         "examples": [],
         "file": "Source/CountDown.spoon/init.lua",
-        "lineno": "734",
+        "lineno": "729",
         "name": "bindHotkeys",
         "notes": [],
         "parameters": [
@@ -4306,7 +4306,7 @@
         "doc": " Reset the timer\n\nParameters:\n * None\nReturns:\n * None",
         "examples": [],
         "file": "Source/CountDown.spoon/init.lua",
-        "lineno": "685",
+        "lineno": "680",
         "name": "cancel",
         "notes": [],
         "parameters": [
@@ -4446,7 +4446,7 @@
         "doc": "Pause or resume the existing countdown.\n\nParameters:\n * None\nReturns:\n * None",
         "examples": [],
         "file": "Source/CountDown.spoon/init.lua",
-        "lineno": "642",
+        "lineno": "637",
         "name": "pauseOrResume",
         "notes": [],
         "parameters": [
@@ -4465,7 +4465,7 @@
         "doc": " Set the progress of visual indicator to progress.\n\nParameters:\n * progress\n   a relative number specifying the new progress (0.0 - 1.0)\nReturns:\n * None",
         "examples": [],
         "file": "Source/CountDown.spoon/init.lua",
-        "lineno": "707",
+        "lineno": "702",
         "name": "setProgress",
         "notes": [],
         "parameters": [
@@ -4484,7 +4484,7 @@
         "doc": "Start a countdown for `minutes` minutes immediately. Calling this method again will kill the existing countdown instance.\n\nParameters:\n * minutes - How many minutes\n             Defaults to obj.defaultLenMinutes\n * callback: optional: a function to call when the timer \n           is up. it takes one parameters (minutes)\n           the minutes that were requested.\n           The callback is not called if timer is cancelled\nReturns:\n * None",
         "examples": [],
         "file": "Source/CountDown.spoon/init.lua",
-        "lineno": "512",
+        "lineno": "507",
         "name": "startFor",
         "notes": [],
         "parameters": [
@@ -4504,7 +4504,7 @@
         "doc": "Start a countdown until time indicated in parameter.\n\nParameters:\n * callback: optional: a function to call when the timer \n           is up. it takes one parameters (minutes)\n           the minutes that were requested. ",
         "examples": [],
         "file": "Source/CountDown.spoon/init.lua",
-        "lineno": "604",
+        "lineno": "599",
         "name": "startUntil",
         "notes": [],
         "parameters": [
