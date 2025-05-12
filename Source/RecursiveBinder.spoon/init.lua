@@ -245,15 +245,17 @@ end
 ---      And the table have the same format of top table: keys to keys, value to table or function
 
 -- the actual binding function
-function obj.recursiveBind(keymap)
+function obj.recursiveBind(keymap, modals)
+   if not modals then modals = {} end
    if type(keymap) == 'function' then
       -- in this case "keymap" is actuall a function
       return keymap
    end
    local modal = hs.hotkey.modal.new()
+   table.insert(modals, modal)
    local keyFuncNameTable = {}
    for key, map in pairs(keymap) do
-      local func = obj.recursiveBind(map)
+      local func = obj.recursiveBind(map, modals)
       -- key[1] is modifiers, i.e. {'shift'}, key[2] is key, i.e. 'f' 
       modal:bind(key[1], key[2], function() modal:exit() killHelper() func() end)
       modal:bind(obj.escapeKey[1], obj.escapeKey[2], function() modal:exit() killHelper() end)
@@ -262,6 +264,11 @@ function obj.recursiveBind(keymap)
       end
    end
    return function()
+      -- exit all modals, accounts for pressing the trigger key while
+      -- a modal is already open
+      for _, modal in pairs(modals) do
+         modal:exit()
+      end
       modal:enter()
       killHelper()
       if obj.showBindHelper then
