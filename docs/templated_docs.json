@@ -17440,7 +17440,7 @@
         "doc_gfm": "<p>Bind sequential keys by a nested keymap.</p>\n<p>Parameters:</p>\n<ul>\n<li>keymap - A table that specifies the mapping.</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>A function to start. Bind it to a initial key binding.</li>\n</ul>\n<p>Notes:</p>\n<ul>\n<li>Spec of keymap:</li>\n<li>Every key is of format {{modifers}, key, (optional) description}</li>\n<li>The first two element is what you usually pass into a hs.hotkey.bind() function.</li>\n<li>Each value of key can be in two form:<ol>\n<li>A function. Then pressing the key invokes the function</li>\n<li>A table. Then pressing the key bring to another layer of keybindings.</li>\n</ol>\nAnd the table have the same format of top table: keys to keys, value to table or function</li>\n</ul>\n",
         "examples": [],
         "file": "Source/RecursiveBinder.spoon/init.lua",
-        "lineno": "229",
+        "lineno": "228",
         "name": "recursiveBind",
         "notes": [
           " * Spec of keymap:",
@@ -17694,7 +17694,7 @@
         "doc_gfm": "<p>Bind sequential keys by a nested keymap.</p>\n<p>Parameters:</p>\n<ul>\n<li>keymap - A table that specifies the mapping.</li>\n</ul>\n<p>Returns:</p>\n<ul>\n<li>A function to start. Bind it to a initial key binding.</li>\n</ul>\n<p>Notes:</p>\n<ul>\n<li>Spec of keymap:</li>\n<li>Every key is of format {{modifers}, key, (optional) description}</li>\n<li>The first two element is what you usually pass into a hs.hotkey.bind() function.</li>\n<li>Each value of key can be in two form:<ol>\n<li>A function. Then pressing the key invokes the function</li>\n<li>A table. Then pressing the key bring to another layer of keybindings.</li>\n</ol>\nAnd the table have the same format of top table: keys to keys, value to table or function</li>\n</ul>\n",
         "examples": [],
         "file": "Source/RecursiveBinder.spoon/init.lua",
-        "lineno": "229",
+        "lineno": "228",
         "name": "recursiveBind",
         "notes": [
           " * Spec of keymap:",
