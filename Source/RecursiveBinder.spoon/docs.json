@@ -10,10 +10,20 @@
       {
         "def": "RecursiveBinder.recursiveBind(keymap)",
         "desc": "Bind sequential keys by a nested keymap.",
-        "doc": "Bind sequential keys by a nested keymap.\n\nParameters:\n * keymap - A table that specifies the mapping.\n\nReturns:\n * A function to start. Bind it to a initial key binding.\n\nNote:\nSpec of keymap:\nEvery key is of format {{modifers}, key, (optional) description}\nThe first two element is what you usually pass into a hs.hotkey.bind() function.\n\nEach value of key can be in two form:\n1. A function. Then pressing the key invokes the function\n2. A table. Then pressing the key bring to another layer of keybindings.\n   And the table have the same format of top table: keys to keys, value to table or function",
+        "doc": "Bind sequential keys by a nested keymap.\n\nParameters:\n * keymap - A table that specifies the mapping.\n\nReturns:\n * A function to start. Bind it to a initial key binding.\n\nNotes:\n * Spec of keymap:\n  * Every key is of format {{modifers}, key, (optional) description}\n  * The first two element is what you usually pass into a hs.hotkey.bind() function.\n  * Each value of key can be in two form:\n     1. A function. Then pressing the key invokes the function\n     2. A table. Then pressing the key bring to another layer of keybindings.\n     And the table have the same format of top table: keys to keys, value to table or function",
+        "examples": [],
         "file": "Source/RecursiveBinder.spoon//init.lua",
-        "lineno": "225",
+        "lineno": "228",
         "name": "recursiveBind",
+        "notes": [
+          " * Spec of keymap:",
+          "  * Every key is of format {{modifers}, key, (optional) description}",
+          "  * The first two element is what you usually pass into a hs.hotkey.bind() function.",
+          "  * Each value of key can be in two form:",
+          "     1. A function. Then pressing the key invokes the function",
+          "     2. A table. Then pressing the key bring to another layer of keybindings.",
+          "     And the table have the same format of top table: keys to keys, value to table or function"
+        ],
         "parameters": [
           " * keymap - A table that specifies the mapping."
         ],
@@ -21,16 +31,18 @@
           " * A function to start. Bind it to a initial key binding."
         ],
         "signature": "RecursiveBinder.recursiveBind(keymap)",
-        "stripped_doc": "Note:\nSpec of keymap:\nEvery key is of format {{modifers}, key, (optional) description}\nThe first two element is what you usually pass into a hs.hotkey.bind() function.\nEach value of key can be in two form:\n1. A function. Then pressing the key invokes the function\n2. A table. Then pressing the key bring to another layer of keybindings.\n   And the table have the same format of top table: keys to keys, value to table or function",
+        "stripped_doc": "",
         "type": "Method"
       },
       {
         "def": "RecursiveBinder.singleKey(key, name)",
         "desc": "this function simply return a table with empty modifiers also it translates capital letters to normal letter with shift modifer",
         "doc": "this function simply return a table with empty modifiers also it translates capital letters to normal letter with shift modifer\n\nParameters:\n * key - a letter\n * name - the description to pass to the keys binding function\n\nReturns:\n * a table of modifiers and keys and names, ready to be used in keymap\n   to pass to RecursiveBinder.recursiveBind()",
+        "examples": [],
         "file": "Source/RecursiveBinder.spoon//init.lua",
-        "lineno": "133",
+        "lineno": "137",
         "name": "singleKey",
+        "notes": [],
         "parameters": [
           " * key - a letter",
           " * name - the description to pass to the keys binding function"
@@ -81,23 +93,37 @@
       {
         "def": "RecursiveBinder.helperFormat",
         "desc": "format of helper, the helper is just a hs.alert",
-        "doc": "format of helper, the helper is just a hs.alert\ndefault to {atScreenEdge=2,\n            strokeColor={ white = 0, alpha = 2 },\n            textFont='SF Mono'\n            textSize=20}",
+        "doc": "format of helper, the helper is just a hs.alert\n\nNotes:\n * default to {atScreenEdge=2,\n            strokeColor={ white = 0, alpha = 2 },\n            textFont='SF Mono'\n            textSize=20}",
         "file": "Source/RecursiveBinder.spoon//init.lua",
         "lineno": "35",
         "name": "helperFormat",
+        "notes": [
+          " * default to {atScreenEdge=2,",
+          "            strokeColor={ white = 0, alpha = 2 },",
+          "            textFont='SF Mono'",
+          "            textSize=20}"
+        ],
         "signature": "RecursiveBinder.helperFormat",
-        "stripped_doc": "default to {atScreenEdge=2,\n            strokeColor={ white = 0, alpha = 2 },\n            textFont='SF Mono'\n            textSize=20}",
+        "stripped_doc": "",
         "type": "Variable"
       },
       {
         "def": "RecursiveBinder.helperModifierMapping()",
         "desc": "The mapping used to display modifiers on helper.",
-        "doc": "The mapping used to display modifiers on helper.\nDefault to {\n command = '⌘',\n control = '⌃',\n option = '⌥',\n shift = '⇧',\n}",
+        "doc": "The mapping used to display modifiers on helper.\n\nNotes:\n * Default to {\n command = '⌘',\n control = '⌃',\n option = '⌥',\n shift = '⇧',\n}",
         "file": "Source/RecursiveBinder.spoon//init.lua",
-        "lineno": "52",
+        "lineno": "54",
         "name": "helperModifierMapping",
+        "notes": [
+          " * Default to {",
+          " command = '⌘',",
+          " control = '⌃',",
+          " option = '⌥',",
+          " shift = '⇧',",
+          "}"
+        ],
         "signature": "RecursiveBinder.helperModifierMapping()",
-        "stripped_doc": "Default to {\n command = '⌘',\n control = '⌃',\n option = '⌥',\n shift = '⇧',\n}",
+        "stripped_doc": "",
         "type": "Variable"
       },
       {
@@ -105,7 +131,7 @@
         "desc": "whether to show helper, can be true of false",
         "doc": "whether to show helper, can be true of false",
         "file": "Source/RecursiveBinder.spoon//init.lua",
-        "lineno": "47",
+        "lineno": "49",
         "name": "showBindHelper",
         "signature": "RecursiveBinder.showBindHelper()",
         "stripped_doc": "",
@@ -151,32 +177,56 @@
       {
         "def": "RecursiveBinder.helperFormat",
         "desc": "format of helper, the helper is just a hs.alert",
-        "doc": "format of helper, the helper is just a hs.alert\ndefault to {atScreenEdge=2,\n            strokeColor={ white = 0, alpha = 2 },\n            textFont='SF Mono'\n            textSize=20}",
+        "doc": "format of helper, the helper is just a hs.alert\n\nNotes:\n * default to {atScreenEdge=2,\n            strokeColor={ white = 0, alpha = 2 },\n            textFont='SF Mono'\n            textSize=20}",
         "file": "Source/RecursiveBinder.spoon//init.lua",
         "lineno": "35",
         "name": "helperFormat",
+        "notes": [
+          " * default to {atScreenEdge=2,",
+          "            strokeColor={ white = 0, alpha = 2 },",
+          "            textFont='SF Mono'",
+          "            textSize=20}"
+        ],
         "signature": "RecursiveBinder.helperFormat",
-        "stripped_doc": "default to {atScreenEdge=2,\n            strokeColor={ white = 0, alpha = 2 },\n            textFont='SF Mono'\n            textSize=20}",
+        "stripped_doc": "",
         "type": "Variable"
       },
       {
         "def": "RecursiveBinder.helperModifierMapping()",
         "desc": "The mapping used to display modifiers on helper.",
-        "doc": "The mapping used to display modifiers on helper.\nDefault to {\n command = '⌘',\n control = '⌃',\n option = '⌥',\n shift = '⇧',\n}",
+        "doc": "The mapping used to display modifiers on helper.\n\nNotes:\n * Default to {\n command = '⌘',\n control = '⌃',\n option = '⌥',\n shift = '⇧',\n}",
         "file": "Source/RecursiveBinder.spoon//init.lua",
-        "lineno": "52",
+        "lineno": "54",
         "name": "helperModifierMapping",
+        "notes": [
+          " * Default to {",
+          " command = '⌘',",
+          " control = '⌃',",
+          " option = '⌥',",
+          " shift = '⇧',",
+          "}"
+        ],
         "signature": "RecursiveBinder.helperModifierMapping()",
-        "stripped_doc": "Default to {\n command = '⌘',\n control = '⌃',\n option = '⌥',\n shift = '⇧',\n}",
+        "stripped_doc": "",
         "type": "Variable"
       },
       {
         "def": "RecursiveBinder.recursiveBind(keymap)",
         "desc": "Bind sequential keys by a nested keymap.",
-        "doc": "Bind sequential keys by a nested keymap.\n\nParameters:\n * keymap - A table that specifies the mapping.\n\nReturns:\n * A function to start. Bind it to a initial key binding.\n\nNote:\nSpec of keymap:\nEvery key is of format {{modifers}, key, (optional) description}\nThe first two element is what you usually pass into a hs.hotkey.bind() function.\n\nEach value of key can be in two form:\n1. A function. Then pressing the key invokes the function\n2. A table. Then pressing the key bring to another layer of keybindings.\n   And the table have the same format of top table: keys to keys, value to table or function",
+        "doc": "Bind sequential keys by a nested keymap.\n\nParameters:\n * keymap - A table that specifies the mapping.\n\nReturns:\n * A function to start. Bind it to a initial key binding.\n\nNotes:\n * Spec of keymap:\n  * Every key is of format {{modifers}, key, (optional) description}\n  * The first two element is what you usually pass into a hs.hotkey.bind() function.\n  * Each value of key can be in two form:\n     1. A function. Then pressing the key invokes the function\n     2. A table. Then pressing the key bring to another layer of keybindings.\n     And the table have the same format of top table: keys to keys, value to table or function",
+        "examples": [],
         "file": "Source/RecursiveBinder.spoon//init.lua",
-        "lineno": "225",
+        "lineno": "228",
         "name": "recursiveBind",
+        "notes": [
+          " * Spec of keymap:",
+          "  * Every key is of format {{modifers}, key, (optional) description}",
+          "  * The first two element is what you usually pass into a hs.hotkey.bind() function.",
+          "  * Each value of key can be in two form:",
+          "     1. A function. Then pressing the key invokes the function",
+          "     2. A table. Then pressing the key bring to another layer of keybindings.",
+          "     And the table have the same format of top table: keys to keys, value to table or function"
+        ],
         "parameters": [
           " * keymap - A table that specifies the mapping."
         ],
@@ -184,7 +234,7 @@
           " * A function to start. Bind it to a initial key binding."
         ],
         "signature": "RecursiveBinder.recursiveBind(keymap)",
-        "stripped_doc": "Note:\nSpec of keymap:\nEvery key is of format {{modifers}, key, (optional) description}\nThe first two element is what you usually pass into a hs.hotkey.bind() function.\nEach value of key can be in two form:\n1. A function. Then pressing the key invokes the function\n2. A table. Then pressing the key bring to another layer of keybindings.\n   And the table have the same format of top table: keys to keys, value to table or function",
+        "stripped_doc": "",
         "type": "Method"
       },
       {
@@ -192,7 +242,7 @@
         "desc": "whether to show helper, can be true of false",
         "doc": "whether to show helper, can be true of false",
         "file": "Source/RecursiveBinder.spoon//init.lua",
-        "lineno": "47",
+        "lineno": "49",
         "name": "showBindHelper",
         "signature": "RecursiveBinder.showBindHelper()",
         "stripped_doc": "",
@@ -202,9 +252,11 @@
         "def": "RecursiveBinder.singleKey(key, name)",
         "desc": "this function simply return a table with empty modifiers also it translates capital letters to normal letter with shift modifer",
         "doc": "this function simply return a table with empty modifiers also it translates capital letters to normal letter with shift modifer\n\nParameters:\n * key - a letter\n * name - the description to pass to the keys binding function\n\nReturns:\n * a table of modifiers and keys and names, ready to be used in keymap\n   to pass to RecursiveBinder.recursiveBind()",
+        "examples": [],
         "file": "Source/RecursiveBinder.spoon//init.lua",
-        "lineno": "133",
+        "lineno": "137",
         "name": "singleKey",
+        "notes": [],
         "parameters": [
           " * key - a letter",
           " * name - the description to pass to the keys binding function"
