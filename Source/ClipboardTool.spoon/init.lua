@@ -156,6 +156,7 @@ function obj:_processSelectedItem(value)
    if self.prevFocusedWindow ~= nil then
       self.prevFocusedWindow:focus()
    end
+   --X1
    if value and type(value) == "table" then
       if value.action and actions[value.action] then
          actions[value.action](value)
@@ -230,26 +231,45 @@ function obj:pasteboardToClipboard(item_type, item)
    _persistHistory() -- updates the saved history
 end
 
--- Internal method: actions of the context menu, special paste
+--- Internal method: actions of the context menu, special paste
 function obj:pasteAllWithDelimiter(row, delimiter)
-  if self.prevFocusedWindow ~= nil then
+   -- only handle text (for now) because _processSelectedItem can only accept 1 type
+   if self.prevFocusedWindow ~= nil then
       self.prevFocusedWindow:focus()
    end
    print("pasteAllWithTab row:" .. row)
+   -- put the menu away
+   self.selectorobj:hide()
+   local senddata = ""
+   local sendtype="text"
    for ix = row, 1, -1 do
-     local entry = clipboard_history[ix]
-     print("pasteAllWithTab ix:" .. ix .. ":" .. entry)
---      pasteboard.setContents(entry)
---      os.execute("sleep 0.2")
---      hs.eventtap.keyStroke({"cmd"}, "v")
-       hs.eventtap.keyStrokes(entry.content)
---      os.execute("sleep 0.2")
+      local entry = clipboard_history[ix]
+      if entry.type == "text" then
+         print("pasteAllWithTab ix:" .. ix .. ":" .. entry.content)
+         senddata = senddata .. entry.content .. delimiter
+      else
+         print("Skipping row " .. ix .. " because it's type " .. type(entry))
+      end
+--[[
+--       pasteboard.setContents(entry)
+--       os.execute("sleep 0.2")
+--       hs.eventtap.keyStroke({"cmd"}, "v")
+      hs.eventtap.keyStrokes(entry.content)
+--       os.execute("sleep 0.2")
       hs.eventtap.keyStrokes(delimiter)
---      os.execute("sleep 0.2")
+--       os.execute("sleep 0.2")
+--]]
+   end
+   if #senddata > 1 then
+      -- chop off the trailing comma and process the accumulated items
+      senddata = senddata:sub(1, -2)
+      hs.fnutils.partial(self._processSelectedItem(self, {data=senddata, type=sendtype, text=senddata }))
+   else
+      hs.alert("No text found in any of those clips")
    end
 end
 
--- Internal method: actions of the context menu, delete or rearrange of clips
+--- Internal method: actions of the context menu, delete or rearrange of clips
 function obj:manageClip(row, action)
     print("manageClip row:" .. row .. ",action:" .. action)
     if action == 0 then
@@ -279,8 +299,9 @@ end
 -- Internal method:
 function obj:_showContextMenu(row)
   print("_showContextMenu row:" .. row)
-  point = hs.mouse.getAbsolutePosition()
+  point = hs.mouse.absolutePosition()
   local menu = hs.menubar.new(false)
+--[[
   local menuTable = {
        { title = "Alle Schnipsel mit Tab einfügen", fn = hs.fnutils.partial(self.pasteAllWithDelimiter, self, row, "\t") },
        { title = "Alle Schnipsel mit Zeilenvorschub einfügen", fn = hs.fnutils.partial(self.pasteAllWithDelimiter, self, row, "\n") },
@@ -290,6 +311,21 @@ function obj:_showContextMenu(row)
        { title = "Eintrag nach oben",   fn = hs.fnutils.partial(self.manageClip, self, row, -1)  },
        { title = "Eintrag nach unten",   fn = hs.fnutils.partial(self.manageClip, self, row, 1) },
        { title = "Tabelle invertieren",   fn = hs.fnutils.partial(self.manageClip, self, row, 2) },
+       { title = "-" },
+       { title = "disabled item", disabled = true },
+       { title = "checked item", checked = true },
+   }
+--]]
+  local menuTable = {
+       { title = "Insert all text clips from here to the top, delimited by Tab", fn = hs.fnutils.partial(self.pasteAllWithDelimiter, self, row, "\t") },
+       { title = "Insert all text clips from here to the top, delimited by Enter", fn = hs.fnutils.partial(self.pasteAllWithDelimiter, self, row, "\n") },
+       { title = "Insert all text clips from here to the top, delimited by comma", fn = hs.fnutils.partial(self.pasteAllWithDelimiter, self, row, ",") },
+       { title = "-" },
+       { title = "Remove clip",   fn = hs.fnutils.partial(self.manageClip, self, row, 0) },
+       { title = "Move to top",   fn = hs.fnutils.partial(self.manageClip, self, row, -100)  },
+       { title = "Move clip up",   fn = hs.fnutils.partial(self.manageClip, self, row, -1)  },
+       { title = "Move clip down",   fn = hs.fnutils.partial(self.manageClip, self, row, 1) },
+       { title = "Invert all clips from here to the top",   fn = hs.fnutils.partial(self.manageClip, self, row, 2) },
        { title = "-" },
        { title = "disabled item", disabled = true },
        { title = "checked item", checked = true },
