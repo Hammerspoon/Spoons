@@ -1,0 +1,95 @@
+[
+  {
+    "name": "OcusFocus",
+    "desc": "Prevents background apps from stealing focus.",
+    "doc": "Prevents background apps from stealing focus, while allowing expected user actions like Cmd+Tab, Cmd+Tab+Click, and clicking Dock icons. Useful for keeping your active window focused and blocking focus-stealing apps from interrupting your work.",
+    "stripped_doc": "",
+    "type": "Module",
+    "Constructor": [],
+    "Command": [],
+    "Constant": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Variable": [],
+    "Method": [
+      {
+        "name": "start",
+        "type": "Method",
+        "signature": "OcusFocus:start()",
+        "def": "OcusFocus:start()",
+        "desc": "Starts OcusFocus",
+        "doc": "Starts OcusFocus\n\nParameters:\n * None\n\nReturns:\n * The OcusFocus object\n\nNotes:\n * Begins monitoring for app focus changes.\n * Automatically restores focus to last user-selected window when unwanted focus steal occurs.",
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * The OcusFocus object"
+        ],
+        "notes": [
+          " * Begins monitoring for app focus changes.",
+          " * Automatically restores focus to last user-selected window when unwanted focus steal occurs."
+        ],
+        "stripped_doc": ""
+      },
+      {
+        "name": "stop",
+        "type": "Method",
+        "signature": "OcusFocus:stop()",
+        "def": "OcusFocus:stop()",
+        "desc": "Stops OcusFocus",
+        "doc": "Stops OcusFocus\n\nParameters:\n * None\n\nReturns:\n * The OcusFocus object\n\nNotes:\n * Stops all focus monitoring and event interception.",
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * The OcusFocus object"
+        ],
+        "notes": [
+          " * Stops all focus monitoring and event interception."
+        ],
+        "stripped_doc": ""
+      }
+    ],
+    "items": [
+      {
+        "name": "start",
+        "type": "Method",
+        "signature": "OcusFocus:start()",
+        "def": "OcusFocus:start()",
+        "desc": "Starts OcusFocus",
+        "doc": "Starts OcusFocus\n\nParameters:\n * None\n\nReturns:\n * The OcusFocus object\n\nNotes:\n * Begins monitoring for app focus changes.\n * Automatically restores focus to last user-selected window when unwanted focus steal occurs.",
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * The OcusFocus object"
+        ],
+        "notes": [
+          " * Begins monitoring for app focus changes.",
+          " * Automatically restores focus to last user-selected window when unwanted focus steal occurs."
+        ],
+        "stripped_doc": ""
+      },
+      {
+        "name": "stop",
+        "type": "Method",
+        "signature": "OcusFocus:stop()",
+        "def": "OcusFocus:stop()",
+        "desc": "Stops OcusFocus",
+        "doc": "Stops OcusFocus\n\nParameters:\n * None\n\nReturns:\n * The OcusFocus object\n\nNotes:\n * Stops all focus monitoring and event interception.",
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * The OcusFocus object"
+        ],
+        "notes": [
+          " * Stops all focus monitoring and event interception."
+        ],
+        "stripped_doc": ""
+      }
+    ],
+    "submodules": []
+  }
+]
