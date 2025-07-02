@@ -1,4 +1,4 @@
---- === OcusFocus ===
+--- === HocusFocus ===
 ---
 --- Prevents background apps from stealing focus, while allowing user-triggered switches like Cmd+Tab, Dock clicks, and iTerm2 hotkey (e.g., Shift+Space).
 --- Also prevents Dock-launched apps from stealing focus if the user switched elsewhere while the app was launching.
@@ -6,8 +6,8 @@
 local obj = {}
 obj.__index = obj
 
-obj.name = "OcusFocus"
-obj.version = "1.0"
+obj.name = "HocusFocus"
+obj.version = "0.1"
 obj.author = "Felipe Rohde <feliperohde@gmail.com>"
 obj.license = "MIT - https://opensource.org/licenses/MIT"
 obj.homepage = "https://github.com/Hammerspoon/Spoons"
@@ -83,7 +83,7 @@ local function registerUserSwitch()
     end)
 end
 
---- OcusFocus:start()
+--- HocusFocus:start()
 function obj:start()
     -- Modifier keys: Cmd+Tab, etc.
     self.modKeyWatcher = hs.eventtap.new({ hs.eventtap.event.types.flagsChanged }, function(evt)
@@ -168,7 +168,7 @@ function obj:start()
     self.appWatcher:start()
 end
 
---- OcusFocus:stop()
+--- HocusFocus:stop()
 function obj:stop()
     if self.modKeyWatcher then self.modKeyWatcher:stop() end
     if self.mouseClickWatcher then self.mouseClickWatcher:stop() end
