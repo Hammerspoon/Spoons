@@ -1,0 +1,160 @@
+[
+  {
+    "Constant" : [
+
+    ],
+    "submodules" : [
+
+    ],
+    "Function" : [
+
+    ],
+    "Variable" : [
+      {
+        "name" : "color",
+        "desc" : "The color of the flash",
+        "stripped_doc" : [
+          "The color of the flash"
+        ],
+        "doc" : "The color of the flash",
+        "notes" : [
+
+        ],
+        "signature" : "VisualBell.color",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "VisualBell.color",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "name" : "duration",
+        "desc" : "The duration of the flash",
+        "stripped_doc" : [
+          "The duration of the flash"
+        ],
+        "doc" : "The duration of the flash",
+        "notes" : [
+
+        ],
+        "signature" : "VisualBell.duration",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "VisualBell.duration",
+        "parameters" : [
+
+        ]
+      }
+    ],
+    "stripped_doc" : [
+
+    ],
+    "Deprecated" : [
+
+    ],
+    "desc" : "Flashes the screen as a visual notification, similar to Vim's 'visualbell'.",
+    "type" : "Module",
+    "Constructor" : [
+
+    ],
+    "items" : [
+      {
+        "name" : "color",
+        "desc" : "The color of the flash",
+        "stripped_doc" : [
+          "The color of the flash"
+        ],
+        "doc" : "The color of the flash",
+        "notes" : [
+
+        ],
+        "signature" : "VisualBell.color",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "VisualBell.color",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "name" : "duration",
+        "desc" : "The duration of the flash",
+        "stripped_doc" : [
+          "The duration of the flash"
+        ],
+        "doc" : "The duration of the flash",
+        "notes" : [
+
+        ],
+        "signature" : "VisualBell.duration",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "VisualBell.duration",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "name" : "flash",
+        "desc" : "Flashes the screen using the configured color and duration",
+        "stripped_doc" : [
+          "Flashes the screen using the configured color and duration",
+          ""
+        ],
+        "doc" : "Flashes the screen using the configured color and duration\n\nParameters:\n * None",
+        "notes" : [
+
+        ],
+        "signature" : "VisualBell:flash()",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "def" : "VisualBell:flash()",
+        "parameters" : [
+          " * None"
+        ]
+      }
+    ],
+    "Method" : [
+      {
+        "name" : "flash",
+        "desc" : "Flashes the screen using the configured color and duration",
+        "stripped_doc" : [
+          "Flashes the screen using the configured color and duration",
+          ""
+        ],
+        "doc" : "Flashes the screen using the configured color and duration\n\nParameters:\n * None",
+        "notes" : [
+
+        ],
+        "signature" : "VisualBell:flash()",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "def" : "VisualBell:flash()",
+        "parameters" : [
+          " * None"
+        ]
+      }
+    ],
+    "Command" : [
+
+    ],
+    "doc" : "Flashes the screen as a visual notification, similar to Vim's 'visualbell'.",
+    "Field" : [
+
+    ],
+    "name" : "VisualBell"
+  }
+]
