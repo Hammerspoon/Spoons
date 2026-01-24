@@ -1,0 +1,7 @@
+{
+    "name": "BibleVerse",
+    "version": "2.0",
+    "description": "Desktop widget displaying random New Testament verses in Ukrainian or English",
+    "author": "Oleksandr",
+    "license": "MIT"
+}
