@@ -255,7 +255,7 @@ function obj.completionCallback(row)
       local fn = obj.all_actions[row.text].fn
       fn()
    elseif row.type == 'openURL' then
-      local url = obj.all_actions[row.text].url
+      local url = string.gsub(obj.all_actions[row.text].url, '${query}', "")
       obj.openURL(url)
    elseif row.type == 'addURL' then
       obj.stored_actions[row.name] = { url = row.url }
