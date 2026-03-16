@@ -1,6 +1,6 @@
 --- === EmmyLua ===
 ---
---- Thie plugin generates EmmyLua annotations for Hammerspoon and any installed Spoons
+--- This plugin generates EmmyLua annotations for Hammerspoon and any installed Spoons
 --- under ~/.hammerspoon/Spoons/EmmyLua.spoon/annotations.
 --- Annotations will only be generated if they don't exist yet or are out of date.
 ---
@@ -11,7 +11,7 @@
 --- * [EmmyLua-LanguageServer](https://github.com/EmmyLua/EmmyLua-LanguageServer)
 ---
 --- To start using this annotations library, add the annotations folder to your workspace.
---- for lua-languag-server:
+--- for lua-language-server:
 ---
 --- ```json
 --- {
