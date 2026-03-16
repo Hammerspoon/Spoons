@@ -1,0 +1,195 @@
+[
+  {
+    "Constant" : [
+
+    ],
+    "submodules" : [
+
+    ],
+    "Function" : [
+
+    ],
+    "Variable" : [
+
+    ],
+    "stripped_doc" : [
+
+    ],
+    "desc" : "Emulates clicking the currently active application in the dock to avoid hunting for app icons.",
+    "Deprecated" : [
+
+    ],
+    "type" : "Module",
+    "Constructor" : [
+
+    ],
+    "Field" : [
+
+    ],
+    "Method" : [
+      {
+        "desc" : "Finds and clicks the currently active application in the dock",
+        "stripped_doc" : [
+          "Finds and clicks the currently active application in the dock",
+          ""
+        ],
+        "def" : "DockClick:clickFrontmost()",
+        "doc" : "Finds and clicks the currently active application in the dock\n\nParameters:\n * None\n\nReturns:\n * None\n\nNotes:\n * This method uses accessibility features to interact with the dock\n * The method will match partial application names (e.g., \"Chrome\" matches \"Google Chrome\")\n * If the active application is not found in the dock, nothing happens",
+        "notes" : [
+          " * This method uses accessibility features to interact with the dock",
+          " * The method will match partial application names (e.g., \"Chrome\" matches \"Google Chrome\")",
+          " * If the active application is not found in the dock, nothing happens"
+        ],
+        "signature" : "DockClick:clickFrontmost()",
+        "type" : "Method",
+        "returns" : [
+          " * None",
+          ""
+        ],
+        "name" : "clickFrontmost",
+        "parameters" : [
+          " * None",
+          ""
+        ]
+      },
+      {
+        "desc" : "Binds hotkeys for DockClick",
+        "stripped_doc" : [
+          "Binds hotkeys for DockClick",
+          ""
+        ],
+        "def" : "DockClick:bindHotkeys(mapping)",
+        "doc" : "Binds hotkeys for DockClick\n\nParameters:\n * mapping - A table containing hotkey modifier\/key details for the following items:\n  * click - Restore the window of the currently active application by clicking its icon in the dock (default: cmd+alt+w)\n\nReturns:\n * The DockClick object\n\nNotes:\n * If no mapping is provided, the default hotkey (cmd+alt+w) is used\n * Example usage:\n   ```lua\n   spoon.DockClick:bindHotkeys({\n     click = {{\"cmd\", \"alt\"}, \"w\"}\n   })\n   ```",
+        "notes" : [
+          " * If no mapping is provided, the default hotkey (cmd+alt+w) is used",
+          " * Example usage:",
+          "   ```lua",
+          "   spoon.DockClick:bindHotkeys({",
+          "     click = {{\"cmd\", \"alt\"}, \"w\"}",
+          "   })",
+          "   ```"
+        ],
+        "signature" : "DockClick:bindHotkeys(mapping)",
+        "type" : "Method",
+        "returns" : [
+          " * The DockClick object",
+          ""
+        ],
+        "name" : "bindHotkeys",
+        "parameters" : [
+          " * mapping - A table containing hotkey modifier\/key details for the following items:",
+          "  * click - Restore the window of the currently active application by clicking its icon in the dock (default: cmd+alt+w)",
+          ""
+        ]
+      },
+      {
+        "desc" : "Initializes the DockClick spoon",
+        "stripped_doc" : [
+          "Initializes the DockClick spoon",
+          ""
+        ],
+        "def" : "DockClick:init()",
+        "doc" : "Initializes the DockClick spoon\n\nParameters:\n * None\n\nReturns:\n * The DockClick object\n\nNotes:\n * Currently this method does nothing, but is reserved for future use",
+        "notes" : [
+          " * Currently this method does nothing, but is reserved for future use"
+        ],
+        "signature" : "DockClick:init()",
+        "type" : "Method",
+        "returns" : [
+          " * The DockClick object",
+          ""
+        ],
+        "name" : "init",
+        "parameters" : [
+          " * None",
+          ""
+        ]
+      }
+    ],
+    "Command" : [
+
+    ],
+    "items" : [
+      {
+        "desc" : "Binds hotkeys for DockClick",
+        "stripped_doc" : [
+          "Binds hotkeys for DockClick",
+          ""
+        ],
+        "def" : "DockClick:bindHotkeys(mapping)",
+        "doc" : "Binds hotkeys for DockClick\n\nParameters:\n * mapping - A table containing hotkey modifier\/key details for the following items:\n  * click - Restore the window of the currently active application by clicking its icon in the dock (default: cmd+alt+w)\n\nReturns:\n * The DockClick object\n\nNotes:\n * If no mapping is provided, the default hotkey (cmd+alt+w) is used\n * Example usage:\n   ```lua\n   spoon.DockClick:bindHotkeys({\n     click = {{\"cmd\", \"alt\"}, \"w\"}\n   })\n   ```",
+        "notes" : [
+          " * If no mapping is provided, the default hotkey (cmd+alt+w) is used",
+          " * Example usage:",
+          "   ```lua",
+          "   spoon.DockClick:bindHotkeys({",
+          "     click = {{\"cmd\", \"alt\"}, \"w\"}",
+          "   })",
+          "   ```"
+        ],
+        "signature" : "DockClick:bindHotkeys(mapping)",
+        "type" : "Method",
+        "returns" : [
+          " * The DockClick object",
+          ""
+        ],
+        "name" : "bindHotkeys",
+        "parameters" : [
+          " * mapping - A table containing hotkey modifier\/key details for the following items:",
+          "  * click - Restore the window of the currently active application by clicking its icon in the dock (default: cmd+alt+w)",
+          ""
+        ]
+      },
+      {
+        "desc" : "Finds and clicks the currently active application in the dock",
+        "stripped_doc" : [
+          "Finds and clicks the currently active application in the dock",
+          ""
+        ],
+        "def" : "DockClick:clickFrontmost()",
+        "doc" : "Finds and clicks the currently active application in the dock\n\nParameters:\n * None\n\nReturns:\n * None\n\nNotes:\n * This method uses accessibility features to interact with the dock\n * The method will match partial application names (e.g., \"Chrome\" matches \"Google Chrome\")\n * If the active application is not found in the dock, nothing happens",
+        "notes" : [
+          " * This method uses accessibility features to interact with the dock",
+          " * The method will match partial application names (e.g., \"Chrome\" matches \"Google Chrome\")",
+          " * If the active application is not found in the dock, nothing happens"
+        ],
+        "signature" : "DockClick:clickFrontmost()",
+        "type" : "Method",
+        "returns" : [
+          " * None",
+          ""
+        ],
+        "name" : "clickFrontmost",
+        "parameters" : [
+          " * None",
+          ""
+        ]
+      },
+      {
+        "desc" : "Initializes the DockClick spoon",
+        "stripped_doc" : [
+          "Initializes the DockClick spoon",
+          ""
+        ],
+        "def" : "DockClick:init()",
+        "doc" : "Initializes the DockClick spoon\n\nParameters:\n * None\n\nReturns:\n * The DockClick object\n\nNotes:\n * Currently this method does nothing, but is reserved for future use",
+        "notes" : [
+          " * Currently this method does nothing, but is reserved for future use"
+        ],
+        "signature" : "DockClick:init()",
+        "type" : "Method",
+        "returns" : [
+          " * The DockClick object",
+          ""
+        ],
+        "name" : "init",
+        "parameters" : [
+          " * None",
+          ""
+        ]
+      }
+    ],
+    "doc" : "Emulates clicking the currently active application in the dock to avoid hunting for app icons.\n\nThis spoon is useful for quickly restoring the primary window of the frontmost application\nby simulating a click on its dock icon. This is particularly helpful when you want to bring\nback a closed or hidden window.\n\nDownload: [https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/DockClick.spoon.zip](https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/DockClick.spoon.zip)",
+    "name" : "DockClick"
+  }
+]
