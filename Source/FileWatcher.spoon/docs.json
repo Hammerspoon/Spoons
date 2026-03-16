@@ -1,0 +1,450 @@
+[
+  {
+    "Constant" : [
+
+    ],
+    "submodules" : [
+
+    ],
+    "Function" : [
+
+    ],
+    "Variable" : [
+      {
+        "doc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "def" : "FileWatcher.logger",
+        "stripped_doc" : [
+          "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "FileWatcher.logger",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "logger",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "doc" : "Table containing all active directory watchers. This is managed internally by the Spoon.",
+        "desc" : "Table containing all active directory watchers. This is managed internally by the Spoon.",
+        "def" : "FileWatcher.watchers",
+        "stripped_doc" : [
+          "Table containing all active directory watchers. This is managed internally by the Spoon."
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "FileWatcher.watchers",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "watchers",
+        "parameters" : [
+
+        ]
+      }
+    ],
+    "stripped_doc" : [
+
+    ],
+    "type" : "Module",
+    "Deprecated" : [
+
+    ],
+    "desc" : "File organization spoon that watches directories and moves files based on rules",
+    "Constructor" : [
+
+    ],
+    "doc" : "File organization spoon that watches directories and moves files based on rules\n\nDownload: [https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/FileWatcher.spoon.zip](https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/FileWatcher.spoon.zip)",
+    "Method" : [
+      {
+        "doc" : "Initialize the spoon\n\nParameters:\n * None\n\nReturns:\n * The FileWatcher object",
+        "desc" : "Initialize the spoon",
+        "def" : "FileWatcher:init()",
+        "stripped_doc" : [
+          "Initialize the spoon",
+          ""
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "FileWatcher:init()",
+        "type" : "Method",
+        "returns" : [
+          " * The FileWatcher object"
+        ],
+        "name" : "init",
+        "parameters" : [
+          " * None",
+          ""
+        ]
+      },
+      {
+        "doc" : "Process a single file according to the given rules\n\nParameters:\n * file - Full path to the file\n * rules - Array of rules to apply\n\nReturns:\n * true if file was processed successfully, false otherwise",
+        "desc" : "Process a single file according to the given rules",
+        "def" : "FileWatcher:processFile(file, rules)",
+        "stripped_doc" : [
+          "Process a single file according to the given rules",
+          ""
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "FileWatcher:processFile(file, rules)",
+        "type" : "Method",
+        "returns" : [
+          " * true if file was processed successfully, false otherwise"
+        ],
+        "name" : "processFile",
+        "parameters" : [
+          " * file - Full path to the file",
+          " * rules - Array of rules to apply",
+          ""
+        ]
+      },
+      {
+        "doc" : "Start watching a directory with the specified rules\n\nParameters:\n * directory - Directory path to watch\n * rules - Array of rules to apply to matching files\n\nReturns:\n * The FileWatcher object\n\nNotes:\n * Each rule should be a table with the following keys:\n   * pattern - Lua pattern to match filename (case-insensitive)\n   * destination - Path where matching files should be moved\n   * action - (optional) Action to take, currently only \"move\" is supported (default: \"move\")\n * The directory path can use tilde (~) for the home directory\n * Files are moved automatically when they appear in the watched directory\n * If a file with the same name exists at the destination, a number will be appended",
+        "desc" : "Start watching a directory with the specified rules",
+        "def" : "FileWatcher:watchDirectory(directory, rules)",
+        "stripped_doc" : [
+          "Start watching a directory with the specified rules",
+          ""
+        ],
+        "notes" : [
+          " * Each rule should be a table with the following keys:",
+          "   * pattern - Lua pattern to match filename (case-insensitive)",
+          "   * destination - Path where matching files should be moved",
+          "   * action - (optional) Action to take, currently only \"move\" is supported (default: \"move\")",
+          " * The directory path can use tilde (~) for the home directory",
+          " * Files are moved automatically when they appear in the watched directory",
+          " * If a file with the same name exists at the destination, a number will be appended"
+        ],
+        "signature" : "FileWatcher:watchDirectory(directory, rules)",
+        "type" : "Method",
+        "returns" : [
+          " * The FileWatcher object",
+          ""
+        ],
+        "name" : "watchDirectory",
+        "parameters" : [
+          " * directory - Directory path to watch",
+          " * rules - Array of rules to apply to matching files",
+          ""
+        ]
+      },
+      {
+        "doc" : "Stop watching a directory\n\nParameters:\n * directory - Directory path to stop watching\n\nReturns:\n * The FileWatcher object",
+        "desc" : "Stop watching a directory",
+        "def" : "FileWatcher:stopWatching(directory)",
+        "stripped_doc" : [
+          "Stop watching a directory",
+          ""
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "FileWatcher:stopWatching(directory)",
+        "type" : "Method",
+        "returns" : [
+          " * The FileWatcher object"
+        ],
+        "name" : "stopWatching",
+        "parameters" : [
+          " * directory - Directory path to stop watching",
+          ""
+        ]
+      },
+      {
+        "doc" : "Stop all directory watchers\n\nParameters:\n * None\n\nReturns:\n * The FileWatcher object",
+        "desc" : "Stop all directory watchers",
+        "def" : "FileWatcher:stopAllWatchers()",
+        "stripped_doc" : [
+          "Stop all directory watchers",
+          ""
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "FileWatcher:stopAllWatchers()",
+        "type" : "Method",
+        "returns" : [
+          " * The FileWatcher object"
+        ],
+        "name" : "stopAllWatchers",
+        "parameters" : [
+          " * None",
+          ""
+        ]
+      },
+      {
+        "doc" : "Starts all configured directory watchers\n\nParameters:\n * None\n\nReturns:\n * The FileWatcher object\n\nNotes:\n * This method is provided for consistency with other Spoons\n * Watchers are automatically started when you call :watchDirectory()\n * This method is useful if you've stopped all watchers and want to restart them",
+        "desc" : "Starts all configured directory watchers",
+        "def" : "FileWatcher:start()",
+        "stripped_doc" : [
+          "Starts all configured directory watchers",
+          ""
+        ],
+        "notes" : [
+          " * This method is provided for consistency with other Spoons",
+          " * Watchers are automatically started when you call :watchDirectory()",
+          " * This method is useful if you've stopped all watchers and want to restart them"
+        ],
+        "signature" : "FileWatcher:start()",
+        "type" : "Method",
+        "returns" : [
+          " * The FileWatcher object",
+          ""
+        ],
+        "name" : "start",
+        "parameters" : [
+          " * None",
+          ""
+        ]
+      },
+      {
+        "doc" : "Stops all directory watchers\n\nParameters:\n * None\n\nReturns:\n * The FileWatcher object",
+        "desc" : "Stops all directory watchers",
+        "def" : "FileWatcher:stop()",
+        "stripped_doc" : [
+          "Stops all directory watchers",
+          ""
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "FileWatcher:stop()",
+        "type" : "Method",
+        "returns" : [
+          " * The FileWatcher object"
+        ],
+        "name" : "stop",
+        "parameters" : [
+          " * None",
+          ""
+        ]
+      }
+    ],
+    "Command" : [
+
+    ],
+    "items" : [
+      {
+        "doc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "desc" : "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "def" : "FileWatcher.logger",
+        "stripped_doc" : [
+          "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon."
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "FileWatcher.logger",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "logger",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "doc" : "Table containing all active directory watchers. This is managed internally by the Spoon.",
+        "desc" : "Table containing all active directory watchers. This is managed internally by the Spoon.",
+        "def" : "FileWatcher.watchers",
+        "stripped_doc" : [
+          "Table containing all active directory watchers. This is managed internally by the Spoon."
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "FileWatcher.watchers",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "watchers",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "doc" : "Initialize the spoon\n\nParameters:\n * None\n\nReturns:\n * The FileWatcher object",
+        "desc" : "Initialize the spoon",
+        "def" : "FileWatcher:init()",
+        "stripped_doc" : [
+          "Initialize the spoon",
+          ""
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "FileWatcher:init()",
+        "type" : "Method",
+        "returns" : [
+          " * The FileWatcher object"
+        ],
+        "name" : "init",
+        "parameters" : [
+          " * None",
+          ""
+        ]
+      },
+      {
+        "doc" : "Process a single file according to the given rules\n\nParameters:\n * file - Full path to the file\n * rules - Array of rules to apply\n\nReturns:\n * true if file was processed successfully, false otherwise",
+        "desc" : "Process a single file according to the given rules",
+        "def" : "FileWatcher:processFile(file, rules)",
+        "stripped_doc" : [
+          "Process a single file according to the given rules",
+          ""
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "FileWatcher:processFile(file, rules)",
+        "type" : "Method",
+        "returns" : [
+          " * true if file was processed successfully, false otherwise"
+        ],
+        "name" : "processFile",
+        "parameters" : [
+          " * file - Full path to the file",
+          " * rules - Array of rules to apply",
+          ""
+        ]
+      },
+      {
+        "doc" : "Starts all configured directory watchers\n\nParameters:\n * None\n\nReturns:\n * The FileWatcher object\n\nNotes:\n * This method is provided for consistency with other Spoons\n * Watchers are automatically started when you call :watchDirectory()\n * This method is useful if you've stopped all watchers and want to restart them",
+        "desc" : "Starts all configured directory watchers",
+        "def" : "FileWatcher:start()",
+        "stripped_doc" : [
+          "Starts all configured directory watchers",
+          ""
+        ],
+        "notes" : [
+          " * This method is provided for consistency with other Spoons",
+          " * Watchers are automatically started when you call :watchDirectory()",
+          " * This method is useful if you've stopped all watchers and want to restart them"
+        ],
+        "signature" : "FileWatcher:start()",
+        "type" : "Method",
+        "returns" : [
+          " * The FileWatcher object",
+          ""
+        ],
+        "name" : "start",
+        "parameters" : [
+          " * None",
+          ""
+        ]
+      },
+      {
+        "doc" : "Stops all directory watchers\n\nParameters:\n * None\n\nReturns:\n * The FileWatcher object",
+        "desc" : "Stops all directory watchers",
+        "def" : "FileWatcher:stop()",
+        "stripped_doc" : [
+          "Stops all directory watchers",
+          ""
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "FileWatcher:stop()",
+        "type" : "Method",
+        "returns" : [
+          " * The FileWatcher object"
+        ],
+        "name" : "stop",
+        "parameters" : [
+          " * None",
+          ""
+        ]
+      },
+      {
+        "doc" : "Stop all directory watchers\n\nParameters:\n * None\n\nReturns:\n * The FileWatcher object",
+        "desc" : "Stop all directory watchers",
+        "def" : "FileWatcher:stopAllWatchers()",
+        "stripped_doc" : [
+          "Stop all directory watchers",
+          ""
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "FileWatcher:stopAllWatchers()",
+        "type" : "Method",
+        "returns" : [
+          " * The FileWatcher object"
+        ],
+        "name" : "stopAllWatchers",
+        "parameters" : [
+          " * None",
+          ""
+        ]
+      },
+      {
+        "doc" : "Stop watching a directory\n\nParameters:\n * directory - Directory path to stop watching\n\nReturns:\n * The FileWatcher object",
+        "desc" : "Stop watching a directory",
+        "def" : "FileWatcher:stopWatching(directory)",
+        "stripped_doc" : [
+          "Stop watching a directory",
+          ""
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "FileWatcher:stopWatching(directory)",
+        "type" : "Method",
+        "returns" : [
+          " * The FileWatcher object"
+        ],
+        "name" : "stopWatching",
+        "parameters" : [
+          " * directory - Directory path to stop watching",
+          ""
+        ]
+      },
+      {
+        "doc" : "Start watching a directory with the specified rules\n\nParameters:\n * directory - Directory path to watch\n * rules - Array of rules to apply to matching files\n\nReturns:\n * The FileWatcher object\n\nNotes:\n * Each rule should be a table with the following keys:\n   * pattern - Lua pattern to match filename (case-insensitive)\n   * destination - Path where matching files should be moved\n   * action - (optional) Action to take, currently only \"move\" is supported (default: \"move\")\n * The directory path can use tilde (~) for the home directory\n * Files are moved automatically when they appear in the watched directory\n * If a file with the same name exists at the destination, a number will be appended",
+        "desc" : "Start watching a directory with the specified rules",
+        "def" : "FileWatcher:watchDirectory(directory, rules)",
+        "stripped_doc" : [
+          "Start watching a directory with the specified rules",
+          ""
+        ],
+        "notes" : [
+          " * Each rule should be a table with the following keys:",
+          "   * pattern - Lua pattern to match filename (case-insensitive)",
+          "   * destination - Path where matching files should be moved",
+          "   * action - (optional) Action to take, currently only \"move\" is supported (default: \"move\")",
+          " * The directory path can use tilde (~) for the home directory",
+          " * Files are moved automatically when they appear in the watched directory",
+          " * If a file with the same name exists at the destination, a number will be appended"
+        ],
+        "signature" : "FileWatcher:watchDirectory(directory, rules)",
+        "type" : "Method",
+        "returns" : [
+          " * The FileWatcher object",
+          ""
+        ],
+        "name" : "watchDirectory",
+        "parameters" : [
+          " * directory - Directory path to watch",
+          " * rules - Array of rules to apply to matching files",
+          ""
+        ]
+      }
+    ],
+    "Field" : [
+
+    ],
+    "name" : "FileWatcher"
+  }
+]
