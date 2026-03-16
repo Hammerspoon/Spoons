@@ -199,7 +199,7 @@ local function showHelper(keyFuncNameTable)
    local separator = '' -- first loop doesn't need to add a separator, because it is in the very front. 
    local lastLine = ''
    local count = 0
-   for keyName, funcName in pairs(keyFuncNameTable) do
+   for keyName, funcName in hs.fnutils.sortByKeys(keyFuncNameTable) do
       local newEntry = keyName..' → '..funcName
       -- make sure each entry is of the same length
       if string.len(newEntry) > obj.helperEntryLengthInChar then
