@@ -1,0 +1,123 @@
+[
+  {
+    "Constant" : [
+
+    ],
+    "submodules" : [
+
+    ],
+    "Function" : [
+
+    ],
+    "Variable" : [
+
+    ],
+    "stripped_doc" : [
+
+    ],
+    "desc" : "Prevent the macOS Dock from moving from the main monitor (the one with the menu bar) to another monitor.",
+    "Deprecated" : [
+
+    ],
+    "type" : "Module",
+    "Constructor" : [
+
+    ],
+    "doc" : "Prevent the macOS Dock from moving from the main monitor (the one with the menu bar) to another monitor.\nWhen the mouse cursor approaches the bottom edge of a screen, DockGuard nudges the cursor upward to prevent the Dock from moving.\nThis is almost unnoticeable in normal use.\n\nUsage example in your init.lua:\nhs.loadSpoon(\"DockGuard\")\nspoon.DockGuard:start()\n\nThe default config is as follows:\n    edgeTriggerMargin = 1,        -- Number of pixels from the bottom edge to trigger the nudge\n    mouseNudgeDistance = 1,       -- Number of pixels to nudge the cursor upward\n    watcherRestartDelay = 0.1,    -- Delay (in seconds) before restarting the watcher after nudging\n\nYou can override these defaults before calling :start(), for example:\nhs.loadSpoon(\"DockGuard\")\nspoon.DockGuard.edgeTriggerMargin = 5 -- Trigger within 5px of the bottom edge\nspoon.DockGuard.mouseNudgeDistance = 2 -- Nudge cursor up by 2px\nspoon.DockGuard.watcherRestartDelay = 0.2 -- Restart watcher after 0.2s\nspoon.DockGuard:start()\nNote: If 'Automatically hide and show the Dock' is enabled, this plugin may not work as expected.",
+    "Field" : [
+
+    ],
+    "Command" : [
+
+    ],
+    "items" : [
+      {
+        "doc" : "Starts monitoring mouse movement. When the mouse cursor approaches the bottom edge of the main screen, it nudges the cursor upward to prevent the Dock from moving to another monitor.\n\nParameters:\n * None",
+        "stripped_doc" : [
+          "Starts monitoring mouse movement. When the mouse cursor approaches the bottom edge of the main screen, it nudges the cursor upward to prevent the Dock from moving to another monitor.",
+          ""
+        ],
+        "parameters" : [
+          " * None"
+        ],
+        "name" : "start",
+        "notes" : [
+
+        ],
+        "signature" : "DockGuard:start()",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "def" : "DockGuard:start()",
+        "desc" : "Starts monitoring mouse movement. When the mouse cursor approaches the bottom edge of the main screen, it nudges the cursor upward to prevent the Dock from moving to another monitor."
+      },
+      {
+        "doc" : "Stops monitoring mouse movement and allows the Dock to move to another monitor.\n\nParameters:\n * None",
+        "stripped_doc" : [
+          "Stops monitoring mouse movement and allows the Dock to move to another monitor.",
+          ""
+        ],
+        "parameters" : [
+          " * None"
+        ],
+        "name" : "stop",
+        "notes" : [
+
+        ],
+        "signature" : "DockGuard:stop()",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "def" : "DockGuard:stop()",
+        "desc" : "Stops monitoring mouse movement and allows the Dock to move to another monitor."
+      }
+    ],
+    "Method" : [
+      {
+        "doc" : "Starts monitoring mouse movement. When the mouse cursor approaches the bottom edge of the main screen, it nudges the cursor upward to prevent the Dock from moving to another monitor.\n\nParameters:\n * None",
+        "stripped_doc" : [
+          "Starts monitoring mouse movement. When the mouse cursor approaches the bottom edge of the main screen, it nudges the cursor upward to prevent the Dock from moving to another monitor.",
+          ""
+        ],
+        "parameters" : [
+          " * None"
+        ],
+        "name" : "start",
+        "notes" : [
+
+        ],
+        "signature" : "DockGuard:start()",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "def" : "DockGuard:start()",
+        "desc" : "Starts monitoring mouse movement. When the mouse cursor approaches the bottom edge of the main screen, it nudges the cursor upward to prevent the Dock from moving to another monitor."
+      },
+      {
+        "doc" : "Stops monitoring mouse movement and allows the Dock to move to another monitor.\n\nParameters:\n * None",
+        "stripped_doc" : [
+          "Stops monitoring mouse movement and allows the Dock to move to another monitor.",
+          ""
+        ],
+        "parameters" : [
+          " * None"
+        ],
+        "name" : "stop",
+        "notes" : [
+
+        ],
+        "signature" : "DockGuard:stop()",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "def" : "DockGuard:stop()",
+        "desc" : "Stops monitoring mouse movement and allows the Dock to move to another monitor."
+      }
+    ],
+    "name" : "DockGuard"
+  }
+]
