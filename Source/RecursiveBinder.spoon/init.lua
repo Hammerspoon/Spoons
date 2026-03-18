@@ -199,7 +199,15 @@ local function showHelper(keyFuncNameTable)
    local separator = '' -- first loop doesn't need to add a separator, because it is in the very front. 
    local lastLine = ''
    local count = 0
-   for keyName, funcName in pairs(keyFuncNameTable) do
+   local keysSorted = {}
+   for k, v in pairs(keyFuncNameTable) do
+      table.insert(keysSorted, {key = k, value = v})
+   end
+   table.sort(keysSorted, function(a, b) return a.value < b.value end)
+
+   for i = 1, #keysSorted do
+      local keyName = keysSorted[i].key
+      local funcName = keysSorted[i].value
       local newEntry = keyName..' → '..funcName
       -- make sure each entry is of the same length
       if string.len(newEntry) > obj.helperEntryLengthInChar then
