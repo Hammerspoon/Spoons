@@ -1,0 +1,584 @@
+[
+  {
+    "Constant" : [
+
+    ],
+    "submodules" : [
+
+    ],
+    "Function" : [
+
+    ],
+    "Variable" : [
+      {
+        "doc" : "Logger object used within the Spoon. Set the log level to control verbosity.\n\nDefault log level: `info`. Set to `debug` for verbose watcher state dumps\nand per-target dispatch details. Set to `warning` to suppress routine sync\nmessages.\n\nExample:\n```lua\nspoon.SpacesSync.logger.setLogLevel('debug')\n```",
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "Logger object used within the Spoon. Set the log level to control verbosity.",
+          "",
+          "Default log level: `info`. Set to `debug` for verbose watcher state dumps",
+          "and per-target dispatch details. Set to `warning` to suppress routine sync",
+          "messages.",
+          "",
+          "Example:",
+          "```lua",
+          "spoon.SpacesSync.logger.setLogLevel('debug')",
+          "```"
+        ],
+        "name" : "logger",
+        "notes" : [
+
+        ],
+        "signature" : "SpacesSync.logger",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "SpacesSync.logger",
+        "desc" : "Logger object used within the Spoon. Set the log level to control verbosity."
+      },
+      {
+        "doc" : "List of sync groups. Each group is a list of monitor position numbers.\nPositions are assigned in reading order (left-to-right, top-to-bottom).\nMonitors not in any group are independent.\n\nDefault value: `{ {1, 2} }`\n\nExamples:\n * `{ {1, 2} }` — monitors 1 and 2 sync together\n * `{ {1, 2}, {3, 4} }` — two independent pairs\n * `{ {1, 2, 3} }` — three monitors sync together",
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "List of sync groups. Each group is a list of monitor position numbers.",
+          "Positions are assigned in reading order (left-to-right, top-to-bottom).",
+          "Monitors not in any group are independent.",
+          "",
+          "Default value: `{ {1, 2} }`",
+          "",
+          "Examples:",
+          " * `{ {1, 2} }` — monitors 1 and 2 sync together",
+          " * `{ {1, 2}, {3, 4} }` — two independent pairs",
+          " * `{ {1, 2, 3} }` — three monitors sync together"
+        ],
+        "name" : "syncGroups",
+        "notes" : [
+
+        ],
+        "signature" : "SpacesSync.syncGroups",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "SpacesSync.syncGroups",
+        "desc" : "List of sync groups. Each group is a list of monitor position numbers."
+      },
+      {
+        "doc" : "Delay in seconds between each `hs.spaces.gotoSpace()` call.\nmacOS silently drops rapid back-to-back space switches.\n\nDefault value: `0.3`",
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "Delay in seconds between each `hs.spaces.gotoSpace()` call.",
+          "macOS silently drops rapid back-to-back space switches.",
+          "",
+          "Default value: `0.3`"
+        ],
+        "name" : "switchDelay",
+        "notes" : [
+
+        ],
+        "signature" : "SpacesSync.switchDelay",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "SpacesSync.switchDelay",
+        "desc" : "Delay in seconds between each `hs.spaces.gotoSpace()` call."
+      },
+      {
+        "doc" : "Seconds to wait after all switches complete before re-enabling the watcher.\nPrevents the watcher from reacting to our own programmatic space switches.\n\nDefault value: `0.8`",
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "Seconds to wait after all switches complete before re-enabling the watcher.",
+          "Prevents the watcher from reacting to our own programmatic space switches.",
+          "",
+          "Default value: `0.8`"
+        ],
+        "name" : "debounceSeconds",
+        "notes" : [
+
+        ],
+        "signature" : "SpacesSync.debounceSeconds",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "SpacesSync.debounceSeconds",
+        "desc" : "Seconds to wait after all switches complete before re-enabling the watcher."
+      },
+      {
+        "doc" : "Default hotkey mapping. Use with `:bindHotkeys()` for a quick setup:\n\n```lua\nspoon.SpacesSync:bindHotkeys(spoon.SpacesSync.defaultHotkeys)\n```\n\nDefault value:\n```lua\n{\n  toggle = {{\"ctrl\", \"alt\", \"cmd\"}, \"Y\"},\n}\n```",
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "Default hotkey mapping. Use with `:bindHotkeys()` for a quick setup:",
+          "",
+          "```lua",
+          "spoon.SpacesSync:bindHotkeys(spoon.SpacesSync.defaultHotkeys)",
+          "```",
+          "",
+          "Default value:",
+          "```lua",
+          "{",
+          "  toggle = {{\"ctrl\", \"alt\", \"cmd\"}, \"Y\"},",
+          "}",
+          "```"
+        ],
+        "name" : "defaultHotkeys",
+        "notes" : [
+
+        ],
+        "signature" : "SpacesSync.defaultHotkeys",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "SpacesSync.defaultHotkeys",
+        "desc" : "Default hotkey mapping. Use with `:bindHotkeys()` for a quick setup:"
+      }
+    ],
+    "stripped_doc" : [
+
+    ],
+    "type" : "Module",
+    "Deprecated" : [
+
+    ],
+    "desc" : "Synchronize macOS Spaces across monitors.",
+    "Constructor" : [
+
+    ],
+    "items" : [
+      {
+        "doc" : "Seconds to wait after all switches complete before re-enabling the watcher.\nPrevents the watcher from reacting to our own programmatic space switches.\n\nDefault value: `0.8`",
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "Seconds to wait after all switches complete before re-enabling the watcher.",
+          "Prevents the watcher from reacting to our own programmatic space switches.",
+          "",
+          "Default value: `0.8`"
+        ],
+        "name" : "debounceSeconds",
+        "notes" : [
+
+        ],
+        "signature" : "SpacesSync.debounceSeconds",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "SpacesSync.debounceSeconds",
+        "desc" : "Seconds to wait after all switches complete before re-enabling the watcher."
+      },
+      {
+        "doc" : "Default hotkey mapping. Use with `:bindHotkeys()` for a quick setup:\n\n```lua\nspoon.SpacesSync:bindHotkeys(spoon.SpacesSync.defaultHotkeys)\n```\n\nDefault value:\n```lua\n{\n  toggle = {{\"ctrl\", \"alt\", \"cmd\"}, \"Y\"},\n}\n```",
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "Default hotkey mapping. Use with `:bindHotkeys()` for a quick setup:",
+          "",
+          "```lua",
+          "spoon.SpacesSync:bindHotkeys(spoon.SpacesSync.defaultHotkeys)",
+          "```",
+          "",
+          "Default value:",
+          "```lua",
+          "{",
+          "  toggle = {{\"ctrl\", \"alt\", \"cmd\"}, \"Y\"},",
+          "}",
+          "```"
+        ],
+        "name" : "defaultHotkeys",
+        "notes" : [
+
+        ],
+        "signature" : "SpacesSync.defaultHotkeys",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "SpacesSync.defaultHotkeys",
+        "desc" : "Default hotkey mapping. Use with `:bindHotkeys()` for a quick setup:"
+      },
+      {
+        "doc" : "Logger object used within the Spoon. Set the log level to control verbosity.\n\nDefault log level: `info`. Set to `debug` for verbose watcher state dumps\nand per-target dispatch details. Set to `warning` to suppress routine sync\nmessages.\n\nExample:\n```lua\nspoon.SpacesSync.logger.setLogLevel('debug')\n```",
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "Logger object used within the Spoon. Set the log level to control verbosity.",
+          "",
+          "Default log level: `info`. Set to `debug` for verbose watcher state dumps",
+          "and per-target dispatch details. Set to `warning` to suppress routine sync",
+          "messages.",
+          "",
+          "Example:",
+          "```lua",
+          "spoon.SpacesSync.logger.setLogLevel('debug')",
+          "```"
+        ],
+        "name" : "logger",
+        "notes" : [
+
+        ],
+        "signature" : "SpacesSync.logger",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "SpacesSync.logger",
+        "desc" : "Logger object used within the Spoon. Set the log level to control verbosity."
+      },
+      {
+        "doc" : "Delay in seconds between each `hs.spaces.gotoSpace()` call.\nmacOS silently drops rapid back-to-back space switches.\n\nDefault value: `0.3`",
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "Delay in seconds between each `hs.spaces.gotoSpace()` call.",
+          "macOS silently drops rapid back-to-back space switches.",
+          "",
+          "Default value: `0.3`"
+        ],
+        "name" : "switchDelay",
+        "notes" : [
+
+        ],
+        "signature" : "SpacesSync.switchDelay",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "SpacesSync.switchDelay",
+        "desc" : "Delay in seconds between each `hs.spaces.gotoSpace()` call."
+      },
+      {
+        "doc" : "List of sync groups. Each group is a list of monitor position numbers.\nPositions are assigned in reading order (left-to-right, top-to-bottom).\nMonitors not in any group are independent.\n\nDefault value: `{ {1, 2} }`\n\nExamples:\n * `{ {1, 2} }` — monitors 1 and 2 sync together\n * `{ {1, 2}, {3, 4} }` — two independent pairs\n * `{ {1, 2, 3} }` — three monitors sync together",
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "List of sync groups. Each group is a list of monitor position numbers.",
+          "Positions are assigned in reading order (left-to-right, top-to-bottom).",
+          "Monitors not in any group are independent.",
+          "",
+          "Default value: `{ {1, 2} }`",
+          "",
+          "Examples:",
+          " * `{ {1, 2} }` — monitors 1 and 2 sync together",
+          " * `{ {1, 2}, {3, 4} }` — two independent pairs",
+          " * `{ {1, 2, 3} }` — three monitors sync together"
+        ],
+        "name" : "syncGroups",
+        "notes" : [
+
+        ],
+        "signature" : "SpacesSync.syncGroups",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "def" : "SpacesSync.syncGroups",
+        "desc" : "List of sync groups. Each group is a list of monitor position numbers."
+      },
+      {
+        "doc" : "Binds hotkeys for SpacesSync.\n\nParameters:\n * mapping - A table containing hotkey modifier\/key details for the following items:\n  * toggle - Toggle Space syncing on\/off\n\nReturns:\n * The SpacesSync object\n\nNotes:\n * For a quick setup with defaults, use:\n   `spoon.SpacesSync:bindHotkeys(spoon.SpacesSync.defaultHotkeys)`",
+        "parameters" : [
+          " * mapping - A table containing hotkey modifier\/key details for the following items:",
+          "  * toggle - Toggle Space syncing on\/off",
+          ""
+        ],
+        "stripped_doc" : [
+          "Binds hotkeys for SpacesSync.",
+          ""
+        ],
+        "name" : "bindHotkeys",
+        "notes" : [
+          " * For a quick setup with defaults, use:",
+          "   `spoon.SpacesSync:bindHotkeys(spoon.SpacesSync.defaultHotkeys)`"
+        ],
+        "signature" : "SpacesSync:bindHotkeys(mapping)",
+        "type" : "Method",
+        "returns" : [
+          " * The SpacesSync object",
+          ""
+        ],
+        "def" : "SpacesSync:bindHotkeys(mapping)",
+        "desc" : "Binds hotkeys for SpacesSync."
+      },
+      {
+        "doc" : "Initializes the SpacesSync spoon. Called automatically by `hs.loadSpoon()`.\nDoes not start syncing — call `:start()` to begin.\n\nParameters:\n * None\n\nReturns:\n * The SpacesSync object",
+        "parameters" : [
+          " * None",
+          ""
+        ],
+        "stripped_doc" : [
+          "Initializes the SpacesSync spoon. Called automatically by `hs.loadSpoon()`.",
+          "Does not start syncing — call `:start()` to begin.",
+          ""
+        ],
+        "name" : "init",
+        "notes" : [
+
+        ],
+        "signature" : "SpacesSync:init()",
+        "type" : "Method",
+        "returns" : [
+          " * The SpacesSync object"
+        ],
+        "def" : "SpacesSync:init()",
+        "desc" : "Initializes the SpacesSync spoon. Called automatically by `hs.loadSpoon()`."
+      },
+      {
+        "doc" : "Returns whether Space syncing is currently active.\n\nParameters:\n * None\n\nReturns:\n * A boolean",
+        "parameters" : [
+          " * None",
+          ""
+        ],
+        "stripped_doc" : [
+          "Returns whether Space syncing is currently active.",
+          ""
+        ],
+        "name" : "isEnabled",
+        "notes" : [
+
+        ],
+        "signature" : "SpacesSync:isEnabled()",
+        "type" : "Method",
+        "returns" : [
+          " * A boolean"
+        ],
+        "def" : "SpacesSync:isEnabled()",
+        "desc" : "Returns whether Space syncing is currently active."
+      },
+      {
+        "doc" : "Starts Space syncing.\nChecks macOS version and Mission Control settings, builds the monitor\nposition map, and enables the Space watcher.\n\nParameters:\n * None\n\nReturns:\n * The SpacesSync object",
+        "parameters" : [
+          " * None",
+          ""
+        ],
+        "stripped_doc" : [
+          "Starts Space syncing.",
+          "Checks macOS version and Mission Control settings, builds the monitor",
+          "position map, and enables the Space watcher.",
+          ""
+        ],
+        "name" : "start",
+        "notes" : [
+
+        ],
+        "signature" : "SpacesSync:start()",
+        "type" : "Method",
+        "returns" : [
+          " * The SpacesSync object"
+        ],
+        "def" : "SpacesSync:start()",
+        "desc" : "Starts Space syncing."
+      },
+      {
+        "doc" : "Stops Space syncing and cleans up watchers and timers.\n\nParameters:\n * None\n\nReturns:\n * The SpacesSync object",
+        "parameters" : [
+          " * None",
+          ""
+        ],
+        "stripped_doc" : [
+          "Stops Space syncing and cleans up watchers and timers.",
+          ""
+        ],
+        "name" : "stop",
+        "notes" : [
+
+        ],
+        "signature" : "SpacesSync:stop()",
+        "type" : "Method",
+        "returns" : [
+          " * The SpacesSync object"
+        ],
+        "def" : "SpacesSync:stop()",
+        "desc" : "Stops Space syncing and cleans up watchers and timers."
+      },
+      {
+        "doc" : "Toggles Space syncing on or off.\n\nParameters:\n * None\n\nReturns:\n * The SpacesSync object",
+        "parameters" : [
+          " * None",
+          ""
+        ],
+        "stripped_doc" : [
+          "Toggles Space syncing on or off.",
+          ""
+        ],
+        "name" : "toggle",
+        "notes" : [
+
+        ],
+        "signature" : "SpacesSync:toggle()",
+        "type" : "Method",
+        "returns" : [
+          " * The SpacesSync object"
+        ],
+        "def" : "SpacesSync:toggle()",
+        "desc" : "Toggles Space syncing on or off."
+      }
+    ],
+    "Method" : [
+      {
+        "doc" : "Initializes the SpacesSync spoon. Called automatically by `hs.loadSpoon()`.\nDoes not start syncing — call `:start()` to begin.\n\nParameters:\n * None\n\nReturns:\n * The SpacesSync object",
+        "parameters" : [
+          " * None",
+          ""
+        ],
+        "stripped_doc" : [
+          "Initializes the SpacesSync spoon. Called automatically by `hs.loadSpoon()`.",
+          "Does not start syncing — call `:start()` to begin.",
+          ""
+        ],
+        "name" : "init",
+        "notes" : [
+
+        ],
+        "signature" : "SpacesSync:init()",
+        "type" : "Method",
+        "returns" : [
+          " * The SpacesSync object"
+        ],
+        "def" : "SpacesSync:init()",
+        "desc" : "Initializes the SpacesSync spoon. Called automatically by `hs.loadSpoon()`."
+      },
+      {
+        "doc" : "Starts Space syncing.\nChecks macOS version and Mission Control settings, builds the monitor\nposition map, and enables the Space watcher.\n\nParameters:\n * None\n\nReturns:\n * The SpacesSync object",
+        "parameters" : [
+          " * None",
+          ""
+        ],
+        "stripped_doc" : [
+          "Starts Space syncing.",
+          "Checks macOS version and Mission Control settings, builds the monitor",
+          "position map, and enables the Space watcher.",
+          ""
+        ],
+        "name" : "start",
+        "notes" : [
+
+        ],
+        "signature" : "SpacesSync:start()",
+        "type" : "Method",
+        "returns" : [
+          " * The SpacesSync object"
+        ],
+        "def" : "SpacesSync:start()",
+        "desc" : "Starts Space syncing."
+      },
+      {
+        "doc" : "Stops Space syncing and cleans up watchers and timers.\n\nParameters:\n * None\n\nReturns:\n * The SpacesSync object",
+        "parameters" : [
+          " * None",
+          ""
+        ],
+        "stripped_doc" : [
+          "Stops Space syncing and cleans up watchers and timers.",
+          ""
+        ],
+        "name" : "stop",
+        "notes" : [
+
+        ],
+        "signature" : "SpacesSync:stop()",
+        "type" : "Method",
+        "returns" : [
+          " * The SpacesSync object"
+        ],
+        "def" : "SpacesSync:stop()",
+        "desc" : "Stops Space syncing and cleans up watchers and timers."
+      },
+      {
+        "doc" : "Toggles Space syncing on or off.\n\nParameters:\n * None\n\nReturns:\n * The SpacesSync object",
+        "parameters" : [
+          " * None",
+          ""
+        ],
+        "stripped_doc" : [
+          "Toggles Space syncing on or off.",
+          ""
+        ],
+        "name" : "toggle",
+        "notes" : [
+
+        ],
+        "signature" : "SpacesSync:toggle()",
+        "type" : "Method",
+        "returns" : [
+          " * The SpacesSync object"
+        ],
+        "def" : "SpacesSync:toggle()",
+        "desc" : "Toggles Space syncing on or off."
+      },
+      {
+        "doc" : "Returns whether Space syncing is currently active.\n\nParameters:\n * None\n\nReturns:\n * A boolean",
+        "parameters" : [
+          " * None",
+          ""
+        ],
+        "stripped_doc" : [
+          "Returns whether Space syncing is currently active.",
+          ""
+        ],
+        "name" : "isEnabled",
+        "notes" : [
+
+        ],
+        "signature" : "SpacesSync:isEnabled()",
+        "type" : "Method",
+        "returns" : [
+          " * A boolean"
+        ],
+        "def" : "SpacesSync:isEnabled()",
+        "desc" : "Returns whether Space syncing is currently active."
+      },
+      {
+        "doc" : "Binds hotkeys for SpacesSync.\n\nParameters:\n * mapping - A table containing hotkey modifier\/key details for the following items:\n  * toggle - Toggle Space syncing on\/off\n\nReturns:\n * The SpacesSync object\n\nNotes:\n * For a quick setup with defaults, use:\n   `spoon.SpacesSync:bindHotkeys(spoon.SpacesSync.defaultHotkeys)`",
+        "parameters" : [
+          " * mapping - A table containing hotkey modifier\/key details for the following items:",
+          "  * toggle - Toggle Space syncing on\/off",
+          ""
+        ],
+        "stripped_doc" : [
+          "Binds hotkeys for SpacesSync.",
+          ""
+        ],
+        "name" : "bindHotkeys",
+        "notes" : [
+          " * For a quick setup with defaults, use:",
+          "   `spoon.SpacesSync:bindHotkeys(spoon.SpacesSync.defaultHotkeys)`"
+        ],
+        "signature" : "SpacesSync:bindHotkeys(mapping)",
+        "type" : "Method",
+        "returns" : [
+          " * The SpacesSync object",
+          ""
+        ],
+        "def" : "SpacesSync:bindHotkeys(mapping)",
+        "desc" : "Binds hotkeys for SpacesSync."
+      }
+    ],
+    "Command" : [
+
+    ],
+    "Field" : [
+
+    ],
+    "doc" : "Synchronize macOS Spaces across monitors.\n\nWhen you switch Spaces on one monitor, all other monitors in the same\nsync group follow to the matching Space index.\n\nMonitors are identified by position number (reading order:\nleft-to-right, top-to-bottom). Define sync groups as sets of position\nnumbers.\n\n**Requirements:**\n * macOS Sequoia 15.0+ (uses private `hs.spaces` APIs)\n * Two or more monitors with multiple Spaces configured\n * \"Displays have separate Spaces\" must be ON (System Settings > Desktop & Dock > Mission Control)\n * \"Automatically rearrange Spaces based on most recent use\" should be OFF\n\nDownload: [https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/SpacesSync.spoon.zip](https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/SpacesSync.spoon.zip)",
+    "name" : "SpacesSync"
+  }
+]
