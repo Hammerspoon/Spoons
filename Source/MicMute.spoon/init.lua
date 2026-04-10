@@ -111,7 +111,7 @@ end
 
 function obj:init()
 	obj.time_since_mute = 0
-	obj.mute_menu = hs.menubar.new()
+	obj.mute_menu = hs.menubar.new(true, "MicMute")
 	obj.mute_menu:setClickCallback(function()
 		obj:toggleMicMute()
 	end)

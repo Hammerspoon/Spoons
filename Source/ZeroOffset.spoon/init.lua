@@ -44,7 +44,7 @@ end
 ---  * The ZeroOffset object
 function obj:start()
     if self.menuBarItem then self:stop() end
-    self.menuBarItem = self.hs.menubar.new()
+    self.menuBarItem = self.hs.menubar.new(true, "ZeroOffset")
     self.menuBarItem:setClickCallback(function() self:clicked() end)
 
     if self.hotKeyToggle then self.hotKeyToggle:enable() end

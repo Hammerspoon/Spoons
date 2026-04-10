@@ -176,7 +176,7 @@ function choosetable()
 end
 
 function obj:start()
-   self.choosermenu = hs.menubar.new(false):setMenu(choosetable)
+   self.choosermenu = hs.menubar.new(false, "ColorPicker"):setMenu(choosetable)
    if self.show_in_menubar then
       self.choosermenu:setTitle(self.menubar_title):returnToMenuBar()
    end

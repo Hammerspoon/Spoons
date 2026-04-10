@@ -217,7 +217,7 @@ end
 ---  * The TurboBoost object
 function obj:start()
     if self.menuBarItem or self.wakeupWatcher then self:stop() end
-    self.menuBarItem = hs.menubar.new()
+    self.menuBarItem = hs.menubar.new(true, "TurboBoost")
     self.menuBarItem:setClickCallback(self.clicked)
     self:setDisplay(self:status())
     self.wakeupWatcher = hs.caffeinate.watcher.new(self.wokeUp):start()

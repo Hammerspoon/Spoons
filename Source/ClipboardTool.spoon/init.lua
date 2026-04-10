@@ -443,7 +443,7 @@ function obj:start()
    self.timer = hs.timer.new(self.frequency, hs.fnutils.partial(self.checkAndStorePasteboard, self))
    self.timer:start()
    if self.show_in_menubar then
-      self.menubaritem = hs.menubar.new()
+      self.menubaritem = hs.menubar.new(true, "ClipboardTool")
          :setTitle(obj.menubar_title)
          :setClickCallback(hs.fnutils.partial(self.toggleClipboard, self))
    end

@@ -145,7 +145,7 @@ function obj:start()
     obj.eventTapWatcher = hs.eventtap.new({hs.eventtap.event.types.flagsChanged}, eventTapWatcher)
     obj.eventTapWatcher:start()
 
-    obj.menubar = hs.menubar.new()
+    obj.menubar = hs.menubar.new(true, "PushToTalk")
     obj.menubar:setMenu(obj.menutable)
     if obj.detect_on_start then obj.state = initialState() end
     obj.setState(obj.state)

@@ -410,7 +410,7 @@ end
 
 ------- menuBar bar related functions
 function obj:menuBar_init()
-   obj.menuBar = hs.menubar.new(obj.menuBarAlwaysShow)
+   obj.menuBar = hs.menubar.new(obj.menuBarAlwaysShow, "CountDown")
    obj:menuBar_reset()
 end
 

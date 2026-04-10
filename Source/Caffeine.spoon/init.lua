@@ -61,7 +61,7 @@ end
 ---  * The Caffeine object
 function obj:start()
     if self.menuBarItem then self:stop() end
-    self.menuBarItem = hs.menubar.new()
+    self.menuBarItem = hs.menubar.new(true, "Caffeine")
     self.menuBarItem:setClickCallback(self.clicked)
     if (self.hotkeyToggle) then
         self.hotkeyToggle:enable()

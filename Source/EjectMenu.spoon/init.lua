@@ -272,7 +272,7 @@ function obj:start()
     ):start()
   end
   if self.show_in_menubar then
-    self.menubar = hs.menubar.new():setTitle("⏏"):
+    self.menubar = hs.menubar.new(true, "EjectMenu"):setTitle("⏏"):
     setMenu(function (mods) return self:initEjectMenu(mods) end)
     self.flags_watcher = hs.eventtap.new(
       {hs.eventtap.event.types.flagsChanged},

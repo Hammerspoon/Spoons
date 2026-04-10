@@ -64,7 +64,7 @@ end
 
 
 function obj:init()
-  self.menu = hs.menubar.new(self.alwaysShow)
+  self.menu = hs.menubar.new(self.alwaysShow, "Cherry")
   self:reset()
 end
 

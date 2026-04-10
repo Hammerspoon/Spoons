@@ -125,7 +125,7 @@ function obj:refresh()
 
     -- Initialize menubar item if needed
     if (not self.menuBarItem) then
-      self.menuBarItem = hs.menubar.new()
+      self.menuBarItem = hs.menubar.new(true, "TimeMachineProgress")
       self.menuBarItem:setIcon(self.backupIcon, false)
       self.menuBarItem:setMenu(self._returnMenu)
     end

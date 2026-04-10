@@ -129,7 +129,7 @@ obj.shadeIsOn = nil
 ---  * None
 function obj:init()
   --create icon on the menu bar and set flag to 'false'
-  self.shadeMenuIcon = hs.menubar.new()
+  self.shadeMenuIcon = hs.menubar.new(true, "Shade")
   self.shadeMenuIcon:setIcon(obj.iconOff)
   -- self.shadeMenuIcon:setClickCallback(obj.toggleShade)
   self.shadeMenuIcon:setTooltip('Shade')
