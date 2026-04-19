@@ -1,0 +1,714 @@
+[
+  {
+    "Constant" : [
+
+    ],
+    "submodules" : [
+
+    ],
+    "Function" : [
+
+    ],
+    "Variable" : [
+      {
+        "doc" : "The percentage points to add\/subtract per key press. Default: 10",
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "The percentage points to add\/subtract per key press. Default: 10"
+        ],
+        "def" : "ElgatoKeyLight.brightnessStep",
+        "notes" : [
+
+        ],
+        "signature" : "ElgatoKeyLight.brightnessStep",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "brightnessStep",
+        "desc" : "The percentage points to add\/subtract per key press. Default: 10"
+      },
+      {
+        "doc" : "Mired units to add\/subtract per key press. Default: 20 (≈ ~300-500 K per step).\nHigher Mired = warmer; lower Mired = cooler.",
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "Mired units to add\/subtract per key press. Default: 20 (≈ ~300-500 K per step).",
+          "Higher Mired = warmer; lower Mired = cooler."
+        ],
+        "def" : "ElgatoKeyLight.temperatureStep",
+        "notes" : [
+
+        ],
+        "signature" : "ElgatoKeyLight.temperatureStep",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "temperatureStep",
+        "desc" : "Mired units to add\/subtract per key press. Default: 20 (≈ ~300-500 K per step)."
+      },
+      {
+        "doc" : "Brightness (1-100) used when the light is turned on by the camera watcher.",
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "Brightness (1-100) used when the light is turned on by the camera watcher."
+        ],
+        "def" : "ElgatoKeyLight.defaultBrightness",
+        "notes" : [
+
+        ],
+        "signature" : "ElgatoKeyLight.defaultBrightness",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "defaultBrightness",
+        "desc" : "Brightness (1-100) used when the light is turned on by the camera watcher."
+      },
+      {
+        "doc" : "Colour temperature in Mired (143 = 7000 K cool, 344 = 2900 K warm).\nDefault 200 ≈ 5000 K \/ neutral daylight.",
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "Colour temperature in Mired (143 = 7000 K cool, 344 = 2900 K warm).",
+          "Default 200 ≈ 5000 K \/ neutral daylight."
+        ],
+        "def" : "ElgatoKeyLight.defaultTemperature",
+        "notes" : [
+
+        ],
+        "signature" : "ElgatoKeyLight.defaultTemperature",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "defaultTemperature",
+        "desc" : "Colour temperature in Mired (143 = 7000 K cool, 344 = 2900 K warm)."
+      },
+      {
+        "doc" : "When true, lights turn on automatically whenever a camera starts being used.",
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "When true, lights turn on automatically whenever a camera starts being used."
+        ],
+        "def" : "ElgatoKeyLight.autoOnWithCamera",
+        "notes" : [
+
+        ],
+        "signature" : "ElgatoKeyLight.autoOnWithCamera",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "autoOnWithCamera",
+        "desc" : "When true, lights turn on automatically whenever a camera starts being used."
+      }
+    ],
+    "stripped_doc" : [
+
+    ],
+    "type" : "Module",
+    "Deprecated" : [
+
+    ],
+    "desc" : "Controls Elgato Key Lights via their local HTTP REST API.",
+    "Constructor" : [
+
+    ],
+    "doc" : "Controls Elgato Key Lights via their local HTTP REST API.\nAuto-discovers lights with Bonjour\/mDNS, turns them on when the camera\nactivates, and exposes hotkeys for brightness up\/down and power toggle.",
+    "Method" : [
+      {
+        "doc" : "Turns all discovered lights on at the configured default brightness.",
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "Turns all discovered lights on at the configured default brightness."
+        ],
+        "def" : "ElgatoKeyLight:turnOn()",
+        "notes" : [
+
+        ],
+        "signature" : "ElgatoKeyLight:turnOn()",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "name" : "turnOn",
+        "desc" : "Turns all discovered lights on at the configured default brightness."
+      },
+      {
+        "doc" : "Turns all discovered lights off.",
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "Turns all discovered lights off."
+        ],
+        "def" : "ElgatoKeyLight:turnOff()",
+        "notes" : [
+
+        ],
+        "signature" : "ElgatoKeyLight:turnOff()",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "name" : "turnOff",
+        "desc" : "Turns all discovered lights off."
+      },
+      {
+        "doc" : "Toggles all lights on\/off based on the first light's state.",
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "Toggles all lights on\/off based on the first light's state."
+        ],
+        "def" : "ElgatoKeyLight:toggle()",
+        "notes" : [
+
+        ],
+        "signature" : "ElgatoKeyLight:toggle()",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "name" : "toggle",
+        "desc" : "Toggles all lights on\/off based on the first light's state."
+      },
+      {
+        "doc" : "Increases brightness by brightnessStep on all lights.",
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "Increases brightness by brightnessStep on all lights."
+        ],
+        "def" : "ElgatoKeyLight:brightnessUp()",
+        "notes" : [
+
+        ],
+        "signature" : "ElgatoKeyLight:brightnessUp()",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "name" : "brightnessUp",
+        "desc" : "Increases brightness by brightnessStep on all lights."
+      },
+      {
+        "doc" : "Decreases brightness by brightnessStep on all lights. Turns off if ≤ 0.",
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "Decreases brightness by brightnessStep on all lights. Turns off if ≤ 0."
+        ],
+        "def" : "ElgatoKeyLight:brightnessDown()",
+        "notes" : [
+
+        ],
+        "signature" : "ElgatoKeyLight:brightnessDown()",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "name" : "brightnessDown",
+        "desc" : "Decreases brightness by brightnessStep on all lights. Turns off if ≤ 0."
+      },
+      {
+        "doc" : "Makes the light warmer (higher Mired) by temperatureStep on all lights.",
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "Makes the light warmer (higher Mired) by temperatureStep on all lights."
+        ],
+        "def" : "ElgatoKeyLight:temperatureUp()",
+        "notes" : [
+
+        ],
+        "signature" : "ElgatoKeyLight:temperatureUp()",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "name" : "temperatureUp",
+        "desc" : "Makes the light warmer (higher Mired) by temperatureStep on all lights."
+      },
+      {
+        "doc" : "Makes the light cooler (lower Mired) by temperatureStep on all lights.",
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "Makes the light cooler (lower Mired) by temperatureStep on all lights."
+        ],
+        "def" : "ElgatoKeyLight:temperatureDown()",
+        "notes" : [
+
+        ],
+        "signature" : "ElgatoKeyLight:temperatureDown()",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "name" : "temperatureDown",
+        "desc" : "Makes the light cooler (lower Mired) by temperatureStep on all lights."
+      },
+      {
+        "doc" : "Manually register a light by IP address, in addition to any auto-discovered ones.",
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "Manually register a light by IP address, in addition to any auto-discovered ones."
+        ],
+        "def" : "ElgatoKeyLight:addLight(host[, port])",
+        "notes" : [
+
+        ],
+        "signature" : "ElgatoKeyLight:addLight(host[, port])",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "name" : "addLight",
+        "desc" : "Manually register a light by IP address, in addition to any auto-discovered ones."
+      },
+      {
+        "doc" : "Binds hotkeys. Recognised keys:\n  toggle          – turn all lights on\/off\n  brightnessUp    – increase brightness\n  brightnessDown  – decrease brightness\n  temperatureUp   – warmer colour (higher Mired)\n  temperatureDown – cooler colour (lower Mired)\n  turnOff         – unconditionally turn off all lights\n\nExample:\n  spoon.ElgatoKeyLight:bindHotkeys({\n    toggle          = { {\"ctrl\",\"alt\",\"cmd\"}, \"l\" },\n    brightnessUp    = { {\"ctrl\",\"alt\",\"cmd\"}, \"=\" },\n    brightnessDown  = { {\"ctrl\",\"alt\",\"cmd\"}, \"-\" },\n    temperatureUp   = { {\"ctrl\",\"alt\",\"cmd\"}, \"]\" },\n    temperatureDown = { {\"ctrl\",\"alt\",\"cmd\"}, \"[\" },\n    turnOff         = { {\"ctrl\",\"alt\",\"cmd\"}, \"0\" },\n  })",
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "Binds hotkeys. Recognised keys:",
+          "  toggle          – turn all lights on\/off",
+          "  brightnessUp    – increase brightness",
+          "  brightnessDown  – decrease brightness",
+          "  temperatureUp   – warmer colour (higher Mired)",
+          "  temperatureDown – cooler colour (lower Mired)",
+          "  turnOff         – unconditionally turn off all lights",
+          "",
+          "Example:",
+          "  spoon.ElgatoKeyLight:bindHotkeys({",
+          "    toggle          = { {\"ctrl\",\"alt\",\"cmd\"}, \"l\" },",
+          "    brightnessUp    = { {\"ctrl\",\"alt\",\"cmd\"}, \"=\" },",
+          "    brightnessDown  = { {\"ctrl\",\"alt\",\"cmd\"}, \"-\" },",
+          "    temperatureUp   = { {\"ctrl\",\"alt\",\"cmd\"}, \"]\" },",
+          "    temperatureDown = { {\"ctrl\",\"alt\",\"cmd\"}, \"[\" },",
+          "    turnOff         = { {\"ctrl\",\"alt\",\"cmd\"}, \"0\" },",
+          "  })"
+        ],
+        "def" : "ElgatoKeyLight:bindHotkeys(mapping)",
+        "notes" : [
+
+        ],
+        "signature" : "ElgatoKeyLight:bindHotkeys(mapping)",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "name" : "bindHotkeys",
+        "desc" : "Binds hotkeys. Recognised keys:"
+      },
+      {
+        "doc" : "Starts Bonjour discovery and camera monitoring.",
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "Starts Bonjour discovery and camera monitoring."
+        ],
+        "def" : "ElgatoKeyLight:start()",
+        "notes" : [
+
+        ],
+        "signature" : "ElgatoKeyLight:start()",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "name" : "start",
+        "desc" : "Starts Bonjour discovery and camera monitoring."
+      },
+      {
+        "doc" : "Stops all watchers and releases resources.",
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "Stops all watchers and releases resources."
+        ],
+        "def" : "ElgatoKeyLight:stop()",
+        "notes" : [
+
+        ],
+        "signature" : "ElgatoKeyLight:stop()",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "name" : "stop",
+        "desc" : "Stops all watchers and releases resources."
+      }
+    ],
+    "Command" : [
+
+    ],
+    "items" : [
+      {
+        "doc" : "When true, lights turn on automatically whenever a camera starts being used.",
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "When true, lights turn on automatically whenever a camera starts being used."
+        ],
+        "def" : "ElgatoKeyLight.autoOnWithCamera",
+        "notes" : [
+
+        ],
+        "signature" : "ElgatoKeyLight.autoOnWithCamera",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "autoOnWithCamera",
+        "desc" : "When true, lights turn on automatically whenever a camera starts being used."
+      },
+      {
+        "doc" : "The percentage points to add\/subtract per key press. Default: 10",
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "The percentage points to add\/subtract per key press. Default: 10"
+        ],
+        "def" : "ElgatoKeyLight.brightnessStep",
+        "notes" : [
+
+        ],
+        "signature" : "ElgatoKeyLight.brightnessStep",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "brightnessStep",
+        "desc" : "The percentage points to add\/subtract per key press. Default: 10"
+      },
+      {
+        "doc" : "Brightness (1-100) used when the light is turned on by the camera watcher.",
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "Brightness (1-100) used when the light is turned on by the camera watcher."
+        ],
+        "def" : "ElgatoKeyLight.defaultBrightness",
+        "notes" : [
+
+        ],
+        "signature" : "ElgatoKeyLight.defaultBrightness",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "defaultBrightness",
+        "desc" : "Brightness (1-100) used when the light is turned on by the camera watcher."
+      },
+      {
+        "doc" : "Colour temperature in Mired (143 = 7000 K cool, 344 = 2900 K warm).\nDefault 200 ≈ 5000 K \/ neutral daylight.",
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "Colour temperature in Mired (143 = 7000 K cool, 344 = 2900 K warm).",
+          "Default 200 ≈ 5000 K \/ neutral daylight."
+        ],
+        "def" : "ElgatoKeyLight.defaultTemperature",
+        "notes" : [
+
+        ],
+        "signature" : "ElgatoKeyLight.defaultTemperature",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "defaultTemperature",
+        "desc" : "Colour temperature in Mired (143 = 7000 K cool, 344 = 2900 K warm)."
+      },
+      {
+        "doc" : "Mired units to add\/subtract per key press. Default: 20 (≈ ~300-500 K per step).\nHigher Mired = warmer; lower Mired = cooler.",
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "Mired units to add\/subtract per key press. Default: 20 (≈ ~300-500 K per step).",
+          "Higher Mired = warmer; lower Mired = cooler."
+        ],
+        "def" : "ElgatoKeyLight.temperatureStep",
+        "notes" : [
+
+        ],
+        "signature" : "ElgatoKeyLight.temperatureStep",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "name" : "temperatureStep",
+        "desc" : "Mired units to add\/subtract per key press. Default: 20 (≈ ~300-500 K per step)."
+      },
+      {
+        "doc" : "Manually register a light by IP address, in addition to any auto-discovered ones.",
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "Manually register a light by IP address, in addition to any auto-discovered ones."
+        ],
+        "def" : "ElgatoKeyLight:addLight(host[, port])",
+        "notes" : [
+
+        ],
+        "signature" : "ElgatoKeyLight:addLight(host[, port])",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "name" : "addLight",
+        "desc" : "Manually register a light by IP address, in addition to any auto-discovered ones."
+      },
+      {
+        "doc" : "Binds hotkeys. Recognised keys:\n  toggle          – turn all lights on\/off\n  brightnessUp    – increase brightness\n  brightnessDown  – decrease brightness\n  temperatureUp   – warmer colour (higher Mired)\n  temperatureDown – cooler colour (lower Mired)\n  turnOff         – unconditionally turn off all lights\n\nExample:\n  spoon.ElgatoKeyLight:bindHotkeys({\n    toggle          = { {\"ctrl\",\"alt\",\"cmd\"}, \"l\" },\n    brightnessUp    = { {\"ctrl\",\"alt\",\"cmd\"}, \"=\" },\n    brightnessDown  = { {\"ctrl\",\"alt\",\"cmd\"}, \"-\" },\n    temperatureUp   = { {\"ctrl\",\"alt\",\"cmd\"}, \"]\" },\n    temperatureDown = { {\"ctrl\",\"alt\",\"cmd\"}, \"[\" },\n    turnOff         = { {\"ctrl\",\"alt\",\"cmd\"}, \"0\" },\n  })",
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "Binds hotkeys. Recognised keys:",
+          "  toggle          – turn all lights on\/off",
+          "  brightnessUp    – increase brightness",
+          "  brightnessDown  – decrease brightness",
+          "  temperatureUp   – warmer colour (higher Mired)",
+          "  temperatureDown – cooler colour (lower Mired)",
+          "  turnOff         – unconditionally turn off all lights",
+          "",
+          "Example:",
+          "  spoon.ElgatoKeyLight:bindHotkeys({",
+          "    toggle          = { {\"ctrl\",\"alt\",\"cmd\"}, \"l\" },",
+          "    brightnessUp    = { {\"ctrl\",\"alt\",\"cmd\"}, \"=\" },",
+          "    brightnessDown  = { {\"ctrl\",\"alt\",\"cmd\"}, \"-\" },",
+          "    temperatureUp   = { {\"ctrl\",\"alt\",\"cmd\"}, \"]\" },",
+          "    temperatureDown = { {\"ctrl\",\"alt\",\"cmd\"}, \"[\" },",
+          "    turnOff         = { {\"ctrl\",\"alt\",\"cmd\"}, \"0\" },",
+          "  })"
+        ],
+        "def" : "ElgatoKeyLight:bindHotkeys(mapping)",
+        "notes" : [
+
+        ],
+        "signature" : "ElgatoKeyLight:bindHotkeys(mapping)",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "name" : "bindHotkeys",
+        "desc" : "Binds hotkeys. Recognised keys:"
+      },
+      {
+        "doc" : "Decreases brightness by brightnessStep on all lights. Turns off if ≤ 0.",
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "Decreases brightness by brightnessStep on all lights. Turns off if ≤ 0."
+        ],
+        "def" : "ElgatoKeyLight:brightnessDown()",
+        "notes" : [
+
+        ],
+        "signature" : "ElgatoKeyLight:brightnessDown()",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "name" : "brightnessDown",
+        "desc" : "Decreases brightness by brightnessStep on all lights. Turns off if ≤ 0."
+      },
+      {
+        "doc" : "Increases brightness by brightnessStep on all lights.",
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "Increases brightness by brightnessStep on all lights."
+        ],
+        "def" : "ElgatoKeyLight:brightnessUp()",
+        "notes" : [
+
+        ],
+        "signature" : "ElgatoKeyLight:brightnessUp()",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "name" : "brightnessUp",
+        "desc" : "Increases brightness by brightnessStep on all lights."
+      },
+      {
+        "doc" : "Starts Bonjour discovery and camera monitoring.",
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "Starts Bonjour discovery and camera monitoring."
+        ],
+        "def" : "ElgatoKeyLight:start()",
+        "notes" : [
+
+        ],
+        "signature" : "ElgatoKeyLight:start()",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "name" : "start",
+        "desc" : "Starts Bonjour discovery and camera monitoring."
+      },
+      {
+        "doc" : "Stops all watchers and releases resources.",
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "Stops all watchers and releases resources."
+        ],
+        "def" : "ElgatoKeyLight:stop()",
+        "notes" : [
+
+        ],
+        "signature" : "ElgatoKeyLight:stop()",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "name" : "stop",
+        "desc" : "Stops all watchers and releases resources."
+      },
+      {
+        "doc" : "Makes the light cooler (lower Mired) by temperatureStep on all lights.",
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "Makes the light cooler (lower Mired) by temperatureStep on all lights."
+        ],
+        "def" : "ElgatoKeyLight:temperatureDown()",
+        "notes" : [
+
+        ],
+        "signature" : "ElgatoKeyLight:temperatureDown()",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "name" : "temperatureDown",
+        "desc" : "Makes the light cooler (lower Mired) by temperatureStep on all lights."
+      },
+      {
+        "doc" : "Makes the light warmer (higher Mired) by temperatureStep on all lights.",
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "Makes the light warmer (higher Mired) by temperatureStep on all lights."
+        ],
+        "def" : "ElgatoKeyLight:temperatureUp()",
+        "notes" : [
+
+        ],
+        "signature" : "ElgatoKeyLight:temperatureUp()",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "name" : "temperatureUp",
+        "desc" : "Makes the light warmer (higher Mired) by temperatureStep on all lights."
+      },
+      {
+        "doc" : "Toggles all lights on\/off based on the first light's state.",
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "Toggles all lights on\/off based on the first light's state."
+        ],
+        "def" : "ElgatoKeyLight:toggle()",
+        "notes" : [
+
+        ],
+        "signature" : "ElgatoKeyLight:toggle()",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "name" : "toggle",
+        "desc" : "Toggles all lights on\/off based on the first light's state."
+      },
+      {
+        "doc" : "Turns all discovered lights off.",
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "Turns all discovered lights off."
+        ],
+        "def" : "ElgatoKeyLight:turnOff()",
+        "notes" : [
+
+        ],
+        "signature" : "ElgatoKeyLight:turnOff()",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "name" : "turnOff",
+        "desc" : "Turns all discovered lights off."
+      },
+      {
+        "doc" : "Turns all discovered lights on at the configured default brightness.",
+        "parameters" : [
+
+        ],
+        "stripped_doc" : [
+          "Turns all discovered lights on at the configured default brightness."
+        ],
+        "def" : "ElgatoKeyLight:turnOn()",
+        "notes" : [
+
+        ],
+        "signature" : "ElgatoKeyLight:turnOn()",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "name" : "turnOn",
+        "desc" : "Turns all discovered lights on at the configured default brightness."
+      }
+    ],
+    "Field" : [
+
+    ],
+    "name" : "ElgatoKeyLight"
+  }
+]
