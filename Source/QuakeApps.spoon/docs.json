@@ -1,0 +1,370 @@
+[
+  {
+    "Constant" : [
+
+    ],
+    "submodules" : [
+
+    ],
+    "Function" : [
+
+    ],
+    "Variable" : [
+      {
+        "def" : "QuakeApps.apps",
+        "doc" : "Per-action app configuration used by `bindHotkeys()` and `toggle()`.\n\nParameters:\n * action (table key) - Action name, e.g. `terminal`\n * app config (table value):\n   * bundleID - App bundle ID (recommended), e.g. `net.kovidgoyal.kitty`\n   * app - App name (fallback if bundleID is not provided)\n   * placement - Optional preset: `topHalf`, `middle`, `fullScreen`, `left`, `right`\n   * hotkey - Hotkey in the form `{ {\"cmd\"}, \"`\" }`\n   * width - Optional width ratio from 0 to 1\n   * height - Optional height ratio from 0 to 1\n   * marginTop - Optional top offset in pixels\n   * screen - Optional screen name\n   * autoHide - Hide when app loses focus (default true behavior)\n   * onShow - Optional hook (function or shell command string)\n   * onHide - Optional hook (function or shell command string)\n\nReturns:\n * A table of app definitions",
+        "stripped_doc" : [
+          "Per-action app configuration used by `bindHotkeys()` and `toggle()`.",
+          ""
+        ],
+        "desc" : "Per-action app configuration used by `bindHotkeys()` and `toggle()`.",
+        "notes" : [
+
+        ],
+        "signature" : "QuakeApps.apps",
+        "type" : "Variable",
+        "returns" : [
+          " * A table of app definitions"
+        ],
+        "name" : "apps",
+        "parameters" : [
+          " * action (table key) - Action name, e.g. `terminal`",
+          " * app config (table value):",
+          "   * bundleID - App bundle ID (recommended), e.g. `net.kovidgoyal.kitty`",
+          "   * app - App name (fallback if bundleID is not provided)",
+          "   * placement - Optional preset: `topHalf`, `middle`, `fullScreen`, `left`, `right`",
+          "   * hotkey - Hotkey in the form `{ {\"cmd\"}, \"`\" }`",
+          "   * width - Optional width ratio from 0 to 1",
+          "   * height - Optional height ratio from 0 to 1",
+          "   * marginTop - Optional top offset in pixels",
+          "   * screen - Optional screen name",
+          "   * autoHide - Hide when app loses focus (default true behavior)",
+          "   * onShow - Optional hook (function or shell command string)",
+          "   * onHide - Optional hook (function or shell command string)",
+          ""
+        ]
+      },
+      {
+        "def" : "QuakeApps.defaultHeight",
+        "doc" : "Default height ratio used when app config does not specify `height`.\n\nParameters:\n * value - A number between 0 and 1\n\nReturns:\n * Current default height ratio",
+        "stripped_doc" : [
+          "Default height ratio used when app config does not specify `height`.",
+          ""
+        ],
+        "desc" : "Default height ratio used when app config does not specify `height`.",
+        "notes" : [
+
+        ],
+        "signature" : "QuakeApps.defaultHeight",
+        "type" : "Variable",
+        "returns" : [
+          " * Current default height ratio"
+        ],
+        "name" : "defaultHeight",
+        "parameters" : [
+          " * value - A number between 0 and 1",
+          ""
+        ]
+      },
+      {
+        "def" : "QuakeApps.defaultWidth",
+        "doc" : "Default width ratio used when app config does not specify `width`.\n\nParameters:\n * value - A number between 0 and 1\n\nReturns:\n * Current default width ratio",
+        "stripped_doc" : [
+          "Default width ratio used when app config does not specify `width`.",
+          ""
+        ],
+        "desc" : "Default width ratio used when app config does not specify `width`.",
+        "notes" : [
+
+        ],
+        "signature" : "QuakeApps.defaultWidth",
+        "type" : "Variable",
+        "returns" : [
+          " * Current default width ratio"
+        ],
+        "name" : "defaultWidth",
+        "parameters" : [
+          " * value - A number between 0 and 1",
+          ""
+        ]
+      }
+    ],
+    "stripped_doc" : [
+
+    ],
+    "type" : "Module",
+    "desc" : "Toggle \"quake-style\" apps: summon, place, and auto-hide by action.",
+    "Deprecated" : [
+
+    ],
+    "Constructor" : [
+
+    ],
+    "items" : [
+      {
+        "def" : "QuakeApps.apps",
+        "doc" : "Per-action app configuration used by `bindHotkeys()` and `toggle()`.\n\nParameters:\n * action (table key) - Action name, e.g. `terminal`\n * app config (table value):\n   * bundleID - App bundle ID (recommended), e.g. `net.kovidgoyal.kitty`\n   * app - App name (fallback if bundleID is not provided)\n   * placement - Optional preset: `topHalf`, `middle`, `fullScreen`, `left`, `right`\n   * hotkey - Hotkey in the form `{ {\"cmd\"}, \"`\" }`\n   * width - Optional width ratio from 0 to 1\n   * height - Optional height ratio from 0 to 1\n   * marginTop - Optional top offset in pixels\n   * screen - Optional screen name\n   * autoHide - Hide when app loses focus (default true behavior)\n   * onShow - Optional hook (function or shell command string)\n   * onHide - Optional hook (function or shell command string)\n\nReturns:\n * A table of app definitions",
+        "stripped_doc" : [
+          "Per-action app configuration used by `bindHotkeys()` and `toggle()`.",
+          ""
+        ],
+        "desc" : "Per-action app configuration used by `bindHotkeys()` and `toggle()`.",
+        "notes" : [
+
+        ],
+        "signature" : "QuakeApps.apps",
+        "type" : "Variable",
+        "returns" : [
+          " * A table of app definitions"
+        ],
+        "name" : "apps",
+        "parameters" : [
+          " * action (table key) - Action name, e.g. `terminal`",
+          " * app config (table value):",
+          "   * bundleID - App bundle ID (recommended), e.g. `net.kovidgoyal.kitty`",
+          "   * app - App name (fallback if bundleID is not provided)",
+          "   * placement - Optional preset: `topHalf`, `middle`, `fullScreen`, `left`, `right`",
+          "   * hotkey - Hotkey in the form `{ {\"cmd\"}, \"`\" }`",
+          "   * width - Optional width ratio from 0 to 1",
+          "   * height - Optional height ratio from 0 to 1",
+          "   * marginTop - Optional top offset in pixels",
+          "   * screen - Optional screen name",
+          "   * autoHide - Hide when app loses focus (default true behavior)",
+          "   * onShow - Optional hook (function or shell command string)",
+          "   * onHide - Optional hook (function or shell command string)",
+          ""
+        ]
+      },
+      {
+        "def" : "QuakeApps.defaultHeight",
+        "doc" : "Default height ratio used when app config does not specify `height`.\n\nParameters:\n * value - A number between 0 and 1\n\nReturns:\n * Current default height ratio",
+        "stripped_doc" : [
+          "Default height ratio used when app config does not specify `height`.",
+          ""
+        ],
+        "desc" : "Default height ratio used when app config does not specify `height`.",
+        "notes" : [
+
+        ],
+        "signature" : "QuakeApps.defaultHeight",
+        "type" : "Variable",
+        "returns" : [
+          " * Current default height ratio"
+        ],
+        "name" : "defaultHeight",
+        "parameters" : [
+          " * value - A number between 0 and 1",
+          ""
+        ]
+      },
+      {
+        "def" : "QuakeApps.defaultWidth",
+        "doc" : "Default width ratio used when app config does not specify `width`.\n\nParameters:\n * value - A number between 0 and 1\n\nReturns:\n * Current default width ratio",
+        "stripped_doc" : [
+          "Default width ratio used when app config does not specify `width`.",
+          ""
+        ],
+        "desc" : "Default width ratio used when app config does not specify `width`.",
+        "notes" : [
+
+        ],
+        "signature" : "QuakeApps.defaultWidth",
+        "type" : "Variable",
+        "returns" : [
+          " * Current default width ratio"
+        ],
+        "name" : "defaultWidth",
+        "parameters" : [
+          " * value - A number between 0 and 1",
+          ""
+        ]
+      },
+      {
+        "def" : "QuakeApps:bindHotkeys()",
+        "doc" : "Binds all hotkeys declared in `QuakeApps.apps`.\n\nParameters:\n * None\n\nReturns:\n * The QuakeApps object",
+        "stripped_doc" : [
+          "Binds all hotkeys declared in `QuakeApps.apps`.",
+          ""
+        ],
+        "desc" : "Binds all hotkeys declared in `QuakeApps.apps`.",
+        "notes" : [
+
+        ],
+        "signature" : "QuakeApps:bindHotkeys()",
+        "type" : "Method",
+        "returns" : [
+          " * The QuakeApps object"
+        ],
+        "name" : "bindHotkeys",
+        "parameters" : [
+          " * None",
+          ""
+        ]
+      },
+      {
+        "def" : "QuakeApps:start()",
+        "doc" : "Initializes hotkeys and starts app deactivation watcher for auto-hide.\n\nParameters:\n * None\n\nReturns:\n * The QuakeApps object",
+        "stripped_doc" : [
+          "Initializes hotkeys and starts app deactivation watcher for auto-hide.",
+          ""
+        ],
+        "desc" : "Initializes hotkeys and starts app deactivation watcher for auto-hide.",
+        "notes" : [
+
+        ],
+        "signature" : "QuakeApps:start()",
+        "type" : "Method",
+        "returns" : [
+          " * The QuakeApps object"
+        ],
+        "name" : "start",
+        "parameters" : [
+          " * None",
+          ""
+        ]
+      },
+      {
+        "def" : "QuakeApps:stop()",
+        "doc" : "Stops watchers and removes all previously bound hotkeys.\n\nParameters:\n * None\n\nReturns:\n * The QuakeApps object",
+        "stripped_doc" : [
+          "Stops watchers and removes all previously bound hotkeys.",
+          ""
+        ],
+        "desc" : "Stops watchers and removes all previously bound hotkeys.",
+        "notes" : [
+
+        ],
+        "signature" : "QuakeApps:stop()",
+        "type" : "Method",
+        "returns" : [
+          " * The QuakeApps object"
+        ],
+        "name" : "stop",
+        "parameters" : [
+          " * None",
+          ""
+        ]
+      },
+      {
+        "def" : "QuakeApps:toggle(action)",
+        "doc" : "Toggles a configured app: show\/focus\/place when hidden, hide when frontmost.\n\nParameters:\n * action - A string key from `QuakeApps.apps`\n\nReturns:\n * The QuakeApps object",
+        "stripped_doc" : [
+          "Toggles a configured app: show\/focus\/place when hidden, hide when frontmost.",
+          ""
+        ],
+        "desc" : "Toggles a configured app: show\/focus\/place when hidden, hide when frontmost.",
+        "notes" : [
+
+        ],
+        "signature" : "QuakeApps:toggle(action)",
+        "type" : "Method",
+        "returns" : [
+          " * The QuakeApps object"
+        ],
+        "name" : "toggle",
+        "parameters" : [
+          " * action - A string key from `QuakeApps.apps`",
+          ""
+        ]
+      }
+    ],
+    "Method" : [
+      {
+        "def" : "QuakeApps:toggle(action)",
+        "doc" : "Toggles a configured app: show\/focus\/place when hidden, hide when frontmost.\n\nParameters:\n * action - A string key from `QuakeApps.apps`\n\nReturns:\n * The QuakeApps object",
+        "stripped_doc" : [
+          "Toggles a configured app: show\/focus\/place when hidden, hide when frontmost.",
+          ""
+        ],
+        "desc" : "Toggles a configured app: show\/focus\/place when hidden, hide when frontmost.",
+        "notes" : [
+
+        ],
+        "signature" : "QuakeApps:toggle(action)",
+        "type" : "Method",
+        "returns" : [
+          " * The QuakeApps object"
+        ],
+        "name" : "toggle",
+        "parameters" : [
+          " * action - A string key from `QuakeApps.apps`",
+          ""
+        ]
+      },
+      {
+        "def" : "QuakeApps:bindHotkeys()",
+        "doc" : "Binds all hotkeys declared in `QuakeApps.apps`.\n\nParameters:\n * None\n\nReturns:\n * The QuakeApps object",
+        "stripped_doc" : [
+          "Binds all hotkeys declared in `QuakeApps.apps`.",
+          ""
+        ],
+        "desc" : "Binds all hotkeys declared in `QuakeApps.apps`.",
+        "notes" : [
+
+        ],
+        "signature" : "QuakeApps:bindHotkeys()",
+        "type" : "Method",
+        "returns" : [
+          " * The QuakeApps object"
+        ],
+        "name" : "bindHotkeys",
+        "parameters" : [
+          " * None",
+          ""
+        ]
+      },
+      {
+        "def" : "QuakeApps:stop()",
+        "doc" : "Stops watchers and removes all previously bound hotkeys.\n\nParameters:\n * None\n\nReturns:\n * The QuakeApps object",
+        "stripped_doc" : [
+          "Stops watchers and removes all previously bound hotkeys.",
+          ""
+        ],
+        "desc" : "Stops watchers and removes all previously bound hotkeys.",
+        "notes" : [
+
+        ],
+        "signature" : "QuakeApps:stop()",
+        "type" : "Method",
+        "returns" : [
+          " * The QuakeApps object"
+        ],
+        "name" : "stop",
+        "parameters" : [
+          " * None",
+          ""
+        ]
+      },
+      {
+        "def" : "QuakeApps:start()",
+        "doc" : "Initializes hotkeys and starts app deactivation watcher for auto-hide.\n\nParameters:\n * None\n\nReturns:\n * The QuakeApps object",
+        "stripped_doc" : [
+          "Initializes hotkeys and starts app deactivation watcher for auto-hide.",
+          ""
+        ],
+        "desc" : "Initializes hotkeys and starts app deactivation watcher for auto-hide.",
+        "notes" : [
+
+        ],
+        "signature" : "QuakeApps:start()",
+        "type" : "Method",
+        "returns" : [
+          " * The QuakeApps object"
+        ],
+        "name" : "start",
+        "parameters" : [
+          " * None",
+          ""
+        ]
+      }
+    ],
+    "Command" : [
+
+    ],
+    "doc" : "Toggle \"quake-style\" apps: summon, place, and auto-hide by action.\n\nConfigurable properties (with default values):\n    apps = {},\n    defaultHeight = 0.45,\n    defaultWidth = 1.0,\n\nExample:\n```\nspoon.QuakeApps.apps = {\n  terminal = {\n    bundleID = \"net.kovidgoyal.kitty\",\n    placement = \"topHalf\",\n    hotkey = { { \"cmd\" }, \"`\" },\n  },\n  browser = {\n    app = \"Google Chrome\",\n    placement = \"middle\",\n    width = 0.7,\n    hotkey = { { \"cmd\", \"alt\" }, \"b\" },\n  },\n}\n```\n\nDownload: [https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/QuakeApps.spoon.zip](https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/QuakeApps.spoon.zip)",
+    "Field" : [
+
+    ],
+    "name" : "QuakeApps"
+  }
+]
