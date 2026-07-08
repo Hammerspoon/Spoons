@@ -2,6 +2,13 @@
 ---
 --- Use mouse scroll wheel and modifiers to adjust volume.
 ---
+--- Example usage:
+---
+--- ```
+--- hs.loadSpoon("VolumeScroll")
+--- spoon.VolumeScroll:start({ "cmd", "alt" })
+--- ```
+---
 --- Download: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/VolumeScroll.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/VolumeScroll.spoon.zip)
 
 local obj={}
@@ -9,7 +16,7 @@ obj.__index = obj
 
 -- Metadata
 obj.name = "VolumeScroll"
-obj.version = "1.0"
+obj.version = "1.1"
 obj.author = "Garth Mortensen (voldemortensen)"
 obj.twitter = "@voldemortensen"
 obj.github = "@voldemortensen"
@@ -24,39 +31,39 @@ obj.license = "MIT - https://opensource.org/licenses/MIT"
 ---  * None
 ---
 --- Returns:
----  * void
+---  * The VolumeScroll object
 function obj:init()
-    self.modifiers = hs.eventtap.event.newScrollEvent({0,0}, {'cmd'})
-    self.flags = self.modifiers:getFlags()
+    self.mods = { "cmd" }
+    return self
 end
 
---- VolumeScroll:start()
+--- VolumeScroll:start([mods])
 --- Method
 --- Start event watcher.
 ---
 --- Parameters:
----  * mods - a table containing the modifiers to bind in scrolling
+---  * mods - an optional table containing the modifiers to bind in scrolling, e.g. `{ "cmd", "alt" }`. Defaults to `{ "cmd" }`
 ---
 --- Returns:
----  * void
+---  * The VolumeScroll object
+---
+--- Notes:
+---  * This is a method, so it must be called with a colon, e.g. `spoon.VolumeScroll:start({ "cmd", "alt" })`
 function obj:start(mods)
-    if mods ~= nil and type(mods) == 'table' then
-        self.modifiers = hs.eventtap.event.newScrollEvent({0,0}, mods)
-        self.flags = self.modifiers:getFlags()
+    if type(mods) == 'table' then
+        self.mods = mods
     end
 
     self.scrollWatcher = hs.eventtap.new({hs.eventtap.event.types.scrollWheel}, function(event)
-        local currentMods = event:getFlags()
-        if self:sameMods(currentMods) then
+        if event:getFlags():containExactly(self.mods) then
             local direction = event:getProperty(hs.eventtap.event.properties.scrollWheelEventFixedPtDeltaAxis1)
-            local device = hs.audiodevice.current()
-            if direction > 0 then
-                if device.volume < 100 then
-                    device.device:setOutputVolume(device.volume + 1)
-                end
-            elseif direction < 0 then
-                if device.volume > 0 then
-                    device.device:setOutputVolume(device.volume - 1)
+            local device = hs.audiodevice.defaultOutputDevice()
+            local volume = device and device:outputVolume()
+            if volume then
+                if direction > 0 then
+                    device:setOutputVolume(math.min(volume + 1, 100))
+                elseif direction < 0 then
+                    device:setOutputVolume(math.max(volume - 1, 0))
                 end
             end
             return true
@@ -65,6 +72,7 @@ function obj:start(mods)
     end)
 
     self.scrollWatcher:start()
+    return self
 end
 
 --- VolumeScroll:stop()
@@ -75,52 +83,13 @@ end
 ---  * None
 ---
 --- Returns:
----  * void
+---  * The VolumeScroll object
 function obj:stop()
-    self.scrollWatcher:stop()
-end
-
---- VolumeScroll:sameMods()
---- Method
---- Determine if a table of modifiers are the same modifiers passed into :start()
----
---- Parameters:
----  * mods - a table of modifiers
----
---- Returns:
----  * boolean - true if mods are same, false otherwise
-function obj:sameMods(mods)
-    if type(mods) ~= type(self.flags) then return false end
-    if type(mods) ~= 'table' then return false end
-    if self:tableLength(mods) ~= self:tableLength(self.flags) then return false end
-
-    for key1, value1 in pairs(mods) do
-        local value2 = self.flags[key1]
-        if value1 ~= value2 then
-            return false
-        end
+    if self.scrollWatcher then
+        self.scrollWatcher:stop()
+        self.scrollWatcher = nil
     end
-
-    return true
-end
-
---- VolumeScroll:tableLength(T)
---- Method
---- Determine the number of items in a table
----
---- Parameters:
----  * T - a table
----
---- Returns:
----  * number or boolean - the number of items in the table, false if T is not a table
-function obj:tableLength(T)
-    if type(T) == 'table' then
-        local count = 0
-        for _ in pairs(T) do count = count + 1 end
-        return count
-    else
-        return false
-    end
+    return self
 end
 
 return obj
