@@ -19,6 +19,23 @@
 --- }
 --- ```
 ---
+--- or create a `.luarc.json` in your `~/.hammerspoon` directory:
+---
+--- ```json
+--- {
+---   "$schema": "https://raw.githubusercontent.com/LuaLS/vscode-lua/master/setting/schema.json",
+---   "runtime.version": "Lua 5.4",
+---   "workspace.library": [
+---     "Spoons/EmmyLua.spoon/annotations"
+---   ],
+---   "workspace.checkThirdParty": false,
+---   "diagnostics.globals": [
+---     "hs",
+---     "spoon"
+---   ]
+--- }
+--- ```
+---
 --- Download: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/EmmyLua.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/EmmyLua.spoon.zip)
 
 local M = {}
