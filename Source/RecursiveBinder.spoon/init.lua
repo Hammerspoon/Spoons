@@ -200,7 +200,6 @@ local function showHelper(keyFuncNameTable)
    local lastLine = ''
    local count = 0
    for keyName, funcName in pairs(keyFuncNameTable) do
-      count = count + 1
       local newEntry = keyName..' → '..funcName
       -- make sure each entry is of the same length
       if string.len(newEntry) > obj.helperEntryLengthInChar then
@@ -209,16 +208,16 @@ local function showHelper(keyFuncNameTable)
          newEntry = newEntry..string.rep(' ', obj.helperEntryLengthInChar - string.len(newEntry))
       end
       -- create new line for every helperEntryEachLine entries
-      if count % (obj.helperEntryEachLine + 1) == 0 then
-         separator = '\n '
-      elseif count == 1 then
-         separator = ' '
+      if count == 0 then
+         separator = ''
+      elseif count % obj.helperEntryEachLine == 0 then
+         separator = '\n'
       else
          separator = '  '
       end
       helper = helper..separator..newEntry
+      count = count + 1
    end
-   helper = string.match(helper, '[^\n].+$')
    previousHelperID = hs.alert.show(helper, obj.helperFormat, true)
 end
 
@@ -246,15 +245,17 @@ end
 ---      And the table have the same format of top table: keys to keys, value to table or function
 
 -- the actual binding function
-function obj.recursiveBind(keymap)
+function obj.recursiveBind(keymap, modals)
+   if not modals then modals = {} end
    if type(keymap) == 'function' then
       -- in this case "keymap" is actuall a function
       return keymap
    end
    local modal = hs.hotkey.modal.new()
+   table.insert(modals, modal)
    local keyFuncNameTable = {}
    for key, map in pairs(keymap) do
-      local func = obj.recursiveBind(map)
+      local func = obj.recursiveBind(map, modals)
       -- key[1] is modifiers, i.e. {'shift'}, key[2] is key, i.e. 'f' 
       modal:bind(key[1], key[2], function() modal:exit() killHelper() func() end)
       modal:bind(obj.escapeKey[1], obj.escapeKey[2], function() modal:exit() killHelper() end)
@@ -263,6 +264,11 @@ function obj.recursiveBind(keymap)
       end
    end
    return function()
+      -- exit all modals, accounts for pressing the trigger key while
+      -- a modal is already open
+      for _, modal in pairs(modals) do
+         modal:exit()
+      end
       modal:enter()
       killHelper()
       if obj.showBindHelper then

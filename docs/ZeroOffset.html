@@ -1,0 +1,186 @@
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hammerspoon docs: ZeroOffset</title>
+    <style type="text/css">
+      a { text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      th { background-color: #DDDDDD; vertical-align: top; padding: 3px; }
+      td { width: 100%; background-color: #EEEEEE; vertical-align: top; padding: 3px; }
+      table { width: 100% ; border: 1px solid #0; text-align: left; }
+      section > table table td { width: 0; }
+    </style>
+    <link rel="stylesheet" href="docs.css" type="text/css" media="screen" />
+  </head>
+  <body>
+    <header>
+      <h1><a href="./index.html">docs</a> &raquo; ZeroOffset</h1>
+      <p>Display UTC time in the menu bar</p>
+<p>Download: <a href="https://github.com/gavinest/ZeroOffset/blob/main/Spoons/ZeroOffset.spoon.zip">https://github.com/gavinest/ZeroOffset/blob/main/Spoons/ZeroOffset.spoon.zip</a></p>
+
+      </header>
+      <h3>API Overview</h3>
+      <ul>
+        <li>Methods - API calls which can only be made on an object returned by a constructor</li>
+          <ul>
+            <li><a href="#bindHotkeys">bindHotkeys</a></li>
+            <li><a href="#init">init</a></li>
+            <li><a href="#start">start</a></li>
+            <li><a href="#stop">stop</a></li>
+          </ul>
+      </ul>
+      <h3>API Documentation</h3>
+        <h4 class="documentation-section">Methods</h4>
+          <section id="bindHotkeys">
+            <a name="//apple_ref/cpp/Method/bindHotkeys" class="dashAnchor"></a>
+            <h5><a href="#bindHotkeys">bindHotkeys</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>ZeroOffset:bindHotkeys(mapping)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Binds hotkeys for ZeroOffset</p>
+</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>mapping - A table containing hotkey objifier/key details for the following items:<ul>
+<li>toggle - This will toggle the display of the UTC time in menubar</li>
+</ul>
+</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
+<li>The ZeroOffset object</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/ZeroOffset.spoon/init.lua#L80">Source/ZeroOffset.spoon/init.lua line 80</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="init">
+            <a name="//apple_ref/cpp/Method/init" class="dashAnchor"></a>
+            <h5><a href="#init">init</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>ZeroOffset:init()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Initial setup for ZeroOffset</p>
+</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>None</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
+<li>The ZeroOffset object</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/ZeroOffset.spoon/init.lua#L19">Source/ZeroOffset.spoon/init.lua line 19</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="start">
+            <a name="//apple_ref/cpp/Method/start" class="dashAnchor"></a>
+            <h5><a href="#start">start</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>ZeroOffset:start()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Starts ZeroOffset</p>
+</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>None</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
+<li>The ZeroOffset object</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/ZeroOffset.spoon/init.lua#L36">Source/ZeroOffset.spoon/init.lua line 36</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="stop">
+            <a name="//apple_ref/cpp/Method/stop" class="dashAnchor"></a>
+            <h5><a href="#stop">stop</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>ZeroOffset:stop()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Stops ZeroOffset</p>
+</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>None</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
+<li>The ZeroOffset object</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/ZeroOffset.spoon/init.lua#L56">Source/ZeroOffset.spoon/init.lua line 56</a></td>
+              </tr>
+            </table>
+          </section>
+  </body>
+</html>

@@ -30,7 +30,7 @@
         "doc": "Starts the indicator\n\nParameters:\n * None\n\nReturns:\n * The TimeMachineProgress object",
         "examples": [],
         "file": "Source/TimeMachineProgress.spoon//init.lua",
-        "lineno": "203",
+        "lineno": "207",
         "name": "start",
         "notes": [],
         "parameters": [
@@ -49,7 +49,7 @@
         "doc": "Stops the indicator\n\nParameters:\n * None\n\nReturns:\n * The TimeMachineProgress object",
         "examples": [],
         "file": "Source/TimeMachineProgress.spoon//init.lua",
-        "lineno": "221",
+        "lineno": "225",
         "name": "stop",
         "notes": [],
         "parameters": [
@@ -163,7 +163,7 @@
         "doc": "Starts the indicator\n\nParameters:\n * None\n\nReturns:\n * The TimeMachineProgress object",
         "examples": [],
         "file": "Source/TimeMachineProgress.spoon//init.lua",
-        "lineno": "203",
+        "lineno": "207",
         "name": "start",
         "notes": [],
         "parameters": [
@@ -182,7 +182,7 @@
         "doc": "Stops the indicator\n\nParameters:\n * None\n\nReturns:\n * The TimeMachineProgress object",
         "examples": [],
         "file": "Source/TimeMachineProgress.spoon//init.lua",
-        "lineno": "221",
+        "lineno": "225",
         "name": "stop",
         "notes": [],
         "parameters": [

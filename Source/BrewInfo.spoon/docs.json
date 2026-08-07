@@ -11,14 +11,15 @@
         "def": "BrewInfo:bindHotkeys(mapping)",
         "desc": "Binds hotkeys for BrewInfo",
         "doc": "Binds hotkeys for BrewInfo\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for the following items:\n  * show_brew_info - Show output of `brew info` using the selected text as package name\n  * open_brew_url - Open the homepage of the formula whose name is currently selected\n  * show_brew_cask_info - Show output of `brew cask info` using the selected text as package name\n  * open_brew_cask_url - Open the homepage of the Cask whose name is currently selected",
+        "examples": [],
+        "file": "Source/BrewInfo.spoon//init.lua",
+        "lineno": "166",
         "name": "bindHotkeys",
+        "notes": [],
         "parameters": [
-          " * mapping - A table containing hotkey modifier/key details for the following items:",
-          "  * show_brew_info - Show output of `brew info` using the selected text as package name",
-          "  * open_brew_url - Open the homepage of the formula whose name is currently selected",
-          "  * show_brew_cask_info - Show output of `brew cask info` using the selected text as package name",
-          "  * open_brew_cask_url - Open the homepage of the Cask whose name is currently selected"
+          " * mapping - A table containing hotkey modifier/key details for the following items:\n   * show_brew_info - Show output of `brew info` using the selected text as package name\n   * open_brew_url - Open the homepage of the formula whose name is currently selected\n   * show_brew_cask_info - Show output of `brew cask info` using the selected text as package name\n   * open_brew_cask_url - Open the homepage of the Cask whose name is currently selected"
         ],
+        "returns": [],
         "signature": "BrewInfo:bindHotkeys(mapping)",
         "stripped_doc": "",
         "type": "Method"
@@ -27,7 +28,11 @@
         "def": "BrewInfo:openBrewURL(pkg, subcommand)",
         "desc": "Opens the homepage for package `pkg`, as obtained from the `homepage` field in `brew <subcommand> cat <pkg>`",
         "doc": "Opens the homepage for package `pkg`, as obtained from the `homepage` field in `brew <subcommand> cat <pkg>`\n\nParameters:\n * pkg - name of the package to query\n * subcommand - brew subcommand to use for the `cat` command. Defaults to an empty string, which results in \"brew cat <pkg>\" being run. For example, if `subcommand` is \"cask\", the `brew cask cat <pkg>` command will be used.\n\nReturns:\n * The Spoon object",
+        "examples": [],
+        "file": "Source/BrewInfo.spoon//init.lua",
+        "lineno": "126",
         "name": "openBrewURL",
+        "notes": [],
         "parameters": [
           " * pkg - name of the package to query",
           " * subcommand - brew subcommand to use for the `cat` command. Defaults to an empty string, which results in \"brew cat <pkg>\" being run. For example, if `subcommand` is \"cask\", the `brew cask cat <pkg>` command will be used."
@@ -43,7 +48,11 @@
         "def": "BrewInfo:openBrewURLCurSel(subcommand)",
         "desc": "Opens the homepage for the currently-selected package, as obtained from the `homepage` field in `brew <subcommand> cat <pkg>`",
         "doc": "Opens the homepage for the currently-selected package, as obtained from the `homepage` field in `brew <subcommand> cat <pkg>`\n\nParameters:\n * subcommand - brew subcommand to use for the `cat` command. Defaults to an empty string, which results in \"brew cat <pkg>\" being run. For example, if `subcommand` is \"cask\", the `brew cask cat <pkg>` command will be used.\n\nReturns:\n * The Spoon object",
+        "examples": [],
+        "file": "Source/BrewInfo.spoon//init.lua",
+        "lineno": "153",
         "name": "openBrewURLCurSel",
+        "notes": [],
         "parameters": [
           " * subcommand - brew subcommand to use for the `cat` command. Defaults to an empty string, which results in \"brew cat <pkg>\" being run. For example, if `subcommand` is \"cask\", the `brew cask cat <pkg>` command will be used."
         ],
@@ -58,7 +67,11 @@
         "def": "BrewInfo:showBrewInfo(pkg, subcommand)",
         "desc": "Displays an alert with the output of `brew <subcommand> info <pkg>`",
         "doc": "Displays an alert with the output of `brew <subcommand> info <pkg>`\n\nParameters:\n * pkg - name of the package to query\n * subcommand - brew subcommand to use for the `info` command. Defaults to an empty string, which results in \"brew info <pkg>\" being run. For example, if `subcommand` is \"cask\", the `brew cask info <pkg>` command will be used.\n\nReturns:\n * The Spoon object",
+        "examples": [],
+        "file": "Source/BrewInfo.spoon//init.lua",
+        "lineno": "89",
         "name": "showBrewInfo",
+        "notes": [],
         "parameters": [
           " * pkg - name of the package to query",
           " * subcommand - brew subcommand to use for the `info` command. Defaults to an empty string, which results in \"brew info <pkg>\" being run. For example, if `subcommand` is \"cask\", the `brew cask info <pkg>` command will be used."
@@ -74,7 +87,11 @@
         "def": "BrewInfo:showBrewInfoCurSel(subcommand)",
         "desc": "Display `brew <subcommand> info` using the selected text as the package name",
         "doc": "Display `brew <subcommand> info` using the selected text as the package name\n\nParameters:\n * subcommand - brew subcommand to use for the `info` command. Defaults to an empty string, which results in \"brew info\" being run. For example, if `subcommand` is \"cask\", the `brew cask info` command will be used.\n\nReturns:\n * The Spoon object",
+        "examples": [],
+        "file": "Source/BrewInfo.spoon//init.lua",
+        "lineno": "113",
         "name": "showBrewInfoCurSel",
+        "notes": [],
         "parameters": [
           " * subcommand - brew subcommand to use for the `info` command. Defaults to an empty string, which results in \"brew info\" being run. For example, if `subcommand` is \"cask\", the `brew cask info` command will be used."
         ],
@@ -91,6 +108,8 @@
         "def": "BrewInfo.brew_info_delay_sec",
         "desc": "An integer specifying how long the alerts generated by BrewInfo will stay onscreen",
         "doc": "An integer specifying how long the alerts generated by BrewInfo will stay onscreen",
+        "file": "Source/BrewInfo.spoon//init.lua",
+        "lineno": "30",
         "name": "brew_info_delay_sec",
         "signature": "BrewInfo.brew_info_delay_sec",
         "stripped_doc": "",
@@ -100,8 +119,21 @@
         "def": "BrewInfo.brew_info_style",
         "desc": "A table in conformance with the [hs.alert.defaultStyle](http://www.hammerspoon.org/docs/hs.alert.html#defaultStyle[]) format that specifies the style used by the alerts. Default value: `{ textFont = \"Courier New\", textSize = 14, radius = 10 }`",
         "doc": "A table in conformance with the [hs.alert.defaultStyle](http://www.hammerspoon.org/docs/hs.alert.html#defaultStyle[]) format that specifies the style used by the alerts. Default value: `{ textFont = \"Courier New\", textSize = 14, radius = 10 }`",
+        "file": "Source/BrewInfo.spoon//init.lua",
+        "lineno": "35",
         "name": "brew_info_style",
         "signature": "BrewInfo.brew_info_style",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "BrewInfo.brew_path",
+        "desc": "A string specifying the path to the `brew` executable. Defaults to `/usr/local/bin/brew`",
+        "doc": "A string specifying the path to the `brew` executable. Defaults to `/usr/local/bin/brew`",
+        "file": "Source/BrewInfo.spoon//init.lua",
+        "lineno": "25",
+        "name": "brew_path",
+        "signature": "BrewInfo.brew_path",
         "stripped_doc": "",
         "type": "Variable"
       },
@@ -109,6 +141,8 @@
         "def": "BrewInfo.select_text_if_needed",
         "desc": "If `true`, and no text is currently selected in the terminal, issue a double-click to select the text below the cursor, and use that as the input to `brew info`. See also `BrewInfo.select_text_modifiers`. Defaults to `true`.",
         "doc": "If `true`, and no text is currently selected in the terminal, issue a double-click to select the text below the cursor, and use that as the input to `brew info`. See also `BrewInfo.select_text_modifiers`. Defaults to `true`.",
+        "file": "Source/BrewInfo.spoon//init.lua",
+        "lineno": "44",
         "name": "select_text_if_needed",
         "signature": "BrewInfo.select_text_if_needed",
         "stripped_doc": "",
@@ -118,6 +152,8 @@
         "def": "BrewInfo.select_text_modifiers",
         "desc": "Table containing the modifiers to be used together with a double-click when `BrewInfo.select_text_if_needed` is true. Defaults to `{cmd = true, shift = true}` to issue a Cmd-Shift-double-click, which will select a continuous non-space string in Terminal and iTerm2.",
         "doc": "Table containing the modifiers to be used together with a double-click when `BrewInfo.select_text_if_needed` is true. Defaults to `{cmd = true, shift = true}` to issue a Cmd-Shift-double-click, which will select a continuous non-space string in Terminal and iTerm2.",
+        "file": "Source/BrewInfo.spoon//init.lua",
+        "lineno": "49",
         "name": "select_text_modifiers",
         "signature": "BrewInfo.select_text_modifiers",
         "stripped_doc": "",
@@ -131,14 +167,15 @@
         "def": "BrewInfo:bindHotkeys(mapping)",
         "desc": "Binds hotkeys for BrewInfo",
         "doc": "Binds hotkeys for BrewInfo\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for the following items:\n  * show_brew_info - Show output of `brew info` using the selected text as package name\n  * open_brew_url - Open the homepage of the formula whose name is currently selected\n  * show_brew_cask_info - Show output of `brew cask info` using the selected text as package name\n  * open_brew_cask_url - Open the homepage of the Cask whose name is currently selected",
+        "examples": [],
+        "file": "Source/BrewInfo.spoon//init.lua",
+        "lineno": "166",
         "name": "bindHotkeys",
+        "notes": [],
         "parameters": [
-          " * mapping - A table containing hotkey modifier/key details for the following items:",
-          "  * show_brew_info - Show output of `brew info` using the selected text as package name",
-          "  * open_brew_url - Open the homepage of the formula whose name is currently selected",
-          "  * show_brew_cask_info - Show output of `brew cask info` using the selected text as package name",
-          "  * open_brew_cask_url - Open the homepage of the Cask whose name is currently selected"
+          " * mapping - A table containing hotkey modifier/key details for the following items:\n   * show_brew_info - Show output of `brew info` using the selected text as package name\n   * open_brew_url - Open the homepage of the formula whose name is currently selected\n   * show_brew_cask_info - Show output of `brew cask info` using the selected text as package name\n   * open_brew_cask_url - Open the homepage of the Cask whose name is currently selected"
         ],
+        "returns": [],
         "signature": "BrewInfo:bindHotkeys(mapping)",
         "stripped_doc": "",
         "type": "Method"
@@ -147,6 +184,8 @@
         "def": "BrewInfo.brew_info_delay_sec",
         "desc": "An integer specifying how long the alerts generated by BrewInfo will stay onscreen",
         "doc": "An integer specifying how long the alerts generated by BrewInfo will stay onscreen",
+        "file": "Source/BrewInfo.spoon//init.lua",
+        "lineno": "30",
         "name": "brew_info_delay_sec",
         "signature": "BrewInfo.brew_info_delay_sec",
         "stripped_doc": "",
@@ -156,8 +195,21 @@
         "def": "BrewInfo.brew_info_style",
         "desc": "A table in conformance with the [hs.alert.defaultStyle](http://www.hammerspoon.org/docs/hs.alert.html#defaultStyle[]) format that specifies the style used by the alerts. Default value: `{ textFont = \"Courier New\", textSize = 14, radius = 10 }`",
         "doc": "A table in conformance with the [hs.alert.defaultStyle](http://www.hammerspoon.org/docs/hs.alert.html#defaultStyle[]) format that specifies the style used by the alerts. Default value: `{ textFont = \"Courier New\", textSize = 14, radius = 10 }`",
+        "file": "Source/BrewInfo.spoon//init.lua",
+        "lineno": "35",
         "name": "brew_info_style",
         "signature": "BrewInfo.brew_info_style",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "BrewInfo.brew_path",
+        "desc": "A string specifying the path to the `brew` executable. Defaults to `/usr/local/bin/brew`",
+        "doc": "A string specifying the path to the `brew` executable. Defaults to `/usr/local/bin/brew`",
+        "file": "Source/BrewInfo.spoon//init.lua",
+        "lineno": "25",
+        "name": "brew_path",
+        "signature": "BrewInfo.brew_path",
         "stripped_doc": "",
         "type": "Variable"
       },
@@ -165,7 +217,11 @@
         "def": "BrewInfo:openBrewURL(pkg, subcommand)",
         "desc": "Opens the homepage for package `pkg`, as obtained from the `homepage` field in `brew <subcommand> cat <pkg>`",
         "doc": "Opens the homepage for package `pkg`, as obtained from the `homepage` field in `brew <subcommand> cat <pkg>`\n\nParameters:\n * pkg - name of the package to query\n * subcommand - brew subcommand to use for the `cat` command. Defaults to an empty string, which results in \"brew cat <pkg>\" being run. For example, if `subcommand` is \"cask\", the `brew cask cat <pkg>` command will be used.\n\nReturns:\n * The Spoon object",
+        "examples": [],
+        "file": "Source/BrewInfo.spoon//init.lua",
+        "lineno": "126",
         "name": "openBrewURL",
+        "notes": [],
         "parameters": [
           " * pkg - name of the package to query",
           " * subcommand - brew subcommand to use for the `cat` command. Defaults to an empty string, which results in \"brew cat <pkg>\" being run. For example, if `subcommand` is \"cask\", the `brew cask cat <pkg>` command will be used."
@@ -181,7 +237,11 @@
         "def": "BrewInfo:openBrewURLCurSel(subcommand)",
         "desc": "Opens the homepage for the currently-selected package, as obtained from the `homepage` field in `brew <subcommand> cat <pkg>`",
         "doc": "Opens the homepage for the currently-selected package, as obtained from the `homepage` field in `brew <subcommand> cat <pkg>`\n\nParameters:\n * subcommand - brew subcommand to use for the `cat` command. Defaults to an empty string, which results in \"brew cat <pkg>\" being run. For example, if `subcommand` is \"cask\", the `brew cask cat <pkg>` command will be used.\n\nReturns:\n * The Spoon object",
+        "examples": [],
+        "file": "Source/BrewInfo.spoon//init.lua",
+        "lineno": "153",
         "name": "openBrewURLCurSel",
+        "notes": [],
         "parameters": [
           " * subcommand - brew subcommand to use for the `cat` command. Defaults to an empty string, which results in \"brew cat <pkg>\" being run. For example, if `subcommand` is \"cask\", the `brew cask cat <pkg>` command will be used."
         ],
@@ -196,6 +256,8 @@
         "def": "BrewInfo.select_text_if_needed",
         "desc": "If `true`, and no text is currently selected in the terminal, issue a double-click to select the text below the cursor, and use that as the input to `brew info`. See also `BrewInfo.select_text_modifiers`. Defaults to `true`.",
         "doc": "If `true`, and no text is currently selected in the terminal, issue a double-click to select the text below the cursor, and use that as the input to `brew info`. See also `BrewInfo.select_text_modifiers`. Defaults to `true`.",
+        "file": "Source/BrewInfo.spoon//init.lua",
+        "lineno": "44",
         "name": "select_text_if_needed",
         "signature": "BrewInfo.select_text_if_needed",
         "stripped_doc": "",
@@ -205,6 +267,8 @@
         "def": "BrewInfo.select_text_modifiers",
         "desc": "Table containing the modifiers to be used together with a double-click when `BrewInfo.select_text_if_needed` is true. Defaults to `{cmd = true, shift = true}` to issue a Cmd-Shift-double-click, which will select a continuous non-space string in Terminal and iTerm2.",
         "doc": "Table containing the modifiers to be used together with a double-click when `BrewInfo.select_text_if_needed` is true. Defaults to `{cmd = true, shift = true}` to issue a Cmd-Shift-double-click, which will select a continuous non-space string in Terminal and iTerm2.",
+        "file": "Source/BrewInfo.spoon//init.lua",
+        "lineno": "49",
         "name": "select_text_modifiers",
         "signature": "BrewInfo.select_text_modifiers",
         "stripped_doc": "",
@@ -214,7 +278,11 @@
         "def": "BrewInfo:showBrewInfo(pkg, subcommand)",
         "desc": "Displays an alert with the output of `brew <subcommand> info <pkg>`",
         "doc": "Displays an alert with the output of `brew <subcommand> info <pkg>`\n\nParameters:\n * pkg - name of the package to query\n * subcommand - brew subcommand to use for the `info` command. Defaults to an empty string, which results in \"brew info <pkg>\" being run. For example, if `subcommand` is \"cask\", the `brew cask info <pkg>` command will be used.\n\nReturns:\n * The Spoon object",
+        "examples": [],
+        "file": "Source/BrewInfo.spoon//init.lua",
+        "lineno": "89",
         "name": "showBrewInfo",
+        "notes": [],
         "parameters": [
           " * pkg - name of the package to query",
           " * subcommand - brew subcommand to use for the `info` command. Defaults to an empty string, which results in \"brew info <pkg>\" being run. For example, if `subcommand` is \"cask\", the `brew cask info <pkg>` command will be used."
@@ -230,7 +298,11 @@
         "def": "BrewInfo:showBrewInfoCurSel(subcommand)",
         "desc": "Display `brew <subcommand> info` using the selected text as the package name",
         "doc": "Display `brew <subcommand> info` using the selected text as the package name\n\nParameters:\n * subcommand - brew subcommand to use for the `info` command. Defaults to an empty string, which results in \"brew info\" being run. For example, if `subcommand` is \"cask\", the `brew cask info` command will be used.\n\nReturns:\n * The Spoon object",
+        "examples": [],
+        "file": "Source/BrewInfo.spoon//init.lua",
+        "lineno": "113",
         "name": "showBrewInfoCurSel",
+        "notes": [],
         "parameters": [
           " * subcommand - brew subcommand to use for the `info` command. Defaults to an empty string, which results in \"brew info\" being run. For example, if `subcommand` is \"cask\", the `brew cask info` command will be used."
         ],

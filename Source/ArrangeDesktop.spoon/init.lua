@@ -202,7 +202,7 @@ function obj:createArrangement()
         return
     end
 
-    hs.dialog.blockAlert("We will now record each of your application windows.", "Each will window will flash into focus. The first focus on each monitor will prompt you to name the monitor.")
+    hs.dialog.blockAlert("We will now record each of your application windows.", "Each window will flash into focus. The first focus on each monitor will prompt you to name the monitor.")
 
     config[arrangementName] = obj:_buildArrangement(arrangementName)
 

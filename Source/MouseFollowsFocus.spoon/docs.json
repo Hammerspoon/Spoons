@@ -9,12 +9,17 @@
     "Method": [
       {
         "def": "MouseFollowsFocus:configure(configuration)",
-        "desc": "Configures the spoon.  There is currently nothing to configure.",
-        "doc": "Configures the spoon.  There is currently nothing to configure.\n\nParameters:\n  * configuration - :",
+        "desc": "Configures the spoon.",
+        "doc": "Configures the spoon.\n\nParameters:\n * configuration - a table containing the settings for onWindowMoved or onChangeOfScreenOnly:",
+        "examples": [],
+        "file": "Source/MouseFollowsFocus.spoon//init.lua",
+        "lineno": "29",
         "name": "configure",
+        "notes": [],
         "parameters": [
-          "  * configuration - :"
+          " * configuration - a table containing the settings for onWindowMoved or onChangeOfScreenOnly:"
         ],
+        "returns": [],
         "signature": "MouseFollowsFocus:configure(configuration)",
         "stripped_doc": "",
         "type": "Method"
@@ -22,9 +27,16 @@
       {
         "def": "MouseFollowsFocus:start()",
         "desc": "Starts updating the mouse position when window focus changes",
-        "doc": "Starts updating the mouse position when window focus changes\n\nParameters:",
+        "doc": "Starts updating the mouse position when window focus changes\n\nParameters:\n * None",
+        "examples": [],
+        "file": "Source/MouseFollowsFocus.spoon//init.lua",
+        "lineno": "44",
         "name": "start",
-        "parameters": [],
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
         "signature": "MouseFollowsFocus:start()",
         "stripped_doc": "",
         "type": "Method"
@@ -32,9 +44,16 @@
       {
         "def": "MouseFollowsFocus:stop()",
         "desc": "Stops updating the mouse position when window focus changes",
-        "doc": "Stops updating the mouse position when window focus changes\n\nParameters:",
+        "doc": "Stops updating the mouse position when window focus changes\n\nParameters:\n * None",
+        "examples": [],
+        "file": "Source/MouseFollowsFocus.spoon//init.lua",
+        "lineno": "73",
         "name": "stop",
-        "parameters": [],
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
         "signature": "MouseFollowsFocus:stop()",
         "stripped_doc": "",
         "type": "Method"
@@ -42,8 +61,16 @@
       {
         "def": "MouseFollowsFocus:updateMouse(window)",
         "desc": "Moves the mouse to the center of the given window unless it's already inside the window",
-        "doc": "Moves the mouse to the center of the given window unless it's already inside the window",
+        "doc": "Moves the mouse to the center of the given window unless it's already inside the window\n\nParameters:\n * None",
+        "examples": [],
+        "file": "Source/MouseFollowsFocus.spoon//init.lua",
+        "lineno": "84",
         "name": "updateMouse",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
         "signature": "MouseFollowsFocus:updateMouse(window)",
         "stripped_doc": "",
         "type": "Method"
@@ -54,6 +81,8 @@
         "def": "MouseFollowsFocus.logger",
         "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "file": "Source/MouseFollowsFocus.spoon//init.lua",
+        "lineno": "24",
         "name": "logger",
         "signature": "MouseFollowsFocus.logger",
         "stripped_doc": "",
@@ -61,16 +90,21 @@
       }
     ],
     "desc": "Set the mouse pointer to the center of the focused window whenever focus changes.",
-    "doc": "Set the mouse pointer to the center of the focused window whenever focus changes.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MouseFollowsFocus.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MouseFollowsFocus.spoon.zip)",
+    "doc": "Set the mouse pointer to the center of the focused window whenever focus changes.\n\nAdditionally, if focused window moves when no mouse buttons are pressed, set the\nmouse pointer to the new center.  This is intended to work with other utilities\nwhich warp the focused window.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MouseFollowsFocus.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MouseFollowsFocus.spoon.zip)",
     "items": [
       {
         "def": "MouseFollowsFocus:configure(configuration)",
-        "desc": "Configures the spoon.  There is currently nothing to configure.",
-        "doc": "Configures the spoon.  There is currently nothing to configure.\n\nParameters:\n  * configuration - :",
+        "desc": "Configures the spoon.",
+        "doc": "Configures the spoon.\n\nParameters:\n * configuration - a table containing the settings for onWindowMoved or onChangeOfScreenOnly:",
+        "examples": [],
+        "file": "Source/MouseFollowsFocus.spoon//init.lua",
+        "lineno": "29",
         "name": "configure",
+        "notes": [],
         "parameters": [
-          "  * configuration - :"
+          " * configuration - a table containing the settings for onWindowMoved or onChangeOfScreenOnly:"
         ],
+        "returns": [],
         "signature": "MouseFollowsFocus:configure(configuration)",
         "stripped_doc": "",
         "type": "Method"
@@ -79,6 +113,8 @@
         "def": "MouseFollowsFocus.logger",
         "desc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
         "doc": "Logger object used within the Spoon. Can be accessed to set the default log level for the messages coming from the Spoon.",
+        "file": "Source/MouseFollowsFocus.spoon//init.lua",
+        "lineno": "24",
         "name": "logger",
         "signature": "MouseFollowsFocus.logger",
         "stripped_doc": "",
@@ -87,9 +123,16 @@
       {
         "def": "MouseFollowsFocus:start()",
         "desc": "Starts updating the mouse position when window focus changes",
-        "doc": "Starts updating the mouse position when window focus changes\n\nParameters:",
+        "doc": "Starts updating the mouse position when window focus changes\n\nParameters:\n * None",
+        "examples": [],
+        "file": "Source/MouseFollowsFocus.spoon//init.lua",
+        "lineno": "44",
         "name": "start",
-        "parameters": [],
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
         "signature": "MouseFollowsFocus:start()",
         "stripped_doc": "",
         "type": "Method"
@@ -97,9 +140,16 @@
       {
         "def": "MouseFollowsFocus:stop()",
         "desc": "Stops updating the mouse position when window focus changes",
-        "doc": "Stops updating the mouse position when window focus changes\n\nParameters:",
+        "doc": "Stops updating the mouse position when window focus changes\n\nParameters:\n * None",
+        "examples": [],
+        "file": "Source/MouseFollowsFocus.spoon//init.lua",
+        "lineno": "73",
         "name": "stop",
-        "parameters": [],
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
         "signature": "MouseFollowsFocus:stop()",
         "stripped_doc": "",
         "type": "Method"
@@ -107,15 +157,23 @@
       {
         "def": "MouseFollowsFocus:updateMouse(window)",
         "desc": "Moves the mouse to the center of the given window unless it's already inside the window",
-        "doc": "Moves the mouse to the center of the given window unless it's already inside the window",
+        "doc": "Moves the mouse to the center of the given window unless it's already inside the window\n\nParameters:\n * None",
+        "examples": [],
+        "file": "Source/MouseFollowsFocus.spoon//init.lua",
+        "lineno": "84",
         "name": "updateMouse",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
         "signature": "MouseFollowsFocus:updateMouse(window)",
         "stripped_doc": "",
         "type": "Method"
       }
     ],
     "name": "MouseFollowsFocus",
-    "stripped_doc": "\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MouseFollowsFocus.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MouseFollowsFocus.spoon.zip)",
+    "stripped_doc": "\nAdditionally, if focused window moves when no mouse buttons are pressed, set the\nmouse pointer to the new center.  This is intended to work with other utilities\nwhich warp the focused window.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MouseFollowsFocus.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/MouseFollowsFocus.spoon.zip)",
     "submodules": [],
     "type": "Module"
   }

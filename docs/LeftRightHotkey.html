@@ -1,0 +1,372 @@
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hammerspoon docs: LeftRightHotkey</title>
+    <style type="text/css">
+      a { text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      th { background-color: #DDDDDD; vertical-align: top; padding: 3px; }
+      td { width: 100%; background-color: #EEEEEE; vertical-align: top; padding: 3px; }
+      table { width: 100% ; border: 1px solid #0; text-align: left; }
+      section > table table td { width: 0; }
+    </style>
+    <link rel="stylesheet" href="docs.css" type="text/css" media="screen" />
+  </head>
+  <body>
+    <header>
+      <h1><a href="./index.html">docs</a> &raquo; LeftRightHotkey</h1>
+      <p>This spoon addresses a limitation within the <a href="hs.hotkey.html">hs.hotkey</a> module that allows the creation of hotkeys bound to specific left or right keyboard modifiers while leaving the other side free.</p>
+<p>This is accomplished by creating unactivated hotkeys for each definition and using an <a href="hs.eventtap.html">hs.eventtap</a> watcher to detect when modifier keys are pressed and conditionally activating only those hotkeys which correspond to the left or right modifiers currently active as specified by the <code>bind</code> and <code>new</code> methods of this spoon.</p>
+<p>The <code>LeftRightHotkeyObject</code> that is returned by <a href="#new">LeftRightHotkey:new</a> and <a href="#bind">LeftRightHotkey:bind</a> supports the following methods in a manner similar to the <a href="hs.hotkey.html">hs.hotkey</a> equivalents:</p>
+<ul>
+<li><code>LeftRightHotkeyObject:enable()</code>   -- enables the registered hotkey.</li>
+<li><code>LeftRightHotkeyObject:disable()</code>  -- disables the registered hotkey.</li>
+<li><code>LeftRightHotkeyObject:delete()</code>   -- deletes the registered hotkey.</li>
+<li>`LeftRightHotkeyObject:isEnabled() -- returns a boolean value specifying whether the hotkey is currently enabled (true) or disabled (false)</li>
+</ul>
+<p>The following modifiers are recognized by this spoon in the modifier table when setting up hotkeys with this spoon:</p>
+<ul>
+<li>&quot;lCmd&quot;, &quot;lCommand&quot;, or &quot;l⌘&quot; for the left Command modifier</li>
+<li>&quot;rCmd&quot;, &quot;rCommand&quot;, or &quot;r⌘&quot; for the right Command modifier</li>
+<li>&quot;lCtrl&quot;, &quot;lControl&quot; or &quot;l⌃&quot; for the left Control modifier</li>
+<li>&quot;rCtrl&quot;, &quot;rControl&quot; or &quot;r⌃&quot; for the right Control modifier</li>
+<li>&quot;lAlt&quot;, &quot;lOpt&quot;, &quot;lOption&quot; or &quot;l⌥&quot; for the left Option modifier</li>
+<li>&quot;rAlt&quot;, &quot;rOpt&quot;, &quot;rOption&quot; or &quot;r⌥&quot; for the right Option modifier</li>
+<li>&quot;lShift&quot; or &quot;l⇧&quot; for the left Shift modifier</li>
+<li>&quot;rShift&quot; or &quot;r⇧&quot; for the right Shift modifier</li>
+</ul>
+<p>The modifiers table for any given hotkey is all inclusive; this means that if you specify <code>{ &quot;rShift&quot;, &quot;lShift&quot; }</code> then <em>both</em> the left and right shift keys <em>must</em> be pressed to trigger the hotkey -- if you want either/or, then stick with <a href="hs.hotkey.html">hs.hotkey</a>.</p>
+<p>Alternatively, if you want to setup a hotkey when <em>either</em> command key is pressed with <em>only</em> the right shift, you would need to set up two hotkeys with this spoon:
+ e.g. <code>LeftRightHotkey:bind({ &quot;rCmd&quot;, &quot;rShift&quot; }, &quot;a&quot;, myFunction)</code> <em>and</em> <code>LeftRightHotkey:bind({ &quot;lCmd&quot;, &quot;rShift&quot; }, &quot;a&quot;, myFunction)</code></p>
+<p>This spoon works by using an eventtap to detect flag changes (modifier keys) and when they change, the appropriate hotkeys are enabled or disabled. This means that you should be aware of the following:</p>
+<ul>
+<li>like all eventtaps, if the Hammerspoon application is particularly busy with some other task, it is possible for the flag change to be missed or for the macOS to disable the eventtap entirely.</li>
+<li>behind the scenes, when a given set of flag changes occur that match a defined hotkey, the hotkey is actually enabled through <code>hs.hotkey:enable()</code> -- this means that in truth, either side's modifiers would trigger the callback. Under normal circumstances this won't be noticed because as soon as you switch to the alternate side's modifier, the flag change event will be detected and the hotkey will be disabled. However, as noted above, if Hammerspoon is particularly busy, it is possible for this event to be missed.<ul>
+<li>a timer runs (once this Spoon has been started the first time) which will check to see if the eventtap has been internally disabled and re-enable it if necessary; alternatively you can re-issue <a href="#start">LeftRightHotkey:start()</a> to force the eventtap to be reset if necessary.</li>
+<li>if your hotkeys seem out of sync, try pressing and releasing any modifier key -- this will reset the enabled/disabled hotkeys if a previous flag change was missed, but the eventtap is still running or has been reset by one of the methods described above.</li>
+</ul>
+</li>
+</ul>
+<p>Like all Spoons, don't forget to use the <a href="#start">LeftRightHotkey:start()</a> method to activate the modifier key watcher.</p>
+<p>Download: <a href="https://github.com/Hammerspoon/Spoons/raw/master/Spoons/LeftRightHotkey.spoon.zip">https://github.com/Hammerspoon/Spoons/raw/master/Spoons/LeftRightHotkey.spoon.zip</a></p>
+
+      </header>
+      <h3>API Overview</h3>
+      <ul>
+        <li>Methods - API calls which can only be made on an object returned by a constructor</li>
+          <ul>
+            <li><a href="#bind">bind</a></li>
+            <li><a href="#deleteAll">deleteAll</a></li>
+            <li><a href="#disableAll">disableAll</a></li>
+            <li><a href="#new">new</a></li>
+            <li><a href="#start">start</a></li>
+            <li><a href="#stop">stop</a></li>
+          </ul>
+      </ul>
+      <h3>API Documentation</h3>
+        <h4 class="documentation-section">Methods</h4>
+          <section id="bind">
+            <a name="//apple_ref/cpp/Method/bind" class="dashAnchor"></a>
+            <h5><a href="#bind">bind</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>LeftRightHotkey:bind(mods, key, [message,] pressedfn, releasedfn, repeatfn) -&gt; LeftRightHotkeyObject</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Create and enable a new hotkey with the specified left/right specific modifiers.</p>
+</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>mods - A table containing as elements the keyboard modifiers required, which should be one or more of the following:<ul>
+<li>&quot;lCmd&quot;, &quot;lCommand&quot;, or &quot;l⌘&quot; for the left Command modifier</li>
+<li>&quot;rCmd&quot;, &quot;rCommand&quot;, or &quot;r⌘&quot; for the right Command modifier</li>
+<li>&quot;lCtrl&quot;, &quot;lControl&quot; or &quot;l⌃&quot; for the left Control modifier</li>
+<li>&quot;rCtrl&quot;, &quot;rControl&quot; or &quot;r⌃&quot; for the right Control modifier</li>
+<li>&quot;lAlt&quot;, &quot;lOpt&quot;, &quot;lOption&quot; or &quot;l⌥&quot; for the left Option modifier</li>
+<li>&quot;rAlt&quot;, &quot;rOpt&quot;, &quot;rOption&quot; or &quot;r⌥&quot; for the right Option modifier</li>
+<li>&quot;lShift&quot; or &quot;l⇧&quot; for the left Shift modifier</li>
+<li>&quot;rShift&quot; or &quot;r⇧&quot; for the right Shift modifier</li>
+</ul>
+</li>
+<li>key - A string containing the name of a keyboard key (as found in <a href="hs.keycodes.html#map">hs.keycodes.map</a> ), or a raw keycode number</li>
+<li>message - (optional) A string containing a message to be displayed via <a href="hs.alert.html">hs.alert()</a> when the hotkey has been triggered; if omitted, no alert will be shown</li>
+<li>pressedfn - A function that will be called when the hotkey has been pressed, or nil</li>
+<li>releasedfn - A function that will be called when the hotkey has been released, or nil</li>
+<li>repeatfn - A function that will be called when a pressed hotkey is repeating, or nil</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
+<li>a new enabled hotkey with the specified left/right modifiers.</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>This function is just a wrapper that performs <code>LeftRightHotkey:new(...):enable()</code></li>
+<li>The modifiers table is adjusted for use when conditionally activating the appropriate hotkeys based on the current modifiers in effect, but the other arguments are passed to <a href="hs.hotkey.html#bind">hs.hotkey.bind</a> as is and any caveats or considerations outlined there also apply here.</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/LeftRightHotkey.spoon/init.lua#L415">Source/LeftRightHotkey.spoon/init.lua line 415</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="deleteAll">
+            <a name="//apple_ref/cpp/Method/deleteAll" class="dashAnchor"></a>
+            <h5><a href="#deleteAll">deleteAll</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>LeftRightHotkey:deleteAll(mods, key)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Deletes all previously set callbacks for a given keyboard combination</p>
+</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>mods - A table containing as elements the keyboard modifiers required, which should be one or more of the following:<ul>
+<li>&quot;lCmd&quot;, &quot;lCommand&quot;, or &quot;l⌘&quot; for the left Command modifier</li>
+<li>&quot;rCmd&quot;, &quot;rCommand&quot;, or &quot;r⌘&quot; for the right Command modifier</li>
+<li>&quot;lCtrl&quot;, &quot;lControl&quot; or &quot;l⌃&quot; for the left Control modifier</li>
+<li>&quot;rCtrl&quot;, &quot;rControl&quot; or &quot;r⌃&quot; for the right Control modifier</li>
+<li>&quot;lAlt&quot;, &quot;lOpt&quot;, &quot;lOption&quot; or &quot;l⌥&quot; for the left Option modifier</li>
+<li>&quot;rAlt&quot;, &quot;rOpt&quot;, &quot;rOption&quot; or &quot;r⌥&quot; for the right Option modifier</li>
+<li>&quot;lShift&quot; or &quot;l⇧&quot; for the left Shift modifier</li>
+<li>&quot;rShift&quot; or &quot;r⇧&quot; for the right Shift modifier</li>
+</ul>
+</li>
+<li>key - A string containing the name of a keyboard key (as found in <a href="hs.keycodes.html#map">hs.keycodes.map</a> ), or a raw keycode number</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
+<li>None</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/LeftRightHotkey.spoon/init.lua#L326">Source/LeftRightHotkey.spoon/init.lua line 326</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="disableAll">
+            <a name="//apple_ref/cpp/Method/disableAll" class="dashAnchor"></a>
+            <h5><a href="#disableAll">disableAll</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>LeftRightHotkey:disableAll(mods, key)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Disables all previously set callbacks for a given keyboard combination</p>
+</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>mods - A table containing as elements the keyboard modifiers required, which should be one or more of the following:<ul>
+<li>&quot;lCmd&quot;, &quot;lCommand&quot;, or &quot;l⌘&quot; for the left Command modifier</li>
+<li>&quot;rCmd&quot;, &quot;rCommand&quot;, or &quot;r⌘&quot; for the right Command modifier</li>
+<li>&quot;lCtrl&quot;, &quot;lControl&quot; or &quot;l⌃&quot; for the left Control modifier</li>
+<li>&quot;rCtrl&quot;, &quot;rControl&quot; or &quot;r⌃&quot; for the right Control modifier</li>
+<li>&quot;lAlt&quot;, &quot;lOpt&quot;, &quot;lOption&quot; or &quot;l⌥&quot; for the left Option modifier</li>
+<li>&quot;rAlt&quot;, &quot;rOpt&quot;, &quot;rOption&quot; or &quot;r⌥&quot; for the right Option modifier</li>
+<li>&quot;lShift&quot; or &quot;l⇧&quot; for the left Shift modifier</li>
+<li>&quot;rShift&quot; or &quot;r⇧&quot; for the right Shift modifier</li>
+</ul>
+</li>
+<li>key - A string containing the name of a keyboard key (as found in <a href="hs.keycodes.html#map">hs.keycodes.map</a> ), or a raw keycode number</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
+<li>None</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/LeftRightHotkey.spoon/init.lua#L373">Source/LeftRightHotkey.spoon/init.lua line 373</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="new">
+            <a name="//apple_ref/cpp/Method/new" class="dashAnchor"></a>
+            <h5><a href="#new">new</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>LeftRightHotkey:new(mods, key, [message,] pressedfn, releasedfn, repeatfn) -&gt; LeftRightHotkeyObject</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Create a new hotkey with the specified left/right specific modifiers.</p>
+</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>mods - A table containing as elements the keyboard modifiers required, which should be one or more of the following:<ul>
+<li>&quot;lCmd&quot;, &quot;lCommand&quot;, or &quot;l⌘&quot; for the left Command modifier</li>
+<li>&quot;rCmd&quot;, &quot;rCommand&quot;, or &quot;r⌘&quot; for the right Command modifier</li>
+<li>&quot;lCtrl&quot;, &quot;lControl&quot; or &quot;l⌃&quot; for the left Control modifier</li>
+<li>&quot;rCtrl&quot;, &quot;rControl&quot; or &quot;r⌃&quot; for the right Control modifier</li>
+<li>&quot;lAlt&quot;, &quot;lOpt&quot;, &quot;lOption&quot; or &quot;l⌥&quot; for the left Option modifier</li>
+<li>&quot;rAlt&quot;, &quot;rOpt&quot;, &quot;rOption&quot; or &quot;r⌥&quot; for the right Option modifier</li>
+<li>&quot;lShift&quot; or &quot;l⇧&quot; for the left Shift modifier</li>
+<li>&quot;rShift&quot; or &quot;r⇧&quot; for the right Shift modifier</li>
+</ul>
+</li>
+<li>key - A string containing the name of a keyboard key (as found in <a href="hs.keycodes.html#map">hs.keycodes.map</a> ), or a raw keycode number</li>
+<li>message - (optional) A string containing a message to be displayed via <a href="hs.alert.html">hs.alert()</a> when the hotkey has been triggered; if omitted, no alert will be shown</li>
+<li>pressedfn - A function that will be called when the hotkey has been pressed, or nil</li>
+<li>releasedfn - A function that will be called when the hotkey has been released, or nil</li>
+<li>repeatfn - A function that will be called when a pressed hotkey is repeating, or nil</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
+<li>a new, initially disabled, hotkey with the specified left/right modifiers.</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>The modifiers table is adjusted for use when conditionally activating the appropriate hotkeys based on the current modifiers in effect, but the other arguments are passed to <a href="hs.hotkey.html#new">hs.hotkey.new</a> as is and any caveats or considerations outlined there also apply here.</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/LeftRightHotkey.spoon/init.lua#L263">Source/LeftRightHotkey.spoon/init.lua line 263</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="start">
+            <a name="//apple_ref/cpp/Method/start" class="dashAnchor"></a>
+            <h5><a href="#start">start</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>LeftRightHotkey:start() -&gt; self</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Starts watching for flag (modifier key) change events that can determine if the right or left modifiers have been pressed.</p>
+</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>None</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
+<li>the LeftRightHotkey spoon object</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>this enables the use of hotkeys created by using this Spoon.</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/LeftRightHotkey.spoon/init.lua#L444">Source/LeftRightHotkey.spoon/init.lua line 444</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="stop">
+            <a name="//apple_ref/cpp/Method/stop" class="dashAnchor"></a>
+            <h5><a href="#stop">stop</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>LeftRightHotkey:stop() -&gt; self</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Stops watching for flag (modifier key) change events that can determine if the right or left modifiers have been pressed.</p>
+</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>None</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
+<li>the LeftRightHotkey spoon object</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Notes</th>
+                  <td><ul>
+<li>this will implicitly disable all hotkeys created by using this Spoon -- only those hotkeys which are defined with <a href="hs.hotkey.html">hs.hotkey</a> directly will still be available.</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/LeftRightHotkey.spoon/init.lua#L471">Source/LeftRightHotkey.spoon/init.lua line 471</a></td>
+              </tr>
+            </table>
+          </section>
+  </body>
+</html>

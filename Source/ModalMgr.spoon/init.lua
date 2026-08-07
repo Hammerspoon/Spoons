@@ -20,6 +20,17 @@ obj.modal_list = {}
 obj.active_list = {}
 obj.supervisor = nil
 
+-- customize width and height of Cheatsheet
+obj.width_factor = 0.30
+obj.height_factor = 0.30
+-- minimum sizes
+obj.min_width = 200
+obj.min_height = 200
+
+-- alighment for right column
+obj.alignmentRightColumn = 'right'
+obj.fillByRow = false
+
 function obj:init()
     hsupervisor_keys = hsupervisor_keys or {{"cmd", "shift", "ctrl"}, "Q"}
     obj.supervisor = hs.hotkey.modal.new(hsupervisor_keys[1], hsupervisor_keys[2], 'Initialize Modal Environment')
@@ -54,6 +65,64 @@ function obj:new(id)
     obj.modal_list[id] = hs.hotkey.modal.new()
 end
 
+
+-- this function draws the text on the window
+--
+-- by default, it fills by row
+-- but it can be customized to fill by column
+function insertIntoSheet(position, st, row, column, n)
+   local textAlign = "left"
+   local xpos
+   local ypos
+   -- height available for one item, in percentage
+   -- add one for a small margin of at least 1/2 element at the bottom
+   local h = 100 / (math.ceil(n*1.0/2) + 1)
+   local w = "47%"
+   local xposLeft = "3%"
+   local xposRight = "50%"
+   if obj.fillByRow then
+      if position %2 == 1 then
+         xpos = xposLeft
+         ypos = tostring(math.floor(h * position / 2)) .. "%"
+      else
+         -- this one goes to the right
+         textAlign =  obj.alignmentRigthColumn
+         xpos = xposRight
+         ypos = tostring(math.floor(h * (position-1) / 2)) .. "%"
+      end
+   else
+      local actualPos
+      if position > math.ceil(n / 2) then
+         -- this one goes to the right
+         textAlign =  obj.alignmentRightColumn
+         xpos = xposRight
+         actualPos = position - math.ceil(n*1.0/2)
+      else
+         xpos = xposLeft
+         actualPos = position 
+      end
+      ypos = tostring(math.floor(actualPos * h)) .. "%"
+   end
+
+--   print(ypos, n, h)
+   obj.which_key[position + 1] = {
+      type = "text",
+      text = st,
+      textFont = "Courier-Bold",
+      textSize = 16,
+      textColor = {hex = "#2390FF", alpha = 1},
+      textAlignment = textAlign,
+      frame = {
+         x = xpos,
+         y = ypos,
+         --         w = tostring((1 - 80 / (cres.w / 5 * 3)) / 2),
+         w = w,
+         h = tostring(math.floor(h)) .. "%"
+      }
+   }
+
+end
+
 --- ModalMgr:toggleCheatsheet([idList], [force])
 --- Method
 --- Toggle the cheatsheet display of current modal environments's keybindings.
@@ -68,11 +137,14 @@ function obj:toggleCheatsheet(iterList, force)
     else
         local cscreen = hs.screen.mainScreen()
         local cres = cscreen:fullFrame()
+
+        local framew = math.max(math.floor(cres.w  * obj.width_factor),obj.min_width)
+        local frameh = math.max(math.floor(cres.h  * obj.height_factor), obj.min_height)
         obj.which_key:frame({
-            x = cres.x + cres.w / 5,
-            y = cres.y + cres.h / 5,
-            w = cres.w / 5 * 3,
-            h = cres.h / 5 * 3
+              w = framew,
+              h = frameh,
+              x = cres.x + (cres.w - framew) /2,
+              y = cres.y + (cres.h - frameh) /2
         })
         local keys_pool = {}
         local tmplist = iterList or obj.active_list
@@ -89,38 +161,11 @@ function obj:toggleCheatsheet(iterList, force)
                 end
             end
         end
-        for idx, val in ipairs(keys_pool) do
-            if idx % 2 == 1 then
-                obj.which_key[idx + 1] = {
-                    type = "text",
-                    text = keys_pool[idx],
-                    textFont = "Courier-Bold",
-                    textSize = 16,
-                    textColor = {hex = "#2390FF", alpha = 1},
-                    textAlignment = "left",
-                    frame = {
-                        x = tostring(40 / (cres.w / 5 * 3)),
-                        y = tostring((30 + (idx - math.ceil(idx / 2)) * math.ceil((cres.h / 5 * 3 - 60) / #keys_pool) * 2) / (cres.h / 5 * 3)),
-                        w = tostring((1 - 80 / (cres.w / 5 * 3)) / 2),
-                        h = tostring(math.ceil((cres.h / 5 * 3 - 60) / #keys_pool) * 2 / (cres.h / 5 * 3))
-                    }
-                }
-            else
-                obj.which_key[idx + 1] = {
-                    type = "text",
-                    text = keys_pool[idx],
-                    textFont = "Courier-Bold",
-                    textSize = 16,
-                    textColor = {hex = "#2390FF"},
-                    textAlignment = "right",
-                    frame = {
-                        x = "50%",
-                        y = tostring((30 + (idx - math.ceil(idx / 2) - 1) * math.ceil((cres.h / 5 * 3 - 60) / #keys_pool) * 2) / (cres.h / 5 * 3)),
-                        w = tostring((1 - 80 / (cres.w / 5 * 3)) / 2),
-                        h = tostring(math.ceil((cres.h / 5 * 3 - 60) / #keys_pool) * 2 / (cres.h / 5 * 3))
-                    }
-                }
-            end
+        --        if obj.orderByColumn then
+        if true then
+           for idx, val in ipairs(keys_pool) do
+              insertIntoSheet(idx,val, idx, 0, #keys_pool)
+           end
         end
         obj.which_key:show()
     end

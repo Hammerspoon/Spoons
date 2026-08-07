@@ -1,0 +1,168 @@
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hammerspoon docs: InputMethodIndicator</title>
+    <style type="text/css">
+      a { text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      th { background-color: #DDDDDD; vertical-align: top; padding: 3px; }
+      td { width: 100%; background-color: #EEEEEE; vertical-align: top; padding: 3px; }
+      table { width: 100% ; border: 1px solid #0; text-align: left; }
+      section > table table td { width: 0; }
+    </style>
+    <link rel="stylesheet" href="docs.css" type="text/css" media="screen" />
+  </head>
+  <body>
+    <header>
+      <h1><a href="./index.html">docs</a> &raquo; InputMethodIndicator</h1>
+      <p>Show input method indicator in the current mouse position.
+It is a small but noticable dot near the cursor.
+It can be very useful when you are using a non-ABC input method and often needs to switch between ABC and the non-ABC input method.
+You can use it as follows in the init.lua:
+hs.loadSpoon(&quot;InputMethodIndicator&quot;)
+spoon.InputMethodIndicator:start(nil)
+note: config parameter is a table, pass nil to use the default config
+the default config is as follows:
+{
+    ABCColor = &quot;#62C555&quot;,  -- the dot color when the input method is ABC
+    LocalLanguageColor = &quot;#ED6A5E&quot;, -- the dot color when the input method is not ABC
+    mode = &quot;nearMouse&quot;, -- the mode of the indicator
+    showOnChangeDuration = 3, -- seconds to show the indicator when the input method is changed
+    checkInterval = .01, -- seconds to check the input method
+    dotSize = 6, -- the size of the dot
+    deltaY=7, -- the distance between the dot and the center of the selection or mouse
+}
+the mode can be &quot;nearMouse&quot;,&quot;onChange&quot;,&quot;adaptive&quot;, the default mode is &quot;adaptive&quot;
+&quot;nearMouse&quot; means the indicator will always show near the mouse
+&quot;onChange&quot; means the indicator will show when the input method is changed and hide after showOnChangeDuration seconds
+&quot;adaptive&quot; means the indicator will show near the textarea when typing, otherwise it will show near the mouse
+Note: the &quot;adaptive&quot; mode is not perfect, it may not work in some apps because of the limitation of the accessibility API</p>
+
+      </header>
+      <h3>API Overview</h3>
+      <ul>
+        <li>Methods - API calls which can only be made on an object returned by a constructor</li>
+          <ul>
+            <li><a href="#init">init</a></li>
+            <li><a href="#start">start</a></li>
+            <li><a href="#stop">stop</a></li>
+          </ul>
+      </ul>
+      <h3>API Documentation</h3>
+        <h4 class="documentation-section">Methods</h4>
+          <section id="init">
+            <a name="//apple_ref/cpp/Method/init" class="dashAnchor"></a>
+            <h5><a href="#init">init</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>InputMethodIndicator:init()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>init.</p>
+</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>None</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td><ul>
+<li>The InputMethodIndicator object</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/InputMethodIndicator.spoon/init.lua#L67">Source/InputMethodIndicator.spoon/init.lua line 67</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="start">
+            <a name="//apple_ref/cpp/Method/start" class="dashAnchor"></a>
+            <h5><a href="#start">start</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>InputMethodIndicator:start(config)</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Start InputMethodIndicator.</p>
+</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>config - A table contains config options for the module<ul>
+<li>ABCColor - the dot color when the input method is ABC</li>
+<li>LocalLanguageColor - the dot color when the input method is not ABC</li>
+<li>mode - the mode of the indicator</li>
+<li>showOnChangeDuration - seconds to show the indicator when the input method is changed</li>
+<li>checkInterval - seconds to check the input method</li>
+<li>dotSize - the size of the dot</li>
+<li>deltaY - the distance between the dot and the center of the selection or mouse</li>
+</ul>
+</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/InputMethodIndicator.spoon/init.lua#L200">Source/InputMethodIndicator.spoon/init.lua line 200</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="stop">
+            <a name="//apple_ref/cpp/Method/stop" class="dashAnchor"></a>
+            <h5><a href="#stop">stop</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>InputMethodIndicator:stop()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Stop InputMethodIndicator.</p>
+</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>None</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/InputMethodIndicator.spoon/init.lua#L245">Source/InputMethodIndicator.spoon/init.lua line 245</a></td>
+              </tr>
+            </table>
+          </section>
+  </body>
+</html>

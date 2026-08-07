@@ -11,12 +11,17 @@
         "def": "ModalMgr:activate(idList, [trayColor], [showKeys])",
         "desc": "Activate all modal environment in `idList`.",
         "doc": "Activate all modal environment in `idList`.\n\nParameters:\n * idList - An table specifying IDs of modal environments\n * trayColor - An optional string (e.g. #000000) specifying the color of modalTray, defaults to `nil`.\n * showKeys - A optional boolean value to show all available keybindings, defaults to `nil`.",
+        "examples": [],
+        "file": "Source/ModalMgr.spoon//init.lua",
+        "lineno": "174",
         "name": "activate",
+        "notes": [],
         "parameters": [
           " * idList - An table specifying IDs of modal environments",
           " * trayColor - An optional string (e.g. #000000) specifying the color of modalTray, defaults to `nil`.",
           " * showKeys - A optional boolean value to show all available keybindings, defaults to `nil`."
         ],
+        "returns": [],
         "signature": "ModalMgr:activate(idList, [trayColor], [showKeys])",
         "stripped_doc": "",
         "type": "Method"
@@ -25,10 +30,15 @@
         "def": "ModalMgr:deactivate(idList)",
         "desc": "Deactivate modal environments in `idList`.",
         "doc": "Deactivate modal environments in `idList`.\n\nParameters:\n * idList - An table specifying IDs of modal environments",
+        "examples": [],
+        "file": "Source/ModalMgr.spoon//init.lua",
+        "lineno": "205",
         "name": "deactivate",
+        "notes": [],
         "parameters": [
           " * idList - An table specifying IDs of modal environments"
         ],
+        "returns": [],
         "signature": "ModalMgr:deactivate(idList)",
         "stripped_doc": "",
         "type": "Method"
@@ -36,8 +46,16 @@
       {
         "def": "ModalMgr:deactivateAll()",
         "desc": "Deactivate all active modal environments.",
-        "doc": "Deactivate all active modal environments.\n",
+        "doc": "Deactivate all active modal environments.\n\nParameters:\n * None",
+        "examples": [],
+        "file": "Source/ModalMgr.spoon//init.lua",
+        "lineno": "224",
         "name": "deactivateAll",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
         "signature": "ModalMgr:deactivateAll()",
         "stripped_doc": "",
         "type": "Method"
@@ -46,10 +64,15 @@
         "def": "ModalMgr:new(id)",
         "desc": "Create a new modal keybindings environment",
         "doc": "Create a new modal keybindings environment\n\nParameters:\n * id - A string specifying ID of new modal keybindings",
+        "examples": [],
+        "file": "Source/ModalMgr.spoon//init.lua",
+        "lineno": "57",
         "name": "new",
+        "notes": [],
         "parameters": [
           " * id - A string specifying ID of new modal keybindings"
         ],
+        "returns": [],
         "signature": "ModalMgr:new(id)",
         "stripped_doc": "",
         "type": "Method"
@@ -58,11 +81,16 @@
         "def": "ModalMgr:toggleCheatsheet([idList], [force])",
         "desc": "Toggle the cheatsheet display of current modal environments's keybindings.",
         "doc": "Toggle the cheatsheet display of current modal environments's keybindings.\n\nParameters:\n * iterList - An table specifying IDs of modal environments or active_list. Optional, defaults to all active environments.\n * force - A optional boolean value to force show cheatsheet, defaults to `nil` (automatically).",
+        "examples": [],
+        "file": "Source/ModalMgr.spoon//init.lua",
+        "lineno": "126",
         "name": "toggleCheatsheet",
+        "notes": [],
         "parameters": [
           " * iterList - An table specifying IDs of modal environments or active_list. Optional, defaults to all active environments.",
           " * force - A optional boolean value to force show cheatsheet, defaults to `nil` (automatically)."
         ],
+        "returns": [],
         "signature": "ModalMgr:toggleCheatsheet([idList], [force])",
         "stripped_doc": "",
         "type": "Method"
@@ -76,12 +104,17 @@
         "def": "ModalMgr:activate(idList, [trayColor], [showKeys])",
         "desc": "Activate all modal environment in `idList`.",
         "doc": "Activate all modal environment in `idList`.\n\nParameters:\n * idList - An table specifying IDs of modal environments\n * trayColor - An optional string (e.g. #000000) specifying the color of modalTray, defaults to `nil`.\n * showKeys - A optional boolean value to show all available keybindings, defaults to `nil`.",
+        "examples": [],
+        "file": "Source/ModalMgr.spoon//init.lua",
+        "lineno": "174",
         "name": "activate",
+        "notes": [],
         "parameters": [
           " * idList - An table specifying IDs of modal environments",
           " * trayColor - An optional string (e.g. #000000) specifying the color of modalTray, defaults to `nil`.",
           " * showKeys - A optional boolean value to show all available keybindings, defaults to `nil`."
         ],
+        "returns": [],
         "signature": "ModalMgr:activate(idList, [trayColor], [showKeys])",
         "stripped_doc": "",
         "type": "Method"
@@ -90,10 +123,15 @@
         "def": "ModalMgr:deactivate(idList)",
         "desc": "Deactivate modal environments in `idList`.",
         "doc": "Deactivate modal environments in `idList`.\n\nParameters:\n * idList - An table specifying IDs of modal environments",
+        "examples": [],
+        "file": "Source/ModalMgr.spoon//init.lua",
+        "lineno": "205",
         "name": "deactivate",
+        "notes": [],
         "parameters": [
           " * idList - An table specifying IDs of modal environments"
         ],
+        "returns": [],
         "signature": "ModalMgr:deactivate(idList)",
         "stripped_doc": "",
         "type": "Method"
@@ -101,8 +139,16 @@
       {
         "def": "ModalMgr:deactivateAll()",
         "desc": "Deactivate all active modal environments.",
-        "doc": "Deactivate all active modal environments.\n",
+        "doc": "Deactivate all active modal environments.\n\nParameters:\n * None",
+        "examples": [],
+        "file": "Source/ModalMgr.spoon//init.lua",
+        "lineno": "224",
         "name": "deactivateAll",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [],
         "signature": "ModalMgr:deactivateAll()",
         "stripped_doc": "",
         "type": "Method"
@@ -111,10 +157,15 @@
         "def": "ModalMgr:new(id)",
         "desc": "Create a new modal keybindings environment",
         "doc": "Create a new modal keybindings environment\n\nParameters:\n * id - A string specifying ID of new modal keybindings",
+        "examples": [],
+        "file": "Source/ModalMgr.spoon//init.lua",
+        "lineno": "57",
         "name": "new",
+        "notes": [],
         "parameters": [
           " * id - A string specifying ID of new modal keybindings"
         ],
+        "returns": [],
         "signature": "ModalMgr:new(id)",
         "stripped_doc": "",
         "type": "Method"
@@ -123,11 +174,16 @@
         "def": "ModalMgr:toggleCheatsheet([idList], [force])",
         "desc": "Toggle the cheatsheet display of current modal environments's keybindings.",
         "doc": "Toggle the cheatsheet display of current modal environments's keybindings.\n\nParameters:\n * iterList - An table specifying IDs of modal environments or active_list. Optional, defaults to all active environments.\n * force - A optional boolean value to force show cheatsheet, defaults to `nil` (automatically).",
+        "examples": [],
+        "file": "Source/ModalMgr.spoon//init.lua",
+        "lineno": "126",
         "name": "toggleCheatsheet",
+        "notes": [],
         "parameters": [
           " * iterList - An table specifying IDs of modal environments or active_list. Optional, defaults to all active environments.",
           " * force - A optional boolean value to force show cheatsheet, defaults to `nil` (automatically)."
         ],
+        "returns": [],
         "signature": "ModalMgr:toggleCheatsheet([idList], [force])",
         "stripped_doc": "",
         "type": "Method"

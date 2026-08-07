@@ -1,0 +1,140 @@
+<html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Hammerspoon docs: InputSourceSwitch</title>
+    <style type="text/css">
+      a { text-decoration: none; }
+      a:hover { text-decoration: underline; }
+      th { background-color: #DDDDDD; vertical-align: top; padding: 3px; }
+      td { width: 100%; background-color: #EEEEEE; vertical-align: top; padding: 3px; }
+      table { width: 100% ; border: 1px solid #0; text-align: left; }
+      section > table table td { width: 0; }
+    </style>
+    <link rel="stylesheet" href="docs.css" type="text/css" media="screen" />
+  </head>
+  <body>
+    <header>
+      <h1><a href="./index.html">docs</a> &raquo; InputSourceSwitch</h1>
+      <p>Automatically switch the input source when switching applications.</p>
+<p>Example:</p>
+
+<pre><code>hs.loadSpoon(&quot;InputSourceSwitch&quot;)
+
+spoon.InputSourceSwitch:setApplications({
+    [&quot;WeChat&quot;] = &quot;Pinyin - Simplified&quot;,
+    [&quot;Mail&quot;] = &quot;ABC&quot;
+})
+
+spoon.InputSourceSwitch:start()
+</code></pre>
+<p>Download: <a href="https://github.com/Hammerspoon/Spoons/raw/master/Spoons/InputSourceSwitch.spoon.zip">https://github.com/Hammerspoon/Spoons/raw/master/Spoons/InputSourceSwitch.spoon.zip</a></p>
+
+      </header>
+      <h3>API Overview</h3>
+      <ul>
+        <li>Variables - Configurable values</li>
+          <ul>
+            <li><a href="#applicationMap">applicationMap</a></li>
+          </ul>
+        <li>Methods - API calls which can only be made on an object returned by a constructor</li>
+          <ul>
+            <li><a href="#setApplications">setApplications</a></li>
+            <li><a href="#start">start</a></li>
+          </ul>
+      </ul>
+      <h3>API Documentation</h3>
+        <h4 class="documentation-section">Variables</h4>
+          <section id="applicationMap">
+            <a name="//apple_ref/cpp/Variable/applicationMap" class="dashAnchor"></a>
+            <h5><a href="#applicationMap">applicationMap</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>InputSourceSwitch.applicationMap</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Variable</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Mapping the application name to the input source</p>
+</td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/InputSourceSwitch.spoon/init.lua#L75">Source/InputSourceSwitch.spoon/init.lua line 75</a></td>
+              </tr>
+            </table>
+          </section>
+        <h4 class="documentation-section">Methods</h4>
+          <section id="setApplications">
+            <a name="//apple_ref/cpp/Method/setApplications" class="dashAnchor"></a>
+            <h5><a href="#setApplications">setApplications</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>InputSourceSwitch:setApplications()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Set that mapping the application name to the input source</p>
+</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>applications - A table containing that mapping the application name to the input source key is the application name and value is the input source name example: <code>{ [&quot;WeChat&quot;] = &quot;Pinyin - Simplified&quot;, [&quot;Mail&quot;] = &quot;ABC&quot; }</code></li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/InputSourceSwitch.spoon/init.lua#L80">Source/InputSourceSwitch.spoon/init.lua line 80</a></td>
+              </tr>
+            </table>
+          </section>
+          <section id="start">
+            <a name="//apple_ref/cpp/Method/start" class="dashAnchor"></a>
+            <h5><a href="#start">start</a></h5>
+            <table>
+              <tr>
+                <th>Signature</th>
+                <td><code>InputSourceSwitch:start()</code></td>
+              </tr>
+              <tr>
+                <th>Type</th>
+                <td>Method</td>
+              </tr>
+              <tr>
+                <th>Description</th>
+                <td><p>Start InputSourceSwitch</p>
+</td>
+              </tr>
+              <tr>
+                  <th>Parameters</th>
+                  <td><ul>
+<li>None</li>
+</ul>
+</td>
+              </tr>
+              <tr>
+                  <th>Returns</th>
+                  <td></td>
+              </tr>
+              <tr>
+                <th>Source</th>
+                <td><a href="https://github.com/Hammerspoon/Spoons/blob/master/Source/InputSourceSwitch.spoon/init.lua#L100">Source/InputSourceSwitch.spoon/init.lua line 100</a></td>
+              </tr>
+            </table>
+          </section>
+  </body>
+</html>
