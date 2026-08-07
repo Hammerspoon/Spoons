@@ -269,7 +269,7 @@ function obj:pasteAllWithDelimiter(row, delimiter)
    end
 end
 
---- Internal method: actions of the context menu, delete or rearrange of clips
+-- Internal method: actions of the context menu, delete or rearrange of clips
 function obj:manageClip(row, action)
     print("manageClip row:" .. row .. ",action:" .. action)
     if action == 0 then
