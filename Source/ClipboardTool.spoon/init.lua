@@ -231,7 +231,7 @@ function obj:pasteboardToClipboard(item_type, item)
    _persistHistory() -- updates the saved history
 end
 
---- Internal method: actions of the context menu, special paste
+-- Internal method: actions of the context menu, special paste
 function obj:pasteAllWithDelimiter(row, delimiter)
    -- only handle text (for now) because _processSelectedItem can only accept 1 type
    if self.prevFocusedWindow ~= nil then
