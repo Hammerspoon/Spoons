@@ -13,7 +13,7 @@ obj.__index = obj
 
 -- Metadata
 obj.name = "URLDispatcher"
-obj.version = "0.5"
+obj.version = "0.6"
 obj.author = "Diego Zamboni <diego@zzamboni.org>"
 obj.homepage = "https://github.com/Hammerspoon/Spoons"
 obj.license = "MIT - https://opensource.org/licenses/MIT"
@@ -45,11 +45,16 @@ obj.decode_slack_redir_urls = true
 ---   * `decoder-pattern-or-function`: (String or Function) if a string is
 ---     given, it is used as a [Lua pattern](https://www.lua.org/pil/20.2.html)
 ---     to match against the URL. If a function is given, it will be called with
----     arguments `scheme`, `host`, `params`, `fullUrl`, `senderPid` (the same
----     arguments as passed to
----     [hs.urlevent.httpCallback](https://www.hammerspoon.org/docs/hs.urlevent.html#httpCallback)),
----     and must return a string that contains the URL to be opened. The
----     returned value will be URL-decoded according to the value of `skip-decode-url` (below).
+---     arguments `scheme`, `host`, `params`, `fullUrl`, `senderPid`, with the
+---     same meaning as passed to
+---     [hs.urlevent.httpCallback](https://www.hammerspoon.org/docs/hs.urlevent.html#httpCallback),
+---     except that `scheme`, `host` and `fullUrl` reflect the URL as rewritten
+---     by any previous decoders in the list (not the original URL that was
+---     opened), so that decoders can be chained. The function must return a
+---     string that contains the URL to be opened; if the decoder does not
+---     apply, it must return its `fullUrl` argument unchanged so that earlier
+---     decoders' rewrites are preserved. The returned value will be
+---     URL-decoded according to the value of `skip-decode-url` (below).
 ---   * `pattern-replacement`: (String) a replacement pattern to apply if a
 ---     match is found when a decoder pattern (previous argument) is provided.
 ---     If a decoder function is given, this argument is ignored.
@@ -225,7 +230,10 @@ function obj:dispatchURL(scheme, host, params, fullUrl, senderPid)
             end
          elseif type(dec[2]) == "function" then
             self.logger.df("    Applying function-based decoder '%s' to URL '%s'", dec[1], url)
-            url = dec[2](scheme, host, params, fullUrl, senderPid)
+            local currentUrlParts = hs.http.urlParts(url)
+            local currentScheme = currentUrlParts.scheme or scheme
+            local currentHost = currentUrlParts.host or host
+            url = dec[2](currentScheme, currentHost, params, url, senderPid)
             self.logger.df("    Decoded URL: '%s'", url)
             processed = true
          else
