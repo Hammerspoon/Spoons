@@ -46,6 +46,7 @@ local options = {
     integer = "number",
     app = "hs.application",
     hsminwebtable = "hs.httpserver.hsminweb",
+    notification = "hs.notify",
     notificationobject = "hs.notify",
     point = "hs.geometry",
     rect = "hs.geometry",
@@ -82,7 +83,8 @@ function M.parseType(module, str)
     return type .. "[]"
   end
 
-  if module.name:find(str, 1, true) or str == "self" then
+  local baseName = module.name:match("[^%.]+$"):lower() -- last segment (e.g. "toolbar", "notify", "canvas")
+  if str == "self" or module.name:find(str, 1, true) or str:find(baseName, 1, true) then
     return module.name
   end
 end
@@ -128,6 +130,9 @@ function M.parseDef(module, el)
   local parts = hs.fnutils.split(el.def, "%s*%-+>%s*")
   local name, args = M.parseArgs(parts[1])
   local ret = { name = name, args = args, type = M.parseType(module, parts[2]) }
+  if not ret.type and name and name:match("%.new$") then
+    ret.type = module.name
+  end
   if name:match("%[.*%]$") then
     if not ret.type then
       ret.type = "table"
