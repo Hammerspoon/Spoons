@@ -1,0 +1,224 @@
+[
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
+        "def": "KeepMacAwake:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for KeepMacAwake",
+        "doc": "Binds hotkeys for KeepMacAwake\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for any of the following items:\n  * start - Start a session of 8 hours\n  * startUnlimited - Start a session without a time limit\n  * stop - Stop the session\n  * status - Show the status\n\nReturns:\n * The KeepMacAwake object",
+        "examples": [],
+        "file": "Source/KeepMacAwake.spoon//init.lua",
+        "lineno": "107",
+        "name": "bindHotkeys",
+        "notes": [],
+        "parameters": [
+          " * mapping - A table containing hotkey modifier/key details for any of the following items:\n   * start - Start a session of 8 hours\n   * startUnlimited - Start a session without a time limit\n   * stop - Stop the session\n   * status - Show the status"
+        ],
+        "returns": [
+          " * The KeepMacAwake object"
+        ],
+        "signature": "KeepMacAwake:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "KeepMacAwake:start([hours], [callback])",
+        "desc": "Starts a Keep Mac Awake session",
+        "doc": "Starts a Keep Mac Awake session\n\nParameters:\n * hours - An optional whole number of hours from 1 to 168, or the string \"unlimited\" for a session without a time limit. Default: 8\n * callback - An optional function called with the command's exit code and its message\n\nReturns:\n * The KeepMacAwake object\n\nNotes:\n * A timed session ends on its own. The command refuses with a message, shown in the alert, when a session already runs, when AC power is needed or when the trial limits the session's length",
+        "examples": [],
+        "file": "Source/KeepMacAwake.spoon//init.lua",
+        "lineno": "53",
+        "name": "start",
+        "notes": [
+          " * A timed session ends on its own. The command refuses with a message, shown in the alert, when a session already runs, when AC power is needed or when the trial limits the session's length"
+        ],
+        "parameters": [
+          " * hours - An optional whole number of hours from 1 to 168, or the string \"unlimited\" for a session without a time limit. Default: 8",
+          " * callback - An optional function called with the command's exit code and its message"
+        ],
+        "returns": [
+          " * The KeepMacAwake object"
+        ],
+        "signature": "KeepMacAwake:start([hours], [callback])",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "KeepMacAwake:status([callback])",
+        "desc": "Shows whether a Keep Mac Awake session runs and its time left",
+        "doc": "Shows whether a Keep Mac Awake session runs and its time left\n\nParameters:\n * callback - An optional function called with the command's exit code and its message\n\nReturns:\n * The KeepMacAwake object",
+        "examples": [],
+        "file": "Source/KeepMacAwake.spoon//init.lua",
+        "lineno": "93",
+        "name": "status",
+        "notes": [],
+        "parameters": [
+          " * callback - An optional function called with the command's exit code and its message"
+        ],
+        "returns": [
+          " * The KeepMacAwake object"
+        ],
+        "signature": "KeepMacAwake:status([callback])",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "KeepMacAwake:stop([callback])",
+        "desc": "Stops the running Keep Mac Awake session, so the Mac sleeps as usual again",
+        "doc": "Stops the running Keep Mac Awake session, so the Mac sleeps as usual again\n\nParameters:\n * callback - An optional function called with the command's exit code and its message\n\nReturns:\n * The KeepMacAwake object",
+        "examples": [],
+        "file": "Source/KeepMacAwake.spoon//init.lua",
+        "lineno": "79",
+        "name": "stop",
+        "notes": [],
+        "parameters": [
+          " * callback - An optional function called with the command's exit code and its message"
+        ],
+        "returns": [
+          " * The KeepMacAwake object"
+        ],
+        "signature": "KeepMacAwake:stop([callback])",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "Variable": [
+      {
+        "def": "KeepMacAwake.alertSeconds",
+        "desc": "How many seconds the alert with the command's answer stays on screen. Default: 4.",
+        "doc": "How many seconds the alert with the command's answer stays on screen. Default: 4.",
+        "file": "Source/KeepMacAwake.spoon//init.lua",
+        "lineno": "23",
+        "name": "alertSeconds",
+        "signature": "KeepMacAwake.alertSeconds",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "KeepMacAwake.cliPath",
+        "desc": "The path of the `keepmacawake` command. Default: `/usr/local/bin/keepmacawake`, where the app's installer puts it.",
+        "doc": "The path of the `keepmacawake` command. Default: `/usr/local/bin/keepmacawake`, where the app's installer puts it.",
+        "file": "Source/KeepMacAwake.spoon//init.lua",
+        "lineno": "18",
+        "name": "cliPath",
+        "signature": "KeepMacAwake.cliPath",
+        "stripped_doc": "",
+        "type": "Variable"
+      }
+    ],
+    "desc": "Start, check and stop Keep Mac Awake sessions from Hammerspoon.",
+    "doc": "Start, check and stop Keep Mac Awake sessions from Hammerspoon.\n\nKeep Mac Awake (https://keepmacawake.com) is a menu bar app that keeps a MacBook with Apple silicon awake with the lid closed during a session, on macOS 26 or later. It has a free trial. This Spoon runs only its `keepmacawake` command (`start`, `status`, `stop`) and shows the command's answer in an alert; it needs the app installed.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/KeepMacAwake.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/KeepMacAwake.spoon.zip)",
+    "items": [
+      {
+        "def": "KeepMacAwake.alertSeconds",
+        "desc": "How many seconds the alert with the command's answer stays on screen. Default: 4.",
+        "doc": "How many seconds the alert with the command's answer stays on screen. Default: 4.",
+        "file": "Source/KeepMacAwake.spoon//init.lua",
+        "lineno": "23",
+        "name": "alertSeconds",
+        "signature": "KeepMacAwake.alertSeconds",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "KeepMacAwake:bindHotkeys(mapping)",
+        "desc": "Binds hotkeys for KeepMacAwake",
+        "doc": "Binds hotkeys for KeepMacAwake\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for any of the following items:\n  * start - Start a session of 8 hours\n  * startUnlimited - Start a session without a time limit\n  * stop - Stop the session\n  * status - Show the status\n\nReturns:\n * The KeepMacAwake object",
+        "examples": [],
+        "file": "Source/KeepMacAwake.spoon//init.lua",
+        "lineno": "107",
+        "name": "bindHotkeys",
+        "notes": [],
+        "parameters": [
+          " * mapping - A table containing hotkey modifier/key details for any of the following items:\n   * start - Start a session of 8 hours\n   * startUnlimited - Start a session without a time limit\n   * stop - Stop the session\n   * status - Show the status"
+        ],
+        "returns": [
+          " * The KeepMacAwake object"
+        ],
+        "signature": "KeepMacAwake:bindHotkeys(mapping)",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "KeepMacAwake.cliPath",
+        "desc": "The path of the `keepmacawake` command. Default: `/usr/local/bin/keepmacawake`, where the app's installer puts it.",
+        "doc": "The path of the `keepmacawake` command. Default: `/usr/local/bin/keepmacawake`, where the app's installer puts it.",
+        "file": "Source/KeepMacAwake.spoon//init.lua",
+        "lineno": "18",
+        "name": "cliPath",
+        "signature": "KeepMacAwake.cliPath",
+        "stripped_doc": "",
+        "type": "Variable"
+      },
+      {
+        "def": "KeepMacAwake:start([hours], [callback])",
+        "desc": "Starts a Keep Mac Awake session",
+        "doc": "Starts a Keep Mac Awake session\n\nParameters:\n * hours - An optional whole number of hours from 1 to 168, or the string \"unlimited\" for a session without a time limit. Default: 8\n * callback - An optional function called with the command's exit code and its message\n\nReturns:\n * The KeepMacAwake object\n\nNotes:\n * A timed session ends on its own. The command refuses with a message, shown in the alert, when a session already runs, when AC power is needed or when the trial limits the session's length",
+        "examples": [],
+        "file": "Source/KeepMacAwake.spoon//init.lua",
+        "lineno": "53",
+        "name": "start",
+        "notes": [
+          " * A timed session ends on its own. The command refuses with a message, shown in the alert, when a session already runs, when AC power is needed or when the trial limits the session's length"
+        ],
+        "parameters": [
+          " * hours - An optional whole number of hours from 1 to 168, or the string \"unlimited\" for a session without a time limit. Default: 8",
+          " * callback - An optional function called with the command's exit code and its message"
+        ],
+        "returns": [
+          " * The KeepMacAwake object"
+        ],
+        "signature": "KeepMacAwake:start([hours], [callback])",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "KeepMacAwake:status([callback])",
+        "desc": "Shows whether a Keep Mac Awake session runs and its time left",
+        "doc": "Shows whether a Keep Mac Awake session runs and its time left\n\nParameters:\n * callback - An optional function called with the command's exit code and its message\n\nReturns:\n * The KeepMacAwake object",
+        "examples": [],
+        "file": "Source/KeepMacAwake.spoon//init.lua",
+        "lineno": "93",
+        "name": "status",
+        "notes": [],
+        "parameters": [
+          " * callback - An optional function called with the command's exit code and its message"
+        ],
+        "returns": [
+          " * The KeepMacAwake object"
+        ],
+        "signature": "KeepMacAwake:status([callback])",
+        "stripped_doc": "",
+        "type": "Method"
+      },
+      {
+        "def": "KeepMacAwake:stop([callback])",
+        "desc": "Stops the running Keep Mac Awake session, so the Mac sleeps as usual again",
+        "doc": "Stops the running Keep Mac Awake session, so the Mac sleeps as usual again\n\nParameters:\n * callback - An optional function called with the command's exit code and its message\n\nReturns:\n * The KeepMacAwake object",
+        "examples": [],
+        "file": "Source/KeepMacAwake.spoon//init.lua",
+        "lineno": "79",
+        "name": "stop",
+        "notes": [],
+        "parameters": [
+          " * callback - An optional function called with the command's exit code and its message"
+        ],
+        "returns": [
+          " * The KeepMacAwake object"
+        ],
+        "signature": "KeepMacAwake:stop([callback])",
+        "stripped_doc": "",
+        "type": "Method"
+      }
+    ],
+    "name": "KeepMacAwake",
+    "stripped_doc": "\nKeep Mac Awake (https://keepmacawake.com) is a menu bar app that keeps a MacBook with Apple silicon awake with the lid closed during a session, on macOS 26 or later. It has a free trial. This Spoon runs only its `keepmacawake` command (`start`, `status`, `stop`) and shows the command's answer in an alert; it needs the app installed.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/KeepMacAwake.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/KeepMacAwake.spoon.zip)",
+    "submodules": [],
+    "type": "Module"
+  }
+]
