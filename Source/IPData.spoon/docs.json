@@ -1,0 +1,985 @@
+[
+  {
+    "Constant": [],
+    "submodules": [],
+    "Function": [
+      {
+        "name": "extractIp",
+        "stripped_doc": [
+          "Finds the first IP address in a piece of text.",
+          ""
+        ],
+        "def": "IPData.extractIp(text)",
+        "doc": "Finds the first IP address in a piece of text.\n\nParameters:\n * text - A string: a bare address, a URL, a log line, \"host:port\", \"[v6]:port\", a CIDR\n   prefix, \"key=value\" pairs and similar.\n\nReturns:\n * The bare IPv4 or IPv6 address as a string, or nil when the text contains none.",
+        "notes": [],
+        "signature": "IPData.extractIp(text)",
+        "type": "Function",
+        "returns": [
+          " * The bare IPv4 or IPv6 address as a string, or nil when the text contains none."
+        ],
+        "desc": "Finds the first IP address in a piece of text.",
+        "parameters": [
+          " * text - A string: a bare address, a URL, a log line, \"host:port\", \"[v6]:port\", a CIDR",
+          "   prefix, \"key=value\" pairs and similar.",
+          ""
+        ]
+      },
+      {
+        "name": "ipVersion",
+        "stripped_doc": [
+          "Tells whether a string is an IPv4 or an IPv6 address.",
+          ""
+        ],
+        "def": "IPData.ipVersion(address)",
+        "doc": "Tells whether a string is an IPv4 or an IPv6 address.\n\nParameters:\n * address - A string.\n\nReturns:\n * 4, 6, or 0 when the string is not an IP address.",
+        "notes": [],
+        "signature": "IPData.ipVersion(address)",
+        "type": "Function",
+        "returns": [
+          " * 4, 6, or 0 when the string is not an IP address."
+        ],
+        "desc": "Tells whether a string is an IPv4 or an IPv6 address.",
+        "parameters": [
+          " * address - A string.",
+          ""
+        ]
+      },
+      {
+        "name": "reservedLabel",
+        "stripped_doc": [
+          "Describes addresses that are not routable on the public internet.",
+          ""
+        ],
+        "def": "IPData.reservedLabel(address)",
+        "doc": "Describes addresses that are not routable on the public internet.\n\nParameters:\n * address - An IPv4 or IPv6 address as a string.\n\nReturns:\n * A label such as \"Private network address (RFC 1918)\" or \"Loopback address\", nil for a\n   public address, and \"Not an IP address\" for anything else.\n\nNotes:\n * Such addresses are recognised locally and never sent to ipdata.",
+        "notes": [
+          " * Such addresses are recognised locally and never sent to ipdata."
+        ],
+        "signature": "IPData.reservedLabel(address)",
+        "type": "Function",
+        "returns": [
+          " * A label such as \"Private network address (RFC 1918)\" or \"Loopback address\", nil for a",
+          "   public address, and \"Not an IP address\" for anything else.",
+          ""
+        ],
+        "desc": "Describes addresses that are not routable on the public internet.",
+        "parameters": [
+          " * address - An IPv4 or IPv6 address as a string.",
+          ""
+        ]
+      }
+    ],
+    "Variable": [
+      {
+        "name": "apiKey",
+        "stripped_doc": [
+          "Optional ipdata API key (string); unlocks the full record. Default: nil.",
+          "",
+          "With a key, lookups call `https://api.ipdata.co` (or the EU endpoint, see `IPData.endpoint`)",
+          "and return company, carrier, time zone, currency, languages and threat intelligence with",
+          "trust, VPN, proxy and threat scores. Without a key the free service at `https://ipdata.co`",
+          "is used. A key set here takes priority over one saved with `IPData:setApiKey()` (which",
+          "\"Add API key…\" on a card and in the menubar menu opens)."
+        ],
+        "def": "IPData.apiKey",
+        "doc": "Optional ipdata API key (string); unlocks the full record. Default: nil.\n\nWith a key, lookups call `https://api.ipdata.co` (or the EU endpoint, see `IPData.endpoint`)\nand return company, carrier, time zone, currency, languages and threat intelligence with\ntrust, VPN, proxy and threat scores. Without a key the free service at `https://ipdata.co`\nis used. A key set here takes priority over one saved with `IPData:setApiKey()` (which\n\"Add API key…\" on a card and in the menubar menu opens).",
+        "notes": [],
+        "signature": "IPData.apiKey",
+        "type": "Variable",
+        "returns": [],
+        "desc": "Optional ipdata API key (string); unlocks the full record. Default: nil.",
+        "parameters": []
+      },
+      {
+        "name": "endpoint",
+        "stripped_doc": [
+          "Which keyed endpoint to call: \"global\" (api.ipdata.co) or \"eu\" (eu-api.ipdata.co). Default: \"global\".",
+          "",
+          "Only used when `IPData.apiKey` is set. \"eu\" keeps requests inside the EU."
+        ],
+        "def": "IPData.endpoint",
+        "doc": "Which keyed endpoint to call: \"global\" (api.ipdata.co) or \"eu\" (eu-api.ipdata.co). Default: \"global\".\n\nOnly used when `IPData.apiKey` is set. \"eu\" keeps requests inside the EU.",
+        "notes": [],
+        "signature": "IPData.endpoint",
+        "type": "Variable",
+        "returns": [],
+        "desc": "Which keyed endpoint to call: \"global\" (api.ipdata.co) or \"eu\" (eu-api.ipdata.co). Default: \"global\".",
+        "parameters": []
+      },
+      {
+        "name": "cardTimeout",
+        "stripped_doc": [
+          "Seconds after which the result card closes by itself. Default: 12.",
+          "",
+          "0 keeps it open until Escape is pressed or the mouse is clicked outside it. The countdown",
+          "pauses while the pointer is over the card."
+        ],
+        "def": "IPData.cardTimeout",
+        "doc": "Seconds after which the result card closes by itself. Default: 12.\n\n0 keeps it open until Escape is pressed or the mouse is clicked outside it. The countdown\npauses while the pointer is over the card.",
+        "notes": [],
+        "signature": "IPData.cardTimeout",
+        "type": "Variable",
+        "returns": [],
+        "desc": "Seconds after which the result card closes by itself. Default: 12.",
+        "parameters": []
+      },
+      {
+        "name": "cardPosition",
+        "stripped_doc": [
+          "Where the card appears: \"mouse\" (next to the pointer) or \"center\". Default: \"mouse\".",
+          "",
+          "\"mouse\" mirrors the Chrome extension's card under a selection; \"center\" puts the card in",
+          "the middle of the main screen."
+        ],
+        "def": "IPData.cardPosition",
+        "doc": "Where the card appears: \"mouse\" (next to the pointer) or \"center\". Default: \"mouse\".\n\n\"mouse\" mirrors the Chrome extension's card under a selection; \"center\" puts the card in\nthe middle of the main screen.",
+        "notes": [],
+        "signature": "IPData.cardPosition",
+        "type": "Variable",
+        "returns": [],
+        "desc": "Where the card appears: \"mouse\" (next to the pointer) or \"center\". Default: \"mouse\".",
+        "parameters": []
+      },
+      {
+        "name": "appearance",
+        "stripped_doc": [
+          "Card appearance: \"system\" (follows macOS), \"light\" or \"dark\". Default: \"system\".",
+          "",
+          "The sun/moon button in a card's corner switches it and remembers the choice in Hammerspoon's",
+          "settings; switching back to the appearance macOS is using returns to \"system\". A value set in",
+          "init.lua takes priority."
+        ],
+        "def": "IPData.appearance",
+        "doc": "Card appearance: \"system\" (follows macOS), \"light\" or \"dark\". Default: \"system\".\n\nThe sun/moon button in a card's corner switches it and remembers the choice in Hammerspoon's\nsettings; switching back to the appearance macOS is using returns to \"system\". A value set in\ninit.lua takes priority.",
+        "notes": [],
+        "signature": "IPData.appearance",
+        "type": "Variable",
+        "returns": [],
+        "desc": "Card appearance: \"system\" (follows macOS), \"light\" or \"dark\". Default: \"system\".",
+        "parameters": []
+      },
+      {
+        "name": "showAsAlert",
+        "stripped_doc": [
+          "When true, results are shown as a one-line `hs.alert` instead of the card. Default: false.",
+          "",
+          "The line reads \"City, Country · ASxxxx Operator\", preceded by the flag and the address."
+        ],
+        "def": "IPData.showAsAlert",
+        "doc": "When true, results are shown as a one-line `hs.alert` instead of the card. Default: false.\n\nThe line reads \"City, Country · ASxxxx Operator\", preceded by the flag and the address.",
+        "notes": [],
+        "signature": "IPData.showAsAlert",
+        "type": "Variable",
+        "returns": [],
+        "desc": "When true, results are shown as a one-line `hs.alert` instead of the card. Default: false.",
+        "parameters": []
+      },
+      {
+        "name": "cacheTTL",
+        "stripped_doc": [
+          "Seconds a lookup result stays in the in-memory cache. Default: 3600 (one hour).",
+          "",
+          "Your own addresses are cached for two minutes regardless of this value."
+        ],
+        "def": "IPData.cacheTTL",
+        "doc": "Seconds a lookup result stays in the in-memory cache. Default: 3600 (one hour).\n\nYour own addresses are cached for two minutes regardless of this value.",
+        "notes": [],
+        "signature": "IPData.cacheTTL",
+        "type": "Variable",
+        "returns": [],
+        "desc": "Seconds a lookup result stays in the in-memory cache. Default: 3600 (one hour).",
+        "parameters": []
+      },
+      {
+        "name": "menubarRefresh",
+        "stripped_doc": [
+          "Seconds between menubar refreshes once `IPData:startMenubar()` has been called. Default: 600."
+        ],
+        "def": "IPData.menubarRefresh",
+        "doc": "Seconds between menubar refreshes once `IPData:startMenubar()` has been called. Default: 600.",
+        "notes": [],
+        "signature": "IPData.menubarRefresh",
+        "type": "Variable",
+        "returns": [],
+        "desc": "Seconds between menubar refreshes once `IPData:startMenubar()` has been called. Default: 600.",
+        "parameters": []
+      },
+      {
+        "name": "logger",
+        "stripped_doc": [
+          "The `hs.logger` instance used by the Spoon. Default: `hs.logger.new(\"ipdata\")`.",
+          "",
+          "Raise its level with `spoon.IPData.logger.setLogLevel(\"debug\")` to see every request in",
+          "the console."
+        ],
+        "def": "IPData.logger",
+        "doc": "The `hs.logger` instance used by the Spoon. Default: `hs.logger.new(\"ipdata\")`.\n\nRaise its level with `spoon.IPData.logger.setLogLevel(\"debug\")` to see every request in\nthe console.",
+        "notes": [],
+        "signature": "IPData.logger",
+        "type": "Variable",
+        "returns": [],
+        "desc": "The `hs.logger` instance used by the Spoon. Default: `hs.logger.new(\"ipdata\")`.",
+        "parameters": []
+      }
+    ],
+    "stripped_doc": [],
+    "Deprecated": [],
+    "desc": "IP address lookups from a hotkey, powered by [ipdata](https://ipdata.co).",
+    "type": "Module",
+    "Constructor": [],
+    "items": [
+      {
+        "name": "apiKey",
+        "stripped_doc": [
+          "Optional ipdata API key (string); unlocks the full record. Default: nil.",
+          "",
+          "With a key, lookups call `https://api.ipdata.co` (or the EU endpoint, see `IPData.endpoint`)",
+          "and return company, carrier, time zone, currency, languages and threat intelligence with",
+          "trust, VPN, proxy and threat scores. Without a key the free service at `https://ipdata.co`",
+          "is used. A key set here takes priority over one saved with `IPData:setApiKey()` (which",
+          "\"Add API key…\" on a card and in the menubar menu opens)."
+        ],
+        "def": "IPData.apiKey",
+        "doc": "Optional ipdata API key (string); unlocks the full record. Default: nil.\n\nWith a key, lookups call `https://api.ipdata.co` (or the EU endpoint, see `IPData.endpoint`)\nand return company, carrier, time zone, currency, languages and threat intelligence with\ntrust, VPN, proxy and threat scores. Without a key the free service at `https://ipdata.co`\nis used. A key set here takes priority over one saved with `IPData:setApiKey()` (which\n\"Add API key…\" on a card and in the menubar menu opens).",
+        "notes": [],
+        "signature": "IPData.apiKey",
+        "type": "Variable",
+        "returns": [],
+        "desc": "Optional ipdata API key (string); unlocks the full record. Default: nil.",
+        "parameters": []
+      },
+      {
+        "name": "appearance",
+        "stripped_doc": [
+          "Card appearance: \"system\" (follows macOS), \"light\" or \"dark\". Default: \"system\".",
+          "",
+          "The sun/moon button in a card's corner switches it and remembers the choice in Hammerspoon's",
+          "settings; switching back to the appearance macOS is using returns to \"system\". A value set in",
+          "init.lua takes priority."
+        ],
+        "def": "IPData.appearance",
+        "doc": "Card appearance: \"system\" (follows macOS), \"light\" or \"dark\". Default: \"system\".\n\nThe sun/moon button in a card's corner switches it and remembers the choice in Hammerspoon's\nsettings; switching back to the appearance macOS is using returns to \"system\". A value set in\ninit.lua takes priority.",
+        "notes": [],
+        "signature": "IPData.appearance",
+        "type": "Variable",
+        "returns": [],
+        "desc": "Card appearance: \"system\" (follows macOS), \"light\" or \"dark\". Default: \"system\".",
+        "parameters": []
+      },
+      {
+        "name": "cacheTTL",
+        "stripped_doc": [
+          "Seconds a lookup result stays in the in-memory cache. Default: 3600 (one hour).",
+          "",
+          "Your own addresses are cached for two minutes regardless of this value."
+        ],
+        "def": "IPData.cacheTTL",
+        "doc": "Seconds a lookup result stays in the in-memory cache. Default: 3600 (one hour).\n\nYour own addresses are cached for two minutes regardless of this value.",
+        "notes": [],
+        "signature": "IPData.cacheTTL",
+        "type": "Variable",
+        "returns": [],
+        "desc": "Seconds a lookup result stays in the in-memory cache. Default: 3600 (one hour).",
+        "parameters": []
+      },
+      {
+        "name": "cardPosition",
+        "stripped_doc": [
+          "Where the card appears: \"mouse\" (next to the pointer) or \"center\". Default: \"mouse\".",
+          "",
+          "\"mouse\" mirrors the Chrome extension's card under a selection; \"center\" puts the card in",
+          "the middle of the main screen."
+        ],
+        "def": "IPData.cardPosition",
+        "doc": "Where the card appears: \"mouse\" (next to the pointer) or \"center\". Default: \"mouse\".\n\n\"mouse\" mirrors the Chrome extension's card under a selection; \"center\" puts the card in\nthe middle of the main screen.",
+        "notes": [],
+        "signature": "IPData.cardPosition",
+        "type": "Variable",
+        "returns": [],
+        "desc": "Where the card appears: \"mouse\" (next to the pointer) or \"center\". Default: \"mouse\".",
+        "parameters": []
+      },
+      {
+        "name": "cardTimeout",
+        "stripped_doc": [
+          "Seconds after which the result card closes by itself. Default: 12.",
+          "",
+          "0 keeps it open until Escape is pressed or the mouse is clicked outside it. The countdown",
+          "pauses while the pointer is over the card."
+        ],
+        "def": "IPData.cardTimeout",
+        "doc": "Seconds after which the result card closes by itself. Default: 12.\n\n0 keeps it open until Escape is pressed or the mouse is clicked outside it. The countdown\npauses while the pointer is over the card.",
+        "notes": [],
+        "signature": "IPData.cardTimeout",
+        "type": "Variable",
+        "returns": [],
+        "desc": "Seconds after which the result card closes by itself. Default: 12.",
+        "parameters": []
+      },
+      {
+        "name": "endpoint",
+        "stripped_doc": [
+          "Which keyed endpoint to call: \"global\" (api.ipdata.co) or \"eu\" (eu-api.ipdata.co). Default: \"global\".",
+          "",
+          "Only used when `IPData.apiKey` is set. \"eu\" keeps requests inside the EU."
+        ],
+        "def": "IPData.endpoint",
+        "doc": "Which keyed endpoint to call: \"global\" (api.ipdata.co) or \"eu\" (eu-api.ipdata.co). Default: \"global\".\n\nOnly used when `IPData.apiKey` is set. \"eu\" keeps requests inside the EU.",
+        "notes": [],
+        "signature": "IPData.endpoint",
+        "type": "Variable",
+        "returns": [],
+        "desc": "Which keyed endpoint to call: \"global\" (api.ipdata.co) or \"eu\" (eu-api.ipdata.co). Default: \"global\".",
+        "parameters": []
+      },
+      {
+        "name": "logger",
+        "stripped_doc": [
+          "The `hs.logger` instance used by the Spoon. Default: `hs.logger.new(\"ipdata\")`.",
+          "",
+          "Raise its level with `spoon.IPData.logger.setLogLevel(\"debug\")` to see every request in",
+          "the console."
+        ],
+        "def": "IPData.logger",
+        "doc": "The `hs.logger` instance used by the Spoon. Default: `hs.logger.new(\"ipdata\")`.\n\nRaise its level with `spoon.IPData.logger.setLogLevel(\"debug\")` to see every request in\nthe console.",
+        "notes": [],
+        "signature": "IPData.logger",
+        "type": "Variable",
+        "returns": [],
+        "desc": "The `hs.logger` instance used by the Spoon. Default: `hs.logger.new(\"ipdata\")`.",
+        "parameters": []
+      },
+      {
+        "name": "menubarRefresh",
+        "stripped_doc": [
+          "Seconds between menubar refreshes once `IPData:startMenubar()` has been called. Default: 600."
+        ],
+        "def": "IPData.menubarRefresh",
+        "doc": "Seconds between menubar refreshes once `IPData:startMenubar()` has been called. Default: 600.",
+        "notes": [],
+        "signature": "IPData.menubarRefresh",
+        "type": "Variable",
+        "returns": [],
+        "desc": "Seconds between menubar refreshes once `IPData:startMenubar()` has been called. Default: 600.",
+        "parameters": []
+      },
+      {
+        "name": "showAsAlert",
+        "stripped_doc": [
+          "When true, results are shown as a one-line `hs.alert` instead of the card. Default: false.",
+          "",
+          "The line reads \"City, Country · ASxxxx Operator\", preceded by the flag and the address."
+        ],
+        "def": "IPData.showAsAlert",
+        "doc": "When true, results are shown as a one-line `hs.alert` instead of the card. Default: false.\n\nThe line reads \"City, Country · ASxxxx Operator\", preceded by the flag and the address.",
+        "notes": [],
+        "signature": "IPData.showAsAlert",
+        "type": "Variable",
+        "returns": [],
+        "desc": "When true, results are shown as a one-line `hs.alert` instead of the card. Default: false.",
+        "parameters": []
+      },
+      {
+        "name": "extractIp",
+        "stripped_doc": [
+          "Finds the first IP address in a piece of text.",
+          ""
+        ],
+        "def": "IPData.extractIp(text)",
+        "doc": "Finds the first IP address in a piece of text.\n\nParameters:\n * text - A string: a bare address, a URL, a log line, \"host:port\", \"[v6]:port\", a CIDR\n   prefix, \"key=value\" pairs and similar.\n\nReturns:\n * The bare IPv4 or IPv6 address as a string, or nil when the text contains none.",
+        "notes": [],
+        "signature": "IPData.extractIp(text)",
+        "type": "Function",
+        "returns": [
+          " * The bare IPv4 or IPv6 address as a string, or nil when the text contains none."
+        ],
+        "desc": "Finds the first IP address in a piece of text.",
+        "parameters": [
+          " * text - A string: a bare address, a URL, a log line, \"host:port\", \"[v6]:port\", a CIDR",
+          "   prefix, \"key=value\" pairs and similar.",
+          ""
+        ]
+      },
+      {
+        "name": "ipVersion",
+        "stripped_doc": [
+          "Tells whether a string is an IPv4 or an IPv6 address.",
+          ""
+        ],
+        "def": "IPData.ipVersion(address)",
+        "doc": "Tells whether a string is an IPv4 or an IPv6 address.\n\nParameters:\n * address - A string.\n\nReturns:\n * 4, 6, or 0 when the string is not an IP address.",
+        "notes": [],
+        "signature": "IPData.ipVersion(address)",
+        "type": "Function",
+        "returns": [
+          " * 4, 6, or 0 when the string is not an IP address."
+        ],
+        "desc": "Tells whether a string is an IPv4 or an IPv6 address.",
+        "parameters": [
+          " * address - A string.",
+          ""
+        ]
+      },
+      {
+        "name": "reservedLabel",
+        "stripped_doc": [
+          "Describes addresses that are not routable on the public internet.",
+          ""
+        ],
+        "def": "IPData.reservedLabel(address)",
+        "doc": "Describes addresses that are not routable on the public internet.\n\nParameters:\n * address - An IPv4 or IPv6 address as a string.\n\nReturns:\n * A label such as \"Private network address (RFC 1918)\" or \"Loopback address\", nil for a\n   public address, and \"Not an IP address\" for anything else.\n\nNotes:\n * Such addresses are recognised locally and never sent to ipdata.",
+        "notes": [
+          " * Such addresses are recognised locally and never sent to ipdata."
+        ],
+        "signature": "IPData.reservedLabel(address)",
+        "type": "Function",
+        "returns": [
+          " * A label such as \"Private network address (RFC 1918)\" or \"Loopback address\", nil for a",
+          "   public address, and \"Not an IP address\" for anything else.",
+          ""
+        ],
+        "desc": "Describes addresses that are not routable on the public internet.",
+        "parameters": [
+          " * address - An IPv4 or IPv6 address as a string.",
+          ""
+        ]
+      },
+      {
+        "name": "bindHotkeys",
+        "stripped_doc": [
+          "Binds hotkeys for ipdata.",
+          ""
+        ],
+        "def": "IPData:bindHotkeys(mapping)",
+        "doc": "Binds hotkeys for ipdata.\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for the following items:\n  * lookup - Look up the IP address in the current selection (or the clipboard)\n  * myip - Show your public IPv4 and IPv6 addresses\n  * apikey - Add, change or remove the ipdata API key (opens a prompt)\n\nReturns:\n * The ipdata object",
+        "notes": [],
+        "signature": "IPData:bindHotkeys(mapping)",
+        "type": "Method",
+        "returns": [
+          " * The ipdata object"
+        ],
+        "desc": "Binds hotkeys for ipdata.",
+        "parameters": [
+          " * mapping - A table containing hotkey modifier/key details for the following items:",
+          "  * lookup - Look up the IP address in the current selection (or the clipboard)",
+          "  * myip - Show your public IPv4 and IPv6 addresses",
+          "  * apikey - Add, change or remove the ipdata API key (opens a prompt)",
+          ""
+        ]
+      },
+      {
+        "name": "clearCache",
+        "stripped_doc": [
+          "Forgets every cached lookup, including your own addresses.",
+          ""
+        ],
+        "def": "IPData:clearCache()",
+        "doc": "Forgets every cached lookup, including your own addresses.\n\nParameters:\n * None\n\nReturns:\n * The ipdata object",
+        "notes": [],
+        "signature": "IPData:clearCache()",
+        "type": "Method",
+        "returns": [
+          " * The ipdata object"
+        ],
+        "desc": "Forgets every cached lookup, including your own addresses.",
+        "parameters": [
+          " * None",
+          ""
+        ]
+      },
+      {
+        "name": "closeCard",
+        "stripped_doc": [
+          "Closes the result card if one is showing.",
+          ""
+        ],
+        "def": "IPData:closeCard()",
+        "doc": "Closes the result card if one is showing.\n\nParameters:\n * None\n\nReturns:\n * The ipdata object",
+        "notes": [],
+        "signature": "IPData:closeCard()",
+        "type": "Method",
+        "returns": [
+          " * The ipdata object"
+        ],
+        "desc": "Closes the result card if one is showing.",
+        "parameters": [
+          " * None",
+          ""
+        ]
+      },
+      {
+        "name": "fetch",
+        "stripped_doc": [
+          "Fetches the record for an address without showing anything.",
+          ""
+        ],
+        "def": "IPData:fetch(ip, fn)",
+        "doc": "Fetches the record for an address without showing anything.\n\nParameters:\n * ip - An IPv4 or IPv6 address (a token such as \"1.2.3.4:443\" or \"[2001:db8::1]:80\" is\n   cleaned up first).\n * fn - A function called once with a result table. On success it has `ok = true`, `model`\n   (the normalised record: ip, version, city, region, country_code, country_name, emoji,\n   latitude, longitude, asn, org, company, carrier, connection, time_zone, currency, languages,\n   threat), `raw` (the decoded response), `body` (the response text as ipdata sent it), `rate` (free tier: limit, remaining, reset_at),\n   `source` (\"free\" or \"key\") and `cached`. On failure it has `ok = false`, `kind`\n   (\"invalid\", \"reserved\", \"network\", \"quota\" or \"key\") and `message`.\n\nReturns:\n * The ipdata object\n\nNotes:\n * Results are cached for `IPData.cacheTTL` seconds. Private, loopback, link-local and\n   documentation addresses are recognised locally and never sent to ipdata.",
+        "notes": [
+          " * Results are cached for `IPData.cacheTTL` seconds. Private, loopback, link-local and",
+          "   documentation addresses are recognised locally and never sent to ipdata."
+        ],
+        "signature": "IPData:fetch(ip, fn)",
+        "type": "Method",
+        "returns": [
+          " * The ipdata object",
+          ""
+        ],
+        "desc": "Fetches the record for an address without showing anything.",
+        "parameters": [
+          " * ip - An IPv4 or IPv6 address (a token such as \"1.2.3.4:443\" or \"[2001:db8::1]:80\" is",
+          "   cleaned up first).",
+          " * fn - A function called once with a result table. On success it has `ok = true`, `model`",
+          "   (the normalised record: ip, version, city, region, country_code, country_name, emoji,",
+          "   latitude, longitude, asn, org, company, carrier, connection, time_zone, currency, languages,",
+          "   threat), `raw` (the decoded response), `body` (the response text as ipdata sent it), `rate` (free tier: limit, remaining, reset_at),",
+          "   `source` (\"free\" or \"key\") and `cached`. On failure it has `ok = false`, `kind`",
+          "   (\"invalid\", \"reserved\", \"network\", \"quota\" or \"key\") and `message`.",
+          ""
+        ]
+      },
+      {
+        "name": "lookup",
+        "stripped_doc": [
+          "Looks an address up and shows the result card.",
+          ""
+        ],
+        "def": "IPData:lookup(ip, fn)",
+        "doc": "Looks an address up and shows the result card.\n\nParameters:\n * ip - An IPv4 or IPv6 address, or any text containing one.\n * fn - An optional function called with the result table described in `IPData:fetch`.\n\nReturns:\n * The ipdata object\n\nNotes:\n * With `IPData.showAsAlert` set, a one-line alert is shown instead. Private, loopback,\n   link-local and documentation addresses are described locally without a request.",
+        "notes": [
+          " * With `IPData.showAsAlert` set, a one-line alert is shown instead. Private, loopback,",
+          "   link-local and documentation addresses are described locally without a request."
+        ],
+        "signature": "IPData:lookup(ip, fn)",
+        "type": "Method",
+        "returns": [
+          " * The ipdata object",
+          ""
+        ],
+        "desc": "Looks an address up and shows the result card.",
+        "parameters": [
+          " * ip - An IPv4 or IPv6 address, or any text containing one.",
+          " * fn - An optional function called with the result table described in `IPData:fetch`.",
+          ""
+        ]
+      },
+      {
+        "name": "lookupSelection",
+        "stripped_doc": [
+          "Looks up the IP address in the current selection, or in the clipboard when nothing is selected.",
+          ""
+        ],
+        "def": "IPData:lookupSelection()",
+        "doc": "Looks up the IP address in the current selection, or in the clipboard when nothing is selected.\n\nParameters:\n * None\n\nReturns:\n * The ipdata object\n\nNotes:\n * The selection is read by sending ⌘C to the frontmost application; the previous clipboard\n   contents are restored afterwards. This is what the `lookup` hotkey calls.",
+        "notes": [
+          " * The selection is read by sending ⌘C to the frontmost application; the previous clipboard",
+          "   contents are restored afterwards. This is what the `lookup` hotkey calls."
+        ],
+        "signature": "IPData:lookupSelection()",
+        "type": "Method",
+        "returns": [
+          " * The ipdata object",
+          ""
+        ],
+        "desc": "Looks up the IP address in the current selection, or in the clipboard when nothing is selected.",
+        "parameters": [
+          " * None",
+          ""
+        ]
+      },
+      {
+        "name": "myIp",
+        "stripped_doc": [
+          "Shows your public IPv4 and IPv6 addresses with the record of the primary one.",
+          ""
+        ],
+        "def": "IPData:myIp(fn)",
+        "doc": "Shows your public IPv4 and IPv6 addresses with the record of the primary one.\n\nParameters:\n * fn - An optional function called with a table `{ ok, v4, v6, rate, message }` where `v4`\n   and `v6` are result tables as described in `IPData:fetch` (`ok = false` for a family\n   without connectivity).\n\nReturns:\n * The ipdata object\n\nNotes:\n * The two families are detected in parallel through `v4.ipdata.co` and `v6.ipdata.co`; a\n   family without connectivity shows \"No IPv6 connectivity\". This is what the `myip` hotkey\n   calls.",
+        "notes": [
+          " * The two families are detected in parallel through `v4.ipdata.co` and `v6.ipdata.co`; a",
+          "   family without connectivity shows \"No IPv6 connectivity\". This is what the `myip` hotkey",
+          "   calls."
+        ],
+        "signature": "IPData:myIp(fn)",
+        "type": "Method",
+        "returns": [
+          " * The ipdata object",
+          ""
+        ],
+        "desc": "Shows your public IPv4 and IPv6 addresses with the record of the primary one.",
+        "parameters": [
+          " * fn - An optional function called with a table `{ ok, v4, v6, rate, message }` where `v4`",
+          "   and `v6` are result tables as described in `IPData:fetch` (`ok = false` for a family",
+          "   without connectivity).",
+          ""
+        ]
+      },
+      {
+        "name": "refreshMenubar",
+        "stripped_doc": [
+          "Re-detects your addresses now and updates the menubar item.",
+          ""
+        ],
+        "def": "IPData:refreshMenubar()",
+        "doc": "Re-detects your addresses now and updates the menubar item.\n\nParameters:\n * None\n\nReturns:\n * The ipdata object\n\nNotes:\n * Called every `IPData.menubarRefresh` seconds and after the Mac wakes while the menubar item\n   is active.",
+        "notes": [
+          " * Called every `IPData.menubarRefresh` seconds and after the Mac wakes while the menubar item",
+          "   is active."
+        ],
+        "signature": "IPData:refreshMenubar()",
+        "type": "Method",
+        "returns": [
+          " * The ipdata object",
+          ""
+        ],
+        "desc": "Re-detects your addresses now and updates the menubar item.",
+        "parameters": [
+          " * None",
+          ""
+        ]
+      },
+      {
+        "name": "setApiKey",
+        "stripped_doc": [
+          "Adds, changes or removes the ipdata API key, saved in Hammerspoon's settings.",
+          ""
+        ],
+        "def": "IPData:setApiKey([key])",
+        "doc": "Adds, changes or removes the ipdata API key, saved in Hammerspoon's settings.\n\nParameters:\n * key - An optional string: the key to save, or \"\" to remove the saved key. Omit it for the prompt.\n\nReturns:\n * The ipdata object\n\nNotes:\n * Without an argument a prompt asks for the key; \"Add API key…\" on a card, the pill in the\n   card's footer and \"Add API Key…\" in the menubar menu open it too. The key is checked with\n   one request to ipdata before it is saved, and a key ipdata rejects is not saved. An empty key\n   removes the saved one. `IPData.apiKey` set in init.lua takes priority over the saved key.",
+        "notes": [
+          " * Without an argument a prompt asks for the key; \"Add API key…\" on a card, the pill in the",
+          "   card's footer and \"Add API Key…\" in the menubar menu open it too. The key is checked with",
+          "   one request to ipdata before it is saved, and a key ipdata rejects is not saved. An empty key",
+          "   removes the saved one. `IPData.apiKey` set in init.lua takes priority over the saved key."
+        ],
+        "signature": "IPData:setApiKey([key])",
+        "type": "Method",
+        "returns": [
+          " * The ipdata object",
+          ""
+        ],
+        "desc": "Adds, changes or removes the ipdata API key, saved in Hammerspoon's settings.",
+        "parameters": [
+          " * key - An optional string: the key to save, or \"\" to remove the saved key. Omit it for the prompt.",
+          ""
+        ]
+      },
+      {
+        "name": "startMenubar",
+        "stripped_doc": [
+          "Adds a menubar item showing the country flag and your public IPv4 address.",
+          ""
+        ],
+        "def": "IPData:startMenubar()",
+        "doc": "Adds a menubar item showing the country flag and your public IPv4 address.\n\nParameters:\n * None\n\nReturns:\n * The ipdata object\n\nNotes:\n * The item refreshes every `IPData.menubarRefresh` seconds and after wake. Its menu lists the\n   city, the operator, both addresses with \"Copy\" items, \"Look up\", \"Open on ipdata.co\",\n   \"Add API Key…\" and \"Refresh\".",
+        "notes": [
+          " * The item refreshes every `IPData.menubarRefresh` seconds and after wake. Its menu lists the",
+          "   city, the operator, both addresses with \"Copy\" items, \"Look up\", \"Open on ipdata.co\",",
+          "   \"Add API Key…\" and \"Refresh\"."
+        ],
+        "signature": "IPData:startMenubar()",
+        "type": "Method",
+        "returns": [
+          " * The ipdata object",
+          ""
+        ],
+        "desc": "Adds a menubar item showing the country flag and your public IPv4 address.",
+        "parameters": [
+          " * None",
+          ""
+        ]
+      },
+      {
+        "name": "stopMenubar",
+        "stripped_doc": [
+          "Removes the menubar item and stops its refresh timer.",
+          ""
+        ],
+        "def": "IPData:stopMenubar()",
+        "doc": "Removes the menubar item and stops its refresh timer.\n\nParameters:\n * None\n\nReturns:\n * The ipdata object",
+        "notes": [],
+        "signature": "IPData:stopMenubar()",
+        "type": "Method",
+        "returns": [
+          " * The ipdata object"
+        ],
+        "desc": "Removes the menubar item and stops its refresh timer.",
+        "parameters": [
+          " * None",
+          ""
+        ]
+      }
+    ],
+    "Method": [
+      {
+        "name": "clearCache",
+        "stripped_doc": [
+          "Forgets every cached lookup, including your own addresses.",
+          ""
+        ],
+        "def": "IPData:clearCache()",
+        "doc": "Forgets every cached lookup, including your own addresses.\n\nParameters:\n * None\n\nReturns:\n * The ipdata object",
+        "notes": [],
+        "signature": "IPData:clearCache()",
+        "type": "Method",
+        "returns": [
+          " * The ipdata object"
+        ],
+        "desc": "Forgets every cached lookup, including your own addresses.",
+        "parameters": [
+          " * None",
+          ""
+        ]
+      },
+      {
+        "name": "fetch",
+        "stripped_doc": [
+          "Fetches the record for an address without showing anything.",
+          ""
+        ],
+        "def": "IPData:fetch(ip, fn)",
+        "doc": "Fetches the record for an address without showing anything.\n\nParameters:\n * ip - An IPv4 or IPv6 address (a token such as \"1.2.3.4:443\" or \"[2001:db8::1]:80\" is\n   cleaned up first).\n * fn - A function called once with a result table. On success it has `ok = true`, `model`\n   (the normalised record: ip, version, city, region, country_code, country_name, emoji,\n   latitude, longitude, asn, org, company, carrier, connection, time_zone, currency, languages,\n   threat), `raw` (the decoded response), `body` (the response text as ipdata sent it), `rate` (free tier: limit, remaining, reset_at),\n   `source` (\"free\" or \"key\") and `cached`. On failure it has `ok = false`, `kind`\n   (\"invalid\", \"reserved\", \"network\", \"quota\" or \"key\") and `message`.\n\nReturns:\n * The ipdata object\n\nNotes:\n * Results are cached for `IPData.cacheTTL` seconds. Private, loopback, link-local and\n   documentation addresses are recognised locally and never sent to ipdata.",
+        "notes": [
+          " * Results are cached for `IPData.cacheTTL` seconds. Private, loopback, link-local and",
+          "   documentation addresses are recognised locally and never sent to ipdata."
+        ],
+        "signature": "IPData:fetch(ip, fn)",
+        "type": "Method",
+        "returns": [
+          " * The ipdata object",
+          ""
+        ],
+        "desc": "Fetches the record for an address without showing anything.",
+        "parameters": [
+          " * ip - An IPv4 or IPv6 address (a token such as \"1.2.3.4:443\" or \"[2001:db8::1]:80\" is",
+          "   cleaned up first).",
+          " * fn - A function called once with a result table. On success it has `ok = true`, `model`",
+          "   (the normalised record: ip, version, city, region, country_code, country_name, emoji,",
+          "   latitude, longitude, asn, org, company, carrier, connection, time_zone, currency, languages,",
+          "   threat), `raw` (the decoded response), `body` (the response text as ipdata sent it), `rate` (free tier: limit, remaining, reset_at),",
+          "   `source` (\"free\" or \"key\") and `cached`. On failure it has `ok = false`, `kind`",
+          "   (\"invalid\", \"reserved\", \"network\", \"quota\" or \"key\") and `message`.",
+          ""
+        ]
+      },
+      {
+        "name": "lookup",
+        "stripped_doc": [
+          "Looks an address up and shows the result card.",
+          ""
+        ],
+        "def": "IPData:lookup(ip, fn)",
+        "doc": "Looks an address up and shows the result card.\n\nParameters:\n * ip - An IPv4 or IPv6 address, or any text containing one.\n * fn - An optional function called with the result table described in `IPData:fetch`.\n\nReturns:\n * The ipdata object\n\nNotes:\n * With `IPData.showAsAlert` set, a one-line alert is shown instead. Private, loopback,\n   link-local and documentation addresses are described locally without a request.",
+        "notes": [
+          " * With `IPData.showAsAlert` set, a one-line alert is shown instead. Private, loopback,",
+          "   link-local and documentation addresses are described locally without a request."
+        ],
+        "signature": "IPData:lookup(ip, fn)",
+        "type": "Method",
+        "returns": [
+          " * The ipdata object",
+          ""
+        ],
+        "desc": "Looks an address up and shows the result card.",
+        "parameters": [
+          " * ip - An IPv4 or IPv6 address, or any text containing one.",
+          " * fn - An optional function called with the result table described in `IPData:fetch`.",
+          ""
+        ]
+      },
+      {
+        "name": "lookupSelection",
+        "stripped_doc": [
+          "Looks up the IP address in the current selection, or in the clipboard when nothing is selected.",
+          ""
+        ],
+        "def": "IPData:lookupSelection()",
+        "doc": "Looks up the IP address in the current selection, or in the clipboard when nothing is selected.\n\nParameters:\n * None\n\nReturns:\n * The ipdata object\n\nNotes:\n * The selection is read by sending ⌘C to the frontmost application; the previous clipboard\n   contents are restored afterwards. This is what the `lookup` hotkey calls.",
+        "notes": [
+          " * The selection is read by sending ⌘C to the frontmost application; the previous clipboard",
+          "   contents are restored afterwards. This is what the `lookup` hotkey calls."
+        ],
+        "signature": "IPData:lookupSelection()",
+        "type": "Method",
+        "returns": [
+          " * The ipdata object",
+          ""
+        ],
+        "desc": "Looks up the IP address in the current selection, or in the clipboard when nothing is selected.",
+        "parameters": [
+          " * None",
+          ""
+        ]
+      },
+      {
+        "name": "myIp",
+        "stripped_doc": [
+          "Shows your public IPv4 and IPv6 addresses with the record of the primary one.",
+          ""
+        ],
+        "def": "IPData:myIp(fn)",
+        "doc": "Shows your public IPv4 and IPv6 addresses with the record of the primary one.\n\nParameters:\n * fn - An optional function called with a table `{ ok, v4, v6, rate, message }` where `v4`\n   and `v6` are result tables as described in `IPData:fetch` (`ok = false` for a family\n   without connectivity).\n\nReturns:\n * The ipdata object\n\nNotes:\n * The two families are detected in parallel through `v4.ipdata.co` and `v6.ipdata.co`; a\n   family without connectivity shows \"No IPv6 connectivity\". This is what the `myip` hotkey\n   calls.",
+        "notes": [
+          " * The two families are detected in parallel through `v4.ipdata.co` and `v6.ipdata.co`; a",
+          "   family without connectivity shows \"No IPv6 connectivity\". This is what the `myip` hotkey",
+          "   calls."
+        ],
+        "signature": "IPData:myIp(fn)",
+        "type": "Method",
+        "returns": [
+          " * The ipdata object",
+          ""
+        ],
+        "desc": "Shows your public IPv4 and IPv6 addresses with the record of the primary one.",
+        "parameters": [
+          " * fn - An optional function called with a table `{ ok, v4, v6, rate, message }` where `v4`",
+          "   and `v6` are result tables as described in `IPData:fetch` (`ok = false` for a family",
+          "   without connectivity).",
+          ""
+        ]
+      },
+      {
+        "name": "closeCard",
+        "stripped_doc": [
+          "Closes the result card if one is showing.",
+          ""
+        ],
+        "def": "IPData:closeCard()",
+        "doc": "Closes the result card if one is showing.\n\nParameters:\n * None\n\nReturns:\n * The ipdata object",
+        "notes": [],
+        "signature": "IPData:closeCard()",
+        "type": "Method",
+        "returns": [
+          " * The ipdata object"
+        ],
+        "desc": "Closes the result card if one is showing.",
+        "parameters": [
+          " * None",
+          ""
+        ]
+      },
+      {
+        "name": "refreshMenubar",
+        "stripped_doc": [
+          "Re-detects your addresses now and updates the menubar item.",
+          ""
+        ],
+        "def": "IPData:refreshMenubar()",
+        "doc": "Re-detects your addresses now and updates the menubar item.\n\nParameters:\n * None\n\nReturns:\n * The ipdata object\n\nNotes:\n * Called every `IPData.menubarRefresh` seconds and after the Mac wakes while the menubar item\n   is active.",
+        "notes": [
+          " * Called every `IPData.menubarRefresh` seconds and after the Mac wakes while the menubar item",
+          "   is active."
+        ],
+        "signature": "IPData:refreshMenubar()",
+        "type": "Method",
+        "returns": [
+          " * The ipdata object",
+          ""
+        ],
+        "desc": "Re-detects your addresses now and updates the menubar item.",
+        "parameters": [
+          " * None",
+          ""
+        ]
+      },
+      {
+        "name": "startMenubar",
+        "stripped_doc": [
+          "Adds a menubar item showing the country flag and your public IPv4 address.",
+          ""
+        ],
+        "def": "IPData:startMenubar()",
+        "doc": "Adds a menubar item showing the country flag and your public IPv4 address.\n\nParameters:\n * None\n\nReturns:\n * The ipdata object\n\nNotes:\n * The item refreshes every `IPData.menubarRefresh` seconds and after wake. Its menu lists the\n   city, the operator, both addresses with \"Copy\" items, \"Look up\", \"Open on ipdata.co\",\n   \"Add API Key…\" and \"Refresh\".",
+        "notes": [
+          " * The item refreshes every `IPData.menubarRefresh` seconds and after wake. Its menu lists the",
+          "   city, the operator, both addresses with \"Copy\" items, \"Look up\", \"Open on ipdata.co\",",
+          "   \"Add API Key…\" and \"Refresh\"."
+        ],
+        "signature": "IPData:startMenubar()",
+        "type": "Method",
+        "returns": [
+          " * The ipdata object",
+          ""
+        ],
+        "desc": "Adds a menubar item showing the country flag and your public IPv4 address.",
+        "parameters": [
+          " * None",
+          ""
+        ]
+      },
+      {
+        "name": "stopMenubar",
+        "stripped_doc": [
+          "Removes the menubar item and stops its refresh timer.",
+          ""
+        ],
+        "def": "IPData:stopMenubar()",
+        "doc": "Removes the menubar item and stops its refresh timer.\n\nParameters:\n * None\n\nReturns:\n * The ipdata object",
+        "notes": [],
+        "signature": "IPData:stopMenubar()",
+        "type": "Method",
+        "returns": [
+          " * The ipdata object"
+        ],
+        "desc": "Removes the menubar item and stops its refresh timer.",
+        "parameters": [
+          " * None",
+          ""
+        ]
+      },
+      {
+        "name": "setApiKey",
+        "stripped_doc": [
+          "Adds, changes or removes the ipdata API key, saved in Hammerspoon's settings.",
+          ""
+        ],
+        "def": "IPData:setApiKey([key])",
+        "doc": "Adds, changes or removes the ipdata API key, saved in Hammerspoon's settings.\n\nParameters:\n * key - An optional string: the key to save, or \"\" to remove the saved key. Omit it for the prompt.\n\nReturns:\n * The ipdata object\n\nNotes:\n * Without an argument a prompt asks for the key; \"Add API key…\" on a card, the pill in the\n   card's footer and \"Add API Key…\" in the menubar menu open it too. The key is checked with\n   one request to ipdata before it is saved, and a key ipdata rejects is not saved. An empty key\n   removes the saved one. `IPData.apiKey` set in init.lua takes priority over the saved key.",
+        "notes": [
+          " * Without an argument a prompt asks for the key; \"Add API key…\" on a card, the pill in the",
+          "   card's footer and \"Add API Key…\" in the menubar menu open it too. The key is checked with",
+          "   one request to ipdata before it is saved, and a key ipdata rejects is not saved. An empty key",
+          "   removes the saved one. `IPData.apiKey` set in init.lua takes priority over the saved key."
+        ],
+        "signature": "IPData:setApiKey([key])",
+        "type": "Method",
+        "returns": [
+          " * The ipdata object",
+          ""
+        ],
+        "desc": "Adds, changes or removes the ipdata API key, saved in Hammerspoon's settings.",
+        "parameters": [
+          " * key - An optional string: the key to save, or \"\" to remove the saved key. Omit it for the prompt.",
+          ""
+        ]
+      },
+      {
+        "name": "bindHotkeys",
+        "stripped_doc": [
+          "Binds hotkeys for ipdata.",
+          ""
+        ],
+        "def": "IPData:bindHotkeys(mapping)",
+        "doc": "Binds hotkeys for ipdata.\n\nParameters:\n * mapping - A table containing hotkey modifier/key details for the following items:\n  * lookup - Look up the IP address in the current selection (or the clipboard)\n  * myip - Show your public IPv4 and IPv6 addresses\n  * apikey - Add, change or remove the ipdata API key (opens a prompt)\n\nReturns:\n * The ipdata object",
+        "notes": [],
+        "signature": "IPData:bindHotkeys(mapping)",
+        "type": "Method",
+        "returns": [
+          " * The ipdata object"
+        ],
+        "desc": "Binds hotkeys for ipdata.",
+        "parameters": [
+          " * mapping - A table containing hotkey modifier/key details for the following items:",
+          "  * lookup - Look up the IP address in the current selection (or the clipboard)",
+          "  * myip - Show your public IPv4 and IPv6 addresses",
+          "  * apikey - Add, change or remove the ipdata API key (opens a prompt)",
+          ""
+        ]
+      }
+    ],
+    "Command": [],
+    "doc": "IP address lookups from a hotkey, powered by [ipdata](https://ipdata.co).\n\nSelect or copy an address anywhere, press the hotkey, and a card shows where it is, who\noperates it, who owns it and, with an API key, whether it is a VPN, proxy, Tor exit or known\nthreat. A second hotkey shows your own public IPv4 and IPv6 addresses, and an optional\nmenubar item keeps your IP in view.\n\nNo account is needed: ipdata's free service allows 1,000 city-level lookups per day from\nyour connection. An API key from https://dashboard.ipdata.co unlocks the full record.\n\nDownload: [https://github.com/Hammerspoon/Spoons/raw/master/Spoons/IPData.spoon.zip](https://github.com/Hammerspoon/Spoons/raw/master/Spoons/IPData.spoon.zip)\n\nExample configuration:\n```\nhs.loadSpoon(\"IPData\")\nspoon.IPData:bindHotkeys({ lookup = {{\"cmd\", \"alt\"}, \"i\"}, myip = {{\"cmd\", \"alt\"}, \"m\"} })\nspoon.IPData.apiKey = \"your-key\"   -- optional, or click \"Add API key…\" on a card\nspoon.IPData:startMenubar()        -- optional: flag and IPv4 in the menubar\n```",
+    "Field": [],
+    "name": "IPData"
+  }
+]
