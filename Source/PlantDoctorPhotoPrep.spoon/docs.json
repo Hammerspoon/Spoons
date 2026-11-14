@@ -1,0 +1,207 @@
+[
+  {
+    "Command": [],
+    "Constant": [],
+    "Constructor": [],
+    "Deprecated": [],
+    "Field": [],
+    "Function": [],
+    "Method": [
+      {
+        "def": "PlantDoctorPhotoPrep:exportPhotos(paths, parent) -> table or nil, error",
+        "desc": "Export up to four JPEG/PNG copies to a new folder, at most 2400 pixels per edge.",
+        "doc": "Export up to four JPEG/PNG copies to a new folder, at most 2400 pixels per edge.\nParameters:\n * paths - Array of local file paths, each at most 25 MiB and 36 megapixels\n * parent - Existing destination directory\nReturns:\n * Table with directory, files and errors, or nil plus a preflight error\nNotes:\n * Output is rasterized PNG. Partial write failures are listed in errors.",
+        "name": "exportPhotos",
+        "notes": [
+          " * Output is rasterized PNG. Partial write failures are listed in errors."
+        ],
+        "parameters": [
+          " * paths - Array of local file paths, each at most 25 MiB and 36 megapixels",
+          " * parent - Existing destination directory"
+        ],
+        "returns": [
+          " * Table with directory, files and errors, or nil plus a preflight error"
+        ],
+        "signature": "PlantDoctorPhotoPrep:exportPhotos(paths, parent) -> table or nil, error",
+        "stripped_doc": [
+          "Export up to four JPEG/PNG copies to a new folder, at most 2400 pixels per edge."
+        ],
+        "type": "Method"
+      },
+      {
+        "def": "PlantDoctorPhotoPrep:choosePhotos() -> self",
+        "desc": "Open native photo and destination pickers, then report local export results.",
+        "doc": "Open native photo and destination pickers, then report local export results.\nParameters:\n * None\nReturns:\n * The Spoon object",
+        "name": "choosePhotos",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * The Spoon object"
+        ],
+        "signature": "PlantDoctorPhotoPrep:choosePhotos() -> self",
+        "stripped_doc": [
+          "Open native photo and destination pickers, then report local export results."
+        ],
+        "type": "Method"
+      },
+      {
+        "def": "PlantDoctorPhotoPrep:showChecklist() -> self",
+        "desc": "Display a checklist for useful plant identification and health photos.",
+        "doc": "Display a checklist for useful plant identification and health photos.\nParameters:\n * None\nReturns:\n * The Spoon object",
+        "name": "showChecklist",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * The Spoon object"
+        ],
+        "signature": "PlantDoctorPhotoPrep:showChecklist() -> self",
+        "stripped_doc": [
+          "Display a checklist for useful plant identification and health photos."
+        ],
+        "type": "Method"
+      },
+      {
+        "def": "PlantDoctorPhotoPrep:start() -> self",
+        "desc": "Add the manual photo preparation menu. Safe to call repeatedly.",
+        "doc": "Add the manual photo preparation menu. Safe to call repeatedly.\nParameters:\n * None\nReturns:\n * The Spoon object",
+        "name": "start",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * The Spoon object"
+        ],
+        "signature": "PlantDoctorPhotoPrep:start() -> self",
+        "stripped_doc": [
+          "Add the manual photo preparation menu. Safe to call repeatedly."
+        ],
+        "type": "Method"
+      },
+      {
+        "def": "PlantDoctorPhotoPrep:stop() -> self",
+        "desc": "Remove this Spoon's menu.",
+        "doc": "Remove this Spoon's menu.\nParameters:\n * None\nReturns:\n * The Spoon object",
+        "name": "stop",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * The Spoon object"
+        ],
+        "signature": "PlantDoctorPhotoPrep:stop() -> self",
+        "stripped_doc": [
+          "Remove this Spoon's menu."
+        ],
+        "type": "Method"
+      }
+    ],
+    "Variable": [],
+    "desc": "No uploads, diagnosis, tracking or API calls. Originals remain unchanged.",
+    "doc": "Prepare local plant photos for identification or care discussions.\nNo uploads, diagnosis, tracking or API calls. Originals remain unchanged.",
+    "items": [
+      {
+        "def": "PlantDoctorPhotoPrep:choosePhotos() -> self",
+        "desc": "Open native photo and destination pickers, then report local export results.",
+        "doc": "Open native photo and destination pickers, then report local export results.\nParameters:\n * None\nReturns:\n * The Spoon object",
+        "name": "choosePhotos",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * The Spoon object"
+        ],
+        "signature": "PlantDoctorPhotoPrep:choosePhotos() -> self",
+        "stripped_doc": [
+          "Open native photo and destination pickers, then report local export results."
+        ],
+        "type": "Method"
+      },
+      {
+        "def": "PlantDoctorPhotoPrep:exportPhotos(paths, parent) -> table or nil, error",
+        "desc": "Export up to four JPEG/PNG copies to a new folder, at most 2400 pixels per edge.",
+        "doc": "Export up to four JPEG/PNG copies to a new folder, at most 2400 pixels per edge.\nParameters:\n * paths - Array of local file paths, each at most 25 MiB and 36 megapixels\n * parent - Existing destination directory\nReturns:\n * Table with directory, files and errors, or nil plus a preflight error\nNotes:\n * Output is rasterized PNG. Partial write failures are listed in errors.",
+        "name": "exportPhotos",
+        "notes": [
+          " * Output is rasterized PNG. Partial write failures are listed in errors."
+        ],
+        "parameters": [
+          " * paths - Array of local file paths, each at most 25 MiB and 36 megapixels",
+          " * parent - Existing destination directory"
+        ],
+        "returns": [
+          " * Table with directory, files and errors, or nil plus a preflight error"
+        ],
+        "signature": "PlantDoctorPhotoPrep:exportPhotos(paths, parent) -> table or nil, error",
+        "stripped_doc": [
+          "Export up to four JPEG/PNG copies to a new folder, at most 2400 pixels per edge."
+        ],
+        "type": "Method"
+      },
+      {
+        "def": "PlantDoctorPhotoPrep:showChecklist() -> self",
+        "desc": "Display a checklist for useful plant identification and health photos.",
+        "doc": "Display a checklist for useful plant identification and health photos.\nParameters:\n * None\nReturns:\n * The Spoon object",
+        "name": "showChecklist",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * The Spoon object"
+        ],
+        "signature": "PlantDoctorPhotoPrep:showChecklist() -> self",
+        "stripped_doc": [
+          "Display a checklist for useful plant identification and health photos."
+        ],
+        "type": "Method"
+      },
+      {
+        "def": "PlantDoctorPhotoPrep:start() -> self",
+        "desc": "Add the manual photo preparation menu. Safe to call repeatedly.",
+        "doc": "Add the manual photo preparation menu. Safe to call repeatedly.\nParameters:\n * None\nReturns:\n * The Spoon object",
+        "name": "start",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * The Spoon object"
+        ],
+        "signature": "PlantDoctorPhotoPrep:start() -> self",
+        "stripped_doc": [
+          "Add the manual photo preparation menu. Safe to call repeatedly."
+        ],
+        "type": "Method"
+      },
+      {
+        "def": "PlantDoctorPhotoPrep:stop() -> self",
+        "desc": "Remove this Spoon's menu.",
+        "doc": "Remove this Spoon's menu.\nParameters:\n * None\nReturns:\n * The Spoon object",
+        "name": "stop",
+        "notes": [],
+        "parameters": [
+          " * None"
+        ],
+        "returns": [
+          " * The Spoon object"
+        ],
+        "signature": "PlantDoctorPhotoPrep:stop() -> self",
+        "stripped_doc": [
+          "Remove this Spoon's menu."
+        ],
+        "type": "Method"
+      }
+    ],
+    "name": "PlantDoctorPhotoPrep",
+    "stripped_doc": [],
+    "submodules": [],
+    "type": "Module"
+  }
+]
